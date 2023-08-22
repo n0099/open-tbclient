@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.message.ResponseCommitPersonalMessage;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.ve8;
+import com.baidu.tieba.ui8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,7 +80,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                     UserData userData = this.this$0.mUser;
                     if (userData != null && userData.getUserId() != null) {
-                        if (this.this$0.mUser.getUserId().equals(String.valueOf(ve8.q(chatMessage)))) {
+                        if (this.this$0.mUser.getUserId().equals(String.valueOf(ui8.q(chatMessage)))) {
                             this.this$0.sendMsgFail(chatMessage);
                         }
                     }
@@ -185,7 +185,7 @@ public abstract class CommonPersonalMsglistModel extends MsglistModel {
                     ChatMessage chatMessage = (ChatMessage) customResponsedMessage.getData();
                     UserData userData = this.this$0.mUser;
                     if (userData != null && userData.getUserId() != null) {
-                        if (this.this$0.mUser.getUserId().equals(String.valueOf(ve8.q(chatMessage)))) {
+                        if (this.this$0.mUser.getUserId().equals(String.valueOf(ui8.q(chatMessage)))) {
                             this.this$0.sendMsgFail(chatMessage);
                         }
                     }

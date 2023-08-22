@@ -32,12 +32,12 @@ import com.baidu.tbadk.browser.TbChannelJsInterface;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ax4;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.fca;
-import com.baidu.tieba.hca;
 import com.baidu.tieba.jg;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.yw4;
+import com.baidu.tieba.nga;
+import com.baidu.tieba.pga;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,11 +55,11 @@ public class BaseWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
     public long initFinishedTime;
     public final long initStartTime;
-    public hca jsCallback;
+    public pga jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public boolean mIsLoaded;
-    public fca mJsBridge;
+    public nga mJsBridge;
     public c mOnLoadUrlListener;
     public d mOnPageFinishedListener;
     public e mOnPageStartedListener;
@@ -115,7 +115,7 @@ public class BaseWebView extends WebView {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements hca {
+    public class a implements pga {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -138,15 +138,15 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // com.baidu.tieba.hca
+        @Override // com.baidu.tieba.pga
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                fca fcaVar = baseWebView.mJsBridge;
-                if (fcaVar != null) {
-                    return fcaVar.c(baseWebView.getWebView(), str, jsPromptResult);
+                nga ngaVar = baseWebView.mJsBridge;
+                if (ngaVar != null) {
+                    return ngaVar.c(baseWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -191,7 +191,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                yw4.a(BaseWebView.TAG, webView);
+                ax4.a(BaseWebView.TAG, webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -509,10 +509,10 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(hca hcaVar) {
+    public void setOnJsPromptCallback(pga pgaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, hcaVar) == null) {
-            this.jsCallback = hcaVar;
+        if (interceptable == null || interceptable.invokeL(1048587, this, pgaVar) == null) {
+            this.jsCallback = pgaVar;
         }
     }
 
@@ -593,10 +593,10 @@ public class BaseWebView extends WebView {
     }
 
     public void sendNotification(String str, HashMap hashMap) {
-        fca fcaVar;
+        nga ngaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (fcaVar = this.mJsBridge) != null) {
-            fcaVar.i(getWebView(), str, hashMap);
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (ngaVar = this.mJsBridge) != null) {
+            ngaVar.i(getWebView(), str, hashMap);
         }
     }
 
@@ -649,10 +649,10 @@ public class BaseWebView extends WebView {
     }
 
     public void reshow() {
-        fca fcaVar;
+        nga ngaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (fcaVar = this.mJsBridge) != null) {
-            fcaVar.i(getWebView(), CommonTbJsBridge.RE_SHOW, null);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (ngaVar = this.mJsBridge) != null) {
+            ngaVar.i(getWebView(), CommonTbJsBridge.RE_SHOW, null);
         }
     }
 
@@ -666,7 +666,7 @@ public class BaseWebView extends WebView {
             BrowserHelper.WebViewNoDataBase(getSettings());
             this.mWebViewClient = new b(this);
             this.mWebChromeClient = new j(this, null);
-            this.mJsBridge = new fca();
+            this.mJsBridge = new nga();
             setWebViewClient(this.mWebViewClient);
             setWebChromeClient(this.mWebChromeClient);
             if (Build.VERSION.SDK_INT >= 11) {

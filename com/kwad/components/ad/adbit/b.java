@@ -1,5 +1,5 @@
 package com.kwad.components.ad.adbit;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.components.core.k.a {
     public b(com.kwad.components.core.k.kwai.a aVar) {
         super(aVar);

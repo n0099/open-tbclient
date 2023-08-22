@@ -1,118 +1,60 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.feed.widget.uistate.ForumAttentionUiStateKt;
-import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
+import com.baidu.tieba.feed.component.CardRecommendInfoView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class dc7 extends t97 implements v87 {
+public class dc7 extends sa7<CardRecommendInfoView, f67> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final i67 c;
-    public final String d;
-    public final long e;
-    public final Function2<dc7, TbPageContext<?>, Unit> f;
 
-    @JvmOverloads
-    public dc7(i67 forumAttentionData, String tid, long j, Function2<? super dc7, ? super TbPageContext<?>, Unit> onAttentionClick) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dc7(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumAttentionData, tid, Long.valueOf(j), onAttentionClick};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(forumAttentionData, "forumAttentionData");
-        Intrinsics.checkNotNullParameter(tid, "tid");
-        Intrinsics.checkNotNullParameter(onAttentionClick, "onAttentionClick");
-        this.c = forumAttentionData;
-        this.d = tid;
-        this.e = j;
-        this.f = onAttentionClick;
     }
 
-    public /* synthetic */ dc7(i67 i67Var, String str, long j, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(i67Var, str, j, (i & 8) != 0 ? ForumAttentionUiStateKt.a : function2);
-    }
-
-    @Override // com.baidu.tieba.v87
-    public void d(Object event) {
-        String str;
+    @Override // com.baidu.tieba.sa7, com.baidu.tieba.ib7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
-            Intrinsics.checkNotNullParameter(event, "event");
-            if (event instanceof AttentionBarData) {
-                AttentionBarData attentionBarData = (AttentionBarData) event;
-                if (attentionBarData.forumId == this.e) {
-                    this.c.d(attentionBarData.isLike);
-                    b();
-                    j67 a = h67.a.a("tb.feed_home_reco_user_state");
-                    LinkedHashMap linkedHashMap = new LinkedHashMap();
-                    if (attentionBarData.isLike) {
-                        str = "1";
-                    } else {
-                        str = "0";
-                    }
-                    linkedHashMap.put("is_like", str);
-                    if (a != null) {
-                        a.a(String.valueOf(this.e), linkedHashMap);
-                    }
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            wc7.j(a);
+            return a;
         }
+        return (View) invokeL.objValue;
     }
 
-    public final long e() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ib7
+    /* renamed from: e */
+    public void b(@NonNull CardRecommendInfoView cardRecommendInfoView, @NonNull f67 f67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardRecommendInfoView, f67Var) == null) {
+            cardRecommendInfoView.update(f67Var);
         }
-        return invokeV.longValue;
-    }
-
-    public final i67 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (i67) invokeV.objValue;
-    }
-
-    public final Function2<dc7, TbPageContext<?>, Unit> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
     }
 }

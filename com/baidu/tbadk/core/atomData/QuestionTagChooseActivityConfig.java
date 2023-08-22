@@ -1,6 +1,8 @@
 package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,6 +14,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_CATEGORY = "key_category";
+    public static final String KEY_QUESTION_TAG_DEFAULT_CATEGORY = "key_question_default_category";
+    public static final String KEY_QUESTION_TAG_REFER = "key_question_tag_refer";
     public static final String KEY_RESPONSE_CREATE_TAG = "key_response_create_tag";
     public static final String KEY_RESPONSE_TAG = "key_response_tag";
     public transient /* synthetic */ FieldHolder $fh;
@@ -43,6 +47,26 @@ public class QuestionTagChooseActivityConfig extends IntentConfig {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             getIntent().putExtra("key_category", str);
+            return this;
+        }
+        return (QuestionTagChooseActivityConfig) invokeL.objValue;
+    }
+
+    public QuestionTagChooseActivityConfig setKeyQuestionTagDefaultCategory(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            getIntent().putExtra(KEY_QUESTION_TAG_DEFAULT_CATEGORY, str);
+            return this;
+        }
+        return (QuestionTagChooseActivityConfig) invokeL.objValue;
+    }
+
+    public QuestionTagChooseActivityConfig setKeyQuestionTagRefer(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            getIntent().putExtra(KEY_QUESTION_TAG_REFER, str);
             return this;
         }
         return (QuestionTagChooseActivityConfig) invokeL.objValue;

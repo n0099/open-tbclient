@@ -9,7 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tieba.R;
-import com.baidu.tieba.po3;
+import com.baidu.tieba.uo3;
 /* loaded from: classes4.dex */
 public class CommonHeaderLoadingLayout extends LoadingLayout {
     public int e;
@@ -62,14 +62,14 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     public CommonHeaderLoadingLayout(Context context) {
         super(context);
         this.e = 0;
-        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091e97);
-        int f = po3.f(getContext(), 29.0f);
+        this.j = (RefreshingAnimView) findViewById(R.id.obfuscated_res_0x7f091eba);
+        int f = uo3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i = (int) (f * 1.5f);
         this.h = i;
         this.g = i;
-        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091e94);
+        HeaderRefreshIndicator headerRefreshIndicator = (HeaderRefreshIndicator) findViewById(R.id.obfuscated_res_0x7f091eb7);
         this.k = headerRefreshIndicator;
         headerRefreshIndicator.i();
     }
@@ -116,7 +116,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00a1, viewGroup, false);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00a3, viewGroup, false);
         this.i = inflate;
         return inflate;
     }
@@ -126,7 +126,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         if (z) {
             this.j.setAlpha(0.0f);
             if (TextUtils.isEmpty(str)) {
-                this.k.setText(getResources().getText(R.string.obfuscated_res_0x7f0f01db));
+                this.k.setText(getResources().getText(R.string.obfuscated_res_0x7f0f01dc));
             } else {
                 this.k.setText(str);
             }
@@ -158,7 +158,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         if (view2 != null) {
             return view2.getHeight();
         }
-        return po3.f(getContext(), 50.0f);
+        return uo3.f(getContext(), 50.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout

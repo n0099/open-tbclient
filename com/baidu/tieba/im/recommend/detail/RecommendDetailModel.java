@@ -48,13 +48,13 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
 
     /* loaded from: classes6.dex */
     public interface e {
-        void O(UserInfoBigVip userInfoBigVip, boolean z);
+        void J(UserInfoBigVip userInfoBigVip, boolean z);
 
-        void R0(boolean z);
+        void O0(boolean z);
+
+        void o1(boolean z);
 
         void onFailed(String str);
-
-        void q1(boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -112,10 +112,10 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                 this.a.f = true;
                 if (this.a.a != null && this.a.c != null) {
                     if (responsedMessage == null) {
-                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e21));
+                        this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e29));
                     } else if (responsedMessage.getError() != 0) {
                         if (TextUtils.isEmpty(responsedMessage.getErrorString())) {
-                            this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e21));
+                            this.a.c.onFailed(this.a.a.getString(R.string.obfuscated_res_0x7f0f0e29));
                         } else {
                             this.a.c.onFailed(responsedMessage.getErrorString());
                         }
@@ -124,14 +124,14 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                             RecommendDetailHttpResponseMessage recommendDetailHttpResponseMessage = (RecommendDetailHttpResponseMessage) responsedMessage;
                             if (recommendDetailHttpResponseMessage.getDetailInfo() != null) {
                                 this.a.e = true;
-                                this.a.c.O(recommendDetailHttpResponseMessage.getDetailInfo(), true);
+                                this.a.c.J(recommendDetailHttpResponseMessage.getDetailInfo(), true);
                             }
                         }
                         if (responsedMessage instanceof RecommendDetailSocketResponseMessage) {
                             RecommendDetailSocketResponseMessage recommendDetailSocketResponseMessage = (RecommendDetailSocketResponseMessage) responsedMessage;
                             if (recommendDetailSocketResponseMessage.getDetailInfo() != null) {
                                 this.a.e = true;
-                                this.a.c.O(recommendDetailSocketResponseMessage.getDetailInfo(), true);
+                                this.a.c.J(recommendDetailSocketResponseMessage.getDetailInfo(), true);
                             }
                         }
                     }
@@ -169,7 +169,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: a */
+        /* renamed from: g */
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, socketResponsedMessage) != null) || !(socketResponsedMessage instanceof ResponseUpdateMaskInfoMessage)) {
@@ -184,25 +184,25 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
             if (requestUpdateMaskInfoMessage.getMaskType() == 6 && this.a.a != null && this.a.c != null) {
                 if (responseUpdateMaskInfoMessage.getError() != 0) {
                     if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e21);
+                        this.a.a.showToast(R.string.obfuscated_res_0x7f0f0e29);
                     } else {
                         this.a.a.showToast(responseUpdateMaskInfoMessage.getErrorString());
                     }
                     if (requestUpdateMaskInfoMessage.getMute()) {
-                        this.a.b.x1(requestUpdateMaskInfoMessage.isMuteNotifications());
+                        this.a.b.w1(requestUpdateMaskInfoMessage.isMuteNotifications());
                         return;
                     } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                        this.a.c.R0(false);
+                        this.a.c.O0(false);
                         return;
                     } else {
-                        this.a.c.q1(false);
+                        this.a.c.o1(false);
                         return;
                     }
                 }
                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                    this.a.c.R0(true);
+                    this.a.c.O0(true);
                 } else {
-                    this.a.c.q1(true);
+                    this.a.c.o1(true);
                 }
                 if (requestUpdateMaskInfoMessage.getMaskType() == 6) {
                     this.a.X(requestUpdateMaskInfoMessage.isMuteNotifications());
@@ -247,7 +247,7 @@ public class RecommendDetailModel extends BdBaseModel<RecommendDetailActivity> {
                     UserInfoBigVip userInfoBigVip = (UserInfoBigVip) customResponsedMessage.getData();
                     if (this.a.c != null && userInfoBigVip != null) {
                         this.a.e = true;
-                        this.a.c.O(userInfoBigVip, false);
+                        this.a.c.J(userInfoBigVip, false);
                     }
                     this.a.a0();
                     return;

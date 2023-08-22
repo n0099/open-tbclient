@@ -1,21 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l37;
-import com.baidu.tieba.view.TbLayerImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class cp6 implements l37.c {
+public class cp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public String b;
+    public int c;
+    public int d;
 
     public cp6() {
         Interceptable interceptable = $ic;
@@ -31,31 +29,19 @@ public final class cp6 implements l37.c {
         }
     }
 
-    @Override // com.baidu.tieba.l37.c
-    public void a(View view2, List<String> list) {
-        TbLayerImageView tbLayerImageView;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, list) != null) || list == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        if (view2 instanceof TbLayerImageView) {
-            tbLayerImageView = (TbLayerImageView) view2;
-        } else {
-            tbLayerImageView = null;
-        }
-        if (tbLayerImageView != null) {
-            tbLayerImageView.a(list);
-        }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.l37.c
-    public View create(Context context) {
-        InterceptResult invokeL;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            return new TbLayerImageView(context, null, 0, 6, null);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.d = i;
         }
-        return (View) invokeL.objValue;
     }
 }

@@ -19,7 +19,7 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sh;
+import com.baidu.tieba.uh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -141,6 +141,7 @@ public class TbConfig {
     public static final String FRS_COMMON_TAB = "c/f/frs/generalTabList";
     public static final String FRS_DYNAMIC_ADDRESS = "c/f/frs/starTrends";
     public static final String FRS_LIVE_TIP_ADDRESS;
+    public static final String GET_AIBOT_CHAT_DETAIL = "c/f/aichat/getChatDetail";
     public static final String GET_BAWU_INFO = "c/f/forum/getBawuInfo";
     public static final String GET_BAZHU_NOTICE_REDPOT = "c/c/bawu/setBawuNoticeRead";
     public static String GET_BFB_INFO = null;
@@ -1398,7 +1399,7 @@ public class TbConfig {
             if (f5 >= f3 && f5 <= f4) {
                 f2 = f5;
             }
-            if (!sh.a()) {
+            if (!uh.a()) {
                 return f2 * 0.5f;
             }
             return f2;

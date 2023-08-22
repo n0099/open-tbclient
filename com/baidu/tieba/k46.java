@@ -1,65 +1,171 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import androidx.annotation.NonNull;
+import com.baidu.adp.TbadkCore;
+import com.baidu.adp.base.BdDatabaseNewCreatedMessage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import com.baidu.adp.lib.util.NetworkState;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Stack;
 /* loaded from: classes6.dex */
-public class k46 {
+public class k46 extends xk1<TbadkCore> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile k46 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbsDataRecorder a;
-    public String b;
-    public String c;
-    public Stack<HashMap<AbsDataRecorder.Scene, AbsDataRecorder>> d;
-    public boolean e;
-    public Map<String, Integer> f;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements TbadkCore {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-709259489, "Lcom/baidu/tieba/k46$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
+        /* renamed from: com.baidu.tieba.k46$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0379a extends CustomMessageListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ String a;
+            public final /* synthetic */ HashMap b;
+            public final /* synthetic */ HashMap c;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public C0379a(a aVar, int i, String str, HashMap hashMap, HashMap hashMap2) {
+                super(i);
+                Interceptable interceptable = $ic;
                 if (interceptable != null) {
-                    $ic = interceptable;
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, Integer.valueOf(i), str, hashMap, hashMap2};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super(((Integer) newInitContext.callArgs[0]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-709259489, "Lcom/baidu/tieba/k46$a;");
-                    return;
+                this.a = str;
+                this.b = hashMap;
+                this.c = hashMap2;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                String databaseFile;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BdDatabaseNewCreatedMessage) && (databaseFile = ((BdDatabaseNewCreatedMessage) customResponsedMessage).getDatabaseFile()) != null && databaseFile.contains(this.a)) {
+                    this.b.clear();
+                    this.c.clear();
                 }
             }
-            int[] iArr = new int[AbsDataRecorder.Scene.values().length];
-            a = iArr;
-            try {
-                iArr[AbsDataRecorder.Scene.RECOMMEND.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+        }
+
+        public a(k46 k46Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k46Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            try {
-                a[AbsDataRecorder.Scene.FRS_HOT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public void createAllTablesMessage(SQLiteDatabase sQLiteDatabase) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new BdDatabaseNewCreatedMessage(sQLiteDatabase));
             }
-            try {
-                a[AbsDataRecorder.Scene.FRS_NEW.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public void dispatchNetWorkChangedMessage(NetworkState networkState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkState) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
+            }
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public boolean permissionUtilCheckReadPhoneState(@NonNull Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+                return PermissionUtil.checkReadPhoneState(context);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public boolean isNetWorkAvailable() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return BdNetTypeUtil.isNetWorkAvailable();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public boolean permissionUtilIsAgreePrivacyPolicy() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return PermissionUtil.isAgreePrivacyPolicy();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public void statHttpsDownToHttp() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                BdStatisticsManager.getInstance().eventStat(null, "c13429", "", 1, "obj_type", "1");
+            }
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        @NonNull
+        public String tbConfigGetVersion() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+                String version = TbConfig.getVersion();
+                if (version == null) {
+                    return "";
+                }
+                return version;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.adp.TbadkCore
+        public void registerDbListener(String str, HashMap hashMap, HashMap hashMap2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048581, this, str, hashMap, hashMap2) == null) {
+                MessageManager.getInstance().registerListenerFromBackground(new C0379a(this, 2000998, str, hashMap, hashMap2));
             }
         }
     }
@@ -74,234 +180,19 @@ public class k46 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.e = false;
-        if (this.d == null) {
-            this.d = new Stack<>();
-        }
-        this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
-        this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            a();
-            b();
-            if (TbadkCoreApplication.isLogin()) {
-                this.b = "key_ad_free_guid_display_num_" + TbadkCoreApplication.getCurrentAccount();
-                this.c = "key_ad_free_guid_display_time_" + TbadkCoreApplication.getCurrentAccount();
-            } else {
-                h46.e().a();
-            }
-            this.a.a();
         }
     }
 
-    public static k46 k() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xk1
+    /* renamed from: a */
+    public TbadkCore createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (g == null) {
-                synchronized (k46.class) {
-                    if (g == null) {
-                        g = new k46();
-                    }
-                }
-            }
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (k46) invokeV.objValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SharedPrefHelper.getInstance().remove(this.b);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SharedPrefHelper.getInstance().remove(this.c);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            HashMap<AbsDataRecorder.Scene, AbsDataRecorder> hashMap = new HashMap<>();
-            hashMap.put(AbsDataRecorder.Scene.FRS_HOT, null);
-            hashMap.put(AbsDataRecorder.Scene.FRS_NEW, null);
-            this.d.push(hashMap);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !this.d.isEmpty()) {
-            this.d.pop();
-        }
-    }
-
-    public final AbsDataRecorder f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.a == null) {
-                this.a = new l46();
-            }
-            return this.a;
-        }
-        return (AbsDataRecorder) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (TbadkCoreApplication.isLogin() && TbadkCoreApplication.getCurrentMemberType() == 0 && h46.e().i()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SharedPrefHelper.getInstance().putInt(this.b, SharedPrefHelper.getInstance().getInt(this.b, 0) + 1);
-            SharedPrefHelper.getInstance().putLong(this.c, System.currentTimeMillis());
-        }
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!TimeHelper.isSameDay(SharedPrefHelper.getInstance().getLong(this.c, 0L), System.currentTimeMillis())) {
-                a();
-            }
-            return SharedPrefHelper.getInstance().getInt(this.b, 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public AbsDataRecorder g(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, scene)) == null) {
-            int i = a.a[scene.ordinal()];
-            if (i != 1) {
-                if (i != 2 && i != 3) {
-                    return null;
-                }
-                return i(scene);
-            }
-            return f();
-        }
-        return (AbsDataRecorder) invokeL.objValue;
-    }
-
-    public int j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            Map<String, Integer> map = this.f;
-            if (map != null && map.get(str) != null) {
-                return this.f.get(str).intValue();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean l(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, scene)) == null) {
-            if (!d56.i().p(scene) && n() && g(scene) != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public final AbsDataRecorder i(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene)) == null) {
-            if (!this.d.isEmpty()) {
-                HashMap<AbsDataRecorder.Scene, AbsDataRecorder> peek = this.d.peek();
-                if (peek.get(scene) == null) {
-                    if (scene == AbsDataRecorder.Scene.FRS_HOT) {
-                        peek.put(scene, new i46());
-                    } else if (scene == AbsDataRecorder.Scene.FRS_NEW) {
-                        peek.put(scene, new j46());
-                    }
-                }
-                return peek.get(scene);
-            }
-            return null;
-        }
-        return (AbsDataRecorder) invokeL.objValue;
-    }
-
-    public void p(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048590, this, str, i) == null) {
-            if (this.f == null) {
-                this.f = new HashMap();
-            }
-            if (this.f.get(str) == null) {
-                this.f.put(str, Integer.valueOf(i));
-            }
-        }
-    }
-
-    public boolean r(int i, AbsDataRecorder.Scene scene) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048592, this, i, scene)) == null) {
-            if (!d56.i().q() && n() && i >= h46.e().f(AbsDataRecorder.Scene.PB) && h() < h46.e().d()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public boolean s(AbsDataRecorder.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, scene)) == null) {
-            AbsDataRecorder g2 = g(scene);
-            if (g2 == null || !l(scene) || g2.c() < h46.e().f(scene) || h() >= h46.e().d()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return (TbadkCore) invokeV.objValue;
     }
 }

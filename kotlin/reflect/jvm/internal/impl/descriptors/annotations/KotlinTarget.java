@@ -10,7 +10,7 @@ import kotlin.collections.ArraysKt___ArraysKt;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public enum KotlinTarget {
     CLASS("class", false, 2, null),
     ANNOTATION_CLASS("annotation class", false, 2, null),
@@ -62,7 +62,7 @@ public enum KotlinTarget {
     public static final Companion Companion = new Companion(null);
     public static final HashMap<String, KotlinTarget> map = new HashMap<>();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }

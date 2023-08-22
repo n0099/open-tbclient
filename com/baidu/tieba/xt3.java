@@ -1,142 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.so.SoLoader;
-import com.baidu.swan.bdtls.BdtlsController;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.agent.activity.MainProcessDelegateActivity;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class xt3 {
+public class xt3 implements av2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile xt3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ut3 a;
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-        }
-    }
 
     /* loaded from: classes8.dex */
-    public static class a implements BdtlsController.a {
+    public class a implements DelegateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wr1 a;
 
-        public a() {
+        public a(xt3 xt3Var, wr1 wr1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xt3Var, wr1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wr1Var;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) {
+                Bundle bundle = delegateResult.mResult;
+                if (bundle == null) {
+                    this.a.a(0);
+                    return;
+                }
+                String string = bundle.getString("invoiceInfo");
+                if (TextUtils.isEmpty(string)) {
+                    this.a.a(0);
+                } else {
+                    this.a.b(do3.d(string));
                 }
             }
         }
-
-        @Override // com.baidu.swan.bdtls.BdtlsController.a
-        public void loadLibrary(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                SoLoader.load(fu2.c(), str);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948311858, "Lcom/baidu/tieba/xt3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948311858, "Lcom/baidu/tieba/xt3;");
-                return;
-            }
-        }
-        boolean z = ut3.a;
-        BdtlsController.a(new a());
     }
 
     public xt3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new ut3();
     }
 
-    public static xt3 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.av2
+    public void a(Context context, String str, String str2, wr1 wr1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (xt3.class) {
-                    if (b == null) {
-                        b = new xt3();
-                    }
-                }
-            }
-            return b;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, context, str, str2, wr1Var) == null) && context != null && wr1Var != null) {
+            DelegateUtils.callOnMainWithActivity((Activity) context, MainProcessDelegateActivity.class, wt3.class, new a(this, wr1Var));
         }
-        return (xt3) invokeV.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ut3 ut3Var = this.a;
-            if (ut3Var == null) {
-                return false;
-            }
-            return ut3Var.a();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(String str, ou3 ou3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, ou3Var) == null) {
-            au3.l().p(str, ou3Var);
-        }
-    }
-
-    public void c(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
-            BdtlsController.handleConfsk(bArr);
-        }
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            ut3 ut3Var = this.a;
-            if (ut3Var != null && ut3Var.b(str)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

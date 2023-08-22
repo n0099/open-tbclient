@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a75;
-import com.baidu.tieba.b75;
-import com.baidu.tieba.ef7;
-import com.baidu.tieba.nx9;
-import com.baidu.tieba.u15;
+import com.baidu.tieba.a25;
+import com.baidu.tieba.g75;
+import com.baidu.tieba.h75;
+import com.baidu.tieba.s1a;
+import com.baidu.tieba.vg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,22 +26,40 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class CoverFlowAdapter<T extends b75> extends PagerAdapter {
+public class CoverFlowAdapter<T extends h75> extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<TbImageView> a;
+    public ArrayList<View> a;
     public ArrayList<T> b;
     public Context c;
     public View.OnClickListener d;
     public ArrayList<TbImageView> e;
     public ArrayList<RelativeLayout> f;
-    public a75 g;
+    public g75 g;
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public int getItemPosition(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
             return -2;
         }
         return invokeL.intValue;
@@ -51,7 +69,13 @@ public class CoverFlowAdapter<T extends b75> extends PagerAdapter {
     public boolean isViewFromObject(View view2, Object obj) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, view2, obj)) == null) ? view2 == obj : invokeLL.booleanValue;
+    }
+
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        }
     }
 
     public CoverFlowAdapter(Context context) {
@@ -90,44 +114,16 @@ public class CoverFlowAdapter<T extends b75> extends PagerAdapter {
     }
 
     public void c() {
-        ArrayList<TbImageView> arrayList;
+        ArrayList<View> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (arrayList = this.a) != null && arrayList.size() > 0) {
-            Iterator<TbImageView> it = this.a.iterator();
+            Iterator<View> it = this.a.iterator();
             while (it.hasNext()) {
-                it.next().refresh();
+                View next = it.next();
+                if (next instanceof TbImageView) {
+                    ((TbImageView) next).refresh();
+                }
             }
-        }
-    }
-
-    @Override // androidx.viewpager.widget.PagerAdapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ArrayList<TbImageView> arrayList = this.a;
-            if (arrayList == null || arrayList.size() <= 0) {
-                return 0;
-            }
-            return this.a.size();
-        }
-        return invokeV.intValue;
-    }
-
-    public final void d(ArrayList<T> arrayList) {
-        int size;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) != null) || arrayList == null || (size = arrayList.size()) <= 1) {
-            return;
-        }
-        arrayList.add(0, arrayList.get(size - 1));
-        arrayList.add(arrayList.get(0));
-    }
-
-    public void f(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
-            this.d = onClickListener;
         }
     }
 
@@ -139,39 +135,73 @@ public class CoverFlowAdapter<T extends b75> extends PagerAdapter {
         }
     }
 
-    public void e(List<T> list, a75 a75Var) {
+    public final void g(ArrayList<T> arrayList) {
+        int size;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, arrayList) != null) || arrayList == null || (size = arrayList.size()) <= 1) {
+            return;
+        }
+        arrayList.add(0, arrayList.get(size - 1));
+        arrayList.add(arrayList.get(0));
+    }
+
+    public void i(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) {
+            this.d = onClickListener;
+        }
+    }
+
+    @Override // androidx.viewpager.widget.PagerAdapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            ArrayList<View> arrayList = this.a;
+            if (arrayList == null || arrayList.size() <= 0) {
+                return 0;
+            }
+            return this.a.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void h(List<T> list, g75 g75Var) {
         TbImageView tbImageView;
         TbImageView tbImageView2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, list, a75Var) == null) && list != null && !list.isEmpty()) {
-            this.g = a75Var;
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, list, g75Var) == null) && list != null && !list.isEmpty()) {
+            this.g = g75Var;
             this.b.clear();
             this.b.addAll(list);
-            d(this.b);
+            g(this.b);
             int size = this.a.size();
             int size2 = this.b.size();
             for (int i = 0; i < size2; i++) {
                 if (i >= size) {
-                    tbImageView = a75Var.d(this.c);
+                    tbImageView = g75Var.d(this.c);
                     this.a.add(tbImageView);
-                    tbImageView2 = a75Var.d(this.c);
+                    tbImageView2 = g75Var.d(this.c);
                     this.e.add(tbImageView2);
                     this.f.add(new RelativeLayout(this.c));
                 } else {
-                    tbImageView = this.a.get(i);
-                    tbImageView2 = this.e.get(i);
-                    this.f.get(i);
+                    View view2 = this.a.get(i);
+                    if (view2 instanceof TbImageView) {
+                        tbImageView = (TbImageView) view2;
+                        tbImageView2 = this.e.get(i);
+                        this.f.get(i);
+                    }
                 }
                 if (this.b.get(i) != null && tbImageView != null) {
-                    if (this.b.get(i) instanceof ef7) {
+                    if (this.b.get(i) instanceof vg7) {
                         tbImageView.setImageDrawable(SkinManager.getDrawable(Integer.valueOf(this.b.get(i).getPicUrl()).intValue()));
                     } else {
                         tbImageView.startLoad(this.b.get(i).getPicUrl(), 10, false);
                     }
                     tbImageView.setOnClickListener(this.d);
-                    if ((this.b.get(i) instanceof u15) && !((u15) this.b.get(i)).n()) {
-                        u15 u15Var = (u15) this.b.get(i);
-                        nx9.k(u15Var.j(), tbImageView2, u15Var.k(), BdUtilHelper.getDimens(this.c, R.dimen.obfuscated_res_0x7f0701e8));
+                    if ((this.b.get(i) instanceof a25) && !((a25) this.b.get(i)).n()) {
+                        a25 a25Var = (a25) this.b.get(i);
+                        s1a.k(a25Var.j(), tbImageView2, a25Var.k(), BdUtilHelper.getDimens(this.c, R.dimen.obfuscated_res_0x7f0701e8));
                     }
                 }
             }
@@ -196,16 +226,17 @@ public class CoverFlowAdapter<T extends b75> extends PagerAdapter {
     public Object instantiateItem(ViewGroup viewGroup, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup, i)) == null) {
-            ArrayList<TbImageView> arrayList = this.a;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048587, this, viewGroup, i)) == null) {
+            ArrayList<View> arrayList = this.a;
             if (arrayList == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            TbImageView tbImageView = (TbImageView) ListUtils.getItem(arrayList, i);
-            if (tbImageView == null) {
+            View view2 = (View) ListUtils.getItem(arrayList, i);
+            if (!(view2 instanceof TbImageView)) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if ((ListUtils.getItem(this.b, i) instanceof u15) && !((u15) ListUtils.getItem(this.b, i)).n()) {
+            TbImageView tbImageView = (TbImageView) view2;
+            if ((ListUtils.getItem(this.b, i) instanceof a25) && !((a25) ListUtils.getItem(this.b, i)).n()) {
                 RelativeLayout relativeLayout = (RelativeLayout) ListUtils.getItem(this.f, i);
                 TbImageView tbImageView2 = (TbImageView) ListUtils.getItem(this.e, i);
                 relativeLayout.removeView(tbImageView2);

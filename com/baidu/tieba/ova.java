@@ -1,333 +1,160 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.SpannableString;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.data.ForumTagInfo;
-import com.baidu.tbadk.core.view.NormalItemCell;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.data.SelectForumData;
-import com.baidu.tieba.write.data.QuestionTagListData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class ova extends vva<owa> implements xva {
+public final class ova {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public ForumTagInfo g;
-    @Nullable
-    public String h;
-    @Nullable
-    public View i;
-    @Nullable
-    public NormalItemCell j;
-    @Nullable
-    public gya k;
+    public SpannableString a;
+    public int b;
+    public int c;
+    @ColorRes
+    public int d;
+    @DrawableRes
+    public int e;
+    public int f;
+    public String g;
 
-    @Override // com.baidu.tieba.awa
-    public void a(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.awa
-    public void b(WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.awa
-    public void e(@NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, writeData) == null) {
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ova a;
-
-        public a(ova ovaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ovaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ovaVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.L()) {
-                    if (this.a.b != null) {
-                        this.a.b.b(this.a.a.getString(R.string.obfuscated_res_0x7f0f043d));
-                    }
-                } else if (this.a.g == null) {
-                    if (!TextUtils.isEmpty(this.a.h)) {
-                        this.a.N();
-                    } else {
-                        this.a.M();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements dya {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ova a;
-
-        public b(ova ovaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ovaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ovaVar;
-        }
-
-        @Override // com.baidu.tieba.dya
-        public void a(@NonNull QuestionTagListData.QuestionTag questionTag) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, questionTag) == null) {
-                if (this.a.e != null) {
-                    this.a.e.setQuestionTagId(questionTag.id);
-                    this.a.e.setQuestionTagManualCreated(true);
-                }
-                if (this.a.j != null) {
-                    this.a.j.setSubTitle(questionTag.tagName);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ova(TbPageContext<?> tbPageContext) {
-        super(tbPageContext, owa.class);
+    public ova() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new SpannableString("");
+        this.b = 1;
+        this.c = 3;
+        this.g = "";
     }
 
-    @Override // com.baidu.tieba.awa
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            NormalItemCell normalItemCell = this.j;
-            if (normalItemCell != null) {
-                normalItemCell.e();
-            }
-            gya gyaVar = this.k;
-            if (gyaVar != null) {
-                gyaVar.r();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xva
-    public void onUpdate(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, obj) == null) && (obj instanceof SelectForumData)) {
-            SelectForumData selectForumData = (SelectForumData) obj;
-            this.g = selectForumData.forumTagInfo;
-            this.h = selectForumData.firstCategory;
-            O();
-        }
-    }
-
-    public final boolean L() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WriteData writeData = this.e;
-            if (writeData == null || !"2".equals(writeData.getCallFrom()) || this.g != null || !TextUtils.isEmpty(this.e.getForumName())) {
-                return false;
-            }
-            return true;
+            return this.g;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void M() {
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.e != null && this.j != null && this.a.getPageActivity() != null && !this.a.getPageActivity().isFinishing()) {
-            if (this.k == null) {
-                this.k = new gya();
-            }
-            String str = null;
-            if (this.g == null) {
-                str = this.j.getSubTitleContent();
-            }
-            this.k.u(this.a.getPageActivity(), str, this.e.getForumId(), new b(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
+        return invokeV.intValue;
     }
 
-    public final void O() {
+    public final int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.j == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        ForumTagInfo forumTagInfo = this.g;
-        if (forumTagInfo != null) {
-            WriteData writeData = this.e;
-            if (writeData != null) {
-                writeData.setQuestionTagId(forumTagInfo.id);
-                this.e.setQuestionTagManualCreated(false);
-            }
-            this.j.setSubTitle(this.g.name);
-            this.j.a();
-            return;
-        }
-        WriteData writeData2 = this.e;
-        if (writeData2 != null) {
-            writeData2.setQuestionTagId(null);
-            this.e.setQuestionTagManualCreated(false);
-        }
-        this.j.setSubTitle(null);
-        this.j.h();
+        return invokeV.intValue;
     }
 
-    public final void N() {
+    public final int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            QuestionTagChooseActivityConfig questionTagChooseActivityConfig = new QuestionTagChooseActivityConfig(this.a.getPageActivity());
-            questionTagChooseActivityConfig.setCategory(this.h);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, questionTagChooseActivityConfig));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.vva, com.baidu.tieba.awa
-    public void c() {
+    public final int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.c();
-            gya gyaVar = this.k;
-            if (gyaVar != null) {
-                gyaVar.s();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.vva, com.baidu.tieba.awa
-    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+    public final SpannableString f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle, intent, writeData) == null) {
-            super.m(bundle, intent, writeData);
-            if (bundle != null) {
-                this.h = bundle.getString(WriteActivityConfig.FORUM_FIRST_CATEGORY);
-                this.g = (ForumTagInfo) bundle.getSerializable(WriteActivityConfig.FORUM_TAG_INFO);
-            } else if (intent != null) {
-                this.h = intent.getStringExtra(WriteActivityConfig.FORUM_FIRST_CATEGORY);
-                this.g = (ForumTagInfo) intent.getSerializableExtra(WriteActivityConfig.FORUM_TAG_INFO);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (SpannableString) invokeV.objValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.g = str;
         }
     }
 
-    @Override // com.baidu.tieba.vva, com.baidu.tieba.awa
-    public void onActivityResult(int i, int i2, Intent intent) {
+    public final void i(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048585, this, i, i2, intent) == null) {
-            super.onActivityResult(i, i2, intent);
-            if (i2 != -1 || i != 25072 || intent == null || this.e == null || this.j == null) {
-                return;
-            }
-            if (intent.getBooleanExtra(QuestionTagChooseActivityConfig.KEY_RESPONSE_CREATE_TAG, false)) {
-                M();
-                return;
-            }
-            QuestionTagListData.QuestionTag questionTag = (QuestionTagListData.QuestionTag) intent.getParcelableExtra(QuestionTagChooseActivityConfig.KEY_RESPONSE_TAG);
-            if (questionTag == null) {
-                return;
-            }
-            this.e.setQuestionTagId(questionTag.id);
-            this.e.setQuestionTagManualCreated(false);
-            this.j.setSubTitle(questionTag.tagName);
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.d = i;
         }
     }
 
-    @Override // com.baidu.tieba.awa
-    public View s(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        ForumTagInfo forumTagInfo;
+    public final void j(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d054a, viewGroup, false);
-            this.i = inflate;
-            this.j = (NormalItemCell) inflate.findViewById(R.id.obfuscated_res_0x7f091df2);
-            NormalItemCell.a aVar = new NormalItemCell.a();
-            aVar.b = 1;
-            aVar.f = this.a.getString(R.string.obfuscated_res_0x7f0f044a);
-            aVar.e = this.a.getString(R.string.obfuscated_res_0x7f0f0449);
-            NormalItemCell normalItemCell = this.j;
-            if (normalItemCell != null) {
-                normalItemCell.setConfig(aVar);
-                this.j.setOnClickListener(new a(this));
-                WriteData writeData = this.e;
-                if (writeData != null && "2".equals(writeData.getCallFrom()) && (forumTagInfo = this.g) != null && forumTagInfo.isValid()) {
-                    this.e.setQuestionTagId(this.g.id);
-                    this.e.setQuestionTagManualCreated(false);
-                    this.j.setSubTitle(this.g.name);
-                    this.j.setOnClickListener(null);
-                    this.j.a();
-                }
-            }
-            return this.i;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.e = i;
         }
-        return (View) invokeL.objValue;
+    }
+
+    public final void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public final void m(SpannableString spannableString) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, spannableString) == null) {
+            Intrinsics.checkNotNullParameter(spannableString, "<set-?>");
+            this.a = spannableString;
+        }
+    }
+
+    public final void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.b = i;
+        }
     }
 }

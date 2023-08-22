@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.preference.PreferenceManager;
+import android.app.Application;
+import android.content.Context;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -13,43 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes8.dex */
-public class xg2 {
+public class xg2 extends yg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public tg2 a;
-    public HashMap<String, ug2> b;
-
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final xg2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-290100088, "Lcom/baidu/tieba/xg2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-290100088, "Lcom/baidu/tieba/xg2$b;");
-                    return;
-                }
-            }
-            a = new xg2(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -64,37 +35,8 @@ public class xg2 {
                 return;
             }
         }
-        c = ir1.a;
-    }
-
-    public static xg2 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (xg2) invokeV.objValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("sp_swan_sdcard_preset", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final tg2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (c && d()) {
-                return new wg2();
-            }
-            return new sg2();
-        }
-        return (tg2) invokeV.objValue;
+        b = nr1.a;
+        c = "swan_preset" + File.separator + "preset_list.json";
     }
 
     public xg2() {
@@ -107,40 +49,57 @@ public class xg2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        long currentTimeMillis = System.currentTimeMillis();
-        tg2 a2 = a();
-        this.a = a2;
-        this.b = a2.h();
-        if (c) {
-            Log.d("SwanAppPresetManager", "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis));
+    }
+
+    @Override // com.baidu.tieba.yg2
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return on3.b(ku2.c(), c);
         }
+        return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ xg2(a aVar) {
-        this();
+    @Override // com.baidu.tieba.yg2
+    public boolean e(zg2 zg2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zg2Var)) == null) {
+            if (zg2Var == null) {
+                return false;
+            }
+            Context appContext = AppRuntime.getAppContext();
+            String str = "swan_preset" + File.separator + zg2Var.g + File.separator + zg2Var.q;
+            try {
+                File j = j(zg2Var.h, zg2Var.g, zg2Var.i);
+                if (j == null) {
+                    if (b) {
+                        Log.e("AssetPresetController", "获取解压路径失败");
+                    }
+                    return false;
+                }
+                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
+            } catch (IOException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 
-    @Nullable
-    public ug2 c(String str) {
+    @Override // com.baidu.tieba.yg2
+    public String f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, ug2> hashMap = this.b;
-            if (hashMap != null) {
-                return hashMap.get(str);
-            }
-            return null;
+            Application c2 = ku2.c();
+            return on3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
         }
-        return (ug2) invokeL.objValue;
-    }
-
-    public void e(ug2 ug2Var, vg2 vg2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, ug2Var, vg2Var) == null) {
-            this.a.k(ug2Var, vg2Var);
-        }
+        return (String) invokeL.objValue;
     }
 }

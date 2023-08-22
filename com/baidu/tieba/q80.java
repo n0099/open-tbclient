@@ -1,33 +1,60 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class q80 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String g = "Flow";
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public final long c;
+    public long d;
+    public Context e;
+    public Map<String, String> f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948045568, "Lcom/baidu/tieba/q80;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948045568, "Lcom/baidu/tieba/q80;");
+        }
+    }
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SharedPreferences a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Object c;
+        public String a;
+        public String b;
+        public final /* synthetic */ q80 c;
 
-        public a(SharedPreferences sharedPreferences, String str, Object obj) {
+        public a(q80 q80Var, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sharedPreferences, str, obj};
+                Object[] objArr = {q80Var, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,136 +64,122 @@ public class q80 {
                     return;
                 }
             }
-            this.a = sharedPreferences;
-            this.b = str;
-            this.c = obj;
+            this.c = q80Var;
+            this.a = str;
+            this.b = str2;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                q80.l(this.a, this.b, this.c);
+                this.c.f.put(this.a, this.b);
             }
         }
     }
 
-    public static int g(Context context, String str, int i) {
-        InterceptResult invokeLLI;
+    public q80(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, context, str, i)) == null) {
-            return context.getSharedPreferences("track_sp", 0).getInt(str, i);
-        }
-        return invokeLLI.intValue;
-    }
-
-    public static void h(Context context, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(65543, null, context, i, i2) == null) {
-            j(context, i + "real_time_track", i2);
-        }
-    }
-
-    public static void j(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65545, null, context, str, i) == null) {
-            m(context, str, Integer.valueOf(i));
-        }
-    }
-
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            context.getSharedPreferences("track_sp", 0).edit().clear().apply();
-        }
-    }
-
-    public static void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            context.getSharedPreferences("track_sp", 0).edit().remove("track_request").remove("track_connection").apply();
-        }
-    }
-
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return g(context, "login_open_type", -1);
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if (g(context, "track_upload_state", 1) == 1) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.d = 0L;
+        this.e = context;
+        this.a = i;
+        this.b = i2;
+        this.c = System.currentTimeMillis();
+        this.f = new ConcurrentHashMap();
     }
 
-    public static boolean e(Context context, int i) {
+    public q80 b(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
-            if (g(context, i + "real_time_track", 0) != 1) {
-                return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                p80.h(this.e).f().execute(new a(this, str, String.valueOf(i)));
             }
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static void i(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, context, i) == null) {
-            j(context, "track_upload_state", i);
-        }
-    }
-
-    public static void k(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65546, null, context, i) == null) {
-            j(context, "login_open_type", i);
-        }
-    }
-
-    public static void l(SharedPreferences sharedPreferences, String str, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, sharedPreferences, str, obj) == null) {
-            if (obj instanceof Boolean) {
-                sharedPreferences.edit().putBoolean(str, ((Boolean) obj).booleanValue()).apply();
-            } else if (obj instanceof Integer) {
-                sharedPreferences.edit().putInt(str, ((Integer) obj).intValue()).apply();
-            } else if (obj instanceof Long) {
-                sharedPreferences.edit().putLong(str, ((Long) obj).longValue()).apply();
-            } else if (obj instanceof Float) {
-                sharedPreferences.edit().putFloat(str, ((Float) obj).floatValue()).apply();
-            } else if (obj instanceof String) {
-                sharedPreferences.edit().putString(str, (String) obj).apply();
+            if (y90.a) {
+                String str2 = g;
+                z90.a(str2, "flow addEvent id:" + str + ",value:" + i);
             }
+            return this;
+        }
+        return (q80) invokeLI.objValue;
+    }
+
+    public q80 c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                p80.h(this.e).f().execute(new a(this, str, String.valueOf(j)));
+            }
+            if (y90.a) {
+                String str2 = g;
+                z90.a(str2, "flow addEvent id:" + str + ",value:" + j);
+            }
+            return this;
+        }
+        return (q80) invokeLJ.objValue;
+    }
+
+    public q80 d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && str2 != null) {
+                p80.h(this.e).f().execute(new a(this, str, str2));
+            }
+            if (y90.a) {
+                String str3 = g;
+                z90.a(str3, "flow addEvent id:" + str + ",value:" + str2);
+            }
+            return this;
+        }
+        return (q80) invokeLL.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d = System.currentTimeMillis();
+            p80.h(this.e).e(this);
         }
     }
 
-    public static void m(Context context, String str, Object obj) {
+    public Map<String, String> g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65548, null, context, str, obj) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                SharedPreferences sharedPreferences = context.getSharedPreferences("track_sp", 0);
-                if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
-                    t90.a(context).b(new a(sharedPreferences, str, obj));
-                } else {
-                    l(sharedPreferences, str, obj);
+                for (Map.Entry<String, String> entry : this.f.entrySet()) {
+                    jSONObject.put(entry.getKey(), entry.getValue());
                 }
-            } catch (Throwable th) {
-                if (v90.a) {
-                    w90.b("TrackUtils", th.getMessage());
-                }
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
+            return jSONObject.toString();
         }
+        return (String) invokeV.objValue;
     }
 }

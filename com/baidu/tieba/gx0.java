@@ -1,50 +1,87 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import android.app.Activity;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.zn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public class gx0 implements do0 {
+public class gx0 implements yw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final lu0 a;
+    public ViewGroup b;
 
-    @Override // com.baidu.tieba.do0
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public gx0() {
+    public gx0(@NonNull lu0 lu0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lu0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = lu0Var;
+    }
+
+    public final void b(@Nullable Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
+            activity.getWindow().addFlags(128);
         }
     }
 
-    @Override // com.baidu.tieba.do0
-    public void a(@NonNull Application application) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            zn0.a.a().b(application);
-            ut0.g(application);
-            ut0.e(false);
-            ut0.i("CyberSysPlayer");
-            ut0.j(new az0());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int M = this.a.M();
+            int J = this.a.J();
+            if (M <= 0 || J <= 0 || M > J) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yw0
+    public void switchToFullStyle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = this.a.n();
+            this.a.Y0(true);
+            Activity activity = this.a.getActivity();
+            if (a()) {
+                t11.a(activity, this.a.X0());
+            }
+            b(activity);
+            d21.b(activity, this.a.v());
+        }
+    }
+
+    @Override // com.baidu.tieba.yw0
+    public void switchToNormalStyle() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.b == null) {
+            return;
+        }
+        this.b = this.a.n();
+        this.a.Y0(false);
+        t11.b(this.a.getActivity());
+        d21.k(this.a.v());
+        d21.j(this.a.n());
+        d21.c(this.a.v(), this.b);
     }
 }

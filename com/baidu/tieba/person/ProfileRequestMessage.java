@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.b05;
-import com.baidu.tieba.rm9;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.wq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class ProfileRequestMessage extends NetMessage {
     public boolean isSelf;
     public Integer is_from_usercenter;
     public Integer is_guest;
-    public rm9 mPersonCenterData;
+    public wq9 mPersonCenterData;
     public Integer needUsergrowthTask;
     public Integer need_post_count;
     public Integer page;
@@ -82,7 +82,7 @@ public class ProfileRequestMessage extends NetMessage {
                 builder.page = getPage();
                 int equipmentWidth = BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
                 int equipmentHeight = BdUtilHelper.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-                int e = b05.c().e();
+                int e = h05.c().e();
                 builder.scr_w = Integer.valueOf(equipmentWidth);
                 builder.scr_h = Integer.valueOf(equipmentHeight);
                 builder.scr_dip = Double.valueOf(BdUtilHelper.getEquipmentDensity(TbadkCoreApplication.getInst().getApp()));
@@ -112,13 +112,13 @@ public class ProfileRequestMessage extends NetMessage {
         return (Integer) invokeV.objValue;
     }
 
-    public rm9 getPersonCenterData() {
+    public wq9 getPersonCenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mPersonCenterData;
         }
-        return (rm9) invokeV.objValue;
+        return (wq9) invokeV.objValue;
     }
 
     public Long get_friend_uid() {
@@ -273,10 +273,10 @@ public class ProfileRequestMessage extends NetMessage {
         }
     }
 
-    public void setPersonCenterData(rm9 rm9Var) {
+    public void setPersonCenterData(wq9 wq9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, rm9Var) == null) {
-            this.mPersonCenterData = rm9Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, wq9Var) == null) {
+            this.mPersonCenterData = wq9Var;
         }
     }
 

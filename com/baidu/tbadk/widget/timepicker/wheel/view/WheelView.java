@@ -17,14 +17,14 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n16;
-import com.baidu.tieba.o16;
-import com.baidu.tieba.p16;
-import com.baidu.tieba.p36;
-import com.baidu.tieba.q16;
-import com.baidu.tieba.r16;
-import com.baidu.tieba.s16;
-import com.baidu.tieba.t16;
+import com.baidu.tieba.f26;
+import com.baidu.tieba.g26;
+import com.baidu.tieba.g46;
+import com.baidu.tieba.h26;
+import com.baidu.tieba.i26;
+import com.baidu.tieba.j26;
+import com.baidu.tieba.k26;
+import com.baidu.tieba.l26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -64,7 +64,7 @@ public class WheelView extends View {
     public Context b;
     public Handler c;
     public GestureDetector d;
-    public q16 e;
+    public i26 e;
     public boolean f;
     public boolean g;
     public ScheduledExecutorService h;
@@ -72,7 +72,7 @@ public class WheelView extends View {
     public Paint j;
     public Paint k;
     public Paint l;
-    public n16 m;
+    public f26 m;
     public String n;
     public int o;
     public int p;
@@ -294,8 +294,8 @@ public class WheelView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.b = context;
-            this.c = new s16(this);
-            GestureDetector gestureDetector = new GestureDetector(context, new p16(this));
+            this.c = new k26(this);
+            GestureDetector gestureDetector = new GestureDetector(context, new h26(this));
             this.d = gestureDetector;
             gestureDetector.setIsLongpressEnabled(false);
             this.y = true;
@@ -378,7 +378,7 @@ public class WheelView extends View {
             }
         }
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, p36.pickerview, 0, 0);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, g46.pickerview, 0, 0);
             this.P = obtainStyledAttributes.getInt(1, 17);
             this.u = obtainStyledAttributes.getColor(4, -5723992);
             this.v = obtainStyledAttributes.getColor(3, -14013910);
@@ -402,14 +402,14 @@ public class WheelView extends View {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
             b();
-            this.i = this.h.scheduleWithFixedDelay(new r16(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new j26(this, f), 0L, 5L, TimeUnit.MILLISECONDS);
         }
     }
 
-    public final void setAdapter(n16 n16Var) {
+    public final void setAdapter(f26 f26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, n16Var) == null) {
-            this.m = n16Var;
+        if (interceptable == null || interceptable.invokeL(1048603, this, f26Var) == null) {
+            this.m = f26Var;
             p();
             invalidate();
         }
@@ -490,10 +490,10 @@ public class WheelView extends View {
         }
     }
 
-    public final void setOnItemSelectedListener(q16 q16Var) {
+    public final void setOnItemSelectedListener(i26 i26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, q16Var) == null) {
-            this.e = q16Var;
+        if (interceptable == null || interceptable.invokeL(1048614, this, i26Var) == null) {
+            this.e = i26Var;
         }
     }
 
@@ -548,13 +548,13 @@ public class WheelView extends View {
         }
     }
 
-    public final n16 getAdapter() {
+    public final f26 getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.m;
         }
-        return (n16) invokeV.objValue;
+        return (f26) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -589,9 +589,9 @@ public class WheelView extends View {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            n16 n16Var = this.m;
-            if (n16Var != null) {
-                return n16Var.getItemsCount();
+            f26 f26Var = this.m;
+            if (f26Var != null) {
+                return f26Var.getItemsCount();
             }
             return 0;
         }
@@ -642,8 +642,8 @@ public class WheelView extends View {
             if (obj == null) {
                 return "";
             }
-            if (obj instanceof o16) {
-                return ((o16) obj).getPickerViewText();
+            if (obj instanceof g26) {
+                return ((g26) obj).getPickerViewText();
             }
             if (obj instanceof Integer) {
                 return String.format(Locale.getDefault(), "%02d", Integer.valueOf(((Integer) obj).intValue()));
@@ -668,7 +668,7 @@ public class WheelView extends View {
                     this.L = -i;
                 }
             }
-            this.i = this.h.scheduleWithFixedDelay(new t16(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
+            this.i = this.h.scheduleWithFixedDelay(new l26(this, this.L), 0L, 10L, TimeUnit.MILLISECONDS);
         }
     }
 
@@ -746,11 +746,11 @@ public class WheelView extends View {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            n16 n16Var = this.m;
-            if (n16Var == null) {
+            f26 f26Var = this.m;
+            if (f26Var == null) {
                 return 0;
             }
-            if (this.y && ((i = this.E) < 0 || i >= n16Var.getItemsCount())) {
+            if (this.y && ((i = this.E) < 0 || i >= f26Var.getItemsCount())) {
                 return Math.max(0, Math.min(Math.abs(Math.abs(this.E) - this.m.getItemsCount()), this.m.getItemsCount() - 1));
             }
             return Math.max(0, Math.min(this.E, this.m.getItemsCount() - 1));

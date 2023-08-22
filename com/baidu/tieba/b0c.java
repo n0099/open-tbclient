@@ -1,54 +1,54 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
 /* loaded from: classes5.dex */
-public abstract class b0c extends d0c {
+public class b0c {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b0c(Framedata.Opcode opcode) {
-        super(opcode);
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {opcode};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
             }
+            if (context == null) {
+                return "";
+            }
+            try {
+                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).packageName;
+            } catch (Throwable unused) {
+                b = null;
+            }
+            return b;
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.d0c
-    public void h() throws InvalidDataException {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f()) {
-                if (!b()) {
-                    if (!c()) {
-                        if (!e()) {
-                            return;
-                        }
-                        throw new InvalidFrameException("Control frame cant have rsv3==true set");
-                    }
-                    throw new InvalidFrameException("Control frame cant have rsv2==true set");
-                }
-                throw new InvalidFrameException("Control frame cant have rsv1==true set");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (!TextUtils.isEmpty(a)) {
+                return a;
             }
-            throw new InvalidFrameException("Control frame cant have fin==false set");
+            if (context == null) {
+                return "";
+            }
+            try {
+                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+            return a;
         }
+        return (String) invokeL.objValue;
     }
 }

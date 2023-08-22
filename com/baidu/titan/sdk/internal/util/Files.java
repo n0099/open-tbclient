@@ -8,7 +8,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Files {
     public static String getAssetFileContent(Context context, String str) {
         InputStreamReader inputStreamReader;

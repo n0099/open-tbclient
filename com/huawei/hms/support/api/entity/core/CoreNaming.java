@@ -1,5 +1,5 @@
 package com.huawei.hms.support.api.entity.core;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface CoreNaming {
     public static final String CHECKCONNECT = "core.checkconnect";
     public static final String CONNECT = "core.connect";

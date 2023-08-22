@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @ModifyClass
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WorkAddTopicSwitch extends ue {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String KEY_SWITCH = "works_add_topic_on";

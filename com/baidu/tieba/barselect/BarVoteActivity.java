@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.BarVoteModel;
-import com.baidu.tieba.dg6;
-import com.baidu.tieba.jg6;
+import com.baidu.tieba.fh6;
+import com.baidu.tieba.lh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,7 +26,7 @@ public class BarVoteActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId a;
     public BarVoteModel b;
-    public dg6 c;
+    public fh6 c;
     public long d;
     public int e;
     public BarVoteModel.c f;
@@ -56,30 +56,30 @@ public class BarVoteActivity extends BaseActivity {
         }
 
         @Override // com.baidu.tieba.barselect.BarVoteModel.c
-        public void a(int i, String str, jg6 jg6Var) {
+        public void a(int i, String str, lh6 lh6Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, jg6Var) == null) && this.a.c != null && this.a.c.w() != null) {
+            if ((interceptable == null || interceptable.invokeILL(1048576, this, i, str, lh6Var) == null) && this.a.c != null && this.a.c.w() != null) {
                 BarVoteActivity barVoteActivity = this.a;
                 barVoteActivity.hideLoadingView(barVoteActivity.c.w());
                 if (i == 0) {
-                    if (jg6Var != null && jg6Var.a() != null && jg6Var.a().h() >= 1 && jg6Var.a().h() <= 2) {
+                    if (lh6Var != null && lh6Var.a() != null && lh6Var.a().h() >= 1 && lh6Var.a().h() <= 2) {
                         if (this.a.c.u() != null) {
                             this.a.c.u().setVisibility(0);
                         }
                         long j = this.a.d;
                         if (j != 0) {
-                            jg6Var.i(j);
+                            lh6Var.i(j);
                         }
-                        if (jg6Var.g() == null) {
-                            jg6Var.l(this.a.a);
+                        if (lh6Var.g() == null) {
+                            lh6Var.l(this.a.a);
                         }
-                        this.a.c.C(jg6Var);
+                        this.a.c.C(lh6Var);
                     } else if (this.a.b != null && this.a.b.mPn == 0) {
                         if (this.a.c.u() != null) {
                             this.a.c.u().setVisibility(8);
                         }
-                        if (jg6Var != null && jg6Var.a() != null) {
-                            if (jg6Var.a().h() < 1 || jg6Var.a().h() > 2) {
+                        if (lh6Var != null && lh6Var.a() != null) {
+                            if (lh6Var.a().h() < 1 || lh6Var.a().h() > 2) {
                                 this.a.c.F(TbadkCoreApplication.getInst().getString(R.string.error_status));
                                 return;
                             }
@@ -135,7 +135,7 @@ public class BarVoteActivity extends BaseActivity {
                 this.a.c.x();
                 BarVoteActivity barVoteActivity = this.a;
                 barVoteActivity.showLoadingView(barVoteActivity.c.w());
-                this.a.x1();
+                this.a.w1();
             }
         }
     }
@@ -164,9 +164,9 @@ public class BarVoteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            dg6 dg6Var = this.c;
-            if (dg6Var != null) {
-                dg6Var.z(i);
+            fh6 fh6Var = this.c;
+            if (fh6Var != null) {
+                fh6Var.z(i);
             }
         }
     }
@@ -178,11 +178,11 @@ public class BarVoteActivity extends BaseActivity {
             if (view2.getId() == R.id.right_textview) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"https://tiebac.baidu.com/mo/q/bzrecruitrule?nomenu=1"});
             } else if (view2.getId() == R.id.pb_more) {
-                dg6 dg6Var = this.c;
-                if (dg6Var != null && dg6Var.v() != null) {
+                fh6 fh6Var = this.c;
+                if (fh6Var != null && fh6Var.v() != null) {
                     this.c.v().R();
                 }
-                w1();
+                v1();
             }
         }
     }
@@ -192,7 +192,7 @@ public class BarVoteActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.c = new dg6(this);
+            this.c = new fh6(this);
             this.d = getIntent().getLongExtra("fid", 0L);
             this.e = getIntent().getIntExtra("source", 0);
             BarVoteModel barVoteModel = new BarVoteModel(this);
@@ -207,9 +207,9 @@ public class BarVoteActivity extends BaseActivity {
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            dg6 dg6Var = this.c;
-            if (dg6Var != null) {
-                dg6Var.y();
+            fh6 fh6Var = this.c;
+            if (fh6Var != null) {
+                fh6Var.y();
             }
             BarVoteModel barVoteModel = this.b;
             if (barVoteModel != null) {
@@ -227,7 +227,7 @@ public class BarVoteActivity extends BaseActivity {
         }
     }
 
-    public void w1() {
+    public void v1() {
         BarVoteModel barVoteModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (barVoteModel = this.b) != null) {
@@ -235,7 +235,7 @@ public class BarVoteActivity extends BaseActivity {
         }
     }
 
-    public void x1() {
+    public void w1() {
         BarVoteModel barVoteModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (barVoteModel = this.b) != null) {
@@ -243,7 +243,7 @@ public class BarVoteActivity extends BaseActivity {
         }
     }
 
-    public void y1() {
+    public void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.c.E();
@@ -258,7 +258,7 @@ public class BarVoteActivity extends BaseActivity {
             setIntent(intent);
             this.d = intent.getLongExtra("fid", 0L);
             this.e = intent.getIntExtra("source", 0);
-            x1();
+            w1();
             new StatisticItem(TbadkCoreStatisticKey.KEY_VOTE_PAGE).param("obj_source", this.e).eventStat();
         }
     }

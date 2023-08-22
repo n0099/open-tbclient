@@ -1,8 +1,8 @@
 package com.baidu.tbadk.util.orderlist;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fx5;
-import com.baidu.tieba.gx5;
+import com.baidu.tieba.wx5;
+import com.baidu.tieba.xx5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +11,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class OrderLinkList<D extends fx5> {
+public class OrderLinkList<D extends wx5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gx5<D> a;
-    public gx5<D> b;
-    public gx5<D> c;
+    public xx5<D> a;
+    public xx5<D> b;
+    public xx5<D> c;
     public boolean d;
     public volatile int e;
 
@@ -108,8 +108,8 @@ public class OrderLinkList<D extends fx5> {
         D d;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            gx5<D> gx5Var = this.a;
-            if (gx5Var != null && (d = gx5Var.b) != null) {
+            xx5<D> xx5Var = this.a;
+            if (xx5Var != null && (d = xx5Var.b) != null) {
                 return d;
             }
             return null;
@@ -119,28 +119,28 @@ public class OrderLinkList<D extends fx5> {
 
     public D a(int i) {
         InterceptResult invokeI;
-        gx5<D> gx5Var;
+        xx5<D> xx5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            gx5<D> gx5Var2 = this.a;
-            if (gx5Var2 == null) {
+            xx5<D> xx5Var2 = this.a;
+            if (xx5Var2 == null) {
                 return null;
             }
-            this.b = gx5Var2;
+            this.b = xx5Var2;
             do {
-                gx5<D> gx5Var3 = this.b;
-                if (gx5Var3.a == i) {
+                xx5<D> xx5Var3 = this.b;
+                if (xx5Var3.a == i) {
                     break;
                 }
-                this.c = gx5Var3;
-                gx5Var = gx5Var3.c;
-                this.b = gx5Var;
-            } while (gx5Var != null);
-            gx5<D> gx5Var4 = this.b;
-            if (gx5Var4 == null) {
+                this.c = xx5Var3;
+                xx5Var = xx5Var3.c;
+                this.b = xx5Var;
+            } while (xx5Var != null);
+            xx5<D> xx5Var4 = this.b;
+            if (xx5Var4 == null) {
                 return null;
             }
-            return gx5Var4.b;
+            return xx5Var4.b;
         }
         return (D) invokeI.objValue;
     }
@@ -157,9 +157,9 @@ public class OrderLinkList<D extends fx5> {
                 while (this.b.a != i) {
                     z = false;
                     this.c = this.b;
-                    gx5<D> gx5Var = this.b.c;
-                    this.b = gx5Var;
-                    if (gx5Var == null) {
+                    xx5<D> xx5Var = this.b.c;
+                    this.b = xx5Var;
+                    if (xx5Var == null) {
                         break;
                     }
                 }
@@ -174,35 +174,35 @@ public class OrderLinkList<D extends fx5> {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: D extends com.baidu.tieba.fx5 */
-    /* JADX DEBUG: Type inference failed for r5v11. Raw type applied. Possible types: com.baidu.tieba.gx5<D extends com.baidu.tieba.fx5>, com.baidu.tieba.gx5<E> */
-    /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: com.baidu.tieba.gx5<D extends com.baidu.tieba.fx5>, com.baidu.tieba.gx5<E> */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: D extends com.baidu.tieba.wx5 */
+    /* JADX DEBUG: Type inference failed for r5v11. Raw type applied. Possible types: com.baidu.tieba.xx5<D extends com.baidu.tieba.wx5>, com.baidu.tieba.xx5<E> */
+    /* JADX DEBUG: Type inference failed for r5v2. Raw type applied. Possible types: com.baidu.tieba.xx5<D extends com.baidu.tieba.wx5>, com.baidu.tieba.xx5<E> */
     /* JADX WARN: Multi-variable type inference failed */
     public synchronized void insert(D d) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, d) == null) {
             synchronized (this) {
-                gx5 gx5Var = (gx5<D>) new gx5();
-                gx5Var.a = d.a();
-                gx5Var.b = d;
-                gx5 gx5Var2 = (gx5<D>) this.a;
-                gx5Var.c = gx5Var2;
-                this.a = gx5Var;
-                this.b = gx5Var;
-                this.c = gx5Var2;
-                while (this.b.c != null && gx5Var.a < this.b.c.a) {
+                xx5 xx5Var = (xx5<D>) new xx5();
+                xx5Var.a = d.a();
+                xx5Var.b = d;
+                xx5 xx5Var2 = (xx5<D>) this.a;
+                xx5Var.c = xx5Var2;
+                this.a = xx5Var;
+                this.b = xx5Var;
+                this.c = xx5Var2;
+                while (this.b.c != null && xx5Var.a < this.b.c.a) {
                     this.d = true;
                     this.b = this.b.c;
                 }
-                if (this.b.c != null && gx5Var.a == this.b.c.a) {
-                    this.b.c.b = gx5Var.b;
+                if (this.b.c != null && xx5Var.a == this.b.c.a) {
+                    this.b.c.b = xx5Var.b;
                     this.a = this.c;
                     this.d = false;
                     return;
                 }
                 if (this.d) {
-                    gx5Var.c = (gx5<D>) this.b.c;
-                    this.b.c = gx5Var;
+                    xx5Var.c = (xx5<D>) this.b.c;
+                    this.b.c = xx5Var;
                     this.a = this.c;
                     this.d = false;
                 }

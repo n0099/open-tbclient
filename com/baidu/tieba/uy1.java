@@ -1,381 +1,157 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import androidx.constraintlayout.motion.widget.Key;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.swan.apps.view.SwanAppLaunchCircleAnimationView;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import com.baidu.webkit.sdk.CookieManager;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class uy1 {
+public final class uy1 extends ad3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<AnimatorSet> a;
-    public SwanAppLaunchCircleAnimationView b;
 
     /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
+        public static final a a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-        public final /* synthetic */ uy1 b;
 
-        /* renamed from: com.baidu.tieba.uy1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class C0496a implements Animator.AnimatorListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationCancel(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                }
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationRepeat(Animator animator) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-                }
-            }
-
-            public C0496a(a aVar) {
-                Interceptable interceptable = $ic;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-359393985, "Lcom/baidu/tieba/uy1$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
+                    $ic = interceptable;
                 }
-                this.a = aVar;
-            }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationStart(Animator animator) {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeL(1048579, this, animator) != null) || this.a.a.isFinishing()) {
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-359393985, "Lcom/baidu/tieba/uy1$a;");
                     return;
                 }
-                this.a.a.U().v();
             }
-
-            @Override // android.animation.Animator.AnimatorListener
-            public void onAnimationEnd(Animator animator) {
-                Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) || this.a.a.isFinishing()) {
-                    return;
-                }
-                this.a.a.U().a.setVisibility(8);
-                this.a.a.U().H();
-                this.a.a.getFloatLayer().g();
-            }
+            a = new a();
         }
 
-        public a(uy1 uy1Var, SwanAppActivity swanAppActivity) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uy1Var, swanAppActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
-            this.b = uy1Var;
-            this.a = swanAppActivity;
         }
 
         @Override // java.lang.Runnable
-        public void run() {
+        public final void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                AnimatorSet animatorSet = new AnimatorSet();
-                animatorSet.play(this.b.d(this.a, 150L));
-                animatorSet.addListener(new C0496a(this));
-                animatorSet.start();
-                this.b.a.add(animatorSet);
+                ra2.a3();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b implements Animator.AnimatorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-            }
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
-            }
-        }
-
-        public b(uy1 uy1Var, SwanAppActivity swanAppActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uy1Var, swanAppActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swanAppActivity;
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) || this.a.isFinishing()) {
-                return;
-            }
-            this.a.U().a.setVisibility(8);
-            this.a.U().H();
-            this.a.getFloatLayer().g();
-        }
-
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048579, this, animator) != null) || this.a.isFinishing()) {
-                return;
-            }
-            this.a.U().v();
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uy1 a;
-
-        public c(uy1 uy1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uy1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uy1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (AnimatorSet animatorSet : this.a.a) {
-                    animatorSet.removeAllListeners();
-                    animatorSet.cancel();
-                }
-                if (this.a.b != null) {
-                    this.a.b.i();
-                }
-                this.a.a.clear();
-            }
-        }
-    }
-
-    public uy1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uy1(ac3 ac3Var) {
+        super(ac3Var, "/swanAPI/setTplBdussSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ac3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new CopyOnWriteArrayList();
     }
 
-    public void n() {
+    @Override // com.baidu.tieba.ad3
+    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, db3 db3Var) {
+        InterceptResult invokeLLLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            xa3.M().post(new c(this));
-        }
-    }
-
-    public final void g(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, swanAppActivity) == null) {
-            xa3.M();
-            SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView = this.b;
-            if (swanAppLaunchCircleAnimationView != null) {
-                swanAppLaunchCircleAnimationView.setVisibility(4);
-                this.b.i();
-            }
-            i(swanAppActivity);
-        }
-    }
-
-    public final void h(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, swanAppActivity) != null) || swanAppActivity.isFinishing() || swanAppActivity.U() == null) {
-            return;
-        }
-        g(swanAppActivity);
-    }
-
-    public final void i(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, swanAppActivity) == null) {
-            so3.a0(new a(this, swanAppActivity));
-        }
-    }
-
-    public final ObjectAnimator d(SwanAppActivity swanAppActivity, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, swanAppActivity, j)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.U().a, Key.ALPHA, 1.0f, 0.0f);
-            ofFloat.setDuration(j);
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeLJ.objValue;
-    }
-
-    public void l(SwanAppActivity swanAppActivity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, swanAppActivity, i) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        h(swanAppActivity);
-                        return;
-                    } else {
-                        k(swanAppActivity, true);
-                        return;
-                    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, db3Var)) == null) {
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(entity);
+            SwanAppAllianceLoginHelper.d.l(true);
+            if (optParamsAsJo == null) {
+                pr1 d = SwanAppAllianceLoginHelper.d.d();
+                if (d != null) {
+                    d.onResult(-1);
                 }
-                k(swanAppActivity, false);
-                return;
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
+                SwanAppAllianceLoginHelper.d.a(qy1.d(), qy1.a());
+                return false;
             }
-            h(swanAppActivity);
-        }
-    }
-
-    public final AnimatorSet e(SwanAppActivity swanAppActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppActivity)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.U().d, Key.TRANSLATION_X, -po3.f(AppRuntime.getAppContext(), 9.5f), po3.f(AppRuntime.getAppContext(), 9.5f));
-            ofFloat.setDuration(380L);
-            ofFloat.setRepeatMode(2);
-            ofFloat.setRepeatCount(-1);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.U().e, Key.TRANSLATION_X, 0.0f, -po3.f(AppRuntime.getAppContext(), 19.0f));
-            ofFloat2.setDuration(380L);
-            ofFloat2.setRepeatMode(2);
-            ofFloat2.setRepeatCount(-1);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(ofFloat).with(ofFloat2);
-            return animatorSet;
-        }
-        return (AnimatorSet) invokeL.objValue;
-    }
-
-    public final AnimatorSet f(SwanAppActivity swanAppActivity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, swanAppActivity)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(swanAppActivity.U().d, Key.TRANSLATION_X, 0.0f, -po3.f(AppRuntime.getAppContext(), 9.5f));
-            ofFloat.setDuration(240L);
-            ObjectAnimator ofFloat2 = ObjectAnimator.ofFloat(swanAppActivity.U().e, Key.ALPHA, 0.0f, 1.0f);
-            ofFloat2.setDuration(240L);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(ofFloat).with(ofFloat2);
-            return animatorSet;
-        }
-        return (AnimatorSet) invokeL.objValue;
-    }
-
-    public void j(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, swanAppActivity) == null) {
-            SwanAppLaunchCircleAnimationView swanAppLaunchCircleAnimationView = (SwanAppLaunchCircleAnimationView) swanAppActivity.findViewById(R.id.obfuscated_res_0x7f090001);
-            this.b = swanAppLaunchCircleAnimationView;
-            swanAppLaunchCircleAnimationView.h();
-            d43.o().F(new UbcFlowEvent("first_anim_start"));
-            yg3.d().i("first_anim_start");
-        }
-    }
-
-    public void m(SwanAppActivity swanAppActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, swanAppActivity) == null) {
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.play(f(swanAppActivity)).before(e(swanAppActivity));
-            animatorSet.start();
-            d43.o().F(new UbcFlowEvent("first_anim_start"));
-            yg3.d().i("first_anim_start");
-            this.a.add(animatorSet);
-        }
-    }
-
-    public final void k(SwanAppActivity swanAppActivity, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, swanAppActivity, z) == null) {
-            AnimatorSet animatorSet = new AnimatorSet();
-            if (z) {
-                i = 100;
+            int optInt = optParamsAsJo.optInt("errno");
+            JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
+            xo3.a0(a.a);
+            if (optInt != 0) {
+                pr1 d2 = SwanAppAllianceLoginHelper.d.d();
+                if (d2 != null) {
+                    d2.onResult(-1);
+                }
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
+                SwanAppAllianceLoginHelper.d.a(qy1.d(), qy1.a());
+                return false;
+            } else if (optJSONObject != null) {
+                Map<String, String> c = mr4.c(CookieManager.getInstance().getCookie(".baidu.com"));
+                Intrinsics.checkNotNullExpressionValue(c, "SwanAppUrlUtils.parseCookie(cookieString)");
+                String str = c.get("OPENBDUSS");
+                if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z) {
+                    ry1.b.c(optInt, optJSONObject);
+                    ly1.b(context, str);
+                    SwanAppAllianceLoginHelper.d.j(true);
+                    pr1 d3 = SwanAppAllianceLoginHelper.d.d();
+                    if (d3 != null) {
+                        d3.onResult(0);
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, entity, 0);
+                    SwanAppAllianceLoginHelper.d.a(qy1.f(), qy1.c());
+                    return true;
+                }
+                pr1 d4 = SwanAppAllianceLoginHelper.d.d();
+                if (d4 != null) {
+                    d4.onResult(-1);
+                }
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
+                SwanAppAllianceLoginHelper.d.a(qy1.d(), qy1.a());
+                return false;
             } else {
-                i = 0;
+                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "json data is null");
+                SwanAppAllianceLoginHelper.d.a(qy1.d(), qy1.a());
+                return false;
             }
-            animatorSet.play(d(swanAppActivity, 150L));
-            animatorSet.addListener(new b(this, swanAppActivity));
-            animatorSet.setStartDelay(i);
-            animatorSet.start();
-            this.a.add(animatorSet);
         }
+        return invokeLLLL.booleanValue;
     }
 }

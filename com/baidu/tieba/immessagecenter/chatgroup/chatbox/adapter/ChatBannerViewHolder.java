@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ai8;
-import com.baidu.tieba.ug8;
+import com.baidu.tieba.tk8;
+import com.baidu.tieba.zl8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView e;
     public View f;
-    public ai8 g;
+    public zl8 g;
     public FrameLayout h;
     public String i;
     public String j;
@@ -115,9 +115,9 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e81);
-        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090e83);
-        this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e82);
+        this.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e8e);
+        this.f = view2.findViewById(R.id.obfuscated_res_0x7f090e90);
+        this.h = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e8f);
         this.k = str;
     }
 
@@ -133,13 +133,13 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void e(@NonNull ug8 ug8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void e(@NonNull tk8 tk8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, ug8Var, tbPageContext, i) == null) {
-            if (ug8Var instanceof ai8) {
-                ai8 ai8Var = (ai8) ug8Var;
-                this.g = ai8Var;
-                this.i = ai8Var.b();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, tk8Var, tbPageContext, i) == null) {
+            if (tk8Var instanceof zl8) {
+                zl8 zl8Var = (zl8) tk8Var;
+                this.g = zl8Var;
+                this.i = zl8Var.b();
                 this.j = this.g.c();
                 if (!TextUtils.isEmpty(this.i) && !TextUtils.isEmpty(this.j)) {
                     this.h.setVisibility(0);

@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.descriptors;
 
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.ReceiverValue;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class Visibility {
     public final boolean isPublicAPI;
     public final String name;

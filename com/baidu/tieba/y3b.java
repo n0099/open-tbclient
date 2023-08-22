@@ -1,81 +1,127 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.a4b;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ubs.analytics.SampleResult;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public class y3b {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public TbPageContext<?> a;
+    @NonNull
+    public NavigationBar b;
+    @NonNull
+    public LinearLayout c;
+    @NonNull
+    public LinearLayout d;
+    @NonNull
+    public o2b e;
+    public EditorTools f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948280641, "Lcom/baidu/tieba/y3b;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public y3b(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull LinearLayout linearLayout2, @NonNull o2b o2bVar) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948280641, "Lcom/baidu/tieba/y3b;");
-        }
-    }
-
-    public static SampleResult a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (a) {
-                return a4b.a.a.f(str);
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, linearLayout2, o2bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return SampleResult.OTHERE;
         }
-        return (SampleResult) invokeL.objValue;
+        this.a = tbPageContext;
+        this.b = navigationBar;
+        this.c = linearLayout;
+        this.d = linearLayout2;
+        this.e = o2bVar;
     }
 
-    public static void b(z3b z3bVar) {
+    @Nullable
+    public r2b a(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, z3bVar) != null) || z3bVar == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return c(i, z);
         }
-        u4b.b(z3bVar);
+        return (r2b) invokeCommon.objValue;
     }
 
-    public static void d(String str) {
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x0035, code lost:
+        if (r6.getBooleanExtra(com.baidu.tbadk.core.atomData.WriteActivityConfig.KEY_NOT_USE_DRAFT, false) != false) goto L8;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x0016, code lost:
+        if (r6.getBoolean(com.baidu.tbadk.core.atomData.WriteActivityConfig.KEY_NOT_USE_DRAFT, false) != false) goto L8;
+     */
+    @Nullable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public r2b b(Bundle bundle) {
+        InterceptResult invokeL;
+        Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
-            s4b.a().b(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            int i = 9;
+            boolean z = false;
+            if (bundle != null) {
+                i = bundle.getInt("type", 9);
+            } else {
+                if (this.a.getPageActivity() != null && (intent = this.a.getPageActivity().getIntent()) != null) {
+                    i = intent.getIntExtra("type", 9);
+                }
+                z = true;
+                return c(i, z);
+            }
+        } else {
+            return (r2b) invokeL.objValue;
         }
     }
 
-    public static void e(String str) {
+    public final r2b c(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && a) {
-            s4b.a().c(str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (this.a.getPageActivity() == null) {
+                return null;
+            }
+            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_LEFT);
+            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
+            this.c.removeAllViews();
+            this.d.removeAllViews();
+            EditorTools editorTools = new EditorTools(this.a.getPageActivity());
+            this.f = editorTools;
+            this.d.addView(editorTools);
+            switch (i) {
+                case 11:
+                    return new j4b(this.a, this.b, this.c, this.f, this.e, z);
+                case 12:
+                    return new f4b(this.a, this.b, this.c, this.f, this.e, z);
+                case 13:
+                    return new g4b(this.a, this.b, this.c, this.f, this.e, z);
+                case 14:
+                    return new i4b(this.a, this.b, this.c, this.f, this.e, z);
+                case 15:
+                    return new e4b(this.a, this.b, this.c, this.f, this.e, z);
+                default:
+                    return new h4b(this.a, this.b, this.c, this.f, this.e, z);
+            }
         }
-    }
-
-    public static void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            a = z;
-        }
-    }
-
-    public static void c(String str, String str2, String str3, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65539, null, str, str2, str3, map) != null) || !a || str == null) {
-            return;
-        }
-        x4b.a(str, str2, str3, map);
+        return (r2b) invokeCommon.objValue;
     }
 }

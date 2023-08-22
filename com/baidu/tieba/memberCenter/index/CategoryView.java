@@ -11,7 +11,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h49;
+import com.baidu.tieba.k89;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.memberCenter.memberprivilege.MemberCenterStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class CategoryView extends LinearLayout {
     public TextView c;
     public TextView d;
     public ImageView e;
-    public h49 f;
+    public k89 f;
     public View.OnClickListener g;
 
     /* loaded from: classes7.dex */
@@ -149,11 +149,11 @@ public class CategoryView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0442, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0449, this);
             this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09071d);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092260);
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09225e);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090721);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092287);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092285);
             this.b.setOnClickListener(this.g);
             this.e.setOnClickListener(this.g);
         }

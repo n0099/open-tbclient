@@ -1,124 +1,75 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.ChunkUploadSwitch;
-import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.StampShareDialogConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class zca {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 524288;
-    public static int d = 6144000;
-    public static int e = 524288;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dda a;
-    public a79 b;
+    public Context a;
+    public ada b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948356529, "Lcom/baidu/tieba/zca;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948356529, "Lcom/baidu/tieba/zca;");
-        }
-    }
-
-    public zca(a79 a79Var) {
+    public zca(Context context, ada adaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a79Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {context, adaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = a79Var;
-    }
-
-    public static void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            if (i <= 0) {
-                d = 6144000;
-            } else {
-                d = i;
-            }
-        }
-    }
-
-    public static void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
-            if (i <= 0) {
-                c = 524288;
-            } else {
-                c = i;
-            }
-        }
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            if (i <= 0) {
-                e = 524288;
-            } else {
-                e = i;
-            }
-        }
+        this.a = context;
+        this.b = adaVar;
     }
 
     public void a() {
-        dda ddaVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ddaVar = this.a) != null) {
-            ddaVar.cancel();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ShareItem shareItem = new ShareItem();
+            Bundle stats = shareItem.getStats();
+            if (stats == null) {
+                stats = new Bundle();
+            }
+            stats.putInt("obj_locate", 20);
+            shareItem.setStats(stats);
+            shareItem.isStampShare = true;
+            shareItem.shareType = 1;
+            StampShareDialogConfig stampShareDialogConfig = new StampShareDialogConfig(this.a, shareItem, true, this.b);
+            stampShareDialogConfig.setIsCopyLink(false);
+            stampShareDialogConfig.setHideMode(stampShareDialogConfig.hideMode | 32);
+            this.b.e(b("https://tieba.baidu.com/mo/q/icon/home"));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2001276, stampShareDialogConfig));
         }
     }
 
-    public VideoFinishResult e(String str, String str2, int i, gda gdaVar) {
-        InterceptResult invokeLLIL;
+    public final Bitmap b(String str) {
+        InterceptResult invokeL;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, gdaVar)) == null) {
-            try {
-                if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                    this.a = new fda(str2, e, this.b);
-                } else {
-                    this.a = new eda(str, c, d, this.b);
-                }
-                this.a.a(gdaVar);
-                return this.a.b(str2, i);
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
-                a79 a79Var = this.b;
-                if (a79Var != null) {
-                    a79Var.f(306, -4399, u69.a(e2));
-                    return null;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null || str.length() == 0 || (runTask = MessageManager.getInstance().runTask(2921388, Bitmap.class, str)) == null || runTask.getData() == null) {
                 return null;
             }
+            return (Bitmap) runTask.getData();
         }
-        return (VideoFinishResult) invokeLLIL.objValue;
+        return (Bitmap) invokeL.objValue;
     }
 }

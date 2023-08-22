@@ -6,8 +6,8 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class lw0 extends pw0 {
+/* loaded from: classes7.dex */
+public class lw0 extends sw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,24 +25,24 @@ public class lw0 extends pw0 {
         }
     }
 
-    public static pw0 w(@NonNull String str) {
-        InterceptResult invokeL;
+    public static sw0 w(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            pw0 m = pw0.m(str, 6);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            sw0 m = sw0.m(str, 7);
             m.u(1);
-            m.s(1);
+            m.s(i);
             return m;
         }
-        return (pw0) invokeL.objValue;
+        return (sw0) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.pw0
-    public boolean b(@NonNull qx0 qx0Var) {
+    @Override // com.baidu.tieba.sw0
+    public boolean b(@NonNull tx0 tx0Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qx0Var)) == null) {
-            if (1 != qx0Var.getType()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tx0Var)) == null) {
+            if (1 != tx0Var.getType()) {
                 return true;
             }
             return false;

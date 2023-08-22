@@ -282,18 +282,18 @@ public final class LoadingDialog extends Dialog {
         View view2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, this) == null) {
-            this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f090736);
-            this.mBottomTv = (TextView) findViewById(R.id.obfuscated_res_0x7f090480);
-            this.mDotAnimTv = (TextView) findViewById(R.id.obfuscated_res_0x7f090929);
-            this.mLoadingContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091633);
+            this.mCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f09073a);
+            this.mBottomTv = (TextView) findViewById(R.id.obfuscated_res_0x7f090483);
+            this.mDotAnimTv = (TextView) findViewById(R.id.obfuscated_res_0x7f09092f);
+            this.mLoadingContainer = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09164a);
             int i = this.loadingLayoutId;
             if (i == -1) {
-                i = R.layout.obfuscated_res_0x7f0d0204;
+                i = R.layout.obfuscated_res_0x7f0d0207;
             }
             LayoutInflater.from(getContext()).inflate(i, (ViewGroup) this.mLoadingContainer, true);
             FrameLayout frameLayout = this.mLoadingContainer;
             if (frameLayout != null) {
-                view2 = frameLayout.findViewById(R.id.obfuscated_res_0x7f091636);
+                view2 = frameLayout.findViewById(R.id.obfuscated_res_0x7f09164d);
             } else {
                 view2 = null;
             }
@@ -308,7 +308,7 @@ public final class LoadingDialog extends Dialog {
             if (this.showCloseBtn) {
                 ImageView imageView = this.mCloseBtn;
                 Intrinsics.checkNotNull(imageView);
-                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080f66));
+                imageView.setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f080f77));
             } else {
                 ImageView imageView2 = this.mCloseBtn;
                 Intrinsics.checkNotNull(imageView2);
@@ -316,10 +316,10 @@ public final class LoadingDialog extends Dialog {
             }
             TextView textView = this.mBottomTv;
             Intrinsics.checkNotNull(textView);
-            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601db));
+            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601e1));
             TextView textView2 = this.mDotAnimTv;
             Intrinsics.checkNotNull(textView2);
-            textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601db));
+            textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0601e1));
             if (this.mBottomText != null) {
                 TextView textView3 = this.mBottomTv;
                 Intrinsics.checkNotNull(textView3);
@@ -327,7 +327,7 @@ public final class LoadingDialog extends Dialog {
             }
             ImageView imageView3 = this.mCloseBtn;
             Intrinsics.checkNotNull(imageView3);
-            imageView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.tn
+            imageView3.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.wn
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -378,8 +378,8 @@ public final class LoadingDialog extends Dialog {
             setCanceledOnTouchOutside(false);
             Window window2 = getWindow();
             Intrinsics.checkNotNull(window2);
-            window2.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f65));
-            setContentView(R.layout.obfuscated_res_0x7f0d05eb);
+            window2.setBackgroundDrawable(getContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080f76));
+            setContentView(R.layout.obfuscated_res_0x7f0d05f2);
             initView();
         }
     }
@@ -414,7 +414,7 @@ public final class LoadingDialog extends Dialog {
             if (textView2 != null) {
                 if (z) {
                     textView2.setVisibility(0);
-                    textView2.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.wn
+                    textView2.removeCallbacks(new Runnable() { // from class: com.baidu.tieba.zn
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 

@@ -1,8 +1,16 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.opengl.EGL14;
+import android.opengl.EGLConfig;
+import android.opengl.EGLContext;
+import android.opengl.EGLDisplay;
+import android.opengl.EGLSurface;
+import android.view.Surface;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b1c;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,63 +18,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.Iterator;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicReference;
-import rx.internal.schedulers.ScheduledAction;
-import rx.internal.util.RxThreadFactory;
+import com.baidu.webkit.internal.monitor.MonitorType;
+import com.yy.transvod.player.log.TLog;
+import java.util.concurrent.atomic.AtomicBoolean;
+@TargetApi(17)
 /* loaded from: classes5.dex */
-public class e3c extends b1c.a implements f1c {
+public final class e3c implements l3c {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static final int d;
-    public static final ConcurrentHashMap<ScheduledThreadPoolExecutor, ScheduledThreadPoolExecutor> e;
-    public static final AtomicReference<ScheduledExecutorService> f;
-    public static volatile Object g;
-    public static final Object h;
+    public static final int[] g;
+    public static final int[] h;
+    public static final int[] i;
+    public static final int[] j;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ScheduledExecutorService a;
-    public volatile boolean b;
+    public final AtomicBoolean a;
+    public EGLDisplay b;
+    public EGLContext c;
+    public EGLSurface d;
+    public EGLSurface e;
+    public EGLConfig f;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public final boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return false;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                e3c.f();
-            }
-        }
+        return invokeV.booleanValue;
     }
 
     static {
         InterceptResult invokeClinit;
-        boolean z;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
         if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684852, "Lcom/baidu/tieba/e3c;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
@@ -78,244 +59,312 @@ public class e3c extends b1c.a implements f1c {
                 return;
             }
         }
-        h = new Object();
-        e = new ConcurrentHashMap<>();
-        f = new AtomicReference<>();
-        d = Integer.getInteger("rx.scheduler.jdk6.purge-frequency-millis", 1000).intValue();
-        boolean z2 = Boolean.getBoolean("rx.scheduler.jdk6.purge-force");
-        int a2 = m3c.a();
-        if (!z2 && (a2 == 0 || a2 >= 21)) {
-            z = true;
-        } else {
-            z = false;
-        }
-        c = z;
+        g = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12352, 4, 12344};
+        h = new int[]{12440, 2, 12344};
+        i = new int[]{12375, 1, 12374, 1, 12417, 12380, 12416, 12380, 12344};
+        j = new int[]{12344};
     }
 
-    public e3c(ThreadFactory threadFactory) {
+    @Override // com.baidu.tieba.l3c
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            TLog.g(this, "EglCore.release enter.");
+            b(0, false);
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
+                EGLContext eGLContext = this.c;
+                if (eGLContext != EGL14.EGL_NO_CONTEXT) {
+                    EGL14.eglDestroyContext(eGLDisplay, eGLContext);
+                }
+                EGLSurface eGLSurface = this.d;
+                if (eGLSurface != EGL14.EGL_NO_SURFACE) {
+                    EGL14.eglDestroySurface(this.b, eGLSurface);
+                }
+                EGLSurface eGLSurface2 = this.e;
+                if (eGLSurface2 != EGL14.EGL_NO_SURFACE) {
+                    EGL14.eglDestroySurface(this.b, eGLSurface2);
+                    TLog.g(this, "EglCore.release offscreen surface.");
+                }
+                if (i()) {
+                    EGL14.eglReleaseThread();
+                }
+                EGL14.eglTerminate(this.b);
+            }
+            this.f = null;
+            this.b = EGL14.EGL_NO_DISPLAY;
+            this.c = EGL14.EGL_NO_CONTEXT;
+            EGLSurface eGLSurface3 = EGL14.EGL_NO_SURFACE;
+            this.d = eGLSurface3;
+            this.e = eGLSurface3;
+            this.a.set(false);
+            TLog.g(this, "EglCore.release leave.");
+        }
+    }
+
+    public e3c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {threadFactory};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, threadFactory);
-        if (!k(newScheduledThreadPool) && (newScheduledThreadPool instanceof ScheduledThreadPoolExecutor)) {
-            g((ScheduledThreadPoolExecutor) newScheduledThreadPool);
-        }
-        this.a = newScheduledThreadPool;
+        this.a = new AtomicBoolean(false);
+        this.b = EGL14.EGL_NO_DISPLAY;
+        this.c = EGL14.EGL_NO_CONTEXT;
+        EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
+        this.d = eGLSurface;
+        this.e = eGLSurface;
+        this.f = null;
     }
 
-    public static Method e(ScheduledExecutorService scheduledExecutorService) {
-        InterceptResult invokeL;
-        Method[] methods;
+    @Override // com.baidu.tieba.l3c
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, scheduledExecutorService)) == null) {
-            for (Method method : scheduledExecutorService.getClass().getMethods()) {
-                if (method.getName().equals("setRemoveOnCancelPolicy")) {
-                    Class<?>[] parameterTypes = method.getParameterTypes();
-                    if (parameterTypes.length == 1 && parameterTypes[0] == Boolean.TYPE) {
-                        return method;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.b != EGL14.EGL_NO_DISPLAY && this.c != EGL14.EGL_NO_CONTEXT) {
+                TLog.g(this, "already created.");
+                return;
+            }
+            TLog.g(this, "EglCore.setup enter.");
+            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
+            this.b = eglGetDisplay;
+            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
+                TLog.g(this, "EGL14.eglGetDisplay() = " + this.b);
+                int[] iArr = new int[2];
+                if (EGL14.eglInitialize(this.b, iArr, 0, iArr, 1)) {
+                    TLog.g(this, String.format("EGLDisplay.majoy:%d, EGLDisplay.minor:%d", Integer.valueOf(iArr[0]), Integer.valueOf(iArr[1])));
+                    EGLConfig[] eGLConfigArr = new EGLConfig[1];
+                    EGL14.eglChooseConfig(this.b, g, 0, eGLConfigArr, 0, 1, new int[1], 0);
+                    EGLConfig eGLConfig = eGLConfigArr[0];
+                    this.f = eGLConfig;
+                    EGLContext eglCreateContext = EGL14.eglCreateContext(this.b, eGLConfig, EGL14.eglGetCurrentContext(), h, 0);
+                    this.c = eglCreateContext;
+                    if (eglCreateContext != EGL14.EGL_NO_CONTEXT) {
+                        TLog.g(this, "EGL14.eglCreateContext() = " + this.c);
+                        EGL14.eglQueryContext(this.b, this.c, 12440, iArr, 0);
+                        TLog.g(this, String.format("EGLContext.version:%d", Integer.valueOf(iArr[0])));
+                        TLog.g(this, "EglCore.setup leave.");
+                        return;
                     }
+                    throw new RuntimeException(String.format("EGL14.eglCreateContext() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
                 }
+                this.b = EGL14.EGL_NO_DISPLAY;
+                throw new RuntimeException(String.format("EGL14.eglInitialize() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
             }
-            return null;
-        }
-        return (Method) invokeL.objValue;
-    }
-
-    public static void d(ScheduledExecutorService scheduledExecutorService) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, scheduledExecutorService) == null) {
-            e.remove(scheduledExecutorService);
+            throw new RuntimeException(String.format("EGL14.eglGetDisplay() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
         }
     }
 
-    @Override // com.baidu.tieba.b1c.a
-    public f1c b(l1c l1cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l1cVar)) == null) {
-            return c(l1cVar, 0L, null);
-        }
-        return (f1c) invokeL.objValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                Iterator<ScheduledThreadPoolExecutor> it = e.keySet().iterator();
-                while (it.hasNext()) {
-                    ScheduledThreadPoolExecutor next = it.next();
-                    if (!next.isShutdown()) {
-                        next.purge();
-                    } else {
-                        it.remove();
-                    }
-                }
-            } catch (Throwable th) {
-                k1c.e(th);
-                l5c.j(th);
-            }
-        }
-    }
-
-    public static void g(ScheduledThreadPoolExecutor scheduledThreadPoolExecutor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, scheduledThreadPoolExecutor) == null) {
-            while (true) {
-                if (f.get() != null) {
-                    break;
-                }
-                ScheduledExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(1, new RxThreadFactory("RxSchedulerPurge-"));
-                if (f.compareAndSet(null, newScheduledThreadPool)) {
-                    a aVar = new a();
-                    int i = d;
-                    newScheduledThreadPool.scheduleAtFixedRate(aVar, i, i, TimeUnit.MILLISECONDS);
-                    break;
-                }
-                newScheduledThreadPool.shutdownNow();
-            }
-            e.putIfAbsent(scheduledThreadPoolExecutor, scheduledThreadPoolExecutor);
-        }
-    }
-
-    public static boolean k(ScheduledExecutorService scheduledExecutorService) {
-        InterceptResult invokeL;
-        Method e2;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, scheduledExecutorService)) == null) {
-            if (c) {
-                if (scheduledExecutorService instanceof ScheduledThreadPoolExecutor) {
-                    Object obj2 = g;
-                    if (obj2 == h) {
-                        return false;
-                    }
-                    if (obj2 == null) {
-                        e2 = e(scheduledExecutorService);
-                        if (e2 != null) {
-                            obj = e2;
-                        } else {
-                            obj = h;
-                        }
-                        g = obj;
-                    } else {
-                        e2 = (Method) obj2;
-                    }
-                } else {
-                    e2 = e(scheduledExecutorService);
-                }
-                if (e2 != null) {
-                    try {
-                        e2.invoke(scheduledExecutorService, Boolean.TRUE);
-                        return true;
-                    } catch (IllegalAccessException e3) {
-                        l5c.j(e3);
-                    } catch (IllegalArgumentException e4) {
-                        l5c.j(e4);
-                    } catch (InvocationTargetException e5) {
-                        l5c.j(e5);
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.b1c.a
-    public f1c c(l1c l1cVar, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{l1cVar, Long.valueOf(j), timeUnit})) == null) {
-            if (this.b) {
-                return b6c.c();
-            }
-            return h(l1cVar, j, timeUnit);
-        }
-        return (f1c) invokeCommon.objValue;
-    }
-
-    public ScheduledAction h(l1c l1cVar, long j, TimeUnit timeUnit) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{l1cVar, Long.valueOf(j), timeUnit})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(l5c.q(l1cVar));
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
-        }
-        return (ScheduledAction) invokeCommon.objValue;
-    }
-
-    public ScheduledAction i(l1c l1cVar, long j, TimeUnit timeUnit, p3c p3cVar) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{l1cVar, Long.valueOf(j), timeUnit, p3cVar})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(l5c.q(l1cVar), p3cVar);
-            p3cVar.a(scheduledAction);
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
-        }
-        return (ScheduledAction) invokeCommon.objValue;
-    }
-
-    public ScheduledAction j(l1c l1cVar, long j, TimeUnit timeUnit, y5c y5cVar) {
-        InterceptResult invokeCommon;
-        Future<?> schedule;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{l1cVar, Long.valueOf(j), timeUnit, y5cVar})) == null) {
-            ScheduledAction scheduledAction = new ScheduledAction(l5c.q(l1cVar), y5cVar);
-            y5cVar.a(scheduledAction);
-            if (j <= 0) {
-                schedule = this.a.submit(scheduledAction);
-            } else {
-                schedule = this.a.schedule(scheduledAction, j, timeUnit);
-            }
-            scheduledAction.add(schedule);
-            return scheduledAction;
-        }
-        return (ScheduledAction) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.f1c
-    public boolean isUnsubscribed() {
+    @Override // com.baidu.tieba.l3c
+    public boolean available() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.get();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.f1c
-    public void unsubscribe() {
+    @Override // com.baidu.tieba.l3c
+    public int c() {
+        InterceptResult invokeV;
+        EGLSurface eGLSurface;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = true;
-            this.a.shutdownNow();
-            d(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int[] iArr = new int[1];
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay == EGL14.EGL_NO_DISPLAY || (eGLSurface = this.d) == EGL14.EGL_NO_SURFACE || !EGL14.eglQuerySurface(eGLDisplay, eGLSurface, 12374, iArr, 0)) {
+                return 0;
+            }
+            return iArr[0];
         }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.l3c
+    public int f() {
+        InterceptResult invokeV;
+        EGLSurface eGLSurface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            int[] iArr = new int[1];
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay == EGL14.EGL_NO_DISPLAY || (eGLSurface = this.d) == EGL14.EGL_NO_SURFACE || !EGL14.eglQuerySurface(eGLDisplay, eGLSurface, 12375, iArr, 0)) {
+                return 0;
+            }
+            return iArr[0];
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.l3c
+    public boolean swapBuffer() {
+        InterceptResult invokeV;
+        EGLSurface eGLSurface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay != EGL14.EGL_NO_DISPLAY && (eGLSurface = this.d) != EGL14.EGL_NO_SURFACE) {
+                return EGL14.eglSwapBuffers(eGLDisplay, eGLSurface);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.l3c
+    public boolean b(int i2, boolean z) {
+        InterceptResult invokeCommon;
+        EGLContext eGLContext;
+        int eglGetError;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (this.b == EGL14.EGL_NO_DISPLAY) {
+                return false;
+            }
+            EGLSurface g2 = g(i2);
+            if (z) {
+                eGLContext = this.c;
+            } else {
+                eGLContext = EGL14.EGL_NO_CONTEXT;
+            }
+            if (g2 == EGL14.EGL_NO_SURFACE && eGLContext != EGL14.EGL_NO_CONTEXT) {
+                return true;
+            }
+            boolean eglMakeCurrent = EGL14.eglMakeCurrent(this.b, g2, g2, eGLContext);
+            if (!eglMakeCurrent && (eglGetError = EGL14.eglGetError()) != 12288) {
+                TLog.c(this, String.format("EGL14.eglMakeCurrent() failed. eglGetError() = 0x%04x", Integer.valueOf(eglGetError)) + " bindSurfaceType=" + i2);
+            }
+            return eglMakeCurrent;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.l3c
+    public void d(boolean z) {
+        EGLSurface eGLSurface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            TLog.g(this, "EglCore.destroySurface enter, windowSurface: " + z);
+            if (z) {
+                eGLSurface = this.d;
+            } else {
+                eGLSurface = this.e;
+            }
+            if (z) {
+                this.a.set(false);
+            }
+            b(0, true);
+            EGLDisplay eGLDisplay = this.b;
+            if (eGLDisplay != EGL14.EGL_NO_DISPLAY && eGLSurface != EGL14.EGL_NO_SURFACE) {
+                EGL14.eglDestroySurface(eGLDisplay, eGLSurface);
+                if (z) {
+                    this.d = EGL14.EGL_NO_SURFACE;
+                } else {
+                    this.e = EGL14.EGL_NO_SURFACE;
+                }
+            }
+            TLog.g(this, "EglCore.destroySurface  leave.");
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:21:0x007d, code lost:
+        if (r6.d != android.opengl.EGL14.EGL_NO_SURFACE) goto L17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x007f, code lost:
+        r1 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x00c4, code lost:
+        if (r6.e != android.opengl.EGL14.EGL_NO_SURFACE) goto L17;
+     */
+    @Override // com.baidu.tieba.l3c
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public boolean e(Object obj) {
+        InterceptResult invokeL;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("EglCore.createSurface enter: ");
+            boolean z = false;
+            if (obj != null) {
+                i2 = obj.hashCode();
+            } else {
+                i2 = 0;
+            }
+            sb.append(i2);
+            TLog.g(this, sb.toString());
+            if (this.b != EGL14.EGL_NO_DISPLAY && this.f != null) {
+                if (obj != null) {
+                    try {
+                        if (h(obj)) {
+                            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.b, this.f, obj, j, 0);
+                            this.d = eglCreateWindowSurface;
+                            if (eglCreateWindowSurface == EGL14.EGL_NO_SURFACE) {
+                                TLog.c(this, String.format("EGL14.eglCreateWindowSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
+                            }
+                            TLog.g(this, "EGL14.eglCreateWindowSurface() = " + this.d);
+                            this.a.set(b(1, true));
+                        }
+                    } catch (Exception e) {
+                        TLog.g(this, "EGL14.eglCreateWindowSurface() = " + e.toString());
+                    }
+                }
+                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.b, this.f, i, 0);
+                this.e = eglCreatePbufferSurface;
+                if (eglCreatePbufferSurface == EGL14.EGL_NO_SURFACE) {
+                    TLog.c(this, String.format("EGL14.eglCreatePbufferSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
+                }
+                b(2, true);
+                TLog.g(this, "EGL14.eglCreatePbufferSurface() = " + this.e);
+            }
+            TLog.g(this, "EglCore.createSurface leave.");
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final EGLSurface g(int i2) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
+            EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
+            if (i2 == 1) {
+                return this.d;
+            }
+            if (i2 == 2) {
+                return this.e;
+            }
+            return eGLSurface;
+        }
+        return (EGLSurface) invokeI.objValue;
+    }
+
+    public boolean h(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
+            if (obj instanceof SurfaceHolder) {
+                return ((SurfaceHolder) obj).getSurface().isValid();
+            }
+            if (obj instanceof SurfaceView) {
+                return ((SurfaceView) obj).getHolder().getSurface().isValid();
+            }
+            if (obj instanceof Surface) {
+                return ((Surface) obj).isValid();
+            }
+            TLog.c(this, "param surface is invalid.");
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

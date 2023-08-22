@@ -19,7 +19,7 @@ import com.huawei.hms.framework.common.Logger;
 import com.huawei.hms.framework.common.SystemPropUtils;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import java.util.Locale;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CountryCodeBean {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ANDRIOD_SYSTEMPROP = "android.os.SystemProperties";

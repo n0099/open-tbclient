@@ -1,83 +1,86 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
-public abstract class wr {
+public class wr {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
 
-    public abstract String a();
-
-    public abstract void b(int i);
-
-    public abstract void c(IOException iOException);
-
-    public abstract void f(byte[] bArr);
-
-    public wr() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.b = 0;
-    }
-
-    public final void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = 0;
-            ur.a().b(str, this);
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public final String g(byte[] bArr) {
+    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static rr a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
-            String str = new String(bArr);
-            DebugTrace debugTrace = DebugTrace.a;
-            debugTrace.a("processResponseData encodeResponseData=" + str);
-            if (this.a) {
-                pr b = yr.c().b(zr.b().i(), bArr);
-                DebugTrace debugTrace2 = DebugTrace.a;
-                debugTrace2.a("processResponseData decodeResponseData=" + b);
-                if (b != null) {
-                    if (!TextUtils.isEmpty(b.a())) {
-                        str = b.a();
-                    }
-                    this.b = b.d().intValue();
-                } else {
-                    this.b = -1;
-                }
-                zr.b().i().b(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            rr rrVar = null;
+            if (bArr == null) {
+                return null;
             }
-            return str;
+            ByteBuffer wrap = ByteBuffer.wrap(bArr);
+            byte b = wrap.get();
+            byte b2 = wrap.get();
+            if (b == -27 && b2 == -89) {
+                rrVar = new rr();
+                wrap.get();
+                wrap.get();
+                rrVar.a(wrap.get());
+                rrVar.f(wrap.get());
+                int i = wrap.getShort();
+                rrVar.c(i);
+                int i2 = wrap.getInt();
+                rrVar.b(i2);
+                byte[] bArr2 = new byte[i];
+                wrap.get(bArr2, 0, i);
+                rrVar.j(bArr2);
+                if (i2 > 0) {
+                    byte[] bArr3 = new byte[i2];
+                    wrap.get(bArr3, 0, i2);
+                    rrVar.l(bArr3);
+                }
+            }
+            return rrVar;
         }
-        return (String) invokeL.objValue;
+        return (rr) invokeL.objValue;
+    }
+
+    public static byte[] b(rr rrVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rrVar)) == null) {
+            if (rrVar == null) {
+                return null;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(rrVar.m() + 12 + rrVar.n());
+            allocate.put((byte) -27);
+            allocate.put((byte) -89);
+            if (rrVar.e() != null && rrVar.e().length == 2) {
+                allocate.put(rrVar.e()[0]);
+                allocate.put(rrVar.e()[1]);
+                allocate.put(rrVar.i());
+                allocate.put(rrVar.k());
+                if (rrVar.o() != null && rrVar.o().length != 0) {
+                    int length = rrVar.o().length;
+                    allocate.put((byte) ((length >> 8) & 255));
+                    allocate.put((byte) (length & 255));
+                    if (rrVar.p() != null && rrVar.p().length != 0) {
+                        allocate.putInt(rrVar.p().length);
+                    } else {
+                        allocate.putInt(0);
+                    }
+                    if (rrVar.o() != null) {
+                        allocate.put(rrVar.o());
+                    }
+                    if (rrVar.p() != null) {
+                        allocate.put(rrVar.p());
+                    }
+                    return allocate.array();
+                }
+            }
+            return null;
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

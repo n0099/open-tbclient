@@ -44,9 +44,9 @@ public class SimpleFloatingPlayButtonElement extends PlayButtonElement {
     @Override // com.baidu.searchbox.player.element.PlayButtonElement
     public void setPlayIcon(boolean z) {
         if (z) {
-            getPlayBtn().setImageResource(R.drawable.obfuscated_res_0x7f08026b);
-        } else {
             getPlayBtn().setImageResource(R.drawable.obfuscated_res_0x7f08026c);
+        } else {
+            getPlayBtn().setImageResource(R.drawable.obfuscated_res_0x7f08026d);
         }
     }
 

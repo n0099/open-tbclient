@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.compatible.CompatibleUtile;
-import com.baidu.tieba.gk;
 import com.baidu.tieba.jk;
 import com.baidu.tieba.mk;
+import com.baidu.tieba.pk;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,11 +27,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class ChatClipImageItemView extends GifView implements jk.a {
+public class ChatClipImageItemView extends GifView implements mk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean M;
-    public jk N;
+    public mk N;
     public final Path O;
     public boolean P;
     public a Q;
@@ -41,7 +41,7 @@ public class ChatClipImageItemView extends GifView implements jk.a {
         void a(Canvas canvas);
     }
 
-    @Override // com.baidu.tieba.jk.a
+    @Override // com.baidu.tieba.mk.a
     public void b(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
@@ -150,19 +150,19 @@ public class ChatClipImageItemView extends GifView implements jk.a {
                 }
             }
             if (!z) {
-                this.N = new mk();
+                this.N = new pk();
             } else {
-                this.N = new gk();
+                this.N = new jk();
             }
             this.mArgs.n = true;
             this.N.t(this);
-            jk jkVar = this.N;
-            this.mDrawer = jkVar;
-            jkVar.r(this.mArgs);
+            mk mkVar = this.N;
+            this.mDrawer = mkVar;
+            mkVar.r(this.mArgs);
         }
     }
 
-    @Override // com.baidu.tieba.jk.a
+    @Override // com.baidu.tieba.mk.a
     public Path a(RectF rectF) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -234,11 +234,11 @@ public class ChatClipImageItemView extends GifView implements jk.a {
             } else {
                 z2 = false;
             }
-            jk jkVar = this.N;
+            mk mkVar = this.N;
             if (!z2 && !z) {
                 z3 = false;
             }
-            jkVar.u(z3);
+            mkVar.u(z3);
             return bdImage;
         }
         return (BdImage) invokeV.objValue;

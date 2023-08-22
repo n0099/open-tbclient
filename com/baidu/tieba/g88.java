@@ -1,111 +1,85 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class g88 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<ThreadData> a;
 
-    /* loaded from: classes6.dex */
-    public static abstract class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public View a;
-
-        public abstract boolean a();
-
-        public abstract void b(Runnable runnable);
-
-        public abstract void c(int i);
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public g88() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = view2;
         }
+        this.a = new ArrayList();
     }
 
-    /* loaded from: classes6.dex */
-    public static class b extends a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public List<ThreadData> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
 
-        @Override // com.baidu.tieba.g88.a
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<ThreadData> list = this.a;
+            if (list == null) {
                 return false;
             }
-            return invokeV.booleanValue;
+            return !ListUtils.isEmpty(list);
         }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(View view2) {
-            super(view2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.g88.a
-        public void b(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-                this.a.post(runnable);
-            }
-        }
-
-        @Override // com.baidu.tieba.g88.a
-        public void c(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                View view2 = this.a;
-                view2.scrollTo(i, view2.getScrollY());
-            }
-        }
+        return invokeV.booleanValue;
     }
 
-    public static final a a(View view2) {
-        InterceptResult invokeL;
+    public e88 a(boolean z, c88 c88Var) {
+        InterceptResult invokeZL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            if (Build.VERSION.SDK_INT >= 14) {
-                return new j88(view2);
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, c88Var)) == null) {
+            e88 e88Var = new e88();
+            e88Var.c = c88Var.i();
+            e88Var.e = c88Var.a();
+            e88Var.f = c88Var.c();
+            ArrayList<ThreadData> h = c88Var.h();
+            if (z) {
+                if (!ListUtils.isEmpty(h)) {
+                    this.a.clear();
+                    this.a.addAll(h);
+                }
+            } else if (!ListUtils.isEmpty(h)) {
+                this.a.addAll(h);
             }
-            return new b(view2);
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.a);
+            b78.e(true, arrayList, c88Var.e());
+            b78.e(true, arrayList, c88Var.f());
+            b78.e(true, arrayList, c88Var.d());
+            b78.e(true, arrayList, c88Var.g());
+            e88Var.a = b78.c(arrayList);
+            return e88Var;
         }
-        return (a) invokeL.objValue;
+        return (e88) invokeZL.objValue;
     }
 }

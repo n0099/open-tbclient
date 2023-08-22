@@ -1,700 +1,243 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.AndroidUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.url.UrlUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.net.FastRequest;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.impl.ResponsesPanelControllerImpl;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SingleTextImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.data.UserReplyInfoData;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.gif.GifView;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import org.apache.commons.codec.language.bm.ResourceConstants;
 /* loaded from: classes8.dex */
-public class xh8 implements vh8, sh8 {
+public class xh8 extends yh8<ThreadData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WeakReference<TbPageContext<BaseFragmentActivity>> a;
-    public final ResponsesPanelControllerImpl b;
-    @Nullable
-    public gj8 c;
-    @Nullable
-    public BaseMsg d;
-    @Nullable
-    public ChatRoomDetail e;
-    public int f;
-    public int g;
-    public long h;
-    public long i;
-    public long j;
-    public String k;
-    public long l;
-    public String m;
-    public long n;
-    public int o;
-    public boolean p;
-    public FastRequest q;
-    public FastRequest r;
-    public String s;
-    @Nullable
-    public th8 t;
-    public ca8 u;
-    @NonNull
-    public final yh8 v;
-    public final FastRequest.b<Void> w;
-    public final FastRequest.b<Void> x;
-    public final FastRequest.b<Void> y;
-    public FastRequest z;
+    public final Context m;
+    public LinearLayout n;
+    public FrameLayout o;
+    public GifView p;
+    public TbImageView q;
+    public TextView r;
 
-    @Override // com.baidu.tieba.vh8
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends FastRequest.b<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xh8 b;
-
-        public a(xh8 xh8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xh8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = xh8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: f */
-        public void b(int i, @NonNull String str, @Nullable Void r7) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, r7) == null) {
-                super.b(i, str, r7);
-                this.b.b.s(str);
-                this.b.b.p(3, i, str);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: g */
-        public void e(@NonNull Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
-                xh8 xh8Var = this.b;
-                xh8Var.p = !xh8Var.p;
-                String str = null;
-                if (this.b.p) {
-                    if (this.b.b.c.x2() != null) {
-                        if (this.b.b.c.x2().H0()) {
-                            if (this.b.b.c.x2().B0().size() >= 6) {
-                                str = TbadkApplication.getInst().getString(R.string.chat_msg_update_as_excellent);
-                            } else {
-                                str = TbadkApplication.getInst().getString(R.string.chat_msg_set_as_excellent);
-                            }
-                        } else if (this.b.b.c.x2().B0().size() >= 5) {
-                            str = TbadkApplication.getInst().getString(R.string.chat_msg_update_as_excellent);
-                        } else {
-                            str = TbadkApplication.getInst().getString(R.string.chat_msg_set_as_excellent);
-                        }
-                    }
-                } else {
-                    str = TbadkApplication.getInst().getString(R.string.chat_msg_remove_excellent);
-                }
-                this.b.b.p(3, 1, str);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends FastRequest.b<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xh8 b;
-
-        public b(xh8 xh8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xh8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = xh8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: g */
-        public void e(@NonNull Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
-                this.b.b.p(1, 1, null);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: f */
-        public void b(int i, @NonNull String str, @Nullable Void r7) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, r7) == null) {
-                super.b(i, str, r7);
-                this.b.b.p(1, i, str);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c extends FastRequest.b<Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xh8 b;
-
-        public c(xh8 xh8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xh8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = xh8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: g */
-        public void e(@NonNull Void r5) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, r5) == null) {
-                this.b.b.p(2, 1, null);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tbadk.net.FastRequest.b
-        /* renamed from: f */
-        public void b(int i, @NonNull String str, @Nullable Void r7) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, r7) == null) {
-                super.b(i, str, r7);
-                this.b.b.p(2, i, str);
-            }
-        }
-    }
-
-    public xh8(@NonNull TbPageContext<BaseFragmentActivity> tbPageContext, @NonNull ResponsesPanelControllerImpl responsesPanelControllerImpl) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xh8(@NonNull Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, responsesPanelControllerImpl};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.p = false;
-        this.u = null;
-        this.w = new a(this);
-        this.x = new b(this);
-        this.y = new c(this);
-        this.a = new WeakReference<>(tbPageContext);
-        this.b = responsesPanelControllerImpl;
-        responsesPanelControllerImpl.q(this);
-        this.v = new yh8(responsesPanelControllerImpl);
+        this.m = context;
+        t(context);
     }
 
-    public boolean j(boolean z, @NonNull AbilityItem.StyleConf styleConf) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048582, this, z, styleConf)) == null) {
-            if (styleConf.isFilterBotMsg() == null || styleConf.getShowMsgType() == null || ListUtils.isEmpty(styleConf.getShowMsgType()) || ListUtils.getCount(styleConf.getShowMsgType()) <= 0) {
-                return true;
-            }
-            if (this.d != null && !styleConf.getShowMsgType().contains(Integer.valueOf(this.d.getMsgType()))) {
-                return true;
-            }
-            if (z && Objects.equals(styleConf.isFilterBotMsg(), 1)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeZL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.vh8
-    public void b(@NonNull th8 th8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th8Var) == null) {
-            this.t = th8Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.vh8
-    public void f(@NonNull gj8 gj8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gj8Var) == null) {
-            this.c = gj8Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.sh8
-    public void a(int i, @Nullable Map<String, Object> map) {
-        String format;
-        th8 th8Var;
-        gj8 gj8Var;
-        BaseMsg baseMsg;
-        gj8 gj8Var2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, map) == null) {
-            String str = null;
-            String thumbUrl = null;
-            r2 = null;
-            Reaction reaction = null;
-            switch (i) {
-                case 17:
-                    ChatRoomDetail chatRoomDetail = this.e;
-                    if (chatRoomDetail != null && !StringUtils.isNull(chatRoomDetail.getForbiddenContent())) {
-                        format = String.format(this.e.getForbiddenContent().replaceAll("\\\\n", "\n"), this.k);
-                    } else {
-                        format = String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0414), this.k);
-                    }
-                    this.b.r(format);
-                    return;
-                case 18:
-                    zm8.e("c15091", String.valueOf(this.l), this.n, this.h);
-                    n(new Object[0]);
-                    return;
-                case 19:
-                    th8 th8Var2 = this.t;
-                    if (th8Var2 != null) {
-                        th8Var2.a(19, this.d, null);
-                    }
-                    BaseMsg baseMsg2 = this.d;
-                    if (baseMsg2 != null) {
-                        if (baseMsg2.getMsgType() == 1 || this.d.getMsgType() == 101) {
-                            BaseMsg baseMsg3 = this.d;
-                            if (baseMsg3 instanceof TextMsg) {
-                                str = ((TextMsg) baseMsg3).getText();
-                            } else if (baseMsg3 instanceof TextGenImageMsg) {
-                                str = ((TextGenImageMsg) baseMsg3).getText();
-                            }
-                            if (!StringUtils.isNull(str)) {
-                                AndroidUtils.copyToClipboard(str);
-                                this.b.s(this.a.get().getResources().getString(R.string.obfuscated_res_0x7f0f093c));
-                                return;
-                            }
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                case 20:
-                    m(new String[0]);
-                    return;
-                case 21:
-                    if (this.d == null) {
-                        return;
-                    }
-                    UserReplyInfoData userReplyInfoData = new UserReplyInfoData();
-                    SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(this.d.getReplyPrefix());
-                    spannableStringBuilder.append(this.d.getThumbnailText());
-                    userReplyInfoData.setmContent(spannableStringBuilder);
-                    userReplyInfoData.setmNameShow(this.d.getCommonMsgField().getUserName());
-                    userReplyInfoData.setmPortrait(this.d.getCommonMsgField().getPortrait());
-                    userReplyInfoData.setmUid(this.d.getCommonMsgField().getUserId());
-                    userReplyInfoData.setRobot(this.d.getCommonMsgField().isRobot());
-                    th8 th8Var3 = this.t;
-                    if (th8Var3 != null) {
-                        th8Var3.a(21, this.d, userReplyInfoData);
-                        return;
-                    }
-                    return;
-                case 22:
-                case 27:
-                case 28:
-                case 29:
-                case 30:
-                case 31:
-                default:
-                    return;
-                case 23:
-                    BaseMsg baseMsg4 = this.d;
-                    if (baseMsg4 != null && baseMsg4.getCommonMsgField().getBubbleInfo() != null) {
-                        String jumpUrl = this.d.getCommonMsgField().getBubbleInfo().getJumpUrl();
-                        if (!StringUtils.isNull(jumpUrl)) {
-                            UrlManager.getInstance().dealOneLink(jumpUrl);
-                        }
-                    }
-                    TiebaStatic.log(new StatisticItem("c15236").param("uid", TbadkCoreApplication.getCurrentAccount()));
-                    return;
-                case 24:
-                    ChatRoomDetail chatRoomDetail2 = this.e;
-                    if (chatRoomDetail2 != null && chatRoomDetail2.getLongPressMsgBtn() != null && (th8Var = this.t) != null && map != null) {
-                        th8Var.a(i, this.d, map.get("robot_tag"));
-                        return;
-                    }
-                    return;
-                case 25:
-                    zm8.e("c15092", String.valueOf(this.j), this.n, this.h);
-                    l(new Object[0]);
-                    return;
-                case 26:
-                    if (map != null && map.containsKey("ext_reaction")) {
-                        reaction = (Reaction) map.get("ext_reaction");
-                    }
-                    if (reaction != null && (gj8Var = this.c) != null && (baseMsg = this.d) != null) {
-                        this.v.c(gj8Var, reaction, baseMsg);
-                        return;
-                    }
-                    return;
-                case 32:
-                    BaseMsg baseMsg5 = this.d;
-                    if (baseMsg5 != null) {
-                        if (baseMsg5.getMsgType() == 102 || this.d.getMsgType() == 2 || this.d.getMsgType() == 101) {
-                            BaseMsg baseMsg6 = this.d;
-                            if (baseMsg6 instanceof ImageMsg) {
-                                thumbUrl = ((ImageMsg) baseMsg6).getThumbUrl();
-                            } else if (baseMsg6 instanceof SingleTextImageMsg) {
-                                thumbUrl = ((SingleTextImageMsg) baseMsg6).getThumbUrl();
-                            } else if (baseMsg6 instanceof TextGenImageMsg) {
-                                thumbUrl = ((TextGenImageMsg) baseMsg6).getThumbUrl();
-                            }
-                            ca8 ca8Var = new ca8(this.a.get().getContext(), thumbUrl, this.n, null, this.h, true);
-                            this.u = ca8Var;
-                            ca8Var.execute(new String[0]);
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                case 33:
-                    k();
-                    return;
-                case 34:
-                    BaseMsg baseMsg7 = this.d;
-                    if (baseMsg7 != null && (gj8Var2 = this.c) != null) {
-                        hk8.e(gj8Var2, 1, baseMsg7);
-                        return;
-                    }
-                    return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.vh8
-    public void e(@NonNull BaseMsg baseMsg, @NonNull ChatRoomDetail chatRoomDetail) {
+    @Override // com.baidu.tieba.rh8
+    public void a(String str) {
         boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseMsg, chatRoomDetail) == null) {
-            this.d = baseMsg;
-            this.e = chatRoomDetail;
-            this.v.e(chatRoomDetail.getReactions());
-            this.v.d(this.a.get().getPageActivity());
-            CommonMsgField commonMsgField = baseMsg.getCommonMsgField();
-            if (!StringUtils.isNull(commonMsgField.getUserName())) {
-                this.k = commonMsgField.getUserName();
-            }
-            if (!StringUtils.isNull(commonMsgField.getMsgKey())) {
-                this.m = commonMsgField.getMsgKey();
-            }
-            CharSequence thumbnailText = this.d.getThumbnailText();
-            int role = commonMsgField.getRole();
-            if (commonMsgField.getRobotRole() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                role = 64;
-            }
-            this.f = role;
-            this.h = commonMsgField.getRoomId();
-            this.i = commonMsgField.getMsgId();
-            this.j = commonMsgField.getUserId();
-            this.l = TbadkCoreApplication.getCurrentAccountId();
-            this.o = baseMsg.getMsgType();
-            if (chatRoomDetail.getBasicInfo() != null) {
-                this.n = chatRoomDetail.getBasicInfo().getForumId();
-            }
-            this.g = 1;
-            if (chatRoomDetail.getUserInfo() != null) {
-                int identityRole = chatRoomDetail.getUserInfo().getIdentityRole();
-                if (identityRole != 0) {
-                    if (identityRole != 1) {
-                        if (identityRole == 2 || identityRole == 3) {
-                            this.g = 2;
-                        }
-                    } else {
-                        this.g = 3;
-                    }
-                } else {
-                    this.g = 1;
-                }
-            }
-            if (this.e.getLongPressMsgBtn() != null && !ListUtils.isEmpty(this.e.getLongPressMsgBtn())) {
-                int size = this.e.getLongPressMsgBtn().size();
-                for (int i = 0; i < size; i++) {
-                    if (this.e.getLongPressMsgBtn().get(i) != null) {
-                        AbilityItem abilityItem = this.e.getLongPressMsgBtn().get(i);
-                        if (abilityItem.getStyleConf() != null && !StringUtils.isNull(abilityItem.getStyleConf().getContent())) {
-                            this.b.c(abilityItem);
-                            this.b.d(abilityItem.getStyleConf().getContent(), i());
-                            if (j(z, abilityItem.getStyleConf())) {
-                                this.b.m();
-                            }
-                        }
-                    }
-                }
-            } else {
-                this.b.m();
-            }
-            this.b.j(this.k, thumbnailText);
-            g();
-        }
-    }
-
-    @Override // com.baidu.tieba.vh8
-    public void g() {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            HashMap hashMap = new HashMap();
-            ChatRoomDetail chatRoomDetail = this.e;
-            if (chatRoomDetail != null) {
-                hashMap.put("is_show_reply", Boolean.valueOf(yj8.r(chatRoomDetail)));
-            }
-            BaseMsg baseMsg = this.d;
-            if (baseMsg != null && baseMsg.getCommonMsgField().getBubbleInfo() != null && !StringUtils.isNull(this.d.getCommonMsgField().getBubbleInfo().getJumpUrl())) {
-                hashMap.put("is_show_bubble", Boolean.TRUE);
-                TiebaStatic.log(new StatisticItem("c15235").param("uid", TbadkCoreApplication.getCurrentAccount()));
-            }
-            BaseMsg baseMsg2 = this.d;
-            if (baseMsg2 != null && baseMsg2.getMsgType() == 2) {
-                hashMap.put("is_show_copy", Boolean.FALSE);
-            }
-            int i = this.o;
-            if (i != 102 && i != 2 && i != 101) {
-                z = false;
-            } else {
-                z = true;
-            }
-            BaseMsg baseMsg3 = this.d;
-            if (baseMsg3 != null && baseMsg3.getCommonMsgField().getExcellentInfo() != null) {
-                boolean isExcellent = this.d.getCommonMsgField().getExcellentInfo().isExcellent();
-                this.p = isExcellent;
-                hashMap.put("is_excellent_msg", Boolean.valueOf(isExcellent));
-            } else {
-                this.p = false;
-            }
-            ChatRoomDetail chatRoomDetail2 = this.e;
-            if (chatRoomDetail2 != null && this.d != null && chatRoomDetail2.getBots() != null && this.e.getCanExcellent() != null) {
-                if (this.e.getCanExcellent().getCanOpExcellent() == 1) {
-                    z5 = true;
-                } else {
-                    z5 = false;
-                }
-                if (z5) {
-                    for (BotsDTO.BotListDTO botListDTO : this.e.getBots().getBotList()) {
-                        this.s = botListDTO.getAtGuide();
-                    }
-                    if (this.d.getMsgType() == 1) {
-                        String text = ((TextMsg) this.d).getText();
-                        if (StringUtils.isNull(this.s) || (text != null && !text.contains(this.s))) {
-                            hashMap.put("is_show_excellent_btn", Boolean.TRUE);
-                        }
-                    } else {
-                        hashMap.put("is_show_excellent_btn", Boolean.TRUE);
-                    }
-                }
-            }
-            BaseMsg baseMsg4 = this.d;
-            if (baseMsg4 != null && (baseMsg4.getItemStatus() != 5 || this.d.isLocalMsg())) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (this.b.c.q2() != null) {
-                z3 = hk8.c(this.b.c.q2());
-            } else {
-                z3 = true;
-            }
-            if (!z2 && z3) {
-                hashMap.put("is_show_emoji_reply", Boolean.TRUE);
-            } else {
-                hashMap.put("is_show_emoji_reply", Boolean.FALSE);
-            }
-            ResponsesPanelControllerImpl responsesPanelControllerImpl = this.b;
-            if (this.l == this.j) {
-                z4 = true;
-            } else {
-                z4 = false;
-            }
-            responsesPanelControllerImpl.k(z4, this.f, this.g, hashMap, z, this.n, this.h);
-        }
-    }
-
-    @Nullable
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ChatRoomDetail chatRoomDetail = this.e;
-            if (chatRoomDetail != null && !ListUtils.isEmpty(chatRoomDetail.getLongPressMsgBtn()) && this.e.getLongPressMsgBtn().get(0) != null) {
-                int skinType = TbadkApplication.getInst().getSkinType();
-                AbilityItem.StyleConf styleConf = this.e.getLongPressMsgBtn().get(0).getStyleConf();
-                if (skinType == 4) {
-                    if (styleConf != null && styleConf.getDark() != null) {
-                        return styleConf.getDark().getIcon();
-                    }
-                } else if (skinType == 0 && styleConf != null && styleConf.getDay() != null) {
-                    return styleConf.getDay().getIcon();
-                }
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void k() {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.z == null) {
-                this.z = new FastRequest(this.a.get(), CmdConfigHttp.CMD_GROUP_CHAT_EXCELLENT_MESSAGE, "c/c/chatroom/opExcellentMsg");
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            ThreadData threadData = (ThreadData) this.j;
+            long userIdLong = this.k.getUserIdLong();
+            String userName = this.k.getUserName();
+            String name_show = this.k.getName_show();
+            String portrait = this.k.getPortrait();
+            if (this.k.getIsMyFriend() == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-            FastRequest fastRequest = this.z;
-            fastRequest.O("forum_id", Long.valueOf(this.n));
-            fastRequest.O("chatroom_id", String.valueOf(this.h));
-            fastRequest.O("msg_id", String.valueOf(this.i));
-            fastRequest.O("msg_key", String.valueOf(this.m));
-            fastRequest.O("tbs", TbadkCoreApplication.getInst().getTbs());
-            if (this.p) {
+            yi8.d(threadData, str, userIdLong, userName, name_show, portrait, z);
+            lf5.e(this.k.getUserIdLong());
+            if (((ThreadData) this.j).threadType == 40) {
                 i = 2;
             } else {
                 i = 1;
             }
-            fastRequest.O("op_type", Integer.valueOf(i));
-            fastRequest.Q(this.w);
-            fastRequest.P();
+            p(1, 0, i, String.valueOf(this.k.getUserIdLong()));
         }
     }
 
-    public void l(@NonNull Object... objArr) {
+    @Override // com.baidu.tieba.rh8
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, objArr) == null) {
-            if (this.q == null && this.a.get() != null) {
-                this.q = new FastRequest(this.a.get(), CmdConfigHttp.CMD_GET_GROUP_CHAT_LIMIT_MESSAGE, "c/c/chatroom/controlSpeak");
-            }
-            FastRequest fastRequest = this.q;
-            fastRequest.O("uid", String.valueOf(this.l));
-            fastRequest.O("chatroom_id", String.valueOf(this.h));
-            fastRequest.O("op_type", 1);
-            fastRequest.O("block_uid", String.valueOf(this.j));
-            fastRequest.O("forum_id", String.valueOf(this.n));
-            fastRequest.Q(this.x);
-            fastRequest.U(true);
-            fastRequest.P();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            yi8.j(str, this.k.groupData, (ThreadData) this.j);
         }
     }
 
-    public void n(@NonNull Object... objArr) {
+    @Override // com.baidu.tieba.yh8
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, objArr) == null) {
-            if (this.r == null) {
-                this.r = new FastRequest(this.a.get(), CmdConfigHttp.CMD_GET_GROUP_CHAT_ROLLBACK_MESSAGE, "c/c/chatroom/withdrawMsg");
-            }
-            FastRequest fastRequest = this.r;
-            fastRequest.O("msg_type", Integer.valueOf(this.o));
-            fastRequest.O("uid_to", String.valueOf(this.j));
-            fastRequest.O("chatroom_id", String.valueOf(this.h));
-            fastRequest.O("msg_id", String.valueOf(this.i));
-            fastRequest.O("msg_key", String.valueOf(this.m));
-            fastRequest.O("forum_id", String.valueOf(this.n));
-            fastRequest.Q(this.y);
-            fastRequest.U(true);
-            fastRequest.P();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.g();
+            EMManager.from(this.n).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0207);
+            EMManager.from(this.r).setTextColor(R.color.CAM_X0107);
         }
     }
 
-    public void m(@NonNull String... strArr) {
+    public final void r(ThreadData threadData, CharSequence charSequence) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, strArr) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("type", String.valueOf(5));
-            hashMap.put("chatroom_msg_id", String.valueOf(this.i));
-            hashMap.put("chatroom_id", String.valueOf(this.h));
-            String appendParams = UrlUtils.appendParams("https://tieba.baidu.com/tpl/wise-bawu-core/report", hashMap);
-            if (this.a.get() != null) {
-                UrlManager.getInstance().dealOneLink(this.a.get(), new String[]{appendParams});
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, threadData, charSequence) == null) && threadData.isVoiceThreadType()) {
+            String str = ((Object) charSequence) + this.m.getString(R.string.im_share_voice_info);
+        }
+    }
+
+    public final void s(ThreadData threadData, CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, threadData, charSequence) == null) && threadData.getPollData() != null) {
+            String str = ((Object) charSequence) + this.m.getString(R.string.im_share_vote_info);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yh8
+    /* renamed from: w */
+    public void o(ThreadData threadData, MetaData metaData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, threadData, metaData) == null) {
+            super.o(threadData, metaData);
+            if (threadData == null) {
+                return;
             }
+            this.q.setVisibility(8);
+            u(threadData);
+            v(threadData);
+        }
+    }
+
+    public final CharSequence q(ThreadData threadData, CharSequence charSequence) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, threadData, charSequence)) == null) {
+            if (threadData != null && threadData.isShareThread && threadData.originalThreadData != null) {
+                SpannableStringBuilder append = new SpannableStringBuilder(charSequence).append((CharSequence) ResourceConstants.CMT);
+                OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
+                return new SpannableString(append.append((CharSequence) new SpannableString(g16.J(originalThreadInfo.s, originalThreadInfo.E, false, threadData, originalThreadInfo.h()))));
+            }
+            return charSequence;
+        }
+        return (CharSequence) invokeLL.objValue;
+    }
+
+    public final void t(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, context) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.im_share_dialog_thread, i());
+            this.n = (LinearLayout) inflate.findViewById(R.id.im_share_thread_info_container);
+            this.o = (FrameLayout) inflate.findViewById(R.id.im_share_thread_info_img_container);
+            GifView gifView = (GifView) inflate.findViewById(R.id.im_share_thread_info_img);
+            this.p = gifView;
+            gifView.setConrers(15);
+            this.p.setRadiusById(R.string.J_X04);
+            this.p.setDrawCorner(true);
+            this.p.setDrawBorder(true);
+            this.p.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.L_X01));
+            this.p.setBorderSurroundContent(true);
+            this.p.setAutoPlay(true);
+            this.p.setShowStaticDrawable(false);
+            this.p.setSupportNoImage(false);
+            this.p.setGifIconSupport(true);
+            this.q = (TbImageView) inflate.findViewById(R.id.im_share_thread_info_video_icon);
+            this.r = (TextView) inflate.findViewById(R.id.im_share_thread_info_text);
+            g();
+        }
+    }
+
+    public final void u(ThreadData threadData) {
+        MediaData mediaData;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, threadData) == null) {
+            if (threadData.getThreadType() == 40 && threadData.getThreadVideoInfo() != null) {
+                str = threadData.getThreadVideoInfo().thumbnail_url;
+                this.q.setVisibility(0);
+                this.q.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pb_post_share_voide_thread_play, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
+            } else {
+                new MediaData();
+                if (threadData.isImShareFromPb()) {
+                    OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
+                    if (originalThreadInfo != null && !ListUtils.isEmpty(originalThreadInfo.h)) {
+                        mediaData = threadData.originalThreadData.h.get(0);
+                        mediaData.setSrc_pic(threadData.originalThreadData.c);
+                    } else {
+                        this.o.setVisibility(8);
+                        return;
+                    }
+                } else if (ListUtils.isEmpty(threadData.getMedias())) {
+                    this.o.setVisibility(8);
+                    return;
+                } else {
+                    mediaData = threadData.getMedias().get(0);
+                }
+                if (!TextUtils.isEmpty(mediaData.getSrc_pic())) {
+                    str = mediaData.getSrc_pic();
+                } else if (!TextUtils.isEmpty(mediaData.getPicUrl())) {
+                    str = mediaData.getPicUrl();
+                } else {
+                    str = null;
+                }
+            }
+            if (TextUtils.isEmpty(str)) {
+                this.o.setVisibility(8);
+                return;
+            }
+            this.p.setVisibility(0);
+            this.p.u(str, 38);
+        }
+    }
+
+    public final void v(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, threadData) == null) {
+            CharSequence string = this.m.getString(R.string.im_share_default_info);
+            if (!TextUtils.isEmpty(threadData.getTitleText()) && threadData.getIsNoTitle() == 0) {
+                string = q(threadData, threadData.getTitleText());
+            } else if (!TextUtils.isEmpty(threadData.getTitle()) && threadData.getIsNoTitle() == 0) {
+                string = q(threadData, threadData.getTitle());
+            } else if (!TextUtils.isEmpty(threadData.getAbstractText())) {
+                string = q(threadData, threadData.getAbstractText());
+                r(threadData, string);
+                s(threadData, string);
+            } else if (!TextUtils.isEmpty(threadData.getAbstract())) {
+                string = q(threadData, threadData.getAbstract());
+                r(threadData, string);
+                s(threadData, string);
+            } else if (threadData.isImShareFromPb() && threadData.getPbFirstShareData() != null && threadData.getPbFirstShareData().e0() != null) {
+                string = threadData.getPbFirstShareData().e0().toString();
+            }
+            this.r.setText(string);
         }
     }
 }

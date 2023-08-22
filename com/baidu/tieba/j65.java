@@ -1,109 +1,73 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.ArrayMap;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class j65 implements f65 {
+public class j65 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, Class<? extends x55>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947835264, "Lcom/baidu/tieba/j65;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947835264, "Lcom/baidu/tieba/j65;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947835264, "Lcom/baidu/tieba/j65;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947835264, "Lcom/baidu/tieba/j65;");
-        }
-    }
-
-    public j65() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        ArrayMap arrayMap = new ArrayMap();
+        a = arrayMap;
+        arrayMap.put("WebViewYunDialog", i65.class);
+        a.put("userIcon", h65.class);
+        a.put("userGrowth", g65.class);
+        a.put("newGod", d65.class);
+        a.put("operateNew", e65.class);
+        a.put("homeLiveRemind", c65.class);
+        a.put("updateDialog", f65.class);
+        a.put("lcUpdateDialog", b65.class);
+        y55 y55Var = new y55();
+        lk1<z55> lk1Var = y55Var.a;
+        if (lk1Var != null && !ListUtils.isEmpty(lk1Var.getList())) {
+            for (z55 z55Var : y55Var.a.getList()) {
+                a.put(z55Var.name(), z55Var.a());
             }
         }
     }
 
-    @Override // com.baidu.tieba.f65
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
-        InterceptResult invokeLLL;
+    public static void a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialog_url", dialogData.getDialogUrl());
-            hashMap.putAll(extraData);
-            return hashMap;
-        }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.f65
-    public boolean b(Map<String, ? extends Object> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            Object obj = map.get("dialog_url");
-            if ((obj instanceof String) && !TextUtils.isEmpty((CharSequence) obj)) {
-                Object obj2 = map.get("check_preheat");
-                if (obj2 != null && Intrinsics.areEqual("1", obj2.toString()) && !lx5.b().e((String) obj)) {
-                    YunDialogLog.getInstance().e("HybridCheckStrategy", "H5弹窗未预热完成");
-                    return false;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, str2) == null) {
+            p55 b = p55.b(str, str2);
+            try {
+                String a2 = b.a("yun_dialogClass");
+                if (TextUtils.isEmpty(a2)) {
+                    return;
                 }
-                try {
-                    Object obj3 = map.get("init_offline_module");
-                    if ((obj3 instanceof String) && !TextUtils.isEmpty((CharSequence) obj3)) {
-                        TbLog yunDialogLog = YunDialogLog.getInstance();
-                        yunDialogLog.i("HybridCheckStrategy", "主动初始化离线包:" + obj3);
-                        HashSet hashSet = new HashSet();
-                        hashSet.add(obj3);
-                        az4.d(hashSet);
-                        TbLog yunDialogLog2 = YunDialogLog.getInstance();
-                        yunDialogLog2.i("HybridCheckStrategy", "离线包主动初始化完成:" + obj3);
-                    }
-                } catch (Exception e) {
-                    TbLog yunDialogLog3 = YunDialogLog.getInstance();
-                    yunDialogLog3.e("HybridCheckStrategy", "离线包手动初始化异常:" + e);
-                }
-                Object obj4 = map.get("check_offline");
-                if (obj4 != null && Intrinsics.areEqual("1", obj4.toString()) && !az4.c((String) obj)) {
-                    YunDialogLog.getInstance().e("HybridCheckStrategy", "离线包不可用");
-                    return false;
-                }
-                return true;
+                a.get(a2).getConstructor(new Class[0]).newInstance(new Object[0]).a(context, b);
+            } catch (Exception e) {
+                TbLog yunDialogLog = YunDialogLog.getInstance();
+                yunDialogLog.e(YunDialogManager.LOG_KEY, "云弹窗 " + str + " 渲染失败：" + e.getMessage());
+                YunDialogManager.unMarkShowingDialogName(str);
+                e.printStackTrace();
             }
-            YunDialogLog.getInstance().e("HybridCheckStrategy", "未下发待检测的H5弹窗url");
-            return false;
         }
-        return invokeL.booleanValue;
     }
 }

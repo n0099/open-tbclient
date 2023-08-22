@@ -8,14 +8,14 @@ import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.swan.apps.SwanAppLauncherActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ca3;
-import com.baidu.tieba.gq3;
-import com.baidu.tieba.ir1;
-import com.baidu.tieba.qa3;
-import com.baidu.tieba.xn3;
+import com.baidu.tieba.co3;
+import com.baidu.tieba.ha3;
+import com.baidu.tieba.lq3;
+import com.baidu.tieba.nr1;
+import com.baidu.tieba.va3;
 /* loaded from: classes4.dex */
 public class SwanAppAdbDebugActivity extends Activity {
-    public static final boolean a = ir1.a;
+    public static final boolean a = nr1.a;
 
     /* loaded from: classes4.dex */
     public class a implements DialogInterface.OnClickListener {
@@ -50,24 +50,24 @@ public class SwanAppAdbDebugActivity extends Activity {
         if (a) {
             Log.d("SwanAppAdbDebugActivity", "ADB Debug onCreate");
         }
-        if (xn3.a(this)) {
+        if (co3.a(this)) {
             return;
         }
         Intent intent = getIntent();
         if (TextUtils.isEmpty(intent.getStringExtra("adb_debug_path"))) {
-            qa3.f(this, R.string.obfuscated_res_0x7f0f012e).G();
+            va3.f(this, R.string.obfuscated_res_0x7f0f012f).G();
             if (a) {
                 Log.d("SwanAppAdbDebugActivity", "ADB Debug lack of app path");
             }
             finish();
         }
-        ca3.a aVar = new ca3.a(this);
-        aVar.V(getString(R.string.obfuscated_res_0x7f0f012c));
-        aVar.x(getString(R.string.obfuscated_res_0x7f0f012d));
-        aVar.n(new gq3());
+        ha3.a aVar = new ha3.a(this);
+        aVar.V(getString(R.string.obfuscated_res_0x7f0f012d));
+        aVar.x(getString(R.string.obfuscated_res_0x7f0f012e));
+        aVar.n(new lq3());
         aVar.m(false);
-        aVar.O(R.string.obfuscated_res_0x7f0f0146, new b(intent));
-        aVar.B(R.string.obfuscated_res_0x7f0f1507, new a());
+        aVar.O(R.string.obfuscated_res_0x7f0f0147, new b(intent));
+        aVar.B(R.string.obfuscated_res_0x7f0f1515, new a());
         aVar.X();
     }
 }

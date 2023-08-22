@@ -1,140 +1,183 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.effectmp4.EffectInfo;
+import java.io.IOException;
+import java.io.InputStream;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.NoSuchAlgorithmException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.TrustManagerFactory;
+import javax.net.ssl.X509TrustManager;
 /* loaded from: classes8.dex */
-public class twb extends vwb {
+public class twb implements X509TrustManager {
     public static /* synthetic */ Interceptable $ic;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public EffectInfo l;
-    public int m;
-    public int n;
-    public int o;
-    public int p;
-    public int q;
-    public int r;
-    public int s;
-    public int t;
+    public List<X509TrustManager> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public twb(bxb bxbVar) {
-        super(bxbVar);
+    public void b(X509Certificate[] x509CertificateArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr) == null) {
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948197034, "Lcom/baidu/tieba/twb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948197034, "Lcom/baidu/tieba/twb;");
+                return;
+            }
+        }
+        b = twb.class.getSimpleName();
+    }
+
+    public twb(InputStream inputStream, String str) throws IllegalArgumentException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bxbVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {inputStream, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((bxb) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = null;
-        this.m = -1;
-        this.n = -1;
-        this.o = -1;
-        this.p = -1;
-        this.q = -1;
-        this.r = -1;
-        this.s = -1;
-        this.t = -1;
+        this.a = new ArrayList();
+        a(inputStream, str);
     }
 
-    @Override // com.baidu.tieba.vwb
-    public void a(String str, String str2, int i, int i2) {
+    public final void a(InputStream inputStream, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048576, this, str, str2, i, i2) == null) {
-            super.a(str, str2, i, i2);
-            GLES20.glUseProgram(this.a);
-            this.m = GLES20.glGetUniformLocation(this.a, "bgRectRGB");
-            cxb.c("EffectMP4_uniform_bgRectRGB", this.j);
-            this.n = GLES20.glGetUniformLocation(this.a, "bgRectA");
-            cxb.c("EffectMP4_uniform_bRectA", this.j);
-            this.o = GLES20.glGetUniformLocation(this.a, "maskCount");
-            cxb.c("EffectMP4_uniform_maskCount", this.j);
-            this.p = GLES20.glGetUniformLocation(this.a, "srcImage");
-            cxb.c("EffectMP4_uniform_bRectA", this.j);
-            this.q = GLES20.glGetUniformLocation(this.a, "srcRgbRects");
-            cxb.c("EffectMP4_uniform_srcRgbRects", this.j);
-            this.r = GLES20.glGetUniformLocation(this.a, "maskFrameRects");
-            cxb.c("EffectMP4_uniform_maskFrameRects", this.j);
-            this.s = GLES20.glGetUniformLocation(this.a, "maskAlphaRects");
-            cxb.c("EffectMP4_uniform_maskAlphaRects", this.j);
-            this.t = GLES20.glGetUniformLocation(this.a, "rectOffset");
-            cxb.c("EffectMP4_uniform_rectOffset", this.j);
-            GLES20.glUseProgram(0);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, inputStream, str) == null) {
+            if (inputStream != null && str != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                try {
+                    try {
+                        TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance("X509");
+                        KeyStore keyStore = KeyStore.getInstance("bks");
+                        keyStore.load(inputStream, str.toCharArray());
+                        trustManagerFactory.init(keyStore);
+                        TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
+                        for (int i = 0; i < trustManagers.length; i++) {
+                            if (trustManagers[i] instanceof X509TrustManager) {
+                                this.a.add((X509TrustManager) trustManagers[i]);
+                            }
+                        }
+                        bxb.b(inputStream);
+                    } finally {
+                        bxb.b(inputStream);
+                    }
+                } catch (IOException | KeyStoreException | NoSuchAlgorithmException | CertificateException e) {
+                    String str2 = b;
+                    cxb.d(str2, "loadInputStream: exception : " + e.getMessage());
+                }
+                String str3 = b;
+                cxb.b(str3, "loadInputStream: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
+                return;
+            }
+            throw new IllegalArgumentException("inputstream or trustPwd is null");
         }
     }
 
-    @Override // com.baidu.tieba.vwb
-    public void e(float f, float f2) {
-        int i;
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) != null) || (i = this.t) == -1) {
-            return;
-        }
-        GLES20.glUniform2f(i, f, f2);
-    }
-
-    public void k(float[] fArr, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, fArr, i) == null) && (i2 = this.s) != -1 && fArr != null && i > 0) {
-            GLES20.glUniform4fv(i2, i, fArr, 0);
-        }
-    }
-
-    public void m(float[] fArr, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048580, this, fArr, i) == null) && (i2 = this.r) != -1 && fArr != null && i > 0) {
-            GLES20.glUniform4fv(i2, i, fArr, 0);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, x509CertificateArr, str) == null) {
+            cxb.e(b, "checkClientTrusted: ");
+            for (X509TrustManager x509TrustManager : this.a) {
+                try {
+                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
+                    return;
+                } catch (CertificateException e) {
+                    String str2 = b;
+                    cxb.d(str2, "checkServerTrusted CertificateException" + e.getMessage());
+                }
+            }
+            throw new CertificateException("checkServerTrusted CertificateException");
         }
     }
 
-    public void o(float[] fArr, int i) {
-        int i2;
+    @Override // javax.net.ssl.X509TrustManager
+    public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048582, this, fArr, i) == null) && (i2 = this.q) != -1 && fArr != null && i > 0) {
-            GLES20.glUniform4fv(i2, i, fArr, 0);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, x509CertificateArr, str) == null) {
+            b(x509CertificateArr);
+            cxb.e(b, "checkServerTrusted begin ,server ca chain size is : " + x509CertificateArr.length + " ,auth type is : " + str);
+            long currentTimeMillis = System.currentTimeMillis();
+            for (X509Certificate x509Certificate : x509CertificateArr) {
+                cxb.b(b, "server ca chain: getSubjectDN is :" + x509Certificate.getSubjectDN());
+                cxb.b(b, "IssuerDN :" + x509Certificate.getIssuerDN());
+                cxb.b(b, "SerialNumber : " + x509Certificate.getSerialNumber());
+            }
+            int size = this.a.size();
+            for (int i = 0; i < size; i++) {
+                try {
+                    cxb.e(b, "check server i : " + i);
+                    X509TrustManager x509TrustManager = this.a.get(i);
+                    X509Certificate[] acceptedIssuers = x509TrustManager.getAcceptedIssuers();
+                    if (acceptedIssuers != null) {
+                        cxb.e(b, "client root ca size is : " + acceptedIssuers.length);
+                        for (int i2 = 0; i2 < acceptedIssuers.length; i2++) {
+                            cxb.b(b, "client root ca getIssuerDN :" + acceptedIssuers[i2].getIssuerDN());
+                        }
+                    }
+                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
+                    cxb.e(b, "checkServerTrusted succeed ,root ca issuer is : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
+                    return;
+                } catch (CertificateException e) {
+                    cxb.d(b, "checkServerTrusted error :" + e.getMessage() + " , time : " + i);
+                    if (i == size - 1) {
+                        if (x509CertificateArr != null && x509CertificateArr.length > 0) {
+                            cxb.d(b, "root ca issuer : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
+                        }
+                        throw e;
+                    }
+                }
+            }
+            cxb.b(b, "checkServerTrusted: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
         }
     }
 
-    public void l(int i) {
-        int i2;
+    @Override // javax.net.ssl.X509TrustManager
+    public X509Certificate[] getAcceptedIssuers() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (i2 = this.o) == -1) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                ArrayList arrayList = new ArrayList();
+                for (X509TrustManager x509TrustManager : this.a) {
+                    arrayList.addAll(Arrays.asList(x509TrustManager.getAcceptedIssuers()));
+                }
+                return (X509Certificate[]) arrayList.toArray(new X509Certificate[arrayList.size()]);
+            } catch (Exception e) {
+                String str = b;
+                cxb.d(str, "getAcceptedIssuers exception : " + e.getMessage());
+                return new X509Certificate[0];
+            }
         }
-        GLES20.glUniform1i(i2, i);
-    }
-
-    public void n(int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || (i2 = this.p) == -1) {
-            return;
-        }
-        GLES20.glUniform1i(i2, i);
-    }
-
-    public void p(EffectInfo effectInfo) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, effectInfo) == null) && effectInfo != null && this.n != -1 && (i = this.m) != -1 && this.l != effectInfo) {
-            this.l = effectInfo;
-            GLES20.glUniform4fv(i, 1, effectInfo.f, 0);
-            GLES20.glUniform4fv(this.n, 1, effectInfo.g, 0);
-        }
+        return (X509Certificate[]) invokeV.objValue;
     }
 }

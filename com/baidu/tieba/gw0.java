@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gw0 extends pw0 {
+public class gw0 extends sw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,12 +24,12 @@ public class gw0 extends pw0 {
         }
     }
 
-    public static pw0 w(@NonNull String str) {
+    public static sw0 w(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return pw0.m(str, 4);
+            return sw0.m(str, 8);
         }
-        return (pw0) invokeL.objValue;
+        return (sw0) invokeL.objValue;
     }
 }

@@ -9,10 +9,10 @@ import com.baidu.tbadk.core.data.BannerListData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SpecHotTopicHelper;
-import com.baidu.tieba.az9;
-import com.baidu.tieba.j25;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.f3a;
+import com.baidu.tieba.p25;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
-import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,12 +26,12 @@ import org.json.JSONObject;
 import tbclient.ThreadInfo;
 import tbclient.ThreadList.ThreadListResIdl;
 import tbclient.User;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BannerListData bannerListData;
-    public ArrayList<ym> threadList;
+    public ArrayList<bn> threadList;
     public HashMap<String, MetaData> userMap;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,7 +61,7 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
         return (BannerListData) invokeV.objValue;
     }
 
-    public ArrayList<ym> getThreadList() {
+    public ArrayList<bn> getThreadList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -121,18 +121,18 @@ public class LoadMoreResponseSocketMessage extends SocketResponsedMessage {
                     threadData.parser_title();
                     threadData.isFromBrandForum = z;
                     if (!TextUtils.isEmpty(threadData.getLegoCard())) {
-                        j25 j25Var = new j25();
-                        j25Var.e(threadData.getLegoCard());
-                        this.threadList.add(j25Var);
+                        p25 p25Var = new p25();
+                        p25Var.e(threadData.getLegoCard());
+                        this.threadList.add(p25Var);
                     } else {
                         this.threadList.add(threadData);
-                        JSONObject b = az9.b(threadInfo);
+                        JSONObject b = f3a.b(threadInfo);
                         if (b != null) {
                             arrayList.add(b);
                         }
                     }
                 }
-                az9.f().h("FRS", arrayList);
+                f3a.f().h("FRS", arrayList);
             }
             this.bannerListData = null;
             if (threadListResIdl.data.banner_list != null && (orginalMessage = getOrginalMessage()) != null && orginalMessage.getExtra() != null && (orginalMessage.getExtra() instanceof LoadMoreRequestMessage)) {

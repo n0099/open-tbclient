@@ -1,26 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class qca {
     public static /* synthetic */ Interceptable $ic;
-    public static qca c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LocationData a;
-    public boolean b;
-
-    public void f(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public ArrayList<qca> e;
 
     public qca() {
         Interceptable interceptable = $ic;
@@ -32,57 +29,33 @@ public class qca {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = SharedPrefHelper.getInstance().getBoolean("no_longer_show_address", false);
     }
 
-    public static qca a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (qca.class) {
-                    if (c == null) {
-                        c = new qca();
-                    }
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
+            this.b = jSONObject.optString("menu_name");
+            this.c = jSONObject.optString("menu_id");
+            String str = null;
+            String optString = jSONObject.optString("default_logo_url", null);
+            this.d = optString;
+            if (optString != null) {
+                str = this.d + "?v=2";
+            }
+            this.d = str;
+            if (jSONObject.has("child_menu_list")) {
+                ArrayList<qca> arrayList = new ArrayList<>();
+                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    qca qcaVar = new qca();
+                    qcaVar.a(optJSONArray.getJSONObject(i));
+                    arrayList.add(qcaVar);
                 }
+                this.e = arrayList;
             }
-            return c;
-        }
-        return (qca) invokeV.objValue;
-    }
-
-    public LocationData b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (LocationData) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(LocationData locationData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationData) == null) {
-            this.a = locationData;
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
         }
     }
 }

@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.l25;
-import com.baidu.tieba.om6;
+import com.baidu.tieba.di;
+import com.baidu.tieba.r25;
+import com.baidu.tieba.vn6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -145,9 +145,9 @@ public class ThreadLinkView extends RelativeLayout {
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            om6.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            om6.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
-            om6.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            vn6.l(this.c, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            vn6.l(this.e, str, R.color.CAM_X0107, R.color.CAM_X0109);
+            vn6.l(this.d, str, R.color.CAM_X0107, R.color.CAM_X0109);
         }
     }
 
@@ -161,9 +161,9 @@ public class ThreadLinkView extends RelativeLayout {
     public void setData(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
-            if (threadData != null && threadData.getLinkThreadData() != null && !bi.isEmpty(threadData.getLinkThreadData().e())) {
-                l25 linkThreadData = threadData.getLinkThreadData();
-                if (!linkThreadData.f() && linkThreadData.c() != l25.g) {
+            if (threadData != null && threadData.getLinkThreadData() != null && !di.isEmpty(threadData.getLinkThreadData().e())) {
+                r25 linkThreadData = threadData.getLinkThreadData();
+                if (!linkThreadData.f() && linkThreadData.c() != r25.g) {
                     setVisibility(8);
                     return;
                 }
@@ -179,20 +179,20 @@ public class ThreadLinkView extends RelativeLayout {
                     this.e.setVisibility(8);
                     String d = linkThreadData.d();
                     String a = linkThreadData.a();
-                    if (!bi.isEmpty(d)) {
+                    if (!di.isEmpty(d)) {
                         this.c.setText(d);
                         this.c.setVisibility(0);
                         this.d.setVisibility(8);
                     } else {
                         this.c.setVisibility(8);
-                        if (!bi.isEmpty(a)) {
+                        if (!di.isEmpty(a)) {
                             this.d.setText(a);
                             this.d.setVisibility(0);
                         } else {
                             this.d.setVisibility(4);
                         }
                     }
-                    if (!bi.isEmpty(linkThreadData.b())) {
+                    if (!di.isEmpty(linkThreadData.b())) {
                         this.b.startLoad(linkThreadData.b(), 10, false);
                     } else {
                         this.b.reset();

@@ -2,22 +2,39 @@ package com.baidu.tieba;
 
 import android.app.Activity;
 import android.content.Context;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.content.DialogInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
-import com.baidu.tieba.wd5;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class w55 extends r55 {
+public abstract class w55 extends x55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public TBAlertBuilder b;
+
+    public abstract void b(TBAlertBuilder tBAlertBuilder);
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
 
     public w55() {
         Interceptable interceptable = $ic;
@@ -33,59 +50,61 @@ public final class w55 extends r55 {
         }
     }
 
-    public static final void b() {
+    public final Activity getActivity() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public static final void e(w55 this$0, DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, dialogInterface) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.c();
         }
     }
 
-    @Override // com.baidu.tieba.r55
-    public void a(Context context, j55 data) {
+    @Override // com.baidu.tieba.x55
+    public void a(Context context, p55 data) {
+        Activity activity;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(data, "data");
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
-                int i = 0;
-                LiveRemindRecommendData c = k85.a().c(0);
-                HashMap hashMap = new HashMap();
-                if (c.getRemindType() == 1) {
-                    i = 3;
-                } else if (c.getRemindType() == 2) {
-                    i = 4;
-                } else if (c.getRemindType() == 3) {
-                    i = 2;
-                }
-                hashMap.put("view_top_params_key_image_url", c.getLiveIconSrc());
-                hashMap.put("view_top_params_key_schema", c.getLiveIconScheme());
-                hashMap.put("view_top_params_user_name", c.getUserName());
-                hashMap.put("view_top_params_key_desc", c.getDesc());
-                hashMap.put("view_top_params_room_id", c.getRoomId());
-                hashMap.put("view_top_params_btn_text", c.getBtnText());
-                hashMap.put("view_top_params_key_title", c.getTitle());
-                hashMap.put("view_top_params_key_nid", c.getFeedId());
-                hashMap.put("view_top_params_key_yyext", c.getYyExtData());
-                hashMap.put("view_top_params_key_type", Integer.valueOf(i));
-                hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
-                xd5.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new wd5.h() { // from class: com.baidu.tieba.o55
+            if (!(context instanceof Activity)) {
+                activity = TbadkApplication.getInst().getCurrentActivity();
+            } else {
+                activity = (Activity) context;
+            }
+            this.a = activity;
+            if (activity == null) {
+                c();
+                TbLog yunDialogLog = YunDialogLog.getInstance();
+                yunDialogLog.i(YunDialogManager.LOG_KEY, "云弹窗 " + data.a("yun_dialogName") + " 展示失败：当前 activity 为空");
+                return;
+            }
+            Intrinsics.checkNotNull(activity);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
+            this.b = tBAlertBuilder;
+            if (tBAlertBuilder != null) {
+                tBAlertBuilder.setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.s55
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.wd5.h
-                    public final void dismiss() {
+                    @Override // android.content.DialogInterface.OnDismissListener
+                    public final void onDismiss(DialogInterface dialogInterface) {
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            w55.b();
+                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                            w55.e(w55.this, dialogInterface);
                         }
                     }
                 });
-                l85.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
-                YunDialogManager.markShowingDialogName("homeLiveRemind");
-                return;
+                b(tBAlertBuilder);
+                d();
             }
-            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
         }
     }
 }

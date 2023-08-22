@@ -1,46 +1,84 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class gl0 {
     public static /* synthetic */ Interceptable $ic;
+    public static el0 a;
+    public static fm0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947797630, "Lcom/baidu/tieba/gl0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947797630, "Lcom/baidu/tieba/gl0;");
+        }
+    }
 
     public gl0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Nullable
-    public static gl0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static fm0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (gl0.class) {
+                    if (b == null) {
+                        b = (fm0) ServiceManager.getService(fm0.a);
+                    }
+                    if (b == null) {
+                        b = fm0.b;
+                    }
+                }
             }
-            gl0 gl0Var = new gl0();
-            gl0Var.a = jSONObject.optString("text", "");
-            gl0Var.b = jSONObject.optString("toast", "已复制到剪切板");
-            return gl0Var;
+            return b;
         }
-        return (gl0) invokeL.objValue;
+        return (fm0) invokeV.objValue;
+    }
+
+    public static el0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (gl0.class) {
+                    if (a == null) {
+                        a = (el0) ServiceManager.getService(el0.a);
+                    }
+                    if (a == null) {
+                        a = el0.b;
+                    }
+                }
+            }
+            return a;
+        }
+        return (el0) invokeV.objValue;
     }
 }

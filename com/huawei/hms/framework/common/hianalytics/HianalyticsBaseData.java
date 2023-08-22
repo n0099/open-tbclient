@@ -12,7 +12,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class HianalyticsBaseData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EVENT_ID = "url_request";

@@ -53,7 +53,7 @@ public class BindVerifyActivity extends Activity {
     public static final String SCENE = "auth_cashier";
 
     /* renamed from: T  reason: collision with root package name */
-    public static final int f1056T = 602;
+    public static final int f1057T = 602;
     public static final String b = "cmd";
     public static final String c = "taskId";
     public static final String d = "tplExtraCode";

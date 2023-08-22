@@ -7,8 +7,8 @@ import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.text.TextUtils;
 import android.view.animation.LinearInterpolator;
-import com.baidu.tieba.n9b;
-import com.baidu.tieba.o9b;
+import com.baidu.tieba.cgb;
+import com.baidu.tieba.dgb;
 import com.baidu.ugc.editvideo.data.RichStickerBaseUnit;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import com.baidu.ugc.editvideo.subtitle.SubTitleConfig;
@@ -66,7 +66,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
     public Paint.Align textGravity = Paint.Align.LEFT;
 
     public static String arrayToJson(List<SubTitleUnit> list) {
-        if (o9b.e(list)) {
+        if (dgb.e(list)) {
             return null;
         }
         JSONArray jSONArray = new JSONArray();
@@ -182,25 +182,25 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
             JSONObject jSONObject = new JSONObject(str);
             subTitleUnit.line = jSONObject.optString("line");
             subTitleUnit.engLine = jSONObject.optString("engLine");
-            subTitleUnit.textSize = n9b.a(jSONObject.optString("textSize"), 0.0f);
-            subTitleUnit.scale = n9b.a(jSONObject.optString("scale"), 0.0f);
+            subTitleUnit.textSize = cgb.a(jSONObject.optString("textSize"), 0.0f);
+            subTitleUnit.scale = cgb.a(jSONObject.optString("scale"), 0.0f);
             subTitleUnit.rotate = jSONObject.optInt("rotate");
             subTitleUnit.textColor = jSONObject.optInt("textColor");
             subTitleUnit.chineseShadowColor = jSONObject.optInt("chineseShadowColor");
             subTitleUnit.isChineseBold = jSONObject.optInt("isChineseBold", -1);
             subTitleUnit.isChineseItalic = jSONObject.optInt("isChineseItalic", -1);
             subTitleUnit.engTextColor = jSONObject.optInt("engTextColor");
-            subTitleUnit.engTextSize = n9b.a(jSONObject.optString("engTextSize"), 0.0f);
+            subTitleUnit.engTextSize = cgb.a(jSONObject.optString("engTextSize"), 0.0f);
             subTitleUnit.engShadowColor = jSONObject.optInt("engShadowColor");
             subTitleUnit.isEngBold = jSONObject.optInt("isEngBold", -1);
             subTitleUnit.isEngItalic = jSONObject.optInt("isEngItalic", -1);
             subTitleUnit.startTime = jSONObject.optLong("startTime");
             subTitleUnit.endTime = jSONObject.optLong("endTime");
-            subTitleUnit.energy = n9b.a(jSONObject.optString("energy"), 0.0f);
+            subTitleUnit.energy = cgb.a(jSONObject.optString("energy"), 0.0f);
             subTitleUnit.currentIndex = jSONObject.optInt("currentIndex");
             subTitleUnit.isPreviousRotated = jSONObject.optBoolean("isPreviousRotated");
-            subTitleUnit.leftPercent = n9b.a(jSONObject.optString("leftPercent"), 0.0f);
-            subTitleUnit.topPercent = n9b.a(jSONObject.optString("topPercent"), 0.0f);
+            subTitleUnit.leftPercent = cgb.a(jSONObject.optString("leftPercent"), 0.0f);
+            subTitleUnit.topPercent = cgb.a(jSONObject.optString("topPercent"), 0.0f);
             subTitleUnit.x = jSONObject.optInt("x");
             subTitleUnit.y = jSONObject.optInt("y");
             subTitleUnit.width = jSONObject.optInt("width");
@@ -210,30 +210,30 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
             JSONObject optJSONObject = jSONObject.optJSONObject("chinese_shadow_config");
             if (optJSONObject != null) {
                 SubTitleConfig.ShadowConfig shadowConfig = new SubTitleConfig.ShadowConfig();
-                shadowConfig.shadowRadius = n9b.a(optJSONObject.optString("shadowRadius"), 2.0f);
-                shadowConfig.shadowDx = n9b.a(optJSONObject.optString("shadowDx"), 0.0f);
-                shadowConfig.shadowDy = n9b.a(optJSONObject.optString("shadowDy"), 2.0f);
+                shadowConfig.shadowRadius = cgb.a(optJSONObject.optString("shadowRadius"), 2.0f);
+                shadowConfig.shadowDx = cgb.a(optJSONObject.optString("shadowDx"), 0.0f);
+                shadowConfig.shadowDy = cgb.a(optJSONObject.optString("shadowDy"), 2.0f);
                 subTitleUnit.chineseShadowConfig = shadowConfig;
             }
             JSONObject optJSONObject2 = jSONObject.optJSONObject("eng_shadow_config");
             if (optJSONObject2 != null) {
                 SubTitleConfig.ShadowConfig shadowConfig2 = new SubTitleConfig.ShadowConfig();
-                shadowConfig2.shadowRadius = n9b.a(optJSONObject2.optString("shadowRadius"), 2.0f);
-                shadowConfig2.shadowDx = n9b.a(optJSONObject2.optString("shadowDx"), 0.0f);
-                shadowConfig2.shadowDy = n9b.a(optJSONObject2.optString("shadowDy"), 2.0f);
+                shadowConfig2.shadowRadius = cgb.a(optJSONObject2.optString("shadowRadius"), 2.0f);
+                shadowConfig2.shadowDx = cgb.a(optJSONObject2.optString("shadowDx"), 0.0f);
+                shadowConfig2.shadowDy = cgb.a(optJSONObject2.optString("shadowDy"), 2.0f);
                 subTitleUnit.engShadowConfig = shadowConfig2;
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("chineseStrokeConfig");
             if (optJSONObject3 != null) {
                 SubTitleConfig.StrokeConfig strokeConfig = new SubTitleConfig.StrokeConfig();
-                strokeConfig.strokeWidth = n9b.a(optJSONObject3.optString("strokeWidth"), 0.0f);
+                strokeConfig.strokeWidth = cgb.a(optJSONObject3.optString("strokeWidth"), 0.0f);
                 strokeConfig.strokeColor = optJSONObject3.optInt("strokeColor");
                 subTitleUnit.chineseStrokeConfig = strokeConfig;
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("engStrokeConfig");
             if (optJSONObject4 != null) {
                 SubTitleConfig.StrokeConfig strokeConfig2 = new SubTitleConfig.StrokeConfig();
-                strokeConfig2.strokeWidth = n9b.a(optJSONObject4.optString("strokeWidth"), 0.0f);
+                strokeConfig2.strokeWidth = cgb.a(optJSONObject4.optString("strokeWidth"), 0.0f);
                 strokeConfig2.strokeColor = optJSONObject4.optInt("strokeColor");
                 subTitleUnit.engStrokeConfig = strokeConfig2;
             }
@@ -257,7 +257,7 @@ public class SubTitleUnit extends RichStickerBaseUnit implements Serializable, C
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public SubTitleUnit m157clone() throws CloneNotSupportedException {
+    public SubTitleUnit m159clone() throws CloneNotSupportedException {
         return (SubTitleUnit) super.clone();
     }
 

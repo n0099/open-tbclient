@@ -4,15 +4,15 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.i1c;
+import com.baidu.tieba.ak8;
 import com.baidu.tieba.immessagecenter.msgtab.data.ForumListData;
 import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabForumData;
-import com.baidu.tieba.immessagecenter.msgtab.data.MsgTabFunctionData;
 import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
 import com.baidu.tieba.immessagecenter.msgtab.repository.MsgCenterRepository;
-import com.baidu.tieba.op8;
-import com.baidu.tieba.t5c;
-import com.baidu.tieba.y0c;
+import com.baidu.tieba.jcc;
+import com.baidu.tieba.n7c;
+import com.baidu.tieba.ot8;
+import com.baidu.tieba.x7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,21 +21,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import kotlin.Lazy;
-import kotlin.LazyKt__LazyJVMKt;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000X\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010\u0013\u001a\n\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u000eJ\u0012\u0010\u0014\u001a\u00020\u00152\b\u0010\u0016\u001a\u0004\u0018\u00010\u0017H\u0002J\u001a\u0010\u0018\u001a\u00020\u00152\u0006\u0010\u0019\u001a\u00020\u001a2\b\u0010\u0016\u001a\u0004\u0018\u00010\u0017H\u0002J\u0012\u0010\u001b\u001a\u00020\u00152\b\u0010\u0016\u001a\u0004\u0018\u00010\u0017H\u0002J(\u0010\u001b\u001a\u00020\u00152\u000e\u0010\u001c\u001a\n\u0012\u0004\u0012\u00020\u001d\u0018\u00010\u000e2\u000e\u0010\u001e\u001a\n\u0012\u0004\u0012\u00020\u0005\u0018\u00010\u000eH\u0002J\u001c\u0010\u001f\u001a\u00020\u00152\f\u0010 \u001a\b\u0012\u0004\u0012\u00020\"0!2\u0006\u0010\u0019\u001a\u00020\u001aR!\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u00048FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\b\u0010\t\u001a\u0004\b\u0006\u0010\u0007R\u000e\u0010\n\u001a\u00020\u000bX\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\f\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\u000e0\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u001d\u0010\u000f\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00050\u000e0\u00108F¢\u0006\u0006\u001a\u0004\b\u0011\u0010\u0012¨\u0006#"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/model/MsgCenterContainerModel;", "", "()V", "defaultHeaderData", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "getDefaultHeaderData", "()Ljava/util/List;", "defaultHeaderData$delegate", "Lkotlin/Lazy;", "mRepository", "Lcom/baidu/tieba/immessagecenter/msgtab/repository/MsgCenterRepository;", "mUiDataBs", "Lrx/subjects/BehaviorSubject;", "", "uiDataSubject", "Lrx/Observable;", "getUiDataSubject", "()Lrx/Observable;", "cacheData", "createAndEmitData", "", "result", "Lcom/baidu/tieba/immessagecenter/msgtab/data/ForumListData;", "dispatchData", "forceRefresh", "", "mergeAndEmitData", "data", "Lcom/baidu/tieba/immessagecenter/msgtab/data/MsgTabForumData;", "oldData", "requestChannelData", "context", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010\r\u001a\n\u0012\u0004\u0012\u00020\b\u0018\u00010\u0007J\u0012\u0010\u000e\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011H\u0002J\u001a\u0010\u0012\u001a\u00020\u000f2\u0006\u0010\u0013\u001a\u00020\u00142\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011H\u0002J\u0012\u0010\u0015\u001a\u00020\u000f2\b\u0010\u0010\u001a\u0004\u0018\u00010\u0011H\u0002J(\u0010\u0015\u001a\u00020\u000f2\u000e\u0010\u0016\u001a\n\u0012\u0004\u0012\u00020\u0017\u0018\u00010\u00072\u000e\u0010\u0018\u001a\n\u0012\u0004\u0012\u00020\b\u0018\u00010\u0007H\u0002J\u001c\u0010\u0019\u001a\u00020\u000f2\f\u0010\u001a\u001a\b\u0012\u0004\u0012\u00020\u001c0\u001b2\u0006\u0010\u0013\u001a\u00020\u0014R\u000e\u0010\u0003\u001a\u00020\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u001a\u0010\u0005\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\b0\u00070\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u001d\u0010\t\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\b0\u00070\n8F¢\u0006\u0006\u001a\u0004\b\u000b\u0010\f¨\u0006\u001d"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/model/MsgCenterContainerModel;", "", "()V", "mRepository", "Lcom/baidu/tieba/immessagecenter/msgtab/repository/MsgCenterRepository;", "mUiDataBs", "Lrx/subjects/BehaviorSubject;", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "uiDataSubject", "Lrx/Observable;", "getUiDataSubject", "()Lrx/Observable;", "cacheData", "createAndEmitData", "", "result", "Lcom/baidu/tieba/immessagecenter/msgtab/data/ForumListData;", "dispatchData", "forceRefresh", "", "mergeAndEmitData", "data", "Lcom/baidu/tieba/immessagecenter/msgtab/data/MsgTabForumData;", "oldData", "requestChannelData", "context", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class MsgCenterContainerModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final MsgCenterRepository a;
-    public final t5c<List<op8>> b;
-    public final Lazy c;
+    public final jcc<List<ot8>> b;
 
     public MsgCenterContainerModel() {
         Interceptable interceptable = $ic;
@@ -51,10 +48,9 @@ public final class MsgCenterContainerModel {
             }
         }
         this.a = new MsgCenterRepository();
-        t5c<List<op8>> Q = t5c.Q();
+        jcc<List<ot8>> Q = jcc.Q();
         Intrinsics.checkNotNullExpressionValue(Q, "create()");
         this.b = Q;
-        this.c = LazyKt__LazyJVMKt.lazy(MsgCenterContainerModel$defaultHeaderData$2.INSTANCE);
         this.a.k(new Function1<ForumListData, Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.model.MsgCenterContainerModel.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +95,7 @@ public final class MsgCenterContainerModel {
         });
     }
 
-    public final List<op8> b() {
+    public final List<ot8> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -108,48 +104,32 @@ public final class MsgCenterContainerModel {
         return (List) invokeV.objValue;
     }
 
-    public final List<op8> e() {
+    public final n7c<List<ot8>> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return (List) this.c.getValue();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final y0c<List<op8>> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            y0c<List<op8>> s = this.b.a().x().s(i1c.b());
+            n7c<List<ot8>> s = this.b.a().x().s(x7c.b());
             Intrinsics.checkNotNullExpressionValue(s, "mUiDataBs\n              …dSchedulers.mainThread())");
             return s;
         }
-        return (y0c) invokeV.objValue;
+        return (n7c) invokeV.objValue;
     }
 
     public final void c(ForumListData forumListData) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumListData) == null) && forumListData != null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new op8(-1L, 5, false, 4, null));
             List<MsgTabForumData> forumData = forumListData.getForumData();
             if (forumData != null) {
                 for (MsgTabForumData msgTabForumData : forumData) {
-                    ForumChannelDataObs.c.a().i(msgTabForumData.getForumId(), msgTabForumData);
-                    arrayList.add(new op8(msgTabForumData.getForumId(), 3, false, 4, null));
+                    ForumChannelDataObs.b.a().g(msgTabForumData.getForumId(), msgTabForumData);
+                    arrayList.add(new ot8(msgTabForumData.getForumId(), 3, false, 4, null));
                 }
+                ForumChannelDataObs.b.a().f();
             }
-            long j = 0;
-            List<MsgTabFunctionData> extFunctionData = forumListData.getExtFunctionData();
-            if (extFunctionData != null) {
-                for (MsgTabFunctionData msgTabFunctionData : extFunctionData) {
-                    j++;
-                    ForumChannelDataObs.c.a().j(j, msgTabFunctionData);
-                    arrayList.add(new op8(j, 4, false, 4, null));
-                }
+            if (ak8.a.b(arrayList, b())) {
+                this.b.onNext(arrayList);
             }
-            this.b.onNext(arrayList);
         }
     }
 
@@ -159,14 +139,14 @@ public final class MsgCenterContainerModel {
             if (z) {
                 c(forumListData);
             } else {
-                g(forumListData);
+                f(forumListData);
             }
         }
     }
 
-    public final void i(TbPageContext<BaseFragmentActivity> context, final boolean z) {
+    public final void h(TbPageContext<BaseFragmentActivity> context, final boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048583, this, context, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, context, z) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             this.a.j(context, new Function1<ForumListData, Unit>(this, z) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.model.MsgCenterContainerModel$requestChannelData$1
                 public static /* synthetic */ Interceptable $ic;
@@ -215,28 +195,26 @@ public final class MsgCenterContainerModel {
         }
     }
 
-    public final void g(ForumListData forumListData) {
+    public final void f(ForumListData forumListData) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, forumListData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, forumListData) == null) {
             try {
-                List<op8> b = b();
+                List<ot8> b = b();
+                if (forumListData != null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                List<MsgTabForumData> list = null;
+                if (!z) {
+                    b = null;
+                }
                 if (b != null) {
                     if (forumListData != null) {
-                        z = true;
-                    } else {
-                        z = false;
+                        list = forumListData.getForumData();
                     }
-                    List<MsgTabForumData> list = null;
-                    if (!z) {
-                        b = null;
-                    }
-                    if (b != null) {
-                        if (forumListData != null) {
-                            list = forumListData.getForumData();
-                        }
-                        h(list, b);
-                    }
+                    g(list, b);
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -244,43 +222,36 @@ public final class MsgCenterContainerModel {
         }
     }
 
-    public final void h(List<MsgTabForumData> list, List<op8> list2) {
-        int i;
-        op8 op8Var;
+    public final void g(List<MsgTabForumData> list, List<ot8> list2) {
+        ot8 ot8Var;
         Object obj;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, list, list2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, list, list2) == null) {
             ArrayList arrayList = new ArrayList();
             if (list2 != null) {
-                int i2 = 0;
-                i = 0;
+                int i = 0;
                 for (Object obj2 : list2) {
-                    int i3 = i2 + 1;
-                    if (i2 < 0) {
+                    int i2 = i + 1;
+                    if (i < 0) {
                         CollectionsKt__CollectionsKt.throwIndexOverflow();
                     }
-                    op8 op8Var2 = (op8) obj2;
-                    if (op8Var2.getType() != 3) {
-                        arrayList.add(op8Var2);
+                    ot8 ot8Var2 = (ot8) obj2;
+                    if (ot8Var2.getType() != 3) {
+                        arrayList.add(ot8Var2);
                     }
-                    if (op8Var2.getType() == 5) {
-                        i = i2;
-                    }
-                    i2 = i3;
+                    i = i2;
                 }
-            } else {
-                i = 0;
             }
             if (list != null) {
                 for (MsgTabForumData msgTabForumData : list) {
-                    ForumChannelDataObs.c.a().i(msgTabForumData.getForumId(), msgTabForumData);
+                    ForumChannelDataObs.b.a().g(msgTabForumData.getForumId(), msgTabForumData);
                     if (list2 != null) {
                         Iterator<T> it = list2.iterator();
                         while (true) {
                             if (it.hasNext()) {
                                 obj = it.next();
-                                if (msgTabForumData.getForumId() == ((op8) obj).c()) {
+                                if (msgTabForumData.getForumId() == ((ot8) obj).a()) {
                                     z = true;
                                     continue;
                                 } else {
@@ -295,18 +266,19 @@ public final class MsgCenterContainerModel {
                                 break;
                             }
                         }
-                        op8Var = (op8) obj;
-                        if (op8Var != null) {
-                            i++;
-                            arrayList.add(i, op8Var);
+                        ot8Var = (ot8) obj;
+                        if (ot8Var != null) {
+                            arrayList.add(ot8Var);
                         }
                     }
-                    op8Var = new op8(msgTabForumData.getForumId(), 3, false, 4, null);
-                    i++;
-                    arrayList.add(i, op8Var);
+                    ot8Var = new ot8(msgTabForumData.getForumId(), 3, false, 4, null);
+                    arrayList.add(ot8Var);
                 }
+                ForumChannelDataObs.b.a().f();
             }
-            this.b.onNext(arrayList);
+            if (ak8.a.b(arrayList, b())) {
+                this.b.onNext(arrayList);
+            }
         }
     }
 }

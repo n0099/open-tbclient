@@ -1,20 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.YulePostActivity;
+import tbclient.VideoChannelInfo;
 /* loaded from: classes6.dex */
 public class j45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public long a;
+    public int b;
 
     public j45() {
         Interceptable interceptable = $ic;
@@ -30,57 +28,25 @@ public class j45 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         try {
-            jSONObject.optLong("start_time");
-            jSONObject.optLong("end_time");
-            this.a = jSONObject.optString("activity_banner");
-            jSONObject.optString("activity_url");
-            jSONObject.optString("activity_desc");
-            this.b = jSONObject.optString("activity_button");
-        } catch (Exception e) {
-            BdLog.e(e.toString());
+            this.a = jSONObject.optLong("channel_id", 0L);
+            jSONObject.optString("channel_name");
+            jSONObject.optString("channel_avatar");
+        } catch (Exception unused) {
         }
     }
 
-    public void d(YulePostActivity yulePostActivity) {
+    public void b(VideoChannelInfo videoChannelInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, yulePostActivity) != null) || yulePostActivity == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, videoChannelInfo) == null) && videoChannelInfo != null && videoChannelInfo.channel_id.longValue() > 0) {
+            this.a = videoChannelInfo.channel_id.longValue();
+            String str = videoChannelInfo.channel_name;
+            String str2 = videoChannelInfo.channel_avatar;
         }
-        Long l = yulePostActivity.start_time;
-        if (l != null) {
-            l.longValue();
-        }
-        Long l2 = yulePostActivity.end_time;
-        if (l2 != null) {
-            l2.longValue();
-        }
-        this.a = yulePostActivity.activity_banner;
-        String str = yulePostActivity.activity_url;
-        String str2 = yulePostActivity.activity_desc;
-        this.b = yulePostActivity.activity_button;
     }
 }

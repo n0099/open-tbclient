@@ -1,40 +1,86 @@
 package com.baidu.tieba;
 
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface tzb {
-    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
+public class tzb {
+    public static /* synthetic */ Interceptable $ic;
+    public static szb a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948199917, "Lcom/baidu/tieba/tzb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948199917, "Lcom/baidu/tieba/tzb;");
+                return;
+            }
+        }
+        a = new xzb();
+    }
 
-    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            a.d(str, str2);
+        }
+    }
 
-    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            a.e(str, str2);
+        }
+    }
 
-    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
+    public static void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
+            a.i(str, str2);
+        }
+    }
 
-    void onWebsocketError(WebSocket webSocket, Exception exc);
+    public static void g(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            a.w(str, str2);
+        }
+    }
 
-    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, h0c h0cVar, o0c o0cVar) throws InvalidDataException;
+    public static void c(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
+            a.e(str, str2, th);
+        }
+    }
 
-    p0c onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, h0c h0cVar) throws InvalidDataException;
+    public static void e(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) {
+            a.i(str, str2, th);
+        }
+    }
 
-    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, h0c h0cVar) throws InvalidDataException;
+    public static void h(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, th) == null) {
+            a.w(str, str2, th);
+        }
+    }
 
-    void onWebsocketMessage(WebSocket webSocket, String str);
-
-    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
-
-    void onWebsocketOpen(WebSocket webSocket, m0c m0cVar);
-
-    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
-
-    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
-
-    void onWriteDemand(WebSocket webSocket);
+    public static void f(szb szbVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, szbVar) == null) && szbVar != null) {
+            a = szbVar;
+        }
+    }
 }

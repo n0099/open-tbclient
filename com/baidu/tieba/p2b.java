@@ -1,36 +1,48 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
-import org.json.JSONException;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class p2b {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface p2b<D> {
+    void a(WriteData writeData);
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-        }
-    }
+    void b();
 
-    public static void a(a3b a3bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, a3bVar) == null) && a3bVar != null && !a3bVar.y()) {
-            JSONArray n = a3bVar.n();
-            int length = n.length();
-            boolean B = a3bVar.B();
-            for (int i = 0; i < length; i++) {
-                try {
-                    if (B != v1b.o().e(n.getJSONObject(i).getString("id"))) {
-                        Log.w("UBCDebug", " data is " + B + "  content " + a3bVar.u().toString());
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
+    void c(@NonNull WriteData writeData);
+
+    void d(@NonNull WriteData writeData);
+
+    boolean g();
+
+    void h(@Nullable String str, @NonNull WriteData writeData);
+
+    void j(@NonNull r2b r2bVar);
+
+    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
+
+    boolean o();
+
+    void onActivityResult(int i, int i2, Intent intent);
+
+    void onChangeSkinType(int i);
+
+    void onPause();
+
+    void onResume();
+
+    void onSaveInstanceState(Bundle bundle);
+
+    void q(@NonNull List<p2b<?>> list);
+
+    void r(zh5 zh5Var);
+
+    View s(@NonNull ViewGroup viewGroup);
+
+    boolean t();
 }

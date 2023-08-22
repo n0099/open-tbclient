@@ -115,7 +115,7 @@ public class b {
     }
 
     public static int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0482;
+        return R.layout.obfuscated_res_0x7f0d0489;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -290,7 +290,7 @@ public class b {
         this.bS.removeAllViews();
         this.bS.setVisibility(4);
         this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f091446);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f09145c);
         this.bF = ksAdWebView;
         ksAdWebView.setBackgroundColor(0);
         this.bF.getBackground().setAlpha(0);

@@ -161,19 +161,19 @@ public class a {
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0086, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0084, code lost:
         if (r11 != null) goto L31;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x008e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x008c, code lost:
         if (r11 == null) goto L28;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x0090, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x008e, code lost:
         r11.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0093, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x0091, code lost:
         com.cmic.sso.sdk.e.c.b("UMCTelephonyManagement", "readSimInfoDbEnd");
      */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0098, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0096, code lost:
         return;
      */
     /*

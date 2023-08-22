@@ -1,138 +1,141 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k37;
-import com.baidu.tieba.ne;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.User;
+import tbclient.VoiceRoom;
 /* loaded from: classes5.dex */
-public final class bp6 implements k37.g {
+public class bp6 extends zo6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String S0;
+    public List<String> T0;
+    public String U0;
+    public String V0;
+    public long W0;
 
-    /* loaded from: classes5.dex */
-    public static final class a extends kw5<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ JSONObject d;
-
-        public a(String str, String str2, String str3, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = jSONObject;
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    l45.g(this.a, this.b).g(this.c, this.d.toString());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.kw5
-        public /* bridge */ /* synthetic */ Unit doInBackground() {
-            a();
-            return Unit.INSTANCE;
-        }
-    }
-
-    public bp6() {
+    public bp6(ThreadData threadData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.k37.g
-    public void a(String spaceName, String uid, String key, JSONObject value) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, spaceName, uid, key, value) == null) {
-            Intrinsics.checkNotNullParameter(spaceName, "spaceName");
-            Intrinsics.checkNotNullParameter(uid, "uid");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(value, "value");
-            ow5.b(new a(spaceName, uid, key, value), null);
+        if (threadData == null) {
+            return;
+        }
+        this.a = threadData;
+        String str = threadData.tid;
+        threadData.getTitle();
+        VoiceRoom voiceRoomData = threadData.getVoiceRoomData();
+        if (voiceRoomData != null) {
+            this.S0 = voiceRoomData.room_name;
+            this.T0 = a0(voiceRoomData);
+            this.U0 = String.valueOf(voiceRoomData.talker_num);
+            this.V0 = String.valueOf(voiceRoomData.joined_num);
+            this.W0 = voiceRoomData.room_id.longValue();
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:38:0x003f A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x001f A[SYNTHETIC] */
-    @Override // com.baidu.tieba.k37.g
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public Map<String, JSONObject> b(String spaceName, String uid) {
-        InterceptResult invokeLL;
-        boolean z;
+    public static boolean R(ThreadData threadData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, spaceName, uid)) == null) {
-            Intrinsics.checkNotNullParameter(spaceName, "spaceName");
-            Intrinsics.checkNotNullParameter(uid, "uid");
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            try {
-                for (ne.b<String> bVar : gi.b(l45.g(spaceName, uid))) {
-                    if (bVar != null) {
-                        String str = bVar.a;
-                        boolean z2 = false;
-                        if (str != null && str.length() != 0) {
-                            z = false;
-                            if (!z) {
-                                String str2 = bVar.b;
-                                if (!((str2 == null || str2.length() == 0) ? true : true)) {
-                                    String str3 = bVar.a;
-                                    Intrinsics.checkNotNullExpressionValue(str3, "element.key");
-                                    linkedHashMap.put(str3, new JSONObject(bVar.b));
-                                }
-                            }
-                        }
-                        z = true;
-                        if (!z) {
-                        }
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
+            if (threadData != null && threadData.getVoiceRoomData() != null && threadData.getVoiceRoomData().room_id.longValue() > 0 && !StringUtils.isNull(threadData.getVoiceRoomData().room_name)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final List<String> a0(VoiceRoom voiceRoom) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, voiceRoom)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (User user : voiceRoom.talker) {
+                if (user != null) {
+                    arrayList.add(user.portrait);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
             }
-            return linkedHashMap;
+            return arrayList;
         }
-        return (Map) invokeLL.objValue;
+        return (List) invokeL.objValue;
+    }
+
+    public String V() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.V0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<String> W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.T0;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public long X() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.W0;
+        }
+        return invokeV.longValue;
+    }
+
+    public String Y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.S0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String Z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.U0;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.zo6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!this.B) {
+                return zo6.K0;
+            }
+            return ThreadData.TYPE_CONTENT_VOICE_ROOM;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

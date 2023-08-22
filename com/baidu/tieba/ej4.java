@@ -1,20 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.net.Uri;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public class ej4 extends yi4<zj4> {
+public class ej4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ConcurrentHashMap<Class<?>, dj4> a;
+    public ConcurrentHashMap<Class<?>, Uri> b;
 
     public ej4() {
         Interceptable interceptable = $ic;
@@ -26,83 +26,49 @@ public class ej4 extends yi4<zj4> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yi4
-    /* renamed from: g */
-    public zj4 d(Cursor cursor) {
+    public <T> dj4<T> a(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return h(cursor);
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            return this.a.get(cls);
         }
-        return (zj4) invokeL.objValue;
+        return (dj4) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.yi4
-    public List<zj4> e(Cursor cursor) {
+    public <T> Uri b(Class<T> cls) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    arrayList.add(h(cursor));
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cls)) == null) {
+            return this.b.get(cls);
         }
-        return (List) invokeL.objValue;
+        return (Uri) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yi4
-    /* renamed from: f */
-    public ContentValues c(zj4 zj4Var) {
-        InterceptResult invokeL;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, zj4Var)) == null) {
-            ContentValues a = super.a(zj4Var);
-            a.put("max_age", Long.valueOf(zj4Var.o));
-            a.put("token", zj4Var.p);
-            a.put("domains", zj4Var.q);
-            a.put(GameGuideConfigInfo.KEY_APP_KEY, zj4Var.r);
-            a.put("app_name", zj4Var.s);
-            return a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = new ConcurrentHashMap<>();
+            this.b = new ConcurrentHashMap<>();
+            this.a.put(ck4.class, new hj4());
+            this.a.put(dk4.class, new ij4());
+            this.a.put(ak4.class, new gj4());
+            this.a.put(yj4.class, new fj4());
+            this.a.put(PMSAppInfo.class, new cj4());
+            this.a.put(ek4.class, new jj4());
+            this.a.put(fk4.class, new kj4());
+            this.b.put(ck4.class, uj4.f);
+            this.b.put(dk4.class, uj4.g);
+            this.b.put(ak4.class, uj4.d);
+            this.b.put(yj4.class, uj4.h);
+            this.b.put(PMSAppInfo.class, uj4.e);
+            this.b.put(ek4.class, uj4.i);
+            this.b.put(fk4.class, uj4.j);
         }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final zj4 h(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("max_age");
-                int columnIndex2 = cursor.getColumnIndex("token");
-                int columnIndex3 = cursor.getColumnIndex("domains");
-                int columnIndex4 = cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY);
-                int columnIndex5 = cursor.getColumnIndex("app_name");
-                zj4 zj4Var = new zj4();
-                if (b(cursor, zj4Var)) {
-                    zj4Var.o = cursor.getLong(columnIndex);
-                    zj4Var.p = cursor.getString(columnIndex2);
-                    zj4Var.q = cursor.getString(columnIndex3);
-                    zj4Var.r = cursor.getString(columnIndex4);
-                    zj4Var.s = cursor.getString(columnIndex5);
-                    return zj4Var;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (zj4) invokeL.objValue;
     }
 }

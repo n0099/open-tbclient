@@ -11,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.load.kotlin.JvmType;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmClassName;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmPrimitiveType;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class JvmTypeFactoryImpl implements JvmTypeFactory<JvmType> {
     public static final JvmTypeFactoryImpl INSTANCE = new JvmTypeFactoryImpl();
 

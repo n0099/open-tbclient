@@ -35,18 +35,18 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class color {
-        public static final int androidx_core_ripple_material_light = 0x7f060472;
-        public static final int androidx_core_secondary_text_default_material_light = 0x7f060473;
-        public static final int bdvideoplayer_quick_share_item_text = 0x7f060497;
-        public static final int bdvideoplayer_quick_share_item_text_enable = 0x7f060498;
-        public static final int bdvideoplayer_seek_bar_bg_color = 0x7f060499;
-        public static final int bdvideoplayer_seek_bar_buffered_color = 0x7f06049a;
-        public static final int bdvideoplayer_seek_bar_played_color = 0x7f06049b;
-        public static final int bdvideoplayer_text_color_white = 0x7f06049c;
-        public static final int notification_action_color_filter = 0x7f0608fd;
-        public static final int notification_icon_bg_color = 0x7f0608fe;
-        public static final int ripple_material_light = 0x7f060973;
-        public static final int secondary_text_default_material_light = 0x7f060a8c;
+        public static final int androidx_core_ripple_material_light = 0x7f060478;
+        public static final int androidx_core_secondary_text_default_material_light = 0x7f060479;
+        public static final int bdvideoplayer_quick_share_item_text = 0x7f06049d;
+        public static final int bdvideoplayer_quick_share_item_text_enable = 0x7f06049e;
+        public static final int bdvideoplayer_seek_bar_bg_color = 0x7f06049f;
+        public static final int bdvideoplayer_seek_bar_buffered_color = 0x7f0604a0;
+        public static final int bdvideoplayer_seek_bar_played_color = 0x7f0604a1;
+        public static final int bdvideoplayer_text_color_white = 0x7f0604a2;
+        public static final int notification_action_color_filter = 0x7f060903;
+        public static final int notification_icon_bg_color = 0x7f060904;
+        public static final int ripple_material_light = 0x7f060979;
+        public static final int secondary_text_default_material_light = 0x7f060a92;
     }
 
     /* loaded from: classes4.dex */
@@ -101,32 +101,32 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class drawable {
-        public static final int bdvideoplayer_back = 0x7f080264;
-        public static final int bdvideoplayer_btn_net_error_retry_selector = 0x7f080265;
-        public static final int bdvideoplayer_mute_off = 0x7f080273;
-        public static final int bdvideoplayer_mute_on = 0x7f080274;
-        public static final int bdvideoplayer_net_error_retry_bg = 0x7f080275;
-        public static final int bdvideoplayer_net_error_retry_bg_pressed = 0x7f080276;
-        public static final int bdvideoplayer_pause = 0x7f080277;
-        public static final int bdvideoplayer_play = 0x7f080278;
-        public static final int bdvideoplayer_quick_share_item = 0x7f080279;
-        public static final int bdvideoplayer_seekbar_thumb = 0x7f08027a;
-        public static final int bdvideoplayer_switch_land = 0x7f08027b;
-        public static final int bdvideoplayer_zeus_full_refresh_enable = 0x7f08027c;
-        public static final int bdvideoplayer_zeus_full_refresh_normal = 0x7f08027d;
-        public static final int bdvideoplayer_zeus_full_refresh_selector = 0x7f08027e;
-        public static final int notification_action_background = 0x7f0810de;
-        public static final int notification_bg = 0x7f0810df;
-        public static final int notification_bg_low = 0x7f0810e0;
-        public static final int notification_bg_low_normal = 0x7f0810e1;
-        public static final int notification_bg_low_pressed = 0x7f0810e2;
-        public static final int notification_bg_normal = 0x7f0810e3;
-        public static final int notification_bg_normal_pressed = 0x7f0810e4;
-        public static final int notification_icon_background = 0x7f0810e5;
-        public static final int notification_template_icon_bg = 0x7f0810e6;
-        public static final int notification_template_icon_low_bg = 0x7f0810e7;
-        public static final int notification_tile_bg = 0x7f0810e8;
-        public static final int notify_panel_notification_icon_bg = 0x7f0810eb;
+        public static final int bdvideoplayer_back = 0x7f080265;
+        public static final int bdvideoplayer_btn_net_error_retry_selector = 0x7f080266;
+        public static final int bdvideoplayer_mute_off = 0x7f080274;
+        public static final int bdvideoplayer_mute_on = 0x7f080275;
+        public static final int bdvideoplayer_net_error_retry_bg = 0x7f080276;
+        public static final int bdvideoplayer_net_error_retry_bg_pressed = 0x7f080277;
+        public static final int bdvideoplayer_pause = 0x7f080278;
+        public static final int bdvideoplayer_play = 0x7f080279;
+        public static final int bdvideoplayer_quick_share_item = 0x7f08027a;
+        public static final int bdvideoplayer_seekbar_thumb = 0x7f08027b;
+        public static final int bdvideoplayer_switch_land = 0x7f08027c;
+        public static final int bdvideoplayer_zeus_full_refresh_enable = 0x7f08027d;
+        public static final int bdvideoplayer_zeus_full_refresh_normal = 0x7f08027e;
+        public static final int bdvideoplayer_zeus_full_refresh_selector = 0x7f08027f;
+        public static final int notification_action_background = 0x7f0810f2;
+        public static final int notification_bg = 0x7f0810f3;
+        public static final int notification_bg_low = 0x7f0810f4;
+        public static final int notification_bg_low_normal = 0x7f0810f5;
+        public static final int notification_bg_low_pressed = 0x7f0810f6;
+        public static final int notification_bg_normal = 0x7f0810f7;
+        public static final int notification_bg_normal_pressed = 0x7f0810f8;
+        public static final int notification_icon_background = 0x7f0810f9;
+        public static final int notification_template_icon_bg = 0x7f0810fa;
+        public static final int notification_template_icon_low_bg = 0x7f0810fb;
+        public static final int notification_tile_bg = 0x7f0810fc;
+        public static final int notify_panel_notification_icon_bg = 0x7f0810ff;
     }
 
     /* loaded from: classes4.dex */
@@ -169,48 +169,48 @@ public final class R {
         public static final int action_image = 0x7f090078;
         public static final int action_text = 0x7f090080;
         public static final int actions = 0x7f090081;
-        public static final int async = 0x7f0902d8;
-        public static final int bdvideoplayer_seekbar = 0x7f0903c0;
-        public static final int blocking = 0x7f09040c;
-        public static final int bt_retry = 0x7f09049a;
-        public static final int center = 0x7f09068a;
-        public static final int chronometer = 0x7f090717;
-        public static final int dialog_button = 0x7f0908a5;
-        public static final int forever = 0x7f090ba6;
-        public static final int fragment_container_view_tag = 0x7f090c36;
-        public static final int icon = 0x7f090ff0;
-        public static final int icon_group = 0x7f090ff9;
-        public static final int info = 0x7f09111f;
-        public static final int italic = 0x7f09118c;
-        public static final int left = 0x7f0914c5;
-        public static final int line1 = 0x7f091517;
-        public static final int line3 = 0x7f091519;
-        public static final int main_duration_text = 0x7f0916a2;
-        public static final int main_progress_text = 0x7f0916a8;
-        public static final int main_view_seekbar = 0x7f0916b4;
-        public static final int normal = 0x7f091977;
-        public static final int notification_background = 0x7f09198f;
-        public static final int notification_main_column = 0x7f091991;
-        public static final int notification_main_column_container = 0x7f091992;
-        public static final int play_error_layout_retry = 0x7f091c9e;
-        public static final int progress = 0x7f091d64;
-        public static final int right = 0x7f091f0a;
-        public static final int right_icon = 0x7f091f24;
-        public static final int right_side = 0x7f091f2c;
-        public static final int tag_accessibility_actions = 0x7f092370;
-        public static final int tag_accessibility_clickable_spans = 0x7f092371;
-        public static final int tag_accessibility_heading = 0x7f092372;
-        public static final int tag_accessibility_pane_title = 0x7f092373;
-        public static final int tag_screen_reader_focusable = 0x7f0923c8;
-        public static final int tag_transition_group = 0x7f0923d8;
-        public static final int tag_unhandled_key_event_manager = 0x7f0923da;
-        public static final int tag_unhandled_key_listeners = 0x7f0923db;
-        public static final int text = 0x7f09245a;
-        public static final int text2 = 0x7f09245c;
-        public static final int time = 0x7f09252a;
-        public static final int title = 0x7f092560;
-        public static final int tv_error = 0x7f0926fb;
-        public static final int visible_removing_fragment_view_tag = 0x7f092999;
+        public static final int async = 0x7f0902da;
+        public static final int bdvideoplayer_seekbar = 0x7f0903c2;
+        public static final int blocking = 0x7f09040e;
+        public static final int bt_retry = 0x7f09049d;
+        public static final int center = 0x7f09068d;
+        public static final int chronometer = 0x7f09071b;
+        public static final int dialog_button = 0x7f0908aa;
+        public static final int forever = 0x7f090bb3;
+        public static final int fragment_container_view_tag = 0x7f090c43;
+        public static final int icon = 0x7f090ffd;
+        public static final int icon_group = 0x7f091007;
+        public static final int info = 0x7f091132;
+        public static final int italic = 0x7f0911a1;
+        public static final int left = 0x7f0914dc;
+        public static final int line1 = 0x7f09152e;
+        public static final int line3 = 0x7f091530;
+        public static final int main_duration_text = 0x7f0916b9;
+        public static final int main_progress_text = 0x7f0916bf;
+        public static final int main_view_seekbar = 0x7f0916cb;
+        public static final int normal = 0x7f09199a;
+        public static final int notification_background = 0x7f0919b2;
+        public static final int notification_main_column = 0x7f0919b4;
+        public static final int notification_main_column_container = 0x7f0919b5;
+        public static final int play_error_layout_retry = 0x7f091cc1;
+        public static final int progress = 0x7f091d87;
+        public static final int right = 0x7f091f2d;
+        public static final int right_icon = 0x7f091f47;
+        public static final int right_side = 0x7f091f4f;
+        public static final int tag_accessibility_actions = 0x7f09239e;
+        public static final int tag_accessibility_clickable_spans = 0x7f09239f;
+        public static final int tag_accessibility_heading = 0x7f0923a0;
+        public static final int tag_accessibility_pane_title = 0x7f0923a1;
+        public static final int tag_screen_reader_focusable = 0x7f0923f6;
+        public static final int tag_transition_group = 0x7f092406;
+        public static final int tag_unhandled_key_event_manager = 0x7f092408;
+        public static final int tag_unhandled_key_listeners = 0x7f092409;
+        public static final int text = 0x7f092488;
+        public static final int text2 = 0x7f09248a;
+        public static final int time = 0x7f092559;
+        public static final int title = 0x7f09258f;
+        public static final int tv_error = 0x7f09272c;
+        public static final int visible_removing_fragment_view_tag = 0x7f0929ca;
     }
 
     /* loaded from: classes4.dex */
@@ -220,16 +220,16 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class layout {
-        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d016b;
-        public static final int bdvideoplayer_layout_net_error = 0x7f0d016c;
-        public static final int bdvideoplayer_seek_bar_view = 0x7f0d016d;
-        public static final int custom_dialog = 0x7f0d023b;
-        public static final int notification_action = 0x7f0d072c;
-        public static final int notification_action_tombstone = 0x7f0d072d;
-        public static final int notification_template_custom_big = 0x7f0d0734;
-        public static final int notification_template_icon_group = 0x7f0d0735;
-        public static final int notification_template_part_chronometer = 0x7f0d0739;
-        public static final int notification_template_part_time = 0x7f0d073a;
+        public static final int bdvideoplayer_layout_kernel_error = 0x7f0d016e;
+        public static final int bdvideoplayer_layout_net_error = 0x7f0d016f;
+        public static final int bdvideoplayer_seek_bar_view = 0x7f0d0170;
+        public static final int custom_dialog = 0x7f0d023e;
+        public static final int notification_action = 0x7f0d0732;
+        public static final int notification_action_tombstone = 0x7f0d0733;
+        public static final int notification_template_custom_big = 0x7f0d073a;
+        public static final int notification_template_icon_group = 0x7f0d073b;
+        public static final int notification_template_part_chronometer = 0x7f0d073f;
+        public static final int notification_template_part_time = 0x7f0d0740;
     }
 
     /* loaded from: classes4.dex */
@@ -241,10 +241,10 @@ public final class R {
     public static final class string {
         public static final int activity_not_found = 0x7f0f00ba;
         public static final int app_name = 0x7f0f029e;
-        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f0343;
-        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f0344;
-        public static final int bdvideoplayer_tip_net_error = 0x7f0f0345;
-        public static final int status_bar_notification_info_overflow = 0x7f0f1454;
+        public static final int bdvideoplayer_btn_net_error_retry = 0x7f0f0344;
+        public static final int bdvideoplayer_tip_kernel_error = 0x7f0f0345;
+        public static final int bdvideoplayer_tip_net_error = 0x7f0f0346;
+        public static final int status_bar_notification_info_overflow = 0x7f0f1462;
     }
 
     /* loaded from: classes4.dex */

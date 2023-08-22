@@ -1,112 +1,106 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import java.util.EnumMap;
 import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public abstract class n0a implements z97 {
+public class n0a {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<EncodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public n0a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947950026, "Lcom/baidu/tieba/n0a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947950026, "Lcom/baidu/tieba/n0a;");
+                return;
             }
         }
+        EnumMap enumMap = new EnumMap(EncodeHintType.class);
+        a = enumMap;
+        enumMap.put((EnumMap) EncodeHintType.CHARACTER_SET, (EncodeHintType) "utf-8");
+        a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        a.put(EncodeHintType.MARGIN, 0);
     }
 
-    @Override // com.baidu.tieba.z97
-    public Map<String, String> a(m57 businessInfo) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        boolean z;
+    public static Bitmap a(Bitmap bitmap, Bitmap bitmap2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("page_type", "a002");
-            String str3 = a.get("thread_id");
-            String str4 = "";
-            if (str3 == null) {
-                str3 = "";
-            }
-            hashMap.put("obj_id", str3);
-            String str5 = a.get("recom_source");
-            if (str5 == null) {
-                str5 = "";
-            }
-            hashMap.put("list_strategy", str5);
-            sb5 adAdSense = TbadkCoreApplication.getInst().getAdAdSense();
-            boolean z2 = false;
-            if (adAdSense != null && (str2 = adAdSense.k) != null) {
-                if (str2.length() > 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    hashMap.put("ab_tag", str2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bitmap, bitmap2)) == null) {
+            if (bitmap != null && bitmap2 != null) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                int width2 = bitmap2.getWidth();
+                int height2 = bitmap2.getHeight();
+                float f = ((width * 1.0f) / 5.0f) / width2;
+                Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+                try {
+                    Canvas canvas = new Canvas(createBitmap);
+                    canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+                    canvas.scale(f, f, width / 2, height / 2);
+                    canvas.drawBitmap(bitmap2, (width - width2) / 2, (height - height2) / 2, (Paint) null);
+                    canvas.save();
+                    canvas.restore();
+                    return createBitmap;
+                } catch (Exception unused) {
+                    return null;
                 }
             }
-            CharSequence charSequence = (CharSequence) hashMap.get("ab_tag");
-            if ((charSequence == null || charSequence.length() == 0) ? true : true) {
-                String str6 = a.get("abtest_tag");
-                if (str6 == null) {
-                    str6 = "";
-                }
-                hashMap.put("ab_tag", str6);
-            }
-            String str7 = a.get("is_video_work");
-            String str8 = "0";
-            if (str7 == null) {
-                str7 = "0";
-            }
-            hashMap.put(TiebaStatic.Params.IS_ZP, str7);
-            String str9 = a.get(TiebaStatic.Params.GUA_TYPE);
-            if (str9 == null) {
-                str9 = "0";
-            }
-            hashMap.put(TiebaStatic.Params.GUA_TYPE, str9);
-            String str10 = a.get(TiebaStatic.Params.IS_SPECIAL_THREAD);
-            if (str10 == null) {
-                str10 = "0";
-            }
-            hashMap.put(TiebaStatic.Params.IS_SPECIAL_THREAD, str10);
-            String str11 = a.get(TiebaStatic.Params.RECOM_TYPE);
-            if (str11 != null) {
-                str4 = str11;
-            }
-            hashMap.put(TiebaStatic.Params.RECOM_TYPE, str4);
-            if (!PermissionUtil.isBrowseMode()) {
-                str = "0";
-            } else {
-                str = "1";
-            }
-            hashMap.put(TiebaStatic.Params.PURE_BROWSING, str);
-            String str12 = a.get("has_forum_head_pendants");
-            if (str12 != null) {
-                str8 = str12;
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str8);
-            return hashMap;
+            return bitmap;
         }
-        return (Map) invokeL.objValue;
+        return (Bitmap) invokeLL.objValue;
+    }
+
+    public static Bitmap b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            return c(str, i, -16777216, -1, null);
+        }
+        return (Bitmap) invokeLI.objValue;
+    }
+
+    public static Bitmap c(String str, int i, int i2, int i3, Bitmap bitmap) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitmap})) == null) {
+            try {
+                BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, a);
+                int[] iArr = new int[i * i];
+                for (int i4 = 0; i4 < i; i4++) {
+                    for (int i5 = 0; i5 < i; i5++) {
+                        if (encode.get(i5, i4)) {
+                            iArr[(i4 * i) + i5] = i2;
+                        } else {
+                            iArr[(i4 * i) + i5] = i3;
+                        }
+                    }
+                }
+                Bitmap createBitmap = Bitmap.createBitmap(i, i, Bitmap.Config.ARGB_8888);
+                createBitmap.setPixels(iArr, 0, i, 0, 0, i, i);
+                return a(createBitmap, bitmap);
+            } catch (Exception unused) {
+                return null;
+            }
+        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

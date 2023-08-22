@@ -1,65 +1,125 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import android.graphics.Bitmap;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class ov6 extends SQLiteOpenHelper {
+public final class ov6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Bitmap a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ov6(String name) {
-        super(TbadkCoreApplication.getInst(), name, (SQLiteDatabase.CursorFactory) null, 1);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {name};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948045754, "Lcom/baidu/tieba/ov6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948045754, "Lcom/baidu/tieba/ov6;");
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(name, "name");
+        Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
+        Intrinsics.checkNotNullExpressionValue(createBitmap, "createBitmap(1, 1, Bitmap.Config.ARGB_8888)");
+        a = createBitmap;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+    public static final Bitmap b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) && sQLiteDatabase != null) {
-            i41 b = new r7a().b();
-            String b2 = f41.b(b);
-            Intrinsics.checkNotNullExpressionValue(b2, "createTable(table)");
-            sQLiteDatabase.execSQL(b2);
-            ArrayList<String> a = f41.a(b);
-            Intrinsics.checkNotNullExpressionValue(a, "createIndices(table)");
-            Iterator<String> it = a.iterator();
-            while (it.hasNext()) {
-                sQLiteDatabase.execSQL(it.next());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    public static final boolean a(gu6 gu6Var, gu6 gu6Var2, gw6 gw6Var, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{gu6Var, gu6Var2, gw6Var, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            int width = gw6Var.getWidth();
+            float q = gu6Var.f().q();
+            float q2 = gu6Var2.f().q();
+            long j3 = j - gu6Var.j();
+            float f = width;
+            float f2 = (float) j2;
+            if (f - ((q2 + f) * (((float) (j - gu6Var2.j())) / f2)) < (f - ((f + q) * (((float) j3) / f2))) + q) {
+                return true;
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static final boolean c(gu6 gu6Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65539, null, gu6Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(gu6Var, "<this>");
+            if (j - gu6Var.j() < 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean d(gu6 gu6Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, gu6Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(gu6Var, "<this>");
+            if (!e(gu6Var, j) && !c(gu6Var, j)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean e(gu6 gu6Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65541, null, gu6Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(gu6Var, "<this>");
+            if (j - gu6Var.j() > gu6Var.g()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean f(gu6 gu6Var, gu6 danmaku, gw6 displayer, long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{gu6Var, danmaku, displayer, Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            Intrinsics.checkNotNullParameter(gu6Var, "<this>");
+            Intrinsics.checkNotNullParameter(danmaku, "danmaku");
+            Intrinsics.checkNotNullParameter(displayer, "displayer");
+            if (d(gu6Var, j)) {
+                return false;
+            }
+            long j3 = danmaku.j() - gu6Var.j();
+            if (j3 <= 0) {
+                return true;
+            }
+            if (Math.abs(j3) >= j2 || e(gu6Var, j) || e(danmaku, j)) {
+                return false;
+            }
+            if (gu6Var.e().j() != 5 && gu6Var.e().j() != 4 && !a(gu6Var, danmaku, displayer, j, j2) && !a(gu6Var, danmaku, displayer, j + j2, j2)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

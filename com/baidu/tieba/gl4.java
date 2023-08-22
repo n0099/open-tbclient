@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Vector;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class gl4 implements wk4 {
+public class gl4 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final ao4 c;
+    public static final fo4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<wk4> a;
-    public Object b;
+    public bl4 a;
+    public AtomicBoolean b;
+    public al4 c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,15 +31,15 @@ public class gl4 implements wk4 {
                 return;
             }
         }
-        c = ao4.e();
+        d = fo4.e();
     }
 
-    public gl4(wk4 wk4Var) {
+    public gl4(AtomicBoolean atomicBoolean, bl4 bl4Var, al4 al4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wk4Var};
+            Object[] objArr = {atomicBoolean, bl4Var, al4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,65 +49,41 @@ public class gl4 implements wk4 {
                 return;
             }
         }
-        this.b = new Object();
-        this.a = new Vector<>();
-        c(wk4Var);
+        this.b = atomicBoolean;
+        this.a = bl4Var;
+        this.c = al4Var;
     }
 
-    @Override // com.baidu.tieba.wk4
-    public <T> void a(al4<T> al4Var) {
+    public final <T> void a(fl4<T> fl4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, al4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, fl4Var) == null) {
+            this.a.a(fl4Var);
             try {
-                synchronized (this.b) {
-                    Iterator<wk4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        it.next().a(al4Var);
+                try {
+                    fl4Var.run();
+                } catch (Exception e) {
+                    d.g("PMSTaskExecutor", "#runTask 包下载任务出错", e);
+                }
+            } finally {
+                this.a.b(fl4Var);
+            }
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            while (!this.b.get()) {
+                Runnable a = this.c.a(true);
+                if (a instanceof fl4) {
+                    try {
+                        a((fl4) a);
+                    } catch (Throwable th) {
+                        d.g("PMSTaskExecutor", "#run 包下载任务出错", th);
                     }
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.wk4
-    public <T> void b(al4<T> al4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, al4Var) == null) {
-            Vector vector = new Vector();
-            try {
-                synchronized (this.b) {
-                    Iterator<wk4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        vector.add(it.next());
-                    }
-                }
-                Iterator it2 = vector.iterator();
-                while (it2.hasNext()) {
-                    ((wk4) it2.next()).b(al4Var);
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
-            }
-        }
-    }
-
-    public void c(wk4 wk4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wk4Var) == null) && wk4Var != null) {
-            synchronized (this.b) {
-                this.a.add(wk4Var);
-            }
-        }
-    }
-
-    public void d(wk4 wk4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, wk4Var) == null) && wk4Var != null) {
-            synchronized (this.b) {
-                if (!this.a.remove(wk4Var)) {
-                    this.a.remove(this.a.indexOf(wk4Var));
+                } else {
+                    return;
                 }
             }
         }

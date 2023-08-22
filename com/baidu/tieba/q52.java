@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
+import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class q52 extends e42 {
+public class q52 extends j42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path a;
+    public Paint.Align a;
 
     public q52() {
         Interceptable interceptable = $ic;
@@ -29,33 +29,32 @@ public class q52 extends e42 {
         }
     }
 
-    @Override // com.baidu.tieba.e42
-    public void a(f42 f42Var, Canvas canvas) {
+    @Override // com.baidu.tieba.j42
+    public void a(k42 k42Var, Canvas canvas) {
+        Paint.Align align;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, f42Var, canvas) == null) && this.a != null) {
-            int alpha = f42Var.c.getAlpha();
-            f42Var.c(f42Var.c);
-            canvas.drawPath(this.a, f42Var.c);
-            f42Var.c.setAlpha(alpha);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, k42Var, canvas) == null) && (align = this.a) != null) {
+            k42Var.e.setTextAlign(align);
         }
     }
 
-    @Override // com.baidu.tieba.e42
+    @Override // com.baidu.tieba.j42
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
             try {
-                if (jSONArray.length() == 4) {
-                    int g = po3.g((float) jSONArray.optDouble(0));
-                    int g2 = po3.g((float) jSONArray.optDouble(1));
-                    int g3 = po3.g((float) jSONArray.optDouble(2));
-                    int g4 = po3.g((float) jSONArray.optDouble(3));
-                    Path path = new Path();
-                    this.a = path;
-                    path.addRect(new RectF(g, g2, g + g3, g2 + g4), Path.Direction.CW);
+                if (jSONArray.length() > 0) {
+                    String optString = jSONArray.optString(0);
+                    if (TextUtils.equals(optString, "left")) {
+                        this.a = Paint.Align.LEFT;
+                    } else if (TextUtils.equals(optString, "center")) {
+                        this.a = Paint.Align.CENTER;
+                    } else if (TextUtils.equals(optString, "right")) {
+                        this.a = Paint.Align.RIGHT;
+                    }
                 }
             } catch (Exception e) {
-                if (ir1.a) {
+                if (nr1.a) {
                     e.printStackTrace();
                 }
             }

@@ -1,66 +1,139 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.ala.data.SdkLiveInfoData;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernOfflineViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gb6 {
+public class gb6 extends om<kb6, LiveTabConcernOfflineViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public jo6<kb6> b;
 
-    public static void a(h96 h96Var, String str, String str2) {
-        SdkLiveInfoData sdkLiveInfoData;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        int i;
-        SdkLiveInfoData.YYExt yYExt;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, h96Var, str, str2) == null) && h96Var != null && (sdkLiveInfoData = h96Var.a) != null) {
-            SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
-            String str7 = "";
-            if (alaLiveInfo == null || (yYExt = alaLiveInfo.yyExt) == null) {
-                str3 = "";
-                str4 = str3;
-                str5 = str4;
-                str6 = str5;
-            } else {
-                str4 = yYExt.sid;
-                str5 = yYExt.ssid;
-                str6 = yYExt.yyUid;
-                str3 = yYExt.templateId;
+    /* loaded from: classes6.dex */
+    public class a extends jo6<kb6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gb6 b;
+
+        public a(gb6 gb6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gb6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            StatisticItem param = new StatisticItem(str).param("fid", h96Var.c).param("liveid", h96Var.a.liveId).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, str4).param(TiebaStatic.YYParams.YYSSID, str5).param("yyuid", str6).param("template_id", str3);
-            if (!TextUtils.isEmpty(str4)) {
-                str7 = "1";
+            this.b = gb6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.jo6
+        /* renamed from: d */
+        public void a(View view2, kb6 kb6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, kb6Var) == null) {
+                this.b.t(kb6Var);
             }
-            StatisticItem param2 = param.param(TiebaStatic.YYParams.YYLIVEID, str7).param("vid", h96Var.a.nid);
-            if (TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, str2)) {
-                i = 1;
-            } else {
-                i = 2;
-            }
-            TiebaStatic.log(param2.param("obj_source", i));
         }
     }
 
-    public static void b(h96 h96Var, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gb6(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), kb6.g);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, h96Var, str) == null) {
-            a(h96Var, "c14705", str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new a(this);
+        this.a = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: u */
+    public LiveTabConcernOfflineViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            tb6 tb6Var = new tb6(this.a, viewGroup);
+            tb6Var.k(this.b);
+            return new LiveTabConcernOfflineViewHolder(tb6Var);
+        }
+        return (LiveTabConcernOfflineViewHolder) invokeL.objValue;
+    }
+
+    public final void t(kb6 kb6Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kb6Var) != null) || kb6Var == null) {
+            return;
+        }
+        String str = kb6Var.a;
+        if (!StringUtils.isNull(str) && JavaTypesHelper.toLong(str, 0L) != 0) {
+            if (!TbadkCoreApplication.isLogin()) {
+                ViewHelper.skipToLoginActivity(this.a.getPageActivity());
+                return;
+            }
+            if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && TbadkCoreApplication.getCurrentAccount().equals(str)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.a.getPageActivity()).createNormalConfig(JavaTypesHelper.toLong(str, 0L), z, false)));
         }
     }
 
-    public static void c(h96 h96Var, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kb6 kb6Var, LiveTabConcernOfflineViewHolder liveTabConcernOfflineViewHolder) {
+        InterceptResult invokeCommon;
+        tb6 tb6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, h96Var, str) == null) {
-            a(h96Var, "c14704", str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kb6Var, liveTabConcernOfflineViewHolder})) == null) {
+            if (liveTabConcernOfflineViewHolder != null && (tb6Var = liveTabConcernOfflineViewHolder.a) != null) {
+                tb6Var.i(kb6Var);
+                return liveTabConcernOfflineViewHolder.getView();
+            }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 }

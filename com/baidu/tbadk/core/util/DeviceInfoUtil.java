@@ -9,7 +9,6 @@ import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.sapi2.activity.OauthActivity;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tbadk.switchs.IsFullScreenSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -321,9 +320,6 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            if (!IsFullScreenSwitch.isOn()) {
-                return false;
-            }
             String model = DeviceInfoHelper.getModel();
             String[] strArr = {"ANE-AL00", "CLT-AL01", "PACM00", "vivo Y85A", "vivo X21A", "SM-G8870"};
             for (int i = 0; i < 6; i++) {

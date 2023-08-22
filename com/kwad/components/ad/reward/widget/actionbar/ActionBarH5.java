@@ -43,10 +43,10 @@ public class ActionBarH5 extends FrameLayout implements c {
     }
 
     private void E(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04ed, this);
-        this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0912c2);
-        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0912c6);
-        this.wS = findViewById(R.id.obfuscated_res_0x7f0912a4);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04f4, this);
+        this.wQ = (TextView) findViewById(R.id.obfuscated_res_0x7f0912d8);
+        this.cE = (TextView) findViewById(R.id.obfuscated_res_0x7f0912dc);
+        this.wS = findViewById(R.id.obfuscated_res_0x7f0912ba);
     }
 
     private void b(View view2, final boolean z) {

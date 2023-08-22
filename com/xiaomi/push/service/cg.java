@@ -14,10 +14,10 @@ public class cg implements XMPushService.n {
     public static Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final boolean f971a = Log.isLoggable("UNDatas", 3);
+    public static final boolean f972a = Log.isLoggable("UNDatas", 3);
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Map<Integer, Map<String, List<String>>> f970a = new HashMap();
+    public static final Map<Integer, Map<String, List<String>>> f971a = new HashMap();
 
     public cg(Context context) {
         a = context;
@@ -42,7 +42,7 @@ public class cg implements XMPushService.n {
     }
 
     public static void a(Context context, ig igVar) {
-        if (f971a) {
+        if (f972a) {
             com.xiaomi.channel.commonutils.logger.b.b("UNDatas upload message notification:" + igVar);
         }
         com.xiaomi.push.aj.a(context).a(new ch(igVar));
@@ -50,7 +50,7 @@ public class cg implements XMPushService.n {
 
     public static void b() {
         HashMap hashMap = new HashMap();
-        hashMap.putAll(f970a);
+        hashMap.putAll(f971a);
         if (hashMap.size() > 0) {
             for (Integer num : hashMap.keySet()) {
                 Map map = (Map) hashMap.get(num);
@@ -70,22 +70,22 @@ public class cg implements XMPushService.n {
                         }
                         sb.append(ParamableElem.DIVIDE_PARAM);
                     }
-                    ig a2 = a(null, bd.a(), hr.NotificationRemoved.f508a, null);
+                    ig a2 = a(null, bd.a(), hr.NotificationRemoved.f509a, null);
                     a2.a("removed_reason", String.valueOf(num));
                     a2.a("all_delete_msgId_appId", sb.toString());
                     com.xiaomi.channel.commonutils.logger.b.b("UNDatas upload all removed messages reason: " + num + " allIds: " + sb.toString());
                     a(a, a2);
                 }
-                f970a.remove(num);
+                f971a.remove(num);
             }
         }
     }
 
     @Override // com.xiaomi.push.service.XMPushService.n
     /* renamed from: a */
-    public void mo545a() {
-        if (f970a.size() > 0) {
-            synchronized (f970a) {
+    public void mo547a() {
+        if (f971a.size() > 0) {
+            synchronized (f971a) {
                 b();
             }
         }

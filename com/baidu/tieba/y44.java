@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.v8engine.event.EventTargetImpl;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,18 +13,24 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class y44 implements x44 {
+public class y44 extends jy2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, z44> a;
-    public HashMap<String, ArrayList<x44>> b;
-    public String c;
-    public f94 d;
-    public final Object e;
+    public EventTargetImpl d;
+    public v44 e;
+
+    @Override // com.baidu.tieba.jy2
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,118 +45,69 @@ public class y44 implements x44 {
                 return;
             }
         }
-        f = ir1.a;
+        f = nr1.a;
     }
 
-    public y44(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y44(EventTargetImpl eventTargetImpl, JSONObject jSONObject) {
+        super(null, jSONObject);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {eventTargetImpl, jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((CallbackHandler) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.e = new Object();
-        this.c = str;
+        this.d = eventTargetImpl;
     }
 
-    public void c(String str) {
+    @Override // com.baidu.tieba.jy2
+    public void b(String str, JSONObject jSONObject) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f) {
-                Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            String optString = this.b.optString(str);
+            v44 v44Var = this.e;
+            if (v44Var != null) {
+                v44Var.p(optString, jSONObject);
             }
-            if (this.d == null) {
-                this.d = f94.b();
-            }
-            z44 z44Var = new z44(this.d, this.c, str, this);
-            this.a.put(str, z44Var);
-            z44Var.e();
-        }
-    }
-
-    @Override // com.baidu.tieba.x44
-    public void a(String str, String str2) {
-        ArrayList<x44> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.get(i).a(str, str2);
-                        if (f) {
-                            Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
-                        }
-                    }
-                    this.a.remove(str);
-                }
-            }
-        }
-    }
-
-    public void e(String str, x44 x44Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, x44Var) == null) {
-            synchronized (this.e) {
-                if (!d(str)) {
-                    if (f) {
-                        Log.e("AudioDownloadManager", "start load url = " + str);
-                    }
-                    c(str);
-                } else if (f) {
-                    Log.e("AudioDownloadManager", "re load url = " + str);
-                }
-                b(str, x44Var);
-            }
-        }
-    }
-
-    public final void b(String str, x44 x44Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, x44Var) == null) {
-            if (this.b.containsKey(str)) {
-                this.b.get(str).add(x44Var);
+            if (!this.d.hasEventListener(optString)) {
                 return;
             }
-            ArrayList<x44> arrayList = new ArrayList<>();
-            arrayList.add(x44Var);
-            this.b.put(str, arrayList);
-        }
-    }
-
-    public final boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.a.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.x44
-    public void fail(int i, String str) {
-        ArrayList<x44> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.get(i2).fail(i, str);
-                    }
-                    this.a.remove(str);
-                }
+            JSEvent jSEvent = new JSEvent(optString);
+            if (jSONObject != null) {
+                jSEvent.data = jSONObject;
             }
+            if (f && !"onTimeUpdate".equals(str)) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("type = ");
+                sb.append(str);
+                sb.append("  result = ");
+                if (jSONObject != null) {
+                    str2 = jSONObject.toString();
+                } else {
+                    str2 = StringUtil.NULL_STRING;
+                }
+                sb.append(str2);
+                Log.d("AudioCallbackForV8", sb.toString());
+            }
+            this.d.dispatchEvent(jSEvent);
+        }
+    }
+
+    public void e(v44 v44Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, v44Var) == null) {
+            this.e = v44Var;
         }
     }
 }

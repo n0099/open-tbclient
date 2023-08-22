@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -38,7 +38,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -73,7 +73,7 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -223,11 +223,11 @@ public class LPBigImgCardView extends BaseCardView<LPBigImgCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d019f, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01a2, (ViewGroup) null);
             this.m = relativeLayout;
-            this.n = (TbImageView) m(relativeLayout, R.id.obfuscated_res_0x7f09242e);
-            this.o = (TbImageView) m(this.m, R.id.obfuscated_res_0x7f09242f);
-            this.p = (TextView) m(this.m, R.id.obfuscated_res_0x7f0926d3);
+            this.n = (TbImageView) m(relativeLayout, R.id.obfuscated_res_0x7f09245c);
+            this.o = (TbImageView) m(this.m, R.id.obfuscated_res_0x7f09245d);
+            this.p = (TextView) m(this.m, R.id.obfuscated_res_0x7f092704);
             return this.m;
         }
         return (View) invokeV.objValue;

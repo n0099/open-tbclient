@@ -1,100 +1,26 @@
 package com.baidu.tieba;
 
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.CharArrayWriter;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import com.baidu.webkit.internal.Base64;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes7.dex */
 public final class s00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(File file) {
-        InterceptResult invokeL;
-        FileReader fileReader;
+    public static byte[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, file)) != null) {
-            return (String) invokeL.objValue;
-        }
-        FileReader fileReader2 = null;
-        try {
-            fileReader = new FileReader(file);
-            try {
-                try {
-                    char[] cArr = new char[8192];
-                    CharArrayWriter charArrayWriter = new CharArrayWriter();
-                    while (true) {
-                        int read = fileReader.read(cArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        charArrayWriter.write(cArr, 0, read);
-                    }
-                    String charArrayWriter2 = charArrayWriter.toString();
-                    try {
-                        fileReader.close();
-                    } catch (Exception e) {
-                        c(e);
-                    }
-                    return charArrayWriter2;
-                } catch (Exception e2) {
-                    e = e2;
-                    c(e);
-                    if (fileReader != null) {
-                        try {
-                            fileReader.close();
-                        } catch (Exception e3) {
-                            c(e3);
-                        }
-                    }
-                    return null;
-                }
-            } catch (Throwable th) {
-                th = th;
-                fileReader2 = fileReader;
-                if (fileReader2 != null) {
-                    try {
-                        fileReader2.close();
-                    } catch (Exception e4) {
-                        c(e4);
-                    }
-                }
-                throw th;
-            }
-        } catch (Exception e5) {
-            e = e5;
-            fileReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (fileReader2 != null) {
-            }
-            throw th;
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{0, -86, -91, -2, -41, ByteCompanionObject.MAX_VALUE, 37, -25, -33, 93, 51, -73, 32, -81, 61, 108, 37, 126, 14, -125, 125, ExifInterface.MARKER_SOF9, -29, 34, -60, 84, -67, -46, 125, -93, -67, -27, 97, 54, Base64.INTERNAL_PADDING, 0, -6, 83, 67, -116, 43, -24, 26, 88, -5, 33, 27, -105, 49, 76, -70, -32, 105, -48, 67, 69, 102, -111, -81, 93, -103, -18, 17, 55, 81, -34, -80, -76, -13, -84, 6, 91, 10, 48, -56, -1, 45, 9, 23, 34, 6, 103, Base64.INTERNAL_PADDING, ExifInterface.MARKER_SOF13, 29, 70, -19, ExifInterface.MARKER_SOF13, 20, ExifInterface.MARKER_EOI, -43, -97, 75, 23, -124, -101, -71, -75, -107, -88, -13, -71, 80, 90, -76, -119, 51, -80, 118, Byte.MIN_VALUE, -12, -108, 98, -29, -27, 60, -119, -74, 110, 61, 51, -22, 53, 66, -99, -45, -25, 111, -121, 25, -72, ByteCompanionObject.MAX_VALUE, 3, 51, -100, 57, -90, 116, ExifInterface.MARKER_SOF5, -117, 74, -71, 121, 59, 19, -8, -109, 33, -14, 76, -105, -127, -23, 5, 99, -82, 22, -99, 51, 78, -26, 77, -52, -29, 121, ExifInterface.START_CODE, -76, 20, 2, 116, 111, -76, 2, -78, -90, ExifInterface.MARKER_SOF10, 81, 115, 82, 50, 124, -83, 96, 20, ExifInterface.MARKER_SOI, -118, 105, 90, -70, 120, -33, -110, 12, -15, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 34, -125, -116, 69, ExifInterface.MARKER_SOF10, -103, -109, -124, 26, 94, -89, -98, -11, -66, 89, 48, -68, ExifInterface.MARKER_SOF13, 107, -60, 12, 114, -71, 119, 49, ExifInterface.MARKER_APP1, -65, 113, -99, 3, -90, 79, -88, ExifInterface.MARKER_SOS, -87, -25, ExifInterface.MARKER_SOS, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 110, -25, 29, 49, 124, -76, -91, 77, -11, -90, 114, ExifInterface.MARKER_SOF1, 118, -22, -5, -124, 19, 22, -74, -75, 78, 28, 47, -69} : (byte[]) invokeV.objValue;
     }
 
-    public static void b(Closeable closeable) {
+    public static byte[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException e) {
-            c(e);
-        }
-    }
-
-    public static void c(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{1, 0, 1} : (byte[]) invokeV.objValue;
     }
 }

@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.bigday;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.j05;
-import com.baidu.tieba.l45;
 import com.baidu.tieba.ne;
+import com.baidu.tieba.p05;
+import com.baidu.tieba.r45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import tbclient.GetBigday.GetBigdayResIdl;
 public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<j05> bigdayInfos;
+    public ArrayList<p05> bigdayInfos;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetBigdayInfoHttpResMessage() {
@@ -49,10 +49,10 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
             if (bArr == null) {
                 return;
             }
-            l45.e();
-            ne<byte[]> c = l45.c("tb.bigday_datas");
-            c.remove("tb.bigday_datas");
-            c.g("tb.bigday_datas", bArr);
+            r45.k();
+            ne<byte[]> i2 = r45.i("tb.bigday_datas");
+            i2.remove("tb.bigday_datas");
+            i2.g("tb.bigday_datas", bArr);
         }
     }
 
@@ -72,10 +72,10 @@ public class GetBigdayInfoHttpResMessage extends HttpResponsedMessage {
                 this.bigdayInfos = new ArrayList<>();
                 for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
                     if (bigdayInfo != null) {
-                        j05 j05Var = new j05();
-                        j05Var.b(bigdayInfo);
-                        if (j05Var.a()) {
-                            this.bigdayInfos.add(j05Var);
+                        p05 p05Var = new p05();
+                        p05Var.b(bigdayInfo);
+                        if (p05Var.a()) {
+                            this.bigdayInfos.add(p05Var);
                         }
                     }
                 }

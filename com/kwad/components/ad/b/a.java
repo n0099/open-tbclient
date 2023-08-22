@@ -13,7 +13,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.videocache.b.a;
 import com.kwad.sdk.utils.o;
 import java.io.File;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static boolean a(@Nullable AdTemplate adTemplate) {
         if (adTemplate == null) {

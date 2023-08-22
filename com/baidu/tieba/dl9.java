@@ -1,37 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pb.pb.main.PbFirstFloorEmptyHolder;
+import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class dl9 {
+public final class dl9 extends vk9<zfa, PbFirstFloorEmptyHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final PbFragment g;
 
-    public static void a(String str, String str2, String str3) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dl9(PbFragment pbFragment, BdUniqueId type) {
+        super(pbFragment, type);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14349");
-            statisticItem.param("tid", str);
-            statisticItem.param("uid", str2);
-            statisticItem.param("post_id", str3);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbFragment, type};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((aq9) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        Intrinsics.checkNotNullParameter(pbFragment, "pbFragment");
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.g = pbFragment;
     }
 
-    public static void b(String str, String str2, String str3, String str4, long j, String str5) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: u */
+    public PbFirstFloorEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, str4, Long.valueOf(j), str5}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14348");
-            statisticItem.param("tid", str2);
-            statisticItem.param("uid", str3);
-            statisticItem.param("post_id", str4);
-            statisticItem.param("pid", str4);
-            statisticItem.param("fname", str5);
-            statisticItem.param("fid", j);
-            statisticItem.param("obj_locate", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            View view2 = new View(this.g.getContext());
+            view2.setVisibility(8);
+            return new PbFirstFloorEmptyHolder(view2);
         }
+        return (PbFirstFloorEmptyHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vk9, com.baidu.tieba.om
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View convertView, ViewGroup parent, zfa data, PbFirstFloorEmptyHolder viewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), convertView, parent, data, viewHolder})) == null) {
+            Intrinsics.checkNotNullParameter(convertView, "convertView");
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(viewHolder, "viewHolder");
+            View view2 = viewHolder.getView();
+            Intrinsics.checkNotNullExpressionValue(view2, "viewHolder.view");
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

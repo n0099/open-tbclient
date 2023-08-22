@@ -1,13 +1,13 @@
 package com.yy.transvod.player.log;
 
 import android.util.Log;
-import com.baidu.tieba.jwb;
-import com.baidu.tieba.nxb;
+import com.baidu.tieba.c4c;
+import com.baidu.tieba.y2c;
 import java.nio.charset.Charset;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes10.dex */
 public final class TLog {
-    public static nxb a;
+    public static c4c a;
     public static Charset b;
     public static AtomicInteger c;
 
@@ -27,9 +27,9 @@ public final class TLog {
         if (c.get() <= 3) {
             String f = f(obj.getClass().getSimpleName());
             String e = e(obj);
-            nxb nxbVar = a;
-            if (nxbVar != null) {
-                nxbVar.b(f, e + str);
+            c4c c4cVar = a;
+            if (c4cVar != null) {
+                c4cVar.b(f, e + str);
                 return;
             }
             Log.d(f, e + str);
@@ -39,9 +39,9 @@ public final class TLog {
     public static void c(Object obj, String str) {
         if (c.get() <= 6) {
             String e = e(obj);
-            nxb nxbVar = a;
-            if (nxbVar != null) {
-                nxbVar.a("[vod-java]", e + str);
+            c4c c4cVar = a;
+            if (c4cVar != null) {
+                c4cVar.a("[vod-java]", e + str);
                 return;
             }
             Log.e("[vod-java]", e + str);
@@ -50,9 +50,9 @@ public final class TLog {
 
     public static void d(String str, String str2) {
         if (c.get() <= 6) {
-            nxb nxbVar = a;
-            if (nxbVar != null) {
-                nxbVar.a("[vod-java]", str + str2);
+            c4c c4cVar = a;
+            if (c4cVar != null) {
+                c4cVar.a("[vod-java]", str + str2);
                 return;
             }
             Log.e("[vod-java]", str + str2);
@@ -62,9 +62,9 @@ public final class TLog {
     public static void g(Object obj, String str) {
         if (c.get() <= 4) {
             String e = e(obj);
-            nxb nxbVar = a;
-            if (nxbVar != null) {
-                nxbVar.d("[vod-java]", e + str);
+            c4c c4cVar = a;
+            if (c4cVar != null) {
+                c4cVar.d("[vod-java]", e + str);
                 return;
             }
             Log.i("[vod-java]", e + str);
@@ -73,9 +73,9 @@ public final class TLog {
 
     public static void h(String str, String str2) {
         if (c.get() <= 4) {
-            nxb nxbVar = a;
-            if (nxbVar != null) {
-                nxbVar.d("[vod-java]", str + str2);
+            c4c c4cVar = a;
+            if (c4cVar != null) {
+                c4cVar.d("[vod-java]", str + str2);
                 return;
             }
             Log.i("[vod-java]", str + str2);
@@ -85,9 +85,9 @@ public final class TLog {
     public static void l(Object obj, String str) {
         if (c.get() <= 5) {
             String e = e(obj);
-            nxb nxbVar = a;
-            if (nxbVar != null) {
-                nxbVar.c("[vod-java]", e + str);
+            c4c c4cVar = a;
+            if (c4cVar != null) {
+                c4cVar.c("[vod-java]", e + str);
                 return;
             }
             Log.w("[vod-java]", e + str);
@@ -96,9 +96,9 @@ public final class TLog {
 
     public static void m(String str, String str2) {
         if (c.get() <= 5) {
-            nxb nxbVar = a;
-            if (nxbVar != null) {
-                nxbVar.c("[vod-java]", str + str2);
+            c4c c4cVar = a;
+            if (c4cVar != null) {
+                c4cVar.c("[vod-java]", str + str2);
                 return;
             }
             Log.w("[vod-java]", str + str2);
@@ -108,9 +108,9 @@ public final class TLog {
     public static void b(String str, String str2) {
         if (c.get() <= 3) {
             String f = f(str);
-            nxb nxbVar = a;
-            if (nxbVar != null) {
-                nxbVar.b(f, str2);
+            c4c c4cVar = a;
+            if (c4cVar != null) {
+                c4cVar.b(f, str2);
             } else {
                 Log.d(f, str2);
             }
@@ -118,8 +118,8 @@ public final class TLog {
     }
 
     public static String e(Object obj) {
-        if (obj instanceof jwb) {
-            return ((jwb) obj).g();
+        if (obj instanceof y2c) {
+            return ((y2c) obj).g();
         }
         return "";
     }
@@ -130,7 +130,7 @@ public final class TLog {
     }
 
     public static void j(Object obj) {
-        a = (nxb) obj;
+        a = (c4c) obj;
     }
 
     public static String f(String str) {

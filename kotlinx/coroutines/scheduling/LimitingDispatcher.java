@@ -87,7 +87,7 @@ public final class LimitingDispatcher extends ExecutorCoroutineDispatcher implem
 
     @Override // kotlinx.coroutines.CoroutineDispatcher
     /* renamed from: dispatch */
-    public void mo2342dispatch(CoroutineContext coroutineContext, Runnable runnable) {
+    public void mo2344dispatch(CoroutineContext coroutineContext, Runnable runnable) {
         dispatch(runnable, false);
     }
 

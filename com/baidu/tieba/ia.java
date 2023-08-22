@@ -162,9 +162,9 @@ public class ia {
             int i3 = a - i2;
             Application app = BdBaseApplication.getInst().getApp();
             if (i3 > -300 && i3 <= -200) {
-                return app.getString(R.string.obfuscated_res_0x7f0f0a41);
+                return app.getString(R.string.obfuscated_res_0x7f0f0a49);
             }
-            return app.getString(R.string.obfuscated_res_0x7f0f0a42);
+            return app.getString(R.string.obfuscated_res_0x7f0f0a4a);
         }
         return (String) invokeI.objValue;
     }

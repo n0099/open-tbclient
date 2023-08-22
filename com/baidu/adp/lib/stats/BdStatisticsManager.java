@@ -25,10 +25,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.tieba.ch;
 import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.fi;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.lh;
+import com.baidu.tieba.ji;
 import com.baidu.tieba.mg;
+import com.baidu.tieba.mh;
 import com.baidu.tieba.ng;
 import com.baidu.tieba.og;
 import com.baidu.tieba.pg;
@@ -75,7 +75,7 @@ public class BdStatisticsManager {
     public String mTrackLogWriteFileDir;
     public long mUploadInterval;
     public String mWriteFileDir;
-    public fi permissionUtil;
+    public hi permissionUtil;
 
     public void net(String str, String str2, String str3, long j, long j2, long j3, long j4, long j5, int i, int i2, String str4, Object... objArr) {
         Interceptable interceptable = $ic;
@@ -166,7 +166,7 @@ public class BdStatisticsManager {
             }
             this.a.isSwitchReady = true;
             if (this.a.mIsMainProcess) {
-                lh.i().f();
+                mh.i().f();
             }
             BdStatisticsManager.mHandler.removeMessages(2);
             if (BdBaseApplication.getInst().checkInterrupt()) {
@@ -212,7 +212,7 @@ public class BdStatisticsManager {
             }
             String action = intent.getAction();
             if ("com.baidu.adp.stats.uploadallfile".equals(action) && !this.this$0.mIsMainProcess) {
-                lh.i().t(false);
+                mh.i().t(false);
             }
             if ("com.baidu.adp.stats.upload.alertlog".equals(action) && this.this$0.mIsMainProcess) {
                 Bundle extras = intent.getExtras();
@@ -245,7 +245,7 @@ public class BdStatisticsManager {
     public void checkLogToUpload() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65546, this) == null) {
-            lh.i().e();
+            mh.i().e();
         }
     }
 
@@ -294,7 +294,7 @@ public class BdStatisticsManager {
     public void forceUploadAllLog() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            lh.i().q();
+            mh.i().q();
         }
     }
 
@@ -303,7 +303,7 @@ public class BdStatisticsManager {
         if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || BdBaseApplication.getInst().checkInterrupt()) {
             return;
         }
-        lh.i().t(true);
+        mh.i().t(true);
     }
 
     public String getAppVersion() {
@@ -373,7 +373,7 @@ public class BdStatisticsManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return lh.i().k();
+            return mh.i().k();
         }
         return (String) invokeV.objValue;
     }
@@ -417,7 +417,7 @@ public class BdStatisticsManager {
     public void save() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
-            lh.i().p();
+            mh.i().p();
         }
     }
 
@@ -446,7 +446,7 @@ public class BdStatisticsManager {
         if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || BdBaseApplication.getInst().checkInterrupt()) {
             return;
         }
-        lh.i().t(false);
+        mh.i().t(false);
         if (this.mIsMainProcess) {
             Intent intent = new Intent("com.baidu.adp.stats.uploadallfile");
             intent.setPackage(BdBaseApplication.getInst().getPackageName());
@@ -483,9 +483,9 @@ public class BdStatisticsManager {
         if ((interceptable != null && interceptable.invokeL(1048619, this, str) != null) || BdBaseApplication.getInst().checkInterrupt()) {
             return;
         }
-        tg j = lh.i().j(str);
-        lh.i().B(j);
-        lh.i().w(j);
+        tg j = mh.i().j(str);
+        mh.i().B(j);
+        mh.i().w(j);
     }
 
     public void setAndroidId(String str) {
@@ -528,10 +528,10 @@ public class BdStatisticsManager {
         }
     }
 
-    public void setPermissionUtil(fi fiVar) {
+    public void setPermissionUtil(hi hiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048625, this, fiVar) == null) {
-            this.permissionUtil = fiVar;
+        if (interceptable == null || interceptable.invokeL(1048625, this, hiVar) == null) {
+            this.permissionUtil = hiVar;
         }
     }
 
@@ -540,7 +540,7 @@ public class BdStatisticsManager {
         if ((interceptable != null && interceptable.invokeL(1048626, this, str) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        lh.i().C(str);
+        mh.i().C(str);
     }
 
     public void debug(String str, BdStatsItem bdStatsItem) {
@@ -565,9 +565,9 @@ public class BdStatisticsManager {
                 return;
             }
             if (j == -1) {
-                lh.i().D(str, str2, null, str3, bdStatsItem, objArr);
+                mh.i().D(str, str2, null, str3, bdStatsItem, objArr);
             } else {
-                lh.i().D(str, str2, String.valueOf(j), str3, bdStatsItem, objArr);
+                mh.i().D(str, str2, String.valueOf(j), str3, bdStatsItem, objArr);
             }
         }
     }
@@ -578,7 +578,7 @@ public class BdStatisticsManager {
             return;
         }
         setUploadTime(str);
-        tg j = lh.i().j("alert");
+        tg j = mh.i().j("alert");
         BdStatsItem bdStatsItem = new BdStatsItem("alert");
         bdStatsItem.append("module", "alert");
         if (!TextUtils.isEmpty(str)) {
@@ -620,7 +620,7 @@ public class BdStatisticsManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65549, this, str)) == null) {
-            String d = hi.d(str.getBytes("UTF-8"));
+            String d = ji.d(str.getBytes("UTF-8"));
             if (!TextUtils.isEmpty(d) && d.length() > 8) {
                 return d.substring(d.length() - 8);
             }
@@ -876,7 +876,7 @@ public class BdStatisticsManager {
             ub.f().g(str2);
             zg.o().r(z, str, this.mContext, this.mLogSwitchInitCallback);
             ch.m().n(ngVar, str4, str5);
-            lh.i().l(ngVar);
+            mh.i().l(ngVar);
             if (ngVar != null) {
                 this.mAppVersion = ngVar.c;
             }
@@ -922,7 +922,7 @@ public class BdStatisticsManager {
     public void log(String str, Object... objArr) {
         tg j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048609, this, str, objArr) == null) && (j = lh.i().j(str)) != null && zg.o().v(str, null)) {
+        if ((interceptable == null || interceptable.invokeLL(1048609, this, str, objArr) == null) && (j = mh.i().j(str)) != null && zg.o().v(str, null)) {
             BdStatsItem bdStatsItem = new BdStatsItem(str);
             if (objArr != null && objArr.length > 0) {
                 bdStatsItem.append(objArr);

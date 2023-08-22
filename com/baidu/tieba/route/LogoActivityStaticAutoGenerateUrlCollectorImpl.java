@@ -30,6 +30,21 @@ public final class LogoActivityStaticAutoGenerateUrlCollectorImpl implements ICm
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, String> getCmdRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap hashMap = new HashMap();
+            new ArrayList();
+            hashMap.put("2002001", "com.baidu.tieba.LogoActivityStatic");
+            hashMap.put("2016522", "com.baidu.tieba.LogoActivityStatic");
+            hashMap.put("2016523", "com.baidu.tieba.LogoActivityStatic");
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, ArrayList<String>> getConfigRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -38,23 +53,6 @@ public final class LogoActivityStaticAutoGenerateUrlCollectorImpl implements ICm
             ArrayList arrayList = new ArrayList();
             arrayList.add("LogoActivityConfig");
             hashMap.put("com.baidu.tieba.LogoActivityStatic", arrayList);
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, String> getCmdRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
-            new ArrayList();
-            hashMap.put("2002001", "com.baidu.tieba.LogoActivityStatic");
-            hashMap.put("2016521", "com.baidu.tieba.LogoActivityStatic");
-            hashMap.put("2016520", "com.baidu.tieba.LogoActivityStatic");
-            hashMap.put("2016522", "com.baidu.tieba.LogoActivityStatic");
-            hashMap.put("2016523", "com.baidu.tieba.LogoActivityStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;

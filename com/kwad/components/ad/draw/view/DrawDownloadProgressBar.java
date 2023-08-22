@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.kwad.components.core.page.widget.TextProgressBar;
 import com.kwad.sdk.b.kwai.a;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DrawDownloadProgressBar extends FrameLayout {
     public TextProgressBar bZ;
     public View ca;
@@ -32,9 +32,9 @@ public class DrawDownloadProgressBar extends FrameLayout {
 
     private void E(Context context) {
         this.mContext = context;
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0491, this);
-        this.bZ = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0912ad);
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f0912ae);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0498, this);
+        this.bZ = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f0912c3);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f0912c4);
         this.ca = findViewById;
         findViewById.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.draw.view.DrawDownloadProgressBar.1
             @Override // android.view.View.OnClickListener

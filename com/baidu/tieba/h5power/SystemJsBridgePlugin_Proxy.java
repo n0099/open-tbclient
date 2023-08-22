@@ -6,12 +6,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ica;
-import com.baidu.tieba.jca;
-import com.baidu.tieba.kca;
-import com.baidu.tieba.mca;
-import com.baidu.tieba.qk6;
-import com.baidu.tieba.sx4;
+import com.baidu.tieba.qga;
+import com.baidu.tieba.rga;
+import com.baidu.tieba.sga;
+import com.baidu.tieba.uga;
+import com.baidu.tieba.ux4;
+import com.baidu.tieba.vl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,17 +26,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class SystemJsBridgePlugin_Proxy extends ica {
+public class SystemJsBridgePlugin_Proxy extends qga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sx4 mJsBridge;
+    public ux4 mJsBridge;
 
-    public SystemJsBridgePlugin_Proxy(sx4 sx4Var) {
+    public SystemJsBridgePlugin_Proxy(ux4 ux4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sx4Var};
+            Object[] objArr = {ux4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,7 +46,7 @@ public class SystemJsBridgePlugin_Proxy extends ica {
                 return;
             }
         }
-        this.mJsBridge = sx4Var;
+        this.mJsBridge = ux4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
@@ -59,375 +59,394 @@ public class SystemJsBridgePlugin_Proxy extends ica {
         this.mNotificationNameList.add(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_RESULT);
         this.mNotificationNameList.add(CommonTbJsBridge.INSTALL_APK_RESULT);
         this.mNotificationNameList.add(CommonTbJsBridge.CHANGE_SKIN_TYPE);
+        this.mNotificationNameList.add("keyboardHeightChange");
     }
 
-    @Override // com.baidu.tieba.ica
-    public kca dispatch(WebView webView, mca mcaVar, kca kcaVar) {
+    @Override // com.baidu.tieba.qga
+    public sga dispatch(WebView webView, uga ugaVar, sga sgaVar) {
         InterceptResult invokeLLL;
-        kca kcaVar2;
+        sga sgaVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, mcaVar, kcaVar)) == null) {
-            if (kcaVar == null) {
-                kcaVar2 = new kca();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ugaVar, sgaVar)) == null) {
+            if (sgaVar == null) {
+                sgaVar2 = new sga();
             } else {
-                kcaVar2 = kcaVar;
+                sgaVar2 = sgaVar;
             }
-            String b = mcaVar.b();
-            JSONObject e = mcaVar.e();
+            String b = ugaVar.b();
+            JSONObject e = ugaVar.e();
             if (b.equals("system/saveImage")) {
-                kcaVar2.s(true);
-                kca u = this.mJsBridge.u(webView, e.optString("imgUrl"));
+                sgaVar2.s(true);
+                sga u = this.mJsBridge.u(webView, e.optString("imgUrl"));
                 this.mNotificationNameList.add("saveImageSuccess");
                 if (u != null) {
-                    kcaVar2.y(u.f());
-                    kcaVar2.u(u.b());
-                    kcaVar2.o(u.a());
-                    kcaVar2.x(u.e());
-                    if (!kcaVar2.h()) {
-                        kcaVar2.n(false);
-                        addObserver(webView, "saveImageSuccess", kcaVar2, false);
+                    sgaVar2.y(u.f());
+                    sgaVar2.u(u.b());
+                    sgaVar2.o(u.a());
+                    sgaVar2.x(u.e());
+                    if (!sgaVar2.h()) {
+                        sgaVar2.n(false);
+                        addObserver(webView, "saveImageSuccess", sgaVar2, false);
                     }
                 }
-                kcaVar2.z(0);
+                sgaVar2.z(0);
             } else if (b.equals("system/orderGameApk")) {
-                kcaVar2.s(true);
-                kca C = this.mJsBridge.C(webView, e.optString("id"), e.optString("name"));
+                sgaVar2.s(true);
+                sga E = this.mJsBridge.E(webView, e.optString("id"), e.optString("name"));
                 this.mNotificationNameList.add("orderGameApkResult");
-                if (C != null) {
-                    kcaVar2.y(C.f());
-                    kcaVar2.u(C.b());
-                    kcaVar2.o(C.a());
-                    kcaVar2.x(C.e());
-                    if (!kcaVar2.h()) {
-                        kcaVar2.n(false);
-                        addObserver(webView, "orderGameApkResult", kcaVar2, false);
+                if (E != null) {
+                    sgaVar2.y(E.f());
+                    sgaVar2.u(E.b());
+                    sgaVar2.o(E.a());
+                    sgaVar2.x(E.e());
+                    if (!sgaVar2.h()) {
+                        sgaVar2.n(false);
+                        addObserver(webView, "orderGameApkResult", sgaVar2, false);
                     }
                 }
-                kcaVar2.z(0);
+                sgaVar2.z(0);
             } else if (b.equals("system/goToPhotoAlbum")) {
-                kcaVar2.s(true);
-                kca t = this.mJsBridge.t(webView);
+                sgaVar2.s(true);
+                sga t = this.mJsBridge.t(webView);
                 this.mNotificationNameList.add("GetPhotoAlbum");
                 if (t != null) {
-                    kcaVar2.y(t.f());
-                    kcaVar2.u(t.b());
-                    kcaVar2.o(t.a());
-                    kcaVar2.x(t.e());
-                    if (!kcaVar2.h()) {
-                        kcaVar2.n(false);
-                        addObserver(webView, "GetPhotoAlbum", kcaVar2, false);
+                    sgaVar2.y(t.f());
+                    sgaVar2.u(t.b());
+                    sgaVar2.o(t.a());
+                    sgaVar2.x(t.e());
+                    if (!sgaVar2.h()) {
+                        sgaVar2.n(false);
+                        addObserver(webView, "GetPhotoAlbum", sgaVar2, false);
                     }
                 }
-                kcaVar2.z(0);
+                sgaVar2.z(0);
             } else if (b.equals("system/selectPhotoAlbum")) {
-                kcaVar2.s(true);
+                sgaVar2.s(true);
                 int optInt = e.optInt("maxPhotoNum");
                 ArrayList<JSONObject> arrayList = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList, e.optJSONArray("imageArray"));
-                kca I = this.mJsBridge.I(webView, optInt, arrayList);
+                sga K = this.mJsBridge.K(webView, optInt, arrayList);
                 this.mNotificationNameList.add("selectPhotoAlbum");
-                if (I != null) {
-                    kcaVar2.y(I.f());
-                    kcaVar2.u(I.b());
-                    kcaVar2.o(I.a());
-                    kcaVar2.x(I.e());
-                    if (!kcaVar2.h()) {
-                        kcaVar2.n(false);
-                        addObserver(webView, "selectPhotoAlbum", kcaVar2, false);
-                    }
-                }
-                kcaVar2.z(0);
-            } else if (b.equals("system/playSound")) {
-                kcaVar2.s(true);
-                kca E = this.mJsBridge.E(webView, e.optString("soundUrl"));
-                if (E != null) {
-                    kcaVar2.y(E.f());
-                    kcaVar2.u(E.b());
-                    kcaVar2.o(E.a());
-                    kcaVar2.x(E.e());
-                }
-                kcaVar2.z(0);
-            } else if (b.equals("system/playVibrate")) {
-                kcaVar2.s(true);
-                kca F = this.mJsBridge.F(webView);
-                if (F != null) {
-                    kcaVar2.y(F.f());
-                    kcaVar2.u(F.b());
-                    kcaVar2.o(F.a());
-                    kcaVar2.x(F.e());
-                }
-                kcaVar2.z(0);
-            } else if (b.equals("system/closeNativeMask")) {
-                kcaVar2.s(true);
-                kca f = this.mJsBridge.f(webView, e.optInt("result"));
-                if (f != null) {
-                    kcaVar2.y(f.f());
-                    kcaVar2.u(f.b());
-                    kcaVar2.o(f.a());
-                    kcaVar2.x(f.e());
-                }
-                kcaVar2.z(0);
-            } else if (b.equals("system/checkAppInstall")) {
-                kcaVar2.s(true);
-                kca d = this.mJsBridge.d(webView, e.optString("pkgName"));
-                if (d != null) {
-                    kcaVar2.y(d.f());
-                    kcaVar2.u(d.b());
-                    kcaVar2.o(d.a());
-                    kcaVar2.x(d.e());
-                }
-                kcaVar2.z(0);
-            } else if (b.equals("system/disableSlideBack")) {
-                kcaVar2.s(true);
-                kca i = this.mJsBridge.i(webView, e.optInt(PackageTable.DISABLE));
-                if (i != null) {
-                    kcaVar2.y(i.f());
-                    kcaVar2.u(i.b());
-                    kcaVar2.o(i.a());
-                    kcaVar2.x(i.e());
-                }
-                kcaVar2.z(0);
-            } else if (b.equals("system/startApp")) {
-                kcaVar2.s(true);
-                kca K = this.mJsBridge.K(webView, e.optString("pkgName"), e.optString("schema"));
                 if (K != null) {
-                    kcaVar2.y(K.f());
-                    kcaVar2.u(K.b());
-                    kcaVar2.o(K.a());
-                    kcaVar2.x(K.e());
+                    sgaVar2.y(K.f());
+                    sgaVar2.u(K.b());
+                    sgaVar2.o(K.a());
+                    sgaVar2.x(K.e());
+                    if (!sgaVar2.h()) {
+                        sgaVar2.n(false);
+                        addObserver(webView, "selectPhotoAlbum", sgaVar2, false);
+                    }
                 }
-                kcaVar2.z(0);
+                sgaVar2.z(0);
+            } else if (b.equals("system/playSound")) {
+                sgaVar2.s(true);
+                sga G = this.mJsBridge.G(webView, e.optString("soundUrl"));
+                if (G != null) {
+                    sgaVar2.y(G.f());
+                    sgaVar2.u(G.b());
+                    sgaVar2.o(G.a());
+                    sgaVar2.x(G.e());
+                }
+                sgaVar2.z(0);
+            } else if (b.equals("system/playVibrate")) {
+                sgaVar2.s(true);
+                sga H = this.mJsBridge.H(webView);
+                if (H != null) {
+                    sgaVar2.y(H.f());
+                    sgaVar2.u(H.b());
+                    sgaVar2.o(H.a());
+                    sgaVar2.x(H.e());
+                }
+                sgaVar2.z(0);
+            } else if (b.equals("system/closeNativeMask")) {
+                sgaVar2.s(true);
+                sga f = this.mJsBridge.f(webView, e.optInt("result"));
+                if (f != null) {
+                    sgaVar2.y(f.f());
+                    sgaVar2.u(f.b());
+                    sgaVar2.o(f.a());
+                    sgaVar2.x(f.e());
+                }
+                sgaVar2.z(0);
+            } else if (b.equals("system/checkAppInstall")) {
+                sgaVar2.s(true);
+                sga d = this.mJsBridge.d(webView, e.optString("pkgName"));
+                if (d != null) {
+                    sgaVar2.y(d.f());
+                    sgaVar2.u(d.b());
+                    sgaVar2.o(d.a());
+                    sgaVar2.x(d.e());
+                }
+                sgaVar2.z(0);
+            } else if (b.equals("system/disableSlideBack")) {
+                sgaVar2.s(true);
+                sga i = this.mJsBridge.i(webView, e.optInt(PackageTable.DISABLE));
+                if (i != null) {
+                    sgaVar2.y(i.f());
+                    sgaVar2.u(i.b());
+                    sgaVar2.o(i.a());
+                    sgaVar2.x(i.e());
+                }
+                sgaVar2.z(0);
+            } else if (b.equals("system/startApp")) {
+                sgaVar2.s(true);
+                sga M = this.mJsBridge.M(webView, e.optString("pkgName"), e.optString("schema"));
+                if (M != null) {
+                    sgaVar2.y(M.f());
+                    sgaVar2.u(M.b());
+                    sgaVar2.o(M.a());
+                    sgaVar2.x(M.e());
+                }
+                sgaVar2.z(0);
             } else if (b.equals("system/hasNotificationPermission")) {
-                kcaVar2.s(true);
-                kca v = this.mJsBridge.v(webView);
+                sgaVar2.s(true);
+                sga v = this.mJsBridge.v(webView);
                 if (v != null) {
-                    kcaVar2.y(v.f());
-                    kcaVar2.u(v.b());
-                    kcaVar2.o(v.a());
-                    kcaVar2.x(v.e());
+                    sgaVar2.y(v.f());
+                    sgaVar2.u(v.b());
+                    sgaVar2.o(v.a());
+                    sgaVar2.x(v.e());
                 }
-                kcaVar2.z(0);
+                sgaVar2.z(0);
             } else if (b.equals("system/goToNotificationSetting")) {
-                kcaVar2.s(true);
-                kca s = this.mJsBridge.s(webView);
+                sgaVar2.s(true);
+                sga s = this.mJsBridge.s(webView);
                 if (s != null) {
-                    kcaVar2.y(s.f());
-                    kcaVar2.u(s.b());
-                    kcaVar2.o(s.a());
-                    kcaVar2.x(s.e());
+                    sgaVar2.y(s.f());
+                    sgaVar2.u(s.b());
+                    sgaVar2.o(s.a());
+                    sgaVar2.x(s.e());
                 }
-                kcaVar2.z(0);
+                sgaVar2.z(0);
             } else if (b.equals("system/downloadGameApk")) {
-                kcaVar2.s(true);
-                kca kcaVar3 = kcaVar2;
-                kca L = this.mJsBridge.L(webView, e.optString("gameUrl"), e.optString("gameId"), e.optString("apkName"), e.optString("apkIcon"), e.optString("forumName"), e.optString("apkVersion"), e.optString("developerName"), e.optString("privacyUrl"), e.optString("authorityUrl"), e.optString("packageSize"), e.optInt(PushService.APP_VERSION_CODE), e.optString("pkgName"), e.optInt("source"), e.optString("extInfo"));
-                if (L != null) {
-                    kcaVar3.y(L.f());
-                    kcaVar3.u(L.b());
-                    kcaVar3.o(L.a());
-                    kcaVar3.x(L.e());
+                sgaVar2.s(true);
+                sga sgaVar3 = sgaVar2;
+                sga N = this.mJsBridge.N(webView, e.optString("gameUrl"), e.optString("gameId"), e.optString("apkName"), e.optString("apkIcon"), e.optString("forumName"), e.optString("apkVersion"), e.optString("developerName"), e.optString("privacyUrl"), e.optString("authorityUrl"), e.optString("packageSize"), e.optInt(PushService.APP_VERSION_CODE), e.optString("pkgName"), e.optInt("source"), e.optString("extInfo"));
+                if (N != null) {
+                    sgaVar3.y(N.f());
+                    sgaVar3.u(N.b());
+                    sgaVar3.o(N.a());
+                    sgaVar3.x(N.e());
                 }
-                kcaVar3.z(0);
-                return kcaVar3;
+                sgaVar3.z(0);
+                return sgaVar3;
             } else {
-                kca kcaVar4 = kcaVar2;
+                sga sgaVar4 = sgaVar2;
                 if (b.equals("system/checkInstallGameApk")) {
-                    kcaVar4.s(true);
-                    kca e2 = this.mJsBridge.e(webView, e.optString("pkgName"));
+                    sgaVar4.s(true);
+                    sga e2 = this.mJsBridge.e(webView, e.optString("pkgName"));
                     if (e2 != null) {
-                        kcaVar4.y(e2.f());
-                        kcaVar4.u(e2.b());
-                        kcaVar4.o(e2.a());
-                        kcaVar4.x(e2.e());
+                        sgaVar4.y(e2.f());
+                        sgaVar4.u(e2.b());
+                        sgaVar4.o(e2.a());
+                        sgaVar4.x(e2.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else if (b.equals("system/getAppStorage")) {
-                    kcaVar4.s(true);
-                    kca l = this.mJsBridge.l(webView, e.optString("key"));
+                    sgaVar4.s(true);
+                    sga l = this.mJsBridge.l(webView, e.optString("key"));
                     if (l != null) {
-                        kcaVar4.y(l.f());
-                        kcaVar4.u(l.b());
-                        kcaVar4.o(l.a());
-                        kcaVar4.x(l.e());
+                        sgaVar4.y(l.f());
+                        sgaVar4.u(l.b());
+                        sgaVar4.o(l.a());
+                        sgaVar4.x(l.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else if (b.equals("system/putAppStorage")) {
-                    kcaVar4.s(true);
-                    kca G = this.mJsBridge.G(webView, e.optString("key"), e.optString("data"));
-                    if (G != null) {
-                        kcaVar4.y(G.f());
-                        kcaVar4.u(G.b());
-                        kcaVar4.o(G.a());
-                        kcaVar4.x(G.e());
+                    sgaVar4.s(true);
+                    sga I = this.mJsBridge.I(webView, e.optString("key"), e.optString("data"));
+                    if (I != null) {
+                        sgaVar4.y(I.f());
+                        sgaVar4.u(I.b());
+                        sgaVar4.o(I.a());
+                        sgaVar4.x(I.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else if (b.equals("system/getHistoryForumData")) {
-                    kcaVar4.s(true);
-                    kca o = this.mJsBridge.o(webView);
+                    sgaVar4.s(true);
+                    sga o = this.mJsBridge.o(webView);
                     if (o != null) {
-                        kcaVar4.y(o.f());
-                        kcaVar4.u(o.b());
-                        kcaVar4.o(o.a());
-                        kcaVar4.x(o.e());
+                        sgaVar4.y(o.f());
+                        sgaVar4.u(o.b());
+                        sgaVar4.o(o.a());
+                        sgaVar4.x(o.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else if (b.equals("system/getFileDownloadStatus")) {
-                    kcaVar4.s(true);
-                    kca n = this.mJsBridge.n(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
+                    sgaVar4.s(true);
+                    sga n = this.mJsBridge.n(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
                     if (n != null) {
-                        kcaVar4.y(n.f());
-                        kcaVar4.u(n.b());
-                        kcaVar4.o(n.a());
-                        kcaVar4.x(n.e());
+                        sgaVar4.y(n.f());
+                        sgaVar4.u(n.b());
+                        sgaVar4.o(n.a());
+                        sgaVar4.x(n.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else if (b.equals("system/getFileDownloadProgress")) {
-                    kcaVar4.s(true);
-                    kca m = this.mJsBridge.m(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
+                    sgaVar4.s(true);
+                    sga m = this.mJsBridge.m(webView, e.optString("fileName"), e.optString("fileVersion"), e.optString("extInfo"));
                     if (m != null) {
-                        kcaVar4.y(m.f());
-                        kcaVar4.u(m.b());
-                        kcaVar4.o(m.a());
-                        kcaVar4.x(m.e());
+                        sgaVar4.y(m.f());
+                        sgaVar4.u(m.b());
+                        sgaVar4.o(m.a());
+                        sgaVar4.x(m.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else if (b.equals("system/fileDownloadPause")) {
-                    kcaVar4.s(true);
-                    kca k = this.mJsBridge.k(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
+                    sgaVar4.s(true);
+                    sga k = this.mJsBridge.k(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
                     if (k != null) {
-                        kcaVar4.y(k.f());
-                        kcaVar4.u(k.b());
-                        kcaVar4.o(k.a());
-                        kcaVar4.x(k.e());
+                        sgaVar4.y(k.f());
+                        sgaVar4.u(k.b());
+                        sgaVar4.o(k.a());
+                        sgaVar4.x(k.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else if (b.equals("system/fileDownloadDelete")) {
-                    kcaVar4.s(true);
-                    kca j = this.mJsBridge.j(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
+                    sgaVar4.s(true);
+                    sga j = this.mJsBridge.j(webView, e.optString(CommonTbJsBridge.FILE_DOWNLOAD_URL), e.optString("fileName"), e.optString("fileVersion"), e.optInt("source"), e.optString("extInfo"));
                     if (j != null) {
-                        kcaVar4.y(j.f());
-                        kcaVar4.u(j.b());
-                        kcaVar4.o(j.a());
-                        kcaVar4.x(j.e());
+                        sgaVar4.y(j.f());
+                        sgaVar4.u(j.b());
+                        sgaVar4.o(j.a());
+                        sgaVar4.x(j.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else if (b.equals("system/installGameApk")) {
-                    kcaVar4.s(true);
-                    kca w = this.mJsBridge.w(webView, e.optString("apkName"), e.optString("pkgName"), e.optString("apkUrl"), e.optString("apkVersion"), e.optInt("source"), e.optString("extInfo"));
+                    sgaVar4.s(true);
+                    sga w = this.mJsBridge.w(webView, e.optString("apkName"), e.optString("pkgName"), e.optString("apkUrl"), e.optString("apkVersion"), e.optInt("source"), e.optString("extInfo"));
                     if (w != null) {
-                        kcaVar4.y(w.f());
-                        kcaVar4.u(w.b());
-                        kcaVar4.o(w.a());
-                        kcaVar4.x(w.e());
+                        sgaVar4.y(w.f());
+                        sgaVar4.u(w.b());
+                        sgaVar4.o(w.a());
+                        sgaVar4.x(w.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else if (b.equals("system/launchApk")) {
-                    kcaVar4.s(true);
-                    kca z = this.mJsBridge.z(webView, e.optString("pkgName"), e.optString("apkName"), e.optString("apkUrl"), e.optInt("source"), e.optString("extInfo"));
-                    if (z != null) {
-                        kcaVar4.y(z.f());
-                        kcaVar4.u(z.b());
-                        kcaVar4.o(z.a());
-                        kcaVar4.x(z.e());
+                    sgaVar4.s(true);
+                    sga A = this.mJsBridge.A(webView, e.optString("pkgName"), e.optString("apkName"), e.optString("apkUrl"), e.optInt("source"), e.optString("extInfo"));
+                    if (A != null) {
+                        sgaVar4.y(A.f());
+                        sgaVar4.u(A.b());
+                        sgaVar4.o(A.a());
+                        sgaVar4.x(A.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else if (b.equals("system/startLoadTimeInterval")) {
-                    kcaVar4.s(true);
-                    kca r = this.mJsBridge.r(webView);
+                    sgaVar4.s(true);
+                    sga r = this.mJsBridge.r(webView);
                     if (r != null) {
-                        kcaVar4.y(r.f());
-                        kcaVar4.u(r.b());
-                        kcaVar4.o(r.a());
-                        kcaVar4.x(r.e());
+                        sgaVar4.y(r.f());
+                        sgaVar4.u(r.b());
+                        sgaVar4.o(r.a());
+                        sgaVar4.x(r.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else if (b.equals("system/wakeKeyboard")) {
-                    kcaVar4.s(true);
-                    kca M = this.mJsBridge.M(webView, e.optString("postType"), e.optBoolean("showInputContainer"), e.optBoolean("showReplyContainer"), e.optBoolean("showStarContainer"), e.optBoolean("showEmotion"), e.optBoolean("showDIYEmotion"), e.optBoolean("showAt"), e.optJSONObject("topViewData"), e.optBoolean("show"));
-                    if (M != null) {
-                        kcaVar4.y(M.f());
-                        kcaVar4.u(M.b());
-                        kcaVar4.o(M.a());
-                        kcaVar4.x(M.e());
+                    sgaVar4.s(true);
+                    sga O = this.mJsBridge.O(webView, e.optString("postType"), e.optBoolean("showInputContainer"), e.optBoolean("showReplyContainer"), e.optBoolean("showStarContainer"), e.optBoolean("showEmotion"), e.optBoolean("showDIYEmotion"), e.optBoolean("showAt"), e.optJSONObject("topViewData"), e.optBoolean("show"));
+                    if (O != null) {
+                        sgaVar4.y(O.f());
+                        sgaVar4.u(O.b());
+                        sgaVar4.o(O.a());
+                        sgaVar4.x(O.e());
                     }
-                    kcaVar4.z(0);
-                    return kcaVar4;
+                    sgaVar4.z(0);
+                    return sgaVar4;
+                } else if (b.equals("system/keyboardHeightChange")) {
+                    sgaVar4.s(true);
+                    sga y = this.mJsBridge.y(webView);
+                    this.mNotificationNameList.add("keyboardHeightChange");
+                    if (y != null) {
+                        sgaVar4.y(y.f());
+                        sgaVar4.u(y.b());
+                        sgaVar4.o(y.a());
+                        sgaVar4.x(y.e());
+                        if (!sgaVar4.h()) {
+                            sgaVar4.n(false);
+                            addObserver(webView, "keyboardHeightChange", sgaVar4, true);
+                        }
+                    }
+                    sgaVar4.z(0);
+                    return sgaVar4;
                 } else {
-                    return kcaVar4;
+                    return sgaVar4;
                 }
             }
-            return kcaVar2;
+            return sgaVar2;
         }
-        return (kca) invokeLLL.objValue;
+        return (sga) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ica
-    public qk6 getJsBridge() {
+    @Override // com.baidu.tieba.qga
+    public vl6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (qk6) invokeV.objValue;
+        return (vl6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ica
-    public List<kca> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.qga
+    public List<sga> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            kca kcaVar = null;
+            sga sgaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("saveImageSuccess")) {
-                kcaVar = this.mJsBridge.H(webView, hashMap);
+                sgaVar = this.mJsBridge.J(webView, hashMap);
             } else if (str.equals("orderGameApkResult")) {
-                kcaVar = this.mJsBridge.D(webView, hashMap);
+                sgaVar = this.mJsBridge.F(webView, hashMap);
             } else if (str.equals("GetPhotoAlbum")) {
-                kcaVar = this.mJsBridge.p(webView, hashMap);
+                sgaVar = this.mJsBridge.p(webView, hashMap);
             } else if (str.equals("selectPhotoAlbum")) {
-                kcaVar = this.mJsBridge.q(webView, hashMap);
+                sgaVar = this.mJsBridge.q(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.CLICK_GO_BACK_TO_H5)) {
-                kcaVar = this.mJsBridge.g(webView, hashMap);
+                sgaVar = this.mJsBridge.g(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.GO_BACK_FROM_NATIVE)) {
-                kcaVar = this.mJsBridge.h(webView, hashMap);
+                sgaVar = this.mJsBridge.h(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_RESULT)) {
-                kcaVar = this.mJsBridge.B(webView, hashMap);
+                sgaVar = this.mJsBridge.C(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.INSTALL_APK_RESULT)) {
-                kcaVar = this.mJsBridge.A(webView, hashMap);
+                sgaVar = this.mJsBridge.B(webView, hashMap);
             } else if (str.equals(CommonTbJsBridge.CHANGE_SKIN_TYPE)) {
-                kcaVar = this.mJsBridge.c(webView, hashMap);
+                sgaVar = this.mJsBridge.c(webView, hashMap);
+            } else if (str.equals("keyboardHeightChange")) {
+                sgaVar = this.mJsBridge.D(webView, hashMap);
             }
-            if (kcaVar != null) {
-                kcaVar.z(0);
+            if (sgaVar != null) {
+                sgaVar.z(0);
             }
-            List<jca> list = this.mAsyncCallBackMethodList.get(str);
-            if (kcaVar != null && list != null) {
-                Iterator<jca> it = list.iterator();
-                if (!TextUtils.isEmpty(kcaVar.e())) {
+            List<rga> list = this.mAsyncCallBackMethodList.get(str);
+            if (sgaVar != null && list != null) {
+                Iterator<rga> it = list.iterator();
+                if (!TextUtils.isEmpty(sgaVar.e())) {
                     while (it.hasNext()) {
-                        jca next = it.next();
-                        if (next.b().equals(kcaVar.e())) {
-                            kca kcaVar2 = new kca();
-                            kcaVar2.w(next.a());
-                            kcaVar2.y(kcaVar.f());
-                            kcaVar2.u(kcaVar.b());
-                            kcaVar2.o(kcaVar.a());
-                            kcaVar2.A(kcaVar.l());
-                            arrayList.add(kcaVar2);
+                        rga next = it.next();
+                        if (next.b().equals(sgaVar.e())) {
+                            sga sgaVar2 = new sga();
+                            sgaVar2.w(next.a());
+                            sgaVar2.y(sgaVar.f());
+                            sgaVar2.u(sgaVar.b());
+                            sgaVar2.o(sgaVar.a());
+                            sgaVar2.A(sgaVar.l());
+                            arrayList.add(sgaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -435,14 +454,14 @@ public class SystemJsBridgePlugin_Proxy extends ica {
                     }
                 } else {
                     while (it.hasNext()) {
-                        jca next2 = it.next();
-                        kca kcaVar3 = new kca();
-                        kcaVar3.w(next2.a());
-                        kcaVar3.y(kcaVar.f());
-                        kcaVar3.u(kcaVar.b());
-                        kcaVar3.o(kcaVar.a());
-                        kcaVar3.A(kcaVar.l());
-                        arrayList.add(kcaVar3);
+                        rga next2 = it.next();
+                        sga sgaVar3 = new sga();
+                        sgaVar3.w(next2.a());
+                        sgaVar3.y(sgaVar.f());
+                        sgaVar3.u(sgaVar.b());
+                        sgaVar3.o(sgaVar.a());
+                        sgaVar3.A(sgaVar.l());
+                        arrayList.add(sgaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

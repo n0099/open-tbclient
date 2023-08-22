@@ -921,25 +921,25 @@ public final class DownloadProvider {
         return DOWNLOAD_LIST_TYPE;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:107:0x0265  */
-    /* JADX WARN: Removed duplicated region for block: B:116:0x028e  */
-    /* JADX WARN: Removed duplicated region for block: B:119:0x02c2  */
-    /* JADX WARN: Removed duplicated region for block: B:120:0x02c6  */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x02d8  */
-    /* JADX WARN: Removed duplicated region for block: B:129:0x02e6  */
-    /* JADX WARN: Removed duplicated region for block: B:134:0x0326  */
-    /* JADX WARN: Removed duplicated region for block: B:137:0x0334  */
-    /* JADX WARN: Removed duplicated region for block: B:141:0x033e  */
-    /* JADX WARN: Removed duplicated region for block: B:154:0x01f9 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0130  */
-    /* JADX WARN: Removed duplicated region for block: B:63:0x0178  */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0185  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x0199  */
-    /* JADX WARN: Removed duplicated region for block: B:73:0x01a7  */
-    /* JADX WARN: Removed duplicated region for block: B:79:0x01c2  */
-    /* JADX WARN: Removed duplicated region for block: B:80:0x01c9  */
-    /* JADX WARN: Removed duplicated region for block: B:94:0x0209 A[Catch: NameNotFoundException -> 0x0202, TRY_LEAVE, TryCatch #2 {NameNotFoundException -> 0x0202, blocks: (B:87:0x01f9, B:92:0x0204, B:94:0x0209), top: B:154:0x01f9 }] */
-    /* JADX WARN: Removed duplicated region for block: B:99:0x023c  */
+    /* JADX WARN: Removed duplicated region for block: B:107:0x0266  */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x028f  */
+    /* JADX WARN: Removed duplicated region for block: B:119:0x02c3  */
+    /* JADX WARN: Removed duplicated region for block: B:120:0x02c7  */
+    /* JADX WARN: Removed duplicated region for block: B:126:0x02d9  */
+    /* JADX WARN: Removed duplicated region for block: B:129:0x02e7  */
+    /* JADX WARN: Removed duplicated region for block: B:134:0x0327  */
+    /* JADX WARN: Removed duplicated region for block: B:137:0x0335  */
+    /* JADX WARN: Removed duplicated region for block: B:141:0x033f  */
+    /* JADX WARN: Removed duplicated region for block: B:154:0x01fa A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0131  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0179  */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x0186  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x019a  */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x01a8  */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x01c3  */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x01ca  */
+    /* JADX WARN: Removed duplicated region for block: B:94:0x020a A[Catch: NameNotFoundException -> 0x0203, TRY_LEAVE, TryCatch #2 {NameNotFoundException -> 0x0203, blocks: (B:87:0x01fa, B:92:0x0205, B:94:0x020a), top: B:154:0x01fa }] */
+    /* JADX WARN: Removed duplicated region for block: B:99:0x023d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

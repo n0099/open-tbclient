@@ -1,49 +1,27 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class e72 extends h62 {
+public class e72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean u;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e72() {
-        super("coverImage", "viewId");
+    @Nullable
+    public static CanvasView a(a62 a62Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, a62Var)) == null) {
+            d72 d72Var = (d72) q72.a(a62Var);
+            if (d72Var == null) {
+                d82.c("Component-Canvas-Utils", "get canvas view fail: find a null component");
+                return null;
             }
+            return d72Var.i;
         }
-        this.u = false;
-    }
-
-    @Override // com.baidu.tieba.h62, com.baidu.tieba.m62, com.baidu.tieba.o62, com.baidu.tieba.x03
-    public void a(JSONObject jSONObject) throws JSONException {
-        JSONObject jSONObject2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.u = jSONObject.optBoolean("loadState", false);
-        e13 e13Var = this.h;
-        if (e13Var != null && (jSONObject2 = this.j) != null) {
-            e13Var.i(jSONObject2.optBoolean("fixed", false));
-        }
+        return (CanvasView) invokeL.objValue;
     }
 }

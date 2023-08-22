@@ -1,10 +1,9 @@
 package com.baidu.tieba;
-
-import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface u43 {
-    public static final boolean a = ir1.a;
+    public static final Object b = new Object();
 
-    List<g43> a(JSONObject jSONObject);
+    void b(int i);
+
+    void c();
 }

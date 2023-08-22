@@ -10,7 +10,7 @@ public class cr {
     public String a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final ArrayList<cq> f187a = new ArrayList<>();
+    public final ArrayList<cq> f188a = new ArrayList<>();
 
     public cr() {
     }
@@ -23,10 +23,10 @@ public class cr {
     }
 
     public synchronized cq a() {
-        for (int size = this.f187a.size() - 1; size >= 0; size--) {
-            cq cqVar = this.f187a.get(size);
-            if (cqVar.m336a()) {
-                cu.a().m346a(cqVar.a());
+        for (int size = this.f188a.size() - 1; size >= 0; size--) {
+            cq cqVar = this.f188a.get(size);
+            if (cqVar.m338a()) {
+                cu.a().m348a(cqVar.a());
                 return cqVar;
             }
         }
@@ -37,30 +37,30 @@ public class cr {
         this.a = jSONObject.getString("host");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
         for (int i = 0; i < jSONArray.length(); i++) {
-            this.f187a.add(new cq(this.a).a(jSONArray.getJSONObject(i)));
+            this.f188a.add(new cq(this.a).a(jSONArray.getJSONObject(i)));
         }
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m337a() {
+    public String m339a() {
         return this.a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public ArrayList<cq> m338a() {
-        return this.f187a;
+    public ArrayList<cq> m340a() {
+        return this.f188a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m339a() {
+    public synchronized JSONObject m341a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
         jSONObject.put("host", this.a);
         JSONArray jSONArray = new JSONArray();
-        Iterator<cq> it = this.f187a.iterator();
+        Iterator<cq> it = this.f188a.iterator();
         while (it.hasNext()) {
-            jSONArray.put(it.next().m334a());
+            jSONArray.put(it.next().m336a());
         }
         jSONObject.put("fbs", jSONArray);
         return jSONObject;
@@ -69,31 +69,31 @@ public class cr {
     public synchronized void a(cq cqVar) {
         int i = 0;
         while (true) {
-            if (i >= this.f187a.size()) {
+            if (i >= this.f188a.size()) {
                 break;
-            } else if (this.f187a.get(i).a(cqVar)) {
-                this.f187a.set(i, cqVar);
+            } else if (this.f188a.get(i).a(cqVar)) {
+                this.f188a.set(i, cqVar);
                 break;
             } else {
                 i++;
             }
         }
-        if (i >= this.f187a.size()) {
-            this.f187a.add(cqVar);
+        if (i >= this.f188a.size()) {
+            this.f188a.add(cqVar);
         }
     }
 
     public synchronized void a(boolean z) {
         ArrayList<cq> arrayList;
-        for (int size = this.f187a.size() - 1; size >= 0; size--) {
-            cq cqVar = this.f187a.get(size);
+        for (int size = this.f188a.size() - 1; size >= 0; size--) {
+            cq cqVar = this.f188a.get(size);
             if (z) {
                 if (cqVar.c()) {
-                    arrayList = this.f187a;
+                    arrayList = this.f188a;
                     arrayList.remove(size);
                 }
             } else if (!cqVar.b()) {
-                arrayList = this.f187a;
+                arrayList = this.f188a;
                 arrayList.remove(size);
             }
         }
@@ -103,7 +103,7 @@ public class cr {
         StringBuilder sb = new StringBuilder();
         sb.append(this.a);
         sb.append("\n");
-        Iterator<cq> it = this.f187a.iterator();
+        Iterator<cq> it = this.f188a.iterator();
         while (it.hasNext()) {
             sb.append(it.next());
         }

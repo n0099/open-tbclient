@@ -12,7 +12,7 @@ import com.huawei.hms.framework.common.Logger;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class InitReport {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int EVENT_LIMIT = 10;

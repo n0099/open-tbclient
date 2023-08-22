@@ -8,7 +8,7 @@ import com.huawei.hms.aaid.constant.ErrorEnum;
 import com.huawei.hms.common.internal.ResponseErrorCode;
 import com.huawei.hms.support.api.client.Status;
 import com.huawei.hms.support.hianalytics.HiAnalyticsClient;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class q {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

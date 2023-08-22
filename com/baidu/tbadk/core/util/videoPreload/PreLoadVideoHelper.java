@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.cyberplayer.sdk.CyberPlayerManager;
 import com.baidu.tieba.cn;
-import com.baidu.tieba.zm;
+import com.baidu.tieba.fn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,13 +30,13 @@ public class PreLoadVideoHelper {
         }
     }
 
-    public static void load(cn cnVar, BdUniqueId bdUniqueId, IVideoNeedPreload iVideoNeedPreload) {
-        zm adapter;
+    public static void load(fn fnVar, BdUniqueId bdUniqueId, IVideoNeedPreload iVideoNeedPreload) {
+        cn adapter;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, cnVar, bdUniqueId, iVideoNeedPreload) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65537, null, fnVar, bdUniqueId, iVideoNeedPreload) == null) {
             VideoPreLoadLog.log("video preload start ");
-            if (cnVar == null) {
+            if (fnVar == null) {
                 return;
             }
             if (iVideoNeedPreload != null && !iVideoNeedPreload.videoNeedPreload()) {
@@ -44,16 +44,16 @@ public class PreLoadVideoHelper {
                 return;
             }
             VideoPreLoadLog.log("video preload switch  " + PreLoadVideoSwitchManager.getInstance().isOpen() + " num " + PreLoadVideoSwitchManager.getInstance().getMaxPreLoadNum() + " size " + PreLoadVideoSwitchManager.getInstance().getSize());
-            if (!PreLoadVideoSwitchManager.getInstance().isOpen() || (adapter = cnVar.getAdapter()) == null) {
+            if (!PreLoadVideoSwitchManager.getInstance().isOpen() || (adapter = fnVar.getAdapter()) == null) {
                 return;
             }
             int i = 0;
-            if (cnVar.getFirstVisiblePosition() == 0) {
+            if (fnVar.getFirstVisiblePosition() == 0) {
                 z = true;
             } else {
                 z = false;
             }
-            int lastVisiblePosition = cnVar.getLastVisiblePosition();
+            int lastVisiblePosition = fnVar.getLastVisiblePosition();
             ArrayList arrayList = new ArrayList();
             VideoPreLoadLog.log("video preload  end=  " + lastVisiblePosition + GlideException.IndentedAppendable.INDENT + adapter.getCount());
             if (lastVisiblePosition >= 0 && adapter.getCount() > 0) {

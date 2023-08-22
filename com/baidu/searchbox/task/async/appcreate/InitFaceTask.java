@@ -3,7 +3,7 @@ package com.baidu.searchbox.task.async.appcreate;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.di5;
+import com.baidu.tieba.ri5;
 /* loaded from: classes4.dex */
 public class InitFaceTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -18,7 +18,7 @@ public class InitFaceTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        di5.i();
-        TbFaceManager.i().q(TbadkCoreApplication.getInst(), new di5());
+        ri5.i();
+        TbFaceManager.i().q(TbadkCoreApplication.getInst(), new ri5());
     }
 }

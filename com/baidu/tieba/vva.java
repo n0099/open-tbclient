@@ -1,121 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.ugc.utils.FileUtils;
 /* loaded from: classes8.dex */
-public abstract class vva<D> implements awa<D> {
+public class vva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public TbPageContext<?> a;
-    @Nullable
-    public cwa b;
-    public View c;
-    @NonNull
-    public D d;
-    @Nullable
-    public WriteData e;
-    public final List<xva> f;
+    public String a;
+    public Handler b;
+    public final HandlerThread c;
 
-    @Override // com.baidu.tieba.awa
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.awa
-    public void h(@Nullable String str, @NonNull WriteData writeData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, writeData) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.awa
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.awa
-    public void onActivityResult(int i, int i2, Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048582, this, i, i2, intent) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.awa
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.awa
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.awa
-    public void onSaveInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.awa
-    public void q(@NonNull List<awa<?>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.awa
-    public void r(lh5 lh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, lh5Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.awa
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public vva(@NonNull TbPageContext<?> tbPageContext, Class<D> cls) {
+    public vva(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cls};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -125,57 +34,55 @@ public abstract class vva<D> implements awa<D> {
                 return;
             }
         }
-        this.f = new ArrayList();
-        this.a = tbPageContext;
-        this.d = (D) cc.f(cls);
+        this.a = str;
+        HandlerThread handlerThread = new HandlerThread("VideoFrameDiskCacheSaveTask");
+        this.c = handlerThread;
+        handlerThread.start();
     }
 
-    @Override // com.baidu.tieba.awa
-    public void c() {
+    public Bitmap a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String c = uva.c(this.a, str);
+            if (!FileUtils.isExists(c)) {
+                return null;
+            }
+            Bitmap f = zfb.f(c);
+            if (f != null) {
+                cwa.f().g().b(str, f);
+            }
+            return f;
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    public D x() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (D) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.awa
-    public void j(@NonNull cwa cwaVar) {
+    public void c(String str, Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cwaVar) == null) {
-            this.b = cwaVar;
-        }
-    }
-
-    public void w(xva xvaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, xvaVar) == null) && xvaVar != null && !this.f.contains(xvaVar)) {
-            this.f.add(xvaVar);
-        }
-    }
-
-    public void y(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, obj) == null) {
-            for (xva xvaVar : this.f) {
-                xvaVar.onUpdate(obj);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bitmap) == null) {
+            if (this.b == null) {
+                this.b = new Handler(this.c.getLooper());
             }
+            this.b.post(new dwa(this.a, str, bitmap));
         }
     }
 
-    @Override // com.baidu.tieba.awa
-    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, bundle, intent, writeData) == null) {
-            this.e = writeData;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
         }
     }
 }

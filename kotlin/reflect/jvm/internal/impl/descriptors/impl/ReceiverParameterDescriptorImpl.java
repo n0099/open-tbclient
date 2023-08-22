@@ -4,7 +4,7 @@ import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.receivers.ReceiverValue;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ReceiverParameterDescriptorImpl extends AbstractReceiverParameterDescriptor {
     public final DeclarationDescriptor containingDeclaration;
     public final ReceiverValue value;

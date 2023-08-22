@@ -29,7 +29,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
     public BdVideoScaleGestureDetector.OnScaleGestureListener scaleGestureListener;
 
     /* renamed from: view  reason: collision with root package name */
-    public final View f1065view;
+    public final View f1066view;
 
     public boolean onAllowTouchEvent(MotionEvent event) {
         Intrinsics.checkNotNullParameter(event, "event");
@@ -46,48 +46,48 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
         public final /* synthetic */ BdVideoMultipleGesturesDetector this$0;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1066view;
+        public final View f1067view;
 
         public RotateGestureDetectorListener(BdVideoMultipleGesturesDetector bdVideoMultipleGesturesDetector, View view2) {
             Intrinsics.checkNotNullParameter(view2, "view");
             this.this$0 = bdVideoMultipleGesturesDetector;
-            this.f1066view = view2;
+            this.f1067view = view2;
         }
 
         public final View getView() {
-            return this.f1066view;
+            return this.f1067view;
         }
 
         @Override // com.baidu.searchbox.player.view.BdVideoRotateGestureDetector.SimpleOnRotationGestureListener, com.baidu.searchbox.player.view.BdVideoRotateGestureDetector.OnRotationGestureListener
         public boolean onRotate(BdVideoRotateGestureDetector detector) {
             Intrinsics.checkNotNullParameter(detector, "detector");
-            float rotation = this.f1066view.getRotation() + detector.getRotationDelta();
+            float rotation = this.f1067view.getRotation() + detector.getRotationDelta();
             if (rotation >= 360.0f) {
                 rotation -= 360.0f;
             } else if (rotation < 0.0f) {
                 rotation += 360.0f;
             }
-            View view2 = this.f1066view;
+            View view2 = this.f1067view;
             view2.setPivotX(view2.getWidth() * 0.5f);
-            View view3 = this.f1066view;
+            View view3 = this.f1067view;
             view3.setPivotY(view3.getHeight() * 0.5f);
-            this.f1066view.setRotation(rotation);
+            this.f1067view.setRotation(rotation);
             return true;
         }
 
         @Override // com.baidu.searchbox.player.view.BdVideoRotateGestureDetector.SimpleOnRotationGestureListener, com.baidu.searchbox.player.view.BdVideoRotateGestureDetector.OnRotationGestureListener
         public void onRotationEnd(BdVideoRotateGestureDetector detector) {
             Intrinsics.checkNotNullParameter(detector, "detector");
-            int abs = (int) (Math.abs(this.f1066view.getRotation() + 45) / 90);
-            BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "当前对应的旋转值: " + abs + ", 旋转的角度=" + this.f1066view.getRotation());
-            View view2 = this.f1066view;
+            int abs = (int) (Math.abs(this.f1067view.getRotation() + 45) / 90);
+            BdVideoLog.d(BdGestureHelper.GESTURE_TAG, "当前对应的旋转值: " + abs + ", 旋转的角度=" + this.f1067view.getRotation());
+            View view2 = this.f1067view;
             ObjectAnimator.ofFloat(view2, View.ROTATION, view2.getRotation(), (float) (abs * 90)).setDuration(240L).start();
         }
     }
 
     public BdVideoMultipleGesturesDetector(View view2) {
         Intrinsics.checkNotNullParameter(view2, "view");
-        this.f1065view = view2;
+        this.f1066view = view2;
         this.gestureFlags = 7;
         this.scaleGestureDetector$delegate = LazyKt__LazyJVMKt.lazy(new Function0<BdVideoScaleGestureDetector>() { // from class: com.baidu.searchbox.player.view.BdVideoMultipleGesturesDetector$scaleGestureDetector$2
             {
@@ -164,12 +164,12 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
     }
 
     public BdVideoMoveGestureDetector generateMoveGestureDetector() {
-        return new BdVideoMoveGestureDetector(this.f1065view, getMoveGestureListener());
+        return new BdVideoMoveGestureDetector(this.f1066view, getMoveGestureListener());
     }
 
     public BdVideoRotateGestureDetector generateRotateGestureDetector() {
         if (getRotateGestureListener() == null) {
-            setRotateGestureListener(new RotateGestureDetectorListener(this, this.f1065view));
+            setRotateGestureListener(new RotateGestureDetectorListener(this, this.f1066view));
         }
         BdVideoRotateGestureDetector.SimpleOnRotationGestureListener rotateGestureListener = getRotateGestureListener();
         Intrinsics.checkNotNull(rotateGestureListener);
@@ -177,7 +177,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
     }
 
     public BdVideoScaleGestureDetector generateScaleGestureDetector() {
-        BdVideoScaleGestureDetector bdVideoScaleGestureDetector = new BdVideoScaleGestureDetector(this.f1065view);
+        BdVideoScaleGestureDetector bdVideoScaleGestureDetector = new BdVideoScaleGestureDetector(this.f1066view);
         bdVideoScaleGestureDetector.setListener(getScaleGestureListener());
         return bdVideoScaleGestureDetector;
     }
@@ -199,11 +199,11 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
     }
 
     public final View getView() {
-        return this.f1065view;
+        return this.f1066view;
     }
 
     public void switchNormal() {
-        View view2 = this.f1065view;
+        View view2 = this.f1066view;
         view2.setScaleX(1.0f);
         view2.setScaleY(1.0f);
         view2.setRotation(0.0f);
@@ -217,7 +217,7 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
         if ((!onAllowTouchEvent(event) || event.getPointerCount() < 2) && !this.hasHandleDetected) {
             return false;
         }
-        this.f1065view.getParent().requestDisallowInterceptTouchEvent(true);
+        this.f1066view.getParent().requestDisallowInterceptTouchEvent(true);
         if ((this.gestureFlags & 4) == 4) {
             getRotateGestureDetector().onTouchEvent(event);
             if (getRotateGestureDetector().isRotateDetected()) {
@@ -247,14 +247,14 @@ public class BdVideoMultipleGesturesDetector implements IKernelGestureDetector {
     public void switchNormalWithAnimation() {
         float f;
         AnimatorSet animatorSet = new AnimatorSet();
-        PropertyValuesHolder ofFloat = PropertyValuesHolder.ofFloat(View.SCALE_X, this.f1065view.getScaleX(), 1.0f);
-        PropertyValuesHolder ofFloat2 = PropertyValuesHolder.ofFloat(View.SCALE_Y, this.f1065view.getScaleY(), 1.0f);
-        if (this.f1065view.getRotation() >= 180.0f) {
+        PropertyValuesHolder ofFloat = PropertyValuesHolder.ofFloat(View.SCALE_X, this.f1066view.getScaleX(), 1.0f);
+        PropertyValuesHolder ofFloat2 = PropertyValuesHolder.ofFloat(View.SCALE_Y, this.f1066view.getScaleY(), 1.0f);
+        if (this.f1066view.getRotation() >= 180.0f) {
             f = 360.0f;
         } else {
             f = 0.0f;
         }
-        ObjectAnimator duration = ObjectAnimator.ofPropertyValuesHolder(this.f1065view, ofFloat, ofFloat2, PropertyValuesHolder.ofFloat(View.ROTATION, this.f1065view.getRotation(), f), PropertyValuesHolder.ofFloat(View.TRANSLATION_X, this.f1065view.getTranslationX(), 0.0f), PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, this.f1065view.getTranslationY(), 0.0f)).setDuration(240L);
+        ObjectAnimator duration = ObjectAnimator.ofPropertyValuesHolder(this.f1066view, ofFloat, ofFloat2, PropertyValuesHolder.ofFloat(View.ROTATION, this.f1066view.getRotation(), f), PropertyValuesHolder.ofFloat(View.TRANSLATION_X, this.f1066view.getTranslationX(), 0.0f), PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, this.f1066view.getTranslationY(), 0.0f)).setDuration(240L);
         Intrinsics.checkNotNullExpressionValue(duration, "ofPropertyValuesHolder(v…ation(ANIMATION_DURATION)");
         animatorSet.play(duration);
         animatorSet.start();

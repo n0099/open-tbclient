@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba5;
-import com.baidu.tieba.ca5;
+import com.baidu.tieba.ia5;
+import com.baidu.tieba.ja5;
 import com.baidu.tieba.jg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -141,7 +141,7 @@ public class LightInteractiveManager {
     }
 
     /* loaded from: classes4.dex */
-    public static class c implements ca5 {
+    public static class c implements ja5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Dialog a;
@@ -164,7 +164,7 @@ public class LightInteractiveManager {
             this.a = dialog;
         }
 
-        @Override // com.baidu.tieba.ca5
+        @Override // com.baidu.tieba.ja5
         public void onClose() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -264,7 +264,7 @@ public class LightInteractiveManager {
             dialog.show();
         }
         if (metaData != null) {
-            ba5.b(i4, metaData.getUserId());
+            ia5.b(i4, metaData.getUserId());
         }
         MessageManager.getInstance().registerListener(aVar);
     }

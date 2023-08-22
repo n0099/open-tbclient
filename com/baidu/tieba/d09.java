@@ -1,127 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.chatmessage.messages.TextMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class d09<T> {
+public final class d09 extends yz8<TextMsg, dy8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947650876, "Lcom/baidu/tieba/d09;")) == null) {
-            return;
+    @Override // com.baidu.tieba.yz8
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947650876, "Lcom/baidu/tieba/d09;");
-        }
+        return invokeV.intValue;
     }
 
-    public d09(String key) {
+    public d09() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {key};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(key, "key");
-        this.a = "default";
-        this.a = "key_prefix_" + key;
     }
 
-    public final T a(T t) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yz8
+    /* renamed from: h */
+    public TextMsg e(dy8 dy8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            Intrinsics.checkNotNullParameter(t, "default");
-            return (T) b(t);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dy8Var)) == null) {
+            TextMsg textMsg = new TextMsg();
+            textMsg.setText((dy8Var == null || (r5 = dy8Var.c()) == null) ? "" : "");
+            return textMsg;
         }
-        return (T) invokeL.objValue;
+        return (TextMsg) invokeL.objValue;
     }
 
-    public final void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
-        }
-    }
-
-    public final Object b(T t) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yz8
+    /* renamed from: i */
+    public dy8 g(TextMsg sdkMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            if (t instanceof String) {
-                String string = SharedPrefHelper.getInstance().getString(this.a, (String) t);
-                Intrinsics.checkNotNullExpressionValue(string, "getInstance().getString(key, default as String)");
-                return string;
-            } else if (t instanceof Integer) {
-                return Integer.valueOf(SharedPrefHelper.getInstance().getInt(this.a, ((Integer) t).intValue()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            dy8 dy8Var = new dy8();
+            String msgContent = sdkMsg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
             } else {
-                if (t instanceof Long) {
-                    return Long.valueOf(SharedPrefHelper.getInstance().getLong(this.a, ((Long) t).longValue()));
-                }
-                if (t instanceof Boolean) {
-                    return Boolean.valueOf(SharedPrefHelper.getInstance().getBoolean(this.a, ((Boolean) t).booleanValue()));
-                }
-                if (t instanceof Float) {
-                    return Float.valueOf(SharedPrefHelper.getInstance().getFloat(this.a, ((Float) t).floatValue()));
-                }
-                return t;
+                Intrinsics.checkNotNullExpressionValue(msgContent, "sdkMsg.msgContent ?: \"\"");
             }
-        }
-        return invokeL.objValue;
-    }
-
-    public final T d(T value) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, value)) == null) {
-            Intrinsics.checkNotNullParameter(value, "value");
-            if (value instanceof String) {
-                SharedPrefHelper.getInstance().putString(this.a, (String) value);
-            } else if (value instanceof Integer) {
-                SharedPrefHelper.getInstance().putInt(this.a, ((Integer) value).intValue());
-            } else if (value instanceof Long) {
-                SharedPrefHelper.getInstance().putLong(this.a, ((Long) value).longValue());
-            } else if (value instanceof Boolean) {
-                SharedPrefHelper.getInstance().putBoolean(this.a, ((Boolean) value).booleanValue());
-            } else if (value instanceof Float) {
-                SharedPrefHelper.getInstance().putFloat(this.a, ((Float) value).floatValue());
+            if (!di.isEmpty(msgContent)) {
+                try {
+                    dy8Var.e(new JSONObject(msgContent).optJSONArray("struct_data"));
+                } catch (JSONException e) {
+                    BdLog.e(e);
+                }
             }
-            return value;
+            if (dy8Var.b() == null) {
+                String text = sdkMsg.getText();
+                Intrinsics.checkNotNullExpressionValue(text, "sdkMsg.getText()");
+                dy8Var.f(text);
+            }
+            String text2 = sdkMsg.getText();
+            Intrinsics.checkNotNullExpressionValue(text2, "sdkMsg.getText()");
+            dy8Var.d(text2);
+            return dy8Var;
         }
-        return (T) invokeL.objValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+        return (dy8) invokeL.objValue;
     }
 }

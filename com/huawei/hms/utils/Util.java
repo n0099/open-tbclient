@@ -21,7 +21,7 @@ import com.huawei.hms.android.SystemUtils;
 import com.huawei.hms.common.util.AGCUtils;
 import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import com.huawei.hms.support.log.HMSLog;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class Util {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AVAILABLE_LOADED = "availableLoaded";

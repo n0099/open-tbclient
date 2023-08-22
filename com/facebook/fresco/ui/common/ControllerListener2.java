@@ -24,16 +24,16 @@ public interface ControllerListener2<INFO> {
         @Nullable
 
         /* renamed from: view  reason: collision with root package name */
-        public Map<String, Object> f1202view;
+        public Map<String, Object> f1205view;
 
         public String toString() {
-            return "pipe: " + this.pipe + ", view: " + this.f1202view;
+            return "pipe: " + this.pipe + ", view: " + this.f1205view;
         }
 
         public static Extras of(@Nullable Map<String, Object> map, @Nullable Map<String, Object> map2) {
             Extras extras = new Extras();
             extras.pipe = map;
-            extras.f1202view = map2;
+            extras.f1205view = map2;
             return extras;
         }
     }

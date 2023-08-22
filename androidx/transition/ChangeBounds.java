@@ -201,19 +201,19 @@ public class ChangeBounds extends Transition {
             if (view2 == view3) {
                 return true;
             }
-        } else if (view3 == matchedTransitionValues.f1028view) {
+        } else if (view3 == matchedTransitionValues.f1029view) {
             return true;
         }
         return false;
     }
 
     private void captureValues(TransitionValues transitionValues) {
-        View view2 = transitionValues.f1028view;
+        View view2 = transitionValues.f1029view;
         if (ViewCompat.isLaidOut(view2) || view2.getWidth() != 0 || view2.getHeight() != 0) {
             transitionValues.values.put(PROPNAME_BOUNDS, new Rect(view2.getLeft(), view2.getTop(), view2.getRight(), view2.getBottom()));
-            transitionValues.values.put(PROPNAME_PARENT, transitionValues.f1028view.getParent());
+            transitionValues.values.put(PROPNAME_PARENT, transitionValues.f1029view.getParent());
             if (this.mReparent) {
-                transitionValues.f1028view.getLocationInWindow(this.mTempLocation);
+                transitionValues.f1029view.getLocationInWindow(this.mTempLocation);
                 transitionValues.values.put(PROPNAME_WINDOW_X, Integer.valueOf(this.mTempLocation[0]));
                 transitionValues.values.put(PROPNAME_WINDOW_Y, Integer.valueOf(this.mTempLocation[1]));
             }
@@ -254,7 +254,7 @@ public class ChangeBounds extends Transition {
             ViewGroup viewGroup2 = (ViewGroup) map.get(PROPNAME_PARENT);
             ViewGroup viewGroup3 = (ViewGroup) map2.get(PROPNAME_PARENT);
             if (viewGroup2 != null && viewGroup3 != null) {
-                final View view3 = transitionValues2.f1028view;
+                final View view3 = transitionValues2.f1029view;
                 if (parentMatches(viewGroup2, viewGroup3)) {
                     Rect rect3 = (Rect) transitionValues.values.get(PROPNAME_BOUNDS);
                     Rect rect4 = (Rect) transitionValues2.values.get(PROPNAME_BOUNDS);

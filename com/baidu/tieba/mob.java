@@ -1,156 +1,254 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gob;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigGdt;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.cfg.VideoOption;
+import com.qq.e.ads.interstitial2.UnifiedInterstitialAD;
+import com.qq.e.ads.interstitial2.UnifiedInterstitialADListener;
+import com.qq.e.comm.util.AdError;
 /* loaded from: classes7.dex */
-public class mob implements eob {
+public class mob extends vnb<sob> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Context b;
-    public final String c;
-    public final bob d;
-    public final oob e;
-    public final pob f;
-    public final Map<String, String> g;
-    public final List<wob> h;
-    public final Map<String, String> i;
+    public ModuleConfigGdt e;
 
-    public mob(Context context, String str, bob bobVar, InputStream inputStream, Map<String, String> map, List<wob> list, String str2) {
+    /* loaded from: classes7.dex */
+    public class a implements UnifiedInterstitialADListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public sob c;
+        public final /* synthetic */ UnifiedInterstitialAD[] d;
+        public final /* synthetic */ mob e;
+
+        public a(mob mobVar, UnifiedInterstitialAD[] unifiedInterstitialADArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mobVar, unifiedInterstitialADArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = mobVar;
+            this.d = unifiedInterstitialADArr;
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClicked((mob) this.c, this.b, new String[0]);
+                this.b = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClose(this.c);
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADExposure() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.e.onAdShow((mob) this.c, this.a, new String[0]);
+                this.a = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADLeftApplication() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADOpened() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onADReceive() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                LogPrinter.d("onADReceive", new Object[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onNoAD(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, adError) == null) {
+                LogPrinter.e("onNoAD code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+                this.e.onError(adError.getErrorCode(), adError.getErrorMsg());
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onRenderFail() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.e.onError(0, "renderFail");
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onRenderSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                sob sobVar = new sob(this.d[0]);
+                this.c = sobVar;
+                this.e.onAdLoaded(sobVar, new String[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.interstitial2.UnifiedInterstitialADListener
+        public void onVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                LogPrinter.d();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mob(FunAdType funAdType, Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
+        super(funAdType, pid, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, bobVar, inputStream, map, list, str2};
+            Object[] objArr = {funAdType, pid, moduleConfigGdt};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new HashMap();
-        context = context.getApplicationContext() != null ? context.getApplicationContext() : context;
-        this.b = context;
-        str = str == null ? context.getPackageName() : str;
-        this.c = str;
-        if (inputStream != null) {
-            this.e = new sob(inputStream, str);
-            kob.a(inputStream);
-        } else {
-            this.e = new vob(this.b, str);
-        }
-        this.f = new pob(this.e);
-        if (bobVar != bob.b && "1.0".equals(this.e.a("/configuration_version", null))) {
-            throw new RuntimeException("The file version does not match,please download the latest agconnect-services.json from the AGC website.");
-        }
-        this.d = (bobVar == null || bobVar == bob.b) ? kob.f(this.e.a("/region", null), this.e.a("/agcgw/url", null)) : bobVar;
-        this.g = kob.d(map);
-        this.h = list;
-        this.a = str2 == null ? e() : str2;
+        this.e = moduleConfigGdt;
     }
 
-    @Override // com.baidu.tieba.eob
-    public String a(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mob(Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid, false);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid, moduleConfigGdt};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = moduleConfigGdt;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f(str, null) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new fob(pid) : (AdRipper) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.eob
-    public bob b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vnb
+    public void e(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            bob bobVar = this.d;
-            return bobVar == null ? bob.b : bobVar;
-        }
-        return (bob) invokeV.objValue;
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Map<String, gob.a> a = gob.a();
-            if (a.containsKey(str)) {
-                if (this.i.containsKey(str)) {
-                    return this.i.get(str);
-                }
-                gob.a aVar = a.get(str);
-                if (aVar == null) {
-                    return null;
-                }
-                String a2 = aVar.a(this);
-                this.i.put(str, a2);
-                return a2;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (!(context instanceof Activity)) {
+                onError(0, "NotActivity");
+                return;
             }
-            return null;
+            UnifiedInterstitialAD unifiedInterstitialAD = new UnifiedInterstitialAD((Activity) context, this.mPid.pid, new a(this, r1));
+            UnifiedInterstitialAD[] unifiedInterstitialADArr = {unifiedInterstitialAD};
+            unifiedInterstitialAD.setVideoOption(new VideoOption.Builder().setAutoPlayPolicy(FunAdSdk.getFunAdConfig().isVideoDataFlowAutoStart ? 1 : 0).setAutoPlayMuted(this.e.autoPlayMuted).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build());
+            unifiedInterstitialAD.setMinVideoDuration(0);
+            unifiedInterstitialAD.setMaxVideoDuration(0);
+            k(unifiedInterstitialAD);
         }
-        return (String) invokeL.objValue;
     }
 
-    public List<wob> d() {
-        InterceptResult invokeV;
+    public void f(Activity activity, UnifiedInterstitialAD unifiedInterstitialAD) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (List) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.valueOf(("{packageName='" + this.c + "', routePolicy=" + this.d + ", reader=" + this.e.toString().hashCode() + ", customConfigMap=" + new JSONObject(this.g).toString().hashCode() + '}').hashCode());
+        if (interceptable == null || interceptable.invokeLL(1048579, this, activity, unifiedInterstitialAD) == null) {
+            unifiedInterstitialAD.show(activity);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String f(String str, String str2) {
-        InterceptResult invokeLL;
+    public void k(UnifiedInterstitialAD unifiedInterstitialAD) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (str == null) {
-                return str2;
-            }
-            String e = kob.e(str);
-            String str3 = this.g.get(e);
-            if (str3 != null) {
-                return str3;
-            }
-            String c = c(e);
-            if (c != null) {
-                return c;
-            }
-            String a = this.e.a(e, str2);
-            return pob.c(a) ? this.f.a(a, str2) : a;
+        if (interceptable == null || interceptable.invokeL(1048580, this, unifiedInterstitialAD) == null) {
+            unifiedInterstitialAD.loadAD();
         }
-        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.eob
-    public Context getContext() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        sob sobVar;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (Context) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (sobVar = (sob) obj) != null) {
+            try {
+                ((UnifiedInterstitialAD) sobVar.a).destroy();
+            } catch (Exception unused) {
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.eob
-    public String getIdentifier() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            sob sobVar = (sob) obj;
+            onShowStart(sobVar);
+            f(activity, (UnifiedInterstitialAD) sobVar.a);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

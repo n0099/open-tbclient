@@ -34,7 +34,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeSubstitution;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.utils.SmartSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class PropertyDescriptorImpl extends VariableDescriptorWithInitializerImpl implements PropertyDescriptor {
     public FieldDescriptor backingField;
     public FieldDescriptor delegateField;
@@ -348,7 +348,7 @@ public class PropertyDescriptorImpl extends VariableDescriptorWithInitializerImp
         return null;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class CopyConfiguration {
         public ReceiverParameterDescriptor dispatchReceiverParameter;
         public CallableMemberDescriptor.Kind kind;

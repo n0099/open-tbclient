@@ -1,224 +1,85 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sl4;
+import com.baidu.tieba.mk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Iterator;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class ti4 implements qi4 {
+public class ti4 implements mk4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final si4 a;
 
-    public pi4<yj4> A() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mk4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (pi4) invokeV.objValue;
-    }
-
-    public Map<String, String> B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public void C(sj4 sj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sj4Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
         }
     }
 
-    public void D() {
+    @Override // com.baidu.tieba.mk4.a
+    public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    public void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    public void G(go4 go4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, go4Var) == null) {
-        }
-    }
-
-    public void H(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
-        }
-    }
-
-    public void I(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, jSONObject) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qi4
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.qi4
-    public void n(@Nullable String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
-        }
-    }
-
-    public si4 p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return null;
-        }
-        return (si4) invokeV.objValue;
-    }
-
-    public pi4<zj4> q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return null;
-        }
-        return (pi4) invokeV.objValue;
-    }
-
-    public pi4<tj4> r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return null;
-        }
-        return (pi4) invokeV.objValue;
-    }
-
-    public pi4<vj4> s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return null;
-        }
-        return (pi4) invokeV.objValue;
-    }
-
-    public Map<String, String> t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public pi4<xj4> u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return null;
-        }
-        return (pi4) invokeV.objValue;
-    }
-
-    public li4<sl4.a> v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return null;
-        }
-        return (li4) invokeV.objValue;
-    }
-
-    public sn4 w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            return null;
-        }
-        return (sn4) invokeL.objValue;
-    }
-
-    public pi4<zj4> x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return null;
-        }
-        return (pi4) invokeV.objValue;
-    }
-
-    public Map<String, String> y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return null;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public pi4<ak4> z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return null;
-        }
-        return (pi4) invokeV.objValue;
-    }
-
-    public ti4() {
+    public ti4(@Nullable si4 si4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {si4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = si4Var;
+    }
+
+    @Override // com.baidu.tieba.mk4.a
+    public void onFail(Exception exc) {
+        si4 si4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && (si4Var = this.a) != null) {
+            si4Var.onFail(exc);
         }
     }
 
-    @Override // com.baidu.tieba.ri4
-    @NonNull
-    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.mk4.a
+    public void onSuccess(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
-            Bundle bundle2 = new Bundle();
-            if (set.contains("event_performance_ubc")) {
-                n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
-                set.remove("event_performance_ubc");
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            try {
+                HashMap hashMap = new HashMap();
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+                Iterator<String> keys = optJSONObject.keys();
+                while (keys.hasNext()) {
+                    JSONObject optJSONObject2 = optJSONObject.optJSONObject(keys.next());
+                    if (optJSONObject2 != null) {
+                        hashMap.put(optJSONObject2.optString("appkey"), optJSONObject2.optString("openbundleid"));
+                    }
+                }
+                if (this.a != null) {
+                    this.a.a(hashMap);
+                }
+            } catch (Exception e) {
+                si4 si4Var = this.a;
+                if (si4Var != null) {
+                    si4Var.onFail(e);
+                }
             }
-            return bundle2;
         }
-        return (Bundle) invokeLL.objValue;
     }
 }

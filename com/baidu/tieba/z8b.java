@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-/* loaded from: classes8.dex */
+import com.baidu.pyramid.runtime.service.ServiceReference;
+/* loaded from: classes9.dex */
 public interface z8b {
-    void a(Bitmap bitmap);
+    public static final ServiceReference a = new ServiceReference("ubc", "yalog");
+
+    void a(String str, String str2);
+
+    void b(String str, String str2);
 }

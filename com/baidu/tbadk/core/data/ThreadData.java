@@ -52,46 +52,46 @@ import com.baidu.tbadk.data.VirtualImageCustomFigure;
 import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.tbadk.switchs.ConveneThreadOpenSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b05;
-import com.baidu.tieba.b45;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.d45;
-import com.baidu.tieba.eg5;
-import com.baidu.tieba.gm;
-import com.baidu.tieba.i15;
+import com.baidu.tieba.a35;
+import com.baidu.tieba.a45;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.d16;
+import com.baidu.tieba.di;
+import com.baidu.tieba.e15;
+import com.baidu.tieba.f15;
+import com.baidu.tieba.f45;
+import com.baidu.tieba.fw5;
+import com.baidu.tieba.g16;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.h45;
 import com.baidu.tieba.immessagecenter.mention.FeedData;
 import com.baidu.tieba.j45;
-import com.baidu.tieba.k45;
-import com.baidu.tieba.l06;
-import com.baidu.tieba.l25;
-import com.baidu.tieba.m15;
-import com.baidu.tieba.m95;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.o06;
+import com.baidu.tieba.jm;
+import com.baidu.tieba.lg5;
 import com.baidu.tieba.o15;
-import com.baidu.tieba.om6;
-import com.baidu.tieba.ov5;
-import com.baidu.tieba.pba;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.r05;
-import com.baidu.tieba.rba;
+import com.baidu.tieba.o16;
+import com.baidu.tieba.ox5;
+import com.baidu.tieba.p45;
+import com.baidu.tieba.q45;
+import com.baidu.tieba.r25;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
-import com.baidu.tieba.rf5;
-import com.baidu.tieba.s35;
+import com.baidu.tieba.s15;
+import com.baidu.tieba.t95;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
-import com.baidu.tieba.u25;
-import com.baidu.tieba.u35;
+import com.baidu.tieba.u15;
+import com.baidu.tieba.u95;
 import com.baidu.tieba.video.ActivityItemData;
-import com.baidu.tieba.w06;
-import com.baidu.tieba.xw5;
-import com.baidu.tieba.y05;
-import com.baidu.tieba.ym;
-import com.baidu.tieba.z05;
-import com.baidu.tieba.z35;
+import com.baidu.tieba.vn6;
+import com.baidu.tieba.w05;
+import com.baidu.tieba.w25;
+import com.baidu.tieba.x05;
+import com.baidu.tieba.xfa;
+import com.baidu.tieba.y35;
+import com.baidu.tieba.yf5;
+import com.baidu.tieba.zfa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -142,7 +142,7 @@ import tbclient.Voice;
 import tbclient.VoiceRoom;
 import tbclient.ZhiBoInfoTW;
 /* loaded from: classes4.dex */
-public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoData {
+public class ThreadData extends w05 implements PreLoadImageProvider, bn, IVideoData {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ACT_STATE_CLOSE = 3;
     public static final int ACT_STATE_INVALID = -1;
@@ -229,7 +229,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     public static AtomicBoolean isLegoLoaded;
     public static AtomicBoolean isRecAppLoaded;
     public static HashMap<Integer, Integer> mInterviewResMap;
-    public static SparseArray<om6.a> mInterviewResMapForPb;
+    public static SparseArray<vn6.a> mInterviewResMapForPb;
     public transient /* synthetic */ FieldHolder $fh;
     public SpannableString abstractText;
     public String abstract_text;
@@ -243,7 +243,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     public MetaData author;
     public String authorId;
     public int bjhContentTag;
-    public i15 bookChapterData;
+    public o15 bookChapterData;
     public String buttonText;
     public boolean canCopyThread;
     public String category_name;
@@ -264,10 +264,10 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     public boolean forbidComment;
     public boolean forceReadUserMap;
     public String forumAvatar;
-    public s35 forumData;
+    public y35 forumData;
     public String forum_name;
     public String from;
-    public pba funAdData;
+    public xfa funAdData;
     public String funAdId;
     public boolean hasItem;
     public boolean hasRecommend;
@@ -355,22 +355,22 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     public String latitude;
     public String legoCard;
     public String lengthLimitName;
-    public l25 linkThreadData;
+    public r25 linkThreadData;
     public String linkUrl;
     public String location;
     public String longtitude;
-    public ArrayList<r05> mActDatas;
-    public z05 mAppCodeData;
+    public ArrayList<x05> mActDatas;
+    public f15 mAppCodeData;
     public long mAuditTime;
     public BaijiahaoData mBaijiahao;
     public CallRobotEntrance mCallRobotEntrance;
-    public m15 mCartoonThreadData;
+    public s15 mCartoonThreadData;
     public boolean mCheckRepeat;
     public long mCreateTime;
     public VirtualImageCustomFigure mCustomFigure;
     public VirtualImageCustomState mCustomState;
     public String mDailyPaperTime;
-    public ArrayList<eg5> mExtTails;
+    public ArrayList<lg5> mExtTails;
     public String mFirstClassName;
     public List<PbContent> mFirstFloorList;
     public String mFirstPostId;
@@ -397,7 +397,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     public String mPhotoLiveCover;
     public MediaData mPicMediaData;
     public PollData mPollData;
-    public List<rba> mPostList;
+    public List<zfa> mPostList;
     public PushStatusData mPushStatusData;
     public String mRecomAbTag;
     public String mRecomExtra;
@@ -424,13 +424,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     public int mTabId;
     public String mTabName;
     public int mTabShowMode;
-    public rba mTopAgreePost;
+    public zfa mTopAgreePost;
     public TopicModule mTopicModule;
     public String mUrl;
     public VoiceRoom mVoiceRoomData;
     public ArrayList<VoiceData.VoiceModel> mVoices;
     public String mWonderfulPostInfo;
-    public j45 mYulePostActivityData;
+    public p45 mYulePostActivityData;
     public String markID;
     public int middle_page_num;
     public int middle_page_pass_flag;
@@ -440,7 +440,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     public OriginalThreadInfo originalThreadData;
     public int originalThreadType;
     public boolean partialVisible;
-    public rba pbFirstShareData;
+    public zfa pbFirstShareData;
     public String person_center_post_id;
     public int positionInFrsItemTab;
     public int post_num;
@@ -463,19 +463,19 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     public int smartFrsPosition;
     public int sortType;
     public SpannableStringBuilder span_str;
-    public y05 specialData;
+    public e15 specialData;
     public int statFloor;
     public int style_flag;
     public String targetScheme;
-    public u35 taskInfoData;
+    public a45 taskInfoData;
     public AlaInfoData threadAlaInfo;
-    public ArrayList<rf5> threadExpressionArrayList;
+    public ArrayList<yf5> threadExpressionArrayList;
     public String threadExtendInfo;
     public List<ThreadRecommendInfoData> threadRecommendInfoDataList;
     public ThreadRecommendTagData threadRecommendTagData;
     public int threadTitleSpanOffset;
     public int threadType;
-    public d45 threadVideoChannelInfo;
+    public j45 threadVideoChannelInfo;
     public VideoInfo threadVideoInfo;
     public VideoDesc threadVideoSegment;
     public String thread_share_link;
@@ -484,7 +484,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     public String tiePlusCostUrl;
     public int tiePlusFrsStaticLocate;
     @Nullable
-    public List<w06> tiePlusLinkOriginData;
+    public List<o16> tiePlusLinkOriginData;
     public String tiePlusMonitorClickUrl;
     public String tiePlusMonitorShowUrl;
     public String tiePlusShowUrl;
@@ -497,7 +497,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     public String title;
     @Nullable
     public SpannableStringBuilder titleText;
-    public z35 topicData;
+    public f45 topicData;
     public String topicUrl;
     public String topicUserName;
     public TwZhiBoUser twZhiBoUser;
@@ -516,7 +516,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.q05
+    @Override // com.baidu.tieba.w05
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -644,33 +644,33 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             JSONArray optJSONArray5 = jSONObject.optJSONArray("act_info");
             if (optJSONArray5 != null) {
                 for (int i5 = 0; i5 < optJSONArray5.length(); i5++) {
-                    r05 r05Var = new r05();
-                    r05Var.h(optJSONArray5.getJSONObject(i5));
-                    this.mActDatas.add(r05Var);
+                    x05 x05Var = new x05();
+                    x05Var.h(optJSONArray5.getJSONObject(i5));
+                    this.mActDatas.add(x05Var);
                 }
             }
             JSONObject optJSONObject4 = jSONObject.optJSONObject("yule_post_activity");
             if (optJSONObject4 != null) {
-                j45 j45Var = new j45();
-                this.mYulePostActivityData = j45Var;
-                j45Var.c(optJSONObject4);
+                p45 p45Var = new p45();
+                this.mYulePostActivityData = p45Var;
+                p45Var.c(optJSONObject4);
             }
             JSONObject optJSONObject5 = jSONObject.optJSONObject("app_code");
             if (optJSONObject5 != null) {
-                z05 z05Var = new z05();
-                this.mAppCodeData = z05Var;
-                z05Var.b(optJSONObject5);
+                f15 f15Var = new f15();
+                this.mAppCodeData = f15Var;
+                f15Var.b(optJSONObject5);
             }
             JSONObject optJSONObject6 = jSONObject.optJSONObject("cartoon_info");
             if (optJSONObject6 != null) {
-                m15 m15Var = new m15();
-                this.mCartoonThreadData = m15Var;
-                m15Var.c(optJSONObject6);
+                s15 s15Var = new s15();
+                this.mCartoonThreadData = s15Var;
+                s15Var.c(optJSONObject6);
             }
             this.praise.setUserMap(this.userMap);
             this.praise.parserJson(jSONObject.optJSONObject(FeedData.TYPE_ZAN));
             this.anchorInfoData.parserJson(jSONObject.optJSONObject("anchor_info"));
-            if (!bi.isEmpty(this.title)) {
+            if (!di.isEmpty(this.title)) {
                 this.praise.setTitle(this.title);
             } else {
                 this.praise.setTitle(this.abstract_text);
@@ -682,9 +682,9 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             JSONArray optJSONArray6 = jSONObject.optJSONArray("ext_tails");
             if (optJSONArray6 != null) {
                 for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
-                    eg5 eg5Var = new eg5();
-                    eg5Var.a(optJSONArray6.getJSONObject(i6));
-                    this.mExtTails.add(eg5Var);
+                    lg5 lg5Var = new lg5();
+                    lg5Var.a(optJSONArray6.getJSONObject(i6));
+                    this.mExtTails.add(lg5Var);
                 }
             }
             this.isBookChapter = jSONObject.optInt("is_book_chapter", 0);
@@ -702,24 +702,24 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             this.mCheckRepeat = jSONObject.optInt("cheak_repeat") == 1;
             JSONObject optJSONObject8 = jSONObject.optJSONObject("video_channel_info");
             if (optJSONObject8 != null) {
-                d45 d45Var = new d45();
-                this.threadVideoChannelInfo = d45Var;
-                d45Var.a(optJSONObject8);
+                j45 j45Var = new j45();
+                this.threadVideoChannelInfo = j45Var;
+                j45Var.a(optJSONObject8);
             }
             this.isMutiForumThread = jSONObject.optInt("is_multiforum_thread") == 1;
             this.isLinkThread = jSONObject.optBoolean("is_link_thread");
             JSONObject optJSONObject9 = jSONObject.optJSONObject("link_info");
             if (this.isLinkThread && optJSONObject9 != null) {
-                l25 l25Var = new l25();
-                this.linkThreadData = l25Var;
-                l25Var.g(optJSONObject9);
+                r25 r25Var = new r25();
+                this.linkThreadData = r25Var;
+                r25Var.g(optJSONObject9);
             }
             this.partialVisible = jSONObject.optInt("is_partial_visible") == 1;
             JSONObject optJSONObject10 = jSONObject.optJSONObject("activity_info");
             if (optJSONObject10 != null) {
-                y05 y05Var = new y05();
-                this.specialData = y05Var;
-                y05Var.a(optJSONObject10);
+                e15 e15Var = new e15();
+                this.specialData = e15Var;
+                e15Var.a(optJSONObject10);
             }
             JSONObject optJSONObject11 = jSONObject.optJSONObject("pic_info");
             if (optJSONObject11 != null) {
@@ -841,26 +841,26 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                     this.threadRecommendInfoDataList.add(threadRecommendInfoData);
                 }
             }
-            s35 s35Var = new s35();
-            this.forumData = s35Var;
-            s35Var.k(jSONObject.optJSONObject("forum_info"));
+            y35 y35Var = new y35();
+            this.forumData = y35Var;
+            y35Var.k(jSONObject.optJSONObject("forum_info"));
             this.isAuthorView = jSONObject.optInt("is_author_view");
             jSONObject.optString("scard_packet_id");
             this.mPhotoLiveCover = jSONObject.optString("livecover_src");
             JSONArray optJSONArray10 = jSONObject.optJSONArray("rich_abstract");
             if (optJSONArray10 != null) {
-                this.mRichAbstractList = u25.a(optJSONArray10);
+                this.mRichAbstractList = a35.a(optJSONArray10);
             }
             this.showAdSubscript = jSONObject.optInt("show_ad_subscript") == 1;
             this.convertBtnType = jSONObject.optString("convert_btn_type");
             this.mIsExcellentThread = jSONObject.optInt("is_excellent_thread") == 1;
             JSONArray optJSONArray11 = jSONObject.optJSONArray("rich_title");
             if (optJSONArray11 != null) {
-                this.mRichTitleList = u25.a(optJSONArray11);
+                this.mRichTitleList = a35.a(optJSONArray11);
             }
             JSONArray optJSONArray12 = jSONObject.optJSONArray("first_post_content");
             if (optJSONArray12 != null) {
-                this.mFirstFloorList = u25.a(optJSONArray12);
+                this.mFirstFloorList = a35.a(optJSONArray12);
             }
             JSONObject optJSONObject18 = jSONObject.optJSONObject("star_rank_icon");
             if (optJSONObject18 != null) {
@@ -978,7 +978,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             this.isHighLight = jSONObject.optInt("is_highlight") == 1;
             this.isXiuxiuThread = jSONObject.optInt("is_xiuxiu_thread") == 1;
             this.targetScheme = jSONObject.optString("target_scheme");
-            this.clickBackCard = k45.a(jSONObject.optJSONObject("click_back_card"));
+            this.clickBackCard = q45.a(jSONObject.optJSONObject("click_back_card"));
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }
@@ -1081,9 +1081,9 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                 this.threadVideoInfo = threadInfo.video_info;
             }
             if (threadInfo.video_channel_info != null && threadInfo.video_channel_info.channel_id.longValue() > 0) {
-                d45 d45Var = new d45();
-                this.threadVideoChannelInfo = d45Var;
-                d45Var.b(threadInfo.video_channel_info);
+                j45 j45Var = new j45();
+                this.threadVideoChannelInfo = j45Var;
+                j45Var.b(threadInfo.video_channel_info);
             }
             List<Voice> list3 = threadInfo.voice_info;
             if (list3 != null) {
@@ -1101,30 +1101,30 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             if (list4 != null) {
                 int size2 = list4.size();
                 for (int i4 = 0; i4 < size2; i4++) {
-                    r05 r05Var = new r05();
-                    r05Var.i(list4.get(i4));
-                    this.mActDatas.add(r05Var);
+                    x05 x05Var = new x05();
+                    x05Var.i(list4.get(i4));
+                    this.mActDatas.add(x05Var);
                 }
             }
             if (threadInfo.yule_post_activity != null) {
-                j45 j45Var = new j45();
-                this.mYulePostActivityData = j45Var;
-                j45Var.d(threadInfo.yule_post_activity);
+                p45 p45Var = new p45();
+                this.mYulePostActivityData = p45Var;
+                p45Var.d(threadInfo.yule_post_activity);
             }
             if (threadInfo.app_code != null) {
-                z05 z05Var = new z05();
-                this.mAppCodeData = z05Var;
-                z05Var.c(threadInfo.app_code);
+                f15 f15Var = new f15();
+                this.mAppCodeData = f15Var;
+                f15Var.c(threadInfo.app_code);
             }
             if (threadInfo.cartoon_info != null) {
-                m15 m15Var = new m15();
-                this.mCartoonThreadData = m15Var;
-                m15Var.d(threadInfo.cartoon_info);
+                s15 s15Var = new s15();
+                this.mCartoonThreadData = s15Var;
+                s15Var.d(threadInfo.cartoon_info);
             }
             this.praise.setUserMap(this.userMap);
             this.praise.parserProtobuf(threadInfo.zan);
             this.anchorInfoData.parserProtobuf(threadInfo.anchor_info);
-            if (!bi.isEmpty(this.title)) {
+            if (!di.isEmpty(this.title)) {
                 this.praise.setTitle(this.title);
             } else {
                 this.praise.setTitle(this.abstract_text);
@@ -1140,11 +1140,11 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                     int size3 = zhiBoInfoTW.labelInfo.size();
                     for (int i5 = 0; i5 < size3; i5++) {
                         if (zhiBoInfoTW.labelInfo.get(i5) != null) {
-                            rf5 rf5Var = new rf5();
-                            rf5Var.a(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
-                            rf5Var.b(zhiBoInfoTW.labelInfo.get(i5).labelId);
-                            rf5Var.c(zhiBoInfoTW.labelInfo.get(i5).labelContent);
-                            this.threadExpressionArrayList.add(rf5Var);
+                            yf5 yf5Var = new yf5();
+                            yf5Var.a(zhiBoInfoTW.labelInfo.get(i5).labelHot.intValue());
+                            yf5Var.b(zhiBoInfoTW.labelInfo.get(i5).labelId);
+                            yf5Var.c(zhiBoInfoTW.labelInfo.get(i5).labelContent);
+                            this.threadExpressionArrayList.add(yf5Var);
                         }
                     }
                 }
@@ -1177,9 +1177,9 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             }
             if (threadInfo.ext_tails != null) {
                 for (int i6 = 0; i6 != threadInfo.ext_tails.size(); i6++) {
-                    eg5 eg5Var = new eg5();
-                    eg5Var.b(threadInfo.ext_tails.get(i6));
-                    this.mExtTails.add(eg5Var);
+                    lg5 lg5Var = new lg5();
+                    lg5Var.b(threadInfo.ext_tails.get(i6));
+                    this.mExtTails.add(lg5Var);
                 }
             }
             this.mPushStatusData.parserProtobuf(threadInfo.push_status);
@@ -1201,9 +1201,9 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             }
             if (threadInfo.hot_post_list != null) {
                 for (int i7 = 0; i7 < threadInfo.hot_post_list.size(); i7++) {
-                    rba rbaVar = new rba();
-                    rbaVar.H0(threadInfo.hot_post_list.get(i7));
-                    this.mPostList.add(rbaVar);
+                    zfa zfaVar = new zfa();
+                    zfaVar.H0(threadInfo.hot_post_list.get(i7));
+                    this.mPostList.add(zfaVar);
                 }
             }
             if (threadInfo.robot_entrance != null) {
@@ -1226,15 +1226,15 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             boolean z = threadInfo.is_link_thread.intValue() == 1;
             this.isLinkThread = z;
             if (z && threadInfo.link_info != null) {
-                l25 l25Var = new l25();
-                this.linkThreadData = l25Var;
-                l25Var.h(threadInfo.link_info);
+                r25 r25Var = new r25();
+                this.linkThreadData = r25Var;
+                r25Var.h(threadInfo.link_info);
             }
             this.partialVisible = threadInfo.is_partial_visible.intValue() == 1;
             if (threadInfo.activity_info != null) {
-                y05 y05Var = new y05();
-                this.specialData = y05Var;
-                y05Var.b(threadInfo.activity_info);
+                e15 e15Var = new e15();
+                this.specialData = e15Var;
+                e15Var.b(threadInfo.activity_info);
             }
             if (threadInfo.pic_info != null) {
                 MediaData mediaData2 = new MediaData();
@@ -1265,9 +1265,9 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             this.mOriginalForumInfo = OriginalForumInfo.parser(threadInfo.ori_forum_info);
             this.mDailyPaperTime = threadInfo.daily_paper_time;
             if (threadInfo.forum_info != null) {
-                s35 s35Var = new s35();
-                this.forumData = s35Var;
-                s35Var.l(threadInfo.forum_info);
+                y35 y35Var = new y35();
+                this.forumData = y35Var;
+                y35Var.l(threadInfo.forum_info);
             }
             if (threadInfo.naws_info != null) {
                 this.mSmartApp = threadInfo.naws_info;
@@ -1548,9 +1548,9 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         mInterviewResMap.put(1, Integer.valueOf((int) R.drawable.label_interview_no));
         mInterviewResMap.put(2, Integer.valueOf((int) R.drawable.label_interview_live));
         mInterviewResMap.put(3, Integer.valueOf((int) R.drawable.label_interview_off));
-        mInterviewResMapForPb.put(1, new om6.a(R.string.interview_live_status_not_start, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
-        mInterviewResMapForPb.put(2, new om6.a(R.string.interview_live_status_ing, R.color.CAM_X0309, R.drawable.pic_dot_title_green));
-        mInterviewResMapForPb.put(3, new om6.a(R.string.interview_live_status_over, R.color.CAM_X0303, R.drawable.pic_dot_title_blue));
+        mInterviewResMapForPb.put(1, new vn6.a(R.string.interview_live_status_not_start, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+        mInterviewResMapForPb.put(2, new vn6.a(R.string.interview_live_status_ing, R.color.CAM_X0309, R.drawable.pic_dot_title_green));
+        mInterviewResMapForPb.put(3, new vn6.a(R.string.interview_live_status_over, R.color.CAM_X0303, R.drawable.pic_dot_title_blue));
     }
 
     public ThreadData() {
@@ -1625,7 +1625,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         this.is_membertop = 0;
         this.is_good = 0;
         this.is_live = 0;
-        this.topicData = new z35();
+        this.topicData = new f45();
         this.author = new MetaData();
         this.forum_name = null;
         this.mMedias = new ArrayList<>();
@@ -1658,18 +1658,18 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         this.operator_flag = 0;
         this.anchorLevel = 0;
         this.isBookChapter = 0;
-        this.bookChapterData = new i15();
+        this.bookChapterData = new o15();
         this.mFirstFloorList = new ArrayList();
         this.mRichTitleList = new ArrayList();
         this.mRichAbstractList = new ArrayList();
         this.category_name = null;
-        this.taskInfoData = new u35();
+        this.taskInfoData = new a45();
         this.mExtTails = new ArrayList<>();
         this.mPushStatusData = new PushStatusData();
         this.isTbReadDispatch = 0;
         this.isInsertThread = false;
         this.mInsertFloor = -1;
-        this.mTopAgreePost = new rba();
+        this.mTopAgreePost = new zfa();
         this.agreeData = new AgreeData();
         this.is_called = 0;
         this.middle_page_num = 0;
@@ -1687,18 +1687,18 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         this.mPostList = new ArrayList();
     }
 
-    private SpannableStringBuilder addGodTittle(String str, ArrayList<om6.a> arrayList) {
+    private SpannableStringBuilder addGodTittle(String str, ArrayList<vn6.a> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, this, str, arrayList)) == null) {
-            if (isVideoThreadType() || !needShowGodTitle() || bi.isEmpty(str)) {
+            if (isVideoThreadType() || !needShowGodTitle() || di.isEmpty(str)) {
                 return null;
             }
             if (arrayList == null || arrayList.size() <= 0) {
                 arrayList = new ArrayList<>();
-                arrayList.add(new om6.a((int) R.string.god_title));
+                arrayList.add(new vn6.a((int) R.string.god_title));
             }
-            return om6.h(TbadkCoreApplication.getInst(), str, arrayList, true);
+            return vn6.h(TbadkCoreApplication.getInst(), str, arrayList, true);
         }
         return (SpannableStringBuilder) invokeLL.objValue;
     }
@@ -1707,11 +1707,11 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, this, new Object[]{str, spannableStringBuilder, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            ArrayList<om6.a> prefixList = getPrefixList(z, z2, z3, z4);
+            ArrayList<vn6.a> prefixList = getPrefixList(z, z2, z3, z4);
             if (prefixList == null) {
                 return new SpannableStringBuilder();
             }
-            SpannableStringBuilder h = om6.h(TbadkCoreApplication.getInst(), str, prefixList, false);
+            SpannableStringBuilder h = vn6.h(TbadkCoreApplication.getInst(), str, prefixList, false);
             if (prefixList.size() > 0) {
                 if (h == null) {
                     h = new SpannableStringBuilder();
@@ -1738,11 +1738,11 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, this, new Object[]{str, spannableString, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)})) == null) {
-            ArrayList<om6.a> prefixList = getPrefixList(z, z2, z3, false);
+            ArrayList<vn6.a> prefixList = getPrefixList(z, z2, z3, false);
             if (prefixList == null) {
                 return new SpannableStringBuilder();
             }
-            SpannableStringBuilder h = om6.h(TbadkCoreApplication.getInst(), str, prefixList, false);
+            SpannableStringBuilder h = vn6.h(TbadkCoreApplication.getInst(), str, prefixList, false);
             if (prefixList.size() > 0 && h == null) {
                 h = new SpannableStringBuilder();
             }
@@ -1756,7 +1756,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (SpannableStringBuilder) invokeCommon.objValue;
     }
 
-    private ArrayList<om6.a> getPrefixList(boolean z, boolean z2) {
+    private ArrayList<vn6.a> getPrefixList(boolean z, boolean z2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
@@ -1789,24 +1789,24 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         }
     }
 
-    private ArrayList<om6.a> getPrefixList(boolean z, boolean z2, boolean z3, boolean z4) {
+    private ArrayList<vn6.a> getPrefixList(boolean z, boolean z2, boolean z3, boolean z4) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4)})) == null) {
-            ArrayList<om6.a> arrayList = new ArrayList<>();
+            ArrayList<vn6.a> arrayList = new ArrayList<>();
             boolean needShowGodTitle = needShowGodTitle();
             if (z2) {
                 if (z) {
                     if (needShowGodTitle && !isVideoThreadType()) {
-                        arrayList.add(new om6.a((int) R.string.god_title));
+                        arrayList.add(new vn6.a((int) R.string.god_title));
                     }
                     if (getIsLive() == 1 || getThreadType() == 33 || (getTopicData() != null && getTopicData().a() != 0)) {
                         if (getTaskInfoData() != null && isInterviewLive()) {
                             if (getTaskInfoStatus() == 2) {
-                                arrayList.add(new om6.a((int) R.string.interview_live));
+                                arrayList.add(new vn6.a((int) R.string.interview_live));
                             }
                         } else if (!needShowGodTitle) {
-                            arrayList.add(new om6.a((int) R.string.photo_live_tips));
+                            arrayList.add(new vn6.a((int) R.string.photo_live_tips));
                         }
                     }
                     if (isInterviewLive()) {
@@ -1815,63 +1815,63 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                     if (isActInfo()) {
                         Integer num = activityResStringMap.get(new Point(getActInfoType(), getActInfoStatus()));
                         if (num != null) {
-                            arrayList.add(new om6.a(num.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                            arrayList.add(new vn6.a(num.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                         } else {
-                            arrayList.add(new om6.a((int) R.string.card_promotion_text));
+                            arrayList.add(new vn6.a((int) R.string.card_promotion_text));
                         }
                     }
                     if (getYulePostActivityData() != null) {
-                        arrayList.add(new om6.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                        arrayList.add(new vn6.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                     }
-                    if (!bi.isEmpty(getCategory())) {
-                        arrayList.add(new om6.a(getCategory()));
+                    if (!di.isEmpty(getCategory())) {
+                        arrayList.add(new vn6.a(getCategory()));
                     }
                 } else {
                     if (needShowGodTitle && getIs_top() != 1 && !isVideoThreadType()) {
-                        arrayList.add(new om6.a((int) R.string.god_title));
+                        arrayList.add(new vn6.a((int) R.string.god_title));
                     }
                     if ((getIsLive() == 1 || getThreadType() == 33) && !isInterviewLive() && !needShowGodTitle) {
-                        arrayList.add(new om6.a((int) R.string.photo_live_tips));
+                        arrayList.add(new vn6.a((int) R.string.photo_live_tips));
                     }
                     if (getIs_good() == 1) {
-                        arrayList.add(new om6.a((int) R.string.obfuscated_res_0x7f0f0911));
+                        arrayList.add(new vn6.a((int) R.string.obfuscated_res_0x7f0f0919));
                     }
                     if (getIs_top() == 1) {
-                        arrayList.add(new om6.a((int) R.string.obfuscated_res_0x7f0f16b4));
+                        arrayList.add(new vn6.a((int) R.string.obfuscated_res_0x7f0f16c2));
                     }
                     if (isInterviewLive() && getTaskInfoData() != null && getTaskInfoStatus() == 2) {
-                        arrayList.add(new om6.a((int) R.string.interview_live));
+                        arrayList.add(new vn6.a((int) R.string.interview_live));
                     }
                     if (isActInfo()) {
                         Integer num2 = activityResStringMap.get(new Point(getActInfoType(), getActInfoStatus()));
                         if (num2 != null) {
-                            arrayList.add(new om6.a(num2.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                            arrayList.add(new vn6.a(num2.intValue(), R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                         } else {
-                            arrayList.add(new om6.a((int) R.string.card_promotion_text));
+                            arrayList.add(new vn6.a((int) R.string.card_promotion_text));
                         }
                     }
                     if (this.isBookChapter == 1) {
-                        arrayList.add(new om6.a((int) R.string.card_tbread_text));
+                        arrayList.add(new vn6.a((int) R.string.card_tbread_text));
                     }
                     if (getAppCodeData() != null) {
-                        arrayList.add(new om6.a(R.string.send_app_code_gift, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                        arrayList.add(new vn6.a(R.string.send_app_code_gift, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                     }
                     if (getYulePostActivityData() != null) {
-                        arrayList.add(new om6.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
+                        arrayList.add(new vn6.a(R.string.card_promotion_text, R.color.CAM_X0308, R.drawable.pic_dot_title_red));
                     }
-                    if (!bi.isEmpty(getCategory())) {
-                        arrayList.add(new om6.a(getCategory()));
+                    if (!di.isEmpty(getCategory())) {
+                        arrayList.add(new vn6.a(getCategory()));
                     }
                     if (z3 && isLiveThread()) {
-                        arrayList.add(new om6.a((int) R.string.ala_live));
+                        arrayList.add(new vn6.a((int) R.string.ala_live));
                     }
                     if (z3 && isLiveRecordThread()) {
-                        arrayList.add(new om6.a((int) R.string.live_record));
+                        arrayList.add(new vn6.a((int) R.string.live_record));
                     } else if (isRealVideoThread()) {
-                        arrayList.add(new om6.a((int) R.string.video_title_str));
+                        arrayList.add(new vn6.a((int) R.string.video_title_str));
                     }
                     if (z4) {
-                        arrayList.add(new om6.a((int) R.string.video_review_state));
+                        arrayList.add(new vn6.a((int) R.string.video_review_state));
                     }
                 }
             }
@@ -1918,7 +1918,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         if (interceptable == null || interceptable.invokeV(65553, this) == null) {
             SpannableStringBuilder parseTitle = parseTitle();
             this.titleText = parseTitle;
-            om6.b(this, parseTitle, true);
+            vn6.b(this, parseTitle, true);
         }
     }
 
@@ -1954,7 +1954,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (SpannableString) invokeV.objValue;
     }
 
-    public ArrayList<r05> getActDatas() {
+    public ArrayList<x05> getActDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -2035,13 +2035,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return invokeV.intValue;
     }
 
-    public z05 getAppCodeData() {
+    public f15 getAppCodeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.mAppCodeData;
         }
-        return (z05) invokeV.objValue;
+        return (f15) invokeV.objValue;
     }
 
     public String getArticeCover() {
@@ -2120,13 +2120,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return invokeV.booleanValue;
     }
 
-    public m15 getCartoonThreadData() {
+    public s15 getCartoonThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.mCartoonThreadData;
         }
-        return (m15) invokeV.objValue;
+        return (s15) invokeV.objValue;
     }
 
     public String getCategory() {
@@ -2228,7 +2228,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<rf5> getExpressDatas() {
+    public ArrayList<yf5> getExpressDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
@@ -2237,7 +2237,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (ArrayList) invokeV.objValue;
     }
 
-    public ArrayList<eg5> getExtTails() {
+    public ArrayList<lg5> getExtTails() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
@@ -2309,13 +2309,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (String) invokeV.objValue;
     }
 
-    public s35 getForumData() {
+    public y35 getForumData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
             return this.forumData;
         }
-        return (s35) invokeV.objValue;
+        return (y35) invokeV.objValue;
     }
 
     public String getForum_name() {
@@ -2628,13 +2628,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (List) invokeV.objValue;
     }
 
-    public l25 getLinkThreadData() {
+    public r25 getLinkThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
             return this.linkThreadData;
         }
-        return (l25) invokeV.objValue;
+        return (r25) invokeV.objValue;
     }
 
     public LiveCoverStatus getLiveCoverStatus() {
@@ -2709,13 +2709,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return invokeV.intValue;
     }
 
-    public rba getPbFirstShareData() {
+    public zfa getPbFirstShareData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
             return this.pbFirstShareData;
         }
-        return (rba) invokeV.objValue;
+        return (zfa) invokeV.objValue;
     }
 
     public String getPbTitle() {
@@ -2763,7 +2763,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return invokeV.intValue;
     }
 
-    public List<rba> getPostList() {
+    public List<zfa> getPostList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048677, this)) == null) {
@@ -2817,7 +2817,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (ThreadInfo) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q05
+    @Override // com.baidu.tieba.w05
     public String getRecomReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -3070,13 +3070,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (String) invokeV.objValue;
     }
 
-    public u35 getTaskInfoData() {
+    public a45 getTaskInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048713, this)) == null) {
             return this.taskInfoData;
         }
-        return (u35) invokeV.objValue;
+        return (a45) invokeV.objValue;
     }
 
     public AlaInfoData getThreadAlaInfo() {
@@ -3124,13 +3124,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return invokeV.intValue;
     }
 
-    public d45 getThreadVideoChannelInfo() {
+    public j45 getThreadVideoChannelInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048721, this)) == null) {
             return this.threadVideoChannelInfo;
         }
-        return (d45) invokeV.objValue;
+        return (j45) invokeV.objValue;
     }
 
     public VideoInfo getThreadVideoInfo() {
@@ -3164,7 +3164,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     }
 
     @Nullable
-    public List<w06> getTiePlusLinkOriginData() {
+    public List<o16> getTiePlusLinkOriginData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048725, this)) == null) {
@@ -3201,22 +3201,22 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (SpannableStringBuilder) invokeV.objValue;
     }
 
-    public rba getTopAgreePost() {
+    public zfa getTopAgreePost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048729, this)) == null) {
             return this.mTopAgreePost;
         }
-        return (rba) invokeV.objValue;
+        return (zfa) invokeV.objValue;
     }
 
-    public z35 getTopicData() {
+    public f45 getTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048730, this)) == null) {
             return this.topicData;
         }
-        return (z35) invokeV.objValue;
+        return (f45) invokeV.objValue;
     }
 
     public TopicModule getTopicModule() {
@@ -3338,13 +3338,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return invokeV.intValue;
     }
 
-    public j45 getYulePostActivityData() {
+    public p45 getYulePostActivityData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048743, this)) == null) {
             return this.mYulePostActivityData;
         }
-        return (j45) invokeV.objValue;
+        return (p45) invokeV.objValue;
     }
 
     public UserTbVipInfoData getbigVData() {
@@ -3371,11 +3371,11 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
 
     public boolean hasUserLabelInfo() {
         InterceptResult invokeV;
-        b45 b45Var;
+        h45 h45Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048746, this)) == null) {
             AlaInfoData alaInfoData = this.threadAlaInfo;
-            if (alaInfoData != null && (b45Var = alaInfoData.userLabelInfo) != null && !TextUtils.isEmpty(b45Var.c())) {
+            if (alaInfoData != null && (h45Var = alaInfoData.userLabelInfo) != null && !TextUtils.isEmpty(h45Var.c())) {
                 return true;
             }
             return false;
@@ -3595,7 +3595,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.q05
+    @Override // com.baidu.tieba.w05
     public boolean isFromFrs() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -3618,9 +3618,9 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048771, this)) == null) {
-            pba pbaVar = this.funAdData;
-            if (pbaVar != null) {
-                return pbaVar.h();
+            xfa xfaVar = this.funAdData;
+            if (xfaVar != null) {
+                return xfaVar.h();
             }
             return false;
         }
@@ -3682,7 +3682,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.q05, com.baidu.tieba.card.data.BaseCardInfo
+    @Override // com.baidu.tieba.w05, com.baidu.tieba.card.data.BaseCardInfo
     public boolean isHighLight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -4266,7 +4266,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048829, this)) == null) {
             SpannableStringBuilder parseRichAbastract = parseRichAbastract();
-            om6.b(this, parseRichAbastract, false);
+            vn6.b(this, parseRichAbastract, false);
             return new SpannableString(parseRichAbastract);
         }
         return (SpannableString) invokeV.objValue;
@@ -4279,7 +4279,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             if (this.tiePlusLinkOriginData == null) {
                 this.tiePlusLinkOriginData = new ArrayList();
             }
-            return o06.G(this, this.mRichAbstractList, this.abstract_text, this.tiePlusLinkOriginData);
+            return g16.G(this, this.mRichAbstractList, this.abstract_text, this.tiePlusLinkOriginData);
         }
         return (SpannableStringBuilder) invokeV.objValue;
     }
@@ -4291,7 +4291,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             if (this.tiePlusLinkOriginData == null) {
                 this.tiePlusLinkOriginData = new ArrayList();
             }
-            return o06.G(this, this.mRichTitleList, this.title, this.tiePlusLinkOriginData);
+            return g16.G(this, this.mRichTitleList, this.title, this.tiePlusLinkOriginData);
         }
         return (SpannableStringBuilder) invokeV.objValue;
     }
@@ -4303,7 +4303,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             if (this.tiePlusLinkOriginData == null) {
                 this.tiePlusLinkOriginData = new ArrayList();
             }
-            return o06.K(this, this.mRichAbstractList, this.title, this.tiePlusLinkOriginData);
+            return g16.K(this, this.mRichAbstractList, this.title, this.tiePlusLinkOriginData);
         }
         return (SpannableStringBuilder) invokeV.objValue;
     }
@@ -4397,7 +4397,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         Code decompiled incorrectly, please refer to instructions dump.
     */
     private void parse_title(boolean z, boolean z2) {
-        gm gmVar;
+        jm jmVar;
         SpannableStringBuilder parseRichTitle;
         SpannableString spannableString;
         Integer num;
@@ -4445,8 +4445,8 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                 if (getAppCodeData() != null) {
                     arrayList.add(Integer.valueOf((int) R.drawable.icon_tag_giftsend));
                 }
-                if (!bi.isEmpty(this.category_name)) {
-                    gmVar = transStrToSpanStr(this.category_name);
+                if (!di.isEmpty(this.category_name)) {
+                    jmVar = transStrToSpanStr(this.category_name);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     if (arrayList.size() > 0) {
                         StringBuilder sb = new StringBuilder();
@@ -4454,7 +4454,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                             sb.append("1 ");
                         }
                         String sb2 = sb.toString();
-                        if (gmVar != null) {
+                        if (jmVar != null) {
                             spannableString = new SpannableString(sb2 + this.category_name + " ");
                         } else {
                             spannableString = new SpannableString(sb2);
@@ -4466,13 +4466,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                             if (bitmap != null) {
                                 bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                             }
-                            m95 m95Var = new m95(bitmapDrawable);
-                            m95Var.b(BdUtilHelper.dip2px(TbadkCoreApplication.getInst().getApplicationContext(), this.threadTitleSpanOffset));
-                            spannableString.setSpan(m95Var, i2, i2 + 1, 33);
+                            t95 t95Var = new t95(bitmapDrawable);
+                            t95Var.b(BdUtilHelper.dip2px(TbadkCoreApplication.getInst().getApplicationContext(), this.threadTitleSpanOffset));
+                            spannableString.setSpan(t95Var, i2, i2 + 1, 33);
                             i2 += 2;
                         }
-                        if (gmVar != null) {
-                            spannableString.setSpan(gmVar, i2, this.category_name.length() + i2, 33);
+                        if (jmVar != null) {
+                            spannableString.setSpan(jmVar, i2, this.category_name.length() + i2, 33);
                         }
                         spannableStringBuilder.append((CharSequence) spannableString);
                     }
@@ -4483,7 +4483,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                     this.span_str = spannableStringBuilder;
                 }
             }
-            gmVar = null;
+            jmVar = null;
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder();
             if (arrayList.size() > 0) {
             }
@@ -4555,7 +4555,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     private void processExtensionInfo() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65548, this) == null) {
-            if ((this instanceof q25) && "0".equals(getId())) {
+            if ((this instanceof w25) && "0".equals(getId())) {
                 this.threadExtendInfo = TbadkCoreApplication.getInst().getString(R.string.video_is_checking_novisible);
                 return;
             }
@@ -4565,7 +4565,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                     processAlaExtensionInfo();
                     return;
                 } else if (isVocieRoom() && !TextUtils.isEmpty(this.forum_name)) {
-                    this.threadExtendInfo = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, "...") + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0774);
+                    this.threadExtendInfo = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, "...") + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f077c);
                     return;
                 } else {
                     long last_time_int = getLast_time_int() * 1000;
@@ -4594,7 +4594,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                     }
                     String authInfo = UtilHelper.getAuthInfo(this.author, this.isFromHomPage, i);
                     if (isShowForumAndReply()) {
-                        String str = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, "...") + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0774);
+                        String str = StringHelper.cutChineseAndEnglishWithSuffix(this.forum_name, 12, "...") + TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f077c);
                         if (!TextUtils.isEmpty(authInfo)) {
                             this.threadExtendInfo = authInfo + GlideException.IndentedAppendable.INDENT + str;
                         } else {
@@ -4658,7 +4658,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds10);
             int size = (int) (((View.MeasureSpec.getSize(BdUtilHelper.getScreenDimensions(TbadkCoreApplication.getInst().getContext())[0]) - (TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44) * 2)) - (dimensionPixelSize * 2)) / 3.0f);
             ArrayList<MediaData> medias = getMedias();
-            if (b05.c().g() && ListUtils.getCount(medias) != 0) {
+            if (h05.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i14 = 0; i14 < medias.size(); i14++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i14);
@@ -4771,16 +4771,16 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (int[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         OriginalThreadInfo originalThreadInfo;
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048734, this)) == null) {
-            pba pbaVar = this.funAdData;
-            if (pbaVar != null) {
-                if (pbaVar.h()) {
+            xfa xfaVar = this.funAdData;
+            if (xfaVar != null) {
+                if (xfaVar.h()) {
                     if (this.funAdData.i()) {
                         return AdvertAppInfo.H;
                     }
@@ -4826,7 +4826,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                             if (isGodThread()) {
                                 return TYPE_VIDEO_GOD;
                             }
-                            if (this instanceof q25) {
+                            if (this instanceof w25) {
                                 return TYPE_FAKE_VIDEO;
                             }
                             return TYPE_VIDEO;
@@ -4915,10 +4915,10 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65549, this) == null) && isNewGodAuthor() && !TextUtils.isEmpty(this.author.getNewGodData().getFieldName())) {
             if (!TextUtils.isEmpty(this.threadExtendInfo)) {
-                this.threadExtendInfo += "   " + this.author.getNewGodData().getFieldName() + xw5.c(this.author.getNewGodData().isVideoGod());
+                this.threadExtendInfo += "   " + this.author.getNewGodData().getFieldName() + ox5.c(this.author.getNewGodData().isVideoGod());
                 return;
             }
-            this.threadExtendInfo = this.author.getNewGodData().getFieldName() + xw5.c(this.author.getNewGodData().isVideoGod());
+            this.threadExtendInfo = this.author.getNewGodData().getFieldName() + ox5.c(this.author.getNewGodData().isVideoGod());
         }
     }
 
@@ -4951,7 +4951,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                     PbContent pbContent = this.mRichTitleList.get(i);
                     if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && isVideoThreadType() && (str = pbContent.text) != null && str.length() >= 3) {
                         ActivityItemData activityItemData = new ActivityItemData();
-                        activityItemData.link_url = ov5.d(pbContent.text);
+                        activityItemData.link_url = fw5.d(pbContent.text);
                         String str2 = pbContent.text;
                         activityItemData.activity_name = str2.substring(1, str2.length() - 2);
                         return activityItemData;
@@ -4964,7 +4964,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (ActivityItemData) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.q05
+    @Override // com.baidu.tieba.w05
     public NegativeFeedBackData getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -5030,7 +5030,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return invokeV.intValue;
     }
 
-    private gm transStrToSpanStr(String str) {
+    private jm transStrToSpanStr(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65555, this, str)) == null) {
@@ -5057,21 +5057,21 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             }
             BitmapDrawable bitmapDrawable = new BitmapDrawable(drawingCache);
             bitmapDrawable.setBounds(0, 0, drawingCache.getWidth(), drawingCache.getHeight());
-            return new gm(bitmapDrawable, 1);
+            return new jm(bitmapDrawable, 1);
         }
-        return (gm) invokeL.objValue;
+        return (jm) invokeL.objValue;
     }
 
-    public void parseStyle_flag(ArrayList<o15> arrayList) {
+    public void parseStyle_flag(ArrayList<u15> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048834, this, arrayList) == null) {
             if (this.isNoTitle == 1) {
                 this.style_flag = 0;
             } else if (arrayList != null && arrayList.size() > 0) {
                 this.style_flag = 0;
-                Iterator<o15> it = arrayList.iterator();
+                Iterator<u15> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    o15 next = it.next();
+                    u15 next = it.next();
                     if (next != null && next.a() != null && !StringUtils.isNull(this.title)) {
                         Iterator<String> it2 = next.a().iterator();
                         while (true) {
@@ -5102,7 +5102,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             Bitmap bitmap = SkinManager.getBitmap(R.drawable.icon_card_video_jump);
             BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
             bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
-            n95 n95Var = new n95(bitmapDrawable, -100, dimensionPixelOffset, dimensionPixelOffset);
+            u95 u95Var = new u95(bitmapDrawable, -100, dimensionPixelOffset, dimensionPixelOffset);
             String string = SharedPrefHelper.getInstance().getString("nani_key_show_tail_txt", TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.nani_tail_default_postfix));
             if (StringUtils.isNull(string)) {
                 string = TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.nani_tail_default_postfix);
@@ -5110,18 +5110,18 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             StringBuilder sb = new StringBuilder(string);
             if (getAuthor() != null) {
                 if (getAuthor().getGender() == 1) {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f09ab));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f09b3));
                 } else if (getAuthor().getGender() == 2) {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f13c9));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f13d6));
                 } else {
-                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f15ad));
+                    sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f15bb));
                 }
             } else {
-                sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f15ad));
+                sb.insert(0, TbadkCoreApplication.getInst().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f15bb));
             }
             sb.insert(0, "[icon]");
             SpannableString spannableString = new SpannableString(sb.toString());
-            spannableString.setSpan(n95Var, 0, 6, 17);
+            spannableString.setSpan(u95Var, 0, 6, 17);
             spannableString.setSpan(clickableSpan, 6, spannableString.length(), 17);
             return spannableString;
         }
@@ -5133,13 +5133,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             if (isActInfo() && this.mActDatas.size() >= 1) {
-                r05 r05Var = this.mActDatas.get(0);
-                int e = r05Var.e();
+                x05 x05Var = this.mActDatas.get(0);
+                int e = x05Var.e();
                 if (e == 3) {
                     return e;
                 }
-                int b = r05Var.b();
-                int c = r05Var.c();
+                int b = x05Var.b();
+                int c = x05Var.c();
                 int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
                 if (currentTimeMillis < b) {
                     return 4;
@@ -5158,7 +5158,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048805, this)) == null) {
-            if (getIsLive() == 1 || getIs_good() == 1 || getIs_top() == 1 || isActInfo() || this.isBookChapter == 1 || isGodThread() || getAppCodeData() != null || getYulePostActivityData() != null || !bi.isEmpty(getCategory()) || isRealGod()) {
+            if (getIsLive() == 1 || getIs_good() == 1 || getIs_top() == 1 || isActInfo() || this.isBookChapter == 1 || isGodThread() || getAppCodeData() != null || getYulePostActivityData() != null || !di.isEmpty(getCategory()) || isRealGod()) {
                 return true;
             }
             return false;
@@ -5194,7 +5194,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048846, this)) == null) {
-            if (!b05.c().g() || ListUtils.getCount(getMedias()) == 0) {
+            if (!h05.c().g() || ListUtils.getCount(getMedias()) == 0) {
                 return 0;
             }
             LinkedList linkedList = new LinkedList();
@@ -5233,13 +5233,13 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<l06> getPrefixIcons() {
+    public ArrayList<d16> getPrefixIcons() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048680, this)) == null) {
-            ArrayList<l06> arrayList = new ArrayList<>();
+            ArrayList<d16> arrayList = new ArrayList<>();
             if (this.isSCard) {
-                arrayList.add(new l06(TbadkCoreApplication.getInst().getResources().getString(R.string.s_card_package_icon)));
+                arrayList.add(new d16(TbadkCoreApplication.getInst().getResources().getString(R.string.s_card_package_icon)));
             }
             return arrayList;
         }
@@ -5250,9 +5250,9 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048714, this)) == null) {
-            u35 u35Var = this.taskInfoData;
-            if (u35Var != null) {
-                long g = u35Var.g();
+            a45 a45Var = this.taskInfoData;
+            if (a45Var != null) {
+                long g = a45Var.g();
                 long b = this.taskInfoData.b();
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
                 if (currentTimeMillis < g) {
@@ -5273,11 +5273,11 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         if ((interceptable == null || interceptable.invokeV(1048747, this) == null) && ListUtils.getCount(this.mItemStar) > 0) {
             SpannableStringBuilder spannableStringBuilder = this.titleText;
             if (spannableStringBuilder != null) {
-                spannableStringBuilder.insert(0, (CharSequence) o06.e(this.mItemStar));
+                spannableStringBuilder.insert(0, (CharSequence) g16.e(this.mItemStar));
                 return;
             }
             SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(this.abstractText);
-            spannableStringBuilder2.insert(0, (CharSequence) o06.e(this.mItemStar));
+            spannableStringBuilder2.insert(0, (CharSequence) g16.e(this.mItemStar));
             this.abstractText = new SpannableString(spannableStringBuilder2);
         }
     }
@@ -5306,7 +5306,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                 this.tiePlusLinkOriginData = new ArrayList();
             }
             if (!ListUtils.isEmpty(this.mFirstFloorList)) {
-                return new SpannableString(o06.G(this, this.mFirstFloorList, this.abstract_text, this.tiePlusLinkOriginData));
+                return new SpannableString(g16.G(this, this.mFirstFloorList, this.abstract_text, this.tiePlusLinkOriginData));
             }
             return null;
         }
@@ -5421,7 +5421,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
                 i = 0;
             }
             builder.is_vertical = Integer.valueOf(i);
-            if (bi.isEmpty(WriteMsgHolder.getLastVideoThumbUrl())) {
+            if (di.isEmpty(WriteMsgHolder.getLastVideoThumbUrl())) {
                 lastVideoThumbUrl = writeData.getVideoInfo().getThumbPath();
             } else {
                 lastVideoThumbUrl = WriteMsgHolder.getLastVideoThumbUrl();
@@ -5436,9 +5436,9 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
             }
             this.isNoTitle = i2;
             this.abstract_text = writeData.getContent();
-            s35 s35Var = new s35();
-            this.forumData = s35Var;
-            s35Var.a = writeData.getForumId();
+            y35 y35Var = new y35();
+            this.forumData = y35Var;
+            y35Var.a = writeData.getForumId();
             this.forumData.b = writeData.getForumName();
             this.mTabId = writeData.getTabId();
             this.mTabName = writeData.getTabName();
@@ -5531,7 +5531,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         }
     }
 
-    public void setActDatas(ArrayList<r05> arrayList) {
+    public void setActDatas(ArrayList<x05> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048850, this, arrayList) == null) {
             this.mActDatas = arrayList;
@@ -5573,10 +5573,10 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         }
     }
 
-    public void setAppCodeData(z05 z05Var) {
+    public void setAppCodeData(f15 f15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048857, this, z05Var) == null) {
-            this.mAppCodeData = z05Var;
+        if (interceptable == null || interceptable.invokeL(1048857, this, f15Var) == null) {
+            this.mAppCodeData = f15Var;
         }
     }
 
@@ -5608,10 +5608,10 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         }
     }
 
-    public void setCartoonThreadData(m15 m15Var) {
+    public void setCartoonThreadData(s15 s15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048862, this, m15Var) == null) {
-            this.mCartoonThreadData = m15Var;
+        if (interceptable == null || interceptable.invokeL(1048862, this, s15Var) == null) {
+            this.mCartoonThreadData = s15Var;
         }
     }
 
@@ -5637,10 +5637,10 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
     }
 
     public void setCurrentPage(int i) {
-        d45 d45Var;
+        j45 j45Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048866, this, i) == null) && (d45Var = this.threadVideoChannelInfo) != null) {
-            d45Var.b = i;
+        if ((interceptable == null || interceptable.invokeI(1048866, this, i) == null) && (j45Var = this.threadVideoChannelInfo) != null) {
+            j45Var.b = i;
         }
     }
 
@@ -5693,7 +5693,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         }
     }
 
-    public void setExpressionDatas(ArrayList<rf5> arrayList) {
+    public void setExpressionDatas(ArrayList<yf5> arrayList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048874, this, arrayList) == null) {
             this.threadExpressionArrayList.clear();
@@ -5750,10 +5750,10 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         }
     }
 
-    public void setForumData(s35 s35Var) {
+    public void setForumData(y35 y35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048882, this, s35Var) == null) {
-            this.forumData = s35Var;
+        if (interceptable == null || interceptable.invokeL(1048882, this, y35Var) == null) {
+            this.forumData = y35Var;
         }
     }
 
@@ -6035,10 +6035,10 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         }
     }
 
-    public void setPbFirstShareData(rba rbaVar) {
+    public void setPbFirstShareData(zfa zfaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048924, this, rbaVar) == null) {
-            this.pbFirstShareData = rbaVar;
+        if (interceptable == null || interceptable.invokeL(1048924, this, zfaVar) == null) {
+            this.pbFirstShareData = zfaVar;
         }
     }
 
@@ -6070,7 +6070,7 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         }
     }
 
-    public void setPostList(List<rba> list) {
+    public void setPostList(List<zfa> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048929, this, list) == null) {
             this.mPostList = list;
@@ -6308,10 +6308,10 @@ public class ThreadData extends q05 implements PreLoadImageProvider, ym, IVideoD
         }
     }
 
-    public void setYulePostActivityData(j45 j45Var) {
+    public void setYulePostActivityData(p45 p45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048964, this, j45Var) == null) {
-            this.mYulePostActivityData = j45Var;
+        if (interceptable == null || interceptable.invokeL(1048964, this, p45Var) == null) {
+            this.mYulePostActivityData = p45Var;
         }
     }
 

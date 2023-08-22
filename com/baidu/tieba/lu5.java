@@ -1,40 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.st5;
-import com.baidu.tieba.tt5;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public abstract class lu5<Q extends st5, P extends tt5> extends ku5 implements ou5<P> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.tieba.ju5;
+import com.baidu.tieba.ku5;
+/* loaded from: classes7.dex */
+public interface lu5<Q extends ju5, P extends ku5> {
+    int a();
 
-    public abstract void d();
+    Q b();
 
-    public abstract void e();
+    String c();
 
-    public abstract void f();
+    P d();
 
-    public abstract void g();
-
-    public abstract void h(BdUniqueId bdUniqueId);
-
-    public abstract void i(ss5 ss5Var);
-
-    public lu5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    int e();
 }

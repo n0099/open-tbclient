@@ -1,36 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface x5a {
-    void a(boolean z);
+public class x5a {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile w5a a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i);
-
-    void c();
-
-    boolean d();
-
-    void e();
-
-    boolean f();
-
-    int g();
-
-    @NonNull
-    BaseFragmentActivity getActivity();
-
-    int getAdSource();
-
-    @NonNull
-    ViewGroup getRootView();
-
-    BdUniqueId getUniqueId();
-
-    boolean h();
-
-    long i();
+    public static synchronized w5a a() {
+        InterceptResult invokeV;
+        w5a w5aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (x5a.class) {
+                if (a == null) {
+                    a = new w5a();
+                }
+                w5aVar = a;
+            }
+            return w5aVar;
+        }
+        return (w5a) invokeV.objValue;
+    }
 }

@@ -1,551 +1,325 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.aperf.bosuploader.BOSResponseEntity;
-import com.baidu.searchbox.aperf.bosuploader.BOSUploader;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.zbb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class lbb {
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
+import java.net.NetworkInterface;
+import java.util.Collections;
+/* loaded from: classes7.dex */
+public final class lbb {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile lbb e;
+    public static String a;
+    public static String b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public File a;
-    public File b;
-    public ExecutorService c;
 
-    /* loaded from: classes6.dex */
-    public class a implements mbb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ obb b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ JSONObject e;
-        public final /* synthetic */ String f;
-
-        public a(lbb lbbVar, File file, obb obbVar, String str, String str2, JSONObject jSONObject, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lbbVar, file, obbVar, str, str2, jSONObject, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = file;
-            this.b = obbVar;
-            this.c = str;
-            this.d = str2;
-            this.e = jSONObject;
-            this.f = str3;
-        }
-
-        @Override // com.baidu.tieba.mbb
-        public void a(pbb pbbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pbbVar) == null) {
-                if (pbbVar != null && pbbVar.c()) {
-                    if (lbb.d) {
-                        Log.d("VoyagerFileManager", "bos upload success");
-                    }
-                    if (this.a.exists()) {
-                        this.a.delete();
-                    }
-                    obb obbVar = this.b;
-                    if (obbVar != null) {
-                        obbVar.d(this.c, this.d, this.e);
-                    }
-                } else if (pbbVar != null) {
-                    int a = pbbVar.a();
-                    String b = pbbVar.b();
-                    if (lbb.d) {
-                        Log.d("VoyagerFileManager", "bos upload fail: error code = " + a + ", error message: " + b);
-                    }
-                    obb obbVar2 = this.b;
-                    if (obbVar2 != null) {
-                        obbVar2.c(this.f, a, b, this.e);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ File c;
-        public final /* synthetic */ mbb d;
-        public final /* synthetic */ lbb e;
-
-        public b(lbb lbbVar, String str, String str2, File file, mbb mbbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lbbVar, str, str2, file, mbbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = lbbVar;
-            this.a = str;
-            this.b = str2;
-            this.c = file;
-            this.d = mbbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            this.e.m(this.a, this.b, this.c, this.d);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947938525, "Lcom/baidu/tieba/lbb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947938525, "Lcom/baidu/tieba/lbb;");
-                return;
-            }
-        }
-        d = AppConfig.isDebug();
-    }
-
-    public static lbb g() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (lbb.class) {
-                    if (e == null) {
-                        e = new lbb();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (TextUtils.isEmpty(c)) {
+                k(pab.h().getContext());
             }
-            return e;
+            return c;
         }
-        return (lbb) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public ArrayList<File> f() {
+    public static String m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<File> arrayList = new ArrayList<>();
-            File[] listFiles = this.a.listFiles();
-            if (listFiles != null && listFiles.length > 0) {
-                return new ArrayList<>(Arrays.asList(listFiles));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                k(pab.h().getContext());
             }
-            return arrayList;
+            return a;
         }
-        return (ArrayList) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public File h() {
+    public static String n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public lbb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                k(pab.h().getContext());
             }
+            return b;
         }
-        j();
-        this.c = new ThreadPoolExecutor(1, 1, 600000L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+        return (String) invokeV.objValue;
     }
 
-    public void c(sbb sbbVar, obb obbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, sbbVar, obbVar) == null) {
-            String j = sbbVar.j();
-            String a2 = sbbVar.a();
-            if (!TextUtils.isEmpty(j) && !TextUtils.isEmpty(a2)) {
-                File file = new File(this.a, j);
-                JSONObject c = sbbVar.c();
-                if (file.exists()) {
-                    if (d) {
-                        Log.d("VoyagerFileManager", "retry: " + j + " exists and upload");
-                    }
-                    k(j, a2, file, c, obbVar);
-                    return;
-                }
-                d(sbbVar, obbVar);
-            }
-        }
-    }
-
-    public void d(sbb sbbVar, obb obbVar) {
-        File i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sbbVar, obbVar) == null) {
-            String j = sbbVar.j();
-            String a2 = sbbVar.a();
-            if (!TextUtils.isEmpty(j) && !TextUtils.isEmpty(a2)) {
-                ArrayList<String> g = sbbVar.g();
-                JSONObject c = sbbVar.c();
-                if (c == null) {
-                    c = new JSONObject();
-                    sbbVar.n(c);
-                }
-                JSONObject jSONObject = c;
-                if (g != null && g.size() != 0) {
-                    if (!sbbVar.l() && g.size() == 1) {
-                        String str = g.get(0);
-                        if (TextUtils.isEmpty(str)) {
-                            obbVar.a(j, jSONObject);
-                            return;
-                        }
-                        File file = new File(str);
-                        if (!file.exists()) {
-                            obbVar.a(j, jSONObject);
-                            return;
-                        } else {
-                            i = new File(this.a, j);
-                            bcb.a(file, i);
-                        }
-                    } else {
-                        long e2 = sbbVar.e();
-                        if (e2 == 0) {
-                            e2 = jbb.f().d(a2);
-                        }
-                        i = i(j, g, e2, jSONObject);
-                    }
-                    File file2 = i;
-                    if (file2 != null && file2.exists()) {
-                        k(j, a2, file2, jSONObject, obbVar);
-                        return;
-                    } else {
-                        obbVar.b(j, jSONObject);
-                        return;
-                    }
-                }
-                obbVar.a(j, jSONObject);
-            }
-        }
-    }
-
-    public void e(String str, String str2, String str3, File file, String str4, boolean z, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, file, str4, Boolean.valueOf(z), jSONObject}) == null) {
-            try {
-                JSONObject b2 = acb.b(file, str4, str2, str3, z);
-                jSONObject.put(str, b2);
-                if (d) {
-                    Log.d("VoyagerFileManager", "generateMetaInfo path " + str + " fileMeta ：" + b2);
-                }
-            } catch (JSONException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public File i(String str, ArrayList<String> arrayList, long j, JSONObject jSONObject) {
-        InterceptResult invokeCommon;
-        JSONObject jSONObject2;
-        String str2;
-        File file;
-        String str3;
-        Iterator<String> it;
-        File file2;
-        String str4;
+    public static String b(WifiManager wifiManager) throws Exception {
+        InterceptResult invokeL;
         boolean z;
-        String str5;
-        File file3;
-        String str6;
-        String str7;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{str, arrayList, Long.valueOf(j), jSONObject})) == null) {
-            ArrayList arrayList2 = new ArrayList(arrayList.size());
-            if (jSONObject == null) {
-                jSONObject2 = new JSONObject();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wifiManager)) == null) {
+            String str = "";
+            if (3 == wifiManager.getWifiState()) {
+                z = true;
             } else {
-                jSONObject2 = jSONObject;
+                z = false;
             }
-            Iterator<String> it2 = arrayList.iterator();
-            long j2 = 0;
-            while (true) {
-                if (!it2.hasNext()) {
-                    str2 = "VoyagerFileManager";
-                    file = null;
-                    str3 = " not exist";
-                    break;
-                }
-                String next = it2.next();
-                if (!TextUtils.isEmpty(next)) {
-                    if (next.startsWith("external:")) {
-                        next = next.replace("external:", AppRuntime.getAppContext().getExternalFilesDir(null).getParent() + File.separatorChar);
-                    } else if (next.startsWith("internal:")) {
-                        next = next.replace("internal:", AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator);
-                    }
-                    String str8 = next;
-                    if (str8.contains("../")) {
-                        e(str8, "4", str8 + " error", null, null, true, jSONObject2);
+            try {
+                wifiManager.setWifiEnabled(true);
+                FileInputStream fileInputStream = new FileInputStream(new File("/sys/class/net/wlan0/address"));
+                str = c(fileInputStream);
+                fileInputStream.close();
+            } catch (Exception e) {
+                ybb.d(e);
+            }
+            wifiManager.setWifiEnabled(z);
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            char[] cArr = new char[2048];
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, "UTF-8"));
+                while (true) {
+                    int read = bufferedReader.read(cArr);
+                    if (read != -1) {
+                        stringWriter.write(cArr, 0, read);
                     } else {
-                        File file4 = new File(str8);
-                        if (!file4.exists()) {
-                            e(str8, "1", str8 + " not exist", null, null, true, jSONObject2);
-                        } else {
-                            if (d) {
-                                Log.d("VoyagerFileManager", "path: " + str8);
-                            }
-                            if (file4.isFile()) {
-                                long length = file4.length() + j2;
-                                if (d) {
-                                    Log.d("VoyagerFileManager", "total file size: " + length);
-                                    Log.d("VoyagerFileManager", "max file size: " + j);
+                        inputStream.close();
+                        return stringWriter.toString();
+                    }
+                }
+            } catch (Throwable th) {
+                inputStream.close();
+                throw th;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static String j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            try {
+                PackageInfo packageInfo = context.getPackageManager().getPackageInfo(context.getPackageName(), 1);
+                if (packageInfo != null) {
+                    if (packageInfo.versionName == null) {
+                        return StringUtil.NULL_STRING;
+                    }
+                    return packageInfo.versionName;
+                }
+                return "";
+            } catch (PackageManager.NameNotFoundException e) {
+                ybb.d(e);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void k(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, context) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay().getMetrics(displayMetrics);
+            a = String.valueOf(displayMetrics.widthPixels);
+            b = String.valueOf(displayMetrics.heightPixels);
+            c = String.valueOf(displayMetrics.density);
+        }
+    }
+
+    public static String l(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            try {
+                return context.getResources().getString(context.getPackageManager().getPackageInfo(context.getPackageName(), 0).applicationInfo.labelRes);
+            } catch (PackageManager.NameNotFoundException e) {
+                ybb.d(e);
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                for (NetworkInterface networkInterface : Collections.list(NetworkInterface.getNetworkInterfaces())) {
+                    if (networkInterface.getName().equalsIgnoreCase("wlan0")) {
+                        byte[] hardwareAddress = ApiReplaceUtil.getHardwareAddress(networkInterface);
+                        if (hardwareAddress == null) {
+                            return "";
+                        }
+                        StringBuilder sb = new StringBuilder();
+                        int length = hardwareAddress.length;
+                        for (int i = 0; i < length; i++) {
+                            sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+                        }
+                        if (sb.length() > 0) {
+                            sb.deleteCharAt(sb.length() - 1);
+                        }
+                        return sb.toString();
+                    }
+                }
+                return null;
+            } catch (Exception e) {
+                ybb.d(e);
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            try {
+                return ApiReplaceUtil.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+            } catch (Exception e) {
+                ybb.d(e);
+                return "NA";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            try {
+                String deviceId = ApiReplaceUtil.getDeviceId((TelephonyManager) context.getSystemService("phone"));
+                if (deviceId == null) {
+                    return "";
+                }
+                return ubb.a(deviceId);
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            int i = 0;
+            try {
+                i = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
+            } catch (PackageManager.NameNotFoundException e) {
+                ybb.d(e);
+            }
+            return String.valueOf(i);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int f(Context context) {
+        InterceptResult invokeL;
+        NetworkInfo activeNetworkInfo;
+        NetworkInfo.State state;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+            if (connectivityManager != null && (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) != null && activeNetworkInfo.isAvailable()) {
+                NetworkInfo networkInfo = connectivityManager.getNetworkInfo(1);
+                if (networkInfo != null && (state = networkInfo.getState()) != null && (state == NetworkInfo.State.CONNECTED || state == NetworkInfo.State.CONNECTING)) {
+                    return 1;
+                }
+                NetworkInfo networkInfo2 = connectivityManager.getNetworkInfo(0);
+                if (networkInfo2 != null) {
+                    NetworkInfo.State state2 = networkInfo2.getState();
+                    String subtypeName = networkInfo2.getSubtypeName();
+                    if (state2 != null && (state2 == NetworkInfo.State.CONNECTED || state2 == NetworkInfo.State.CONNECTING)) {
+                        switch (activeNetworkInfo.getSubtype()) {
+                            case 1:
+                            case 2:
+                            case 4:
+                            case 7:
+                            case 11:
+                                return 2;
+                            case 3:
+                            case 5:
+                            case 6:
+                            case 8:
+                            case 9:
+                            case 10:
+                            case 12:
+                            case 14:
+                            case 15:
+                                return 3;
+                            case 13:
+                                return 4;
+                            default:
+                                if (subtypeName.equalsIgnoreCase("TD-SCDMA") || subtypeName.equalsIgnoreCase("WCDMA") || subtypeName.equalsIgnoreCase("CDMA2000")) {
+                                    return 3;
                                 }
-                                if (length > j) {
-                                    file = null;
-                                    e(str8, "3", str8 + " size exceed maxFileSize ", null, null, true, jSONObject2);
-                                    str3 = " not exist";
-                                    str2 = "VoyagerFileManager";
-                                    break;
-                                }
-                                file = null;
-                                StringBuilder sb = new StringBuilder(ccb.c(file4.getAbsolutePath().getBytes(), true));
-                                sb.append("_");
-                                sb.append(file4.getName());
-                                arrayList2.add(new zbb.a(file4, sb.toString()));
-                                file2 = file4;
-                                str4 = str8;
-                                it = it2;
-                                z = true;
-                                str3 = " not exist";
-                                e(str8, "0", str8 + " success", file2, sb.toString(), true, jSONObject2);
-                                if (d) {
-                                    Log.d("VoyagerFileManager", "zip name: " + ((Object) sb));
-                                }
-                                str5 = "VoyagerFileManager";
-                                j2 = length;
-                            } else {
-                                it = it2;
-                                file2 = file4;
-                                str4 = str8;
-                                file = null;
-                                str3 = " not exist";
-                                z = true;
-                                str5 = "VoyagerFileManager";
-                            }
-                            if (file2.isDirectory()) {
-                                ArrayList arrayList3 = new ArrayList();
-                                File file5 = file2;
-                                bcb.e(file5, arrayList3);
-                                if (arrayList3.size() != 0) {
-                                    boolean z2 = false;
-                                    Iterator it3 = arrayList3.iterator();
-                                    while (true) {
-                                        if (it3.hasNext()) {
-                                            String str9 = (String) it3.next();
-                                            if (!TextUtils.isEmpty(str9)) {
-                                                File file6 = new File(str9);
-                                                if (file6.exists()) {
-                                                    j2 += file6.length();
-                                                    if (j2 > j) {
-                                                        file3 = file5;
-                                                        str6 = str5;
-                                                        e(str4, "3", file5.getPath() + "size exceed maxFileSize ", null, null, true, jSONObject2);
-                                                        z2 = true;
-                                                        break;
-                                                    }
-                                                }
-                                                file5 = file5;
-                                                str5 = str5;
-                                            }
-                                        } else {
-                                            file3 = file5;
-                                            str6 = str5;
-                                            break;
-                                        }
-                                    }
-                                    if (z2) {
-                                        str2 = str6;
-                                        break;
-                                    }
-                                    File file7 = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "/store/");
-                                    String c = ccb.c(file3.getAbsolutePath().getBytes(), z);
-                                    File file8 = new File(file7, c + ".zip");
-                                    if (d) {
-                                        str7 = str6;
-                                        Log.d(str7, "inner path: " + file7.getAbsolutePath());
-                                        Log.d(str7, "inner path md5: " + c);
-                                        Log.d(str7, "inner zip out file: " + file8.getAbsolutePath());
-                                    } else {
-                                        str7 = str6;
-                                    }
-                                    if (!file7.exists()) {
-                                        file7.mkdir();
-                                    }
-                                    if (file8.exists()) {
-                                        file8.delete();
-                                    }
-                                    if (bcb.h(file3, file8.getAbsolutePath())) {
-                                        if (d) {
-                                            Log.d(str7, "inner zip out file: " + file8.getName());
-                                        }
-                                        arrayList2.add(new zbb.a(file8, file8.getName(), z));
-                                        e(str4, "0", "success", file8, file8.getPath(), false, jSONObject2);
-                                    } else {
-                                        StringBuilder sb2 = new StringBuilder();
-                                        String str10 = str4;
-                                        sb2.append(str10);
-                                        sb2.append("copy error");
-                                        e(str10, "2", sb2.toString(), null, null, false, jSONObject2);
-                                    }
-                                }
-                            }
-                            it2 = it;
+                                return 5;
                         }
                     }
                 }
             }
-            File file9 = new File(this.b, "filemeta_" + str + ".log");
-            try {
-                file9.createNewFile();
-                bcb.g(jSONObject2.toString(), file9);
-            } catch (IOException e2) {
-                if (d) {
-                    e2.printStackTrace();
-                }
-            }
-            if (file9.exists()) {
-                arrayList2.add(new zbb.a(file9, file9.getName(), true));
-            }
-            if (d) {
-                Log.d(str2, "start generate out zip file");
-            }
-            File file10 = new File(this.a, str);
-            try {
-                if (file10.exists()) {
-                    file10.delete();
-                }
-                file10.createNewFile();
-            } catch (IOException e3) {
-                if (d) {
-                    e3.printStackTrace();
-                }
-            }
-            if (arrayList2.size() > 0) {
-                zbb.a(file10, arrayList2);
-                File file11 = new File(file10.getAbsolutePath());
-                if (d) {
-                    Log.d(str2, "out put File: " + file11.getAbsolutePath());
-                }
-                return file11;
-            }
-            e(file10.getAbsolutePath(), "1", file10.getPath() + str3, null, null, true, jSONObject2);
-            return file;
+            return 0;
         }
-        return (File) invokeCommon.objValue;
+        return invokeL.intValue;
     }
 
-    public final void j() {
+    public static String h(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            String str = AppRuntime.getAppContext().getApplicationInfo().dataDir + "/.voyager";
-            File file = new File(str, "/upload/");
-            this.a = file;
-            if (!file.exists()) {
-                this.a.mkdirs();
-            }
-            File file2 = new File(str, "/store/");
-            this.b = file2;
-            if (!file2.exists()) {
-                this.b.mkdirs();
-            }
-        }
-    }
-
-    public final void k(String str, String str2, File file, JSONObject jSONObject, obb obbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, str, str2, file, jSONObject, obbVar) == null) {
-            String str3 = str + ".zip";
-            String createObjectKey = BOSUploader.getInstance().createObjectKey(str2, str3);
-            if (d) {
-                Log.d("VoyagerFileManager", "bos object key is : " + createObjectKey);
-            }
-            l(str2, str3, file, new a(this, file, obbVar, str3, createObjectKey, jSONObject, str));
-        }
-    }
-
-    public final void l(String str, String str2, File file, mbb mbbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, file, mbbVar) == null) {
-            this.c.execute(new b(this, str, str2, file, mbbVar));
-        }
-    }
-
-    public final void m(@NonNull String str, @NonNull String str2, @NonNull File file, mbb mbbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048585, this, str, str2, file, mbbVar) == null) {
-            BOSResponseEntity uploadFileSync = BOSUploader.getInstance().uploadFileSync(str, str2, file);
-            pbb pbbVar = new pbb(uploadFileSync.isSuccess(), uploadFileSync.getErrorCode(), uploadFileSync.getMessage());
-            if (mbbVar != null) {
-                mbbVar.a(pbbVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            WifiManager wifiManager = (WifiManager) context.getSystemService("wifi");
+            WifiInfo connectionInfo = wifiManager.getConnectionInfo();
+            if (connectionInfo != null && Config.DEF_MAC_ID.equals(ApiReplaceUtil.getMacAddress(connectionInfo))) {
+                try {
+                    String d = d();
+                    if (d != null) {
+                        return ubb.a(d);
+                    }
+                    return ubb.a(b(wifiManager));
+                } catch (Exception e) {
+                    ybb.d(e);
+                    return ubb.a(Config.DEF_MAC_ID);
+                }
+            } else if (connectionInfo != null && ApiReplaceUtil.getMacAddress(connectionInfo) != null) {
+                return ubb.a(ApiReplaceUtil.getMacAddress(connectionInfo));
+            } else {
+                return "";
             }
         }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,15 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,234 +15,174 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yo3 {
+public abstract class yo3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static c g;
+    @SuppressLint({"StaticFieldLeak"})
+    public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Application a;
-    @Nullable
-    public gw2 b;
-    public boolean c;
-    public boolean d;
-    public int e;
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void a(boolean z, int i);
-    }
+    public abstract CharSequence a();
 
+    public abstract void c(CharSequence charSequence);
+
+    @TargetApi(11)
     /* loaded from: classes8.dex */
-    public class a extends gw2 {
+    public static class a extends yo3 {
         public static /* synthetic */ Interceptable $ic;
+        public static ClipboardManager b;
+        public static ClipData c;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yo3 a;
 
-        /* renamed from: com.baidu.tieba.yo3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC0550a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Activity a;
-            public final /* synthetic */ a b;
-
-            public RunnableC0550a(a aVar, Activity activity) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, activity};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = activity;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                boolean u;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    Intent intent = this.a.getIntent();
-                    iv1 o = fu2.o();
-                    ComponentName component = intent.getComponent();
-                    if (this.b.a.c && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && o != null && component != null && TextUtils.equals(o.A(), component.getClassName())) {
-                        if (this.b.a.d) {
-                            if (yo3.f) {
-                                Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
-                                return;
-                            }
-                            return;
-                        }
-                        en3 m = en3.m();
-                        if (fn3.a() && en3.k()) {
-                            u = m.w(this.a, this.b.a.e, false);
-                        } else {
-                            u = m.u(this.b.a.e, false, false);
-                        }
-                        if (yo3.f) {
-                            Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + u + ", taskId=" + this.b.a.e);
-                        }
-                        m.i();
-                    }
-                    if (yo3.f) {
-                        Log.d("SwanHomeScreenLaunch", "class=" + this.a + ", swanAppForeground=" + this.b.a.c + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
-                    }
-                }
-            }
-        }
-
-        public a(yo3 yo3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yo3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yo3Var;
-        }
-
-        @Override // com.baidu.tieba.gw2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                super.onActivityStarted(activity);
-                yo3 yo3Var = this.a;
-                if (yo3Var.c && activity != null && activity.getTaskId() == this.a.e) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                yo3Var.c = z;
-            }
-        }
-
-        @Override // com.baidu.tieba.gw2, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, bundle) != null) || !en3.j()) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-254053009, "Lcom/baidu/tieba/yo3$a;")) == null) {
                 return;
             }
-            super.onActivityCreated(activity, bundle);
-            if (activity != null && activity.getIntent() != null) {
-                RunnableC0550a runnableC0550a = new RunnableC0550a(this, activity);
-                if (fn3.a()) {
-                    runnableC0550a.run();
-                } else {
-                    sn3.j(runnableC0550a, "moveTaskToFront");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yo3 a;
-
-        public b(yo3 yo3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yo3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yo3Var;
-        }
-
-        @Override // com.baidu.tieba.yo3.c
-        public void a(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                if (!z) {
-                    if (this.a.c && i == 1) {
-                        this.a.c = false;
-                    }
-                } else {
-                    this.a.c = true;
-                    this.a.e = i;
-                }
-                this.a.d = z;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948336844, "Lcom/baidu/tieba/yo3;")) != null) {
             Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
                 $ic = interceptable;
             }
             if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948336844, "Lcom/baidu/tieba/yo3;");
-                return;
+                classClinitInterceptable.invokePostClinit(-254053009, "Lcom/baidu/tieba/yo3$a;");
             }
         }
-        f = ir1.a;
-    }
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g = null;
-            this.a.unregisterActivityLifecycleCallbacks(this.b);
+        @SuppressLint({"ServiceCast"})
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            b = (ClipboardManager) yo3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+        }
+
+        @Override // com.baidu.tieba.yo3
+        public CharSequence a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    c = b.getPrimaryClip();
+                } catch (Exception e) {
+                    if (nr1.a) {
+                        throw e;
+                    }
+                }
+                ClipData clipData = c;
+                if (clipData != null && clipData.getItemCount() > 0) {
+                    return c.getItemAt(0).getText();
+                }
+                return "";
+            }
+            return (CharSequence) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.yo3
+        public void c(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+                ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
+                c = newPlainText;
+                try {
+                    b.setPrimaryClip(newPlainText);
+                } catch (RuntimeException e) {
+                    if (nr1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
         }
     }
 
-    public yo3(@NonNull Application application) {
+    /* loaded from: classes8.dex */
+    public static class b extends yo3 {
+        public static /* synthetic */ Interceptable $ic;
+        public static android.text.ClipboardManager b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-254052978, "Lcom/baidu/tieba/yo3$b;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-254052978, "Lcom/baidu/tieba/yo3$b;");
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            b = (android.text.ClipboardManager) yo3.a.getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+        }
+
+        @Override // com.baidu.tieba.yo3
+        public CharSequence a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.getText();
+            }
+            return (CharSequence) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.yo3
+        public void c(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
+                b.setText(charSequence);
+            }
+        }
+    }
+
+    public yo3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {application};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = application;
-        this.b = new a(this);
-        g = new b(this);
-        application.registerActivityLifecycleCallbacks(this.b);
     }
 
-    public static void h(boolean z, int i) {
-        c cVar;
+    public static yo3 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && (cVar = g) != null) {
-            cVar.a(z, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            a = context.getApplicationContext();
+            if (kn3.c()) {
+                return new a();
+            }
+            return new b();
         }
+        return (yo3) invokeL.objValue;
     }
 }

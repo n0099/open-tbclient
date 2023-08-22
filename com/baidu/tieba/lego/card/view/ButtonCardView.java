@@ -17,13 +17,13 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.lego.activity.LegoListFragment;
 import com.baidu.tieba.lego.card.model.ButtonCard;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.m45;
+import com.baidu.tieba.s45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ButtonCardView extends BaseCardView<ButtonCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -42,7 +42,7 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,8 +77,8 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements m45.e {
+    /* loaded from: classes7.dex */
+    public class b implements s45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ButtonCard a;
@@ -103,18 +103,18 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             this.a = buttonCard;
         }
 
-        @Override // com.baidu.tieba.m45.e
-        public void onClick(m45 m45Var) {
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
                 UrlManager.getInstance().dealOneLink(this.b.i, new String[]{this.a.getBtnScheme()});
-                m45Var.dismiss();
+                s45Var.dismiss();
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements m45.e {
+    /* loaded from: classes7.dex */
+    public class c implements s45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ButtonCardView a;
@@ -137,11 +137,11 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
             this.a = buttonCardView;
         }
 
-        @Override // com.baidu.tieba.m45.e
-        public void onClick(m45 m45Var) {
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
-                m45Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
+                s45Var.dismiss();
             }
         }
     }
@@ -172,11 +172,11 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
     public void setDialog(ButtonCard buttonCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, this, buttonCard) == null) {
-            m45 m45Var = new m45(this.i.getPageActivity());
-            m45Var.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
-            m45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03bf, new b(this, buttonCard));
-            m45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ce, new c(this));
-            m45Var.create(this.i).show();
+            s45 s45Var = new s45(this.i.getPageActivity());
+            s45Var.setMessage("是否拨打电话:" + buttonCard.getPhoneNumber());
+            s45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f03c0, new b(this, buttonCard));
+            s45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03cf, new c(this));
+            s45Var.create(this.i).show();
         }
     }
 
@@ -253,10 +253,10 @@ public class ButtonCardView extends BaseCardView<ButtonCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.i.getPageActivity().getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d01a1, (ViewGroup) null);
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.i.getPageActivity().getApplicationContext()).inflate(R.layout.obfuscated_res_0x7f0d01a4, (ViewGroup) null);
             this.m = relativeLayout;
-            this.o = (Button) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090498);
-            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f09243c);
+            this.o = (Button) relativeLayout.findViewById(R.id.obfuscated_res_0x7f09049b);
+            this.n = (TbImageView) this.m.findViewById(R.id.obfuscated_res_0x7f09246a);
             return this.m;
         }
         return (View) invokeV.objValue;

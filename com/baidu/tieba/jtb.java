@@ -1,72 +1,147 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.retrieve.file.util.AESUtil;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.nio.charset.Charset;
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class jtb {
     public static /* synthetic */ Interceptable $ic;
+    public static final jtb e;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Context> a;
+    public volatile boolean b;
+    public volatile boolean c;
+    public ltb d;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947896241, "Lcom/baidu/tieba/jtb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947896241, "Lcom/baidu/tieba/jtb;");
+                return;
+            }
+        }
+        e = new jtb();
+    }
+
+    public jtb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return b(str, "1234567890abcdef");
-            } catch (Exception unused) {
-                Log.e("AesUtils", "AesUtils.aesEncrypt fail@encryptStr:{} error:" + str);
-                if (str.isEmpty()) {
-                    return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        this.c = false;
+    }
+
+    public Context a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.get();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public /* synthetic */ void e(ysb ysbVar, boolean z) {
+        this.d.d(ysbVar, z);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public /* synthetic */ void g(Runnable runnable, ysb ysbVar) {
+        if (this.b) {
+            runnable.run();
+        } else if (ysbVar != null) {
+            HonorPushErrorEnum honorPushErrorEnum = HonorPushErrorEnum.ERROR_NOT_INITIALIZED;
+            ysbVar.onFailure(honorPushErrorEnum.getErrorCode(), honorPushErrorEnum.getMessage());
+        }
+    }
+
+    public void b(final ysb<String> ysbVar, final boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ysbVar, z) == null) {
+            d(new Runnable() { // from class: com.baidu.tieba.usb
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        jtb.this.e(ysbVar, z);
+                    }
                 }
-                return str;
+            }, ysbVar);
+        }
+    }
+
+    public final void d(final Runnable runnable, final ysb<?> ysbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, runnable, ysbVar) == null) {
+            wtb.b(new Runnable() { // from class: com.baidu.tieba.tsb
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        jtb.this.g(runnable, ysbVar);
+                    }
+                }
+            });
+        }
+    }
+
+    public void c(final ntb ntbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ntbVar) == null) {
+            wtb.b(new Runnable() { // from class: com.baidu.tieba.ssb
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        jtb.this.f(ntbVar);
+                    }
+                }
+            });
+        }
+    }
+
+    public final void f(ntb ntbVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, ntbVar) == null) && !this.b) {
+            this.b = true;
+            this.a = new WeakReference<>(ntbVar.a);
+            this.c = ntbVar.b;
+            this.d = new ltb(ntbVar.a);
+            if (this.c) {
+                b(null, true);
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str, String str2) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return d(c(str, str2));
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static byte[] c(String str, String str2) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
-            cipher.init(1, new SecretKeySpec(str2.getBytes(), "AES"));
-            return cipher.doFinal(str.getBytes(Charset.forName("UTF-8")));
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            char[] cArr = {TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
-            int length = bArr.length;
-            char[] cArr2 = new char[length << 1];
-            int i = 0;
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = i + 1;
-                cArr2[i] = cArr[(bArr[i2] & 240) >>> 4];
-                i = i3 + 1;
-                cArr2[i3] = cArr[bArr[i2] & 15];
-            }
-            return new String(cArr2);
-        }
-        return (String) invokeL.objValue;
     }
 }

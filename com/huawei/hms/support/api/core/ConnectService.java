@@ -26,12 +26,12 @@ import com.huawei.hms.support.api.entity.core.DisconnectResp;
 import com.huawei.hms.support.api.entity.core.JosGetNoticeReq;
 import com.huawei.hms.support.api.entity.core.JosGetNoticeResp;
 import com.huawei.hms.support.log.HMSLog;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ConnectService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends PendingResultImpl<ResolveResult<ConnectResp>, ConnectResp> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -80,7 +80,7 @@ public final class ConnectService {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b extends PendingResultImpl<ResolveResult<ConnectResp>, ConnectResp> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -129,7 +129,7 @@ public final class ConnectService {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class c extends PendingResultImpl<ResolveResult<JosGetNoticeResp>, JosGetNoticeResp> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -9,13 +9,13 @@ public class hf {
     public static volatile hf a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Context f468a;
+    public final Context f469a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, hg> f469a = new HashMap();
+    public Map<String, hg> f470a = new HashMap();
 
     public hf(Context context) {
-        this.f468a = context;
+        this.f469a = context;
     }
 
     public static hf a(Context context) {
@@ -46,11 +46,11 @@ public class hf {
     }
 
     public hg a() {
-        hg hgVar = this.f469a.get("UPLOADER_PUSH_CHANNEL");
+        hg hgVar = this.f470a.get("UPLOADER_PUSH_CHANNEL");
         if (hgVar != null) {
             return hgVar;
         }
-        hg hgVar2 = this.f469a.get("UPLOADER_HTTP");
+        hg hgVar2 = this.f470a.get("UPLOADER_HTTP");
         if (hgVar2 != null) {
             return hgVar2;
         }
@@ -58,8 +58,8 @@ public class hf {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, hg> m546a() {
-        return this.f469a;
+    public Map<String, hg> m548a() {
+        return this.f470a;
     }
 
     public void a(hg hgVar, String str) {
@@ -68,13 +68,13 @@ public class hf {
         } else if (TextUtils.isEmpty(str)) {
             com.xiaomi.channel.commonutils.logger.b.d("[TinyDataManager]: can not add a provider from unkown resource.");
         } else {
-            m546a().put(str, hgVar);
+            m548a().put(str, hgVar);
         }
     }
 
     public boolean a(hl hlVar, String str) {
         if (TextUtils.isEmpty(str)) {
-            com.xiaomi.channel.commonutils.logger.b.m178a("pkgName is null or empty, upload ClientUploadDataItem failed.");
+            com.xiaomi.channel.commonutils.logger.b.m180a("pkgName is null or empty, upload ClientUploadDataItem failed.");
             return false;
         } else if (com.xiaomi.push.service.bz.a(hlVar, false)) {
             return false;
@@ -83,12 +83,12 @@ public class hf {
                 hlVar.f(com.xiaomi.push.service.bz.a());
             }
             hlVar.g(str);
-            com.xiaomi.push.service.ca.a(this.f468a, hlVar);
+            com.xiaomi.push.service.ca.a(this.f469a, hlVar);
             return true;
         }
     }
 
     public boolean a(String str, String str2, long j, String str3) {
-        return a(this.f468a.getPackageName(), this.f468a.getPackageName(), str, str2, j, str3);
+        return a(this.f469a.getPackageName(), this.f469a.getPackageName(), str, str2, j, str3);
     }
 }

@@ -1,26 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Member;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 /* loaded from: classes6.dex */
 public class hf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final String c;
-    public static volatile hf4 d;
+    public static final boolean a;
+    public static boolean b;
+    public static Method c;
+    public static Method d;
+    public static Method e;
+    public static Method f;
+    public static Method g;
+    public static Method h;
+    public static Method i;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<ex1, gf4> a;
 
     static {
         InterceptResult invokeClinit;
@@ -35,225 +40,269 @@ public class hf4 {
                 return;
             }
         }
-        b = ir1.a;
-        c = hf4.class.getSimpleName();
-    }
-
-    public hf4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        ff4.a();
-        this.a = new HashMap();
-    }
-
-    public static hf4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (hf4.class) {
-                    if (d == null) {
-                        d = new hf4();
-                    }
-                }
-            }
-            return d;
-        }
-        return (hf4) invokeV.objValue;
-    }
-
-    public static void d(ex1 ex1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, ex1Var) == null) {
-            synchronized (hf4.class) {
-                if (d != null) {
-                    d.c(ex1Var).h();
-                }
+        boolean f2 = ff4.f();
+        a = f2;
+        if (f2) {
+            try {
+                Method declaredMethod = Class.class.getDeclaredMethod("forName", String.class);
+                c = declaredMethod;
+                declaredMethod.setAccessible(true);
+                Method declaredMethod2 = Class.class.getDeclaredMethod("getDeclaredMethod", String.class, Class[].class);
+                d = declaredMethod2;
+                declaredMethod2.setAccessible(true);
+                Method declaredMethod3 = Class.class.getDeclaredMethod("getMethod", String.class, Class[].class);
+                e = declaredMethod3;
+                declaredMethod3.setAccessible(true);
+                Method declaredMethod4 = Class.class.getDeclaredMethod("getDeclaredField", String.class);
+                f = declaredMethod4;
+                declaredMethod4.setAccessible(true);
+                Method declaredMethod5 = Class.class.getDeclaredMethod("getField", String.class);
+                g = declaredMethod5;
+                declaredMethod5.setAccessible(true);
+                Method declaredMethod6 = Class.class.getDeclaredMethod("newInstance", new Class[0]);
+                h = declaredMethod6;
+                declaredMethod6.setAccessible(true);
+                Method declaredMethod7 = Class.class.getDeclaredMethod("getDeclaredConstructor", Class[].class);
+                i = declaredMethod7;
+                declaredMethod7.setAccessible(true);
+                b = true;
+            } catch (Throwable unused) {
             }
         }
     }
 
-    public static void e(ex1 ex1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ex1Var) == null) {
-            synchronized (hf4.class) {
-                if (d != null) {
-                    d.f(ex1Var);
-                } else if (b) {
-                    Log.v(c, "未初始化，无需执行release");
-                }
-            }
-        }
-    }
-
-    public static void h(ex1 ex1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, ex1Var) == null) {
-            synchronized (hf4.class) {
-                if (d != null) {
-                    d.c(ex1Var).k();
-                }
-            }
-        }
-    }
-
-    public synchronized gf4 c(ex1 ex1Var) {
+    public static Class<?> a(String str) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ex1Var)) == null) {
-            synchronized (this) {
-                if (ex1Var == null) {
-                    return null;
-                }
-                gf4 gf4Var = this.a.get(ex1Var);
-                if (gf4Var == null) {
-                    gf4Var = new gf4();
-                    this.a.put(ex1Var, gf4Var);
-                }
-                return gf4Var;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return b(str, false);
         }
-        return (gf4) invokeL.objValue;
+        return (Class) invokeL.objValue;
     }
 
-    public final synchronized void f(ex1 ex1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ex1Var) == null) {
-            synchronized (this) {
-                if (ex1Var == null) {
-                    return;
-                }
-                gf4 remove = this.a.remove(ex1Var);
-                if (remove != null) {
-                    remove.i();
-                }
-            }
-        }
-    }
-
-    public boolean a(Context context, kx2 kx2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, kx2Var)) == null) {
-            y72.i("map", "map create start");
-            if (so3.m(kx2Var.c) != null && kx2Var.isValid()) {
-                gx1 A = lw2.T().A(kx2Var.c);
-                if (!(A instanceof ex1)) {
-                    y72.c("map", "WebViewManager is null");
-                    return false;
-                }
-                gf4 c2 = c((ex1) A);
-                if (c2.d(kx2Var.b) != null) {
-                    y72.c("map", "map with id " + kx2Var.b + " exist");
-                    return false;
-                }
-                ig4 K = ig4.K(context, kx2Var);
-                if (K == null) {
-                    y72.c("map", "map with id " + kx2Var.b + " model is invalid");
-                    return false;
-                }
-                p62 insert = K.insert();
-                if (!insert.a()) {
-                    y72.c("map", "map with id " + kx2Var.b + " create fail: " + insert.b);
-                    return false;
-                } else if (!c2.insert(K)) {
-                    return false;
-                } else {
-                    y72.i("map", "map with id " + kx2Var.b + " init start");
-                    bg4.a(context, K, kx2Var, c2);
-                    y72.i("map", "map with id " + kx2Var.b + " init end");
-                    y72.i("map", "map create end");
-                    return true;
-                }
-            }
-            y72.c("map", "model data is invalid");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean g(kx2 kx2Var) {
+    public static boolean l(Member member) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, kx2Var)) == null) {
-            y72.i("map", "map remove start");
-            if (so3.m(kx2Var.c) == null) {
-                y72.c("map", "webView is null or mapModel is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, member)) == null) {
+            if (member == null) {
                 return false;
             }
-            gx1 A = lw2.T().A(kx2Var.c);
-            if (!(A instanceof ex1)) {
-                y72.c("map", "WebViewManager is null");
-                return false;
-            }
-            gf4 c2 = c((ex1) A);
-            ig4 d2 = c2.d(kx2Var.b);
-            if (d2 == null) {
-                y72.c("map", "remove map with id " + kx2Var.b + " not exist");
-                return false;
-            } else if (!c2.j(kx2Var.b)) {
-                return false;
-            } else {
-                y72.i("map", "map remove end");
-                if (l72.a(kx2Var) == null) {
-                    r72.a("map", "remove with a null map component");
-                }
-                p62 B = d2.B();
-                boolean a = B.a();
-                if (!a) {
-                    String str = c;
-                    y72.c(str, "map remove fail: " + B.b);
-                }
-                return a;
-            }
+            return Modifier.isStatic(member.getModifiers());
         }
         return invokeL.booleanValue;
     }
 
-    public boolean update(Context context, kx2 kx2Var) {
+    public static <T> T m(Class<T> cls) throws InvocationTargetException, IllegalAccessException, InstantiationException, ClassCastException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, cls)) == null) {
+            if (cls == null) {
+                return null;
+            }
+            if (a && b) {
+                return (T) h.invoke(cls, new Object[0]);
+            }
+            return cls.newInstance();
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public static Class<?> b(String str, boolean z) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            if (z) {
+                ff4.d(ff4.b(str));
+            }
+            if (a && b) {
+                return (Class) c.invoke(null, str);
+            }
+            return Class.forName(str);
+        }
+        return (Class) invokeLZ.objValue;
+    }
+
+    public static <T> Constructor<T> c(Class<T> cls, Class<?>... clsArr) throws InvocationTargetException, IllegalAccessException, NoSuchMethodException, ClassCastException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, kx2Var)) == null) {
-            y72.i("map", "map update start");
-            if (so3.m(kx2Var.c) == null) {
-                y72.c("map", "webView is null or mapModel is null");
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, clsArr)) == null) {
+            if (cls == null) {
+                return null;
             }
-            gx1 A = lw2.T().A(kx2Var.c);
-            if (A != null && (A instanceof ex1)) {
-                gf4 c2 = c((ex1) A);
-                ig4 d2 = c2.d(kx2Var.b);
-                if (d2 == null) {
-                    y72.c("map", "remove map with id " + kx2Var.b + " not exist");
-                    return false;
-                }
-                d2.F();
-                bg4.b(context, d2, kx2Var, c2, true);
-                y72.i("map", "map update end");
-                if (l72.a(kx2Var) == null) {
-                    r72.a("map", "update with a null map component");
-                }
-                p62 update = d2.update((ig4) kx2Var);
-                boolean a = update.a();
-                if (!a) {
-                    String str = c;
-                    y72.c(str, "map update fail: " + update.b);
-                }
-                return a;
+            if (a && b) {
+                return (Constructor) i.invoke(cls, clsArr);
             }
-            y72.c("map", "WebViewManager is null");
-            return false;
+            return cls.getDeclaredConstructor(clsArr);
         }
-        return invokeLL.booleanValue;
+        return (Constructor) invokeLL.objValue;
+    }
+
+    public static Field d(Class<?> cls, String str) throws NoSuchFieldException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, str)) == null) {
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                if (a && b) {
+                    return (Field) f.invoke(cls, str);
+                }
+                return cls.getDeclaredField(str);
+            }
+            return null;
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Field f(Class<?> cls, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cls, str)) == null) {
+            Field field = null;
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                boolean z = false;
+                for (Class<?> cls2 = cls; cls2 != null && cls2 != Object.class; cls2 = cls2.getSuperclass()) {
+                    try {
+                        field = d(cls, str);
+                    } catch (Exception unused) {
+                    }
+                    if (field == null && !z) {
+                        z = true;
+                        try {
+                            field = g(cls, str);
+                        } catch (Exception unused2) {
+                        }
+                    }
+                    if (field != null) {
+                        return field;
+                    }
+                }
+            }
+            return field;
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Field g(Class<?> cls, String str) throws NoSuchFieldException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, cls, str)) == null) {
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                if (a && b) {
+                    return (Field) g.invoke(cls, str);
+                }
+                return cls.getField(str);
+            }
+            return null;
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Method e(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, cls, str, clsArr)) == null) {
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                if (a && b) {
+                    return (Method) d.invoke(cls, str, clsArr);
+                }
+                return cls.getDeclaredMethod(str, clsArr);
+            }
+            return null;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Method i(Class<?> cls, String str, Class<?>... clsArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, cls, str, clsArr)) == null) {
+            Method method = null;
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                boolean z = false;
+                for (Class<?> cls2 = cls; cls2 != null && cls2 != Object.class; cls2 = cls2.getSuperclass()) {
+                    try {
+                        method = e(cls, str, clsArr);
+                    } catch (Exception unused) {
+                    }
+                    if (method == null && !z) {
+                        z = true;
+                        try {
+                            method = j(cls, str, clsArr);
+                        } catch (Exception unused2) {
+                        }
+                    }
+                    if (method != null) {
+                        return method;
+                    }
+                }
+            }
+            return method;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Method j(Class<?> cls, String str, Class<?>... clsArr) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, cls, str, clsArr)) == null) {
+            if (cls != null && !TextUtils.isEmpty(str)) {
+                if (a && b) {
+                    return (Method) e.invoke(cls, str, clsArr);
+                }
+                return cls.getMethod(str, clsArr);
+            }
+            return null;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Object k(Class<?> cls, String str, Object... objArr) {
+        InterceptResult invokeLLL;
+        Class[] clsArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65547, null, cls, str, objArr)) == null) {
+            if (objArr != null) {
+                clsArr = new Class[objArr.length];
+                for (int i2 = 0; i2 < objArr.length; i2++) {
+                    clsArr[i2] = objArr[i2].getClass();
+                }
+            } else {
+                clsArr = null;
+            }
+            Method i3 = i(cls, str, clsArr);
+            if (i3 == null) {
+                return null;
+            }
+            try {
+                i3.setAccessible(true);
+                if (!l(i3)) {
+                    return null;
+                }
+                return i3.invoke(null, objArr);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return invokeLLL.objValue;
+    }
+
+    public static Object h(Object obj, String str) {
+        InterceptResult invokeLL;
+        Field f2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, obj, str)) == null) {
+            if (obj == null || TextUtils.isEmpty(str) || (f2 = f(obj.getClass(), str)) == null) {
+                return null;
+            }
+            try {
+                f2.setAccessible(true);
+                return f2.get(obj);
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return invokeLL.objValue;
     }
 }

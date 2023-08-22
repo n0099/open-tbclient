@@ -6,21 +6,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes8.dex */
-public final class ys6 extends zs6 {
+public final class ys6<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yu6 a;
-    public long b;
-    public long c;
+    public final AtomicReference<T> a;
+    public final CountDownLatch b;
 
-    public ys6(yu6 timer) {
+    public ys6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {timer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,33 +28,29 @@ public final class ys6 extends zs6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(timer, "timer");
-        this.a = timer;
+        this.a = new AtomicReference<>();
+        this.b = new CountDownLatch(1);
     }
 
-    public final long a() {
+    public final T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            long j = this.c;
-            long j2 = 0;
-            if (this.b > 0) {
-                j2 = this.a.a() - this.b;
+            try {
+                this.b.await();
+                return this.a.get();
+            } catch (InterruptedException unused) {
+                return null;
             }
-            return j + j2;
         }
-        return invokeV.longValue;
+        return (T) invokeV.objValue;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public final void b(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b > 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.a.set(t);
+            this.b.countDown();
         }
-        return invokeV.booleanValue;
     }
 }

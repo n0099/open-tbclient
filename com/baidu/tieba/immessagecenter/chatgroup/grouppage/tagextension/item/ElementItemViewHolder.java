@@ -8,10 +8,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gn8;
-import com.baidu.tieba.hn8;
+import com.baidu.tieba.fr8;
+import com.baidu.tieba.gr8;
 import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
-import com.baidu.tieba.km8;
+import com.baidu.tieba.jq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,21 +22,21 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public final TextView c;
     public final ImageView d;
-    public km8 e;
+    public jq8 e;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hn8 a;
+        public final /* synthetic */ gr8 a;
         public final /* synthetic */ ElementItemViewHolder b;
 
-        public a(ElementItemViewHolder elementItemViewHolder, hn8 hn8Var) {
+        public a(ElementItemViewHolder elementItemViewHolder, gr8 gr8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {elementItemViewHolder, hn8Var};
+                Object[] objArr = {elementItemViewHolder, gr8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,7 +47,7 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
                 }
             }
             this.b = elementItemViewHolder;
-            this.a = hn8Var;
+            this.a = gr8Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -61,13 +61,13 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ElementItemViewHolder(View view2, hn8 hn8Var) {
+    public ElementItemViewHolder(View view2, gr8 gr8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, hn8Var};
+            Object[] objArr = {view2, gr8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,9 +78,9 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
                 return;
             }
         }
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092385);
-        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092384);
-        view2.setOnClickListener(new a(this, hn8Var));
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923b3);
+        this.d = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923b2);
+        view2.setOnClickListener(new a(this, gr8Var));
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
@@ -93,17 +93,17 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder
-    public void g(gn8 gn8Var, Context context, int i) {
+    public void g(fr8 fr8Var, Context context, int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, gn8Var, context, i) == null) {
-            super.g(gn8Var, context, i);
-            if (gn8Var instanceof km8) {
-                km8 km8Var = (km8) gn8Var;
-                this.e = km8Var;
-                this.c.setText(km8Var.b());
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, fr8Var, context, i) == null) {
+            super.g(fr8Var, context, i);
+            if (fr8Var instanceof jq8) {
+                jq8 jq8Var = (jq8) fr8Var;
+                this.e = jq8Var;
+                this.c.setText(jq8Var.b());
                 ImageView imageView = this.d;
-                if (km8Var.j()) {
+                if (jq8Var.j()) {
                     i2 = 0;
                 } else {
                     i2 = 8;
@@ -119,18 +119,18 @@ public class ElementItemViewHolder extends BaseTagItemViewHolder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             EMManager.from(this.itemView).setCorner(R.string.deprecated_J_X19).setBackGroundSelectorColor(R.color.CAM_X0905);
-            km8 km8Var = this.e;
-            if (km8Var != null && km8Var.l()) {
+            jq8 jq8Var = this.e;
+            if (jq8Var != null && jq8Var.l()) {
                 z = true;
             } else {
                 z = false;
             }
-            km8 km8Var2 = this.e;
-            if (km8Var2 != null && km8Var2.j()) {
+            jq8 jq8Var2 = this.e;
+            if (jq8Var2 != null && jq8Var2.j()) {
                 if (z) {
-                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080bf1, R.color.CAM_X0304, null);
+                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080c00, R.color.CAM_X0304, null);
                 } else {
-                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080bf2, R.color.CAM_X0304, null);
+                    WebPManager.setPureDrawable(this.d, R.drawable.obfuscated_res_0x7f080c01, R.color.CAM_X0304, null);
                 }
             }
             EMManager.from(this.c).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0304).setTextStyle(R.string.F_X01);

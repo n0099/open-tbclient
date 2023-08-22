@@ -11,7 +11,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
 import kotlin.sequences.SequencesKt__SequencesKt;
 import kotlin.sequences.SequencesKt___SequencesKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FindClassInModuleKt {
     public static final ClassDescriptor findClassAcrossModuleDependencies(ModuleDescriptor moduleDescriptor, ClassId classId) {
         ClassifierDescriptor findClassifierAcrossModuleDependencies = findClassifierAcrossModuleDependencies(moduleDescriptor, classId);
@@ -38,26 +38,26 @@ public final class FindClassInModuleKt {
         MemberScope memberScope = packageViewDescriptor.getMemberScope();
         Object first = CollectionsKt___CollectionsKt.first((List<? extends Object>) pathSegments);
         Intrinsics.checkExpressionValueIsNotNull(first, "segments.first()");
-        ClassifierDescriptor mo2104getContributedClassifier = memberScope.mo2104getContributedClassifier((Name) first, NoLookupLocation.FROM_DESERIALIZATION);
-        if (mo2104getContributedClassifier == null) {
+        ClassifierDescriptor mo2106getContributedClassifier = memberScope.mo2106getContributedClassifier((Name) first, NoLookupLocation.FROM_DESERIALIZATION);
+        if (mo2106getContributedClassifier == null) {
             return null;
         }
         for (Name name : pathSegments.subList(1, pathSegments.size())) {
-            if (!(mo2104getContributedClassifier instanceof ClassDescriptor)) {
+            if (!(mo2106getContributedClassifier instanceof ClassDescriptor)) {
                 return null;
             }
-            MemberScope unsubstitutedInnerClassesScope = ((ClassDescriptor) mo2104getContributedClassifier).getUnsubstitutedInnerClassesScope();
+            MemberScope unsubstitutedInnerClassesScope = ((ClassDescriptor) mo2106getContributedClassifier).getUnsubstitutedInnerClassesScope();
             Intrinsics.checkExpressionValueIsNotNull(name, "name");
-            ClassifierDescriptor mo2104getContributedClassifier2 = unsubstitutedInnerClassesScope.mo2104getContributedClassifier(name, NoLookupLocation.FROM_DESERIALIZATION);
-            if (!(mo2104getContributedClassifier2 instanceof ClassDescriptor)) {
-                mo2104getContributedClassifier2 = null;
+            ClassifierDescriptor mo2106getContributedClassifier2 = unsubstitutedInnerClassesScope.mo2106getContributedClassifier(name, NoLookupLocation.FROM_DESERIALIZATION);
+            if (!(mo2106getContributedClassifier2 instanceof ClassDescriptor)) {
+                mo2106getContributedClassifier2 = null;
             }
-            mo2104getContributedClassifier = (ClassDescriptor) mo2104getContributedClassifier2;
-            if (mo2104getContributedClassifier == null) {
+            mo2106getContributedClassifier = (ClassDescriptor) mo2106getContributedClassifier2;
+            if (mo2106getContributedClassifier == null) {
                 return null;
             }
         }
-        return mo2104getContributedClassifier;
+        return mo2106getContributedClassifier;
     }
 
     public static final ClassDescriptor findNonGenericClassAcrossDependencies(ModuleDescriptor moduleDescriptor, ClassId classId, NotFoundClasses notFoundClasses) {

@@ -16,7 +16,7 @@ import com.huawei.hms.common.ApiException;
 import com.huawei.hms.push.constant.RemoteMessageConst;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class f implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

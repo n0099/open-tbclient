@@ -1,128 +1,151 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.cookie.CookieManager;
-import com.baidu.searchbox.network.outback.core.internal.Util;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.List;
-import okhttp3.Cookie;
-import okhttp3.CookieJar;
-import okhttp3.HttpUrl;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import kotlin.UShort;
 /* loaded from: classes5.dex */
-public class e60 implements CookieJar {
+public abstract class e60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieManager a;
 
-    public e60(CookieManager cookieManager) {
+    public static int a(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cookieManager};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) ? byteBuffer.getShort(i) & UShort.MAX_VALUE : invokeLI.intValue;
+    }
+
+    public static long b(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, byteBuffer)) == null) {
+            k(byteBuffer);
+            return i(byteBuffer, byteBuffer.position() + 16);
+        }
+        return invokeL.longValue;
+    }
+
+    public static Pair<ByteBuffer, Long> c(RandomAccessFile randomAccessFile) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, randomAccessFile)) == null) {
+            if (randomAccessFile.length() < 22) {
+                return null;
+            }
+            Pair<ByteBuffer, Long> d = d(randomAccessFile, 0);
+            return d != null ? d : d(randomAccessFile, 65535);
+        }
+        return (Pair) invokeL.objValue;
+    }
+
+    public static Pair<ByteBuffer, Long> d(RandomAccessFile randomAccessFile, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, randomAccessFile, i)) == null) {
+            if (i < 0 || i > 65535) {
+                throw new IllegalArgumentException("maxCommentSize: " + i);
+            }
+            long length = randomAccessFile.length();
+            if (length < 22) {
+                return null;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(((int) Math.min(i, length - 22)) + 22);
+            allocate.order(ByteOrder.LITTLE_ENDIAN);
+            long capacity = length - allocate.capacity();
+            randomAccessFile.seek(capacity);
+            randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
+            int j = j(allocate);
+            if (j == -1) {
+                return null;
+            }
+            allocate.position(j);
+            ByteBuffer slice = allocate.slice();
+            slice.order(ByteOrder.LITTLE_ENDIAN);
+            return Pair.create(slice, Long.valueOf(capacity + j));
+        }
+        return (Pair) invokeLI.objValue;
+    }
+
+    public static void e(ByteBuffer byteBuffer, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (j >= 0 && j <= 4294967295L) {
+                byteBuffer.putInt(byteBuffer.position() + i, (int) j);
                 return;
             }
+            throw new IllegalArgumentException("uint32 value of out range: " + j);
         }
-        this.a = cookieManager;
     }
 
-    @Override // okhttp3.CookieJar
-    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
+    public static void f(ByteBuffer byteBuffer, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65541, null, byteBuffer, j) == null) {
+            k(byteBuffer);
+            e(byteBuffer, byteBuffer.position() + 16, j);
+        }
+    }
+
+    public static final boolean g(RandomAccessFile randomAccessFile, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, randomAccessFile, j)) == null) {
+            long j2 = j - 20;
+            if (j2 < 0) {
+                return false;
+            }
+            randomAccessFile.seek(j2);
+            return randomAccessFile.readInt() == 1347094023;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static long h(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpUrl)) == null) {
-            ArrayList arrayList = new ArrayList();
-            CookieManager cookieManager = this.a;
-            if (cookieManager != null) {
-                String cookie = cookieManager.getCookie(httpUrl.toString());
-                if (!Util.isTextEmpty(cookie)) {
-                    arrayList.addAll(b(httpUrl, cookie));
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
+            k(byteBuffer);
+            return i(byteBuffer, byteBuffer.position() + 12);
         }
-        return (List) invokeL.objValue;
+        return invokeL.longValue;
     }
 
-    public final String a(String str) {
+    public static long i(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, byteBuffer, i)) == null) ? byteBuffer.getInt(i) & 4294967295L : invokeLI.longValue;
+    }
+
+    public static int j(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, byteBuffer)) == null) {
+            k(byteBuffer);
+            int capacity = byteBuffer.capacity();
+            if (capacity < 22) {
+                return -1;
             }
-            StringBuilder sb = new StringBuilder();
-            int length = str.length();
-            for (int i = 0; i < length; i++) {
-                char charAt = str.charAt(i);
-                if (charAt > 31 && charAt < 127) {
-                    sb.append(charAt);
-                } else {
-                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+            int i = capacity - 22;
+            int min = Math.min(i, 65535);
+            for (int i2 = 0; i2 < min; i2++) {
+                int i3 = i - i2;
+                if (byteBuffer.getInt(i3) == 101010256 && a(byteBuffer, i3 + 20) == i2) {
+                    return i3;
                 }
             }
-            return sb.toString();
+            return -1;
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public final List<Cookie> b(HttpUrl httpUrl, String str) {
-        InterceptResult invokeLL;
-        String str2;
+    public static void k(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, str)) == null) {
-            ArrayList arrayList = new ArrayList();
-            int length = str.length();
-            int i = 0;
-            while (i < length) {
-                int delimiterOffset = Util.delimiterOffset(str, i, length, (char) WebvttCueParser.CHAR_SEMI_COLON);
-                int delimiterOffset2 = Util.delimiterOffset(str, i, delimiterOffset, '=');
-                String trimSubstring = Util.trimSubstring(str, i, delimiterOffset2);
-                if (delimiterOffset2 < delimiterOffset) {
-                    str2 = Util.trimSubstring(str, delimiterOffset2 + 1, delimiterOffset);
-                } else {
-                    str2 = "";
-                }
-                if (str2.startsWith("\"") && str2.endsWith("\"")) {
-                    str2 = str2.substring(1, str2.length() - 1);
-                }
-                String a = a(trimSubstring);
-                String a2 = a(str2);
-                if (!Util.isTextEmpty(a) && this.a.shouldSendCookie(httpUrl.toString(), a)) {
-                    arrayList.add(new Cookie.Builder().name(a).value(a2).domain(httpUrl.host()).build());
-                }
-                i = delimiterOffset + 1;
-            }
-            return arrayList;
-        }
-        return (List) invokeLL.objValue;
-    }
-
-    @Override // okhttp3.CookieJar
-    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, httpUrl, list) == null) && this.a != null) {
-            ArrayList arrayList = new ArrayList();
-            String httpUrl2 = httpUrl.toString();
-            for (Cookie cookie : list) {
-                String cookie2 = cookie.toString();
-                if (!Util.isTextEmpty(cookie2) && this.a.shouldAcceptCookie(httpUrl2, cookie2)) {
-                    arrayList.add(cookie2);
-                }
-            }
-            this.a.storeCookie(httpUrl.toString(), arrayList);
+        if ((interceptable == null || interceptable.invokeL(65546, null, byteBuffer) == null) && byteBuffer.order() != ByteOrder.LITTLE_ENDIAN) {
+            throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
         }
     }
 }

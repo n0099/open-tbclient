@@ -2,6 +2,9 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import android.content.Intent;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,6 +19,8 @@ public class HotSelectActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static int FROM_PB = 1;
     public static int FROM_POST_THREAD = 2;
+    public static final String HOT_TOPIC_NAME_NO_SIGN = "topic_no_#";
+    public static final String HOT_TOPIC_REFER_STRING = "topic_refer";
     public static String HOT_TOPIC_SING = "#";
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,13 +62,27 @@ public class HotSelectActivityConfig extends IntentConfig {
         getIntent().putExtra("from", i2);
     }
 
+    public void addRefer(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
+            getIntent().putExtra(HOT_TOPIC_REFER_STRING, str);
+        }
+    }
+
     public void setForumExtra(long j, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, str2}) == null) {
             Intent intent = getIntent();
             intent.putExtra("forum_id", j);
             intent.putExtra(IntentConfig.FORUM_FIRST_DIR, str);
             intent.putExtra(IntentConfig.FORUM_SECOND_DIR, str2);
+        }
+    }
+
+    public void setNoSign() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            getIntent().putExtra(HOT_TOPIC_NAME_NO_SIGN, true);
         }
     }
 }

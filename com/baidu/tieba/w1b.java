@@ -1,45 +1,91 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.message.EvaluateRelevanceItemSelectedMessage;
+import com.baidu.tbadk.coreExtra.data.HeadItem;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
+import com.baidu.tieba.write.view.WriteEvaluationHeaderView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
-@Singleton
-@Service
+import com.google.gson.Gson;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class w1b extends p1b {
+public class w1b extends k2b<x2b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public WriteEvaluationHeaderView g;
+    public final CustomMessageListener h;
+
+    public final int D(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)})) == null) ? (int) ((d + 1.0d) / 2.0d) : invokeCommon.intValue;
+    }
 
     /* loaded from: classes8.dex */
-    public class a extends t2b {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Response a;
+        public final /* synthetic */ w1b a;
 
-        public a(w1b w1bVar, Response response) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(w1b w1bVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w1bVar, response};
+                Object[] objArr = {w1bVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w1bVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof EvaluateRelevanceItemSelectedMessage)) {
+                return;
+            }
+            this.a.E((EvaluateRelevanceItemSelectedMessage) customResponsedMessage);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements WriteEvaluationHeaderView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w1b a;
+
+        public b(w1b w1bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w1bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,246 +95,184 @@ public class w1b extends p1b {
                     return;
                 }
             }
-            this.a = response;
+            this.a = w1bVar;
         }
 
-        @Override // com.baidu.tieba.t2b
-        public void a() {
+        @Override // com.baidu.tieba.write.view.WriteEvaluationHeaderView.c
+        public void onClose() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.body().close();
-            }
-        }
-
-        @Override // com.baidu.tieba.t2b
-        public String b() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.body().string();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.t2b
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.code();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.t2b
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.message();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.t2b
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.isSuccessful();
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends RequestBody {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ InputStream b;
-
-        public b(w1b w1bVar, Map map, InputStream inputStream) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w1bVar, map, inputStream};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = inputStream;
-        }
-
-        @Override // okhttp3.RequestBody
-        public long contentLength() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.containsKey("Content-Length")) {
-                    try {
-                        return Long.valueOf((String) this.a.get("Content-Length")).longValue();
-                    } catch (Exception unused) {
-                    }
-                }
-                return super.contentLength();
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public MediaType contentType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return MediaType.parse("application/octet-stream");
-            }
-            return (MediaType) invokeV.objValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public void writeTo(BufferedSink bufferedSink) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                Source source = null;
-                try {
-                    source = Okio.source(this.b);
-                    bufferedSink.writeAll(source);
-                } finally {
-                    if (source != null) {
-                        source.close();
-                    }
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.j();
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class c extends t2b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Response a;
-
-        public c(w1b w1bVar, Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w1bVar, response};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = response;
-        }
-
-        @Override // com.baidu.tieba.t2b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.body().close();
-            }
-        }
-
-        @Override // com.baidu.tieba.t2b
-        public String b() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.body().string();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.t2b
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.code();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.t2b
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.message();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.t2b
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.isSuccessful();
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    public w1b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w1b(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, x2b.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.h = new a(this, 2921516);
+    }
+
+    @Override // com.baidu.tieba.p2b
+    public void d(@NonNull WriteData writeData) {
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, writeData) != null) || (writeEvaluationHeaderView = this.g) == null) {
+            return;
+        }
+        writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
+        writeData.setEvaluationStar(this.g.getStarCount());
+    }
+
+    @Override // com.baidu.tieba.k2b, com.baidu.tieba.p2b
+    public void j(@NonNull r2b r2bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, r2bVar) == null) {
+            super.j(r2bVar);
+            this.a.registerListener(this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.p2b
+    public void onChangeSkinType(int i) {
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (writeEvaluationHeaderView = this.g) != null) {
+            writeEvaluationHeaderView.f();
+        }
+    }
+
+    public final String C() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
+            if (writeEvaluationHeaderView != null) {
+                i = writeEvaluationHeaderView.getStarCount();
+            } else {
+                i = 0;
+            }
+            arrayList.add(new HeadItem("", String.valueOf(i), 2));
+            return new Gson().toJson(arrayList);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void E(EvaluateRelevanceItemSelectedMessage evaluateRelevanceItemSelectedMessage) {
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, evaluateRelevanceItemSelectedMessage) != null) || (writeEvaluationHeaderView = this.g) == null) {
+            return;
+        }
+        writeEvaluationHeaderView.setVisibility(0);
+        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
+        tbRichTextEvaluateItemInfo.setItemID(evaluateRelevanceItemSelectedMessage.item_id);
+        tbRichTextEvaluateItemInfo.setTags(evaluateRelevanceItemSelectedMessage.tags);
+        tbRichTextEvaluateItemInfo.setScore(evaluateRelevanceItemSelectedMessage.score);
+        tbRichTextEvaluateItemInfo.setStar(evaluateRelevanceItemSelectedMessage.star);
+        tbRichTextEvaluateItemInfo.setIconUrl(evaluateRelevanceItemSelectedMessage.icon_url);
+        tbRichTextEvaluateItemInfo.setIconSize(evaluateRelevanceItemSelectedMessage.icon_size);
+        tbRichTextEvaluateItemInfo.setTitle(evaluateRelevanceItemSelectedMessage.item_name);
+        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
+    }
+
+    @Override // com.baidu.tieba.p2b
+    public void a(WriteData writeData) {
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) && (writeEvaluationHeaderView = this.g) != null) {
+            writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
+            if (this.g.getEvaluateItemInfo() != null) {
+                writeData.setItem_id(this.g.getEvaluateItemInfo().getItemID());
+                writeData.setComment_head(C());
             }
         }
     }
 
-    @Override // com.baidu.tieba.p1b
-    public t2b j(String str, InputStream inputStream, Map<String, String> map) throws IOException {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.p2b
+    public void c(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, inputStream, map)) == null) {
-            PostBodyRequest.PostBodyRequestBuilder postRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postRequest();
-            postRequest.requestFrom(3);
-            postRequest.url(str);
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                postRequest.addHeader(entry.getKey(), entry.getValue());
+        if ((interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) && this.g != null && writeData.getItemInfo() != null) {
+            WriteData writeData2 = this.e;
+            if (writeData2 != null) {
+                writeData2.setItemInfo(writeData.getItemInfo());
+                this.e.setEvaluationStar(writeData.getEvaluationStar());
             }
-            postRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
-            postRequest.requestBody(new b(this, map, inputStream));
-            return new c(this, postRequest.build().executeSync());
+            this.g.setItemInfo(writeData.getItemInfo());
+            this.g.setStarCount(writeData.getEvaluationStar());
         }
-        return (t2b) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.p1b
-    public t2b k(String str, byte[] bArr, Map<String, String> map) throws IOException {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.p2b
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, map)) == null) {
-            PostByteRequest.PostByteRequestBuilder postByteRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postByteRequest();
-            postByteRequest.requestFrom(3);
-            postByteRequest.url(str);
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                postByteRequest.addHeader(entry.getKey(), entry.getValue());
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d051e, viewGroup, false);
+            this.c = inflate;
+            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) inflate.findViewById(R.id.obfuscated_res_0x7f092a7f);
+            this.g = writeEvaluationHeaderView;
+            if (writeEvaluationHeaderView != null) {
+                writeEvaluationHeaderView.setItemCloseListener(new b(this));
+                WriteData writeData = this.e;
+                if (writeData != null) {
+                    if (writeData.isFromItemDetail()) {
+                        this.g.setShowItemInfo(false);
+                    }
+                    if (this.e.getIntentItemInfo() != null) {
+                        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
+                        tbRichTextEvaluateItemInfo.setItemID(String.valueOf(this.e.getIntentItemInfo().id));
+                        tbRichTextEvaluateItemInfo.setTags(this.e.getIntentItemInfo().tags);
+                        tbRichTextEvaluateItemInfo.setScore(this.e.getIntentItemInfo().averageScore);
+                        tbRichTextEvaluateItemInfo.setStar(D(this.e.getIntentItemInfo().averageScore));
+                        tbRichTextEvaluateItemInfo.setIconUrl(this.e.getIntentItemInfo().icon_url);
+                        tbRichTextEvaluateItemInfo.setIconSize(this.e.getIntentItemInfo().icon_size);
+                        tbRichTextEvaluateItemInfo.setTitle(this.e.getIntentItemInfo().name);
+                        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
+                        this.g.setStarCount(this.e.getIntentStarCount());
+                        this.e.setItemInfo(tbRichTextEvaluateItemInfo);
+                        WriteData writeData2 = this.e;
+                        writeData2.setEvaluationStar(writeData2.getIntentStarCount());
+                    } else if (this.e.getItemInfo() != null) {
+                        this.g.setItemInfo(this.e.getItemInfo());
+                        this.g.setStarCount(this.e.getEvaluationStar());
+                    }
+                }
             }
-            postByteRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
-            return new a(this, postByteRequest.content(bArr).build().executeSync());
+            return this.c;
         }
-        return (t2b) invokeLLL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.k2b, com.baidu.tieba.p2b
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
+            if (writeEvaluationHeaderView != null && writeEvaluationHeaderView.e()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,89 +1,116 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.j97;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Paint;
+import android.graphics.Point;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.os.Build;
+import android.util.TypedValue;
+import android.view.Display;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class j0a implements j97.b {
+public class j0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z97 a;
-    public final BdUniqueId b;
 
-    public j0a(z97 statStrategy, BdUniqueId pageId) {
+    public static Bitmap a(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
+        float height;
+        float width;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {statStrategy, pageId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, bitmap, i)) == null) {
+            if (bitmap == null) {
+                return null;
             }
+            Matrix matrix = new Matrix();
+            matrix.setRotate(i, bitmap.getWidth() / 2.0f, bitmap.getHeight() / 2.0f);
+            if (i == 90) {
+                height = bitmap.getHeight();
+                width = 0.0f;
+            } else {
+                height = bitmap.getHeight();
+                width = bitmap.getWidth();
+            }
+            float[] fArr = new float[9];
+            matrix.getValues(fArr);
+            matrix.postTranslate(height - fArr[2], width - fArr[5]);
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getHeight(), bitmap.getWidth(), Bitmap.Config.ARGB_8888);
+            new Canvas(createBitmap).drawBitmap(bitmap, matrix, new Paint());
+            return createBitmap;
         }
-        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
-        Intrinsics.checkNotNullParameter(pageId, "pageId");
-        this.a = statStrategy;
-        this.b = pageId;
+        return (Bitmap) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.j97.b
-    public void a(v97<?> data, int i) {
-        Map<String, String> hashMap;
-        Map<String, String> a;
+    public static int b(Context context, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, data, i) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            f97 f97Var = (f97) data;
-            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
-            int i2 = i + 1;
-            statisticItem.param(TiebaStatic.Params.OBJ_FLOOR, i2);
-            m57 m57Var = new m57();
-            m57 m57Var2 = f97Var.b;
-            if (m57Var2 != null) {
-                m57Var = m57Var2;
-            }
-            if (f97Var.b != null) {
-                for (Map.Entry<String, String> entry : this.a.a(m57Var).entrySet()) {
-                    statisticItem.param(entry.getKey(), entry.getValue());
-                }
-            }
-            t67 t67Var = f97Var.a;
-            if (t67Var != null && (a = t67Var.a()) != null) {
-                for (Map.Entry<String, String> entry2 : a.entrySet()) {
-                    statisticItem.param(entry2.getKey(), entry2.getValue());
-                }
-            }
-            u9a.g().c(this.b, statisticItem);
-            t67 t67Var2 = f97Var.a;
-            if (t67Var2 == null || (hashMap = t67Var2.a()) == null) {
-                hashMap = new HashMap<>();
-            }
-            m57Var.a().put("position_from_1", String.valueOf(i2));
-            if (Intrinsics.areEqual(m57Var.a().get("is_video_card"), "1")) {
-                h1a h1aVar = new h1a();
-                ba7.a.a(new d77(h1aVar.getKey(), h1aVar.a(m57Var), hashMap, null, null, 24, null));
-            } else if (Intrinsics.areEqual(m57Var.a().get("is_live_card"), "1")) {
-                q0a q0aVar = new q0a();
-                ba7.a.a(new d77(q0aVar.getKey(), q0aVar.a(m57Var), hashMap, null, null, 24, null));
-            } else {
-                z0a z0aVar = new z0a();
-                ba7.a.a(new d77(z0aVar.getKey(), z0aVar.a(m57Var), hashMap, null, null, 24, null));
-            }
-            c1a c1aVar = new c1a();
-            ba7.a.a(new d77(c1aVar.getKey(), c1aVar.a(m57Var), hashMap, c1aVar.b(), c1aVar.d()));
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, context, f)) == null) {
+            return (int) TypedValue.applyDimension(1, f, context.getResources().getDisplayMetrics());
         }
+        return invokeLF.intValue;
+    }
+
+    public static int f(Context context, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(65541, null, context, f)) == null) {
+            return (int) TypedValue.applyDimension(2, f, context.getResources().getDisplayMetrics());
+        }
+        return invokeLF.intValue;
+    }
+
+    public static final int c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            Point d = d(context);
+            if (d.x > d.y) {
+                return 1;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static Point d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            Display defaultDisplay = ((WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW)).getDefaultDisplay();
+            Point point = new Point();
+            if (Build.VERSION.SDK_INT >= 13) {
+                defaultDisplay.getSize(point);
+            } else {
+                point.set(defaultDisplay.getWidth(), defaultDisplay.getHeight());
+            }
+            return point;
+        }
+        return (Point) invokeL.objValue;
+    }
+
+    public static Bitmap e(Bitmap bitmap, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, bitmap, i)) == null) {
+            if (bitmap == null) {
+                return null;
+            }
+            Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
+            Canvas canvas = new Canvas(createBitmap);
+            Paint paint = new Paint();
+            paint.setColorFilter(new PorterDuffColorFilter(i, PorterDuff.Mode.SRC_IN));
+            canvas.drawBitmap(bitmap, 0.0f, 0.0f, paint);
+            return createBitmap;
+        }
+        return (Bitmap) invokeLI.objValue;
     }
 }

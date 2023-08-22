@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.el8;
+import com.baidu.tieba.dp8;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.ug8;
+import com.baidu.tieba.tk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -37,7 +37,7 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     public TextView i;
     public ImageView j;
     public RobotSkillRecentlyItem k;
-    public final el8 l;
+    public final dp8 l;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -74,13 +74,13 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public RobotSkillRecentlyItemViewHolder(@NonNull View view2, el8 el8Var) {
+    public RobotSkillRecentlyItemViewHolder(@NonNull View view2, dp8 dp8Var) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, el8Var};
+            Object[] objArr = {view2, dp8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -91,16 +91,16 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.l = el8Var;
-        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090442);
-        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090437);
+        this.l = dp8Var;
+        this.e = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090444);
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090439);
         this.f = headImageView;
         headImageView.setIsRound(true);
         this.f.setIsBigV(false);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09221e);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09043b);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09221d);
-        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f66);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092245);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09043d);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092244);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091f8b);
         this.e.setOnClickListener(new a(this));
     }
 
@@ -121,17 +121,17 @@ public class RobotSkillRecentlyItemViewHolder extends BaseItemViewHolder {
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void e(@NonNull ug8 ug8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void e(@NonNull tk8 tk8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ug8Var, tbPageContext, i) == null) && (ug8Var instanceof RobotSkillRecentlyItem)) {
-            this.k = (RobotSkillRecentlyItem) ug8Var;
-            this.h.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0973) + this.k.getSkillName());
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tk8Var, tbPageContext, i) == null) && (tk8Var instanceof RobotSkillRecentlyItem)) {
+            this.k = (RobotSkillRecentlyItem) tk8Var;
+            this.h.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f097b) + this.k.getSkillName());
             this.i.setText(this.k.getSkillDesc());
             this.g.setText(this.k.getBotName());
             if (!TextUtils.isEmpty(this.k.getAvatar())) {
                 this.f.startLoad(this.k.getAvatar(), 12, false);
             } else {
-                this.f.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f081194), 24, false);
+                this.f.startLoad(String.valueOf((int) R.drawable.obfuscated_res_0x7f0811a8), 24, false);
             }
             if (this.i.getLayoutParams() instanceof LinearLayout.LayoutParams) {
                 if (this.k.isFuncJump()) {

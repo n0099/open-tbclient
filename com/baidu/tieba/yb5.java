@@ -1,64 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.schemedispatch.forbid.SchemeForbidCheckUtils;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class yb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static List<String> a() {
+    public yb5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String string = SharedPrefHelper.getInstance().getString(SchemeForbidCheckUtils.SCHEME_WHITE_LIST_FILENAME, null);
-            if (StringUtils.isNull(string)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == 1) {
+                return true;
             }
-            try {
-                return b(new JSONArray(string));
-            } catch (Exception unused) {
-                return null;
-            }
+            return false;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static List<String> b(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            int length = jSONArray.length();
-            for (int i = 0; i < length; i++) {
-                String optString = jSONArray.optString(i);
-                if (!StringUtils.isNull(optString)) {
-                    arrayList.add(optString);
-                }
-            }
-            return arrayList;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (List) invokeL.objValue;
-    }
-
-    public static void c(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, jSONArray) == null) {
-            if (jSONArray == null) {
-                SharedPrefHelper.getInstance().putString(SchemeForbidCheckUtils.SCHEME_WHITE_LIST_FILENAME, "");
-            } else {
-                SharedPrefHelper.getInstance().putString(SchemeForbidCheckUtils.SCHEME_WHITE_LIST_FILENAME, jSONArray.toString());
-            }
-        }
+        this.a = jSONObject.optInt("agree_icon", 0);
     }
 }

@@ -6,8 +6,8 @@ import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tieba.dob;
-import com.baidu.tieba.fob;
+import com.baidu.tieba.sub;
+import com.baidu.tieba.uub;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import com.huawei.hms.utils.IOUtils;
 import com.xiaomi.mipush.sdk.Constants;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AGCUtils {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -111,9 +111,9 @@ public class AGCUtils {
             }
             String str = null;
             try {
-                dob b = dob.b();
+                sub b = sub.b();
                 if (b.getContext() != context) {
-                    b = dob.a(new fob().a(context));
+                    b = sub.a(new uub().a(context));
                 }
                 str = b.c().a("client/cp_id");
             } catch (NullPointerException unused) {
@@ -144,10 +144,10 @@ public class AGCUtils {
             InputStream inputStream = null;
             try {
                 try {
-                    fob fobVar = new fob();
+                    uub uubVar = new uub();
                     inputStream = context.getResources().getAssets().open("agconnect-services.json");
-                    fobVar.b(inputStream);
-                    str2 = fobVar.a(context).a(str);
+                    uubVar.b(inputStream);
+                    str2 = uubVar.a(context).a(str);
                 } catch (IOException e) {
                     HMSLog.e("AGCUtils", "Get " + str + " failed: " + e);
                     str2 = "";
@@ -198,9 +198,9 @@ public class AGCUtils {
                 str = null;
             }
             try {
-                dob b = dob.b();
+                sub b = sub.b();
                 if (b.getContext() != context) {
-                    b = dob.a(new fob().a(context));
+                    b = sub.a(new uub().a(context));
                 }
                 str = b.c().a("client/app_id");
             } catch (NullPointerException unused) {

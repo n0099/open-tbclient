@@ -11,10 +11,10 @@ public class gq {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f450a;
+    public String f451a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<gj> f451a;
+    public List<gj> f452a;
     public String b;
     public String c;
     public String d;
@@ -47,61 +47,61 @@ public class gq {
         public static final a x = new a("request-timeout");
 
         /* renamed from: a  reason: collision with other field name */
-        public String f452a;
+        public String f453a;
 
         public a(String str) {
-            this.f452a = str;
+            this.f453a = str;
         }
 
         public String toString() {
-            return this.f452a;
+            return this.f453a;
         }
     }
 
     public gq(int i, String str, String str2, String str3, String str4, List<gj> list) {
-        this.f451a = null;
+        this.f452a = null;
         this.a = i;
-        this.f450a = str;
+        this.f451a = str;
         this.c = str2;
         this.b = str3;
         this.d = str4;
-        this.f451a = list;
+        this.f452a = list;
     }
 
     public gq(Bundle bundle) {
-        this.f451a = null;
+        this.f452a = null;
         this.a = bundle.getInt("ext_err_code");
         if (bundle.containsKey("ext_err_type")) {
-            this.f450a = bundle.getString("ext_err_type");
+            this.f451a = bundle.getString("ext_err_type");
         }
         this.b = bundle.getString("ext_err_cond");
         this.c = bundle.getString("ext_err_reason");
         this.d = bundle.getString("ext_err_msg");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
-            this.f451a = new ArrayList(parcelableArray.length);
+            this.f452a = new ArrayList(parcelableArray.length);
             for (Parcelable parcelable : parcelableArray) {
                 gj a2 = gj.a((Bundle) parcelable);
                 if (a2 != null) {
-                    this.f451a.add(a2);
+                    this.f452a.add(a2);
                 }
             }
         }
     }
 
     public gq(a aVar) {
-        this.f451a = null;
+        this.f452a = null;
         a(aVar);
         this.d = null;
     }
 
     private void a(a aVar) {
-        this.b = aVar.f452a;
+        this.b = aVar.f453a;
     }
 
     public Bundle a() {
         Bundle bundle = new Bundle();
-        String str = this.f450a;
+        String str = this.f451a;
         if (str != null) {
             bundle.putString("ext_err_type", str);
         }
@@ -118,11 +118,11 @@ public class gq {
         if (str4 != null) {
             bundle.putString("ext_err_msg", str4);
         }
-        List<gj> list = this.f451a;
+        List<gj> list = this.f452a;
         if (list != null) {
             Bundle[] bundleArr = new Bundle[list.size()];
             int i = 0;
-            for (gj gjVar : this.f451a) {
+            for (gj gjVar : this.f452a) {
                 Bundle a2 = gjVar.a();
                 if (a2 != null) {
                     bundleArr[i] = a2;
@@ -135,14 +135,14 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m531a() {
+    public String m533a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<error code=\"");
         sb.append(this.a);
         sb.append("\"");
-        if (this.f450a != null) {
+        if (this.f451a != null) {
             sb.append(" type=\"");
-            sb.append(this.f450a);
+            sb.append(this.f451a);
             sb.append("\"");
         }
         if (this.c != null) {
@@ -161,7 +161,7 @@ public class gq {
             sb.append(this.d);
             sb.append("</text>");
         }
-        for (gj gjVar : m532a()) {
+        for (gj gjVar : m534a()) {
             sb.append(gjVar.d());
         }
         sb.append("</error>");
@@ -169,11 +169,11 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<gj> m532a() {
-        if (this.f451a == null) {
+    public synchronized List<gj> m534a() {
+        if (this.f452a == null) {
             return Collections.emptyList();
         }
-        return Collections.unmodifiableList(this.f451a);
+        return Collections.unmodifiableList(this.f452a);
     }
 
     public String toString() {

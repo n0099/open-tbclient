@@ -1,48 +1,49 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Handler;
-import android.os.Message;
-import android.os.SystemClock;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.tieba.kp0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes7.dex */
-public class np0 {
+public class np0 extends cj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public final long b;
-    public final long c;
-    public long d;
-    public volatile boolean e;
-    public volatile boolean f;
-    public long g;
-    public long h;
-    @SuppressLint({"HandlerLeak"})
-    public final Handler i;
 
-    public void l() {
+    @Override // com.baidu.tieba.cj0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "reward" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public class a extends Handler {
+    public class a implements kp0.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ np0 a;
+        public final /* synthetic */ ac1 a;
 
-        public a(np0 np0Var) {
+        public a(np0 np0Var, ac1 ac1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {np0Var};
+                Object[] objArr = {np0Var, ac1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,154 +53,116 @@ public class np0 {
                     return;
                 }
             }
-            this.a = np0Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            long j;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                synchronized (this.a) {
-                    if (!this.a.e && !this.a.f) {
-                        long elapsedRealtime = this.a.d - SystemClock.elapsedRealtime();
-                        this.a.a = elapsedRealtime;
-                        if (elapsedRealtime <= this.a.g) {
-                            this.a.l();
-                            this.a.f = true;
-                        } else {
-                            long elapsedRealtime2 = SystemClock.elapsedRealtime();
-                            this.a.m(elapsedRealtime);
-                            long elapsedRealtime3 = SystemClock.elapsedRealtime() - elapsedRealtime2;
-                            long j2 = 0;
-                            if (elapsedRealtime < this.a.c) {
-                                j = elapsedRealtime - elapsedRealtime3;
-                                if (j < 0) {
-                                    sendMessageDelayed(obtainMessage(1), j2);
-                                }
-                            } else {
-                                j = this.a.c - elapsedRealtime3;
-                                while (j < 0) {
-                                    j += this.a.c;
-                                }
-                            }
-                            j2 = j;
-                            sendMessageDelayed(obtainMessage(1), j2);
-                        }
-                    }
-                }
-            }
+            this.a = ac1Var;
         }
     }
 
-    public np0(long j, long j2) {
+    public np0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.f = false;
-        this.i = new a(this);
-        this.c = j2;
-        this.a = j;
-        this.b = j;
-        this.h = j;
-    }
-
-    public void m(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.h = j;
-        }
-    }
-
-    public final synchronized void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                this.e = true;
-                this.i.removeCallbacksAndMessages(null);
             }
         }
     }
 
-    public final synchronized long j() {
-        InterceptResult invokeV;
-        long j;
+    @Override // com.baidu.tieba.cj0
+    public boolean b(@NonNull Context context, @NonNull gj0 gj0Var, @Nullable Map<String, Object> map, @Nullable kj0 kj0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                j = this.b - this.h;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, gj0Var, map, kj0Var)) == null) {
+            super.b(context, gj0Var, map, kj0Var);
+            String str = gj0Var.d().get("task_params");
+            if (TextUtils.isEmpty(str)) {
+                c(kj0Var, gj0Var, 202, false);
+                return true;
             }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public final synchronized long k() {
-        InterceptResult invokeV;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                j = this.a - this.g;
-            }
-            return j;
-        }
-        return invokeV.longValue;
-    }
-
-    public final synchronized np0 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (this.f) {
-                    return this;
+            HashMap<String, String> e = e(str);
+            if (e != null && !e.isEmpty()) {
+                if (TextUtils.isEmpty(e.get("android_pid")) && tn0.b().a().a("reward_sdk_switch", 0) != 1) {
+                    c(kj0Var, gj0Var, 202, false);
+                    return true;
                 }
-                this.e = false;
-                if (this.a <= 0) {
-                    l();
-                    this.f = true;
-                    return this;
+                String str2 = e.get("android_pid");
+                e.remove("android_pid");
+                e.remove("ios_pid");
+                ac1 ac1Var = new ac1(context);
+                ac1Var.e(context.getString(R.string.nad_reward_video_lp_task_loading));
+                ac1Var.c(false);
+                ac1Var.d(false);
+                e61.b(ac1Var);
+                pp0 pp0Var = new pp0(e);
+                kp0 kp0Var = (kp0) ServiceManager.getService(kp0.a);
+                if (kp0Var != null && tn0.b().a().a("reward_sdk_switch", 0) == 1) {
+                    kp0Var.a(f(str), new a(this, ac1Var));
+                    return true;
                 }
-                this.d = SystemClock.elapsedRealtime() + this.a;
-                this.i.sendMessage(this.i.obtainMessage(1));
-                return this;
+                pp0Var.e(ac1Var, str2);
+                c(kj0Var, gj0Var, 0, true);
+                return true;
             }
+            c(kj0Var, gj0Var, 202, false);
+            return true;
         }
-        return (np0) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public final synchronized np0 n() {
-        InterceptResult invokeV;
+    @Nullable
+    public final HashMap<String, String> e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            synchronized (this) {
-                if (this.f) {
-                    return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                HashMap<String, String> hashMap = new HashMap<>();
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    hashMap.put(next, jSONObject.optString(next));
                 }
-                this.e = false;
-                if (this.a <= this.g) {
-                    l();
-                    this.f = true;
-                    return this;
-                }
-                this.d = SystemClock.elapsedRealtime() + this.a;
-                this.i.sendMessage(this.i.obtainMessage(1));
-                return this;
+                return hashMap;
+            } catch (JSONException unused) {
+                return null;
             }
         }
-        return (np0) invokeV.objValue;
+        return (HashMap) invokeL.objValue;
+    }
+
+    @Nullable
+    public final JSONObject f(@Nullable String str) {
+        InterceptResult invokeL;
+        zr0 a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString("ext_policy");
+                if (TextUtils.isEmpty(optString)) {
+                    a2 = zr0.e();
+                } else {
+                    a2 = zr0.a(new JSONObject(optString));
+                }
+                if (a2 != null) {
+                    a2.c = "1";
+                    jSONObject.putOpt("ext_policy", zr0.f(a2).toString());
+                    jSONObject.putOpt(AdExtParam.KEY_NAD_CORE_VERSION, "5.12.0.98");
+                }
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

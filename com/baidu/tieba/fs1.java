@@ -1,11 +1,79 @@
 package com.baidu.tieba;
 
-import java.net.MalformedURLException;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.ad.downloader.model.DownloadParams;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface fs1 {
-    String a();
+public class fs1 extends k73 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ez3 c;
+    public DownloadParams.SwanAppDownloadType d;
 
-    boolean b();
+    @Override // com.baidu.tieba.i73
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
 
-    String c(String str) throws MalformedURLException;
+    @Override // com.baidu.tieba.i73
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public fs1(ez3 ez3Var, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ez3Var, swanAppDownloadType};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = ez3Var;
+        this.d = swanAppDownloadType;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.k73, com.baidu.tieba.i73
+    public void onEvent(@NonNull g73 g73Var) {
+        Bundle a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, g73Var) == null) && (a = g73Var.a()) != null && this.c != null) {
+            int i = a.getInt("state", DownloadState.NOT_START.value());
+            int i2 = a.getInt("progress", 0);
+            this.c.c(DownloadState.convert(i), i2);
+            this.c.a(i2);
+            String string = a.getString("packageName", "");
+            if (!TextUtils.isEmpty(string)) {
+                this.c.d(string);
+            }
+            if (this.d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
+                this.c.f(true);
+            }
+        }
+    }
 }

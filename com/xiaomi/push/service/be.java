@@ -45,7 +45,7 @@ public class be {
         if (TextUtils.isEmpty(l) || TextUtils.isEmpty(k) || (a = bg.a().a(k, l)) == null) {
             return;
         }
-        ha.a(this.a, a.f935a, ha.a(gmVar.mo527a()), true, true, System.currentTimeMillis());
+        ha.a(this.a, a.f936a, ha.a(gmVar.mo529a()), true, true, System.currentTimeMillis());
     }
 
     private void c(fk fkVar) {
@@ -55,7 +55,7 @@ public class be {
         if (TextUtils.isEmpty(g) || TextUtils.isEmpty(num) || (a = bg.a().a(num, g)) == null) {
             return;
         }
-        ha.a(this.a, a.f935a, fkVar.c(), true, true, System.currentTimeMillis());
+        ha.a(this.a, a.f936a, fkVar.c(), true, true, System.currentTimeMillis());
     }
 
     public void a(fk fkVar) {
@@ -65,7 +65,7 @@ public class be {
         try {
             b(fkVar);
         } catch (Exception e) {
-            com.xiaomi.channel.commonutils.logger.b.a("handle Blob chid = " + fkVar.a() + " cmd = " + fkVar.m480a() + " packetid = " + fkVar.e() + " failure ", e);
+            com.xiaomi.channel.commonutils.logger.b.a("handle Blob chid = " + fkVar.a() + " cmd = " + fkVar.m482a() + " packetid = " + fkVar.e() + " failure ", e);
         }
     }
 
@@ -79,7 +79,7 @@ public class be {
             gmVar.l("1");
         }
         if (k.equals("0")) {
-            com.xiaomi.channel.commonutils.logger.b.m178a("Received wrong packet with chid = 0 : " + gmVar.mo527a());
+            com.xiaomi.channel.commonutils.logger.b.m180a("Received wrong packet with chid = 0 : " + gmVar.mo529a());
         }
         if (gmVar instanceof gk) {
             gj a = gmVar.a("kick");
@@ -87,10 +87,10 @@ public class be {
                 String l = gmVar.l();
                 String a2 = a.a("type");
                 String a3 = a.a("reason");
-                com.xiaomi.channel.commonutils.logger.b.m178a("kicked by server, chid=" + k + " res=" + bg.b.a(l) + " type=" + a2 + " reason=" + a3);
+                com.xiaomi.channel.commonutils.logger.b.m180a("kicked by server, chid=" + k + " res=" + bg.b.a(l) + " type=" + a2 + " reason=" + a3);
                 if (!"wait".equals(a2)) {
                     this.a.a(k, l, 3, a3, a2);
-                    bg.a().m795a(k, l);
+                    bg.a().m797a(k, l);
                     return;
                 }
                 bg.b a4 = bg.a().a(k, l);
@@ -112,151 +112,151 @@ public class be {
                 return;
             }
         }
-        this.a.m748b().a(this.a, k, gmVar);
+        this.a.m750b().a(this.a, k, gmVar);
     }
 
     public void b(fk fkVar) {
         StringBuilder sb;
-        String m427a;
+        String m429a;
         String str;
         bg.c cVar;
         int i;
         int i2;
-        String m480a = fkVar.m480a();
+        String m482a = fkVar.m482a();
         if (fkVar.a() != 0) {
             String num = Integer.toString(fkVar.a());
-            if (!"SECMSG".equals(fkVar.m480a())) {
-                if (!"BIND".equals(m480a)) {
-                    if ("KICK".equals(m480a)) {
-                        dw.g a = dw.g.a(fkVar.m484a());
+            if (!"SECMSG".equals(fkVar.m482a())) {
+                if (!"BIND".equals(m482a)) {
+                    if ("KICK".equals(m482a)) {
+                        dw.g a = dw.g.a(fkVar.m486a());
                         String g = fkVar.g();
-                        String m422a = a.m422a();
-                        String m424b = a.m424b();
-                        com.xiaomi.channel.commonutils.logger.b.m178a("kicked by server, chid=" + num + " res= " + bg.b.a(g) + " type=" + m422a + " reason=" + m424b);
-                        if (!"wait".equals(m422a)) {
-                            this.a.a(num, g, 3, m424b, m422a);
-                            bg.a().m795a(num, g);
+                        String m424a = a.m424a();
+                        String m426b = a.m426b();
+                        com.xiaomi.channel.commonutils.logger.b.m180a("kicked by server, chid=" + num + " res= " + bg.b.a(g) + " type=" + m424a + " reason=" + m426b);
+                        if (!"wait".equals(m424a)) {
+                            this.a.a(num, g, 3, m426b, m424a);
+                            bg.a().m797a(num, g);
                             return;
                         }
                         bg.b a2 = bg.a().a(num, g);
                         if (a2 != null) {
                             this.a.a(a2);
-                            a2.a(bg.c.unbind, 3, 0, m424b, m422a);
+                            a2.a(bg.c.unbind, 3, 0, m426b, m424a);
                             return;
                         }
                         return;
                     }
                     return;
                 }
-                dw.d a3 = dw.d.a(fkVar.m484a());
+                dw.d a3 = dw.d.a(fkVar.m486a());
                 String g2 = fkVar.g();
                 bg.b a4 = bg.a().a(num, g2);
                 if (a4 == null) {
                     return;
                 }
-                if (a3.m401a()) {
-                    com.xiaomi.channel.commonutils.logger.b.m178a("SMACK: channel bind succeeded, chid=" + fkVar.a());
+                if (a3.m403a()) {
+                    com.xiaomi.channel.commonutils.logger.b.m180a("SMACK: channel bind succeeded, chid=" + fkVar.a());
                     a4.a(bg.c.binded, 1, 0, (String) null, (String) null);
                     return;
                 }
-                String m400a = a3.m400a();
-                if ("auth".equals(m400a)) {
-                    if ("invalid-sig".equals(a3.m402b())) {
-                        com.xiaomi.channel.commonutils.logger.b.m178a("SMACK: bind error invalid-sig token = " + a4.c + " sec = " + a4.h);
+                String m402a = a3.m402a();
+                if ("auth".equals(m402a)) {
+                    if ("invalid-sig".equals(a3.m404b())) {
+                        com.xiaomi.channel.commonutils.logger.b.m180a("SMACK: bind error invalid-sig token = " + a4.c + " sec = " + a4.h);
                         fi.a(0, ey.BIND_INVALID_SIG.a(), 1, null, 0);
                     }
                     cVar = bg.c.unbind;
                     i = 1;
                     i2 = 5;
-                } else if (!"cancel".equals(m400a)) {
-                    if ("wait".equals(m400a)) {
+                } else if (!"cancel".equals(m402a)) {
+                    if ("wait".equals(m402a)) {
                         this.a.a(a4);
-                        a4.a(bg.c.unbind, 1, 7, a3.m402b(), m400a);
+                        a4.a(bg.c.unbind, 1, 7, a3.m404b(), m402a);
                     }
-                    str = "SMACK: channel bind failed, chid=" + num + " reason=" + a3.m402b();
-                    com.xiaomi.channel.commonutils.logger.b.m178a(str);
+                    str = "SMACK: channel bind failed, chid=" + num + " reason=" + a3.m404b();
+                    com.xiaomi.channel.commonutils.logger.b.m180a(str);
                 } else {
                     cVar = bg.c.unbind;
                     i = 1;
                     i2 = 7;
                 }
-                a4.a(cVar, i, i2, a3.m402b(), m400a);
-                bg.a().m795a(num, g2);
-                str = "SMACK: channel bind failed, chid=" + num + " reason=" + a3.m402b();
-                com.xiaomi.channel.commonutils.logger.b.m178a(str);
-            } else if (!fkVar.m483a()) {
-                this.a.m748b().a(this.a, num, fkVar);
+                a4.a(cVar, i, i2, a3.m404b(), m402a);
+                bg.a().m797a(num, g2);
+                str = "SMACK: channel bind failed, chid=" + num + " reason=" + a3.m404b();
+                com.xiaomi.channel.commonutils.logger.b.m180a(str);
+            } else if (!fkVar.m485a()) {
+                this.a.m750b().a(this.a, num, fkVar);
                 return;
             } else {
                 sb = new StringBuilder();
                 sb.append("Recv SECMSG errCode = ");
                 sb.append(fkVar.b());
                 sb.append(" errStr = ");
-                m427a = fkVar.m487c();
+                m429a = fkVar.m489c();
             }
-        } else if ("PING".equals(m480a)) {
-            byte[] m484a = fkVar.m484a();
-            if (m484a != null && m484a.length > 0) {
-                dw.j a5 = dw.j.a(m484a);
-                if (a5.m435b()) {
-                    bv.a().a(a5.m433a());
+        } else if ("PING".equals(m482a)) {
+            byte[] m486a = fkVar.m486a();
+            if (m486a != null && m486a.length > 0) {
+                dw.j a5 = dw.j.a(m486a);
+                if (a5.m437b()) {
+                    bv.a().a(a5.m435a());
                 }
             }
             if (!"com.xiaomi.xmsf".equals(this.a.getPackageName())) {
-                this.a.m745a();
+                this.a.m747a();
             }
             if ("1".equals(fkVar.e())) {
-                com.xiaomi.channel.commonutils.logger.b.m178a("received a server ping");
+                com.xiaomi.channel.commonutils.logger.b.m180a("received a server ping");
             } else {
                 fi.b();
             }
-            this.a.m749b();
+            this.a.m751b();
             return;
-        } else if ("SYNC".equals(m480a)) {
-            if ("CONF".equals(fkVar.m486b())) {
-                bv.a().a(dw.b.a(fkVar.m484a()));
+        } else if ("SYNC".equals(m482a)) {
+            if ("CONF".equals(fkVar.m488b())) {
+                bv.a().a(dw.b.a(fkVar.m486a()));
                 return;
-            } else if (TextUtils.equals("U", fkVar.m486b())) {
-                dw.k a6 = dw.k.a(fkVar.m484a());
-                de.a(this.a).a(a6.m437a(), a6.m440b(), new Date(a6.m436a()), new Date(a6.m439b()), a6.c() * 1024, a6.e());
+            } else if (TextUtils.equals("U", fkVar.m488b())) {
+                dw.k a6 = dw.k.a(fkVar.m486a());
+                de.a(this.a).a(a6.m439a(), a6.m442b(), new Date(a6.m438a()), new Date(a6.m441b()), a6.c() * 1024, a6.e());
                 fk fkVar2 = new fk();
                 fkVar2.a(0);
-                fkVar2.a(fkVar.m480a(), "UCA");
+                fkVar2.a(fkVar.m482a(), "UCA");
                 fkVar2.a(fkVar.e());
                 XMPushService xMPushService = this.a;
                 xMPushService.a(new bt(xMPushService, fkVar2));
                 return;
-            } else if (!TextUtils.equals("P", fkVar.m486b())) {
+            } else if (!TextUtils.equals("P", fkVar.m488b())) {
                 return;
             } else {
-                dw.i a7 = dw.i.a(fkVar.m484a());
+                dw.i a7 = dw.i.a(fkVar.m486a());
                 fk fkVar3 = new fk();
                 fkVar3.a(0);
-                fkVar3.a(fkVar.m480a(), "PCA");
+                fkVar3.a(fkVar.m482a(), "PCA");
                 fkVar3.a(fkVar.e());
                 dw.i iVar = new dw.i();
-                if (a7.m431a()) {
-                    iVar.a(a7.m430a());
+                if (a7.m433a()) {
+                    iVar.a(a7.m432a());
                 }
-                fkVar3.a(iVar.m444a(), (String) null);
+                fkVar3.a(iVar.m446a(), (String) null);
                 XMPushService xMPushService2 = this.a;
                 xMPushService2.a(new bt(xMPushService2, fkVar3));
                 sb = new StringBuilder();
                 sb.append("ACK msgP: id = ");
-                m427a = fkVar.e();
+                m429a = fkVar.e();
             }
-        } else if (!"NOTIFY".equals(fkVar.m480a())) {
+        } else if (!"NOTIFY".equals(fkVar.m482a())) {
             return;
         } else {
-            dw.h a8 = dw.h.a(fkVar.m484a());
+            dw.h a8 = dw.h.a(fkVar.m486a());
             sb = new StringBuilder();
             sb.append("notify by server err = ");
             sb.append(a8.c());
             sb.append(" desc = ");
-            m427a = a8.m427a();
+            m429a = a8.m429a();
         }
-        sb.append(m427a);
+        sb.append(m429a);
         str = sb.toString();
-        com.xiaomi.channel.commonutils.logger.b.m178a(str);
+        com.xiaomi.channel.commonutils.logger.b.m180a(str);
     }
 }

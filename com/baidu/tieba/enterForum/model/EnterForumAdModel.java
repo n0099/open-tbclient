@@ -9,10 +9,10 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.ay6;
+import com.baidu.tieba.cea;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.s9a;
-import com.baidu.tieba.u9a;
+import com.baidu.tieba.oz6;
+import com.baidu.tieba.zda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ay6 a;
+    public oz6 a;
     public boolean b;
     public HttpMessageListener c;
 
@@ -111,13 +111,13 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.c);
     }
 
-    public ay6 S() {
+    public oz6 S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ay6) invokeV.objValue;
+        return (oz6) invokeV.objValue;
     }
 
     public void T() {
@@ -128,10 +128,10 @@ public class EnterForumAdModel extends BdBaseModel {
     }
 
     public void U(Context context) {
-        ay6 ay6Var;
+        oz6 oz6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (ay6Var = this.a) != null && ay6Var.a()) {
-            u9a.g().c(l9.a(context).getUniqueId(), s9a.f("a025", "common_fill", true, 1, 5));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (oz6Var = this.a) != null && oz6Var.a()) {
+            cea.g().c(l9.a(context).getUniqueId(), zda.f("a025", "common_fill", true, 1, 5));
             this.b = true;
         }
     }

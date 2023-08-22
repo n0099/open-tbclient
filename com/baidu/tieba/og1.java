@@ -1,112 +1,46 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class og1 {
+public class og1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = bi1.a();
-            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
-            PackageManager packageManager = a.getPackageManager();
-            try {
-                Context a2 = bi1.a();
-                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
-                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).packageName;
-                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.packageName");
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Context a = bi1.a();
-            Intrinsics.checkExpressionValueIsNotNull(a, "SdkRunTime.getAppContext()");
-            PackageManager packageManager = a.getPackageManager();
-            try {
-                Context a2 = bi1.a();
-                Intrinsics.checkExpressionValueIsNotNull(a2, "SdkRunTime.getAppContext()");
-                String str = packageManager.getPackageInfo(a2.getPackageName(), 0).versionName;
-                Intrinsics.checkExpressionValueIsNotNull(str, "packageInfo.versionName");
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final void c(hg1 hg1Var, String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, hg1Var, str) == null) && hg1Var != null) {
-            boolean z2 = false;
-            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                String a = hg1Var.a("Cookie");
-                String str2 = "BDUSS=" + str;
-                if ((a == null || StringsKt__StringsJVMKt.isBlank(a)) ? true : true) {
-                    hg1Var.d("Cookie", str2);
-                    return;
-                }
-                hg1Var.d("Cookie", a + "; " + str2);
-            }
-        }
-    }
-
-    public static final void d(hg1 hg1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, hg1Var) == null) && hg1Var != null) {
-            hg1Var.d("channel", "cashiersdk");
-            hg1Var.d("deviceType", "ANDROID");
-            hg1Var.d("osVersion", Build.VERSION.RELEASE);
-            hg1Var.d(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
-            hg1Var.d("appVersion", b());
-            hg1Var.d("sdkPgName", a());
-            hg1Var.d("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-        }
-    }
-
-    public static final gg1 e(JSONObject jSONObject) {
+    public static NetworkInfo a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            gg1 gg1Var = new gg1();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    gg1Var.d(next, jSONObject.optString(next));
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
-            return gg1Var;
+            try {
+                ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService("connectivity");
+                if (connectivityManager == null) {
+                    return null;
+                }
+                return connectivityManager.getActiveNetworkInfo();
+            } catch (SecurityException unused) {
+                return null;
+            }
         }
-        return (gg1) invokeL.objValue;
+        return (NetworkInfo) invokeL.objValue;
+    }
+
+    public static boolean b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            NetworkInfo a = a(context);
+            if (a != null && a.isConnectedOrConnecting()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,146 +1,214 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.searchbox.settings.base.UpdatePackageDownloadInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import dalvik.system.BaseDexClassLoader;
-import dalvik.system.PathClassLoader;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Enumeration;
+import com.tencent.open.SocialOperation;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes8.dex */
-public class ve1 extends BaseDexClassLoader {
+public class ve1 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClassLoader a;
-    public ClassLoader b;
-    public Context c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ve1(String str, String str2, String str3, Context context) {
-        super(str, new File(str2), str3, ClassLoader.getSystemClassLoader());
+    public ve1(Context context) {
+        super(context, "nps.db", (SQLiteDatabase.CursorFactory) null, 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, context};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (File) objArr2[1], (String) objArr2[2], (ClassLoader) objArr2[3]);
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = context;
-        this.a = context.getClass().getClassLoader();
-        this.b = ClassLoader.getSystemClassLoader();
     }
 
-    public final Class<?> a(String str) throws ClassNotFoundException {
-        Class<?> cls;
-        InterceptResult invokeL;
+    public final void d(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                cls = this.b.loadClass(str);
-            } catch (ClassNotFoundException unused) {
-                cls = null;
-            }
-            if (cls != null) {
-                return cls;
-            }
-            try {
-                cls = super.findClass(str);
-            } catch (ClassNotFoundException unused2) {
-            }
-            if (cls != null) {
-                return cls;
-            }
-            throw new ClassNotFoundException("Didn't find class: " + str + " in own classloader.");
+        if (interceptable == null || interceptable.invokeL(1048579, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append(UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL);
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append(UpdatePackageDownloadInfo.JSON_KEY_PATCH_MD5);
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
         }
-        return (Class) invokeL.objValue;
     }
 
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public String findLibrary(String str) {
-        InterceptResult invokeL;
+    public final void a(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            String findLibrary = super.findLibrary(str);
-            if (findLibrary != null) {
-                return findLibrary;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD network_strategy Text ");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return ((PathClassLoader) this.a).findLibrary(str);
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public URL findResource(String str) {
-        InterceptResult invokeL;
+    public final void b(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            URL findResource = super.findResource(str);
-            if (findResource != null) {
-                return findResource;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("ALTER TABLE bundleinfo ADD silence INTEGER DEFAULT 1");
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return this.a.getResource(str);
         }
-        return (URL) invokeL.objValue;
     }
 
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Enumeration<URL> findResources(String str) {
-        InterceptResult invokeL;
+    public final void c(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            Enumeration<URL> findResources = super.findResources(str);
-            if (findResources != null) {
-                return findResources;
-            }
-            try {
-                return this.a.getResources(str);
-            } catch (IOException unused) {
-                return findResources;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("sub_bundle");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("dependency");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("main_bundle");
+            sb.append(" TEXT;");
+            sQLiteDatabase.execSQL(sb.toString());
         }
-        return (Enumeration) invokeL.objValue;
     }
 
-    @Override // java.lang.ClassLoader
-    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
-        InterceptResult invokeLZ;
+    public final void e(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
-            Class<?> findLoadedClass = findLoadedClass(str);
-            if (findLoadedClass != null) {
-                return findLoadedClass;
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("silence_update");
+            sb.append(" INTEGER DEFAULT ");
+            sb.append(1);
+            sb.append(ParamableElem.DIVIDE_PARAM);
             try {
-                findLoadedClass = a(str);
-            } catch (ClassNotFoundException unused) {
+                sQLiteDatabase.execSQL(sb.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            if (findLoadedClass != null) {
-                return findLoadedClass;
-            }
+            sb.delete(0, sb.length());
+            sb.append("ALTER TABLE ");
+            sb.append("bundleinfo");
+            sb.append(" ADD COLUMN ");
+            sb.append("wifionly");
+            sb.append(" INTEGER DEFAULT ");
+            sb.append(1);
+            sb.append(ParamableElem.DIVIDE_PARAM);
             try {
-                findLoadedClass = this.a.loadClass(str);
-            } catch (ClassNotFoundException unused2) {
+                sQLiteDatabase.execSQL(sb.toString());
+            } catch (Exception e2) {
+                e2.printStackTrace();
             }
-            if (findLoadedClass != null) {
-                return findLoadedClass;
-            }
-            throw new ClassNotFoundException("Didn't find class \"" + str + "\"");
         }
-        return (Class) invokeLZ.objValue;
+    }
+
+    public final void f(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
+            sQLiteDatabase.execSQL(g());
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
+            f(sQLiteDatabase);
+        }
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "CREATE TABLE bundleinfo (_id INTEGER PRIMARY KEY,pkg_name TEXT NOT NULL,version_code INTEGER,path TEXT,min_version INTEGER,update_v LONG,type INTEGER DEFAULT 0,broken INTEGER DEFAULT 0,force_update INTEGER DEFAULT 0,forbidden INTEGER DEFAULT 0," + PackageTable.MD5 + " TEXT," + SocialOperation.GAME_SIGNATURE + " TEXT,name TEXT,description TEXT,download_url TEXT,icon_url TEXT,dependence TEXT," + MapBundleKey.MapObjKey.OBJ_SL_VISI + " INTEGER DEFAULT 0,removalbe INTEGER DEFAULT 0,size TEXT,need_remove INTEGER DEFAULT 0,abi INTEGER DEFAULT -1,ext TEXT,silence INTEGER DEFAULT 1,silence_update INTEGER DEFAULT 1,wifionly INTEGER DEFAULT 1," + UpdatePackageDownloadInfo.JSON_KEY_PATCH_URL + " TEXT," + UpdatePackageDownloadInfo.JSON_KEY_PATCH_MD5 + " TEXT, network_strategy TEXT, sub_bundle TEXT, dependency TEXT, main_bundle TEXT  );";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, i, i2) == null) {
+            sQLiteDatabase.execSQL("DROP TABLE IF EXISTS bundleinfo");
+            onCreate(sQLiteDatabase);
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i == 5) {
+                                c(sQLiteDatabase);
+                                return;
+                            }
+                            return;
+                        }
+                        a(sQLiteDatabase);
+                        c(sQLiteDatabase);
+                        return;
+                    }
+                    d(sQLiteDatabase);
+                    a(sQLiteDatabase);
+                    c(sQLiteDatabase);
+                    return;
+                }
+                e(sQLiteDatabase);
+                d(sQLiteDatabase);
+                a(sQLiteDatabase);
+                c(sQLiteDatabase);
+                return;
+            }
+            b(sQLiteDatabase);
+            e(sQLiteDatabase);
+            d(sQLiteDatabase);
+            a(sQLiteDatabase);
+            c(sQLiteDatabase);
+        }
     }
 }

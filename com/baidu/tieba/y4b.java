@@ -1,200 +1,768 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Environment;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.r4b;
+import android.content.Intent;
+import android.graphics.Typeface;
+import android.graphics.drawable.GradientDrawable;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteVoteActivityConfig;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.coreExtra.data.WriteVoteData;
+import com.baidu.tbadk.coreExtra.data.WriteVoteItemData;
+import com.baidu.tieba.frs.ForumWriteData;
+import com.baidu.tieba.write.write.vote.WriteVoteActivity;
+import com.baidu.tieba.write.write.vote.WriteVoteViewAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubs.analytics.b;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class y4b extends d5b {
+public class y4b implements dt5, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Intent A;
+    public TbPageContext<WriteVoteActivity> a;
+    public LinearLayout b;
+    public NavigationBar c;
+    public BdRecyclerView d;
+    public WriteVoteViewAdapter e;
+    public LinearLayout f;
+    public LinearLayout g;
+    public TextView h;
+    public EditText i;
+    public List<WriteVoteItemData> j;
+    public WriteVoteData k;
+    public ForumWriteData l;
+    public String m;
+    public TextView n;
+    public TextView o;
+    public TextView p;
+    public TextView q;
+    public TextView r;
+    public TextView s;
+    public TextView t;
+    public TextView u;
+    public TextView v;
+    public int w;
+    public int x;
+    public boolean y;
+    public boolean z;
 
-    public y4b() {
+    @Override // com.baidu.tieba.dt5
+    public boolean Z0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements WriteVoteViewAdapter.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y4b a;
+
+        /* loaded from: classes8.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public a(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.e.setData(this.a.a.j);
+                }
+            }
+        }
+
+        /* loaded from: classes8.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ c a;
+
+            public b(c cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = cVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.e.setData(this.a.a.j);
+                }
+            }
+        }
+
+        public c(y4b y4bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y4bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y4bVar;
+        }
+
+        @Override // com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.f
+        public void a(int i) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.j.remove(i);
+                this.a.d.post(new b(this));
+                y4b y4bVar = this.a;
+                y4bVar.z = y4bVar.y();
+                y4b y4bVar2 = this.a;
+                if (y4bVar2.y && this.a.z) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                y4bVar2.K(z);
+            }
+        }
+
+        @Override // com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.f
+        public void b() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.j.add(new WriteVoteItemData());
+                this.a.d.post(new a(this));
+                y4b y4bVar = this.a;
+                y4bVar.z = y4bVar.y();
+                y4b y4bVar2 = this.a;
+                if (y4bVar2.y && this.a.z) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                y4bVar2.K(z);
+            }
+        }
+
+        @Override // com.baidu.tieba.write.write.vote.WriteVoteViewAdapter.f
+        public void c(WriteVoteItemData writeVoteItemData, int i) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, writeVoteItemData, i) == null) {
+                this.a.j.set(i, writeVoteItemData);
+                y4b y4bVar = this.a;
+                y4bVar.z = y4bVar.y();
+                y4b y4bVar2 = this.a;
+                if (y4bVar2.y && this.a.z) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                y4bVar2.K(z);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y4b a;
+
+        public a(y4b y4bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y4bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y4bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                BdUtilHelper.showSoftKeyPad(this.a.a.getPageActivity(), this.a.i);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements TextWatcher {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y4b a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        public b(y4b y4bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y4bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y4bVar;
+        }
+
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, editable) != null) || editable == null) {
+                return;
+            }
+            String obj = editable.toString();
+            if (!StringUtils.isNull(obj)) {
+                String replace = obj.replace(" ", "");
+                if (ix5.e(replace) > 40) {
+                    this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f18ec), 20));
+                }
+                String m = ix5.m(replace, 40);
+                if (!m.equals(editable.toString())) {
+                    this.a.i.setText(m);
+                    this.a.i.setSelection(m.length());
+                }
+                this.a.i.setTypeface(Typeface.defaultFromStyle(1));
+                this.a.y = true;
+                y4b y4bVar = this.a;
+                y4bVar.K(y4bVar.z);
+                return;
+            }
+            this.a.i.setTypeface(Typeface.defaultFromStyle(0));
+            this.a.y = false;
+            this.a.K(false);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d extends RecyclerView.OnScrollListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y4b a;
+
+        public d(y4b y4bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y4bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y4bVar;
+        }
+
+        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
+        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
+                super.onScrollStateChanged(recyclerView, i);
+                if (i == 1 || i == 2) {
+                    BdUtilHelper.hideSoftKeyPad(this.a.a.getPageActivity(), recyclerView);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y4b a;
+
+        public e(y4b y4bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y4bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y4bVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                List<WriteVoteItemData> x = this.a.x();
+                HashMap hashMap = new HashMap();
+                int size = x.size();
+                for (int i = 0; i < size; i++) {
+                    WriteVoteItemData writeVoteItemData = x.get(i);
+                    if (!hashMap.containsKey(writeVoteItemData.getText())) {
+                        hashMap.put(writeVoteItemData.getText(), Integer.valueOf(i));
+                    } else {
+                        this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f18ea), Integer.valueOf(((Integer) hashMap.get(writeVoteItemData.getText())).intValue() + 1), Integer.valueOf(i + 1)));
+                        return;
+                    }
+                }
+                this.a.k = new WriteVoteData();
+                this.a.k.setTitle(this.a.i.getText().toString());
+                this.a.k.setExpire_type(this.a.x);
+                this.a.k.setIs_multi(this.a.w);
+                this.a.k.setOptions(x);
+                this.a.A = new Intent();
+                this.a.A.putExtra(IntentConfig.WRITE_VOTE_DATA, this.a.k);
+                this.a.a.getPageActivity().finish();
+                y4b y4bVar = this.a;
+                y4bVar.G(y4bVar.m);
+            }
+        }
+    }
+
+    public y4b(TbPageContext tbPageContext, LinearLayout linearLayout, NavigationBar navigationBar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, linearLayout, navigationBar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void b(h4b h4bVar, l4b l4bVar, j4b j4bVar, b4b b4bVar, List<com.baidu.ubs.analytics.a.l> list, List<com.baidu.ubs.analytics.a.i> list2, List<com.baidu.ubs.analytics.a.a> list3) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{h4bVar, l4bVar, j4bVar, b4bVar, list, list2, list3}) == null) {
-            int i3 = 0;
-            if (list2.size() != 0) {
-                i = list2.get(list2.size() - 1).getId();
-            } else {
-                i = 0;
-            }
-            h4bVar.b(i);
-            l4bVar.a(a5b.e().I());
-            if (list.size() != 0) {
-                i2 = list.get(list.size() - 1).getId();
-            } else {
-                i2 = 0;
-            }
-            j4bVar.b(i2);
-            if (list3.size() != 0) {
-                i3 = list3.get(list3.size() - 1).getId();
-            }
-            b4bVar.b(i3);
-        }
-    }
-
-    @Override // com.baidu.tieba.d5b
-    public final void a() {
-        r4b r4bVar;
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            r4bVar = r4b.a.a;
-            if (r4bVar.a().size() == 0) {
-                b5b.b(" 线程轮询  app 应该是退出了");
-            }
-            if (a == null && Environment.getExternalStorageState().equals("mounted")) {
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(Environment.getExternalStorageDirectory().getPath());
-                stringBuffer.append("/baidu/ab/");
-                stringBuffer.append(w4b.l(a4b.h().getContext()));
-                stringBuffer.append("/");
-                a = stringBuffer.toString();
-            }
-            h4b h4bVar = new h4b();
-            l4b l4bVar = new l4b();
-            j4b j4bVar = new j4b();
-            b4b b4bVar = new b4b();
-            List<com.baidu.ubs.analytics.a.i> a2 = h4bVar.a();
-            List<com.baidu.ubs.analytics.a.n> d = l4bVar.d();
-            List<com.baidu.ubs.analytics.a.l> a3 = j4bVar.a();
-            List<com.baidu.ubs.analytics.a.a> a4 = b4bVar.a();
-            b5b.b("这次查询结果       session ：    " + d.size() + "      点击事件   " + a4.size() + "    网络请求：  " + a2.size() + "    页面记录     " + a3.size());
-            if (a2.size() == 0 && a3.size() == 0 && a4.size() == 0) {
-                b5b.b("这次记录 json 为空的，就不传了  ………………");
-                if (d.size() > 1) {
-                    for (int i = 0; i < d.size(); i++) {
-                        if (d.get(i).O() == null) {
-                            l4bVar.c(d.get(i).I());
-                        }
-                    }
-                    return;
-                }
                 return;
             }
-            JSONArray jSONArray = new JSONArray();
-            String j = a4b.h().j();
-            if (a4b.h().k() != null) {
-                for (Map.Entry<String, com.baidu.ubs.analytics.a.g> entry : a4b.h().k().entrySet()) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("exp_id", entry.getKey());
-                        jSONObject.put("sid", entry.getValue().L());
-                        jSONArray.put(jSONObject);
-                    } catch (JSONException e) {
-                        j5b.d(e);
-                    }
-                }
+        }
+        this.w = 0;
+        this.x = -1;
+        this.y = false;
+        this.z = false;
+        this.a = tbPageContext;
+        this.b = linearLayout;
+        this.c = navigationBar;
+        Intent intent = tbPageContext.getPageActivity().getIntent();
+        if (intent != null) {
+            Serializable serializableExtra = intent.getSerializableExtra(WriteVoteActivityConfig.EXTRA_DATA_KEY);
+            if (serializableExtra instanceof WriteVoteData) {
+                this.k = (WriteVoteData) serializableExtra;
+            } else if (serializableExtra instanceof ForumWriteData) {
+                this.l = (ForumWriteData) serializableExtra;
             }
-            com.baidu.ubs.analytics.b bVar = new com.baidu.ubs.analytics.b();
-            b.a aVar = new b.a();
-            aVar.r(w4b.l(a4b.h().getContext()));
-            aVar.b(j);
-            aVar.q(jSONArray.toString());
-            aVar.g(Build.VERSION.RELEASE);
-            aVar.d(w4b.g(a4b.h().getContext()));
-            aVar.f(Build.MODEL);
-            aVar.e(Build.BRAND);
-            aVar.f(Build.MODEL);
-            aVar.h(w4b.h(a4b.h().getContext()));
-            aVar.i(com.baidu.ubs.analytics.d.a.c());
-            if (t4b.d()) {
-                str = "1";
+            this.m = intent.getStringExtra("title");
+        }
+        WriteVoteData writeVoteData = this.k;
+        if (writeVoteData != null && !ListUtils.isEmpty(writeVoteData.getOptions()) && this.k.getOptions().size() >= 2) {
+            this.j = this.k.getOptions();
+        } else {
+            ArrayList arrayList = new ArrayList();
+            this.j = arrayList;
+            arrayList.add(new WriteVoteItemData());
+            this.j.add(new WriteVoteItemData());
+        }
+        z();
+    }
+
+    public final void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0a0b, (ViewGroup) null);
+            this.g = linearLayout;
+            this.n = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092a9d);
+            this.o = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092a01);
+            this.p = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092a00);
+            this.q = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f092a9c);
+            this.r = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0929fd);
+            this.s = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0929fa);
+            this.t = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0929fc);
+            this.u = (TextView) this.g.findViewById(R.id.obfuscated_res_0x7f0929fb);
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            BdRecyclerView bdRecyclerView = new BdRecyclerView(this.a.getPageActivity());
+            this.d = bdRecyclerView;
+            bdRecyclerView.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
+            layoutParams.topMargin = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds27);
+            this.b.addView(this.d, layoutParams);
+            WriteVoteViewAdapter writeVoteViewAdapter = new WriteVoteViewAdapter(this.a);
+            this.e = writeVoteViewAdapter;
+            this.d.setAdapter(writeVoteViewAdapter);
+            E();
+            B();
+            A();
+            D();
+            this.d.addHeaderView(this.f);
+            this.d.addFooterView(this.g);
+            this.e.setData(this.j);
+            F();
+            this.i.requestFocus();
+            this.i.postDelayed(new a(this), 150L);
+        }
+    }
+
+    public final void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0a0c, (ViewGroup) null);
+            this.f = linearLayout;
+            this.h = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0929ee);
+            this.i = (EditText) this.f.findViewById(R.id.vote_title);
+        }
+    }
+
+    public final void F() {
+        WriteVoteData writeVoteData;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (writeVoteData = this.k) == null) {
+            return;
+        }
+        this.i.setText(writeVoteData.getTitle());
+        this.w = this.k.getIs_multi();
+        this.x = this.k.getExpire_type();
+        J();
+        I();
+        boolean y = y();
+        this.z = y;
+        if (this.y && y) {
+            z = true;
+        } else {
+            z = false;
+        }
+        K(z);
+    }
+
+    public final void I() {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            TextView textView = this.r;
+            boolean z4 = false;
+            if (this.x == -1) {
+                z = true;
             } else {
-                str = "0";
+                z = false;
             }
-            aVar.j(str);
-            aVar.k(w4b.i(a4b.h().getContext()));
-            aVar.m(w4b.j(a4b.h().getContext()));
-            aVar.n(w4b.m());
-            aVar.o(w4b.n());
-            aVar.p(w4b.a());
-            int f = w4b.f(a4b.h().getContext());
-            if (f == 1) {
-                str2 = "WIFI";
-            } else if (f == 2) {
-                str2 = "2G";
-            } else if (f == 3) {
-                str2 = "3G";
-            } else if (f == 4) {
-                str2 = "4G";
-            } else if (f == 5) {
-                str2 = "unKnow";
+            H(textView, z);
+            TextView textView2 = this.s;
+            if (this.x == 1) {
+                z2 = true;
             } else {
-                str2 = "noNet";
+                z2 = false;
             }
-            aVar.l(str2);
-            a4b.h();
-            aVar.setPhone("");
-            bVar.a(aVar);
-            bVar.c(a4);
-            bVar.e(a2);
-            bVar.b(d);
-            bVar.d(a3);
-            String a5 = h5b.a(bVar);
-            String e2 = g5b.e(a, "ABJson.log");
-            if (!e2.equals("")) {
-                StringBuffer stringBuffer2 = new StringBuffer();
-                stringBuffer2.append(PreferencesUtil.LEFT_MOUNT);
-                stringBuffer2.append(e2);
-                stringBuffer2.append(a5);
-                stringBuffer2.append(PreferencesUtil.RIGHT_MOUNT);
-                if (m4b.a(a4b.h().getContext(), stringBuffer2.toString())) {
-                    b5b.b("上传成功，删除本地文件的       ");
-                    g5b.b(a + "ABJson.log");
-                    b(h4bVar, l4bVar, j4bVar, b4bVar, a3, a2, a4);
-                    return;
-                }
-                StringBuffer stringBuffer3 = new StringBuffer();
-                stringBuffer3.append(PreferencesUtil.LEFT_MOUNT);
-                stringBuffer3.append(a5);
-                stringBuffer3.append(PreferencesUtil.RIGHT_MOUNT);
-                if (m4b.a(a4b.h().getContext(), stringBuffer3.toString())) {
-                    b(h4bVar, l4bVar, j4bVar, b4bVar, a3, a2, a4);
-                    return;
-                } else if (g5b.d(a5, a, "ABJson.log")) {
-                    b(h4bVar, l4bVar, j4bVar, b4bVar, a3, a2, a4);
-                    return;
-                } else {
-                    return;
+            H(textView2, z2);
+            TextView textView3 = this.t;
+            if (this.x == 7) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            H(textView3, z3);
+            TextView textView4 = this.u;
+            if (this.x == 30) {
+                z4 = true;
+            }
+            H(textView4, z4);
+        }
+    }
+
+    public final List<WriteVoteItemData> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            List<WriteVoteItemData> list = this.j;
+            if (list == null) {
+                return arrayList;
+            }
+            int size = list.size();
+            int i = 0;
+            while (i < size) {
+                WriteVoteItemData writeVoteItemData = new WriteVoteItemData();
+                int i2 = i + 1;
+                writeVoteItemData.setId(i2);
+                writeVoteItemData.setText(this.j.get(i).getText());
+                arrayList.add(writeVoteItemData);
+                i = i2;
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            int size = this.j.size();
+            for (int i = 0; i < size; i++) {
+                if (StringUtils.isNull(this.j.get(i).getText())) {
+                    return false;
                 }
             }
-            StringBuffer stringBuffer4 = new StringBuffer();
-            stringBuffer4.append(PreferencesUtil.LEFT_MOUNT);
-            stringBuffer4.append(a5);
-            stringBuffer4.append(PreferencesUtil.RIGHT_MOUNT);
-            if (m4b.a(a4b.h().getContext(), stringBuffer4.toString())) {
-                b(h4bVar, l4bVar, j4bVar, b4bVar, a3, a2, a4);
-            } else if (g5b.d(a5, a, "ABJson.log")) {
-                b(h4bVar, l4bVar, j4bVar, b4bVar, a3, a2, a4);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dt5
+    public boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            LinearLayout linearLayout = this.f;
+            if (linearLayout == null || this.d == null || linearLayout.getTop() != 0 || this.d.getFirstVisiblePosition() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void J() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            TextView textView = this.o;
+            boolean z2 = false;
+            if (this.w != 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            H(textView, z);
+            TextView textView2 = this.p;
+            if (this.w == 1) {
+                z2 = true;
+            }
+            H(textView2, z2);
+        }
+    }
+
+    @Override // com.baidu.tieba.dt5
+    public Intent getResultIntent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.A;
+        }
+        return (Intent) invokeV.objValue;
+    }
+
+    public final void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.o.setOnClickListener(this);
+            this.p.setOnClickListener(this);
+            this.r.setOnClickListener(this);
+            this.s.setOnClickListener(this);
+            this.t.setOnClickListener(this);
+            this.u.setOnClickListener(this);
+            this.i.addTextChangedListener(new b(this));
+            this.e.p(new c(this));
+            this.d.addOnScrollListener(new d(this));
+            this.v.setOnClickListener(new e(this));
+        }
+    }
+
+    public final void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.c.setCenterTextTitle(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f18bb));
+            TextView addTextButton = this.c.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.a.getResources().getString(R.string.obfuscated_res_0x7f0f05a9));
+            this.v = addTextButton;
+            addTextButton.setTextSize(0, BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds44));
+            this.v.setEnabled(false);
+        }
+    }
+
+    public final void G(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || this.l == null || WriteActivityConfig.isAsyncWriting()) {
+            return;
+        }
+        WriteActivityConfig.newInstance(this.a.getPageActivity()).setType(9).setForumWriteData(this.l).setShowVoteData(this.k).setTitle(str).send();
+    }
+
+    public final void K(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.v.setEnabled(z);
+            if (z) {
+                this.v.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
+            } else {
+                this.v.setTextColor(gea.a(SkinManager.getColor(R.color.CAM_X0302), 0.5f));
+            }
+        }
+    }
+
+    public final void H(TextView textView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048583, this, textView, z) == null) {
+            GradientDrawable gradientDrawable = new GradientDrawable();
+            gradientDrawable.setCornerRadius(this.a.getResources().getDimension(R.dimen.tbds10));
+            if (z) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
+                gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0905));
+                textView.setBackgroundDrawable(gradientDrawable);
+                return;
+            }
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0209));
+            textView.setBackgroundDrawable(gradientDrawable);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f092a01) {
+                this.w = 0;
+                J();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f092a00) {
+                this.w = 1;
+                J();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0929fd) {
+                this.x = -1;
+                I();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0929fa) {
+                this.x = 1;
+                I();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0929fc) {
+                this.x = 7;
+                I();
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f0929fb) {
+                this.x = 30;
+                I();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.dt5
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0109);
+            this.i.setHintTextColor(SkinManager.getColor(R.color.CAM_X0109));
+            this.i.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.n.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            this.q.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
+            if (this.y && this.z) {
+                this.v.setTextColor(SkinManager.getColor(R.color.CAM_X0302));
+            } else {
+                this.v.setTextColor(gea.a(SkinManager.getColor(R.color.CAM_X0302), 0.5f));
+            }
+            J();
+            I();
+            WriteVoteViewAdapter writeVoteViewAdapter = this.e;
+            if (writeVoteViewAdapter != null) {
+                writeVoteViewAdapter.notifyDataSetChanged();
             }
         }
     }

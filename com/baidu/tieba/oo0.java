@@ -1,7 +1,13 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface oo0 extends no0 {
-    void c(mo0 mo0Var);
 
-    void e(mo0 mo0Var);
+import android.app.Activity;
+import java.lang.ref.WeakReference;
+import java.util.LinkedList;
+/* loaded from: classes7.dex */
+public interface oo0 extends qo0 {
+    LinkedList<WeakReference<Activity>> a();
+
+    Activity b();
+
+    Activity d();
 }

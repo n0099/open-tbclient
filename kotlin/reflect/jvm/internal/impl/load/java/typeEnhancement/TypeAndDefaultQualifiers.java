@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeAndDefaultQualifiers {
     public final JavaTypeQualifiers defaultQualifiers;
     public final KotlinType type;

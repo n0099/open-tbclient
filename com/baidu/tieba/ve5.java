@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.PluginCheck;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,7 +7,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class ve5 implements ck1 {
+public class ve5 implements hk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,17 +25,13 @@ public class ve5 implements ck1 {
         }
     }
 
-    @Override // com.baidu.tieba.ck1
+    @Override // com.baidu.tieba.hk1
     public Object get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new PluginCheck.a());
-            arrayList.add(new zy7());
-            arrayList.add(new fu8());
-            arrayList.add(new hk9());
-            arrayList.add(new m6a());
+            arrayList.add(new lc9());
             return arrayList;
         }
         return invokeV.objValue;

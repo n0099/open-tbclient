@@ -22,7 +22,7 @@ public final class SupervisorKt {
     }
 
     /* renamed from: SupervisorJob$default  reason: collision with other method in class */
-    public static /* synthetic */ Job m2287SupervisorJob$default(Job job, int i, Object obj) {
+    public static /* synthetic */ Job m2289SupervisorJob$default(Job job, int i, Object obj) {
         if ((i & 1) != 0) {
             job = null;
         }

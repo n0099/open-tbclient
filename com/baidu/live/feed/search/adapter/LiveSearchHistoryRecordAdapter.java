@@ -342,14 +342,14 @@ public final class LiveSearchHistoryRecordAdapter extends RecyclerView.Adapter<R
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         if (i == 1) {
-            return new LiveSearchDeleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0526, null));
+            return new LiveSearchDeleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d052d, null));
         }
         if (i == 2) {
-            return new LiveSearchCompleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0529, null));
+            return new LiveSearchCompleteEntranceViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0530, null));
         }
         if (i == 3) {
-            return new LiveSearchHistoryRecordViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0527, null));
+            return new LiveSearchHistoryRecordViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d052e, null));
         }
-        return new LiveSearchDeleteStatusViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0528, null));
+        return new LiveSearchDeleteStatusViewHolder(View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d052f, null));
     }
 }

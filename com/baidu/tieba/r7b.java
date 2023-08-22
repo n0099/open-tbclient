@@ -1,10 +1,5 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
-import android.util.Log;
-import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,42 +7,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.FileUtils;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-@RequiresApi(api = 16)
+import com.baidu.turbonet.net.UrlResponseInfo;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
+import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes7.dex */
-public class r7b {
+public final class r7b extends UrlResponseInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public MediaExtractor b;
-    public ByteBuffer c;
-    public int d;
-    public a e;
-    public a f;
-    public a g;
-
-    public void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
-    }
+    public final List<String> a;
+    public final int b;
+    public final String c;
+    public final boolean d;
+    public final String e;
+    public final String f;
+    public final AtomicLong g;
+    public final a h;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public static final class a extends UrlResponseInfo.HeaderBlock {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public MediaFormat a;
-        public int b;
-        public long c;
-        public MediaCodec.BufferInfo d;
-        public long e;
+        public final List<Map.Entry<String, String>> a;
+        public Map<String, List<String>> b;
 
-        public a() {
+        public a(List<Map.Entry<String, String>> list) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {list};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,219 +51,200 @@ public class r7b {
                     return;
                 }
             }
-            this.a = null;
-            this.b = -1;
-            this.c = 0L;
-            this.d = new MediaCodec.BufferInfo();
-            this.e = 0L;
+            this.a = list;
+        }
+
+        public List<Map.Entry<String, String>> a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public Map<String, List<String>> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                Map<String, List<String>> map = this.b;
+                if (map != null) {
+                    return map;
+                }
+                TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
+                for (Map.Entry<String, String> entry : this.a) {
+                    ArrayList arrayList = new ArrayList();
+                    if (treeMap.containsKey(entry.getKey())) {
+                        arrayList.addAll((Collection) treeMap.get(entry.getKey()));
+                    }
+                    arrayList.add(entry.getValue());
+                    treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
+                }
+                Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
+                this.b = unmodifiableMap;
+                return unmodifiableMap;
+            }
+            return (Map) invokeV.objValue;
         }
     }
 
-    public r7b() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @Deprecated
+    public r7b(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3) {
+        this(list, i, str, list2, z, str2, str3, 0L);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, Integer.valueOf(i), str, list2, Boolean.valueOf(z), str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((List) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (List) objArr2[3], ((Boolean) objArr2[4]).booleanValue(), (String) objArr2[5], (String) objArr2[6], ((Long) objArr2[7]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = 512000;
-        this.e = new a();
-        this.f = new a();
-        this.g = new a();
     }
 
-    public boolean a() {
+    public r7b(List<String> list, int i, String str, List<Map.Entry<String, String>> list2, boolean z, String str2, String str3, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, Integer.valueOf(i), str, list2, Boolean.valueOf(z), str2, str3, Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = Collections.unmodifiableList(list);
+        this.b = i;
+        this.c = str;
+        this.h = new a(Collections.unmodifiableList(list2));
+        this.d = z;
+        this.e = str2;
+        this.f = str3;
+        this.g = new AtomicLong(j);
+    }
+
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
+    public List<Map.Entry<String, String>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b.advance();
+            return this.h.a();
         }
-        return invokeV.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public a b() {
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
+            return this.b;
         }
-        return (a) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public ByteBuffer c() {
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.c;
         }
-        return (ByteBuffer) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int d() {
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b.getSampleTrackIndex();
+            return this.e;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
     public long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g.c;
+            return this.g.get();
         }
         return invokeV.longValue;
     }
 
-    public int f() {
+    @Override // com.baidu.turbonet.net.UrlResponseInfo
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b.getSampleTrackIndex();
+            List<String> list = this.a;
+            return list.get(list.size() - 1);
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public a g() {
+    public Map<String, List<String>> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
+            return this.h.b();
         }
-        return (a) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public MediaCodec.BufferInfo h() {
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return i(this.c, 0);
+            return this.f;
         }
-        return (MediaCodec.BufferInfo) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void j() {
+    public List<String> i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            ByteBuffer byteBuffer = this.c;
-            if (byteBuffer != null) {
-                byteBuffer.clear();
-                this.c = null;
-            }
-            this.b.release();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
     }
 
-    public MediaCodec.BufferInfo i(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
+    public boolean k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer, i)) == null) {
-            int readSampleData = this.b.readSampleData(byteBuffer, i);
-            if (readSampleData < 0) {
-                return null;
-            }
-            a aVar = this.g;
-            aVar.d.size = readSampleData;
-            if (aVar == this.f) {
-                aVar.c += aVar.e;
-            } else {
-                aVar.c = this.b.getSampleTime();
-            }
-            a aVar2 = this.g;
-            MediaCodec.BufferInfo bufferInfo = aVar2.d;
-            bufferInfo.presentationTimeUs = aVar2.c;
-            bufferInfo.offset = 0;
-            bufferInfo.flags = this.b.getSampleFlags();
-            return this.g.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.d;
         }
-        return (MediaCodec.BufferInfo) invokeLI.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void k(a aVar) {
-        int i;
-        int i2;
+    public void j(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
-            a aVar2 = this.g;
-            if (aVar2 != null && (i2 = aVar2.b) >= 0) {
-                this.b.unselectTrack(i2);
-            }
-            this.g = aVar;
-            if (aVar != null && (i = aVar.b) >= 0) {
-                this.b.selectTrack(i);
-                a aVar3 = this.g;
-                aVar3.a = this.b.getTrackFormat(aVar3.b);
-                try {
-                    this.g.a.getLong("durationUs");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.g.set(j);
         }
     }
 
-    public void m(String str, String str2) throws IOException {
-        int integer;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            this.a = str;
-            FileUtils.VIDEO_FILE_START.equals(str2);
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            this.b = mediaExtractor;
-            mediaExtractor.setDataSource(this.a);
-            int trackCount = this.b.getTrackCount();
-            for (int i = 0; i < trackCount; i++) {
-                MediaFormat trackFormat = this.b.getTrackFormat(i);
-                String string = trackFormat.getString("mime");
-                if (string.startsWith(FileUtils.VIDEO_FILE_START)) {
-                    a aVar = this.f;
-                    aVar.a = trackFormat;
-                    aVar.b = i;
-                    if (trackFormat.containsKey("max-input-size") && (integer = this.f.a.getInteger("max-input-size")) > 0) {
-                        this.d = integer;
-                    }
-                } else if (string.startsWith("audio/")) {
-                    a aVar2 = this.e;
-                    aVar2.a = trackFormat;
-                    aVar2.b = i;
-                }
-            }
-            if (this.c == null) {
-                this.c = ByteBuffer.allocateDirect(this.d);
-            }
-            MediaFormat mediaFormat = this.f.a;
-            if (mediaFormat != null) {
-                try {
-                    this.f.e = 1000000 / mediaFormat.getInteger("frame-rate");
-                } catch (Exception e) {
-                    Log.e("VideoExtractor", "frameRate:" + e.getMessage());
-                    e.printStackTrace();
-                }
-                if (this.f.e <= 0) {
-                    k(g());
-                    this.b.readSampleData(this.c, 0);
-                    if (this.b.getSampleFlags() == 1) {
-                        this.b.advance();
-                    }
-                    this.b.readSampleData(this.c, 0);
-                    long sampleTime = this.b.getSampleTime();
-                    this.b.advance();
-                    this.f.e = Math.abs(this.b.getSampleTime() - sampleTime);
-                }
-            }
-            if (FileUtils.VIDEO_FILE_START.equals(str2)) {
-                k(g());
-            } else if ("audio/".equals(str2)) {
-                k(b());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return String.format(Locale.ROOT, "UrlResponseInfo@[%s][%s]: urlChain = %s, httpStatus = %d %s, headers = %s, wasCached = %b, negotiatedProtocol = %s, proxyServer= %s, receivedByteCount = %d", Integer.toHexString(System.identityHashCode(this)), f(), i().toString(), Integer.valueOf(b()), c(), a().toString(), Boolean.valueOf(k()), d(), h(), Long.valueOf(e()));
         }
+        return (String) invokeV.objValue;
     }
 }

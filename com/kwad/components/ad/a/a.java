@@ -3,7 +3,7 @@ package com.kwad.components.ad.a;
 import android.app.Activity;
 import com.kwad.sdk.api.KsExitInstallListener;
 import com.kwad.sdk.api.KsScene;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface a extends com.kwad.sdk.components.a {
     String getBidRequestToken(KsScene ksScene);
 

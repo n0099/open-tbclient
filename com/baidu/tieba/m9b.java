@@ -1,204 +1,587 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.LinearGradient;
-import android.graphics.NinePatch;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.Shader;
-import android.text.TextPaint;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Application;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Bundle;
+import android.os.SystemClock;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.praise.NetworkMonitor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.Div;
-import com.baidu.ugc.editvideo.data.TextWordsEntity;
-import com.baidu.ugc.editvideo.subtitle.ninepatchchunk.NinePatchChunk;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class m9b {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean t;
+    public static volatile m9b u;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public long b;
+    public e c;
+    public Application d;
+    public c9b e;
+    public int f;
+    public int g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public boolean k;
+    public int l;
+    public boolean m;
+    public int n;
+    public int o;
+    public volatile boolean p;
+    public int q;
+    public long r;
+    public Runnable s;
 
-    public static Bitmap a(TextWordsEntity.TextStyleEntity textStyleEntity) {
-        InterceptResult invokeL;
-        TextWordsEntity.StyleBackgroudInfoEntity styleBackgroudInfoEntity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, textStyleEntity)) == null) {
-            if (textStyleEntity == null || (styleBackgroudInfoEntity = textStyleEntity.mBackgroudInfoEntity) == null || !styleBackgroudInfoEntity.isLoaded()) {
-                return null;
-            }
-            return k9b.f(styleBackgroudInfoEntity.getSourceFile().getAbsolutePath());
-        }
-        return (Bitmap) invokeL.objValue;
+    /* loaded from: classes7.dex */
+    public interface e {
+        void a();
+
+        void b();
+
+        void c();
+
+        void d();
+
+        void e();
     }
 
-    public static void b(Bitmap bitmap, NinePatchChunk ninePatchChunk, Canvas canvas, int i) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLLI(65537, null, bitmap, ninePatchChunk, canvas, i) == null) || bitmap == null || ninePatchChunk == null || !NinePatch.isNinePatchChunk(ninePatchChunk.toBytes())) {
-            return;
-        }
-        new NinePatch(bitmap, ninePatchChunk.toBytes(), null).draw(canvas, new Rect(i, i, canvas.getWidth() - i, canvas.getHeight() - i));
-        bitmap.recycle();
-    }
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m9b a;
 
-    public static void c(TextPaint textPaint, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        TextWordsEntity.StyleShadowInfoEntity styleShadowInfoEntity;
-        int i;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(65538, null, textPaint, textStyleEntity, textColorEntity) == null) || textStyleEntity == null) {
-            return;
-        }
-        List<TextWordsEntity.StyleShadowInfoEntity> list = textStyleEntity.mShadowInfoList;
-        if (o9b.e(list) || (styleShadowInfoEntity = list.get(0)) == null) {
-            return;
-        }
-        int i2 = i(styleShadowInfoEntity.mShadowColor, styleShadowInfoEntity.mShadowAlpha);
-        if (textColorEntity != null && ((i = textStyleEntity.mTextStyleType) == 1 || i == 5)) {
-            i2 = textColorEntity.mColorInfo;
-        }
-        textPaint.setShadowLayer(cab.a(Integer.parseInt(styleShadowInfoEntity.mShadowBlur)), cab.a(Integer.parseInt(styleShadowInfoEntity.mShadowOffsetX)), cab.a(Integer.parseInt(styleShadowInfoEntity.mShadowOffsetY)), i2);
-    }
-
-    public static int[] d(TextPaint textPaint, TextPaint textPaint2, TextPaint textPaint3, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, textPaint, textPaint2, textPaint3, textStyleEntity, textColorEntity)) == null) {
-            int[] iArr = new int[2];
-            if (textStyleEntity == null) {
-                return iArr;
-            }
-            List<TextWordsEntity.StyleStrokeInfoEntity> list = textStyleEntity.mStrokeInfoList;
-            if (o9b.e(list)) {
-                return iArr;
-            }
-            TextWordsEntity.StyleStrokeInfoEntity styleStrokeInfoEntity = list.get(0);
-            if (styleStrokeInfoEntity != null) {
-                textPaint2.setTextSize(textPaint.getTextSize());
-                textPaint2.setFlags(textPaint.getFlags());
-                textPaint2.setAlpha(textPaint.getAlpha());
-                textPaint2.setFakeBoldText(textPaint.isFakeBoldText());
-                textPaint2.setTextSkewX(textPaint.getTextSkewX());
-                int i = i(styleStrokeInfoEntity.mStrokeColor, styleStrokeInfoEntity.mStrokeAlpha);
-                if (textColorEntity != null && textStyleEntity.mTextStyleType == 2) {
-                    i = textColorEntity.mColorInfo;
+        public a(m9b m9bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m9bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                textPaint2.setStyle(Paint.Style.STROKE);
-                textPaint2.setColor(i);
-                textPaint2.setStrokeWidth(cab.a(Integer.parseInt(styleStrokeInfoEntity.mStrokeWidth)));
             }
-            iArr[0] = 1;
-            if (list.size() <= 1) {
-                return iArr;
-            }
-            TextWordsEntity.StyleStrokeInfoEntity styleStrokeInfoEntity2 = list.get(1);
-            if (styleStrokeInfoEntity2 != null) {
-                textPaint3.setTextSize(textPaint.getTextSize());
-                textPaint3.setFlags(textPaint.getFlags());
-                textPaint3.setAlpha(textPaint.getAlpha());
-                textPaint3.setFakeBoldText(textPaint.isFakeBoldText());
-                textPaint3.setTextSkewX(textPaint.getTextSkewX());
-                textPaint3.setStyle(Paint.Style.STROKE);
-                textPaint3.setColor(i(styleStrokeInfoEntity2.mStrokeColor, styleStrokeInfoEntity2.mStrokeAlpha));
-                textPaint3.setStrokeWidth(cab.a(Integer.parseInt(styleStrokeInfoEntity2.mStrokeWidth)));
-            }
-            iArr[1] = 1;
-            return iArr;
+            this.a = m9bVar;
         }
-        return (int[]) invokeLLLLL.objValue;
-    }
 
-    public static void e(Canvas canvas, TextPaint textPaint, int i, int i2, int i3, TextWordsEntity.TextStyleEntity textStyleEntity, TextWordsEntity.TextColorEntity textColorEntity) {
-        int i4;
-        LinearGradient linearGradient;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{canvas, textPaint, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), textStyleEntity, textColorEntity}) == null) || textStyleEntity == null) {
-            return;
-        }
-        List<TextWordsEntity.StyleTextInfoEntity> list = textStyleEntity.mTextInfoList;
-        if (o9b.e(list)) {
-            return;
-        }
-        if (TextUtils.equals(textStyleEntity.mTextType, "0") || list.size() > 1) {
-            if (TextUtils.equals(textStyleEntity.mTextType, "1")) {
-                linearGradient = new LinearGradient(0.0f, i2, canvas.getWidth(), i3, new int[]{h(list.get(0)), h(list.get(1))}, (float[]) null, Shader.TileMode.CLAMP);
-            } else if (!TextUtils.equals(textStyleEntity.mTextType, "2")) {
-                int h = h(list.get(0));
-                if (textColorEntity != null && ((i4 = textStyleEntity.mTextStyleType) == 1 || i4 == 2 || i4 == 3)) {
-                    h = textColorEntity.mColorInfo;
-                }
-                textPaint.setColor(h);
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
-            } else {
-                linearGradient = new LinearGradient(canvas.getWidth(), i2, canvas.getWidth(), i3, new int[]{h(list.get(0)), h(list.get(1))}, (float[]) null, Shader.TileMode.CLAMP);
             }
-            textPaint.setShader(linearGradient);
+            this.a.k();
+            h8b.w().J(this.a.s, 5000L);
         }
     }
 
-    public static NinePatchChunk f(Bitmap bitmap, TextWordsEntity.TextStyleEntity textStyleEntity) {
-        InterceptResult invokeLL;
-        TextWordsEntity.StyleBackgroudInfoEntity styleBackgroudInfoEntity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bitmap, textStyleEntity)) == null) {
-            if (bitmap == null || textStyleEntity == null || (styleBackgroudInfoEntity = textStyleEntity.mBackgroudInfoEntity) == null) {
-                return null;
+    /* loaded from: classes7.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m9b this$0;
+
+        public b(m9b m9bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m9bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            NinePatchChunk ninePatchChunk = new NinePatchChunk();
-            ArrayList<Div> arrayList = styleBackgroudInfoEntity.mStretchableX;
-            ArrayList<Div> arrayList2 = styleBackgroudInfoEntity.mStretchableY;
-            ninePatchChunk.xDivs = arrayList;
-            ninePatchChunk.yDivs = arrayList2;
-            Rect rect = new Rect();
-            ninePatchChunk.padding = rect;
-            rect.left = styleBackgroudInfoEntity.mBackgroudLeft;
-            rect.top = styleBackgroudInfoEntity.mBackgroudTop;
-            rect.right = styleBackgroudInfoEntity.mBackgroudRight;
-            rect.bottom = styleBackgroudInfoEntity.mBackgroudBottom;
-            NinePatchChunk.createColors(bitmap, ninePatchChunk);
-            return ninePatchChunk;
+            this.this$0 = m9bVar;
         }
-        return (NinePatchChunk) invokeLL.objValue;
-    }
 
-    public static int g(TextPaint textPaint) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, textPaint)) == null) {
-            Paint.FontMetricsInt fontMetricsInt = textPaint.getFontMetricsInt();
-            return Math.abs(fontMetricsInt.ascent) + Math.abs(fontMetricsInt.descent);
+        public /* synthetic */ b(m9b m9bVar, a aVar) {
+            this(m9bVar);
         }
-        return invokeL.intValue;
-    }
 
-    public static int h(TextWordsEntity.StyleTextInfoEntity styleTextInfoEntity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, styleTextInfoEntity)) == null) {
-            if (styleTextInfoEntity == null) {
-                return 0;
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            ConnectivityManager connectivityManager;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || (connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")) == null) {
+                return;
             }
-            return i(styleTextInfoEntity.mTextColor, styleTextInfoEntity.mTextAlpha);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
             try {
-                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
-                return Color.parseColor("#" + hexString + str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
+                NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+                if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting()) {
+                    this.this$0.w();
+                }
+            } catch (Exception unused) {
+                if (m9b.t) {
+                    Log.d("UBCUploadTimingManager", "get network info error!");
+                }
             }
         }
-        return invokeLL.intValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements Application.ActivityLifecycleCallbacks {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m9b a;
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            }
+        }
+
+        public c(m9b m9bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m9bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = m9bVar;
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+                m9b.d(this.a);
+                if (this.a.a != 1) {
+                    return;
+                }
+                this.a.r();
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+                m9b.e(this.a);
+                if (this.a.a != 0) {
+                    return;
+                }
+                this.a.u();
+            }
+        }
+
+        public /* synthetic */ c(m9b m9bVar, a aVar) {
+            this(m9bVar);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947928915, "Lcom/baidu/tieba/m9b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947928915, "Lcom/baidu/tieba/m9b;");
+                return;
+            }
+        }
+        t = f9b.m();
+    }
+
+    public static m9b m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (u == null) {
+                synchronized (m9b.class) {
+                    if (u == null) {
+                        u = new m9b();
+                    }
+                }
+            }
+            return u;
+        }
+        return (m9b) invokeV.objValue;
+    }
+
+    public final void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (t) {
+                Log.d("UBCUploadTimingManager", "onTimerArrived");
+            }
+            e eVar = this.c;
+            if (eVar != null) {
+                eVar.b();
+            }
+        }
+    }
+
+    public final void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            j(true, 0, 0);
+            if (this.j && this.q == 0) {
+                if (t) {
+                    Log.d("UBCUploadTimingManager", "onUploadSuccess processOneFailedData");
+                }
+                h8b.w().H();
+            }
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.h && this.q == 0 && SystemClock.uptimeMillis() - this.r >= this.o) {
+            A();
+        }
+    }
+
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.k) {
+                return this.l;
+            }
+            return k8b.o().l();
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.k;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.m;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.f + this.g < this.n) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (t) {
+                Log.d("UBCUploadTimingManager", "onBackgroundToForeground");
+            }
+            e eVar = this.c;
+            if (eVar != null) {
+                eVar.c();
+            }
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            if (t) {
+                Log.d("UBCUploadTimingManager", "onForegroundToBackground");
+            }
+            e eVar = this.c;
+            if (eVar != null) {
+                eVar.d();
+            }
+        }
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            if (t) {
+                Log.d("UBCUploadTimingManager", "onLogTooMany");
+            }
+            e eVar = this.c;
+            if (eVar != null) {
+                eVar.a();
+            }
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            this.q++;
+        }
+    }
+
+    public m9b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = 0L;
+        this.f = 0;
+        this.g = 0;
+        this.h = false;
+        this.i = false;
+        this.j = false;
+        this.k = false;
+        this.l = 10000;
+        this.m = false;
+        this.n = 100;
+        this.o = 180000;
+        this.p = false;
+        this.q = 0;
+        this.r = SystemClock.uptimeMillis();
+        this.s = new a(this);
+    }
+
+    public static /* synthetic */ int d(m9b m9bVar) {
+        int i = m9bVar.a;
+        m9bVar.a = i + 1;
+        return i;
+    }
+
+    public static /* synthetic */ int e(m9b m9bVar) {
+        int i = m9bVar.a;
+        m9bVar.a = i - 1;
+        return i;
+    }
+
+    public void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (t) {
+                Log.d("UBCUploadTimingManager", "onUploadFinish isSuccess: " + z);
+            }
+            this.q = Math.max(this.q - 1, 0);
+            if (z) {
+                C();
+            }
+            if (!this.h) {
+                return;
+            }
+            this.r = SystemClock.uptimeMillis();
+        }
+    }
+
+    public final void j(boolean z, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) != null) || !this.i) {
+            return;
+        }
+        if (z) {
+            if (!q()) {
+                v();
+                return;
+            }
+            return;
+        }
+        boolean q = q();
+        this.g += i;
+        this.f += i2;
+        if (q && !q()) {
+            v();
+        }
+    }
+
+    public void n(Context context, c9b c9bVar, e eVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, context, c9bVar, eVar) != null) || context == null) {
+            return;
+        }
+        Application application = (Application) context.getApplicationContext();
+        this.d = application;
+        application.registerActivityLifecycleCallbacks(new c(this, null));
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(NetworkMonitor.NET_CHANGE_ACTION);
+        this.d.registerReceiver(new b(this, null), intentFilter);
+        this.e = c9bVar;
+        this.c = eVar;
+        this.k = f9b.i().a();
+        this.l = f9b.i().e();
+        if (this.k) {
+            this.e.k();
+        }
+        this.m = f9b.i().n();
+        d s = this.e.s();
+        this.f = Math.max(s.a, 0);
+        this.g = Math.max(s.b, 0);
+        this.i = f9b.i().j();
+        this.h = f9b.i().d();
+        this.j = f9b.i().o();
+        this.n = k8b.o().A();
+        int B = k8b.o().B() * 1000;
+        this.o = B;
+        if (this.h && B > 0 && !this.p) {
+            h8b.w().J(this.s, 5000L);
+            this.p = true;
+        }
+    }
+
+    public void s(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) && this.i && i >= 0 && i2 >= 0 && i + i2 != 0) {
+            if (t) {
+                Log.d("UBCUploadTimingManager", "onClearData eventCount=" + i + ", flowCount=" + i2);
+            }
+            this.f = Math.max(this.f - i, 0);
+            this.g = Math.max(this.g - i2, 0);
+        }
+    }
+
+    public void x(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048592, this, str, i) != null) || !this.i || i != -1 || k8b.o().f(str) || !k8b.o().i(str)) {
+            return;
+        }
+        if (t) {
+            Log.d("UBCUploadTimingManager", "onNewEvent id=" + str + ", currentEventCount=" + this.f);
+        }
+        j(false, 0, 1);
+    }
+
+    public void y(String str, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(1048593, this, str, i) != null) || !this.i || i <= 0 || k8b.o().f(str) || !k8b.o().i(str)) {
+            return;
+        }
+        if (t) {
+            Log.d("UBCUploadTimingManager", "onNewFlow id=" + str + ", currentFlowCount=" + this.g);
+        }
+        j(false, i, 0);
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.i) {
+            return;
+        }
+        if (t) {
+            Log.d("UBCUploadTimingManager", "onClearDataAndReset");
+        }
+        d s = this.e.s();
+        this.f = Math.max(s.a, 0);
+        this.g = Math.max(s.b, 0);
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            if (t) {
+                Log.d("UBCUploadTimingManager", "onNetworkAvailable");
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (currentTimeMillis - this.b > 60000) {
+                e eVar = this.c;
+                if (eVar != null) {
+                    eVar.e();
+                }
+                if (t) {
+                    Log.d("UBCUploadTimingManager", "onNetworkAvailable filter completed!");
+                }
+            }
+            this.b = currentTimeMillis;
+        }
     }
 }

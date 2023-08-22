@@ -1,45 +1,102 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.internal.ETAG;
+import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yn4 {
+public class yn4 extends mm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String b(int i) {
+    public yn4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.mm4
+    public JSONArray c() {
+        InterceptResult invokeV;
+        List<ek4> w;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "bbasp_core");
+                jSONObject.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, oi4.b().J(0));
+                jSONObject.put("version_code", oi4.b().w(0));
+                jSONArray.put(jSONObject);
+            } catch (JSONException unused) {
+            }
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("type", "bbasp_game");
+                jSONObject2.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, oi4.b().J(1));
+                jSONObject2.put("version_code", oi4.b().w(1));
+                jSONArray.put(jSONObject2);
+            } catch (JSONException unused2) {
+            }
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("type", ETAG.KEY_EXTENSION);
+                jSONObject3.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, oi4.b().v(0));
+                jSONObject3.put("version_code", oi4.b().j(0));
+                jSONArray.put(jSONObject3);
+            } catch (JSONException unused3) {
+            }
+            JSONObject jSONObject4 = new JSONObject();
+            try {
+                jSONObject4.put("type", "extension_game");
+                jSONObject4.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, oi4.b().v(1));
+                jSONObject4.put("version_code", oi4.b().j(1));
+                jSONArray.put(jSONObject4);
+            } catch (JSONException unused4) {
+            }
+            try {
+                w = aj4.i().w(f(10));
+            } catch (JSONException unused5) {
+            }
+            if (w == null) {
+                return jSONArray;
+            }
+            for (ek4 ek4Var : w) {
+                JSONObject jSONObject5 = new JSONObject();
+                jSONObject5.put("type", "ddl");
+                jSONObject5.put("bundle_id", ek4Var.g);
+                jSONObject5.put("version_code", ek4Var.i);
+                jSONObject5.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, ek4Var.j);
+                jSONArray.put(jSONObject5);
+            }
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public final String f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i != 0 ? i != 1 ? i != 2 ? i != 3 ? i != 4 ? "unknown" : "swanplugin" : "swandynamiclib" : "swangameconsole" : SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME : "swan" : (String) invokeI.objValue;
-    }
-
-    public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), jSONObject}) == null) {
-            ji4.b().K(b(i), str, str2, i2, jSONObject, c(str, i2));
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return "SELECT * from (SELECT * from (SELECT * from swan_plugin ORDER BY update_time) group by bundle_id) order by update_time DESC limit 0," + i + ParamableElem.DIVIDE_PARAM;
         }
-    }
-
-    public static boolean c(String str, int i) {
-        InterceptResult invokeLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            boolean equals = TextUtils.equals(str, "cs_protocol");
-            if (i != 2000) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (equals && z) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLI.booleanValue;
+        return (String) invokeI.objValue;
     }
 }

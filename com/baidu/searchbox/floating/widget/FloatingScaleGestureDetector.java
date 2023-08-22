@@ -49,7 +49,7 @@ public final class FloatingScaleGestureDetector implements ScaleGestureDetector.
     public final Lazy tapOnGestureListener$delegate;
 
     /* renamed from: view  reason: collision with root package name */
-    public View f1060view;
+    public View f1061view;
     public float whRatio;
     public WindowManager.LayoutParams windowLayoutParams;
     public WindowManager windowManager;
@@ -253,14 +253,14 @@ public final class FloatingScaleGestureDetector implements ScaleGestureDetector.
     /* JADX INFO: Access modifiers changed from: private */
     public final void updateWindowLayout(int i, int i2) {
         ViewGroup.LayoutParams layoutParams;
-        View view2 = this.f1060view;
+        View view2 = this.f1061view;
         if (view2 != null && (layoutParams = view2.getLayoutParams()) != null) {
             layoutParams.width = i;
             layoutParams.height = i2;
         } else {
             layoutParams = null;
         }
-        View view3 = this.f1060view;
+        View view3 = this.f1061view;
         if (view3 != null) {
             view3.setLayoutParams(layoutParams);
         }
@@ -368,7 +368,7 @@ public final class FloatingScaleGestureDetector implements ScaleGestureDetector.
 
     private final boolean isNeedScale(float f) {
         int i;
-        View view2 = this.f1060view;
+        View view2 = this.f1061view;
         if (view2 != null) {
             i = view2.getWidth();
         } else {
@@ -418,14 +418,14 @@ public final class FloatingScaleGestureDetector implements ScaleGestureDetector.
         if (viewParent != null) {
             WindowManager.LayoutParams layoutParams3 = this.windowLayoutParams;
             if (layoutParams3 != null) {
-                View view2 = this.f1060view;
+                View view2 = this.f1061view;
                 if (view2 != null && (layoutParams2 = view2.getLayoutParams()) != null) {
                     i = layoutParams2.width;
                 } else {
                     i = layoutParams3.width;
                 }
                 layoutParams3.width = i;
-                View view3 = this.f1060view;
+                View view3 = this.f1061view;
                 if (view3 != null && (layoutParams = view3.getLayoutParams()) != null) {
                     i2 = layoutParams.height;
                 } else {
@@ -450,12 +450,12 @@ public final class FloatingScaleGestureDetector implements ScaleGestureDetector.
         if (!isNeedScale(scaleFactor)) {
             return false;
         }
-        View view2 = this.f1060view;
+        View view2 = this.f1061view;
         ViewGroup.LayoutParams layoutParams2 = null;
         Integer num = null;
         layoutParams2 = null;
         if (view2 != null && (layoutParams = view2.getLayoutParams()) != null) {
-            View view3 = this.f1060view;
+            View view3 = this.f1061view;
             if (view3 != null) {
                 i = (int) (view3.getWidth() * scaleFactor);
             } else {
@@ -485,7 +485,7 @@ public final class FloatingScaleGestureDetector implements ScaleGestureDetector.
             BdVideoLog.d(TAG, sb.toString());
             layoutParams2 = layoutParams;
         }
-        View view4 = this.f1060view;
+        View view4 = this.f1061view;
         if (view4 != null) {
             view4.setLayoutParams(layoutParams2);
             return true;
@@ -513,7 +513,7 @@ public final class FloatingScaleGestureDetector implements ScaleGestureDetector.
             } else {
                 view3 = null;
             }
-            this.f1060view = view3;
+            this.f1061view = view3;
             Context context = view2.getContext();
             Intrinsics.checkNotNullExpressionValue(context, "view.context");
             this.windowManager = UtilsKt.getWindowManager(context);

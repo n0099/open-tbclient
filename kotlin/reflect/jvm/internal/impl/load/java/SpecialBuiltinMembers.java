@@ -22,7 +22,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.checker.TypeCheckingProcedure;
 @JvmName(name = "SpecialBuiltinMembers")
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class SpecialBuiltinMembers {
     public static final FqName child(FqName fqName, String str) {
         FqName child = fqName.child(Name.identifier(str));

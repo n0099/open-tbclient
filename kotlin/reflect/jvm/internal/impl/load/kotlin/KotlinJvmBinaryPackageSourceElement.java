@@ -4,7 +4,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.SourceElement;
 import kotlin.reflect.jvm.internal.impl.descriptors.SourceFile;
 import kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.LazyJavaPackageFragment;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class KotlinJvmBinaryPackageSourceElement implements SourceElement {
     public final LazyJavaPackageFragment packageFragment;
 

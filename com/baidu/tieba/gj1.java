@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.airbnb.lottie.LottieComposition;
+import com.airbnb.lottie.LottieCompositionFactory;
+import com.airbnb.lottie.LottieListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -15,64 +12,207 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@SuppressLint({"LongLogTag"})
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes6.dex */
-public class gj1 implements Application.ActivityLifecycleCallbacks {
+public class gj1 {
     public static /* synthetic */ Interceptable $ic;
-    public static int c;
-    public static long d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947795739, "Lcom/baidu/tieba/gj1;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public interface f {
+        void a(LottieComposition lottieComposition);
+
+        void b();
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements LottieListener<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public a(gj1 gj1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gj1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947795739, "Lcom/baidu/tieba/gj1;");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(Throwable th) {
+            f fVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && (fVar = this.a) != null) {
+                fVar.b();
+            }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, bundle) == null) {
+    /* loaded from: classes6.dex */
+    public class b implements LottieListener<LottieComposition> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public b(gj1 gj1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gj1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(LottieComposition lottieComposition) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
+                if (lottieComposition != null) {
+                    f fVar = this.a;
+                    if (fVar != null) {
+                        fVar.a(lottieComposition);
+                        return;
+                    }
+                    return;
+                }
+                f fVar2 = this.a;
+                if (fVar2 != null) {
+                    fVar2.b();
+                }
+            }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+    /* loaded from: classes6.dex */
+    public class c implements LottieListener<Throwable> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public c(gj1 gj1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gj1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(Throwable th) {
+            f fVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, th) == null) && (fVar = this.a) != null) {
+                fVar.b();
+            }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, activity) == null) {
+    /* loaded from: classes6.dex */
+    public class d implements LottieListener<LottieComposition> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f a;
+
+        public d(gj1 gj1Var, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gj1Var, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.airbnb.lottie.LottieListener
+        /* renamed from: a */
+        public void onResult(LottieComposition lottieComposition) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, lottieComposition) == null) {
+                if (lottieComposition != null) {
+                    f fVar = this.a;
+                    if (fVar != null) {
+                        fVar.a(lottieComposition);
+                        return;
+                    }
+                    return;
+                }
+                f fVar2 = this.a;
+                if (fVar2 != null) {
+                    fVar2.b();
+                }
+            }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public static gj1 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, activity, bundle) == null) {
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-774054790, "Lcom/baidu/tieba/gj1$e;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-774054790, "Lcom/baidu/tieba/gj1$e;");
+                    return;
+                }
+            }
+            a = new gj1(null);
         }
     }
 
@@ -80,83 +220,71 @@ public class gj1 implements Application.ActivityLifecycleCallbacks {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = true;
     }
 
-    public static long a() {
+    public static gj1 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == 0) {
-                d = n31.a().b("splash_sp_name").getLong("last_background_time", d);
-            }
-            return d;
+            return e.a;
         }
-        return invokeV.longValue;
+        return (gj1) invokeV.objValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return invokeV.intValue;
+    public /* synthetic */ gj1(a aVar) {
+        this();
     }
 
-    public void c(Activity activity) {
+    public void a(File file, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            if (this.b) {
-                c = 0;
-                this.b = false;
-            }
-            JSONObject d2 = aj1.a().d();
-            if (d2 != null && d2.optBoolean("should_update_by_sdk", true)) {
-                p8.f().j(c);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, file, fVar) == null) && file != null && file.exists()) {
+            try {
+                b(new FileInputStream(file), fVar);
+            } catch (FileNotFoundException e2) {
+                e2.printStackTrace();
+                if (fVar != null) {
+                    fVar.b();
+                }
             }
         }
     }
 
-    public void d(Activity activity) {
+    public void b(InputStream inputStream, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            d = System.currentTimeMillis();
-            n31.a().b("splash_sp_name").g("last_background_time", d);
-            rj1.a();
-            c = 1;
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            int i = this.a + 1;
-            this.a = i;
-            if (i == 1) {
-                c(activity);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream, fVar) == null) {
+            try {
+                LottieCompositionFactory.fromZipStream(new ZipInputStream(inputStream), null).addListener(new b(this, fVar)).addFailureListener(new a(this, fVar));
+            } catch (Exception unused) {
+                if (fVar != null) {
+                    fVar.b();
+                }
             }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(@NonNull Activity activity) {
+    public void c(String str, f fVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-            int i = this.a - 1;
-            this.a = i;
-            if (i == 0) {
-                d(activity);
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, fVar) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File r = rj1.r(str);
+        if (r != null && r.exists()) {
+            a(r, fVar);
+            return;
+        }
+        try {
+            LottieCompositionFactory.fromUrl(sj0.b(), str).addListener(new d(this, fVar)).addFailureListener(new c(this, fVar));
+        } catch (Exception unused) {
+            if (fVar != null) {
+                fVar.b();
             }
         }
     }

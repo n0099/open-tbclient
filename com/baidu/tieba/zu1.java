@@ -1,10 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import com.baidu.tieba.ca3;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public interface zu1 {
-    ca3.a a(Context context, ya3 ya3Var, yf3 yf3Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
+    boolean A();
+
+    boolean B();
+
+    JSONObject C();
+
+    boolean D();
+
+    void E();
+
+    long F();
+
+    boolean G();
+
+    long H();
+
+    String getExpInfos();
+
+    JSONObject getRawSwitch();
+
+    int getSwitch(String str, int i);
+
+    String getSwitch(String str, String str2);
+
+    boolean getSwitch(String str, boolean z);
+
+    boolean j();
+
+    String k();
+
+    boolean l();
+
+    boolean m();
+
+    long n();
+
+    boolean o();
+
+    boolean p();
+
+    int q();
+
+    boolean r();
+
+    boolean s();
+
+    boolean t();
+
+    int u();
+
+    boolean v();
+
+    boolean w();
+
+    boolean x();
+
+    int y();
+
+    boolean z();
 }

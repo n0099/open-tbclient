@@ -144,10 +144,10 @@ public abstract class a implements c {
     public void E(Context context) {
         View inflate = LayoutInflater.from(context).inflate(this.xb, (ViewGroup) null, false);
         this.wU = inflate;
-        this.wV = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09143e);
-        this.bq = (KsLogoView) this.wU.findViewById(R.id.obfuscated_res_0x7f09143b);
-        this.wW = (com.kwad.components.ad.widget.tailframe.appbar.a) this.wU.findViewById(R.id.obfuscated_res_0x7f091418);
-        this.wX = (TailFrameBarH5View) this.wU.findViewById(R.id.obfuscated_res_0x7f09142e);
+        this.wV = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091454);
+        this.bq = (KsLogoView) this.wU.findViewById(R.id.obfuscated_res_0x7f091451);
+        this.wW = (com.kwad.components.ad.widget.tailframe.appbar.a) this.wU.findViewById(R.id.obfuscated_res_0x7f09142e);
+        this.wX = (TailFrameBarH5View) this.wU.findViewById(R.id.obfuscated_res_0x7f091444);
     }
 
     public void a(@NonNull AdTemplate adTemplate, JSONObject jSONObject, b bVar) {

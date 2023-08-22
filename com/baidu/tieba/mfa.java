@@ -1,54 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.AlaTabFeedActivityConfig;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActHot;
 /* loaded from: classes7.dex */
-public class mfa extends CustomMessageListener {
+public class mfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    public int a;
+    public int b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mfa(MainTabActivity mainTabActivity) {
-        super(2921734);
+    public mfa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = mainTabActivity;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void a(ActHot actHot) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-            String str = (String) customResponsedMessage.getData();
-            if (StringUtils.isNull(str)) {
-                new AlaTabFeedActivityConfig(this.a).start();
-            } else {
-                UrlManager.getInstance().dealOneLink((TbPageContext<?>) this.a.getPageContext(), new String[]{str}, true);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, actHot) != null) || actHot == null) {
+            return;
+        }
+        String str = actHot.bsize;
+        if (str != null) {
+            try {
+                String[] split = str.split(",");
+                this.a = JavaTypesHelper.toInt(split[0], 1);
+                this.b = JavaTypesHelper.toInt(split[1], 1);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
         }
+        if (this.a <= 0) {
+            this.a = 1;
+        }
+        if (this.b <= 0) {
+            this.b = 1;
+        }
+        String str2 = actHot.img_src;
+        String str3 = actHot.link;
+        String str4 = actHot.author_name;
+        String str5 = actHot.img_des;
+        actHot.img_type.intValue();
     }
 }

@@ -1,8 +1,32 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BDLayoutMode;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.MeasureTextLength;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tieba.write.write.AtListActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,68 +34,141 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.ExperimentalUrlRequest;
-import com.baidu.turbonet.net.RequestFinishedInfo;
-import com.baidu.turbonet.net.UploadDataProvider;
-import com.baidu.turbonet.net.UrlRequest;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public class b1b extends ExperimentalUrlRequest.Builder {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String B = "b1b";
+public class b1b extends BaseAdapter {
+    public static /* synthetic */ Interceptable $ic;
+    public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public final d0b a;
-    public final String b;
-    public final UrlRequest.Callback c;
-    public final Executor d;
-    public String e;
-    public final ArrayList<Pair<String, String>> f;
+    public final Context a;
+    public AtListActivity b;
+    public ArrayList<MetaData> c;
+    public TbCheckBox.b d;
+    public c e;
+    public ViewGroup f;
     public boolean g;
-    public boolean h;
-    public int i;
-    public Collection<Object> j;
-    public UploadDataProvider k;
-    public Executor l;
-    public boolean m;
-    public boolean n;
-    public int o;
-    public boolean p;
-    public int q;
-    public RequestFinishedInfo.Listener r;
-    public int s;
-    public boolean t;
-    public int u;
-    public int v;
-    public int w;
-    public int x;
-    public Object y;
-    public String z;
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void N0(View view2, MetaData metaData);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MetaData a;
+        public final /* synthetic */ b1b b;
+
+        public a(b1b b1bVar, MetaData metaData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b1bVar, metaData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = b1bVar;
+            this.a = metaData;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.b.f(this.a)) {
+                return;
+            }
+            this.b.b.sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(this.b.b.getPageContext().getPageActivity(), this.a.getUserId(), this.a.getUserName())));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public View a;
+        public LinearLayout b;
+        public HeadImageView c;
+        public TextView d;
+        public TbCheckBox e;
+        public ImageView f;
+        public TextView g;
+        public TextView h;
+        public TextView i;
+        public HeadImageView j;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947593526, "Lcom/baidu/tieba/b1b;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947593526, "Lcom/baidu/tieba/b1b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947593526, "Lcom/baidu/tieba/b1b;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947593526, "Lcom/baidu/tieba/b1b;");
-        }
+        h = BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds580);
     }
 
-    public b1b(String str, UrlRequest.Callback callback, Executor executor, d0b d0bVar) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList<MetaData> arrayList = this.c;
+            if (arrayList == null) {
+                return 0;
+            }
+            return arrayList.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public b1b(AtListActivity atListActivity, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, callback, executor, d0bVar};
+            Object[] objArr = {atListActivity, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,300 +178,212 @@ public class b1b extends ExperimentalUrlRequest.Builder {
                 return;
             }
         }
-        this.f = new ArrayList<>();
-        this.i = 3;
-        this.s = 0;
-        if (str != null) {
-            if (callback != null) {
-                if (executor != null) {
-                    if (d0bVar != null) {
-                        this.b = str;
-                        this.c = callback;
-                        this.d = executor;
-                        this.a = d0bVar;
-                        this.t = false;
-                        this.u = 0;
-                        this.v = 0;
-                        this.w = 0;
-                        this.x = 0;
-                        this.y = null;
-                        this.z = null;
-                        this.A = null;
-                        return;
-                    }
-                    throw new NullPointerException("TurbonetEngine is required.");
-                }
-                throw new NullPointerException("Executor is required.");
-            }
-            throw new NullPointerException("Callback is required.");
-        }
-        throw new NullPointerException("URL is required.");
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder a(String str, String str2) {
-        n(str, str2);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder m(UploadDataProvider uploadDataProvider, Executor executor) {
-        y(uploadDataProvider, executor);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder c() {
-        p();
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder d() {
-        q();
-        return this;
-    }
-
-    public b1b p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            this.g = true;
-            return this;
-        }
-        return (b1b) invokeV.objValue;
-    }
-
-    public b1b q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            this.t = true;
-            return this;
-        }
-        return (b1b) invokeV.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder e(String str) {
-        r(str);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public ExperimentalUrlRequest.Builder f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (str != null) {
-                this.e = str;
-                return this;
-            }
-            throw new NullPointerException("Method is required.");
-        }
-        return (ExperimentalUrlRequest.Builder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder g(String str) {
-        s(str);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder h(int i) {
-        t(i);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder i(int i) {
-        u(i);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder j(int i) {
-        v(i);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder k(int i) {
-        w(i);
-        return this;
-    }
-
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder l(int i) {
-        x(i);
-        return this;
-    }
-
-    public b1b r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
-            this.z = str;
-            return this;
-        }
-        return (b1b) invokeL.objValue;
-    }
-
-    public b1b s(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
-            this.A = str;
-            return this;
-        }
-        return (b1b) invokeL.objValue;
-    }
-
-    public b1b t(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            this.w = i;
-            return this;
-        }
-        return (b1b) invokeI.objValue;
-    }
-
-    public b1b u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            this.v = i;
-            return this;
-        }
-        return (b1b) invokeI.objValue;
-    }
-
-    public b1b v(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
-            this.u = i;
-            return this;
-        }
-        return (b1b) invokeI.objValue;
-    }
-
-    public b1b w(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
-            this.n = true;
-            this.o = i;
-            return this;
-        }
-        return (b1b) invokeI.objValue;
-    }
-
-    public b1b x(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
-            this.p = true;
-            this.q = i;
-            return this;
-        }
-        return (b1b) invokeI.objValue;
-    }
-
-    public b1b n(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
-            if (str != null) {
-                if (str2 != null) {
-                    if ("Accept-Encoding".equalsIgnoreCase(str)) {
-                        Log.w(B, "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
-                        return this;
-                    }
-                    this.f.add(Pair.create(str, str2));
-                    return this;
-                }
-                throw new NullPointerException("Invalid header value.");
-            }
-            throw new NullPointerException("Invalid header name.");
-        }
-        return (b1b) invokeLL.objValue;
-    }
-
-    public b1b y(UploadDataProvider uploadDataProvider, Executor executor) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, uploadDataProvider, executor)) == null) {
-            if (uploadDataProvider != null) {
-                if (executor != null) {
-                    if (this.e == null) {
-                        this.e = "POST";
-                    }
-                    this.k = uploadDataProvider;
-                    this.l = executor;
-                    return this;
-                }
-                throw new NullPointerException("Invalid UploadDataProvider Executor.");
-            }
-            throw new NullPointerException("Invalid UploadDataProvider.");
-        }
-        return (b1b) invokeLL.objValue;
+        this.e = null;
+        this.f = null;
+        this.g = true;
+        this.b = atListActivity;
+        this.a = atListActivity.getPageContext().getContext();
+        this.g = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
-    /* renamed from: o */
-    public a1b b() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    /* renamed from: e */
+    public MetaData getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            a1b g = this.a.g(this.b, this.c, this.d, this.i, this.j, this.g, this.h, this.m, this.n, this.o, this.p, this.q, this.r, this.s);
-            String str = this.e;
-            if (str != null) {
-                g.p(str);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            ArrayList<MetaData> arrayList = this.c;
+            if (arrayList == null || i >= arrayList.size()) {
+                return null;
             }
-            Iterator<Pair<String, String>> it = this.f.iterator();
-            while (it.hasNext()) {
-                Pair<String, String> next = it.next();
-                g.n((String) next.first, (String) next.second);
-            }
-            UploadDataProvider uploadDataProvider = this.k;
-            if (uploadDataProvider != null) {
-                g.q(uploadDataProvider, this.l);
-            }
-            if (this.t) {
-                g.b();
-            }
-            int i = this.u;
-            if (i > 0) {
-                g.l(i);
-            }
-            int i2 = this.v;
-            if (i2 > 0) {
-                g.j(i2);
-            }
-            int i3 = this.w;
-            if (i3 > 0) {
-                g.i(i3);
-            }
-            int i4 = this.x;
-            if (i4 > 0) {
-                g.h(i4);
-            }
-            Object obj = this.y;
-            if (obj != null) {
-                g.k(obj);
-            }
-            if (!TextUtils.isEmpty(this.z)) {
-                g.f(this.z);
-            }
-            if (!TextUtils.isEmpty(this.A)) {
-                g.g(this.A);
-            }
-            return g;
+            return this.c.get(i);
         }
-        return (a1b) invokeV.objValue;
+        return (MetaData) invokeI.objValue;
+    }
+
+    public void g(TbCheckBox.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public void h(ArrayList<MetaData> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, arrayList) == null) {
+            this.c = arrayList;
+        }
+    }
+
+    public void i(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
+            this.e = cVar;
+        }
+    }
+
+    public final b c(Object obj, MetaData metaData) {
+        InterceptResult invokeLL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, obj, metaData)) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (obj == null) {
+                bVar = d(metaData);
+            } else {
+                bVar = (b) obj;
+            }
+            bVar.b.setOnClickListener(new a(this, metaData));
+            c cVar = this.e;
+            if (cVar != null) {
+                cVar.N0(bVar.a, metaData);
+            }
+            String avater = metaData.getAvater();
+            bVar.d.setText(MeasureTextLength.fitTextLabel(metaData.getName_show(), "...", MeasureTextLength.spaceLength(h), bVar.d.getPaint(), ""));
+            boolean z = true;
+            if (metaData.getIsNearlyAt() == 1) {
+                bVar.g.setVisibility(0);
+                bVar.g.setText(this.a.getString(R.string.obfuscated_res_0x7f0f02e1));
+            } else if (metaData.getIsFollower() == 1) {
+                bVar.g.setVisibility(0);
+                bVar.g.setText(R.string.obfuscated_res_0x7f0f02df);
+            } else if (metaData.getIsMyFollower() == 1) {
+                bVar.g.setVisibility(0);
+                bVar.g.setText(R.string.obfuscated_res_0x7f0f02e0);
+            } else {
+                bVar.g.setVisibility(8);
+            }
+            bVar.e.setTagData(metaData);
+            bVar.c.setTag(avater);
+            bVar.c.setImageBitmap(null);
+            if (this.g) {
+                bVar.e.setVisibility(0);
+            } else {
+                bVar.e.setVisibility(8);
+            }
+            if (f(metaData)) {
+                bVar.c.setDefaultResource(R.drawable.icon_at_all_user);
+                avater = "";
+            } else {
+                bVar.c.setDefaultResource(0);
+            }
+            UtilHelper.showHeadImageViewBigV(bVar.c, metaData);
+            bVar.c.startLoad(avater, 12, false);
+            if (this.b.C2(metaData.getUserId()) && this.b.M) {
+                bVar.e.setVisibility(8);
+                bVar.f.setVisibility(0);
+                bVar.h.setText(R.string.obfuscated_res_0x7f0f02de);
+                bVar.h.setVisibility(0);
+                bVar.g.setVisibility(8);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(bVar.f, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+            } else {
+                bVar.e.setVisibility(0);
+                bVar.f.setVisibility(8);
+                bVar.h.setVisibility(8);
+            }
+            if (!StringUtils.isNull(metaData.getGaokaoTag())) {
+                bVar.i.setText(metaData.getGaokaoTag());
+                bVar.i.setVisibility(0);
+                bVar.j.setVisibility(0);
+                if (!StringUtils.isNull(metaData.getGaokaoTagIcon())) {
+                    bVar.j.startLoad(metaData.getGaokaoTagIcon(), 10, false);
+                } else {
+                    bVar.j.setImageDrawable(SkinManager.getDrawable(R.drawable.kaogao_image_icon));
+                }
+                bVar.j.setDrawBorder(false);
+            } else {
+                bVar.i.setVisibility(8);
+                bVar.j.setVisibility(8);
+            }
+            BDLayoutMode layoutMode = this.b.getPageContext().getLayoutMode();
+            if (skinType != 4) {
+                z = false;
+            }
+            layoutMode.setNightMode(z);
+            this.b.getPageContext().getLayoutMode().onModeChanged(bVar.a);
+            return bVar;
+        }
+        return (b) invokeLL.objValue;
+    }
+
+    public final b d(MetaData metaData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, metaData)) == null) {
+            b bVar = new b(null);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.invite_friend_list_item, (ViewGroup) null);
+            bVar.a = inflate;
+            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c8a);
+            bVar.c = headImageView;
+            headImageView.setIsRound(true);
+            UtilHelper.showHeadImageViewBigV(bVar.c, metaData);
+            bVar.b = (LinearLayout) bVar.a.findViewById(R.id.photo_box);
+            bVar.d = (TextView) bVar.a.findViewById(R.id.txt_user_name);
+            TextView textView = (TextView) bVar.a.findViewById(R.id.label_user);
+            bVar.g = textView;
+            EMManager.from(textView).setTextColor(R.color.CAM_X0108).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBorderWidth(R.dimen.L_X01).setBorderColor(R.color.CAM_X0111);
+            TextView textView2 = (TextView) bVar.a.findViewById(R.id.label_bot);
+            bVar.h = textView2;
+            EMManager.from(textView2).setTextColor(R.color.CAM_X0201).setTextSize(R.dimen.T_X10).setCorner(R.string.J_X04).setBorderWidth(R.dimen.L_X01).setBackGroundColor(R.color.CAM_X0334);
+            bVar.h.setAlpha(0.7f);
+            bVar.f = (ImageView) bVar.a.findViewById(R.id.bot_select_arrow);
+            TbCheckBox tbCheckBox = (TbCheckBox) bVar.a.findViewById(R.id.ckb_select);
+            bVar.e = tbCheckBox;
+            tbCheckBox.setBackgroundDrawableIdIsWebP(true);
+            bVar.e.setBackgroundDrawableId(R.drawable.icon_pure_strok324_select, R.drawable.icon_pure_strok324);
+            TextView textView3 = (TextView) bVar.a.findViewById(R.id.kaogao_icon);
+            bVar.i = textView3;
+            EMManager.from(textView3).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0109);
+            bVar.j = (HeadImageView) bVar.a.findViewById(R.id.gaokao_img);
+            TbCheckBox.b bVar2 = this.d;
+            if (bVar2 != null) {
+                bVar.e.setStatedChangedListener(bVar2);
+            }
+            bVar.a.setTag(bVar);
+            return bVar;
+        }
+        return (b) invokeL.objValue;
+    }
+
+    public final boolean f(MetaData metaData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, metaData)) == null) {
+            if (AtSelectData.AT_ALL_FAKE_UID.equals(metaData.getUserId()) && AtSelectData.AT_ALL_FAKE_NAME.equals(metaData.getName_show()) && AtSelectData.AT_ALL_FAKE_PORTRAIT.equals(metaData.getPortrait())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (this.f == null) {
+                this.f = viewGroup;
+            }
+            MetaData item = getItem(i);
+            if (item != null) {
+                if (view2 != null) {
+                    obj = view2.getTag();
+                } else {
+                    obj = null;
+                }
+                bVar = c(obj, item);
+            } else {
+                bVar = null;
+            }
+            if (bVar == null) {
+                return null;
+            }
+            return bVar.a;
+        }
+        return (View) invokeILL.objValue;
     }
 }

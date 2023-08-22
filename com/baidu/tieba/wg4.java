@@ -1,69 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.browser.sailor.util.BdZeusUtil;
 import com.baidu.mapapi.model.LatLng;
-import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
-import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
-import com.baidu.mapapi.search.route.PlanNode;
-import com.baidu.mapapi.search.route.RoutePlanSearch;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.downloadcenter.service.DownloadCenterFunConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wg4 {
+public class wg4 extends xg4 {
     public static /* synthetic */ Interceptable $ic;
-    public static wg4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public RoutePlanSearch a;
 
-    public wg4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wg4(@NonNull Context context) {
+        super("GaodeMap", context.getString(R.string.obfuscated_res_0x7f0f0efe), "com.autonavi.minimap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static wg4 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xg4
+    public void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (wg4.class) {
-                    if (b == null) {
-                        b = new wg4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (wg4) invokeV.objValue;
-    }
-
-    public void a() {
-        RoutePlanSearch routePlanSearch;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (routePlanSearch = this.a) != null) {
-            routePlanSearch.destroy();
-        }
-    }
-
-    public void c(LatLng latLng, LatLng latLng2, OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng, latLng2, onGetRoutePlanResultListener) == null) && latLng != null && latLng2 != null && onGetRoutePlanResultListener != null) {
-            RoutePlanSearch newInstance = RoutePlanSearch.newInstance();
-            this.a = newInstance;
-            newInstance.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
-            PlanNode withLocation = PlanNode.withLocation(latLng);
-            this.a.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
+        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, context, latLng, latLng2, str, str2) == null) && latLng != null && latLng2 != null) {
+            Uri.Builder buildUpon = Uri.parse("androidamap://route?").buildUpon();
+            buildUpon.appendQueryParameter("sourceApplication", context.getPackageName());
+            buildUpon.appendQueryParameter("slat", String.valueOf(latLng.latitude));
+            buildUpon.appendQueryParameter("slon", String.valueOf(latLng.longitude));
+            buildUpon.appendQueryParameter(DownloadCenterFunConstants.DOWNLOAD_MARKET_SNAME, str);
+            buildUpon.appendQueryParameter("dlat", String.valueOf(latLng2.latitude));
+            buildUpon.appendQueryParameter("dlon", String.valueOf(latLng2.longitude));
+            buildUpon.appendQueryParameter("dname", str2);
+            buildUpon.appendQueryParameter(BdZeusUtil.URL_KEY_MACHINE, "0");
+            buildUpon.appendQueryParameter("t", "0");
+            Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, buildUpon.build());
+            intent.setPackage("com.autonavi.minimap");
+            context.startActivity(intent);
         }
     }
 }

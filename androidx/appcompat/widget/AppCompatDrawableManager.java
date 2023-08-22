@@ -125,10 +125,10 @@ public final class AppCompatDrawableManager {
                     @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks
                     public ColorStateList getTintListForDrawableRes(@NonNull Context context, int i) {
                         if (i == R.drawable.obfuscated_res_0x7f080074) {
-                            return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603ca);
+                            return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603d0);
                         }
                         if (i == R.drawable.obfuscated_res_0x7f0800a6) {
-                            return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603cd);
+                            return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603d3);
                         }
                         if (i == R.drawable.obfuscated_res_0x7f0800a5) {
                             return createSwitchThumbColorStateList(context);
@@ -147,17 +147,17 @@ public final class AppCompatDrawableManager {
                                 return ThemeUtils.getThemeAttrColorStateList(context, R.attr.obfuscated_res_0x7f04017d);
                             }
                             if (arrayContains(this.TINT_COLOR_CONTROL_STATE_LIST, i)) {
-                                return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603c9);
+                                return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603cf);
                             }
                             if (arrayContains(this.TINT_CHECKABLE_BUTTON_LIST, i)) {
-                                return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603c8);
+                                return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603ce);
                             }
                             if (i == R.drawable.obfuscated_res_0x7f0800a0) {
-                                return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603cb);
+                                return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603d1);
                             }
                             return null;
                         }
-                        return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603cc);
+                        return AppCompatResources.getColorStateList(context, R.color.obfuscated_res_0x7f0603d2);
                     }
 
                     @Override // androidx.appcompat.widget.ResourceManagerInternal.ResourceManagerHooks

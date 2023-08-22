@@ -1,56 +1,50 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
-import android.content.MutableContextWrapper;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.hybrid.BridgeWebView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ImageView.BdImage;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.schemeaction.UriBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes6.dex */
+import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.io.ByteArrayOutputStream;
+import tbclient.TiebaPlusInfo;
+/* loaded from: classes7.dex */
 public class lx5 {
     public static /* synthetic */ Interceptable $ic;
-    public static lx5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, kx5> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947958272, "Lcom/baidu/tieba/lx5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947958272, "Lcom/baidu/tieba/lx5;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements hca {
+    /* loaded from: classes7.dex */
+    public static class a extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fca a;
-        public final /* synthetic */ WebView b;
+        public final /* synthetic */ WXMediaMessage a;
+        public final /* synthetic */ IWXAPI b;
+        public final /* synthetic */ SendMessageToWX.Req c;
 
-        public a(lx5 lx5Var, fca fcaVar, WebView webView) {
+        public a(WXMediaMessage wXMediaMessage, IWXAPI iwxapi, SendMessageToWX.Req req) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {lx5Var, fcaVar, webView};
+                Object[] objArr = {wXMediaMessage, iwxapi, req};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -60,135 +54,96 @@ public class lx5 {
                     return;
                 }
             }
-            this.a = fcaVar;
-            this.b = webView;
+            this.a = wXMediaMessage;
+            this.b = iwxapi;
+            this.c = req;
         }
 
-        @Override // com.baidu.tieba.hca
-        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
-            InterceptResult invokeLL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
-                fca fcaVar = this.a;
-                if (fcaVar != null) {
-                    return fcaVar.c(this.b, str, jsPromptResult);
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) {
+                super.onLoaded((a) bdImage, str, i);
+                if (bdImage != null) {
+                    Bitmap rawBitmap = bdImage.getRawBitmap();
+                    this.a.thumbData = lx5.a(rawBitmap);
+                } else {
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.pic_wechatguide_head);
+                    this.a.thumbData = lx5.a(cashBitmap);
                 }
-                return false;
+                this.b.sendReq(this.c);
             }
-            return invokeLL.booleanValue;
         }
     }
 
-    public lx5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-    }
-
-    public static lx5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (lx5.class) {
-                    if (b == null) {
-                        b = new lx5();
-                    }
-                }
-            }
-            return b;
-        }
-        return (lx5) invokeV.objValue;
-    }
-
-    public kx5 a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (this.a.size() >= 8) {
-                f();
-            }
-            kx5 kx5Var = new kx5();
-            BridgeWebView bridgeWebView = new BridgeWebView(new MutableContextWrapper(context));
-            bridgeWebView.setBackgroundColor(R.color.transparent);
-            mx5.b(bridgeWebView);
-            fca fcaVar = new fca();
-            fcaVar.a(new CommonTbJsBridge(context, bridgeWebView));
-            xw4 xw4Var = new xw4();
-            xw4Var.b(new a(this, fcaVar, bridgeWebView));
-            bridgeWebView.setWebChromeClient(xw4Var);
-            kx5Var.a = bridgeWebView;
-            kx5Var.b = str;
-            kx5Var.c = 0;
-            this.a.put(str, kx5Var);
-            return kx5Var;
-        }
-        return (kx5) invokeLL.objValue;
-    }
-
-    public kx5 c(Activity activity, String str) {
-        InterceptResult invokeLL;
-        WebView webView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str)) == null) {
-            kx5 kx5Var = this.a.get(str);
-            if (kx5Var != null && (webView = kx5Var.a) != null) {
-                ((MutableContextWrapper) webView.getContext()).setBaseContext(activity);
-                this.a.remove(str);
-                return kx5Var;
-            }
-            return null;
-        }
-        return (kx5) invokeLL.objValue;
-    }
-
-    public boolean d(String str) {
+    public static byte[] a(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.a.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (this.a.containsKey(str) && this.a.get(str) != null && this.a.get(str).a()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            long j = 0;
-            String str = null;
-            for (String str2 : this.a.keySet()) {
-                kx5 kx5Var = this.a.get(str2);
-                if (kx5Var != null) {
-                    if (kx5Var.d < j) {
-                        str = kx5Var.b;
-                    }
-                    j = kx5Var.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bitmap)) == null) {
+            if (bitmap == null) {
+                try {
+                    bitmap = BitmapHelper.getCashBitmap(R.drawable.pic_wechatguide_head);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
                 }
             }
-            if (str != null) {
-                this.a.remove(str);
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.close();
+            return byteArray;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return String.valueOf(System.currentTimeMillis());
+            }
+            return str + System.currentTimeMillis();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            try {
+                Intent intent = new Intent("android.intent.action.MAIN");
+                ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
+                intent.addCategory("android.intent.category.LAUNCHER");
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                intent.setComponent(componentName);
+                context.startActivity(intent);
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+        }
+    }
+
+    public static void d(TiebaPlusInfo tiebaPlusInfo, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, tiebaPlusInfo, str) == null) {
+            UriBuilder uriBuilder = new UriBuilder(tiebaPlusInfo.h5_jump_param);
+            if (uriBuilder.getParamsObject() != null) {
+                WXWebpageObject wXWebpageObject = new WXWebpageObject();
+                String string = uriBuilder.getParamsObject().getString("url");
+                if (TextUtils.isEmpty(string)) {
+                    return;
+                }
+                wXWebpageObject.webpageUrl = string;
+                WXMediaMessage wXMediaMessage = new WXMediaMessage(wXWebpageObject);
+                wXMediaMessage.title = str;
+                SendMessageToWX.Req req = new SendMessageToWX.Req();
+                req.transaction = b("webpage");
+                req.message = wXMediaMessage;
+                req.scene = 1;
+                BdResourceLoader.getInstance().loadResource(tiebaPlusInfo.wx_thumbnail, 10, new a(wXMediaMessage, WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), TbConfig.WEIXIN_APP_ID), req), 0, 0, null, new Object[0]);
             }
         }
     }

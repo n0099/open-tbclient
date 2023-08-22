@@ -1,44 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.ad.asyncpv.NadAsyncRequester;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class q46 implements NadAsyncRequester.b {
+public class q46 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile q46 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public PlaceId a;
-    public String b;
-    public int c;
-    public boolean d;
-    public NadAsyncRequester e;
-    public long f;
-    public final WeakReference<IAdBaseAsyncController.a> g;
+    public ArrayList<Integer> a;
+    public n46 b;
+    public p46 c;
+    public List<StatisticItem> d;
 
-    public void c(List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-        }
-    }
-
-    public q46(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
+    public q46() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {placeId, str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,71 +35,138 @@ public class q46 implements NadAsyncRequester.b {
                 return;
             }
         }
-        this.d = false;
-        this.f = 0L;
-        this.a = placeId;
-        this.b = str;
-        this.g = new WeakReference<>(aVar);
-        this.e = new NadAsyncRequester(this, this.a);
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        this.a = arrayList;
+        arrayList.add(1);
+        this.a.add(2);
+        p46 p46Var = new p46();
+        this.c = p46Var;
+        this.b = new n46(p46Var, this.a);
+        g(SharedPrefHelper.getInstance().getInt("key_abtest_channel", 0));
     }
 
-    @Override // com.baidu.tieba.ad.asyncpv.NadAsyncRequester.b
-    public final void a(boolean z, List<AdvertAppInfo> list) {
+    public static q46 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
-            IAdBaseAsyncController.a aVar = this.g.get();
-            if (z && !dy8.e(list)) {
-                f(list);
-                c(list);
-                if (aVar != null) {
-                    aVar.b(list);
-                }
-            } else if (aVar != null) {
-                aVar.b(null);
-            }
-        }
-    }
-
-    public void d(int i, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * sw9.a) {
-            return;
-        }
-        this.e.i(map, i);
-        this.f = System.currentTimeMillis();
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.h();
-        }
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public void f(List<AdvertAppInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            Iterator<AdvertAppInfo> it = list.iterator();
-            while (it.hasNext()) {
-                AdvertAppInfo next = it.next();
-                next.j = this.b;
-                if (pw9.l(next) && this.d) {
-                    it.remove();
-                } else {
-                    int h = next.h();
-                    if (h != 0) {
-                        bz9.h(next, 0, h);
-                        it.remove();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == null) {
+                synchronized (p46.class) {
+                    if (e == null) {
+                        e = new q46();
                     }
                 }
             }
+            return e;
+        }
+        return (q46) invokeV.objValue;
+    }
+
+    public void a(StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
+            return;
+        }
+        if (this.d == null) {
+            this.d = new ArrayList();
+        }
+        this.d.add(statisticItem);
+    }
+
+    public void d(String str) {
+        p46 p46Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (di.isEmpty(str) || (p46Var = this.c) == null || !p46Var.g()) {
+                nab.d(str);
+            }
+        }
+    }
+
+    public void e(String str) {
+        p46 p46Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (di.isEmpty(str) || (p46Var = this.c) == null || !p46Var.g()) {
+                nab.e(str);
+            }
+        }
+    }
+
+    public void f(String str) {
+        n46 n46Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (n46Var = this.b) != null) {
+            n46Var.b(str);
+        }
+    }
+
+    public void g(int i) {
+        p46 p46Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (p46Var = this.c) != null) {
+            p46Var.k(i);
+        }
+    }
+
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            n46 n46Var = this.b;
+            if (n46Var == null) {
+                return 0;
+            }
+            return n46Var.a(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public void h(String str, String str2) {
+        p46 p46Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && !ListUtils.isEmpty(this.d) && (p46Var = this.c) != null && p46Var.g()) {
+            int i = -1;
+            for (StatisticItem statisticItem : this.d) {
+                if (statisticItem != null) {
+                    if (statisticItem.getPosition() == 0) {
+                        i(str, str2, statisticItem);
+                    } else if (i != statisticItem.getPosition()) {
+                        i = statisticItem.getPosition();
+                        i(str, str2, statisticItem);
+                    }
+                }
+            }
+            this.d.clear();
+        }
+    }
+
+    public void i(String str, String str2, StatisticItem statisticItem) {
+        p46 p46Var;
+        String str3;
+        String str4;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) && statisticItem != null && (p46Var = this.c) != null && p46Var.g()) {
+            HashMap hashMap = new HashMap();
+            List<Object> params = statisticItem.getParams();
+            if (params != null) {
+                int size = params.size();
+                for (int i = 0; i < size; i += 2) {
+                    Object obj = params.get(i);
+                    if (obj == null) {
+                        str3 = "";
+                    } else {
+                        str3 = obj.toString();
+                    }
+                    Object obj2 = params.get(i + 1);
+                    if (obj2 == null) {
+                        str4 = "";
+                    } else {
+                        str4 = obj2.toString();
+                    }
+                    hashMap.put(str3, str4);
+                }
+            }
+            nab.c(str2 + statisticItem.getKey(), str, "", hashMap);
         }
     }
 }

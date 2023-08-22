@@ -1,179 +1,364 @@
 package com.baidu.tieba;
 
+import android.app.ActivityManager;
+import android.app.ApplicationExitInfo;
+import android.content.Context;
+import android.os.Build;
+import android.os.Process;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
-/* loaded from: classes8.dex */
-public class zzb extends b0c {
+import java.nio.channels.FileChannel;
+import java.nio.charset.StandardCharsets;
+import java.util.Iterator;
+import java.util.regex.Pattern;
+/* loaded from: classes9.dex */
+public class zzb {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int h;
-    public String i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zzb() {
-        super(Framedata.Opcode.CLOSING);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948378663, "Lcom/baidu/tieba/zzb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948378663, "Lcom/baidu/tieba/zzb;");
                 return;
             }
         }
-        r("");
-        q(1000);
+        a = Pattern.compile("[^0-9]");
     }
 
-    public final void s() {
+    public static void a(Context context) {
+        ApplicationExitInfo next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            byte[] f = u0c.f(this.i);
-            ByteBuffer allocate = ByteBuffer.allocate(4);
-            allocate.putInt(this.h);
-            allocate.position(2);
-            ByteBuffer allocate2 = ByteBuffer.allocate(f.length + 2);
-            allocate2.put(allocate);
-            allocate2.put(f);
-            allocate2.rewind();
-            super.j(allocate2);
-        }
-    }
-
-    @Override // com.baidu.tieba.d0c, org.java_websocket.framing.Framedata
-    public ByteBuffer a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.h == 1005) {
-                return t0c.a();
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && Build.VERSION.SDK_INT > 29) {
+            Iterator<ApplicationExitInfo> it = ((ActivityManager) context.getSystemService("activity")).getHistoricalProcessExitReasons(context.getPackageName(), 0, 3).iterator();
+            while (it.hasNext() && (next = it.next()) != null) {
+                tzb.d("CrashReportUtil", next.toString());
+                try {
+                    f(next.getTraceInputStream());
+                } catch (Throwable th) {
+                    th.printStackTrace();
+                }
             }
-            return super.a();
         }
-        return (ByteBuffer) invokeV.objValue;
     }
 
-    public int o() {
+    public static void f(InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, inputStream) != null) || inputStream == null) {
+            return;
+        }
+        try {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            byte[] bArr = new byte[1024];
+            while (true) {
+                int read = inputStream.read(bArr);
+                if (read != -1) {
+                    byteArrayOutputStream.write(bArr, 0, read);
+                } else {
+                    tzb.d("CrashReportUtil", byteArrayOutputStream.toString(StandardCharsets.UTF_8.name()));
+                    inputStream.close();
+                    byteArrayOutputStream.close();
+                    return;
+                }
+            }
+        } catch (Throwable th) {
+            tzb.b("CrashReportUtil", th.getMessage());
+        }
+    }
+
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("ls /proc/self/fd -al").getInputStream()), 1024);
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
+                    }
+                    sb.append(readLine);
+                    sb.append("\n");
+                }
+                bufferedReader.close();
+            } catch (Exception e) {
+                tzb.d("CrashReportUtil", e.getMessage());
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            StringBuilder sb = new StringBuilder();
+            try {
+                for (File file : new File("/proc/self/task").listFiles()) {
+                    if (file.isDirectory()) {
+                        File file2 = new File(file.getAbsolutePath() + File.separator + "comm");
+                        if (file2.isFile() && file2.exists()) {
+                            InputStreamReader inputStreamReader = new InputStreamReader(new FileInputStream(file2));
+                            BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                            sb.append(file.getName());
+                            sb.append("---");
+                            while (true) {
+                                int read = bufferedReader.read();
+                                if (read <= 0) {
+                                    break;
+                                }
+                                sb.append((char) read);
+                            }
+                            inputStreamReader.close();
+                            bufferedReader.close();
+                        }
+                        file2.delete();
+                    }
+                }
+            } catch (Exception e) {
+                tzb.d("CrashReportUtil", e.getMessage());
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Exception e;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            try {
+                i = 0;
+                for (File file : new File("/proc/self/task").listFiles()) {
+                    try {
+                        if (file.isDirectory()) {
+                            i++;
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        tzb.d("CrashReportUtil", e.getMessage());
+                        return i;
+                    }
+                }
+            } catch (Exception e3) {
+                e = e3;
+                i = 0;
+            }
+            return i;
         }
         return invokeV.intValue;
     }
 
-    public String p() {
+    public static long e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.d0c
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return super.toString() + "code: " + this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.b0c, com.baidu.tieba.d0c
-    public void h() throws InvalidDataException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.h();
-            if (this.h == 1007 && this.i == null) {
-                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
-            }
-            if (this.h == 1005 && this.i.length() > 0) {
-                throw new InvalidDataException(1002, "A close frame must have a closecode if it has a reason");
-            }
-            int i = this.h;
-            if (i > 1015 && i < 3000) {
-                throw new InvalidDataException(1002, "Trying to send an illegal close code!");
-            }
-            int i2 = this.h;
-            if (i2 != 1006 && i2 != 1015 && i2 != 1005 && i2 <= 4999 && i2 >= 1000 && i2 != 1004) {
-                return;
-            }
-            throw new InvalidFrameException("closecode must not be sent over the wire: " + this.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.d0c
-    public void j(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
-            this.h = 1005;
-            this.i = "";
-            byteBuffer.mark();
-            if (byteBuffer.remaining() == 0) {
-                this.h = 1000;
-            } else if (byteBuffer.remaining() == 1) {
-                this.h = 1002;
-            } else {
-                if (byteBuffer.remaining() >= 2) {
-                    ByteBuffer allocate = ByteBuffer.allocate(4);
-                    allocate.position(2);
-                    allocate.putShort(byteBuffer.getShort());
-                    allocate.position(0);
-                    this.h = allocate.getInt();
-                }
-                byteBuffer.reset();
-                try {
-                    int position = byteBuffer.position();
-                    try {
-                        byteBuffer.position(byteBuffer.position() + 2);
-                        this.i = u0c.e(byteBuffer);
-                        byteBuffer.position(position);
-                    } catch (IllegalArgumentException unused) {
-                        throw new InvalidDataException(1007);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            long j = -1;
+            try {
+                FileInputStream fileInputStream = new FileInputStream("/proc/" + Process.myPid() + "/status");
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                while (true) {
+                    String readLine = bufferedReader.readLine();
+                    if (readLine == null) {
+                        break;
                     }
-                } catch (InvalidDataException unused2) {
-                    this.h = 1007;
-                    this.i = null;
+                    String lowerCase = readLine.toLowerCase();
+                    if (lowerCase.contains("vmsize")) {
+                        j = Integer.parseInt(a.matcher(lowerCase).replaceAll("").trim());
+                        break;
+                    }
                 }
+                fileInputStream.close();
+                bufferedReader.close();
+            } catch (Exception unused) {
+                Log.e("CrashReportUtil", "read current status failed.");
             }
+            return j;
         }
+        return invokeV.longValue;
     }
 
-    public void q(int i) {
+    /* JADX WARN: Not initialized variable reg: 4, insn: 0x010a: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r4 I:??[OBJECT, ARRAY]), block:B:67:0x010a */
+    /* JADX WARN: Not initialized variable reg: 5, insn: 0x010b: MOVE  (r4 I:??[OBJECT, ARRAY]) = (r5 I:??[OBJECT, ARRAY]), block:B:67:0x010a */
+    /* JADX WARN: Removed duplicated region for block: B:101:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x00fe A[Catch: Exception -> 0x0076, TRY_ENTER, TryCatch #9 {Exception -> 0x0076, blocks: (B:60:0x00fe, B:62:0x0103, B:20:0x0072, B:24:0x007a), top: B:80:0x000b }] */
+    /* JADX WARN: Removed duplicated region for block: B:62:0x0103 A[Catch: Exception -> 0x0076, TRY_LEAVE, TryCatch #9 {Exception -> 0x0076, blocks: (B:60:0x00fe, B:62:0x0103, B:20:0x0072, B:24:0x007a), top: B:80:0x000b }] */
+    /* JADX WARN: Removed duplicated region for block: B:73:0x0116 A[Catch: Exception -> 0x0112, TRY_LEAVE, TryCatch #10 {Exception -> 0x0112, blocks: (B:69:0x010e, B:73:0x0116), top: B:86:0x010e }] */
+    /* JADX WARN: Removed duplicated region for block: B:86:0x010e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void g(String str) {
+        FileChannel fileChannel;
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        FileChannel fileChannel2;
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.h = i;
-            if (i == 1015) {
-                this.h = 1005;
-                this.i = "";
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            FileChannel fileChannel3 = null;
+            BufferedReader bufferedReader3 = null;
+            r3 = null;
+            r3 = null;
+            BufferedReader bufferedReader4 = null;
+            fileChannel3 = null;
+            try {
+                try {
+                    try {
+                        try {
+                            FileChannel channel = new RandomAccessFile(str, "rw").getChannel();
+                            if (channel != null) {
+                                try {
+                                    InputStreamReader inputStreamReader = new InputStreamReader(Runtime.getRuntime().exec("showmap " + Process.myPid()).getInputStream());
+                                    BufferedReader bufferedReader5 = new BufferedReader(inputStreamReader, 1024);
+                                    while (true) {
+                                        try {
+                                            String readLine = bufferedReader5.readLine();
+                                            if (readLine == null) {
+                                                break;
+                                            }
+                                            channel.write(ByteBuffer.wrap(readLine.getBytes()));
+                                            channel.write(ByteBuffer.wrap("\n".getBytes()));
+                                        } catch (Exception e) {
+                                            e = e;
+                                            tzb.b("CrashReportUtil", e.getMessage());
+                                            try {
+                                                file = new File("/proc/self/smaps");
+                                                fileChannel2 = new RandomAccessFile(str, "rw").getChannel();
+                                                try {
+                                                } catch (Exception e2) {
+                                                    e = e2;
+                                                    bufferedReader2 = null;
+                                                } catch (Throwable th) {
+                                                    th = th;
+                                                    bufferedReader2 = null;
+                                                }
+                                            } catch (Exception e3) {
+                                                e = e3;
+                                                bufferedReader2 = null;
+                                            }
+                                            if (file.isFile() && file.exists() && fileChannel2 != null) {
+                                                InputStreamReader inputStreamReader2 = new InputStreamReader(new FileInputStream(file));
+                                                bufferedReader2 = new BufferedReader(inputStreamReader2);
+                                                while (true) {
+                                                    try {
+                                                        String readLine2 = bufferedReader2.readLine();
+                                                        if (readLine2 == null) {
+                                                            break;
+                                                        }
+                                                        fileChannel2.write(ByteBuffer.wrap(readLine2.getBytes()));
+                                                        fileChannel2.write(ByteBuffer.wrap("\n".getBytes()));
+                                                    } catch (Exception e4) {
+                                                        e = e4;
+                                                        fileChannel3 = fileChannel2;
+                                                        try {
+                                                            tzb.b("CrashReportUtil", e.getMessage());
+                                                            fileChannel2 = fileChannel3;
+                                                            bufferedReader4 = bufferedReader2;
+                                                            if (fileChannel2 != null) {
+                                                            }
+                                                            if (bufferedReader4 == null) {
+                                                            }
+                                                        } catch (Throwable th2) {
+                                                            th = th2;
+                                                            if (fileChannel3 != null) {
+                                                                try {
+                                                                    fileChannel3.close();
+                                                                } catch (Exception e5) {
+                                                                    tzb.b("CrashReportUtil", e5.getMessage());
+                                                                    throw th;
+                                                                }
+                                                            }
+                                                            if (bufferedReader2 != null) {
+                                                                bufferedReader2.close();
+                                                            }
+                                                            throw th;
+                                                        }
+                                                    } catch (Throwable th3) {
+                                                        th = th3;
+                                                        fileChannel3 = fileChannel2;
+                                                        th = th;
+                                                        if (fileChannel3 != null) {
+                                                        }
+                                                        if (bufferedReader2 != null) {
+                                                        }
+                                                        throw th;
+                                                    }
+                                                }
+                                                inputStreamReader2.close();
+                                                bufferedReader4 = bufferedReader2;
+                                            }
+                                            if (fileChannel2 != null) {
+                                                fileChannel2.close();
+                                            }
+                                            if (bufferedReader4 == null) {
+                                                bufferedReader4.close();
+                                                return;
+                                            }
+                                            return;
+                                        }
+                                    }
+                                    inputStreamReader.close();
+                                    bufferedReader3 = bufferedReader5;
+                                } catch (Exception e6) {
+                                    e = e6;
+                                } catch (Throwable th4) {
+                                    th = th4;
+                                    bufferedReader2 = null;
+                                    fileChannel3 = channel;
+                                    if (fileChannel3 != null) {
+                                    }
+                                    if (bufferedReader2 != null) {
+                                    }
+                                    throw th;
+                                }
+                            }
+                            if (channel != null) {
+                                channel.close();
+                            }
+                            if (bufferedReader3 != null) {
+                                bufferedReader3.close();
+                            }
+                        } catch (Exception e7) {
+                            e = e7;
+                        }
+                    } catch (Throwable th5) {
+                        th = th5;
+                        bufferedReader2 = null;
+                    }
+                } catch (Exception e8) {
+                    tzb.b("CrashReportUtil", e8.getMessage());
+                }
+            } catch (Throwable th6) {
+                th = th6;
+                fileChannel3 = fileChannel;
+                bufferedReader2 = bufferedReader;
             }
-            s();
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            if (str == null) {
-                str = "";
-            }
-            this.i = str;
-            s();
         }
     }
 }

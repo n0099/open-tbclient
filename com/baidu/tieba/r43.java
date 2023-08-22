@@ -1,8 +1,12 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.TooltipCompatHandler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,75 +16,44 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r43 implements p43, cw2 {
+public class r43 implements hw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ExecutorService e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final u53 c;
-    public final u53 d;
+    public long c;
+    public ConcurrentHashMap<String, JSONObject> d;
+    public ConcurrentHashMap<String, Integer> e;
+    public z53 f;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements z53 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
+        public final /* synthetic */ r43 c;
 
-        public a(r43 r43Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r43Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (p43.b) {
-                    try {
-                        p43.b.wait(this.a);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements u53 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Runnable, String> c;
-        public boolean d;
-
-        @Override // com.baidu.tieba.u53
+        @Override // com.baidu.tieba.z53
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.u53
+        @Override // com.baidu.tieba.z53
+        public void c(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.z53
         public String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "HighPriorityTask" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "LaunchApiCache" : (String) invokeV.objValue;
         }
 
-        public b(r43 r43Var) {
+        public a(r43 r43Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,176 +68,37 @@ public class r43 implements p43, cw2 {
                     return;
                 }
             }
-            this.c = new ConcurrentHashMap();
-            this.d = false;
+            this.c = r43Var;
         }
 
-        @Override // com.baidu.tieba.u53
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.d = false;
-                f();
-            }
-        }
-
-        @Override // com.baidu.tieba.u53
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-                if (this.d) {
-                    this.c.put(runnable, str);
-                } else {
-                    sn3.l(runnable, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.u53
+        @Override // com.baidu.tieba.z53
         public void d(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.d = false;
-                long currentTimeMillis = System.currentTimeMillis();
-                int size = this.c.size();
-                f();
-                if (cw2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "high task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
-                }
+            if (interceptable != null && interceptable.invokeZ(1048579, this, z) != null) {
+                return;
             }
+            this.c.g();
         }
 
-        @Override // com.baidu.tieba.u53
+        @Override // com.baidu.tieba.z53
         public void e(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.d = true;
+                this.c.c = System.currentTimeMillis();
             }
         }
 
-        public final void f() {
+        @Override // com.baidu.tieba.z53
+        public void b() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.c.isEmpty()) {
-                return;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.g();
             }
-            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-                if (entry != null) {
-                    sn3.l(entry.getKey(), entry.getValue());
-                }
-            }
-            this.c.clear();
         }
     }
 
     /* loaded from: classes7.dex */
-    public class c implements u53 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<Runnable, String> c;
-        public boolean d;
-        public final /* synthetic */ r43 e;
-
-        @Override // com.baidu.tieba.u53
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.u53
-        public String getName() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "LowPriorityTask" : (String) invokeV.objValue;
-        }
-
-        public c(r43 r43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r43Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = r43Var;
-            this.c = new ConcurrentHashMap();
-            this.d = false;
-        }
-
-        @Override // com.baidu.tieba.u53
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.d = false;
-                f();
-            }
-        }
-
-        @Override // com.baidu.tieba.u53
-        public void c(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
-                if (this.d) {
-                    this.c.put(runnable, str);
-                } else {
-                    sn3.l(runnable, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.u53
-        public void d(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.d = false;
-                long currentTimeMillis = System.currentTimeMillis();
-                int size = this.c.size();
-                f();
-                if (cw2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "low task dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms ; task num = " + size);
-                }
-                if (z43.e()) {
-                    this.e.c();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.u53
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.d = true;
-                if (z43.e()) {
-                    this.e.b(z43.f());
-                }
-            }
-        }
-
-        public final void f() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.c.isEmpty()) {
-                return;
-            }
-            for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-                if (entry != null) {
-                    sn3.l(entry.getKey(), entry.getValue());
-                }
-            }
-            this.c.clear();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final r43 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -272,13 +106,13 @@ public class r43 implements p43, cw2 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-508944712, "Lcom/baidu/tieba/r43$d;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-508944774, "Lcom/baidu/tieba/r43$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-508944712, "Lcom/baidu/tieba/r43$d;");
+                    classClinitInterceptable.invokePostClinit(-508944774, "Lcom/baidu/tieba/r43$b;");
                     return;
                 }
             }
@@ -286,101 +120,103 @@ public class r43 implements p43, cw2 {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948071608, "Lcom/baidu/tieba/r43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948071608, "Lcom/baidu/tieba/r43;");
-                return;
-            }
-        }
-        e = Executors.newSingleThreadExecutor();
-    }
-
     public r43() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new b(this);
-        this.d = new c(this);
-    }
-
-    public static r43 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return d.a;
-        }
-        return (r43) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p43
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (cw2.a) {
-                Log.d("SwanPerformance", "low priority thread notify");
-            }
-            synchronized (p43.b) {
-                try {
-                    p43.b.notifyAll();
-                }
-            }
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            s53.g().i(this.c, 3000);
-            s53.g().i(this.d, 5000);
-        }
+        this.c = -1L;
+        this.d = new ConcurrentHashMap<>(10);
+        this.e = new ConcurrentHashMap<>(10);
+        this.f = new a(this);
     }
 
     public /* synthetic */ r43(a aVar) {
         this();
     }
 
-    @Override // com.baidu.tieba.p43
-    public void b(int i) {
+    public void h(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (cw2.a) {
-                Log.d("SwanPerformance", "low priority thread wait = " + i);
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, jSONObject) != null) || TextUtils.isEmpty(str) || !e()) {
+            return;
+        }
+        this.d.put(str, jSONObject);
+    }
+
+    public static r43 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b.a;
+        }
+        return (r43) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c == -1 || System.currentTimeMillis() - this.c > TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
+                return false;
             }
-            e.execute(new a(this, i));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            x53.g().i(this.f, 2500);
         }
     }
 
-    public boolean d(@NonNull Runnable runnable, @NonNull String str, boolean z) {
-        InterceptResult invokeLLZ;
+    public JSONObject d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, runnable, str, z)) == null) {
-            if (z) {
-                this.c.c(runnable, str);
-                return true;
-            } else if (z43.e()) {
-                e.execute(runnable);
-                return true;
-            } else {
-                this.d.c(runnable, str);
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || !e()) {
+                return null;
             }
+            JSONObject jSONObject = this.d.get(str);
+            if (hw2.a && jSONObject != null) {
+                Integer num = this.e.get(str);
+                if (num == null) {
+                    num = 0;
+                }
+                this.e.put(str, Integer.valueOf(num.intValue() + 1));
+            }
+            return jSONObject;
         }
-        return invokeLLZ.booleanValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = -1L;
+            if (hw2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("adopt cache api = [ ");
+                for (Map.Entry<String, Integer> entry : this.e.entrySet()) {
+                    sb.append((Object) entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
+                    sb.append(" ");
+                }
+                sb.append(PreferencesUtil.RIGHT_MOUNT);
+                Log.d("SwanPerformance", sb.toString());
+            }
+            this.e.clear();
+            this.d.clear();
+        }
     }
 }

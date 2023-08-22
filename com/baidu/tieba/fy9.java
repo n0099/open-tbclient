@@ -1,132 +1,176 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.widget.RemoteViews;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.widget.ImageView.BdImage;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.SystemBarTintManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.download.DownloadReceiver;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
+import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class fy9 {
+public class fy9 extends gy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RemoteViews a;
+    public VideoItemData T0;
+    public VideoSerializeVideoThreadInfo U0;
+    public ThreadData V0;
 
-    /* loaded from: classes6.dex */
-    public class a extends BdResourceCallback<BdImage> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fy9 a;
-
-        public a(fy9 fy9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fy9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = fy9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
-        public void onLoaded(BdImage bdImage, String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) && this.a.a != null && bdImage != null && bdImage.getRawBitmap() != null) {
-                this.a.a.setImageViewBitmap(R.id.app_icon, bdImage.getRawBitmap());
-            }
+    @Override // com.baidu.tieba.gy9
+    public void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    public fy9(DownloadData downloadData, int i) {
+    @Override // com.baidu.tieba.gy9, com.baidu.tieba.dy9
+    public boolean onBackPress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fy9(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {downloadData, Integer.valueOf(i)};
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.download_notify_view);
-        c(i);
-        this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
-        this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
-        this.a.setImageViewResource(R.id.download_cancel, R.drawable.notify_cancel_bg);
-        this.a.setTextViewText(R.id.downapp_name, downloadData.getUser_name());
-        BdResourceLoader.getInstance().loadResource(downloadData.getApp_icon(), 17, new a(this), BdUniqueId.gen());
-        Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
-        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        intent.setAction(DownloadReceiver.ACTION_PAUSE_DOWNLOAD);
-        intent.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
-        this.a.setOnClickPendingIntent(R.id.download_btn, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
-        Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
-        intent2.setAction(DownloadReceiver.ACTION_CANCEL_DOWNLOAD);
-        intent2.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
-        intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-        this.a.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION));
+        s0(false);
+        setStageType(null);
     }
 
-    public RemoteViews b() {
-        InterceptResult invokeV;
+    public final void F0(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.S);
+            pbActivityConfig.createNormalCfg(str2, null, null);
+            pbActivityConfig.setForumId(String.valueOf(str));
+            pbActivityConfig.setThreadData(this.V0);
+            pbActivityConfig.setVideoOriginArea(ThreadCardUtils.computeViewArea(this.U));
+            pbActivityConfig.setNeedPreLoad(true);
+            zg7.update(this.V0);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
+            View.OnClickListener onClickListener = this.F0;
+            if (onClickListener != null) {
+                onClickListener.onClick(getMainView());
+            }
         }
-        return (RemoteViews) invokeV.objValue;
     }
 
-    public void d() {
+    public void G0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            v0(this.f);
+        }
+    }
+
+    @Override // com.baidu.tieba.gy9
+    public void R() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
-            this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
+            int i = this.p;
+            if (i == this.e || i == this.n) {
+                G0();
+            }
         }
     }
 
-    public void e() {
+    @Override // com.baidu.tieba.gy9
+    public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
-            this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
+            this.f = 32;
         }
     }
 
-    public void c(int i) {
-        String str;
+    @Override // com.baidu.tieba.gy9
+    public void g0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (i > 0) {
-                str = i + "%";
-            } else {
-                str = "0%";
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.g0();
+            this.U.setOnTouchListener(null);
+            this.U.setOnClickListener(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.gy9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.gy9, android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, view2) != null) || view2 == null) {
+            return;
+        }
+        if (view2.getId() == R.id.video_mute) {
+            a0();
+        } else if (!BdNetTypeUtil.isNetWorkAvailable()) {
+            BdUtilHelper.showToast(this.S, (int) R.string.no_network_guide);
+        } else if (this.X) {
+            VideoItemData videoItemData = this.T0;
+            if (videoItemData != null) {
+                F0(videoItemData.forum_id, videoItemData.thread_id);
             }
-            this.a.setProgressBar(R.id.download_progress, 100, i, false);
-            this.a.setTextViewText(R.id.download_progress_text, str);
+        } else {
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = this.U0;
+            if (videoSerializeVideoThreadInfo != null) {
+                F0(videoSerializeVideoThreadInfo.forumId, videoSerializeVideoThreadInfo.threadId);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.gy9, com.baidu.tieba.dy9
+    public void setData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, threadData) == null) {
+            super.setData(threadData);
+            this.V0 = threadData;
+            if (this.X) {
+                VideoItemData videoItemData = new VideoItemData();
+                this.T0 = videoItemData;
+                videoItemData.buildWithThreadData(threadData);
+                return;
+            }
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
+            this.U0 = videoSerializeVideoThreadInfo;
+            videoSerializeVideoThreadInfo.copyFromThreadInfo(threadData);
+            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.U0;
+            videoSerializeVideoThreadInfo2.source = threadData.mRecomSource;
+            videoSerializeVideoThreadInfo2.extra = threadData.mRecomExtra;
+            videoSerializeVideoThreadInfo2.ab_tag = threadData.mRecomAbTag;
+            videoSerializeVideoThreadInfo2.weight = threadData.mRecomWeight;
         }
     }
 }

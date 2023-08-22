@@ -42,7 +42,7 @@ public class ParticleEmitter {
     public float S;
 
     /* renamed from: T  reason: collision with root package name */
-    public float f1030T;
+    public float f1031T;
     public float U;
     public float V;
     public float W;
@@ -1114,7 +1114,7 @@ public class ParticleEmitter {
                 if (i5 != 2) {
                     if (i5 == 3) {
                         float e4 = this.R + (this.S * this.q.e(f4));
-                        float e5 = this.f1030T + (this.U * this.r.e(f4));
+                        float e5 = this.f1031T + (this.U * this.r.e(f4));
                         if (e4 != 0.0f) {
                             float k2 = com.badlogic.gdx.math.d.k() * e4;
                             f5 += k2;
@@ -1126,7 +1126,7 @@ public class ParticleEmitter {
                 } else {
                     float e6 = this.R + (this.S * this.q.e(f4));
                     float f7 = e6 / 2.0f;
-                    float e7 = (this.f1030T + (this.U * this.r.e(f4))) / 2.0f;
+                    float e7 = (this.f1031T + (this.U * this.r.e(f4))) / 2.0f;
                     if (f7 != 0.0f && e7 != 0.0f) {
                         float f8 = f7 / e7;
                         h hVar = this.s;
@@ -1163,7 +1163,7 @@ public class ParticleEmitter {
                 }
             } else {
                 float e8 = this.R + (this.S * this.q.e(f4));
-                float e9 = this.f1030T + (this.U * this.r.e(f4));
+                float e9 = this.f1031T + (this.U * this.r.e(f4));
                 f5 += com.badlogic.gdx.math.d.l(e8) - (e8 / 2.0f);
                 f6 += com.badlogic.gdx.math.d.l(e9) - (e9 / 2.0f);
             }
@@ -1404,10 +1404,10 @@ public class ParticleEmitter {
             if (!this.q.f()) {
                 this.S -= this.R;
             }
-            this.f1030T = this.r.d();
+            this.f1031T = this.r.d();
             this.U = this.r.g();
             if (!this.r.f()) {
-                this.U -= this.f1030T;
+                this.U -= this.f1031T;
             }
             this.I = 0;
             g gVar = this.j;

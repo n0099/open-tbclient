@@ -3,7 +3,7 @@ package com.huawei.hms.push;
 import android.content.Context;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.hob;
+import com.baidu.tieba.wub;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import java.io.File;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class s {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object a;
@@ -152,7 +152,7 @@ public abstract class s {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            return hob.c(context).a("client/project_id");
+            return wub.c(context).a("client/project_id");
         }
         return (String) invokeL.objValue;
     }

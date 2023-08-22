@@ -10,13 +10,13 @@ public class bn {
     public static bn a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f945a = 0;
+    public int f946a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f946a;
+    public Context f947a;
 
     public bn(Context context) {
-        this.f946a = context.getApplicationContext();
+        this.f947a = context.getApplicationContext();
     }
 
     public static bn a(Context context) {
@@ -28,25 +28,25 @@ public class bn {
 
     @SuppressLint({"NewApi"})
     public int a() {
-        int i = this.f945a;
+        int i = this.f946a;
         if (i != 0) {
             return i;
         }
         try {
-            this.f945a = Settings.Global.getInt(this.f946a.getContentResolver(), "device_provisioned", 0);
+            this.f946a = Settings.Global.getInt(this.f947a.getContentResolver(), "device_provisioned", 0);
         } catch (Exception unused) {
         }
-        return this.f945a;
+        return this.f946a;
     }
 
     @SuppressLint({"NewApi"})
     /* renamed from: a  reason: collision with other method in class */
-    public Uri m798a() {
+    public Uri m800a() {
         return Settings.Global.getUriFor("device_provisioned");
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m799a() {
-        return com.xiaomi.push.ab.f94a.contains("xmsf") || com.xiaomi.push.ab.f94a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f94a.contains("miui");
+    public boolean m801a() {
+        return com.xiaomi.push.ab.f95a.contains("xmsf") || com.xiaomi.push.ab.f95a.contains(RomUtils.MANUFACTURER_XIAOMI) || com.xiaomi.push.ab.f95a.contains("miui");
     }
 }

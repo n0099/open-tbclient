@@ -1,58 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import android.graphics.drawable.Drawable;
+import com.baidu.tieba.f2a;
+import com.baidu.tieba.video.VideoItemModel;
 /* loaded from: classes5.dex */
-public final class f1a implements z97 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f1a {
+    void onDestroy();
 
-    @Override // com.baidu.tieba.z97
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? CommonStatisticKey.KEY_NAMEPLATE_OF_USER_LEVEL_STATIC : (String) invokeV.objValue;
-    }
+    void onPause();
 
-    public f1a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void onPrimary(boolean z);
 
-    @Override // com.baidu.tieba.z97
-    public Map<String, String> a(m57 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_type", "1");
-            hashMap.put("obj_locate", "2");
-            String str = a.get("growth_level");
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("obj_source", str);
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
+    void onUserVisibleHint(boolean z);
+
+    void onViewClick();
+
+    void onViewDoubleClick();
+
+    void onViewDragToRight();
+
+    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
+
+    void setPageChangeHandler(f2a.a aVar, int i);
+
+    void updateTiebaData(int i, VideoItemModel videoItemModel);
 }

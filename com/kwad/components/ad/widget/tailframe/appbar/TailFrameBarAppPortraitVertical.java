@@ -26,7 +26,7 @@ public class TailFrameBarAppPortraitVertical extends a {
     @Override // com.kwad.components.ad.widget.tailframe.appbar.a
     public final void c(@NonNull AdTemplate adTemplate) {
         if (d.p(adTemplate)) {
-            this.BA.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f0607a4));
+            this.BA.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f0607aa));
             this.hG.setTextColor(Color.parseColor("#FFFFFF"));
             this.CI.setTextColor(Color.parseColor("#FFFFFF"));
         } else {
@@ -37,6 +37,6 @@ public class TailFrameBarAppPortraitVertical extends a {
 
     @Override // com.kwad.components.ad.widget.tailframe.appbar.a
     public int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d04f3;
+        return R.layout.obfuscated_res_0x7f0d04fa;
     }
 }

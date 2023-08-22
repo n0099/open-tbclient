@@ -21,7 +21,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RequestManager implements Handler.Callback {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Object LOCK_OBJECT;

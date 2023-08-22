@@ -53,7 +53,7 @@ public class cd implements fd {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return uh.e(String.valueOf(this.a), 0);
+                                                    return wh.e(String.valueOf(this.a), 0);
                                                 } catch (IOException e) {
                                                     e.printStackTrace();
                                                     return null;

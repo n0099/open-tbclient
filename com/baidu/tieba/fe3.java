@@ -6,25 +6,27 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class fe3 extends vc3 {
+public class fe3 extends ad3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fe3(vb3 vb3Var) {
-        super(vb3Var, "/swanAPI/startPullDownRefresh");
+    public fe3(ac3 ac3Var) {
+        super(ac3Var, "/swanAPI/setNavigationBarColor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vb3Var};
+            Object[] objArr = {ac3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,50 +40,47 @@ public class fe3 extends vc3 {
         }
     }
 
-    @Override // com.baidu.tieba.vc3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+    @Override // com.baidu.tieba.ad3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
-            if (ya3Var != null) {
-                ya3Var.B().I(ya3Var.getAppId());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
+            if (ad3.b) {
+                Log.d("BarColorAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (ya3Var != null && ya3Var.n0()) {
-                if (vc3.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
-                return false;
-            }
-            ha2 U = lw2.T().U();
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            ma2 U = qw2.T().U();
             if (U == null) {
-                y72.c("startPullDownRefresh", "manager is null");
+                d82.c("navigationColor", "manager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!(U.m() instanceof ga2)) {
-                y72.c("startPullDownRefresh", "top fragment error");
+            } else if (optParamsAsJo == null) {
+                d82.c("navigationColor", "paramsJson is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                ga2 ga2Var = (ga2) U.m();
-                if (ga2Var.f0() == null) {
-                    y72.c("startPullDownRefresh", "view is null");
+                String optString = optParamsAsJo.optString("frontColor");
+                String optString2 = optParamsAsJo.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
+                JSONObject optJSONObject = optParamsAsJo.optJSONObject("animation");
+                ja2 m = U.m();
+                if (m == null) {
+                    d82.c("navigationColor", "slave container exception");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
-                }
-                PullToRefreshBaseWebView f0 = ga2Var.f0();
-                if (f0 == null) {
-                    y72.c("startPullDownRefresh", "view is null");
+                } else if (!m.G2(optString, true)) {
+                    d82.c("navigationColor", "set title color fail");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
-                } else if (f0.N()) {
-                    y72.c("startPullDownRefresh", "prevent pull to refresh");
+                } else if (!m.w2(SwanAppConfigData.t(optString2), true)) {
+                    d82.c("navigationColor", "set title background fail");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
                 } else {
-                    y72.i("startPullDownRefresh", "start pull refresh");
-                    ga2Var.f0().k(true, 100L);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    if (optJSONObject != null) {
+                        m.u2(optJSONObject.optInt("duration"), optJSONObject.optString("timingFunc"));
+                        d82.i("navigationColor", "set action bar animator");
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                     return true;
                 }
             }

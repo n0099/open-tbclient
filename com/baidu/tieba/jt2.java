@@ -1,107 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.Surface;
-import androidx.annotation.NonNull;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-import java.util.Map;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface jt2 extends vo2 {
+public class jt2 extends nt2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final ht2 a;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(int i);
-
-        void b(int i);
-
-        void c(String str);
-
-        void d(@NonNull String str);
-
-        void e(String str);
-
-        void f();
-
-        void onEnded();
-
-        void onError(int i);
-
-        void onPrepared();
-
-        void onRelease(String str);
+    public jt2(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ht2();
     }
 
-    void B(boolean z);
+    @Override // com.baidu.tieba.nt2, com.baidu.tieba.mt2
+    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, hybridUbcFlow) == null) {
+            if (this.a.f()) {
+                this.a.k();
+                it2.e();
+                return;
+            }
+            ht2 ht2Var = this.a;
+            if (z) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            ht2Var.g("fmpArrived", str);
+        }
+    }
 
-    void C();
-
-    void G(int i);
-
-    void H();
-
-    void L(int i, int i2, int i3, int i4);
-
-    void N(ZeusPluginFactory.Invoker invoker);
-
-    boolean O(String str, String str2, String str3, boolean z);
-
-    boolean P();
-
-    a Q();
-
-    void S(Map map);
-
-    void T();
-
-    void V();
-
-    int a();
-
-    void a0(String str);
-
-    void b0();
-
-    String c();
-
-    ZeusPluginFactory.Invoker e0();
-
-    void f0(int i);
-
-    void g0(@NonNull a aVar);
-
-    Context getContext();
-
-    int getCurrentPosition();
-
-    int getDuration();
-
-    int getVideoHeight();
-
-    int getVideoSarDen();
-
-    int getVideoSarNum();
-
-    int getVideoWidth();
-
-    boolean i0();
-
-    boolean isPlaying();
-
-    void l(boolean z);
-
-    void m0();
-
-    void pause();
-
-    boolean prepareAsync();
-
-    void release();
-
-    void seekTo(int i);
-
-    void setSpeed(float f);
-
-    void setSurface(Surface surface);
-
-    void start();
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.c();
+            if (this.a.e("fmpArrived")) {
+                this.a.k();
+                it2.e();
+            }
+        }
+    }
 }

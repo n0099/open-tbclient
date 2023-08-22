@@ -11,13 +11,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes6.dex */
-public final class jq extends lq {
+public final class jq extends oq {
     public static /* synthetic */ Interceptable $ic;
-    public static final a g;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
     public final String d;
     public int e;
-    public final int f;
 
     static {
         InterceptResult invokeClinit;
@@ -32,14 +31,14 @@ public final class jq extends lq {
                 return;
             }
         }
-        g = new a(null);
+        f = new a(null);
     }
 
-    @Override // com.baidu.tieba.zq
+    @Override // com.baidu.tieba.cr
     public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskInterruptAction" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskDuplicatedAction" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
@@ -65,28 +64,37 @@ public final class jq extends lq {
             this();
         }
 
-        public final jq a(TaskInfo taskInfo, int i) {
-            InterceptResult invokeLI;
+        public final jq a(TaskInfo taskInfo) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, taskInfo, i)) == null) {
-                return new jq(taskInfo, null, 50, i, null, null, 50, null);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskInfo)) == null) {
+                return new jq(taskInfo, null, 0, null, null, 30, null);
             }
-            return (jq) invokeLI.objValue;
+            return (jq) invokeL.objValue;
+        }
+
+        public final jq b(TaskInfo taskInfo) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo)) == null) {
+                return new jq(taskInfo, null, 22, null, null, 26, null);
+            }
+            return (jq) invokeL.objValue;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jq(TaskInfo taskInfo, String str, int i, int i2, Integer num, String str2) {
+    public jq(TaskInfo taskInfo, String str, int i, Integer num, String str2) {
         super(str, num, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {taskInfo, str, Integer.valueOf(i), Integer.valueOf(i2), num, str2};
+            Object[] objArr = {taskInfo, str, Integer.valueOf(i), num, str2};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
@@ -96,43 +104,24 @@ public final class jq extends lq {
         }
         this.d = str;
         this.e = i;
-        this.f = i2;
     }
 
     /* JADX WARN: Illegal instructions before constructor call */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public /* synthetic */ jq(TaskInfo taskInfo, String str, int i, int i2, Integer num, String str2, int i3, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskInfo, r2, r3, r4, r5, r6);
-        int i4;
-        int i5;
-        Integer num2;
-        String str3;
-        String singleKey = (i3 & 2) != 0 ? taskInfo.getSingleKey() : str;
-        if ((i3 & 4) != 0) {
-            i4 = 50;
+    public /* synthetic */ jq(TaskInfo taskInfo, String str, int i, Integer num, String str2, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, r2, r3, (i2 & 8) != 0 ? 304 : num, (i2 & 16) != 0 ? "task got repeated duplicateId" : str2);
+        int i3;
+        String singleKey = (i2 & 2) != 0 ? taskInfo.getSingleKey() : str;
+        if ((i2 & 4) != 0) {
+            i3 = 8;
         } else {
-            i4 = i;
-        }
-        if ((i3 & 8) != 0) {
-            i5 = 0;
-        } else {
-            i5 = i2;
-        }
-        if ((i3 & 16) != 0) {
-            num2 = null;
-        } else {
-            num2 = num;
-        }
-        if ((i3 & 32) != 0) {
-            str3 = null;
-        } else {
-            str3 = str2;
+            i3 = i;
         }
     }
 
-    @Override // com.baidu.tieba.lq
+    @Override // com.baidu.tieba.oq
     public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -147,15 +136,6 @@ public final class jq extends lq {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
         }
         return invokeV.intValue;
     }

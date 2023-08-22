@@ -1,217 +1,181 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.hardware.Sensor;
-import android.hardware.SensorManager;
-import android.os.Handler;
-import android.os.Looper;
-import android.provider.Settings;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ht9;
-import com.baidu.tieba.lt9;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.personCenter.view.PersonOftenFuncItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class kt9 {
+public class kt9 extends ln6<ss9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> a;
-    public SensorManager b;
-    public ht9 c;
-    public Sensor d;
-    public boolean e;
-    public boolean f;
-    public lt9 g;
-    public boolean h;
-    public boolean i;
-    public ht9.a j;
-    public lt9.a k;
+    public LinearLayout i;
+    public LinearLayout j;
+    public TextView k;
+    public PersonOftenFuncItemView l;
+    public PersonOftenFuncItemView m;
 
-    /* loaded from: classes6.dex */
-    public class a implements ht9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kt9 a;
+    @Override // com.baidu.tieba.ln6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d07cf : invokeV.intValue;
+    }
 
-        public a(kt9 kt9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kt9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kt9Var;
-        }
-
-        @Override // com.baidu.tieba.ht9.a
-        public void a(int i) {
-            Activity activity;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.a.a == null || (activity = (Activity) this.a.a.get()) == null || !this.a.i) {
-                return;
-            }
-            int requestedOrientation = activity.getRequestedOrientation();
-            if (!this.a.h) {
-                if (i > 225 && i < 315) {
-                    if (requestedOrientation == 8) {
-                        activity.setRequestedOrientation(0);
-                    }
-                } else if (i > 45 && i < 135 && requestedOrientation == 0) {
-                    activity.setRequestedOrientation(8);
-                }
-            } else if ((i > 235 && i < 305) || (i > 55 && i < 125)) {
-                if (!this.a.f) {
-                    if (i > 55 && i < 125) {
-                        if (requestedOrientation != 8) {
-                            activity.setRequestedOrientation(8);
-                        }
-                    } else if (requestedOrientation != 0) {
-                        activity.setRequestedOrientation(0);
-                    }
-                }
-                this.a.e = false;
-            } else if ((i > 325 && i < 360) || (i >= 0 && i < 35)) {
-                if (!this.a.e && requestedOrientation != 1) {
-                    activity.setRequestedOrientation(1);
-                }
-                this.a.f = false;
-            }
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements lt9.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kt9 a;
-
-        public b(kt9 kt9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kt9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kt9Var;
-        }
-
-        @Override // com.baidu.tieba.lt9.a
-        public void onChange(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeZ(1048576, this, z) != null) {
-                return;
-            }
-            this.a.h = z;
-        }
-    }
-
-    public kt9(Activity activity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kt9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = false;
-        this.f = false;
-        this.h = false;
-        this.i = false;
-        this.j = new a(this);
-        this.k = new b(this);
-        if (activity == null) {
-            return;
-        }
-        this.a = new WeakReference<>(activity);
-        this.b = (SensorManager) activity.getApplicationContext().getSystemService("sensor");
-        this.d = TbadkCoreApplication.getInst().getDefaultSensor(1);
-        this.c = new ht9(this.j);
-        if (activity.getClass().getName().contains("SwanAppActivity")) {
-            activity.setRequestedOrientation(1);
-        }
+        View h = h();
+        int dimens = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X003);
+        h.setPadding(dimens, 0, dimens, 0);
+        this.i = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f0919e9);
+        this.k = (TextView) h.findViewById(R.id.obfuscated_res_0x7f091bc2);
+        this.j = (LinearLayout) h.findViewById(R.id.obfuscated_res_0x7f091bc3);
+        j(g(), this.a);
     }
 
-    public void i(boolean z) {
+    @Override // com.baidu.tieba.ln6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void j() {
-        Activity activity;
-        Sensor sensor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SensorManager sensorManager = this.b;
-            if (sensorManager != null && (sensor = this.d) != null) {
-                sensorManager.registerListener(this.c, sensor, 2);
-            }
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference != null && (activity = weakReference.get()) != null) {
-                lt9 lt9Var = new lt9(activity.getApplicationContext(), new Handler(Looper.getMainLooper()));
-                this.g = lt9Var;
-                lt9Var.b(this.k);
-                activity.getContentResolver().registerContentObserver(Settings.System.getUriFor("accelerometer_rotation"), true, this.g);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(h(), R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0205);
+            EMManager.from(this.i).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            EMManager.from(this.k).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            EMManager.from(this.j).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
+            int childCount = this.j.getChildCount();
+            for (int i2 = 0; i2 < childCount; i2++) {
+                View childAt = this.j.getChildAt(i2);
+                if (childAt instanceof LinearLayout) {
+                    int i3 = 0;
+                    while (true) {
+                        LinearLayout linearLayout = (LinearLayout) childAt;
+                        if (i3 < linearLayout.getChildCount()) {
+                            View childAt2 = linearLayout.getChildAt(i3);
+                            if (childAt2 instanceof PersonOftenFuncItemView) {
+                                PersonOftenFuncItemView personOftenFuncItemView = (PersonOftenFuncItemView) childAt2;
+                                SkinManager.setBackgroundColor(personOftenFuncItemView, R.color.CAM_X0205);
+                                SkinManager.setViewTextColor(personOftenFuncItemView.b, (int) R.color.CAM_X0105);
+                            }
+                            i3++;
+                        }
+                    }
+                }
             }
         }
     }
 
-    public void k() {
-        Activity activity;
+    public void onScroll() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SensorManager sensorManager = this.b;
-            if (sensorManager != null) {
-                sensorManager.unregisterListener(this.c);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            PersonOftenFuncItemView personOftenFuncItemView = this.l;
+            boolean z2 = true;
+            if (personOftenFuncItemView != null) {
+                if (!personOftenFuncItemView.d && !TbSingleton.getInstance().isMyTabClicked()) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                personOftenFuncItemView.d = z;
+                this.l.d();
             }
-            WeakReference<Activity> weakReference = this.a;
-            if (weakReference != null && this.g != null && (activity = weakReference.get()) != null) {
-                activity.getContentResolver().unregisterContentObserver(this.g);
+            PersonOftenFuncItemView personOftenFuncItemView2 = this.m;
+            if (personOftenFuncItemView2 != null) {
+                if (!personOftenFuncItemView2.d && !TbSingleton.getInstance().isMyTabClicked()) {
+                    z2 = false;
+                }
+                personOftenFuncItemView2.d = z2;
+                this.m.d();
             }
+            TbSingleton.getInstance().setMyTabClicked(false);
         }
     }
 
-    public void l() {
-        WeakReference<Activity> weakReference;
-        Activity activity;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln6
+    /* renamed from: r */
+    public void i(ss9 ss9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (weakReference = this.a) == null || (activity = weakReference.get()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ss9Var) == null) {
+            if (ss9Var != null && ss9Var.c() != null && !ListUtils.isEmpty(ss9Var.c())) {
+                this.j.removeAllViews();
+                List<ps9> c = ss9Var.c();
+                LinearLayout linearLayout = new LinearLayout(getContext());
+                int i = 0;
+                for (ps9 ps9Var : c) {
+                    i++;
+                    if (i % 4 == 1) {
+                        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+                        layoutParams.bottomMargin = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds60);
+                        LinearLayout linearLayout2 = new LinearLayout(getContext());
+                        linearLayout2.setOrientation(0);
+                        linearLayout2.setLayoutParams(layoutParams);
+                        this.j.addView(linearLayout2);
+                        linearLayout = linearLayout2;
+                    }
+                    LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -2, 1.0f);
+                    PersonOftenFuncItemView personOftenFuncItemView = new PersonOftenFuncItemView(getContext());
+                    personOftenFuncItemView.a(ps9Var);
+                    personOftenFuncItemView.setLayoutParams(layoutParams2);
+                    linearLayout.addView(personOftenFuncItemView);
+                    int i2 = ps9Var.a;
+                    if (i2 == 59) {
+                        this.l = personOftenFuncItemView;
+                    } else if (i2 == 63) {
+                        this.m = personOftenFuncItemView;
+                    }
+                }
+                if (c.size() != 0 && c.size() % 4 != 0) {
+                    for (int i3 = 0; i3 < 4 - (c.size() % 4); i3++) {
+                        PersonOftenFuncItemView personOftenFuncItemView2 = new PersonOftenFuncItemView(getContext());
+                        LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(0, -2);
+                        layoutParams3.weight = 1.0f;
+                        personOftenFuncItemView2.setLayoutParams(layoutParams3);
+                        linearLayout.addView(personOftenFuncItemView2);
+                    }
+                }
+                j(g(), this.a);
+                return;
+            }
+            q(8);
         }
-        if (activity.getRequestedOrientation() == 1) {
-            activity.setRequestedOrientation(0);
-            this.e = true;
-            return;
-        }
-        activity.setRequestedOrientation(1);
-        this.f = true;
     }
 }

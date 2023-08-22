@@ -7,7 +7,7 @@ import android.view.ViewTreeObserver;
 import android.widget.RelativeLayout;
 import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h47;
+import com.baidu.tieba.v57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,7 +29,7 @@ import kotlin.jvm.internal.Intrinsics;
 public abstract class CardRelativeView<T> extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h47 a;
+    public v57 a;
     public int b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -110,9 +110,9 @@ public abstract class CardRelativeView<T> extends RelativeLayout {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 CardRelativeView cardRelativeView = (CardRelativeView) this.a;
                 if (cardRelativeView.getWidth() != cardRelativeView.b) {
-                    h47 h47Var = cardRelativeView.a;
-                    if (h47Var != null) {
-                        h47Var.a();
+                    v57 v57Var = cardRelativeView.a;
+                    if (v57Var != null) {
+                        v57Var.a();
                     }
                     cardRelativeView.b = cardRelativeView.getWidth();
                 }
@@ -122,7 +122,7 @@ public abstract class CardRelativeView<T> extends RelativeLayout {
     }
 
     /* loaded from: classes5.dex */
-    public static final class b implements h47 {
+    public static final class b implements v57 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CardRelativeView<T> a;
@@ -147,7 +147,7 @@ public abstract class CardRelativeView<T> extends RelativeLayout {
             this.b = t;
         }
 
-        @Override // com.baidu.tieba.h47
+        @Override // com.baidu.tieba.v57
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -201,9 +201,9 @@ public abstract class CardRelativeView<T> extends RelativeLayout {
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             if (i != this.b) {
-                h47 h47Var = this.a;
-                if (h47Var != null) {
-                    h47Var.a();
+                v57 v57Var = this.a;
+                if (v57Var != null) {
+                    v57Var.a();
                 }
                 this.b = i;
             }

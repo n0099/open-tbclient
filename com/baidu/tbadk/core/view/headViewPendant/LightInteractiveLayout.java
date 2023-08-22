@@ -41,10 +41,10 @@ import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ba5;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.ca5;
+import com.baidu.tieba.di;
+import com.baidu.tieba.ia5;
 import com.baidu.tieba.im.util.MessageUtils;
+import com.baidu.tieba.ja5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,7 +68,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
     public View c;
     public View d;
     public ImageView e;
-    public ca5 f;
+    public ja5 f;
     public WeakReference<Context> g;
     public LightEmotionAdapter h;
     public ImageView i;
@@ -157,7 +157,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 this.a.setScaleY(1.0f);
                 this.a.setAlpha(0.0f);
                 if (this.c.A != null) {
-                    this.c.M(this.b);
+                    this.c.L(this.b);
                 }
                 if (this.c.f != null) {
                     this.c.f.onClose();
@@ -215,10 +215,10 @@ public class LightInteractiveLayout extends ConstraintLayout {
                             this.a.v = (int) motionEvent.getRawX();
                             this.a.w = (int) motionEvent.getRawY();
                             LightInteractiveLayout lightInteractiveLayout = this.a;
-                            lightInteractiveLayout.P(lightInteractiveLayout.d, this.a.o);
+                            lightInteractiveLayout.O(lightInteractiveLayout.d, this.a.o);
                             if (!this.a.r || this.a.o + 1 != this.a.b.getChildCount()) {
                                 LightInteractiveLayout lightInteractiveLayout2 = this.a;
-                                lightInteractiveLayout2.N(lightInteractiveLayout2.d, this.a.o);
+                                lightInteractiveLayout2.M(lightInteractiveLayout2.d, this.a.o);
                             } else {
                                 this.a.H();
                             }
@@ -251,7 +251,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                                             this.a.J(view3, i2);
                                         }
                                     } else {
-                                        this.a.O(view3, i2);
+                                        this.a.N(view3, i2);
                                     }
                                 } else {
                                     this.a.I(view3, i2);
@@ -279,7 +279,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                         for (View view5 : this.a.a) {
                             LightInteractiveLayout lightInteractiveLayout5 = this.a;
                             if (lightInteractiveLayout5.G(view5, lightInteractiveLayout5.v, this.a.w)) {
-                                this.a.O(view5, i4);
+                                this.a.N(view5, i4);
                                 this.a.o = i4;
                                 this.a.d = view5;
                                 z2 = true;
@@ -393,7 +393,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
         F(context);
     }
 
-    public final void O(View view2, int i) {
+    public final void N(View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048585, this, view2, i) == null) && view2 != null && i < this.B) {
             view2.setPivotY(view2.getHeight());
@@ -409,7 +409,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public final void P(View view2, int i) {
+    public final void O(View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(1048586, this, view2, i) != null) || view2 == null) {
             return;
@@ -485,13 +485,13 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public void setOnDismissListener(ca5 ca5Var) {
+    public void setOnDismissListener(ja5 ja5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, ca5Var) == null) {
-            this.f = ca5Var;
+        if (interceptable == null || interceptable.invokeL(1048595, this, ja5Var) == null) {
+            this.f = ja5Var;
             LightEmotionAdapter lightEmotionAdapter = this.h;
             if (lightEmotionAdapter != null) {
-                lightEmotionAdapter.q(ca5Var);
+                lightEmotionAdapter.q(ja5Var);
             }
         }
     }
@@ -536,9 +536,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
             if (weakReference != null) {
                 return weakReference.get();
             }
-            ca5 ca5Var = this.f;
-            if (ca5Var != null) {
-                ca5Var.onClose();
+            ja5 ja5Var = this.f;
+            if (ja5Var != null) {
+                ja5Var.onClose();
                 return null;
             }
             return null;
@@ -593,7 +593,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
         }
     }
 
-    public final void M(int i) {
+    public final void L(int i) {
         ArrayList<LightEmotionData> arrayList;
         boolean z;
         Interceptable interceptable = $ic;
@@ -602,7 +602,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
             LightEmotionData lightEmotionData = this.z.get(i);
             String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
             MetaData metaData = this.A;
-            if (metaData != null && bi.isEquals(metaData.getUserId(), valueOf)) {
+            if (metaData != null && di.isEquals(metaData.getUserId(), valueOf)) {
                 return;
             }
             int i2 = this.x;
@@ -610,7 +610,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 K(lightEmotionData.getId());
                 MetaData metaData2 = this.A;
                 if (metaData2 != null) {
-                    ba5.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
+                    ia5.a(this.y, metaData2.getUserId(), lightEmotionData.getId());
                 }
             } else if (i2 == 3) {
                 HashMap hashMap = new HashMap();
@@ -642,9 +642,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.A != null && getViewContext() != null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(getViewContext(), this.A.getUserId(), this.A.getUserName())));
-            ca5 ca5Var = this.f;
-            if (ca5Var != null) {
-                ca5Var.onClose();
+            ja5 ja5Var = this.f;
+            if (ja5Var != null) {
+                ja5Var.onClose();
             }
         }
     }
@@ -719,9 +719,9 @@ public class LightInteractiveLayout extends ConstraintLayout {
                 int rawY = (int) motionEvent.getRawY();
                 this.w = rawY;
                 if (!G(this.b, this.v, rawY)) {
-                    ca5 ca5Var = this.f;
-                    if (ca5Var != null) {
-                        ca5Var.onClose();
+                    ja5 ja5Var = this.f;
+                    if (ja5Var != null) {
+                        ja5Var.onClose();
                         return true;
                     }
                     return true;
@@ -732,7 +732,7 @@ public class LightInteractiveLayout extends ConstraintLayout {
         return invokeL.booleanValue;
     }
 
-    public void N(View view2, int i) {
+    public void M(View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i) != null) || view2 == null) {
             return;

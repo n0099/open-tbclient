@@ -18,7 +18,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaMethod;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.sequences.Sequence;
 import kotlin.sequences.SequencesKt___SequencesKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ClassDeclaredMemberIndex implements DeclaredMemberIndex {
     public final Map<Name, JavaField> fields;
     public final JavaClass jClass;

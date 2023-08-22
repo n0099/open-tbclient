@@ -1,216 +1,106 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.AVframe;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.FrameInfo;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import com.yy.transvod.player.mediacodec.NativeIttiam;
-import java.lang.ref.WeakReference;
-import java.nio.ByteBuffer;
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
-public abstract class hwb extends bwb {
-    public static /* synthetic */ Interceptable $ic;
+public final class hwb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "SHA";
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public NativeIttiam A;
-    public ByteBuffer B;
-    public ByteBuffer C;
-    public int D;
-    public boolean E;
-    public FrameInfo F;
-    public WeakReference<kvb> G;
 
-    public hwb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947839542, "Lcom/baidu/tieba/hwb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947839542, "Lcom/baidu/tieba/hwb;");
                 return;
             }
         }
-        this.A = new NativeIttiam();
-        this.B = null;
-        this.C = null;
-        this.D = 0;
-        this.E = false;
-        this.F = new FrameInfo();
-        this.G = new WeakReference<>(null);
+        b = new String[]{"SHA-256", "SHA-384", "SHA-512"};
     }
 
-    @Override // com.baidu.tieba.bwb
-    public void B() {
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            while (!this.r.b() && K() == 1) {
-                TLog.g(this, "handleEndOfStream");
-                try {
-                    Thread.sleep(20L);
-                } catch (Exception unused) {
-                    TLog.g(this, "handleEndOfStream error");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            for (String str2 : b) {
+                if (str2.equals(str)) {
+                    return true;
                 }
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public void L() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TLog.g(this, "NativeIttiamFilter.stopCodec enter.");
-            this.A.l();
-            this.B = null;
-            this.C = null;
-            this.F.a = 0L;
-            this.D = 0;
-            this.v = 0L;
-            G();
-            TLog.g(this, "NativeIttiamFilter.stopCodec leave.");
-        }
-    }
-
-    @Override // com.baidu.tieba.bwb
-    public int D(MediaSample mediaSample) {
+    public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample)) == null) {
-            this.E = false;
-            int J = J(mediaSample);
-            if (J == 1 && this.E) {
-                this.E = false;
-                K();
-            }
-            return J;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return c(str, "SHA-256");
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bwb, com.baidu.tieba.kwb, com.baidu.tieba.sub.a
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
-            if (message.what != 1002) {
-                super.handleMessage(message);
-            } else {
-                L();
-            }
-        }
-    }
-
-    public final int J(MediaSample mediaSample) {
-        InterceptResult invokeL;
-        AVframe aVframe;
-        MediaInfo mediaInfo;
-        ByteBuffer byteBuffer;
-        boolean z;
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
         byte[] bArr;
-        byte[] bArr2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample)) == null) {
-            if (mediaSample == null || (aVframe = mediaSample.g) == null || (mediaInfo = mediaSample.i) == null || (byteBuffer = this.B) == null || this.C == null || mediaInfo.k == null) {
-                return -1;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                if (!a(str2)) {
+                    owb.c(a, "algorithm is not safe or legal");
+                    return "";
+                }
+                try {
+                    bArr = str.getBytes("UTF-8");
+                } catch (UnsupportedEncodingException unused) {
+                    bArr = new byte[0];
+                    owb.c(a, "Error in generate SHA UnsupportedEncodingException");
+                }
+                return lwb.a(d(bArr, str2));
             }
-            int i = aVframe.e;
-            int i2 = this.a;
-            if (i > i2) {
-                long j = this.v + 1;
-                this.v = j;
-                if (j >= 10 && j % 1000 != 0) {
-                    return 0;
-                }
-                TLog.c(this, String.format("Ittiam::sample.avFrame.playTaskID: %d > mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
-                return 0;
-            } else if (i < i2) {
-                long j2 = this.v + 1;
-                this.v = j2;
-                if (j2 < 10 || j2 % 1000 == 0) {
-                    TLog.c(this, String.format("Ittiam::sample.avFrame.playTaskID: %d < mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
-                }
-                return -1;
-            } else {
-                byteBuffer.clear();
-                this.C.clear();
-                FrameInfo frameInfo = this.F;
-                frameInfo.a = 0L;
-                frameInfo.b = 0L;
-                boolean z2 = mediaSample.g.c;
-                int capacity = mediaSample.i.k.capacity();
-                if (mediaSample.d && (bArr2 = mediaSample.g.q) != null) {
-                    capacity += bArr2.length + 4;
-                }
-                ByteBuffer byteBuffer2 = this.B;
-                if (byteBuffer2 == null || byteBuffer2.capacity() < capacity) {
-                    int i3 = (int) (capacity * 1.5d);
-                    if (i3 > 2000000 || i3 < capacity) {
-                        i3 = capacity;
-                    }
-                    this.B = ByteBuffer.allocateDirect(i3);
-                }
-                if (this.B.capacity() < capacity) {
-                    return -1;
-                }
-                if (mediaSample.d && (bArr = mediaSample.g.q) != null) {
-                    this.B.putInt(bArr.length);
-                    this.B.put(mediaSample.g.q);
-                }
-                this.B.put(mediaSample.i.k).flip();
-                int k = this.A.k(this.B, this.C, mediaSample.d, mediaSample.l, this.F);
-                if (k != 0 && k != -2) {
-                    TLog.c(this, "ittiam decode error.maybe");
-                    return -1;
-                }
-                this.r.a(mediaSample);
-                if (k == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                this.E = z;
-                return 1;
-            }
+            owb.c(a, "content or algorithm is null.");
+            return "";
         }
-        return invokeL.intValue;
+        return (String) invokeLL.objValue;
     }
 
-    public final int K() {
-        InterceptResult invokeV;
-        MediaInfo mediaInfo;
-        AVframe aVframe;
+    public static byte[] d(byte[] bArr, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            MediaSample c = this.r.c();
-            if (c != null && c.g != null && (mediaInfo = c.i) != null) {
-                mediaInfo.c(this.q);
-                c.i.k = this.C;
-                FrameInfo frameInfo = this.F;
-                c.l = frameInfo.a;
-                E(c, frameInfo.b);
-                this.u++;
-                ovb.c(c, 6);
-                n(c);
-                kvb kvbVar = this.G.get();
-                if (kvbVar != null && (aVframe = c.g) != null) {
-                    kvbVar.t((int) aVframe.l);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
+            if (bArr != null && !TextUtils.isEmpty(str)) {
+                if (!a(str)) {
+                    owb.c(a, "algorithm is not safe or legal");
+                    return new byte[0];
                 }
-                synchronized (this.k) {
-                    if (this.d != null) {
-                        this.d.f(c);
-                    }
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance(str);
+                    messageDigest.update(bArr);
+                    return messageDigest.digest();
+                } catch (NoSuchAlgorithmException unused) {
+                    owb.c(a, "Error in generate SHA NoSuchAlgorithmException");
+                    return new byte[0];
                 }
-                return 1;
             }
-            return -1;
+            owb.c(a, "content or algorithm is null.");
+            return new byte[0];
         }
-        return invokeV.intValue;
+        return (byte[]) invokeLL.objValue;
     }
 }

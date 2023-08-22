@@ -89,7 +89,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
 
     /* loaded from: classes8.dex */
     public interface e {
-        ag<TbImageView> b0();
+        ag<TbImageView> h0();
     }
 
     @Override // android.widget.AbsListView.RecyclerListener
@@ -732,7 +732,7 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
             Resources resources = getResources();
             this.y = resources.getString(R.string.frs_item_common_image_canvas_text1) + this.l + resources.getString(R.string.frs_item_common_image_canvas_text2);
             if (this.r == null && (bdPageContext.getOrignalPage() instanceof e)) {
-                this.r = ((e) bdPageContext.getOrignalPage()).b0();
+                this.r = ((e) bdPageContext.getOrignalPage()).h0();
             }
             if (this.r == null) {
                 return;

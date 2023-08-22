@@ -1,48 +1,43 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridView;
+import com.baidu.tieba.q7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ThreadFactory;
 /* loaded from: classes8.dex */
-public class t9c {
+public final class t9c extends q7c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ThreadFactory a;
 
-    public static void a(int i, View view2, GridView gridView) {
-        int i2;
+    public t9c(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(65536, null, i, view2, gridView) == null) && i != 0 && gridView != null && view2 != null) {
-            if (i >= 3) {
-                i2 = 82;
-            } else {
-                i2 = 110;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadFactory};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            gridView.setNumColumns(3);
-                            layoutParams.width = l9c.a((i2 * 3) + 14);
-                        } else {
-                            gridView.setNumColumns(2);
-                            layoutParams.width = l9c.a((i2 * 2) + 7);
-                        }
-                    } else {
-                        gridView.setNumColumns(3);
-                        layoutParams.width = l9c.a((i2 * 3) + 14);
-                    }
-                } else {
-                    gridView.setNumColumns(2);
-                    layoutParams.width = l9c.a((i2 * 2) + 7);
-                }
-            } else {
-                gridView.setNumColumns(1);
-                layoutParams.width = l9c.a(i2);
-            }
-            view2.setLayoutParams(layoutParams);
         }
+        this.a = threadFactory;
+    }
+
+    @Override // com.baidu.tieba.q7c
+    public q7c.a createWorker() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new u9c(this.a);
+        }
+        return (q7c.a) invokeV.objValue;
     }
 }

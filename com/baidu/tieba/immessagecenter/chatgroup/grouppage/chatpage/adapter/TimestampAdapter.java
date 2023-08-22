@@ -48,7 +48,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092533);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092562);
         }
     }
 
@@ -76,12 +76,12 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: P */
+    /* renamed from: O */
     public Holder J(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d098e, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0996, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -89,8 +89,8 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: Q */
-    public View M(int i, @NonNull ViewGroup viewGroup, @NonNull TimestampSysMsg timestampSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: P */
+    public View L(int i, @NonNull ViewGroup viewGroup, @NonNull TimestampSysMsg timestampSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, timestampSysMsg, holder, list, Integer.valueOf(i2)})) == null) {

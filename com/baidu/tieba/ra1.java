@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface ra1 {
-    void cancel();
+    void onDestroy();
+
+    void onPause();
 }

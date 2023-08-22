@@ -1,41 +1,56 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface sub {
+public abstract class sub {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void handleMessage(Message message);
-
-        void onPause();
-
-        void onResume();
-
-        void onStart();
-
-        void onStop();
+    public sub() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    boolean a(int i, long j);
+    public static sub a(tub tubVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tubVar)) == null) ? ovb.f(tubVar) : (sub) invokeL.objValue;
+    }
 
-    void b(a aVar);
+    public static sub b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? ovb.e() : (sub) invokeV.objValue;
+    }
 
-    void c();
+    public static synchronized void d(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
+            synchronized (sub.class) {
+                Log.i("AGConnectInstance", "AGConnectInstance#initialize");
+                ovb.i(context);
+            }
+        }
+    }
 
-    void d(int i);
+    public abstract tub c();
 
-    boolean e(Runnable runnable);
+    public abstract Context getContext();
 
-    boolean f(int i);
-
-    void g(int i);
-
-    int getStatus();
-
-    boolean sendMessage(Message message);
-
-    void setName(String str);
-
-    void start();
+    public abstract String getIdentifier();
 }

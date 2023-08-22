@@ -7,16 +7,16 @@ public class aa implements Runnable {
     public final /* synthetic */ MiTinyDataClient.a.C0786a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ hl f48a;
+    public final /* synthetic */ hl f49a;
 
     public aa(MiTinyDataClient.a.C0786a c0786a, hl hlVar) {
         this.a = c0786a;
-        this.f48a = hlVar;
+        this.f49a = hlVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.f43a.add(this.f48a);
+        this.a.f44a.add(this.f49a);
         this.a.a();
     }
 }

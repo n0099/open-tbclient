@@ -23,7 +23,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.constants.ErrorValue;
 import kotlin.reflect.jvm.internal.impl.resolve.constants.KClassValue;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.utils.CollectionsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BinaryClassAnnotationAndConstantLoaderImpl$loadAnnotation$1 implements KotlinJvmBinaryClass.AnnotationArgumentVisitor {
     public final /* synthetic */ ClassDescriptor $annotationClass;
     public final /* synthetic */ List $result;

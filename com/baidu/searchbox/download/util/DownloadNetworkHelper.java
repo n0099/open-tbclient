@@ -38,7 +38,7 @@ public final class DownloadNetworkHelper {
         if (topActivity != null) {
             NetworkInfo activeNetworkInfo = ((ConnectivityManager) topActivity.getSystemService("connectivity")).getActiveNetworkInfo();
             if (activeNetworkInfo != null && activeNetworkInfo.getType() == 0) {
-                new BoxAlertDialog.Builder(topActivity).setTitle(R.string.download_wifi_dialog_title).setMessage(R.string.download_wifi_dialog_msg).setPositiveButton(R.string.download_wifi_dialog_btn_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.searchbox.download.util.DownloadNetworkHelper.4
+                new BoxAlertDialog.Builder(topActivity).setTitle(R.string.obfuscated_res_0x7f0f05f4).setMessage(R.string.obfuscated_res_0x7f0f05f3).setPositiveButton(R.string.obfuscated_res_0x7f0f05f2, new DialogInterface.OnClickListener() { // from class: com.baidu.searchbox.download.util.DownloadNetworkHelper.4
                     @Override // android.content.DialogInterface.OnClickListener
                     public void onClick(DialogInterface dialogInterface, int i) {
                         if (!TextUtils.isEmpty(str)) {
@@ -131,7 +131,7 @@ public final class DownloadNetworkHelper {
         } else {
             realTopActivity = BdBoxActivityManager.getRealTopActivity();
         }
-        new BdAlertDialog.Builder(realTopActivity).setTitle(R.string.download_wifi_dialog_title).setMessage(R.string.download_wifi_dialog_msg).setButton(new BdAlertDialog.ButtonItem(realTopActivity.getResources().getString(R.string.download_button_cancel_download), new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.util.DownloadNetworkHelper.2
+        new BdAlertDialog.Builder(realTopActivity).setTitle(R.string.obfuscated_res_0x7f0f05f4).setMessage(R.string.obfuscated_res_0x7f0f05f3).setButton(new BdAlertDialog.ButtonItem(realTopActivity.getResources().getString(R.string.obfuscated_res_0x7f0f05b9), new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.util.DownloadNetworkHelper.2
             @Override // com.baidu.android.ext.widget.dialog.BdAlertDialog.OnItemClickListener
             public void onItemClick(View view2) {
                 DialogClickCallback dialogClickCallback2 = DialogClickCallback.this;
@@ -140,7 +140,7 @@ public final class DownloadNetworkHelper {
                 }
                 DownloadStatisticUtil.ubc("tool", "click", "network_change", "", "close", DownloadStatisticConstants.DOWNLOAD_WINDOWN_UBC_ID);
             }
-        })).setButton(new BdAlertDialog.ButtonItem(realTopActivity.getResources().getString(R.string.download_wifi_dialog_btn_confirm), new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.util.DownloadNetworkHelper.1
+        })).setButton(new BdAlertDialog.ButtonItem(realTopActivity.getResources().getString(R.string.obfuscated_res_0x7f0f05f2), new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.util.DownloadNetworkHelper.1
             @Override // com.baidu.android.ext.widget.dialog.BdAlertDialog.OnItemClickListener
             public void onItemClick(View view2) {
                 DialogClickCallback dialogClickCallback2 = DialogClickCallback.this;

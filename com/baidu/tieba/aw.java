@@ -1,16 +1,32 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.util.LongSparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.core.BdCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+@SuppressLint({"NewApi"})
 /* loaded from: classes5.dex */
 public final class aw {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, zv> a;
+    public static aw b;
+    public static HashMap<String, nw<String, Integer>> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -25,52 +41,84 @@ public final class aw {
                 return;
             }
         }
-        a = new HashMap<>();
+        c = new HashMap<>();
     }
 
-    public static synchronized zv a(String str) {
-        InterceptResult invokeL;
-        zv b;
+    public aw() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            synchronized (aw.class) {
-                b = b(str, 0);
-            }
-            return b;
-        }
-        return (zv) invokeL.objValue;
-    }
-
-    public static synchronized void c(zv zvVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, zvVar) == null) {
-            synchronized (aw.class) {
-                if (zvVar != null) {
-                    zvVar.a();
-                    a.values().remove(zvVar);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        new LongSparseArray();
     }
 
-    public static synchronized zv b(String str, int i) {
-        InterceptResult invokeLI;
-        zv zvVar;
+    public static synchronized aw b() {
+        InterceptResult invokeV;
+        aw awVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             synchronized (aw.class) {
-                if (a.containsKey(str) && (zvVar = a.get(str)) != null) {
-                    return zvVar;
+                if (b == null) {
+                    b = new aw();
                 }
-                zv zvVar2 = new zv(str, i);
+                awVar = b;
+            }
+            return awVar;
+        }
+        return (aw) invokeV.objValue;
+    }
+
+    private Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
+            if (this.a == null) {
+                this.a = BdCore.a().getContext();
+            }
+            Context context = this.a;
+            if (context != null) {
+                return context;
+            }
+            throw new RuntimeException("context is null!");
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Deprecated
+    public static int c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            a(str2, str);
+            nw<String, Integer> nwVar = c.get(str);
+            if (nwVar == null) {
+                nwVar = new nw<>(100);
+                c.put(str, nwVar);
+            }
+            Integer c2 = nwVar.c(str2);
+            if (c2 == null) {
                 try {
-                    zvVar2.start();
-                } catch (Exception unused) {
+                    int identifier = b().getContext().getResources().getIdentifier(str2, str, b().getContext().getPackageName());
+                    nwVar.d(str2, Integer.valueOf(identifier));
+                    return identifier;
+                } catch (Error e) {
+                    e.printStackTrace();
+                    return 0;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                    return 0;
                 }
-                a.put(str, zvVar2);
-                return zvVar2;
             }
+            return c2.intValue();
         }
-        return (zv) invokeLI.objValue;
+        return invokeLL.intValue;
     }
 }

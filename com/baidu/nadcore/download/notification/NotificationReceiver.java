@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tieba.nl0;
-import com.baidu.tieba.om0;
+import com.baidu.tieba.ql0;
+import com.baidu.tieba.rm0;
 import java.io.File;
 import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
@@ -39,8 +39,8 @@ public class NotificationReceiver extends BroadcastReceiver {
     }
 
     private void installApk(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !om0.c(str2)) {
-            om0.d(new File(str));
+        if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !rm0.c(str2)) {
+            rm0.d(new File(str));
         }
     }
 
@@ -50,11 +50,11 @@ public class NotificationReceiver extends BroadcastReceiver {
             installApk(str3, str2);
             str6 = ClogBuilder.LogType.DOWNLOAD_INSTALL.type;
         } else {
-            om0.h(str2);
+            rm0.h(str2);
             str6 = ClogBuilder.LogType.OPEN_APP.type;
         }
         collapseStatusBar(context);
-        nl0.f().h(str6, str5, str4, str);
+        ql0.f().h(str6, str5, str4, str);
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
@@ -65,11 +65,11 @@ public class NotificationReceiver extends BroadcastReceiver {
         if (TextUtils.isEmpty(action)) {
             return;
         }
-        int intExtra = intent.getIntExtra(INTENT_PARAMS_KEY_NOTIFICATION_ID, -1);
-        String stringExtra = intent.getStringExtra(INTENT_PARAMS_KEY_PACKAGE_NAME);
-        String stringExtra2 = intent.getStringExtra(INTENT_PARAMS_KEY_DOWNLOAD_FILE_PATH);
-        String stringExtra3 = intent.getStringExtra(INTENT_PARAMS_KEY_NOTIFY_TYPE);
-        String stringExtra4 = intent.getStringExtra(INTENT_PARAMS_KEY_EXTRA_PARAM);
+        int intExtra = intent.getIntExtra("key_notification_id", -1);
+        String stringExtra = intent.getStringExtra("key_package_name");
+        String stringExtra2 = intent.getStringExtra("key_download_path");
+        String stringExtra3 = intent.getStringExtra("key_notify_type");
+        String stringExtra4 = intent.getStringExtra("key_extra_param");
         switch (action.hashCode()) {
             case -1188361885:
                 if (action.equals(RECEIVER_ACTION_CLICK_BUTTON)) {
@@ -107,14 +107,14 @@ public class NotificationReceiver extends BroadcastReceiver {
             if (c != 1) {
                 if (c != 2) {
                     if (c == 3) {
-                        nl0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
+                        ql0.f().h(ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.AD_NOTIFICATION_REMOVE.type, stringExtra4, stringExtra3);
                         return;
                     }
                     return;
                 }
                 onNotificationClick(context, stringExtra3, stringExtra, stringExtra2, stringExtra4, ClogBuilder.Area.AD_NOTIFICATION_BTN_CLICK.type);
                 if (intExtra != -1) {
-                    nl0.f().a(intExtra);
+                    ql0.f().a(intExtra);
                     return;
                 }
                 return;

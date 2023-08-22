@@ -3,10 +3,10 @@ package com.baidu.tieba.sprite.homepage.userstrategy;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
 import com.baidu.tbadk.data.HotEventData;
-import com.baidu.tieba.i9a;
-import com.baidu.tieba.lr6;
+import com.baidu.tieba.pda;
 import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
 import com.baidu.tieba.sprite.homepage.userstrategy.NewUserSpriteShowStrategy$dispatchSpriteNotification$1;
+import com.baidu.tieba.us6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -17,20 +17,20 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.jvm.internal.Lambda;
 @Metadata(d1 = {"\u0000\b\n\u0000\n\u0002\u0010\u0002\n\u0000\u0010\u0000\u001a\u00020\u0001H\n¢\u0006\u0002\b\u0002"}, d2 = {"<anonymous>", "", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class NewUserSpriteShowStrategy$dispatchSpriteNotification$1 extends Lambda implements Function0<Unit> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ i9a $hotEventShowData;
+    public final /* synthetic */ pda $hotEventShowData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public NewUserSpriteShowStrategy$dispatchSpriteNotification$1(i9a i9aVar) {
+    public NewUserSpriteShowStrategy$dispatchSpriteNotification$1(pda pdaVar) {
         super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {i9aVar};
+            Object[] objArr = {pdaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,11 +41,11 @@ public final class NewUserSpriteShowStrategy$dispatchSpriteNotification$1 extend
                 return;
             }
         }
-        this.$hotEventShowData = i9aVar;
+        this.$hotEventShowData = pdaVar;
     }
 
     /* renamed from: invoke$lambda-0  reason: not valid java name */
-    public static final void m139invoke$lambda0(i9a hotEventShowData) {
+    public static final void m140invoke$lambda0(pda hotEventShowData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65537, null, hotEventShowData) == null) {
             Intrinsics.checkNotNullParameter(hotEventShowData, "$hotEventShowData");
@@ -67,16 +67,16 @@ public final class NewUserSpriteShowStrategy$dispatchSpriteNotification$1 extend
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             HotEventData b = this.$hotEventShowData.b();
-            final i9a i9aVar = this.$hotEventShowData;
-            HomeSpriteEdgeFloatManager.l.c().X(new i9a(b, new lr6.e() { // from class: com.baidu.tieba.e7a
+            final pda pdaVar = this.$hotEventShowData;
+            HomeSpriteEdgeFloatManager.l.c().X(new pda(b, new us6.e() { // from class: com.baidu.tieba.jba
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.lr6.e
+                @Override // com.baidu.tieba.us6.e
                 public final void onDismiss() {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        NewUserSpriteShowStrategy$dispatchSpriteNotification$1.m139invoke$lambda0(i9a.this);
+                        NewUserSpriteShowStrategy$dispatchSpriteNotification$1.m140invoke$lambda0(pda.this);
                     }
                 }
             }));

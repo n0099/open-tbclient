@@ -1,47 +1,74 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class qc0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
 
-    public static <T> int a(List<T> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return list.size();
-            }
-            return 0;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948086891, "Lcom/baidu/tieba/qc0;")) == null) {
+            return;
         }
-        return invokeL.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948086891, "Lcom/baidu/tieba/qc0;");
+        }
     }
 
-    public static <T> boolean c(List<T> list) {
-        InterceptResult invokeL;
+    public qc0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            if (a(list) <= 0) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.a = 0;
     }
 
-    public static <T> T b(List<T> list, int i) {
-        InterceptResult invokeLI;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-                return null;
-            }
-            return list.get(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (T) invokeLI.objValue;
+        return invokeV.intValue;
+    }
+
+    public static synchronized qc0 a() {
+        InterceptResult invokeV;
+        qc0 qc0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (qc0.class) {
+                if (b < 1000000) {
+                    b = 1000000;
+                }
+                qc0Var = new qc0();
+                qc0Var.a = b;
+                b++;
+            }
+            return qc0Var;
+        }
+        return (qc0) invokeV.objValue;
     }
 }

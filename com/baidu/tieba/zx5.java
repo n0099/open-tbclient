@@ -1,30 +1,185 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Canvas;
-import android.util.AttributeSet;
-import android.view.MotionEvent;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-/* loaded from: classes8.dex */
-public interface zx5 {
-    void a();
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes9.dex */
+public final class zx5 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final a b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayList<yx5> a;
 
-    void b(Canvas canvas);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948375346, "Lcom/baidu/tieba/zx5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948375346, "Lcom/baidu/tieba/zx5;");
+                return;
+            }
+        }
+        b = new a(null);
+    }
 
-    void c(ListView listView, Context context, AttributeSet attributeSet);
+    public /* synthetic */ zx5(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
 
-    void onDraw(Canvas canvas);
+    @JvmStatic
+    public static final zx5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a() : (zx5) invokeV.objValue;
+    }
 
-    boolean onInterceptTouchEvent(MotionEvent motionEvent);
+    /* loaded from: classes9.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void onMeasure(int i, int i2);
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
 
-    void onSizeChanged(int i, int i2, int i3, int i4);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-    boolean onTouchEvent(MotionEvent motionEvent);
+        @JvmStatic
+        public final zx5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (zx5) invokeV.objValue;
+        }
+    }
 
-    void requestLayout();
+    /* loaded from: classes9.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final zx5 b;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void setAdapter(ListAdapter listAdapter);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-217052556, "Lcom/baidu/tieba/zx5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-217052556, "Lcom/baidu/tieba/zx5$b;");
+                    return;
+                }
+            }
+            a = new b();
+            b = new zx5(null);
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final zx5 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (zx5) invokeV.objValue;
+        }
+    }
+
+    public zx5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+    }
+
+    public final void a(yx5 provider) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, provider) == null) {
+            Intrinsics.checkNotNullParameter(provider, "provider");
+            if (this.a.contains(provider)) {
+                return;
+            }
+            this.a.add(provider);
+        }
+    }
+
+    public final void d(yx5 provider) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, provider) == null) {
+            Intrinsics.checkNotNullParameter(provider, "provider");
+            this.a.remove(provider);
+        }
+    }
+
+    public final String c(String viewId, String str) {
+        InterceptResult invokeLL;
+        String c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewId, str)) == null) {
+            Intrinsics.checkNotNullParameter(viewId, "viewId");
+            for (yx5 yx5Var : this.a) {
+                if (yx5Var.a().contains(viewId)) {
+                    ay5 b2 = yx5Var.b(viewId, str);
+                    if (b2 == null || (c = b2.c()) == null) {
+                        return ay5.f.a().c();
+                    }
+                    return c;
+                }
+            }
+            return ay5.f.a().c();
+        }
+        return (String) invokeLL.objValue;
+    }
 }

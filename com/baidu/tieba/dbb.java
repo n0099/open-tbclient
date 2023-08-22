@@ -1,79 +1,115 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.validation.utils.ValidationLog;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.LinkedHashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class dbb {
+public final class dbb {
     public static /* synthetic */ Interceptable $ic;
+    public static final dbb c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final List<String> b;
+    public final Set<a> a;
+    public boolean b;
+
+    /* loaded from: classes5.dex */
+    public interface a {
+        void U();
+
+        void a(Activity activity);
+
+        void b();
+
+        void onActivityDestroyed(Activity activity);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947700197, "Lcom/baidu/tieba/dbb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947700197, "Lcom/baidu/tieba/dbb;");
+                return;
+            }
+        }
+        c = new dbb();
+    }
 
     public dbb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
+        this.a = new LinkedHashSet();
     }
 
-    public static dbb a(String str) {
-        InterceptResult invokeL;
+    public static dbb a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                dbb dbbVar = new dbb();
-                JSONObject optJSONObject = jSONObject.optJSONObject("action");
-                if (optJSONObject != null) {
-                    dbbVar.a = optJSONObject.optString("name");
-                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
-                    if (optJSONArray != null) {
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            dbbVar.b.add(optJSONArray.optString(i));
-                        }
-                    }
-                }
-                return dbbVar;
-            } catch (JSONException e) {
-                ValidationLog.e(e);
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (dbb) invokeV.objValue;
+    }
+
+    public final Set<a> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                this.a.clear();
             }
         }
-        return (dbb) invokeL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public final void d(a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            synchronized (this.a) {
+                this.a.add(aVar);
+            }
+        }
     }
 
-    public List<String> c() {
-        InterceptResult invokeV;
+    public final void e(Context context) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.b && Build.VERSION.SDK_INT >= 14) {
+            try {
+                ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new kbb(this));
+            } catch (Exception unused) {
+                ybb.b("registerActivityLifecycleCallbacks encounter exception");
+            }
+            this.b = true;
+        }
     }
 }

@@ -1,24 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.ActivityNotFoundException;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
+import android.util.Log;
+import android.view.Window;
+import android.widget.Toast;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.android.ActivityUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Locale;
-import java.util.Set;
 /* loaded from: classes7.dex */
 public final class mn3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<Integer> a;
-    public static final Set<Integer> b;
-    public static final Set<Integer> c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return 5894;
+        }
+        return invokeV.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -33,140 +45,118 @@ public final class mn3 {
                 return;
             }
         }
-        a = new HashSet();
-        b = new HashSet();
-        c = new HashSet();
-        a.add(2);
-        a.add(3);
-        a.add(4);
-        a.add(5);
-        a.add(6);
-        b.add(7);
-        b.add(1);
-        c.addAll(a);
-        c.addAll(b);
+        a = nr1.a;
     }
 
-    public static Date a() {
-        InterceptResult invokeV;
+    public static void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new Date();
+        if ((interceptable == null || interceptable.invokeL(65537, null, activity) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
+            Window window = activity.getWindow();
+            window.clearFlags(1024);
+            int systemUiVisibility = window.getDecorView().getSystemUiVisibility() & (~c());
+            if (z93.b) {
+                systemUiVisibility |= 5120;
+            }
+            window.getDecorView().setSystemUiVisibility(systemUiVisibility);
         }
-        return (Date) invokeV.objValue;
     }
 
-    public static String b(Date date, String str) {
-        InterceptResult invokeLL;
+    public static void b(Activity activity, Dialog dialog) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, date, str)) == null) {
-            if (date == null) {
-                return "";
-            }
-            try {
-                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
-            }
+        if ((interceptable == null || interceptable.invokeLL(65538, null, activity, dialog) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null && dialog != null && dialog.getWindow() != null && dialog.getWindow().getDecorView() != null) {
+            dialog.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility());
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static Date c(String str, String str2) {
-        InterceptResult invokeLL;
+    public static boolean d(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                return new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(str);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-        }
-        return (Date) invokeLL.objValue;
-    }
-
-    public static Date d(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
-            Date date = null;
-            if (!TextUtils.isEmpty(str) && strArr != null) {
-                for (String str2 : strArr) {
-                    try {
-                        date = new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    if (date != null) {
-                        break;
-                    }
-                }
-            }
-            return date;
-        }
-        return (Date) invokeLL.objValue;
-    }
-
-    public static String e(Date date, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, date, str)) == null) {
-            if (date == null) {
-                return "";
-            }
-            try {
-                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
-            } catch (Exception unused) {
-                try {
-                    return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return "";
-                }
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String g(long j, String str) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65543, null, j, str)) == null) {
-            try {
-                return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j));
-            } catch (NumberFormatException e) {
-                if (ir1.a) {
-                    e.printStackTrace();
-                    return "";
-                }
-                return "";
-            }
-        }
-        return (String) invokeJL.objValue;
-    }
-
-    public static boolean f(Long l, Long l2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            if (activity != null && !activity.isDestroyed() && !activity.isFinishing()) {
                 return true;
             }
             return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, activity) == null) && activity != null && activity.getWindow() != null && activity.getWindow().getDecorView() != null) {
+            Window window = activity.getWindow();
+            window.setFlags(1024, 1024);
+            window.getDecorView().setSystemUiVisibility(window.getDecorView().getSystemUiVisibility() | c());
+        }
+    }
+
+    public static void j(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, activity) == null) {
+            if (a) {
+                Log.i(ActivityUtils.TAG, "tryFinishAndRemoveTask: " + activity);
+            }
+            if (activity != null && !activity.isDestroyed()) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    activity.finishAndRemoveTask();
+                } else {
+                    activity.finish();
+                }
+            }
+        }
+    }
+
+    public static void f(Activity activity, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, activity, intent) == null) {
+            h(activity, intent, true);
+        }
+    }
+
+    public static boolean g(Context context, Intent intent) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, intent)) == null) {
+            return h(context, intent, false);
+        }
         return invokeLL.booleanValue;
+    }
+
+    public static boolean h(Context context, Intent intent, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65544, null, context, intent, z)) == null) {
+            return i(context, intent, z, true);
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static boolean i(Context context, Intent intent, boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65545, null, new Object[]{context, intent, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z || !(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+            }
+            try {
+                context.startActivity(intent);
+                return true;
+            } catch (ActivityNotFoundException unused) {
+                if (!z2) {
+                    return false;
+                }
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f14a2, 0).show();
+                return false;
+            } catch (SecurityException e) {
+                if (z2) {
+                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f14a2, 0).show();
+                }
+                if (!a) {
+                    return false;
+                }
+                Log.e(ActivityUtils.TAG, "Launcher does not have the permission to launch " + intent + ". Make sure to create a MAIN intent-filter for the corresponding activity or use the exported attribute for this activity.", e);
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
     }
 }

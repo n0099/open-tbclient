@@ -1,53 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ri2 {
+public final class ri2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public V8Engine a;
 
-    public ri2(V8Engine v8Engine) {
+    public static li2 a(si2 si2Var, ij2 ij2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v8Engine};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, si2Var, ij2Var, v8ThreadDelegatePolicy)) == null) {
+            ti2 a = ku2.B0().a(si2Var);
+            li2 a2 = a.a(si2Var.a(), ij2Var, v8ThreadDelegatePolicy);
+            a2.H0(a.getUserAgent());
+            return a2;
         }
-        this.a = v8Engine;
+        return (li2) invokeLLL.objValue;
     }
 
-    public void a(String str) {
+    public static li2 b(si2 si2Var, ij2 ij2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            c(4, str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, si2Var, ij2Var, v8ThreadDelegatePolicy)) == null) {
+            li2 a = a(si2Var, ij2Var, v8ThreadDelegatePolicy);
+            a.p0();
+            return a;
         }
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            c(1, str);
-        }
-    }
-
-    public final void c(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
-            this.a.onConsoleCallBack(i, str);
-        }
+        return (li2) invokeLLL.objValue;
     }
 }

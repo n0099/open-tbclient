@@ -1,176 +1,91 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLEncoder;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import org.apache.commons.codec.net.QCodec;
 /* loaded from: classes7.dex */
-public final class p04 {
+public class p04 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] a;
+    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        StringBuilder sb;
-        StringBuilder sb2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948008213, "Lcom/baidu/tieba/p04;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            String str4 = str2 + "=";
-            int indexOf = str.indexOf("?");
-            String str5 = null;
-            if (indexOf < 0) {
-                int indexOf2 = str.indexOf("#");
-                if (indexOf2 < 0) {
-                    sb2 = new StringBuilder(str);
-                } else {
-                    str5 = str.substring(indexOf2);
-                    sb2 = new StringBuilder(str.substring(0, indexOf2));
-                }
-                sb2.append("?");
-                sb2.append(str4);
-                sb2.append(str3);
-                if (str5 != null) {
-                    sb2.append(str5);
-                }
-                return sb2.toString();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948008213, "Lcom/baidu/tieba/p04;");
+                return;
             }
-            if (str.indexOf("&" + str4, indexOf) < 0) {
-                if (str.indexOf("?" + str4, indexOf) < 0) {
-                    int indexOf3 = str.indexOf("#");
-                    if (indexOf3 < 0) {
-                        sb = new StringBuilder(str);
-                    } else {
-                        str5 = str.substring(indexOf3);
-                        str = str.substring(0, indexOf3);
-                        sb = new StringBuilder(str);
-                    }
-                    if (!str.endsWith("&") && !str.endsWith("?")) {
-                        sb.append("&");
-                    }
-                    sb.append(str4);
-                    sb.append(str3);
-                    if (str5 != null) {
-                        sb.append(str5);
-                    }
-                    return sb.toString();
-                }
-                return str;
-            }
-            return str;
         }
-        return (String) invokeLLL.objValue;
+        a = new byte[]{48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, 117, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, QCodec.UNDERSCORE, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
+        b = new byte[128];
+        int i = 0;
+        while (true) {
+            byte[] bArr = a;
+            if (i < bArr.length) {
+                b[bArr[i]] = (byte) i;
+                i++;
+            } else {
+                return;
+            }
+        }
     }
 
-    public static String b(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public p04() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                String e = e(map);
-                if (!TextUtils.isEmpty(e)) {
-                    return str + "&" + e;
-                }
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return str;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String c(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, set)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("http") && set != null && set.size() != 0) {
-                String str2 = null;
-                try {
-                    str2 = new URL(str).getQuery();
-                } catch (MalformedURLException unused) {
-                }
-                if (TextUtils.isEmpty(str2)) {
-                    return str;
-                }
-                CharSequence d = d(str2, set);
-                if (TextUtils.isEmpty(d)) {
-                    return str;
-                }
-                return str.replace(str2, d);
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, set)) == null) {
-            if (TextUtils.isEmpty(str) || set == null || (split = str.split("&")) == null || split.length == 0) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : split) {
-                String[] split2 = str2.split("=");
-                if (split2.length > 0 && !set.contains(split2[0])) {
-                    sb.append(str2);
-                    sb.append("&");
-                }
-            }
-            int length = sb.length();
-            if (length > 0) {
-                int i = length - 1;
-                if (sb.charAt(i) == '&') {
-                    sb.deleteCharAt(i);
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String e(Map<String, String> map) {
+    public String a(String str) {
         InterceptResult invokeL;
-        String str;
-        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
-            if (map == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return "";
             }
-            StringBuilder sb = new StringBuilder();
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                try {
-                    if (entry.getKey() == null) {
-                        str = "";
-                    } else {
-                        str = URLEncoder.encode(entry.getKey(), "UTF-8");
-                    }
-                    sb.append(str);
-                    sb.append("=");
-                    if (entry.getValue() == null) {
-                        str2 = "";
-                    } else {
-                        str2 = URLEncoder.encode(entry.getValue(), "UTF-8");
-                    }
-                    sb.append(str2);
-                } catch (UnsupportedEncodingException unused) {
-                }
+            for (int length = str.getBytes().length % 3; length > 0 && length < 3; length++) {
+                str = str + "$";
             }
-            return sb.toString();
+            byte[] bytes = str.getBytes();
+            byte[] bArr = new byte[(bytes.length / 3) * 4];
+            int i = 0;
+            int i2 = 0;
+            while (i < bytes.length) {
+                byte[] bArr2 = a;
+                bArr[i2] = bArr2[(bytes[i] & Cea608Decoder.CC_IMPLICIT_DATA_HEADER) >> 2];
+                int i3 = i + 1;
+                bArr[i2 + 1] = bArr2[((bytes[i] & 3) << 4) + ((bytes[i3] & 240) >> 4)];
+                int i4 = i + 2;
+                bArr[i2 + 2] = bArr2[((bytes[i3] & 15) << 2) + ((bytes[i4] & ExifInterface.MARKER_SOF0) >> 6)];
+                bArr[i2 + 3] = bArr2[bytes[i4] & 63];
+                i += 3;
+                i2 += 4;
+            }
+            return new String(bArr);
         }
         return (String) invokeL.objValue;
     }

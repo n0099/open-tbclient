@@ -1,72 +1,159 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import android.util.ArrayMap;
+import android.app.Activity;
 import androidx.annotation.NonNull;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.h55;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.statemachine.animationtip.SpriteAnimationTipManager;
+import com.baidu.tieba.us6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class j55 {
+public class j55 extends h55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
+    public final HotEventData c;
+    public ce5 d;
+    public SpriteAnimationTipManager e;
 
-    public j55() {
+    /* loaded from: classes6.dex */
+    public class a implements us6.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j55 a;
+
+        public a(j55 j55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j55Var;
+        }
+
+        @Override // com.baidu.tieba.us6.e
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements us6.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ j55 a;
+
+        public b(j55 j55Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j55Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j55Var;
+        }
+
+        @Override // com.baidu.tieba.us6.e
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j55(Activity activity, HotEventData hotEventData) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, hotEventData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayMap();
+        this.c = hotEventData;
     }
 
-    @NonNull
-    public static j55 b(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.h55
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            j55 j55Var = new j55();
-            if (!str2.startsWith("http") && !str2.startsWith("https")) {
-                if (str2.startsWith("dialoginternal://")) {
-                    Uri parse = Uri.parse(str2);
-                    for (String str3 : parse.getQueryParameterNames()) {
-                        String queryParameter = parse.getQueryParameter(str3);
-                        if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(queryParameter)) {
-                            j55Var.a.put(str3, queryParameter);
-                        }
-                    }
-                    j55Var.a.put("yun_dialogClass", parse.getAuthority());
-                    j55Var.a.put("yun_dialogName", str);
-                    j55Var.a.put("yun_dialogUrl", str2);
-                }
-            } else {
-                j55Var.a.put("yun_dialogClass", "WebViewYunDialog");
-                j55Var.a.put("yun_dialogName", str);
-                j55Var.a.put("yun_dialogUrl", str2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ce5 ce5Var = this.d;
+            if (ce5Var != null) {
+                ce5Var.m();
             }
-            return j55Var;
+            SpriteAnimationTipManager spriteAnimationTipManager = this.e;
+            if (spriteAnimationTipManager != null) {
+                spriteAnimationTipManager.p();
+            }
+            of5.s(false);
+            dt6.b().b(new oda(null, 1));
         }
-        return (j55) invokeLL.objValue;
     }
 
-    public String a(@NonNull String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.h55
+    public void d(@NonNull h55.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.a.get(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (YunDialogManager.isShowingDialog()) {
+                aVar.callback(false);
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.e("HotEventTip", "S级事件弹窗无法展示，云弹窗正在展示：" + YunDialogManager.getShowingDialog());
+            } else if (2 == lla.a().b().a().c && 1 == lla.a().b().b().c && 6 == lla.a().b().c().c) {
+                DefaultLog.getInstance().e("HotEventTip", "直播tab不展示S级事件");
+                aVar.callback(false);
+            } else {
+                aVar.callback(true);
+            }
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.h55
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            if (lo5.a().a()) {
+                DefaultLog.getInstance().e("HotEventTip", "展示精灵动画提示控件形式的S级事件弹窗");
+                this.e = of5.t(this.c, new a(this));
+                return;
+            }
+            DefaultLog.getInstance().e("HotEventTip", "展示页面顶部提示控件形式的S级事件弹窗");
+            this.d = of5.p(this.c, new b(this));
+        }
     }
 }

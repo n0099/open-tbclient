@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.ka3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,82 +14,30 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xz1 extends rz1 {
+public class xz1 extends wz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bz1
+    @Override // com.baidu.tieba.gz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PullDownRefreshApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ xz1 b;
-
-        public a(xz1 xz1Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = xz1Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ha2 U = lw2.T().U();
-                if (U == null) {
-                    y72.c("PullDownRefreshApi", "manager is null");
-                    this.b.d(this.a, new y22(1001));
-                } else if (!(U.m() instanceof ga2)) {
-                    y72.c("PullDownRefreshApi", "top fragment error");
-                    this.b.d(this.a, new y22(1001));
-                } else {
-                    ga2 ga2Var = (ga2) U.m();
-                    if (ga2Var.f0() == null) {
-                        y72.c("PullDownRefreshApi", "view is null");
-                        this.b.d(this.a, new y22(1001));
-                        return;
-                    }
-                    ga2Var.f0().w(false);
-                    y72.i("PullDownRefreshApi", "refresh complete");
-                    this.b.d(this.a, new y22(0));
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "LoadingViewApi" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xz1(@NonNull zy1 zy1Var) {
-        super(zy1Var);
+    public xz1(@NonNull ez1 ez1Var) {
+        super(ez1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zy1Var};
+            Object[] objArr = {ez1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zy1) newInitContext.callArgs[0]);
+                super((ez1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -94,24 +45,74 @@ public class xz1 extends rz1 {
         }
     }
 
-    public y22 x(String str) {
+    public d32 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#hideLoading", false);
+            Context context = getContext();
+            if (!(context instanceof SwanAppActivity)) {
+                return new d32(1001, "context not support");
+            }
+            ma2 Y = ((SwanAppActivity) context).Y();
+            if (Y == null) {
+                return new d32(1001, "none fragmentManger");
+            }
+            ja2 m = Y.m();
+            if (!(m instanceof ka3.a)) {
+                return new d32(1001, "fragment not support");
+            }
+            if (m.getContext() == null) {
+                return new d32(1001, "fragment has detached");
+            }
+            la3.c(m);
+            d82.i("LoadingViewApi", "hide loading success");
+            return d32.f();
+        }
+        return (d32) invokeV.objValue;
+    }
+
+    public d32 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#stopPullDownRefresh", false);
-            Pair<y22, JSONObject> s = s(str);
-            y22 y22Var = (y22) s.first;
-            if (!y22Var.isSuccess()) {
-                return y22Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#showLoading", false);
+            if (n()) {
+                d82.c("LoadingViewApi", "LoadingViewApi does not supported when app is invisible.");
+                return new d32(1001, "LoadingViewApi does not supported when app is invisible.");
             }
-            String optString = ((JSONObject) s.second).optString("cb");
+            Pair<d32, JSONObject> s = s(str);
+            d32 d32Var = (d32) s.first;
+            if (!d32Var.isSuccess()) {
+                return d32Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            d82.i("LoadingViewApi", "handleShowLoading : joParams = \n" + jSONObject);
+            String optString = jSONObject.optString("title");
             if (TextUtils.isEmpty(optString)) {
-                p("cb is empty", null, true);
-                return new y22(1001, "cb is empty");
+                return new d32(202, "none title");
             }
-            so3.e0(new a(this, optString));
-            return y22.f();
+            boolean optBoolean = jSONObject.optBoolean("mask", false);
+            Context context = getContext();
+            if (!(context instanceof SwanAppActivity)) {
+                return new d32(1001, "context not support");
+            }
+            ma2 Y = ((SwanAppActivity) context).Y();
+            if (Y == null) {
+                return new d32(1001, "none fragment");
+            }
+            ja2 m = Y.m();
+            if (!(m instanceof ka3.a)) {
+                return new d32(1001, "fragment not support");
+            }
+            ka3 floatLayer = ((ka3.a) m).getFloatLayer();
+            if (floatLayer == null) {
+                return new d32(1001, "can't get floatLayer");
+            }
+            la3.f(floatLayer, context, optString, optBoolean);
+            d82.i("LoadingViewApi", "show loading success");
+            return d32.f();
         }
-        return (y22) invokeL.objValue;
+        return (d32) invokeL.objValue;
     }
 }

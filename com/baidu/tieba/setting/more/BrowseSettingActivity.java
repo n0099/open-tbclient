@@ -6,17 +6,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.q2a;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.v6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BrowseSettingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q2a a;
+    public v6a a;
 
     public BrowseSettingActivity() {
         Interceptable interceptable = $ic;
@@ -48,7 +48,7 @@ public class BrowseSettingActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new q2a(this);
+            this.a = new v6a(this);
         }
     }
 
@@ -57,20 +57,20 @@ public class BrowseSettingActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (view2 == this.a.F()) {
-                this.a.S();
+                this.a.R();
                 TiebaStatic.log("c10649");
             }
             if (view2 == this.a.I()) {
-                this.a.U();
+                this.a.T();
                 TiebaStatic.log("c10653");
             } else if (view2 == this.a.H()) {
-                this.a.T();
+                this.a.S();
             } else if (view2 == this.a.J()) {
-                this.a.V();
+                this.a.U();
             } else if (view2 == this.a.G()) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/app-tool"});
             } else if (view2 == this.a.K()) {
-                cz4.j(this, null).q();
+                hz4.j(this, null).q();
             }
         }
     }

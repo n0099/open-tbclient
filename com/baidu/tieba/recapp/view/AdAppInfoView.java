@@ -21,10 +21,10 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nx9;
-import com.baidu.tieba.p36;
-import com.baidu.tieba.q31;
-import com.baidu.tieba.s05;
+import com.baidu.tieba.g46;
+import com.baidu.tieba.s1a;
+import com.baidu.tieba.t31;
+import com.baidu.tieba.y05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,12 +41,13 @@ public class AdAppInfoView extends FrameLayout {
     public TextView e;
     public TextView f;
     public TextView g;
-    public RelativeLayout h;
-    public s05 i;
-    public AdvertAppInfo j;
-    public int k;
+    public TextView h;
+    public RelativeLayout i;
+    public y05 j;
+    public AdvertAppInfo k;
     public int l;
-    public View.OnClickListener m;
+    public int m;
+    public View.OnClickListener n;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AdAppInfoView(@NonNull Context context) {
@@ -109,9 +110,9 @@ public class AdAppInfoView extends FrameLayout {
                 return;
             }
         }
-        this.k = R.layout.obfuscated_res_0x7f0d0067;
-        this.l = R.color.CAM_X0109;
-        this.m = new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdAppInfoView.1
+        this.l = R.layout.obfuscated_res_0x7f0d0068;
+        this.m = R.color.CAM_X0109;
+        this.n = new View.OnClickListener(this) { // from class: com.baidu.tieba.recapp.view.AdAppInfoView.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ AdAppInfoView a;
@@ -139,36 +140,45 @@ public class AdAppInfoView extends FrameLayout {
                 String str;
                 String str2;
                 Interceptable interceptable2 = $ic;
-                if ((interceptable2 != null && interceptable2.invokeL(1048576, this, view2) != null) || this.a.i == null) {
+                if ((interceptable2 != null && interceptable2.invokeL(1048576, this, view2) != null) || this.a.j == null) {
                     return;
                 }
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.ad_privacy) {
-                    s05.b bVar = this.a.i.g;
-                    if (bVar != null) {
-                        str3 = bVar.b;
-                        str = bVar.c;
+                    y05.c cVar = this.a.j.g;
+                    if (cVar != null) {
+                        str3 = cVar.b;
+                        str = cVar.c;
                         str2 = "app_privacy";
                     }
                     str = "";
                     str2 = str;
+                } else if (id == R.id.ad_permission) {
+                    y05.b bVar = this.a.j.h;
+                    if (bVar != null) {
+                        str3 = bVar.b;
+                        str = bVar.c;
+                        str2 = "app_permission";
+                    }
+                    str = "";
+                    str2 = str;
                 } else {
-                    if (id == R.id.ad_permission) {
-                        s05.a aVar = this.a.i.h;
+                    if (id == R.id.obfuscated_res_0x7f0900b5) {
+                        y05.a aVar = this.a.j.i;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
-                            str2 = "app_permission";
+                            str2 = "app_feature";
                         }
                     } else if (id == R.id.ad_author_full_name) {
-                        BdUtilHelper.showToast(this.a.getContext(), this.a.i.d);
+                        BdUtilHelper.showToast(this.a.getContext(), this.a.j.d);
                         return;
                     }
                     str = "";
                     str2 = str;
                 }
-                nx9.a(this.a.getContext(), str3, null, null, str);
+                s1a.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -180,22 +190,22 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, p36.SimpleAdInfoView);
-        this.k = obtainStyledAttributes.getResourceId(0, this.k);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, g46.SimpleAdInfoView);
+        this.l = obtainStyledAttributes.getResourceId(0, this.l);
         obtainStyledAttributes.recycle();
     }
 
     public void setAd(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, advertAppInfo) == null) {
-            this.j = advertAppInfo;
+            this.k = advertAppInfo;
         }
     }
 
     public void setTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.l = i;
+            this.m = i;
             this.b.setTextColor(i);
         }
     }
@@ -212,16 +222,18 @@ public class AdAppInfoView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048576, this, attributeSet) == null) {
             setLayoutByAttrs(attributeSet);
             LayoutInflater.from(getContext()).inflate(getLayoutId(), this);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f2);
-            this.b = (AdStarRatingBar) findViewById(R.id.obfuscated_res_0x7f0900fd);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900f4);
+            this.b = (AdStarRatingBar) findViewById(R.id.obfuscated_res_0x7f0900ff);
             this.c = (TextView) findViewById(R.id.ad_version);
             this.d = (TextView) findViewById(R.id.ad_author_full_name);
             this.e = (TextView) findViewById(R.id.ad_privacy);
             this.f = (TextView) findViewById(R.id.ad_permission);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09010b);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090932);
-            this.e.setOnClickListener(this.m);
-            this.f.setOnClickListener(this.m);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0900b5);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f09010d);
+            this.i = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090938);
+            this.e.setOnClickListener(this.n);
+            this.f.setOnClickListener(this.n);
+            this.g.setOnClickListener(this.n);
         }
     }
 
@@ -265,7 +277,7 @@ public class AdAppInfoView extends FrameLayout {
                     Layout layout = this.b.d.getLayout();
                     if (layout != null && (lineCount = layout.getLineCount()) > 0 && layout.getEllipsisCount(lineCount - 1) > 0) {
                         AdAppInfoView adAppInfoView = this.b;
-                        adAppInfoView.d.setOnClickListener(adAppInfoView.m);
+                        adAppInfoView.d.setOnClickListener(adAppInfoView.n);
                     }
                     if (this.a.isAlive()) {
                         this.a.removeOnGlobalLayoutListener(this);
@@ -284,7 +296,7 @@ public class AdAppInfoView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
+            return this.i;
         }
         return (RelativeLayout) invokeV.objValue;
     }
@@ -293,17 +305,17 @@ public class AdAppInfoView extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.k;
+            return this.l;
         }
         return invokeV.intValue;
     }
 
     public final void d(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.j != null && !TextUtils.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.k != null && !TextUtils.isEmpty(str)) {
             ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.FREE_CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.j.position + 1)).j(str).p(this.j.g);
-            q31.e(clogBuilder);
+            clogBuilder.y(ClogBuilder.LogType.FREE_CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.k.position + 1)).j(str).p(this.k.g);
+            t31.e(clogBuilder);
         }
     }
 
@@ -311,80 +323,90 @@ public class AdAppInfoView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0107);
-            SkinManager.setViewTextColor(this.c, this.l);
-            SkinManager.setViewTextColor(this.d, this.l);
-            SkinManager.setViewTextColor(this.e, this.l);
-            SkinManager.setViewTextColor(this.f, this.l);
+            SkinManager.setViewTextColor(this.c, this.m);
+            SkinManager.setViewTextColor(this.d, this.m);
+            SkinManager.setViewTextColor(this.e, this.m);
+            SkinManager.setViewTextColor(this.f, this.m);
+            SkinManager.setViewTextColor(this.g, this.m);
             this.b.onChangeSkinType();
         }
     }
 
-    public void setAppInfo(s05 s05Var) {
+    public void setAppInfo(y05 y05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, s05Var) == null) {
-            if (s05Var != null && s05.c(s05Var)) {
-                this.i = s05Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, y05Var) == null) {
+            if (y05Var != null && y05.c(y05Var)) {
+                this.j = y05Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(s05Var.c)) {
+                    if (!TextUtils.isEmpty(y05Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(s05Var.c);
+                        this.a.setText(y05Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = s05Var.e;
+                    float f = y05Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(s05Var.e);
+                        this.b.setRating(y05Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(s05Var.f)) {
+                    if (!TextUtils.isEmpty(y05Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(s05Var.f);
+                        this.c.setText(y05Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(s05Var.d)) {
+                    if (!TextUtils.isEmpty(y05Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(s05Var.d);
+                        this.d.setText(y05Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    s05.b bVar = s05Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(s05Var.g.a)) {
+                    y05.c cVar = y05Var.g;
+                    if (cVar != null && !TextUtils.isEmpty(cVar.b) && !TextUtils.isEmpty(y05Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(s05Var.g.a);
+                        this.e.setText(y05Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.f != null) {
-                    s05.a aVar = s05Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(s05Var.h.a)) {
+                    y05.b bVar = y05Var.h;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(y05Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(s05Var.h.a);
+                        this.f.setText(y05Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }
                 }
-                TextView textView = this.g;
+                if (this.g != null) {
+                    y05.a aVar = y05Var.i;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(y05Var.i.a)) {
+                        this.g.setVisibility(0);
+                        this.g.setText(y05Var.i.a);
+                    } else {
+                        this.g.setVisibility(8);
+                    }
+                }
+                TextView textView = this.h;
                 if (textView != null) {
                     textView.setVisibility(0);
                     return;
                 }
                 return;
             }
-            this.i = null;
+            this.j = null;
         }
     }
 }

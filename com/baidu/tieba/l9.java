@@ -26,8 +26,8 @@ public class l9 {
             if (context instanceof BdPageContextSupport) {
                 return ((BdPageContextSupport) context).getPageContext();
             }
-            Field b = th.b(context.getClass(), k9.class);
-            if (b == null || (a = th.a(context, b)) == null || !(a instanceof k9) || !(a instanceof BdPageContextSupport)) {
+            Field b = vh.b(context.getClass(), k9.class);
+            if (b == null || (a = vh.a(context, b)) == null || !(a instanceof k9) || !(a instanceof BdPageContextSupport)) {
                 return null;
             }
             return ((BdPageContextSupport) a).getPageContext();
@@ -52,8 +52,8 @@ public class l9 {
                     return (k9) orignalPage;
                 }
             }
-            Field b = th.b(context.getClass(), k9.class);
-            if (b == null || (a = th.a(context, b)) == null || !(a instanceof k9)) {
+            Field b = vh.b(context.getClass(), k9.class);
+            if (b == null || (a = vh.a(context, b)) == null || !(a instanceof k9)) {
                 return null;
             }
             return (k9) a;
@@ -72,8 +72,8 @@ public class l9 {
             if (context instanceof BdPageContextSupport) {
                 return (BdPageContextSupport) context;
             }
-            Field b = th.b(context.getClass(), k9.class);
-            if (b == null || (a = th.a(context, b)) == null || !(a instanceof k9) || !(a instanceof BdPageContextSupport)) {
+            Field b = vh.b(context.getClass(), k9.class);
+            if (b == null || (a = vh.a(context, b)) == null || !(a instanceof k9) || !(a instanceof BdPageContextSupport)) {
                 return null;
             }
             return (BdPageContextSupport) a;

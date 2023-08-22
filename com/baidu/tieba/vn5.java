@@ -1,32 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
 /* loaded from: classes8.dex */
 public interface vn5 {
-    @NonNull
-    public static final ServiceReference a;
-    @NonNull
-    public static final vn5 b;
+    void a(ChatMsg chatMsg);
 
-    boolean a(@NonNull String str);
-
-    @NonNull
-    String b(@NonNull String str);
-
-    @NonNull
-    String c();
-
-    @NonNull
-    String d(@NonNull String str, boolean z);
-
-    @NonNull
-    String e(@NonNull String str, @NonNull String str2);
-
-    static {
-        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
-        a = serviceReference;
-        b = (vn5) ServiceManager.getService(serviceReference);
-    }
+    void b(int i, String str, SendMsgResponse sendMsgResponse);
 }

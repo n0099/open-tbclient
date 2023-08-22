@@ -9,15 +9,15 @@ import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.network.outback.EngineName;
 import com.baidu.tbadk.core.view.breathetip.tipview.BreatheTipView;
+import com.baidu.tieba.aa5;
+import com.baidu.tieba.ba5;
+import com.baidu.tieba.ca5;
 import com.baidu.tieba.cf;
 import com.baidu.tieba.df;
 import com.baidu.tieba.ef;
-import com.baidu.tieba.q95;
-import com.baidu.tieba.r95;
-import com.baidu.tieba.s95;
-import com.baidu.tieba.t95;
-import com.baidu.tieba.u95;
-import com.baidu.tieba.v95;
+import com.baidu.tieba.x95;
+import com.baidu.tieba.y95;
+import com.baidu.tieba.z95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,10 +32,10 @@ public class BreatheTipWidget {
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public df b;
-    public u95 c;
+    public ba5 c;
     public BreatheTipView d;
     public View e;
-    public v95 f;
+    public ca5 f;
     public FromType g;
     public boolean h;
     public final Runnable i;
@@ -457,26 +457,26 @@ public class BreatheTipWidget {
         }
     }
 
-    public BreatheTipWidget h(r95 r95Var, q95 q95Var) {
+    public BreatheTipWidget h(y95 y95Var, x95 x95Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, r95Var, q95Var)) == null) {
-            PointType pointType = q95Var.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, y95Var, x95Var)) == null) {
+            PointType pointType = x95Var.a;
             if (pointType == PointType.LOTTIE) {
-                this.c = new s95(this.a);
+                this.c = new z95(this.a);
             } else if (pointType == PointType.DRAWABLE) {
-                this.c = new t95(this.a);
+                this.c = new aa5(this.a);
             }
             if (this.d == null) {
                 this.d = new BreatheTipView(this.a);
             }
-            u95 u95Var = this.c;
-            if (u95Var != null) {
-                u95Var.a(q95Var);
+            ba5 ba5Var = this.c;
+            if (ba5Var != null) {
+                ba5Var.a(x95Var);
             }
             BreatheTipView breatheTipView = this.d;
             if (breatheTipView != null) {
-                breatheTipView.setData(r95Var);
+                breatheTipView.setData(y95Var);
             }
             return this;
         }
@@ -491,9 +491,9 @@ public class BreatheTipWidget {
                 return false;
             }
             j = true;
-            v95 v95Var = new v95();
-            this.f = v95Var;
-            v95Var.h(this.d, this.c, this.e);
+            ca5 ca5Var = new ca5();
+            this.f = ca5Var;
+            ca5Var.h(this.d, this.c, this.e);
             ef efVar = new ef();
             efVar.c(0);
             efVar.k(this.e);

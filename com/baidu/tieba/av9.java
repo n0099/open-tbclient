@@ -1,42 +1,241 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewStub;
-import androidx.core.view.InputDeviceCompat;
-import androidx.viewpager.widget.ViewPager;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.content.DialogInterface;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabHost;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.mainTab.FragmentTabIndicator;
-import com.baidu.tieba.postsearch.PostSearchActivity;
-import com.baidu.tieba.postsearch.PostSearchListFragment;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.MemberPayStatistic;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.BlueCircleProgressDialog;
+import com.baidu.tieba.pay.panel.PayPanelUtils;
+import com.baidu.tieba.s45;
+import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
+import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class av9 {
+public class av9 implements ew9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PostSearchActivity a;
-    public View b;
-    public FragmentTabHost c;
-    public ViewPager.OnPageChangeListener d;
-    public PostSearchListFragment e;
-    public PostSearchListFragment f;
-    public PostSearchListFragment g;
+    public int a;
+    public String b;
+    public TbPageContext c;
+    public BlueCircleProgressDialog d;
+    public l95 e;
+    public BdUniqueId f;
 
-    public av9(PostSearchActivity postSearchActivity, View view2) {
+    /* loaded from: classes5.dex */
+    public class a implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ av9 a;
+
+        public a(av9 av9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {av9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = av9Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                MessageManager.getInstance().removeMessage(this.a.f);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements s45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(av9 av9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {av9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
+                s45Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements s45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ av9 a;
+
+        public c(av9 av9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {av9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = av9Var;
+        }
+
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
+                if (Build.VERSION.SDK_INT < 11) {
+                    s45Var.dismiss();
+                    this.a.c.showToast(R.string.frs_header_games_unavailable);
+                    return;
+                }
+                TiebaStatic.log("c10038");
+                s45Var.dismiss();
+                PayPanelUtils.launchPayPanel(this.a.c, 0, MemberPayStatistic.REFER_PAGE_HE_HER_PERSONAL_CENTER, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_BUTTON);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements s45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(av9 av9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {av9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
+                s45Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements s45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UserMuteAddAndDelCustomMessage a;
+        public final /* synthetic */ av9 b;
+
+        public e(av9 av9Var, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {av9Var, userMuteAddAndDelCustomMessage};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = av9Var;
+            this.a = userMuteAddAndDelCustomMessage;
+        }
+
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
+                this.b.g();
+                MessageManager.getInstance().sendMessage(this.a);
+                s45Var.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements s45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f(av9 av9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {av9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
+                s45Var.dismiss();
+            }
+        }
+    }
+
+    public av9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {postSearchActivity, view2};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,173 +245,142 @@ public class av9 {
                 return;
             }
         }
-        this.a = postSearchActivity;
-        this.b = view2;
+        this.a = -1;
+        this.b = "";
+        this.c = tbPageContext;
+        l95 l95Var = new l95();
+        this.e = l95Var;
+        l95Var.a = 1000L;
+        this.f = bdUniqueId;
+        UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001431);
+        BdUniqueId bdUniqueId2 = this.f;
+        userMuteAddAndDelCustomMessage.mId = bdUniqueId2;
+        userMuteAddAndDelCustomMessage.from = 0;
+        userMuteAddAndDelCustomMessage.setTag(bdUniqueId2);
+        MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
+        UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(2001432);
+        BdUniqueId bdUniqueId3 = this.f;
+        userMuteCheckCustomMessage.mId = bdUniqueId3;
+        userMuteCheckCustomMessage.setTag(bdUniqueId3);
+        MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.ew9
+    public void a(int i, int i2, String str, int i3, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.I1();
-            this.f.I1();
-            this.g.I1();
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), str2}) == null) {
+            BlueCircleProgressDialog blueCircleProgressDialog = this.d;
+            if (blueCircleProgressDialog != null) {
+                blueCircleProgressDialog.setDialogVisiable(false);
+            }
+            this.a = i2;
+            this.b = str;
+            if (i3 == 0) {
+                if (i == 1) {
+                    this.e.d(this.c.getString(R.string.mute_success));
+                } else if (i == 2) {
+                    this.e.d(this.c.getResources().getString(R.string.un_mute_success));
+                }
+            } else if (i3 == 220017) {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = this.c.getString(R.string.mute_error_beyond_limit);
+                }
+                i(str2);
+            } else if (i3 == 1990043) {
+                h();
+            } else {
+                if (di.isEmpty(str2)) {
+                    if (i == 1) {
+                        str2 = this.c.getResources().getString(R.string.mute_fail);
+                    } else if (i == 2) {
+                        str2 = this.c.getResources().getString(R.string.un_mute_fail);
+                    }
+                }
+                this.e.c(str2);
+            }
         }
     }
 
-    public int d() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c.getCurrentTabType();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
         return invokeV.intValue;
     }
 
-    public final void b() {
+    public BdUniqueId f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            FragmentTabHost.c cVar = new FragmentTabHost.c();
-            PostSearchListFragment postSearchListFragment = new PostSearchListFragment(1);
-            this.e = postSearchListFragment;
-            cVar.c = postSearchListFragment;
-            cVar.b = c(R.string.obfuscated_res_0x7f0f1315);
-            cVar.a = 1;
-            this.c.b(cVar);
-            FragmentTabHost.c cVar2 = new FragmentTabHost.c();
-            PostSearchListFragment postSearchListFragment2 = new PostSearchListFragment(2);
-            this.f = postSearchListFragment2;
-            cVar2.c = postSearchListFragment2;
-            cVar2.b = c(R.string.obfuscated_res_0x7f0f1314);
-            cVar2.a = 2;
-            this.c.b(cVar2);
-            FragmentTabHost.c cVar3 = new FragmentTabHost.c();
-            PostSearchListFragment postSearchListFragment3 = new PostSearchListFragment(3);
-            this.g = postSearchListFragment3;
-            cVar3.c = postSearchListFragment3;
-            cVar3.b = c(R.string.obfuscated_res_0x7f0f1313);
-            cVar3.a = 3;
-            this.c.b(cVar3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final FragmentTabIndicator c(int i) {
-        InterceptResult invokeI;
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
-            fragmentTabIndicator.setText(i);
-            fragmentTabIndicator.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
-            fragmentTabIndicator.b = R.color.s_actionbar_text_color;
-            fragmentTabIndicator.setContentTvTopMargin(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
-            fragmentTabIndicator.setWidth((BdUtilHelper.getEquipmentWidth(this.a.getPageContext().getContext()) - (this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f) * 2)) / 3);
-            return fragmentTabIndicator;
-        }
-        return (FragmentTabIndicator) invokeI.objValue;
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f09211b)).inflate();
-            inflate.setVisibility(0);
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f091d03);
-            this.c = fragmentTabHost;
-            fragmentTabHost.setup(this.a.getSupportFragmentManager());
-            this.c.setTabWidgetViewHeight((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
-            this.c.setShouldDrawIndicatorLine(true);
-            b();
-            this.c.k(3);
-            this.c.setCurrentTabByType(i);
-            this.c.getFragmentTabWidget().setBackGroundDrawableResId(0);
-            this.c.s(TbadkCoreApplication.getInst().getSkinType());
-            SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
-            this.c.setOnPageChangeListener(this.d);
-        }
-    }
-
-    public final PostSearchListFragment e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return this.g;
-                }
-                return this.f;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.d == null) {
+                BlueCircleProgressDialog blueCircleProgressDialog = new BlueCircleProgressDialog(this.c);
+                this.d = blueCircleProgressDialog;
+                blueCircleProgressDialog.setCancelListener(new a(this));
             }
-            return this.e;
-        }
-        return (PostSearchListFragment) invokeI.objValue;
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            FragmentTabHost fragmentTabHost = this.c;
-            if (fragmentTabHost != null) {
-                fragmentTabHost.s(i);
-            }
-            FragmentTabHost fragmentTabHost2 = this.c;
-            if (fragmentTabHost2 != null && fragmentTabHost2.getFragmentTabWidget() != null) {
-                SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
-            }
+            this.d.setDialogVisiable(true);
         }
     }
 
-    public void i(ViewPager.OnPageChangeListener onPageChangeListener) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
-            this.d = onPageChangeListener;
-            FragmentTabHost fragmentTabHost = this.c;
-            if (fragmentTabHost != null) {
-                fragmentTabHost.setOnPageChangeListener(onPageChangeListener);
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            s45 s45Var = new s45(this.c.getPageActivity());
+            s45Var.setMessage(this.c.getString(R.string.mute_is_super_member_function));
+            s45Var.setPositiveButton(R.string.open_now, new c(this));
+            s45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03cf, new d(this));
+            s45Var.create(this.c).show();
         }
     }
 
-    public void j(boolean z) {
-        FragmentTabHost fragmentTabHost;
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (fragmentTabHost = this.c) != null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (str == null) {
+                str = "";
+            }
+            s45 s45Var = new s45(this.c.getPageActivity());
+            s45Var.setMessage(str);
+            s45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f0b46, new b(this));
+            s45Var.create(this.c).show();
+        }
+    }
+
+    public void j(boolean z, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), userMuteAddAndDelCustomMessage, str, str2}) == null) {
             if (z) {
-                fragmentTabHost.setVisibility(0);
+                g();
+                MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
+                return;
+            }
+            s45 s45Var = new s45(this.c.getPageActivity());
+            if (!di.isEmpty(str)) {
+                s45Var.setMessage(str);
             } else {
-                fragmentTabHost.setVisibility(8);
+                s45Var.setMessage(this.c.getResources().getString(R.string.block_mute_message_alert, str2));
             }
-        }
-    }
-
-    public void h(int i, wu9 wu9Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), wu9Var, Boolean.valueOf(z)}) == null) {
-            j(true);
-            PostSearchListFragment e = e(i);
-            if (e != null) {
-                e.M1(wu9Var, z);
-            }
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            if (this.c == null) {
-                f(1);
-                return;
-            }
-            a();
-            if (this.c.getCurrentTabType() == i) {
-                PostSearchListFragment e = e(i);
-                if (e != null) {
-                    e.N1(true);
-                    return;
-                }
-                return;
-            }
-            this.c.setCurrentTabByType(i);
+            s45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f04c2, new e(this, userMuteAddAndDelCustomMessage));
+            s45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03cf, new f(this));
+            s45Var.create(this.c).show();
         }
     }
 }

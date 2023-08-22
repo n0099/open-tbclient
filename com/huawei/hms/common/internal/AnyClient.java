@@ -1,10 +1,10 @@
 package com.huawei.hms.common.internal;
 
 import com.huawei.hms.core.aidl.IMessageEntity;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface AnyClient {
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface CallBack {
         void onCallback(IMessageEntity iMessageEntity, String str);
     }

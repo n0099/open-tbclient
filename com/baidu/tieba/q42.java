@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,10 +8,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class q42 extends e42 {
+public class q42 extends j42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect a;
+
+    @Override // com.baidu.tieba.j42
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public q42() {
         Interceptable interceptable = $ic;
@@ -28,32 +33,11 @@ public class q42 extends e42 {
         }
     }
 
-    @Override // com.baidu.tieba.e42
-    public void a(f42 f42Var, Canvas canvas) {
+    @Override // com.baidu.tieba.j42
+    public void a(k42 k42Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, f42Var, canvas) == null) && this.a != null) {
-            int alpha = f42Var.b.getAlpha();
-            f42Var.c(f42Var.b);
-            canvas.drawRect(this.a, f42Var.b);
-            f42Var.b.setAlpha(alpha);
-        }
-    }
-
-    @Override // com.baidu.tieba.e42
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() == 4) {
-                    int g = po3.g((float) jSONArray.optDouble(0));
-                    int g2 = po3.g((float) jSONArray.optDouble(1));
-                    this.a = new Rect(g, g2, po3.g((float) jSONArray.optDouble(2)) + g, po3.g((float) jSONArray.optDouble(3)) + g2);
-                }
-            } catch (Exception e) {
-                if (ir1.a) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, k42Var, canvas) == null) {
+            k42Var.f.close();
         }
     }
 }

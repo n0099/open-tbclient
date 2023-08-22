@@ -90,12 +90,12 @@ public final class AbstractNullabilityChecker {
                     }
                     if (supertypesPolicy != null) {
                         for (KotlinTypeMarker kotlinTypeMarker : abstractTypeCheckerContext.supertypes(abstractTypeCheckerContext.typeConstructor(current))) {
-                            SimpleTypeMarker mo2106transformType = supertypesPolicy.mo2106transformType(abstractTypeCheckerContext, kotlinTypeMarker);
-                            if (INSTANCE.isApplicableAsEndNode(abstractTypeCheckerContext, mo2106transformType, typeConstructorMarker)) {
+                            SimpleTypeMarker mo2108transformType = supertypesPolicy.mo2108transformType(abstractTypeCheckerContext, kotlinTypeMarker);
+                            if (INSTANCE.isApplicableAsEndNode(abstractTypeCheckerContext, mo2108transformType, typeConstructorMarker)) {
                                 abstractTypeCheckerContext.clear();
                                 return true;
                             }
-                            supertypesDeque.add(mo2106transformType);
+                            supertypesDeque.add(mo2108transformType);
                         }
                         continue;
                     } else {
@@ -145,8 +145,8 @@ public final class AbstractNullabilityChecker {
                         }
                         if (supertypesPolicy2 != null) {
                             for (KotlinTypeMarker kotlinTypeMarker : abstractTypeCheckerContext.supertypes(abstractTypeCheckerContext.typeConstructor(current))) {
-                                SimpleTypeMarker mo2106transformType = supertypesPolicy2.mo2106transformType(abstractTypeCheckerContext, kotlinTypeMarker);
-                                if ((abstractTypeCheckerContext.isClassType(mo2106transformType) && !abstractTypeCheckerContext.isMarkedNullable(mo2106transformType)) || abstractTypeCheckerContext.isDefinitelyNotNullType(mo2106transformType)) {
+                                SimpleTypeMarker mo2108transformType = supertypesPolicy2.mo2108transformType(abstractTypeCheckerContext, kotlinTypeMarker);
+                                if ((abstractTypeCheckerContext.isClassType(mo2108transformType) && !abstractTypeCheckerContext.isMarkedNullable(mo2108transformType)) || abstractTypeCheckerContext.isDefinitelyNotNullType(mo2108transformType)) {
                                     z2 = true;
                                 } else {
                                     z2 = false;
@@ -154,7 +154,7 @@ public final class AbstractNullabilityChecker {
                                 if (z2) {
                                     abstractTypeCheckerContext.clear();
                                 } else {
-                                    supertypesDeque.add(mo2106transformType);
+                                    supertypesDeque.add(mo2108transformType);
                                 }
                             }
                             continue;

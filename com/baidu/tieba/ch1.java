@@ -1,65 +1,97 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Handler;
+import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.nio.charset.Charset;
 /* loaded from: classes5.dex */
-public final class ch1 {
+public class ch1 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public Handler b;
+    public String c;
+    public ImageView d;
+    public int e;
+    public int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947674653, "Lcom/baidu/tieba/ch1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947674653, "Lcom/baidu/tieba/ch1;");
+    public ch1(Context context, Handler handler, String str, ImageView imageView, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, handler, str, imageView, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Charset.forName("US-ASCII");
-        Charset.forName("UTF-8");
+        this.a = context.getApplicationContext();
+        this.b = handler;
+        this.c = str;
+        this.d = imageView;
+        this.e = i;
+        this.f = i2;
     }
 
-    public static void a(Closeable closeable) {
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0036  */
+    /* JADX WARN: Removed duplicated region for block: B:25:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final Bitmap a(String str, int i, int i2) {
+        Bitmap bitmap;
+        Bitmap bitmap2;
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, str, i, i2)) == null) {
             try {
-                closeable.close();
-            } catch (RuntimeException e) {
-                throw e;
-            } catch (Exception unused) {
+                bitmap = wg1.b(this.a).c(str, i, i2);
+            } catch (IOException e) {
+                e = e;
+                bitmap = null;
             }
+            try {
+            } catch (IOException e2) {
+                e = e2;
+                e.printStackTrace();
+                bitmap2 = bitmap;
+                if (bitmap2 != null) {
+                }
+            }
+            if (bitmap != null) {
+                wg1.c().a(str, bitmap);
+                return bitmap;
+            }
+            wg1.b(this.a).a(str);
+            bitmap2 = wg1.b(this.a).c(str, i, i2);
+            if (bitmap2 != null) {
+                return zg1.a(str);
+            }
+            return bitmap2;
         }
+        return (Bitmap) invokeLII.objValue;
     }
 
-    public static void b(File file) {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
-            File[] listFiles = file.listFiles();
-            if (listFiles != null) {
-                for (File file2 : listFiles) {
-                    if (file2.isDirectory()) {
-                        b(file2);
-                    }
-                    if (!file2.delete()) {
-                        throw new IOException("failed to delete file: " + file2);
-                    }
-                }
-                return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Bitmap a = a(this.c, this.e, this.f);
+            if (this.b != null) {
+                this.b.obtainMessage(1, new bh1(this.d, this.c, a)).sendToTarget();
             }
-            throw new IOException("not a readable directory: " + file);
         }
     }
 }

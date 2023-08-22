@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.facebook.cache.common.CacheKey;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.yf2;
 /* loaded from: classes6.dex */
 public interface jf2 {
-    CacheKey a(String str);
+    boolean a(@NonNull yf2.a aVar);
 }

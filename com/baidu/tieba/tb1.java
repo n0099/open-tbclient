@@ -1,167 +1,223 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.MotionEvent;
-import android.view.TouchDelegate;
-import android.view.View;
-import android.view.ViewConfiguration;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.MutableContextWrapper;
+import android.graphics.Bitmap;
+import android.net.Uri;
+import android.os.Build;
+import android.webkit.ValueCallback;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.webview.NadNativeBrowserView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class tb1 extends TouchDelegate {
+public final class tb1 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<View, a> a;
+    public ob1 a;
+    public NadNativeBrowserView b;
 
+    @RequiresApi(21)
     /* loaded from: classes8.dex */
-    public class a {
+    public static final class a implements p81 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Rect a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-        public Rect g;
-        public boolean h;
+        public final WebChromeClient.FileChooserParams a;
 
-        public a(tb1 tb1Var, Rect rect, int i, int i2, int i3, int i4) {
+        public a(WebChromeClient.FileChooserParams fileChooserParams) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tb1Var, rect, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {fileChooserParams};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = i;
-            this.a = rect;
-            this.d = i2;
-            this.c = i3;
-            this.e = i4;
+            this.a = fileChooserParams;
+        }
+
+        @Override // com.baidu.tieba.p81
+        public Intent a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                WebChromeClient.FileChooserParams fileChooserParams = this.a;
+                if (fileChooserParams != null) {
+                    return fileChooserParams.createIntent();
+                }
+                return null;
+            }
+            return (Intent) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.p81
+        public String[] b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                WebChromeClient.FileChooserParams fileChooserParams = this.a;
+                if (fileChooserParams != null) {
+                    return fileChooserParams.getAcceptTypes();
+                }
+                return null;
+            }
+            return (String[]) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.p81
+        public int getMode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                WebChromeClient.FileChooserParams fileChooserParams = this.a;
+                if (fileChooserParams != null) {
+                    return fileChooserParams.getMode();
+                }
+                return -1;
+            }
+            return invokeV.intValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tb1(View view2, int i, int i2, int i3, int i4) {
-        super(new Rect(), view2);
+    public tb1(NadNativeBrowserView webView, ob1 ob1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {webView, ob1Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Rect) objArr2[0], (View) objArr2[1]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        a(view2, i, i2, i3, i4);
+        Intrinsics.checkNotNullParameter(webView, "webView");
+        this.a = ob1Var;
+        this.b = webView;
     }
 
-    public void a(View view2, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            this.a.put(view2, new a(this, new Rect(), i, i2, i3, i4));
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (Map.Entry<View, a> entry : this.a.entrySet()) {
-                View key = entry.getKey();
-                int[] iArr = new int[2];
-                key.getLocationOnScreen(iArr);
-                int measuredWidth = key.getMeasuredWidth();
-                int measuredHeight = key.getMeasuredHeight();
-                a value = entry.getValue();
-                Rect rect = value.a;
-                rect.left = iArr[0] - value.b;
-                rect.right = iArr[0] + measuredWidth + value.c;
-                rect.top = iArr[1] - value.d;
-                rect.bottom = iArr[1] + measuredHeight + value.e;
-                value.f = ViewConfiguration.get(key.getContext()).getScaledTouchSlop();
-                Rect rect2 = new Rect(value.a);
-                value.g = rect2;
-                int i = value.f;
-                rect2.inset(-i, -i);
-            }
-        }
-    }
-
-    @Override // android.view.TouchDelegate
-    public boolean onTouchEvent(MotionEvent motionEvent) {
+    public final Activity a(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            b();
-            int rawX = (int) motionEvent.getRawX();
-            int rawY = (int) motionEvent.getRawY();
-            boolean z = false;
-            boolean z2 = false;
-            boolean z3 = true;
-            for (Map.Entry<View, a> entry : this.a.entrySet()) {
-                View key = entry.getKey();
-                if (key.getVisibility() != 0) {
-                    break;
-                }
-                a value = entry.getValue();
-                int action = motionEvent.getAction();
-                if (action != 0) {
-                    if (action != 1 && action != 2) {
-                        if (action == 3) {
-                            z2 = value.h;
-                            value.h = false;
-                        }
-                    } else {
-                        z2 = value.h;
-                        if (z2 && !value.g.contains(rawX, rawY)) {
-                            z3 = false;
-                        }
-                    }
-                } else if (value.a.contains(rawX, rawY)) {
-                    value.h = true;
-                    z2 = true;
-                } else {
-                    value.h = false;
-                    z2 = false;
-                }
-                if (z2) {
-                    if (z3) {
-                        motionEvent.setLocation(key.getWidth() / 2, key.getHeight() / 2);
-                    } else {
-                        float f = -(value.f * 2);
-                        motionEvent.setLocation(f, f);
-                    }
-                    z = key.dispatchTouchEvent(motionEvent);
-                    continue;
-                }
-                if (z) {
-                    break;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, webView)) == null) {
+            if (webView == null) {
+                return null;
             }
-            return z;
+            if (webView.getContext() instanceof Activity) {
+                Context context = webView.getContext();
+                if (context != null) {
+                    return (Activity) context;
+                }
+                throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
+            } else if (!(webView.getContext() instanceof MutableContextWrapper)) {
+                return null;
+            } else {
+                Context context2 = webView.getContext();
+                if (context2 != null) {
+                    if (!(((MutableContextWrapper) context2).getBaseContext() instanceof Activity)) {
+                        return null;
+                    }
+                    Context context3 = webView.getContext();
+                    if (context3 != null) {
+                        Context baseContext = ((MutableContextWrapper) context3).getBaseContext();
+                        if (baseContext != null) {
+                            return (Activity) baseContext;
+                        }
+                        throw new NullPointerException("null cannot be cast to non-null type android.app.Activity");
+                    }
+                    throw new NullPointerException("null cannot be cast to non-null type android.content.MutableContextWrapper");
+                }
+                throw new NullPointerException("null cannot be cast to non-null type android.content.MutableContextWrapper");
+            }
         }
-        return invokeL.booleanValue;
+        return (Activity) invokeL.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public Bitmap getDefaultVideoPoster() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                Bitmap createBitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.RGB_565);
+                createBitmap.eraseColor(0);
+                return createBitmap;
+            } catch (Exception unused) {
+                return super.getDefaultVideoPoster();
+            }
+        }
+        return (Bitmap) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onProgressChanged(WebView webView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, webView, i) == null) {
+            super.onProgressChanged(webView, i);
+            ob1 ob1Var = this.a;
+            if (ob1Var != null) {
+                ob1Var.a(this.b, i);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onReceivedTitle(WebView webView, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
+            super.onReceivedTitle(webView, str);
+            ob1 ob1Var = this.a;
+            if (ob1Var != null) {
+                ob1Var.b(this.b, str);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onRequestFocus(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, webView) == null) {
+            super.onRequestFocus(webView);
+            ob1 ob1Var = this.a;
+            if (ob1Var != null) {
+                ob1Var.c(this.b);
+            }
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> valueCallback, WebChromeClient.FileChooserParams fileChooserParams) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, valueCallback, fileChooserParams)) == null) {
+            this.b.V();
+            Activity a2 = a(webView);
+            if (a2 != null && Build.VERSION.SDK_INT >= 21) {
+                return s81.h(a2, valueCallback, new a(fileChooserParams));
+            }
+            if (valueCallback != null) {
+                valueCallback.onReceiveValue(null);
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
     }
 }

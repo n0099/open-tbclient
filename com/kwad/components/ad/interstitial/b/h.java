@@ -34,7 +34,7 @@ public final class h extends b implements com.kwad.sdk.widget.c {
     public KSFrameLayout dN;
 
     /* renamed from: do  reason: not valid java name */
-    public ImageView f7do;
+    public ImageView f8do;
     public com.kwad.sdk.core.video.videoview.a dp;
     @Nullable
     public boolean ds = false;
@@ -119,12 +119,12 @@ public final class h extends b implements com.kwad.sdk.widget.c {
         this.ds = this.cN.isVideoSoundEnable();
         String url = com.kwad.sdk.core.response.a.a.aL(this.mAdInfo).getUrl();
         if (TextUtils.isEmpty(url)) {
-            imageView = this.f7do;
+            imageView = this.f8do;
             i = 8;
         } else {
-            this.f7do.setImageDrawable(null);
-            KSImageLoader.loadImage(this.f7do, url, this.mAdTemplate);
-            imageView = this.f7do;
+            this.f8do.setImageDrawable(null);
+            KSImageLoader.loadImage(this.f8do, url, this.mAdTemplate);
+            imageView = this.f8do;
             i = 0;
         }
         imageView.setVisibility(i);
@@ -259,9 +259,9 @@ public final class h extends b implements com.kwad.sdk.widget.c {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091293);
-        this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f09141d);
-        this.f7do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f09142d);
+        this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0912a9);
+        this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091433);
+        this.f8do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091443);
         this.dN.setVisibility(4);
         this.mContext = getContext();
     }

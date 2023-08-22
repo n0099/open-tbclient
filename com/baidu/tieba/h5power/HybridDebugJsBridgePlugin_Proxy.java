@@ -4,11 +4,11 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.ica;
-import com.baidu.tieba.kca;
-import com.baidu.tieba.kx4;
-import com.baidu.tieba.mca;
-import com.baidu.tieba.qk6;
+import com.baidu.tieba.mx4;
+import com.baidu.tieba.qga;
+import com.baidu.tieba.sga;
+import com.baidu.tieba.uga;
+import com.baidu.tieba.vl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,17 +21,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class HybridDebugJsBridgePlugin_Proxy extends ica {
+public class HybridDebugJsBridgePlugin_Proxy extends qga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kx4 mJsBridge;
+    public mx4 mJsBridge;
 
-    public HybridDebugJsBridgePlugin_Proxy(kx4 kx4Var) {
+    public HybridDebugJsBridgePlugin_Proxy(mx4 mx4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {kx4Var};
+            Object[] objArr = {mx4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,101 +41,101 @@ public class HybridDebugJsBridgePlugin_Proxy extends ica {
                 return;
             }
         }
-        this.mJsBridge = kx4Var;
+        this.mJsBridge = mx4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.ica
-    public kca dispatch(WebView webView, mca mcaVar, kca kcaVar) {
+    @Override // com.baidu.tieba.qga
+    public sga dispatch(WebView webView, uga ugaVar, sga sgaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, mcaVar, kcaVar)) == null) {
-            if (kcaVar == null) {
-                kcaVar = new kca();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ugaVar, sgaVar)) == null) {
+            if (sgaVar == null) {
+                sgaVar = new sga();
             }
-            String b = mcaVar.b();
-            JSONObject e = mcaVar.e();
+            String b = ugaVar.b();
+            JSONObject e = ugaVar.e();
             if (b.equals("hybridDebug/getOfflineUserInfo")) {
-                kcaVar.s(true);
-                kca d = this.mJsBridge.d(webView);
+                sgaVar.s(true);
+                sga d = this.mJsBridge.d(webView);
                 if (d != null) {
-                    kcaVar.y(d.f());
-                    kcaVar.u(d.b());
-                    kcaVar.o(d.a());
-                    kcaVar.x(d.e());
+                    sgaVar.y(d.f());
+                    sgaVar.u(d.b());
+                    sgaVar.o(d.a());
+                    sgaVar.x(d.e());
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             } else if (b.equals("hybridDebug/deleteOfflineBundle")) {
-                kcaVar.s(true);
-                kca c = this.mJsBridge.c(webView);
+                sgaVar.s(true);
+                sga c = this.mJsBridge.c(webView);
                 if (c != null) {
-                    kcaVar.y(c.f());
-                    kcaVar.u(c.b());
-                    kcaVar.o(c.a());
-                    kcaVar.x(c.e());
+                    sgaVar.y(c.f());
+                    sgaVar.u(c.b());
+                    sgaVar.o(c.a());
+                    sgaVar.x(c.e());
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             } else if (b.equals("hybridDebug/updateOfflineBundle")) {
-                kcaVar.s(true);
-                kca i = this.mJsBridge.i(webView);
+                sgaVar.s(true);
+                sga i = this.mJsBridge.i(webView);
                 if (i != null) {
-                    kcaVar.y(i.f());
-                    kcaVar.u(i.b());
-                    kcaVar.o(i.a());
-                    kcaVar.x(i.e());
+                    sgaVar.y(i.f());
+                    sgaVar.u(i.b());
+                    sgaVar.o(i.a());
+                    sgaVar.x(i.e());
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             } else if (b.equals("hybridDebug/switchOfflineInterface")) {
-                kcaVar.s(true);
-                kca g = this.mJsBridge.g(webView, e.optString("host"));
+                sgaVar.s(true);
+                sga g = this.mJsBridge.g(webView, e.optString("host"));
                 if (g != null) {
-                    kcaVar.y(g.f());
-                    kcaVar.u(g.b());
-                    kcaVar.o(g.a());
-                    kcaVar.x(g.e());
+                    sgaVar.y(g.f());
+                    sgaVar.u(g.b());
+                    sgaVar.o(g.a());
+                    sgaVar.x(g.e());
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             } else if (b.equals("hybridDebug/switchOfflineBundleStatus")) {
-                kcaVar.s(true);
-                kca f = this.mJsBridge.f(webView, e.optInt("isOn"));
+                sgaVar.s(true);
+                sga f = this.mJsBridge.f(webView, e.optInt("isOn"));
                 if (f != null) {
-                    kcaVar.y(f.f());
-                    kcaVar.u(f.b());
-                    kcaVar.o(f.a());
-                    kcaVar.x(f.e());
+                    sgaVar.y(f.f());
+                    sgaVar.u(f.b());
+                    sgaVar.o(f.a());
+                    sgaVar.x(f.e());
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             } else if (b.equals("hybridDebug/switchUrlHost")) {
-                kcaVar.s(true);
+                sgaVar.s(true);
                 ArrayList<JSONObject> arrayList = new ArrayList<>();
                 ListUtils.convertJSONArrayToList(arrayList, e.optJSONArray("hostArr"));
-                kca h = this.mJsBridge.h(webView, arrayList);
+                sga h = this.mJsBridge.h(webView, arrayList);
                 if (h != null) {
-                    kcaVar.y(h.f());
-                    kcaVar.u(h.b());
-                    kcaVar.o(h.a());
-                    kcaVar.x(h.e());
+                    sgaVar.y(h.f());
+                    sgaVar.u(h.b());
+                    sgaVar.o(h.a());
+                    sgaVar.x(h.e());
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             }
-            return kcaVar;
+            return sgaVar;
         }
-        return (kca) invokeLLL.objValue;
+        return (sga) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ica
-    public qk6 getJsBridge() {
+    @Override // com.baidu.tieba.qga
+    public vl6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (qk6) invokeV.objValue;
+        return (vl6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ica
-    public List<kca> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.qga
+    public List<sga> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {

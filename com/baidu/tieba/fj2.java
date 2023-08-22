@@ -1,14 +1,12 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.ArrayMap;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostFormRequest;
+import com.baidu.smallgame.sdk.permission.PermissionListener;
+import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import com.baidu.tieba.ig3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,75 +14,98 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.PermissionRequest;
 /* loaded from: classes5.dex */
-public abstract class fj2 implements hj2 {
+public class fj2 implements PermissionProxy {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a extends ResponseCallback<JSONObject> {
+    public class a implements wp3<gg3<ig3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ PermissionListener c;
+        public final /* synthetic */ fj2 d;
 
-        public a(fj2 fj2Var) {
+        public a(fj2 fj2Var, String str, String str2, PermissionListener permissionListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {fj2Var};
+                Object[] objArr = {fj2Var, str, str2, permissionListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && fj2.a) {
-                Log.e("AbsDefaultPurger", "onFail: " + exc);
-            }
+            this.d = fj2Var;
+            this.a = str;
+            this.b = str2;
+            this.c = permissionListener;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
+        @Override // com.baidu.tieba.wp3
+        /* renamed from: b */
+        public void a(gg3<ig3.e> gg3Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) && fj2.a) {
-                Log.e("AbsDefaultPurger", "onSuccess: ");
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gg3Var) == null) {
+                if (bg3.h(gg3Var)) {
+                    this.d.b(this.a, this.b, this.c);
+                } else {
+                    this.c.onPermissionResult(this.a, 2);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements g63 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PermissionListener a;
+        public final /* synthetic */ String b;
+
+        public b(fj2 fj2Var, PermissionListener permissionListener, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fj2Var, permissionListener, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = permissionListener;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.g63
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                this.a.onPermissionResult(this.b, 0);
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
+        @Override // com.baidu.tieba.g63
+        public void b(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (fj2.a) {
-                    Log.d("AbsDefaultPurger", "parseResponse");
-                }
-                if (response == null || response.body() == null) {
-                    return null;
-                }
-                String string = response.body().string();
-                if (TextUtils.isEmpty(string)) {
-                    return null;
-                }
-                return new JSONObject(string);
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                this.a.onPermissionResult(this.b, 1);
             }
-            return (JSONObject) invokeLI.objValue;
         }
     }
 
@@ -101,7 +122,7 @@ public abstract class fj2 implements hj2 {
                 return;
             }
         }
-        a = ir1.a;
+        a = nr1.a;
     }
 
     public fj2() {
@@ -118,99 +139,61 @@ public abstract class fj2 implements hj2 {
         }
     }
 
-    @NonNull
-    public final ResponseCallback<JSONObject> c() {
-        InterceptResult invokeV;
+    public final void b(@NonNull String str, @NonNull String str2, @NonNull PermissionListener permissionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
-        }
-        return (ResponseCallback) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            vi4.i().c(str);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, permissionListener) == null) {
+            b bVar = new b(this, permissionListener, str);
+            f63.e(str2, new String[]{str2}, 2, cb3.K().w(), bVar);
         }
     }
 
-    public void f(String str) {
+    public final String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            vi4.i().h(str);
-            vi4.i().e(xj4.class, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            char c = 65535;
+            int hashCode = str.hashCode();
+            if (hashCode != -1785599184) {
+                if (hashCode == -1352756132 && str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
+                    c = 1;
+                }
+            } else if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    return null;
+                }
+                return PermissionRequest.RESOURCE_AUDIO_CAPTURE;
+            }
+            return PermissionRequest.RESOURCE_VIDEO_CAPTURE;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void e(List<String> list) {
+    @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
+    public void requestPermission(String str, PermissionListener permissionListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && list != null && !list.isEmpty()) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, permissionListener) == null) {
             if (a) {
-                Log.d("AbsDefaultPurger", "clearData");
+                Log.d("V8PermissionDelegate", "requestPermission : " + str);
             }
-            Set<String> d = jj2.d(list);
-            HashSet<String> hashSet = new HashSet(list);
-            if (d != null) {
-                hashSet.removeAll(d);
-            }
-            qj3.j().g("aiapp_setting_", hashSet, false);
-            qj3.j().g("aiapp_", hashSet, false);
-            for (String str : hashSet) {
+            if (permissionListener == null) {
                 if (a) {
-                    Log.d("AbsDefaultPurger", "clear storage files: " + str);
+                    Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
+                    return;
                 }
-                String v = gi3.v(str);
-                if (!TextUtils.isEmpty(v)) {
-                    cr4.M(v);
-                }
-                String x = gi3.x(str);
-                if (!TextUtils.isEmpty(x)) {
-                    cr4.M(x);
-                }
+                return;
             }
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public void g(@Nullable List<String> list) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list != null && !list.isEmpty()) {
-            if (a) {
-                Log.d("AbsDefaultPurger", "resetAccredit");
-            }
-            ArrayMap arrayMap = new ArrayMap();
-            arrayMap.put("ma_ids", list);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                ag3 a2 = fu2.q().a();
-                jSONObject.put("accredit", new JSONObject(arrayMap));
-                String v = fu2.o().v();
-                ph4 b = qh4.b();
-                if (b == null) {
-                    if (!a) {
-                        y72.c("AbsDefaultPurger", "get network obj failed on resetAccredit");
-                    } else {
-                        throw new RuntimeException("SwanNetworkRuntime.getSwanNetwork return null , check inject");
-                    }
-                }
-                ci4 g = ci4.g();
-                if (!g.c()) {
-                    b = null;
-                }
-                PostFormRequest.PostFormRequestBuilder addParam = ((PostFormRequest.PostFormRequestBuilder) g.postFormRequest().url(v)).addParam("data", jSONObject.toString());
-                if (b != null) {
-                    str = b.getUserAgent();
-                } else {
-                    str = "";
-                }
-                ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) addParam.userAgent(str)).cookieManager(a2)).build().executeAsyncOnUIBack(c());
-            } catch (JSONException e) {
-                e.printStackTrace();
-                if (a) {
-                    Log.d("AbsDefaultPurger", "resetAccredit with JSONException: ", e);
-                }
+            String c = c(str);
+            db3 M = db3.M();
+            if (!TextUtils.isEmpty(c) && M != null && M.w() != null) {
+                M.e0().g(M.w(), str, new a(this, str, c, permissionListener));
+            } else {
+                permissionListener.onPermissionResult(str, 2);
             }
         }
     }

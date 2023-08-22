@@ -1,18 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
-public abstract class d40 {
+public class d40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+    public g40[] a;
 
     public d40() {
         Interceptable interceptable = $ic;
@@ -24,27 +22,32 @@ public abstract class d40 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new g40[]{new h40(8, 0), new i40(0, 1), new i40(1, 1), new h40(7, 1)};
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public abstract com.baidu.helios.common.cc.a b(byte[] bArr, int i, int i2);
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
+        }
+        f40 f40Var = new f40();
+        byte[] b = e40.b(bArr, bArr.length + ((this.a.length + 1) * f40.b));
+        e40.a(b, f40Var.b(), bArr.length);
+        int i = 0;
+        while (true) {
+            g40[] g40VarArr = this.a;
+            if (i >= g40VarArr.length) {
+                return Arrays.copyOf(f40Var.b(), f40.b);
+            }
+            g40 g40Var = g40VarArr[i];
+            i++;
+            int length = bArr.length + (f40.b * i);
+            f40Var.a(g40Var.b(b, 0, length), g40Var.a(), g40Var.c(), g40Var.d());
+            e40.a(b, f40Var.b(), length);
+        }
     }
 }

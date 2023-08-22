@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fc8;
-import com.baidu.tieba.rc8;
+import com.baidu.tieba.qg8;
+import com.baidu.tieba.ze8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -103,16 +103,16 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d074b, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09174a);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091751);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091750);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f091757);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0751, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091761);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091768);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091767);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09176e);
             this.f = findViewById(R.id.black_mask);
             this.b.setConrers(15);
             this.b.setRadius(BdUtilHelper.getDimens(this.a, R.dimen.tbds21));
             this.g = findViewById(R.id.image_container);
-            this.h = findViewById(R.id.obfuscated_res_0x7f0917e1);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091802);
             c();
         }
     }
@@ -120,7 +120,7 @@ public class OfficialFeedItemImage extends RelativeLayout {
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080b14, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.obfuscated_res_0x7f080b22, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.CAM_X0601, R.color.CAM_X0606);
             if (this.i) {
                 gradientLinear.into(this.f);
@@ -146,13 +146,13 @@ public class OfficialFeedItemImage extends RelativeLayout {
         }
     }
 
-    public void setData(rc8.a aVar, int i, fc8 fc8Var) {
+    public void setData(qg8.a aVar, int i, ze8 ze8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, fc8Var) == null) {
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, aVar, i, ze8Var) == null) {
             this.b.startLoad(aVar.c, 10, false);
             this.e.setText(aVar.a);
-            if (fc8Var != null) {
-                i = fc8Var.i();
+            if (ze8Var != null) {
+                i = ze8Var.i();
             }
             d(i);
         }

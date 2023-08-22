@@ -1,48 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import java.util.List;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public interface awa<D> {
-    void a(@NonNull WriteData writeData);
+public class awa {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public fwa b;
+    public vva c;
 
-    void b(WriteData writeData);
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    void c();
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public boolean b;
+        public int c;
+        public fwa d;
+        public vva e;
 
-    void e(@NonNull WriteData writeData);
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = "";
+            this.b = true;
+            this.c = 0;
+            this.d = null;
+            this.e = null;
+        }
 
-    boolean g();
+        public awa d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                e();
+                return new awa(this, null);
+            }
+            return (awa) invokeV.objValue;
+        }
 
-    void h(@Nullable String str, @NonNull WriteData writeData);
+        public final void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (TextUtils.isEmpty(this.a)) {
+                    this.a = FileHelper.getVideoTmpDir() + File.separator + "shaft_images";
+                }
+                if (this.c <= 0) {
+                    this.c = ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8;
+                }
+                if (this.d == null) {
+                    this.d = new fwa(this.c);
+                }
+                if (this.e == null) {
+                    this.e = new vva(this.a);
+                }
+            }
+        }
+    }
 
-    void j(@NonNull cwa cwaVar);
+    public awa(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        String unused = bVar.a;
+        this.a = bVar.b;
+        int unused2 = bVar.c;
+        this.b = bVar.d;
+        this.c = bVar.e;
+    }
 
-    void m(Bundle bundle, Intent intent, @NonNull WriteData writeData);
-
-    boolean o();
-
-    void onActivityResult(int i, int i2, Intent intent);
-
-    void onChangeSkinType(int i);
-
-    void onPause();
-
-    void onResume();
-
-    void onSaveInstanceState(Bundle bundle);
-
-    void q(@NonNull List<awa<?>> list);
-
-    void r(lh5 lh5Var);
-
-    View s(@NonNull ViewGroup viewGroup);
-
-    boolean t();
+    public /* synthetic */ awa(b bVar, a aVar) {
+        this(bVar);
+    }
 }

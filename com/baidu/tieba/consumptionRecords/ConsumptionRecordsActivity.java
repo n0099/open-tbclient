@@ -28,7 +28,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public SigleRecordsFragment d;
     public SigleRecordsFragment e;
 
-    public final int t1(int i) {
+    public final int s1(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
@@ -63,7 +63,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
             this.b.getFragmentTabWidget().setBackGroundDrawableResId(R.color.CAM_X0201);
-            this.b.s(i);
+            this.b.r(i);
         }
     }
 
@@ -81,7 +81,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d022b);
+            setContentView(R.layout.obfuscated_res_0x7f0d022e);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -90,7 +90,7 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void s1(FragmentTabStructure fragmentTabStructure, FragmentTabIndicator fragmentTabIndicator, String str) {
+    public final void r1(FragmentTabStructure fragmentTabStructure, FragmentTabIndicator fragmentTabIndicator, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, fragmentTabStructure, fragmentTabIndicator, str) != null) || fragmentTabStructure == null) {
             return;
@@ -110,33 +110,33 @@ public class ConsumptionRecordsActivity extends BaseFragmentActivity {
     public final void v1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091e82);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) findViewById(R.id.obfuscated_res_0x7f091ea5);
             this.b = fragmentTabHost;
             fragmentTabHost.setup(getSupportFragmentManager());
             this.b.setTabWidgetViewHeight((int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
             SigleRecordsFragment sigleRecordsFragment = new SigleRecordsFragment();
             this.c = sigleRecordsFragment;
-            sigleRecordsFragment.Z1(1);
+            sigleRecordsFragment.l2(1);
             FragmentTabStructure fragmentTabStructure = new FragmentTabStructure();
             fragmentTabStructure.frag = this.c;
-            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f06e5;
-            s1(fragmentTabStructure, u1(getPageContext().getPageActivity()), null);
+            fragmentTabStructure.textResId = R.string.obfuscated_res_0x7f0f06ed;
+            r1(fragmentTabStructure, u1(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment2 = new SigleRecordsFragment();
             this.d = sigleRecordsFragment2;
-            sigleRecordsFragment2.Z1(2);
+            sigleRecordsFragment2.l2(2);
             FragmentTabStructure fragmentTabStructure2 = new FragmentTabStructure();
             fragmentTabStructure2.frag = this.d;
-            fragmentTabStructure2.textResId = R.string.obfuscated_res_0x7f0f0a79;
-            s1(fragmentTabStructure2, u1(getPageContext().getPageActivity()), null);
+            fragmentTabStructure2.textResId = R.string.obfuscated_res_0x7f0f0a81;
+            r1(fragmentTabStructure2, u1(getPageContext().getPageActivity()), null);
             SigleRecordsFragment sigleRecordsFragment3 = new SigleRecordsFragment();
             this.e = sigleRecordsFragment3;
-            sigleRecordsFragment3.Z1(3);
+            sigleRecordsFragment3.l2(3);
             FragmentTabStructure fragmentTabStructure3 = new FragmentTabStructure();
             fragmentTabStructure3.frag = this.e;
-            fragmentTabStructure3.textResId = R.string.obfuscated_res_0x7f0f11d3;
-            s1(fragmentTabStructure3, u1(getPageContext().getPageActivity()), null);
-            this.b.k(3);
-            this.b.setCurrentTab(t1(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
+            fragmentTabStructure3.textResId = R.string.obfuscated_res_0x7f0f11de;
+            r1(fragmentTabStructure3, u1(getPageContext().getPageActivity()), null);
+            this.b.j(3);
+            this.b.setCurrentTab(s1(getIntent().getIntExtra(ConsumptionRecordsActivityConfig.JUMP_FRAGMENT_TYPE, 1)));
         }
     }
 }

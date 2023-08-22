@@ -35,7 +35,7 @@ public class SimpleFloatingErrorElement extends AbsElement {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // kotlin.jvm.functions.Function0
         public final View invoke() {
-            View inflate = LayoutInflater.from(SimpleFloatingErrorElement.this.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0169, (ViewGroup) null);
+            View inflate = LayoutInflater.from(SimpleFloatingErrorElement.this.getContext()).inflate(R.layout.obfuscated_res_0x7f0d016c, (ViewGroup) null);
             Intrinsics.checkNotNull(inflate);
             return inflate;
         }
@@ -93,7 +93,7 @@ public class SimpleFloatingErrorElement extends AbsElement {
     @Override // com.baidu.searchbox.player.element.AbsElement
     public void initElement() {
         getView().setId(ViewCompat.generateViewId());
-        getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.jn1
+        getView().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.on1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -149,12 +149,12 @@ public class SimpleFloatingErrorElement extends AbsElement {
         }
         if (i != 1) {
             if (i == 2) {
-                Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f10bc, 0).show();
+                Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f10c6, 0).show();
                 return;
             }
             return;
         }
-        Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f10bd, 0).show();
+        Toast.makeText(getContext(), (int) R.string.obfuscated_res_0x7f0f10c7, 0).show();
     }
 
     @Override // com.baidu.searchbox.player.element.AbsElement, com.baidu.searchbox.player.element.IElement

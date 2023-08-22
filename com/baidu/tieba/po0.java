@@ -1,84 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.os.Bundle;
 /* loaded from: classes7.dex */
-public class po0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static ro0 a;
-    public static so0 b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface po0 extends qo0 {
+    void onActivityCreated(Activity activity, Bundle bundle);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948068632, "Lcom/baidu/tieba/po0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948068632, "Lcom/baidu/tieba/po0;");
-        }
-    }
+    void onActivityDestroyed(Activity activity);
 
-    public po0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void onActivityPaused(Activity activity);
 
-    public static ro0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (po0.class) {
-                    if (a == null) {
-                        a = (ro0) ServiceManager.getService(ro0.a);
-                    }
-                    if (a == null) {
-                        a = ro0.b;
-                    }
-                }
-            }
-            return a;
-        }
-        return (ro0) invokeV.objValue;
-    }
+    void onActivityResumed(Activity activity);
 
-    public static so0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (po0.class) {
-                    if (b == null) {
-                        b = (so0) ServiceManager.getService(so0.a);
-                    }
-                    if (b == null) {
-                        b = so0.b;
-                    }
-                }
-            }
-            return b;
-        }
-        return (so0) invokeV.objValue;
-    }
+    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
+
+    void onActivityStarted(Activity activity);
+
+    void onActivityStopped(Activity activity);
+
+    void onBackgroundToForeground(Activity activity);
+
+    void onForegroundToBackground(Activity activity);
 }

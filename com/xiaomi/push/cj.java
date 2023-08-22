@@ -13,7 +13,7 @@ public class cj extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo298a() {
+    public String mo300a() {
         return "100957";
     }
 
@@ -25,21 +25,21 @@ public class cj extends aj.a {
         ArrayList arrayList4;
         ArrayList arrayList5;
         ArrayList<ci.a> arrayList6;
-        arrayList = this.a.f167a;
+        arrayList = this.a.f168a;
         synchronized (arrayList) {
-            arrayList2 = this.a.f167a;
+            arrayList2 = this.a.f168a;
             if (arrayList2.size() > 0) {
-                arrayList3 = this.a.f167a;
+                arrayList3 = this.a.f168a;
                 if (arrayList3.size() > 1) {
                     ci ciVar = this.a;
-                    arrayList6 = this.a.f167a;
+                    arrayList6 = this.a.f168a;
                     ciVar.a(arrayList6);
                 } else {
                     ci ciVar2 = this.a;
-                    arrayList4 = this.a.f167a;
+                    arrayList4 = this.a.f168a;
                     ciVar2.b((ci.a) arrayList4.get(0));
                 }
-                arrayList5 = this.a.f167a;
+                arrayList5 = this.a.f168a;
                 arrayList5.clear();
                 System.gc();
             }

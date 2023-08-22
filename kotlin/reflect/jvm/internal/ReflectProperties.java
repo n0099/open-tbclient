@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal;
 import com.baidu.titan.sdk.common.TitanConstant;
 import java.lang.ref.SoftReference;
 import kotlin.jvm.functions.Function0;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ReflectProperties {
     public static /* synthetic */ void $$$reportNull$$$0(int i) {
         Object[] objArr = new Object[3];
@@ -17,7 +17,7 @@ public class ReflectProperties {
         throw new IllegalArgumentException(String.format("Argument for @NotNull parameter '%s' of %s.%s must not be null", objArr));
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class LazySoftVal<T> extends Val<T> {
         public final Function0<T> initializer;
         public volatile SoftReference<Object> value;
@@ -50,7 +50,7 @@ public class ReflectProperties {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static class LazyVal<T> extends Val<T> {
         public final Function0<T> initializer;
         public volatile Object value;
@@ -93,7 +93,7 @@ public class ReflectProperties {
         return lazySoft(null, function0);
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class Val<T> {
         public static final Object NULL_VALUE = new Object() { // from class: kotlin.reflect.jvm.internal.ReflectProperties.Val.1
         };

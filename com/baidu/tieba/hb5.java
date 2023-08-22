@@ -1,73 +1,326 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.TextView;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class hb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ViewPager a;
+    public IndicatorView b;
+    public TextView c;
+    public BdBaseViewPagerAdapter d;
+    public jb5 e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public Context i;
+    public List<bn> j;
+    public ViewPager.OnPageChangeListener k;
+    public long l;
+    public final Handler.Callback m;
+    public final Handler n;
+    public ViewPager.OnPageChangeListener o;
 
-    public static synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (hb5.class) {
-                File file = new File(FileHelper.getCacheDir() + "voice");
-                if (file.exists() && file.isDirectory()) {
-                    File[] listFiles = file.listFiles();
-                    if (listFiles == null) {
-                        return;
-                    }
-                    for (File file2 : listFiles) {
-                        file2.delete();
-                    }
+    /* loaded from: classes6.dex */
+    public class a implements Handler.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hb5 a;
+
+        public a(hb5 hb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hb5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = hb5Var;
+        }
+
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what != 1) {
+                    return false;
+                }
+                this.a.g();
+                return false;
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true));
-        }
-        return invokeLL.booleanValue;
-    }
+    /* loaded from: classes6.dex */
+    public class b implements ViewPager.OnPageChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hb5 a;
 
-    public static gb5 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            gb5 gb5Var = new gb5();
-            if (str == null) {
-                gb5Var.f(6);
-                gb5Var.g(gb5.a(gb5Var.b()));
-                return gb5Var;
+        public b(hb5 hb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hb5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
-                gb5Var.f(7);
-                gb5Var.g(gb5.a(gb5Var.b()));
-                return gb5Var;
-            }
-            String b = hi.b(FileHelper.GetStreamFromTmpFile(str));
-            if (b == null) {
-                gb5Var.f(5);
-                gb5Var.g(gb5.a(gb5Var.b()));
-            } else {
-                String filePath = FileHelper.getFilePath(b, 1, true);
-                if (FileHelper.renameTo(str, filePath)) {
-                    gb5Var.i(filePath);
-                    gb5Var.h(b);
+            this.a = hb5Var;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            int count;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.k != null) {
+                    this.a.k.onPageScrollStateChanged(i);
+                }
+                if (i == 1) {
+                    this.a.n();
+                } else if (i != 0 || (count = this.a.d.getCount()) < 2) {
                 } else {
-                    gb5Var.f(1);
-                    gb5Var.g(gb5.a(gb5Var.b()));
+                    int currentItem = this.a.a.getCurrentItem();
+                    int i2 = count - 2;
+                    if (currentItem < 1) {
+                        this.a.a.setCurrentItem(i2, false);
+                    } else if (currentItem > i2) {
+                        this.a.a.setCurrentItem(1, false);
+                    }
+                    this.a.m();
                 }
             }
-            return gb5Var;
         }
-        return (gb5) invokeL.objValue;
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.e != null && this.a.e.a(i) == i) {
+                if (this.a.b != null) {
+                    this.a.b.setPosition(this.a.e.c(i));
+                }
+                if (this.a.k != null) {
+                    this.a.k.onPageSelected(this.a.e.c(i));
+                }
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) && this.a.k != null) {
+                this.a.k.onPageScrolled(i, f, i2);
+            }
+        }
+    }
+
+    public hb5(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, viewPager, indicatorView, textView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = false;
+        this.g = true;
+        this.h = 2;
+        this.j = new ArrayList();
+        this.l = 5000L;
+        this.m = new a(this);
+        this.n = new Handler(this.m);
+        this.o = new b(this);
+        h(context, viewPager, indicatorView, textView);
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            this.l = j;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.h = i;
+            jb5 jb5Var = this.e;
+            if (jb5Var != null) {
+                jb5Var.h(i);
+            }
+        }
+    }
+
+    public final void g() {
+        int count;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.d != null) {
+            k9 c = l9.c(this.i);
+            if ((c != null && c.isScroll()) || (count = this.d.getCount()) < 2) {
+                return;
+            }
+            int currentItem = this.a.getCurrentItem();
+            int i = count - 2;
+            if (currentItem < 1) {
+                this.a.setCurrentItem(i, false);
+            } else if (currentItem > i) {
+                this.a.setCurrentItem(1, false);
+            } else {
+                this.a.setCurrentItem(currentItem + 1);
+            }
+        }
+    }
+
+    public final void h(Context context, ViewPager viewPager, IndicatorView indicatorView, TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, viewPager, indicatorView, textView) == null) {
+            this.a = viewPager;
+            this.b = indicatorView;
+            this.c = textView;
+            this.i = context;
+            BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
+            this.d = bdBaseViewPagerAdapter;
+            ViewPager viewPager2 = this.a;
+            if (viewPager2 != null) {
+                viewPager2.setAdapter(bdBaseViewPagerAdapter);
+                this.a.setOnPageChangeListener(this.o);
+            }
+        }
+    }
+
+    public void i(Context context, ib5<?, ?> ib5Var) {
+        BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, ib5Var) == null) && (bdBaseViewPagerAdapter = this.d) != null) {
+            bdBaseViewPagerAdapter.g(context, ib5Var);
+        }
+    }
+
+    public void k(List<bn> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.getCount(list) == 0) {
+            return;
+        }
+        this.j = list;
+        jb5 jb5Var = new jb5(list, this.f, this.h);
+        this.e = jb5Var;
+        jb5Var.i(2);
+        this.e.g(1);
+        this.d.h(this.e.e());
+        this.d.notifyDataSetChanged();
+        this.a.setCurrentItem(this.e.d(), false);
+        if (this.e.b() <= 0) {
+            return;
+        }
+        if (this.e.b() > this.h) {
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setVisibility(0);
+                this.c.setOnClickListener(null);
+                IndicatorView indicatorView = this.b;
+                if (indicatorView != null) {
+                    indicatorView.setVisibility(8);
+                }
+            } else {
+                IndicatorView indicatorView2 = this.b;
+                if (indicatorView2 != null && !this.f) {
+                    indicatorView2.setVisibility(8);
+                }
+            }
+            IndicatorView indicatorView3 = this.b;
+            if (indicatorView3 != null && indicatorView3.getVisibility() == 0) {
+                int count = this.b.getCount();
+                int i = this.h;
+                if (count != i) {
+                    this.b.setCount(i);
+                }
+            }
+            m();
+        }
+        if (this.e.b() >= 2 && this.e.b() <= this.h) {
+            TextView textView2 = this.c;
+            if (textView2 != null) {
+                textView2.setVisibility(8);
+            }
+            IndicatorView indicatorView4 = this.b;
+            if (indicatorView4 != null) {
+                indicatorView4.setVisibility(0);
+                if (this.b.getCount() != this.e.b()) {
+                    this.b.setCount(this.e.b());
+                }
+            }
+            m();
+        }
+        if (this.e.b() < 2) {
+            TextView textView3 = this.c;
+            if (textView3 != null) {
+                textView3.setVisibility(8);
+            }
+            IndicatorView indicatorView5 = this.b;
+            if (indicatorView5 != null) {
+                indicatorView5.setVisibility(8);
+            }
+            n();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.g) {
+                this.n.removeMessages(1);
+                this.n.sendEmptyMessageDelayed(1, this.l);
+                return;
+            }
+            this.n.removeMessages(1);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.n.removeMessages(1);
+        }
     }
 }

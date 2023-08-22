@@ -309,7 +309,7 @@ public class SapiDeviceInfo implements NoProguard {
         if (diExceptIndex.contains(37) || !ParamsUtil.checkDiUpload(grayControlParams, 37)) {
             str23 = "";
         } else {
-            str23 = "9.7.5";
+            str23 = "9.7.5.1";
         }
         arrayList.add(str23);
         if (!diExceptIndex.contains(38) && ParamsUtil.checkDiUpload(grayControlParams, 38)) {

@@ -8,14 +8,14 @@ import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.kn7;
+import com.baidu.tieba.fp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, kn7, T> {
+public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, fp7, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -89,7 +89,7 @@ public class FrsItemTabNetModel<T> extends NetAutoModel<FrsItemTabRequestData, k
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return kn7.class;
+            return fp7.class;
         }
         return (Class) invokeV.objValue;
     }

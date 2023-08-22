@@ -1,7 +1,7 @@
 package com.huawei.hms.opendevice;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hpb;
+import com.baidu.tieba.wvb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import com.huawei.hms.support.api.opendevice.OdidResult;
 import com.huawei.hms.support.hianalytics.HiAnalyticsClient;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.JsonUtil;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class OpenDeviceTaskApiCall extends TaskApiCall<OpenDeviceHmsClient, OdidResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -64,11 +64,11 @@ public class OpenDeviceTaskApiCall extends TaskApiCall<OpenDeviceHmsClient, Odid
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
-    public void doExecute(OpenDeviceHmsClient openDeviceHmsClient, ResponseErrorCode responseErrorCode, String str, hpb<OdidResult> hpbVar) {
+    public void doExecute(OpenDeviceHmsClient openDeviceHmsClient, ResponseErrorCode responseErrorCode, String str, wvb<OdidResult> wvbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, openDeviceHmsClient, responseErrorCode, str, hpbVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, openDeviceHmsClient, responseErrorCode, str, wvbVar) == null) {
             if (responseErrorCode == null) {
-                hpbVar.c(new ApiException(new Status(1)));
+                wvbVar.c(new ApiException(new Status(1)));
                 return;
             }
             HiAnalyticsClient.reportExit(openDeviceHmsClient.getContext(), getUri(), getTransactionId(), responseErrorCode.getStatusCode(), responseErrorCode.getErrorCode(), 60300305);
@@ -79,11 +79,11 @@ public class OpenDeviceTaskApiCall extends TaskApiCall<OpenDeviceHmsClient, Odid
                 OdidResult odidResult = new OdidResult();
                 odidResult.setId(odidResp.getId());
                 odidResult.setStatus(new Status(0));
-                hpbVar.setResult(odidResult);
+                wvbVar.setResult(odidResult);
                 return;
             }
             HMSLog.i("OpenDeviceTaskApiCall", "onResult, returnCode: " + responseErrorCode.getErrorCode());
-            hpbVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+            wvbVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
         }
     }
 }

@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.d37;
 import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionData;
 import com.baidu.tieba.faceshop.forumpackage.message.ForumEmotionCenterResponseMessage;
+import com.baidu.tieba.r47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,16 +28,16 @@ public class ForumEmotionModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public final d37 c;
+    public final r47 c;
     public final HttpMessageListener d;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void F0(ForumEmotionData forumEmotionData);
+        void H1(ForumEmotionData forumEmotionData);
+
+        void N0(ForumEmotionData forumEmotionData);
 
         void onFailed(String str);
-
-        void v1(ForumEmotionData forumEmotionData);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -101,10 +101,10 @@ public class ForumEmotionModel extends BdBaseModel {
                     if (forumEmotionCenterResponseMessage.getStatusCode() == 200) {
                         if (forumEmotionCenterResponseMessage.getError() == 0 && forumEmotionCenterResponseMessage.data != null) {
                             if (this.a.a == 1) {
-                                bVar.v1(forumEmotionCenterResponseMessage.data);
+                                bVar.H1(forumEmotionCenterResponseMessage.data);
                                 return;
                             } else {
-                                bVar.F0(forumEmotionCenterResponseMessage.data);
+                                bVar.N0(forumEmotionCenterResponseMessage.data);
                                 return;
                             }
                         }
@@ -137,7 +137,7 @@ public class ForumEmotionModel extends BdBaseModel {
         }
         this.a = 1;
         this.b = true;
-        this.c = new d37();
+        this.c = new r47();
         this.d = new a(this, CmdConfigHttp.CMD_GET_FORUM_EMOTION_PACKAGE);
         registerTask();
         this.d.setTag(getUniqueId());
@@ -145,13 +145,13 @@ public class ForumEmotionModel extends BdBaseModel {
         registerListener(this.d);
     }
 
-    public d37 P() {
+    public r47 P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (d37) invokeV.objValue;
+        return (r47) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel

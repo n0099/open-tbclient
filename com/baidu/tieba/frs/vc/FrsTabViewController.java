@@ -44,14 +44,12 @@ import com.baidu.tbadk.mainTab.FragmentDelegate;
 import com.baidu.tbadk.widget.LinearGradientView;
 import com.baidu.tbadk.widget.OvalActionButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag7;
-import com.baidu.tieba.bg7;
-import com.baidu.tieba.bs7;
-import com.baidu.tieba.cg7;
-import com.baidu.tieba.df7;
-import com.baidu.tieba.ea5;
-import com.baidu.tieba.eg7;
-import com.baidu.tieba.fh7;
+import com.baidu.tieba.au7;
+import com.baidu.tieba.bm7;
+import com.baidu.tieba.bw7;
+import com.baidu.tieba.cs7;
+import com.baidu.tieba.eha;
+import com.baidu.tieba.es7;
 import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.tieba.frs.FrsAllThreadFragment;
 import com.baidu.tieba.frs.FrsFragment;
@@ -59,25 +57,27 @@ import com.baidu.tieba.frs.FrsTabViewPager;
 import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
 import com.baidu.tieba.frs.tab.FrsTabItemCustomeView;
 import com.baidu.tieba.frs.tab.TabData;
-import com.baidu.tieba.fs7;
-import com.baidu.tieba.gh7;
-import com.baidu.tieba.gk7;
-import com.baidu.tieba.gu7;
-import com.baidu.tieba.hq7;
-import com.baidu.tieba.jq7;
+import com.baidu.tieba.gi7;
+import com.baidu.tieba.ii7;
+import com.baidu.tieba.iv7;
+import com.baidu.tieba.la5;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.lr6;
-import com.baidu.tieba.nt7;
+import com.baidu.tieba.og7;
 import com.baidu.tieba.pg7;
-import com.baidu.tieba.rg7;
+import com.baidu.tieba.ph7;
+import com.baidu.tieba.rh7;
+import com.baidu.tieba.sh7;
+import com.baidu.tieba.su7;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
-import com.baidu.tieba.uw4;
-import com.baidu.tieba.wca;
-import com.baidu.tieba.xe7;
-import com.baidu.tieba.xs7;
-import com.baidu.tieba.ye7;
-import com.baidu.tieba.yf7;
+import com.baidu.tieba.th7;
+import com.baidu.tieba.ug7;
+import com.baidu.tieba.us6;
+import com.baidu.tieba.vh7;
+import com.baidu.tieba.wi7;
+import com.baidu.tieba.wt7;
+import com.baidu.tieba.ww4;
+import com.baidu.tieba.xi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -92,12 +92,12 @@ import java.util.List;
 import tbclient.FrsTabInfo;
 import tbclient.ThemeColorInfo;
 import tbclient.ThemeElement;
-/* loaded from: classes5.dex */
-public class FrsTabViewController implements gu7, TbTabLayout.c {
+/* loaded from: classes6.dex */
+public class FrsTabViewController implements bw7, TbTabLayout.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
-    public final jq7 A;
+    public final es7 A;
     public CustomMessageListener B;
     public ViewPager.OnPageChangeListener C;
     public CustomMessageListener D;
@@ -117,13 +117,13 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
     public FrsViewData j;
     public ThemeColorInfo k;
     public FragmentAdapter l;
-    public df7 m;
-    public gk7 n;
+    public ug7 m;
+    public bm7 n;
     public h o;
     public PublishProgressView p;
     public int q;
     public int r;
-    public lr6 s;
+    public us6 s;
     public boolean t;
     public boolean u;
     public int v;
@@ -132,7 +132,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
     public String y;
     public int z;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface h {
         void a(int i, int i2, String str, boolean z);
     }
@@ -149,7 +149,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class FragmentAdapter extends FragmentStatePagerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -261,7 +261,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -292,14 +292,14 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof df7) && !this.a.t) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ug7) && !this.a.t) {
                 this.a.X();
                 this.a.t = true;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b implements ViewPager.OnPageChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -347,12 +347,12 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         public final void a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
-                bs7 bs7Var = new bs7();
-                bs7Var.b = i;
-                bs7Var.c = i2;
+                wt7 wt7Var = new wt7();
+                wt7Var.b = i;
+                wt7Var.c = i2;
                 CustomMessage customMessage = new CustomMessage(2921590);
                 customMessage.setTag(this.a.a.getBaseFragmentActivity().getUniqueId());
-                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921590, bs7Var);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921590, wt7Var);
                 customResponsedMessage.setOrginalMessage(customMessage);
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
             }
@@ -363,23 +363,23 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
             String str;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.a.f != null && this.a.l != null) {
-                this.a.f.d();
+                this.a.f.e();
                 if (!ListUtils.isEmpty(this.a.l.b) && this.a.l.b.size() > i) {
                     i iVar = (i) ListUtils.getItem(this.a.l.b, i);
                     if (iVar.a == 506) {
-                        ea5 ea5Var = new ea5(5);
-                        ea5Var.p(13);
+                        la5 la5Var = new la5(5);
+                        la5Var.p(13);
                         Fragment fragment = iVar.b;
                         if (fragment instanceof FrsItemTabFragment) {
                             FrsItemTabFragment frsItemTabFragment = (FrsItemTabFragment) fragment;
-                            if (frsItemTabFragment.K1() != null) {
-                                str = frsItemTabFragment.K1().category1;
+                            if (frsItemTabFragment.W1() != null) {
+                                str = frsItemTabFragment.W1().category1;
                             } else {
                                 str = "";
                             }
-                            ea5Var.l(str);
+                            la5Var.l(str);
                         }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, ea5Var));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, la5Var));
                     }
                     if (iVar.d == 100) {
                         TiebaStatic.log(new StatisticItem("c13008").param("obj_type", 16));
@@ -387,23 +387,23 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                     if (iVar.d == 102) {
                         TiebaStatic.log(new StatisticItem("c13008").param("fid", this.a.a.w()).param("obj_type", 17));
                     }
-                    if (iVar.b instanceof rg7) {
-                        yf7 yf7Var = new yf7();
-                        yf7Var.a = iVar.a;
-                        yf7Var.b = (rg7) iVar.b;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921448, yf7Var));
+                    if (iVar.b instanceof ii7) {
+                        ph7 ph7Var = new ph7();
+                        ph7Var.a = iVar.a;
+                        ph7Var.b = (ii7) iVar.b;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921448, ph7Var));
                     } else {
-                        yf7 yf7Var2 = new yf7();
-                        yf7Var2.a = iVar.a;
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921448, yf7Var2));
+                        ph7 ph7Var2 = new ph7();
+                        ph7Var2.a = iVar.a;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921448, ph7Var2));
                     }
                     int i2 = 0;
                     a(iVar.a, 0);
-                    OvalActionButton b4 = this.a.a.b4();
-                    if (!this.a.a.s3(iVar.a)) {
+                    OvalActionButton n4 = this.a.a.n4();
+                    if (!this.a.a.E3(iVar.a)) {
                         i2 = 8;
                     }
-                    b4.setVisibility(i2);
+                    n4.setVisibility(i2);
                 }
                 if (this.a.a != null && (this.a.a.getActivity() instanceof FrsActivity)) {
                     ((FrsActivity) this.a.a.getActivity()).v1().a();
@@ -412,7 +412,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -468,7 +468,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class d extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -508,14 +508,14 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                 }
                 String str = split[0];
                 String str2 = split[1];
-                if ("FrsGameLive".equals(str) && 1 == Integer.valueOf(str2).intValue() && (B = this.a.B()) != null && (fragment = B.b) != null && (fragment instanceof pg7)) {
-                    ((pg7) fragment).h();
+                if ("FrsGameLive".equals(str) && 1 == Integer.valueOf(str2).intValue() && (B = this.a.B()) != null && (fragment = B.b) != null && (fragment instanceof gi7)) {
+                    ((gi7) fragment).h();
                 }
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class e extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -553,7 +553,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class f extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -584,11 +584,11 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921384 && (customResponsedMessage.getData() instanceof fs7)) {
-                fs7 fs7Var = (fs7) customResponsedMessage.getData();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921384 && (customResponsedMessage.getData() instanceof au7)) {
+                au7 au7Var = (au7) customResponsedMessage.getData();
                 int i = -1;
                 for (int i2 = 0; i2 < ListUtils.getCount(this.a.i); i2++) {
-                    if (this.a.i.get(i2) != null && (this.a.i.get(i2).b == fs7Var.b || this.a.i.get(i2).e == fs7Var.e)) {
+                    if (this.a.i.get(i2) != null && (this.a.i.get(i2).b == au7Var.b || this.a.i.get(i2).e == au7Var.e)) {
                         i = i2;
                         break;
                     }
@@ -601,7 +601,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class g implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -634,7 +634,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -680,7 +680,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         this.t = false;
         this.w = false;
         this.x = false;
-        this.A = hq7.a();
+        this.A = cs7.a();
         this.B = new a(this, 2001623);
         this.C = new b(this);
         this.D = new c(this, 2001612);
@@ -690,30 +690,30 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         this.H = new g(this);
         this.a = frsFragment;
         this.A.a(view2, onClickListener);
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d7d);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090d78);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f090915);
-        this.h = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090d7b);
-        TbTabLayout tbTabLayout = (TbTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d7a);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d8a);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f090d85);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f09091b);
+        this.h = (LinearGradientView) view2.findViewById(R.id.obfuscated_res_0x7f090d88);
+        TbTabLayout tbTabLayout = (TbTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d87);
         this.e = tbTabLayout;
         tbTabLayout.setOnTabSelectedListener(this);
         this.e.setSelectedTabTextBlod(true);
-        this.e.setTabTextSize(hq7.c());
-        lr6 lr6Var = new lr6(frsFragment.getPageContext(), this.e);
-        this.s = lr6Var;
-        lr6Var.L(R.drawable.bg_tip_blue_up_left);
+        this.e.setTabTextSize(cs7.c());
+        us6 us6Var = new us6(frsFragment.getPageContext(), this.e);
+        this.s = us6Var;
+        us6Var.L(R.drawable.bg_tip_blue_up_left);
         this.s.o(16);
         this.s.N(true);
         this.s.Q(C(R.dimen.tbds34));
         this.s.R(C(R.dimen.tbds10));
         this.s.m(this.H);
-        this.f = (FrsTabViewPager) view2.findViewById(R.id.obfuscated_res_0x7f090d93);
+        this.f = (FrsTabViewPager) view2.findViewById(R.id.obfuscated_res_0x7f090da0);
         this.l = new FragmentAdapter(this, this.a.getActivity().getSupportFragmentManager(), null);
         this.f.addOnPageChangeListener(this.C);
         RelativeLayout relativeLayout = new RelativeLayout(this.a.getContext());
         this.g = relativeLayout;
-        this.n = new gk7(frsFragment, relativeLayout);
-        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f091d93);
+        this.n = new bm7(frsFragment, relativeLayout);
+        PublishProgressView publishProgressView = (PublishProgressView) view2.findViewById(R.id.obfuscated_res_0x7f091db6);
         this.p = publishProgressView;
         publishProgressView.setVisibility(8);
     }
@@ -734,7 +734,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         }
     }
 
-    @Override // com.baidu.tieba.gu7
+    @Override // com.baidu.tieba.bw7
     public void f(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048611, this, i2) == null) {
@@ -836,13 +836,13 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
 
     public View G() {
         InterceptResult invokeV;
-        gk7 gk7Var;
+        bm7 bm7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (P() || (gk7Var = this.n) == null) {
+            if (P() || (bm7Var = this.n) == null) {
                 return null;
             }
-            return gk7Var.h();
+            return bm7Var.h();
         }
         return (View) invokeV.objValue;
     }
@@ -930,7 +930,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
     public void i0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            this.s.T(this.a.getString(R.string.obfuscated_res_0x7f0f0464), "key_show_frs_tab_click_to_refresh_tip");
+            this.s.T(this.a.getString(R.string.obfuscated_res_0x7f0f0465), "key_show_frs_tab_click_to_refresh_tip");
         }
     }
 
@@ -939,9 +939,9 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            Iterator<fs7> it = this.i.iterator();
+            Iterator<au7> it = this.i.iterator();
             while (it.hasNext()) {
-                fs7 next = it.next();
+                au7 next = it.next();
                 if (next != null && ((i2 = next.b) == 1 || i2 == 503)) {
                     return next.b;
                 }
@@ -991,15 +991,15 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         return (i) invokeI.objValue;
     }
 
-    public fs7 J(int i2) {
+    public au7 J(int i2) {
         InterceptResult invokeI;
         TabData tabData;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i2)) == null) {
             if (i2 >= 0 && (tabData = this.i) != null && tabData.size() > 0) {
-                Iterator<fs7> it = this.i.iterator();
+                Iterator<au7> it = this.i.iterator();
                 while (it.hasNext()) {
-                    fs7 next = it.next();
+                    au7 next = it.next();
                     if (next.b == i2) {
                         return next;
                     }
@@ -1007,7 +1007,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
             }
             return null;
         }
-        return (fs7) invokeI.objValue;
+        return (au7) invokeI.objValue;
     }
 
     public final void N(FrsViewData frsViewData) {
@@ -1046,8 +1046,8 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
             for (i iVar : this.l.b) {
                 if (iVar != null) {
                     Fragment fragment = iVar.b;
-                    if (fragment instanceof pg7) {
-                        ((pg7) fragment).r0(z);
+                    if (fragment instanceof gi7) {
+                        ((gi7) fragment).x0(z);
                     }
                 }
             }
@@ -1073,7 +1073,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gu7
+    @Override // com.baidu.tieba.bw7
     public boolean b(int i2) {
         InterceptResult invokeI;
         TabData tabData;
@@ -1112,8 +1112,8 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         if (interceptable == null || interceptable.invokeL(1048605, this, fVar) == null) {
             O();
             FrsFragment frsFragment = this.a;
-            if (frsFragment != null && frsFragment.y0() != null) {
-                this.a.y0().X();
+            if (frsFragment != null && frsFragment.F0() != null) {
+                this.a.F0().X();
             }
             int e2 = fVar.e();
             TabData tabData = this.i;
@@ -1146,7 +1146,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
 
     @Override // com.baidu.adp.widget.design.TbTabLayout.c
     public void a(TbTabLayout.f fVar) {
-        fs7 fs7Var;
+        au7 au7Var;
         FrsViewData frsViewData;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048601, this, fVar) != null) || fVar == null) {
@@ -1154,10 +1154,10 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         }
         int e2 = fVar.e();
         TabData tabData = this.i;
-        if (tabData != null && e2 >= 0 && e2 < tabData.size() && (fs7Var = this.i.get(e2)) != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001624, Integer.valueOf(fs7Var.b)));
-            TiebaStatic.log(new StatisticItem("c12398").param("fid", this.a.l).param("tab_id", fs7Var.b));
-            if (BdNetTypeUtil.isNetworkAvailableForImmediately() && fs7Var.b == 89 && (frsViewData = this.j) != null && frsViewData.isShowRedTip()) {
+        if (tabData != null && e2 >= 0 && e2 < tabData.size() && (au7Var = this.i.get(e2)) != null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001624, Integer.valueOf(au7Var.b)));
+            TiebaStatic.log(new StatisticItem("c12398").param("fid", this.a.l).param("tab_id", au7Var.b));
+            if (BdNetTypeUtil.isNetworkAvailableForImmediately() && au7Var.b == 89 && (frsViewData = this.j) != null && frsViewData.isShowRedTip()) {
                 this.j.setIsShowRedTip(false);
                 fVar.j(0, false);
             }
@@ -1171,8 +1171,8 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
             int min = Math.min(this.i.size(), this.e.getTabCount());
             for (int i3 = 0; i3 < min; i3++) {
                 TbTabLayout.f w = this.e.w(i3);
-                fs7 fs7Var = this.i.get(i3);
-                if (w != null && fs7Var != null && fs7Var.e == 102 && (w.b() instanceof FrsTabItemCustomeView) && (frsTabItemCustomeView = (FrsTabItemCustomeView) w.b()) != null) {
+                au7 au7Var = this.i.get(i3);
+                if (w != null && au7Var != null && au7Var.e == 102 && (w.b() instanceof FrsTabItemCustomeView) && (frsTabItemCustomeView = (FrsTabItemCustomeView) w.b()) != null) {
                     frsTabItemCustomeView.a();
                     frsTabItemCustomeView.setSelectColorFilter(new PorterDuffColorFilter(L(i2, SkinManager.getColor(R.color.plugin_button_shadow_red)), PorterDuff.Mode.SRC_IN));
                 }
@@ -1231,9 +1231,9 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         if ((interceptable != null && interceptable.invokeL(1048616, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        df7 df7Var = new df7(this.a.getActivity().getApplicationContext(), list);
-        this.m = df7Var;
-        df7Var.h(this.a.w());
+        ug7 ug7Var = new ug7(this.a.getActivity().getApplicationContext(), list);
+        this.m = ug7Var;
+        ug7Var.h(this.a.w());
         this.m.i(this.a.v());
         this.m.j(this.a.getFrom());
         FrsViewData frsViewData = this.j;
@@ -1249,13 +1249,13 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                 y(1);
             }
             i2++;
-            FragmentDelegate a2 = xs7.a(frsTabInfo, this.a, this.j, this.y);
+            FragmentDelegate a2 = su7.a(frsTabInfo, this.a, this.j, this.y);
             if (a2 != null) {
                 r(frsTabInfo, a2);
                 this.m.a(a2);
             }
         }
-        if (list.get(0) != null && list.get(0).tab_id.intValue() != 1 && (frsFragment = this.a) != null && frsFragment.z1() != null && (Z = this.a.z1().Z()) != null && (Z.getParent() instanceof ViewGroup)) {
+        if (list.get(0) != null && list.get(0).tab_id.intValue() != 1 && (frsFragment = this.a) != null && frsFragment.L1() != null && (Z = this.a.L1().Z()) != null && (Z.getParent() instanceof ViewGroup)) {
             ((ViewGroup) Z.getParent()).removeView(Z);
         }
         this.t = false;
@@ -1272,7 +1272,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                 tbTabLayout.setSelectedTabIndicatorColor(L(i2, SkinManager.getColor(R.color.plugin_button_shadow_red)));
                 this.e.setSelectedIndicatorBottomMargin(C(R.dimen.tbds11));
                 SkinManager.setBackgroundColor(this.e, R.color.transparent);
-                this.e.setTabTextColors(hq7.b(), SkinManager.getColor(R.color.CAM_X0105));
+                this.e.setTabTextColors(cs7.b(), SkinManager.getColor(R.color.CAM_X0105));
                 w(i2);
             }
             if (this.n != null && !P()) {
@@ -1299,13 +1299,13 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
     }
 
     public final void X() {
-        df7 df7Var;
+        ug7 ug7Var;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048598, this) != null) || (df7Var = this.m) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048598, this) != null) || (ug7Var = this.m) == null) {
             return;
         }
-        List<FragmentDelegate> f2 = df7Var.f();
+        List<FragmentDelegate> f2 = ug7Var.f();
         if (ListUtils.isEmpty(f2) || ListUtils.isEmpty(this.i)) {
             return;
         }
@@ -1316,12 +1316,12 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         ArrayList arrayList = new ArrayList();
         this.e.setSelectedTabIndicatorColor(L(TbadkCoreApplication.getInst().getSkinType(), SkinManager.getColor(R.color.plugin_button_shadow_red)));
         this.e.setSelectedIndicatorBottomMargin(C(R.dimen.tbds10));
-        Iterator<fs7> it = this.i.iterator();
+        Iterator<au7> it = this.i.iterator();
         int i2 = -1;
         int i3 = -1;
         int i4 = 0;
         while (it.hasNext()) {
-            fs7 next = it.next();
+            au7 next = it.next();
             Fragment A = A(next.b, f2);
             if (A != null) {
                 TbTabLayout.f z2 = this.e.z();
@@ -1381,7 +1381,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         v();
         this.f.setOffscreenPageLimit(this.l.b.size());
         this.f.setCurrentItem(i2, false);
-        this.f.d();
+        this.f.e();
     }
 
     public final void Z() {
@@ -1392,7 +1392,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                 SkinManager.setBackgroundColor(this.b, R.color.CAM_X0207);
                 SkinManager.setBackgroundColor(this.d, R.color.CAM_X0207);
                 this.c.setVisibility(0);
-                this.a.f4();
+                this.a.r4();
             } else if (i2 == 1) {
                 SkinManager.setBackgroundColor(this.b, R.color.CAM_X0207);
                 SkinManager.setBackgroundColor(this.d, R.color.CAM_X0207);
@@ -1402,7 +1402,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                 this.c.setVisibility(8);
                 FrsFragment frsFragment = this.a;
                 if (frsFragment != null) {
-                    frsFragment.f4();
+                    frsFragment.r4();
                 }
             }
         }
@@ -1430,7 +1430,7 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
         }
     }
 
-    @Override // com.baidu.tieba.gu7
+    @Override // com.baidu.tieba.bw7
     public void d(FrsViewData frsViewData, int i2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048607, this, frsViewData, i2) == null) && frsViewData != null && frsViewData.getEntelechyTabInfo() != null && frsViewData.getEntelechyTabInfo().a != null) {
@@ -1461,21 +1461,21 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                     if (P()) {
                         FrsTabInfo frsTabInfo = (FrsTabInfo) ListUtils.getItem(x, 0);
                         FrsFragment frsFragment = this.a;
-                        if (frsFragment != null && frsFragment.W0() != null && frsTabInfo != null) {
-                            this.a.W0().c1(frsTabInfo.tab_id.intValue());
+                        if (frsFragment != null && frsFragment.e1() != null && frsTabInfo != null) {
+                            this.a.e1().c1(frsTabInfo.tab_id.intValue());
                         }
                     } else {
                         FrsFragment frsFragment2 = this.a;
-                        if (frsFragment2 != null && frsFragment2.Q3() != null) {
+                        if (frsFragment2 != null && frsFragment2.c4() != null) {
                             if (x != null && x.size() < 2) {
-                                this.a.Q3().removeHeaderView(this.g);
+                                this.a.c4().removeHeaderView(this.g);
                             } else {
-                                this.a.Q3().removeHeaderView(this.g);
-                                this.a.Q3().addHeaderView(this.g, 0);
+                                this.a.c4().removeHeaderView(this.g);
+                                this.a.c4().addHeaderView(this.g, 0);
                                 if (this.n != null && frsViewData.getForum() != null) {
                                     this.n.j(x);
                                     this.n.k(frsViewData.getForum().getId());
-                                    this.n.g(this.a.W0().i0());
+                                    this.n.g(this.a.e1().i0());
                                     if (UbsABTestHelper.isFrsNewAreaTabSortTestA() && FrsTabTestHelper.HAVE_NOT_RECORD_SORT != FrsTabTestHelper.getFrsNewAreaTabSort()) {
                                         this.n.g(FrsTabTestHelper.getFrsNewAreaTabSort());
                                     }
@@ -1552,34 +1552,34 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                     customResponsedMessage.setOrginalMessage(customMessage);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
-                fs7 fs7Var = this.i.get(e2);
-                if (fs7Var != null) {
-                    if (102 == fs7Var.e && (fVar.b() instanceof FrsTabItemCustomeView)) {
+                au7 au7Var = this.i.get(e2);
+                if (au7Var != null) {
+                    if (102 == au7Var.e && (fVar.b() instanceof FrsTabItemCustomeView)) {
                         ((FrsTabItemCustomeView) fVar.b()).b(true);
                     }
-                    this.v = fs7Var.b;
-                    if (BdNetTypeUtil.isNetworkAvailableForImmediately() && fs7Var.b == 89 && (frsViewData = this.j) != null && frsViewData.isShowRedTip()) {
+                    this.v = au7Var.b;
+                    if (BdNetTypeUtil.isNetworkAvailableForImmediately() && au7Var.b == 89 && (frsViewData = this.j) != null && frsViewData.isShowRedTip()) {
                         this.j.setIsShowRedTip(false);
                         fVar.j(0, false);
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001625, Integer.valueOf(fs7Var.b)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001625, Integer.valueOf(au7Var.b)));
                     }
-                    if (this.a.b4() != null) {
-                        this.a.b4().setIconFade(0);
+                    if (this.a.n4() != null) {
+                        this.a.n4().setIconFade(0);
                     }
                     if (UbsABTestHelper.isFrsTabLocationTestC()) {
-                        FrsTabTestHelper.storeUserLastAccessTab(fs7Var.a);
+                        FrsTabTestHelper.storeUserLastAccessTab(au7Var.a);
                     }
                     h hVar = this.o;
                     if (hVar != null) {
-                        hVar.a(fs7Var.b, fs7Var.e, fs7Var.a, fs7Var.g);
+                        hVar.a(au7Var.b, au7Var.e, au7Var.a, au7Var.g);
                     }
-                    ye7 f2 = ye7.f();
-                    if (fs7Var.e == 14) {
+                    pg7 f2 = pg7.f();
+                    if (au7Var.e == 14) {
                         z = true;
                     }
                     f2.t(z);
-                    xe7.h().o(fs7Var.b);
-                    TiebaStatic.log(new StatisticItem("c12398").param("fid", this.a.l).param("tab_id", fs7Var.b));
+                    og7.h().o(au7Var.b);
+                    TiebaStatic.log(new StatisticItem("c12398").param("fid", this.a.l).param("tab_id", au7Var.b));
                 }
             }
         }
@@ -1588,8 +1588,8 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
     public final void u(FrsViewData frsViewData, TabData tabData, List<FrsTabInfo> list) {
         AccountData currentAccountObj;
         String str;
-        List<ag7> list2;
-        List<ag7> list3;
+        List<rh7> list2;
+        List<rh7> list3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048621, this, frsViewData, tabData, list) == null) {
             for (FrsTabInfo frsTabInfo : frsViewData.getEntelechyTabInfo().a) {
@@ -1598,18 +1598,18 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                     if (frsTabInfo.is_general_tab.intValue() != 1 && frsTabInfo.tab_type.intValue() != 16 && frsTabInfo.tab_id.intValue() != 506 && frsTabInfo.tab_type.intValue() != 102) {
                         if (frsTabInfo.tab_id.intValue() != 89 && frsTabInfo.tab_id.intValue() != 503) {
                             if (frsTabInfo.tab_type.intValue() == 12) {
-                                fs7 fs7Var = new fs7();
-                                fs7Var.b = frsTabInfo.tab_id.intValue();
-                                fs7Var.a = frsTabInfo.tab_name;
-                                fs7Var.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(fs7Var);
+                                au7 au7Var = new au7();
+                                au7Var.b = frsTabInfo.tab_id.intValue();
+                                au7Var.a = frsTabInfo.tab_name;
+                                au7Var.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(au7Var);
                                 list.add(frsTabInfo);
                             } else if (frsTabInfo.tab_type.intValue() == 1 && frsTabInfo.tab_id.intValue() >= 100) {
                                 if (!TextUtils.isEmpty(frsTabInfo.tab_url)) {
-                                    fs7 fs7Var2 = new fs7();
-                                    fs7Var2.b = frsTabInfo.tab_id.intValue();
-                                    fs7Var2.a = frsTabInfo.tab_name;
-                                    fs7Var2.e = frsTabInfo.tab_type.intValue();
+                                    au7 au7Var2 = new au7();
+                                    au7Var2.b = frsTabInfo.tab_id.intValue();
+                                    au7Var2.a = frsTabInfo.tab_name;
+                                    au7Var2.e = frsTabInfo.tab_type.intValue();
                                     StringBuilder sb = new StringBuilder();
                                     String lowerCase = frsTabInfo.tab_url.toLowerCase();
                                     if (!lowerCase.startsWith("http://") && !lowerCase.startsWith("https://") && !lowerCase.contains("://")) {
@@ -1621,142 +1621,142 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                                     sb.append("=");
                                     sb.append(frsViewData.getForum().getId());
                                     String sb2 = sb.toString();
-                                    fs7Var2.d = sb2;
+                                    au7Var2.d = sb2;
                                     d0(sb2, "c10078");
-                                    tabData.add(fs7Var2);
+                                    tabData.add(au7Var2);
                                     list.add(frsTabInfo);
                                 }
                             } else if (frsTabInfo.tab_type.intValue() == 11 && T(frsTabInfo.tab_id.intValue())) {
-                                fs7 fs7Var3 = new fs7();
-                                fs7Var3.b = frsTabInfo.tab_id.intValue();
-                                fs7Var3.a = frsTabInfo.tab_name;
-                                fs7Var3.d = frsTabInfo.tab_url;
-                                fs7Var3.e = frsTabInfo.tab_type.intValue();
-                                if (uw4.i(fs7Var3.d)) {
+                                au7 au7Var3 = new au7();
+                                au7Var3.b = frsTabInfo.tab_id.intValue();
+                                au7Var3.a = frsTabInfo.tab_name;
+                                au7Var3.d = frsTabInfo.tab_url;
+                                au7Var3.e = frsTabInfo.tab_type.intValue();
+                                if (ww4.i(au7Var3.d)) {
                                     if (MessageManager.getInstance().findTask(2016447) != null) {
-                                        tabData.add(fs7Var3);
+                                        tabData.add(au7Var3);
                                         list.add(frsTabInfo);
                                     }
                                 } else {
-                                    tabData.add(fs7Var3);
+                                    tabData.add(au7Var3);
                                     list.add(frsTabInfo);
                                 }
-                            } else if (frsTabInfo.tab_id.intValue() != 1 && eg7.a().b(frsTabInfo.tab_id.intValue()) && frsTabInfo.tab_id.intValue() != 49) {
-                                fs7 fs7Var4 = new fs7();
-                                fs7Var4.b = frsTabInfo.tab_id.intValue();
-                                fs7Var4.a = frsTabInfo.tab_name;
-                                fs7Var4.e = frsTabInfo.tab_type.intValue();
-                                cg7 b2 = bg7.a().b(fs7Var4.b);
+                            } else if (frsTabInfo.tab_id.intValue() != 1 && vh7.a().b(frsTabInfo.tab_id.intValue()) && frsTabInfo.tab_id.intValue() != 49) {
+                                au7 au7Var4 = new au7();
+                                au7Var4.b = frsTabInfo.tab_id.intValue();
+                                au7Var4.a = frsTabInfo.tab_name;
+                                au7Var4.e = frsTabInfo.tab_type.intValue();
+                                th7 b2 = sh7.a().b(au7Var4.b);
                                 if (b2 != null && (list3 = b2.b) != null && list3.size() > 0) {
-                                    gh7 gh7Var = new gh7();
-                                    fs7Var4.c = gh7Var;
-                                    gh7Var.a = b2.a;
-                                    gh7Var.b = new LinkedList();
+                                    xi7 xi7Var = new xi7();
+                                    au7Var4.c = xi7Var;
+                                    xi7Var.a = b2.a;
+                                    xi7Var.b = new LinkedList();
                                     boolean z2 = true;
-                                    for (ag7 ag7Var : b2.b) {
-                                        if (ag7Var != null) {
-                                            fh7 fh7Var = new fh7();
-                                            fh7Var.a = ag7Var.a;
-                                            fh7Var.b = ag7Var.b;
+                                    for (rh7 rh7Var : b2.b) {
+                                        if (rh7Var != null) {
+                                            wi7 wi7Var = new wi7();
+                                            wi7Var.a = rh7Var.a;
+                                            wi7Var.b = rh7Var.b;
                                             if (z2) {
-                                                fh7Var.c = true;
+                                                wi7Var.c = true;
                                                 z2 = false;
                                             }
-                                            fs7Var4.c.b.add(fh7Var);
+                                            au7Var4.c.b.add(wi7Var);
                                         }
                                     }
                                 }
-                                tabData.add(fs7Var4);
+                                tabData.add(au7Var4);
                                 list.add(frsTabInfo);
                             } else if (frsTabInfo.tab_id.intValue() == 1) {
-                                fs7 fs7Var5 = new fs7();
-                                fs7Var5.b = frsTabInfo.tab_id.intValue();
-                                fs7Var5.a = frsTabInfo.tab_name;
-                                fs7Var5.e = frsTabInfo.tab_type.intValue();
-                                cg7 b3 = bg7.a().b(fs7Var5.b);
+                                au7 au7Var5 = new au7();
+                                au7Var5.b = frsTabInfo.tab_id.intValue();
+                                au7Var5.a = frsTabInfo.tab_name;
+                                au7Var5.e = frsTabInfo.tab_type.intValue();
+                                th7 b3 = sh7.a().b(au7Var5.b);
                                 if (b3 != null && (list2 = b3.b) != null && list2.size() > 0) {
-                                    gh7 gh7Var2 = new gh7();
-                                    fs7Var5.c = gh7Var2;
-                                    gh7Var2.a = b3.a;
-                                    gh7Var2.b = new LinkedList();
-                                    for (ag7 ag7Var2 : b3.b) {
-                                        if (ag7Var2 != null) {
-                                            fh7 fh7Var2 = new fh7();
-                                            fh7Var2.a = ag7Var2.a;
-                                            fh7Var2.b = ag7Var2.b;
-                                            fs7Var5.c.b.add(fh7Var2);
+                                    xi7 xi7Var2 = new xi7();
+                                    au7Var5.c = xi7Var2;
+                                    xi7Var2.a = b3.a;
+                                    xi7Var2.b = new LinkedList();
+                                    for (rh7 rh7Var2 : b3.b) {
+                                        if (rh7Var2 != null) {
+                                            wi7 wi7Var2 = new wi7();
+                                            wi7Var2.a = rh7Var2.a;
+                                            wi7Var2.b = rh7Var2.b;
+                                            au7Var5.c.b.add(wi7Var2);
                                         }
                                     }
                                 }
-                                tabData.add(fs7Var5);
+                                tabData.add(au7Var5);
                                 list.add(frsTabInfo);
                             } else if (frsTabInfo.tab_id.intValue() == 49) {
-                                if (this.a.z1().a0().k(ThreadData.TYPE_VIDEO_ALA_ONLIVE)) {
-                                    fs7 fs7Var6 = new fs7();
-                                    fs7Var6.a = frsTabInfo.tab_name;
+                                if (this.a.L1().a0().k(ThreadData.TYPE_VIDEO_ALA_ONLIVE)) {
+                                    au7 au7Var6 = new au7();
+                                    au7Var6.a = frsTabInfo.tab_name;
                                     if (frsViewData.getAlaLiveCount() != 0 && frsViewData.getAlaLiveCount() <= 99) {
-                                        fs7Var6.a = frsTabInfo.tab_name + "(" + frsViewData.getAlaLiveCount() + SmallTailInfo.EMOTION_SUFFIX;
+                                        au7Var6.a = frsTabInfo.tab_name + "(" + frsViewData.getAlaLiveCount() + SmallTailInfo.EMOTION_SUFFIX;
                                     }
                                     int i2 = this.r;
                                     if (i2 > 0 && i2 != frsViewData.getAlaLiveCount() && this.r <= 99) {
-                                        fs7Var6.a = frsTabInfo.tab_name + "(" + this.r + SmallTailInfo.EMOTION_SUFFIX;
+                                        au7Var6.a = frsTabInfo.tab_name + "(" + this.r + SmallTailInfo.EMOTION_SUFFIX;
                                     } else if (this.r <= 99 && frsViewData.getAlaLiveCount() <= 99) {
                                         int i3 = this.r;
                                         if (i3 == 0 && i3 != frsViewData.getAlaLiveCount()) {
-                                            fs7Var6.a = frsTabInfo.tab_name;
+                                            au7Var6.a = frsTabInfo.tab_name;
                                         }
                                     } else {
-                                        fs7Var6.a = frsTabInfo.tab_name + "(99+)";
+                                        au7Var6.a = frsTabInfo.tab_name + "(99+)";
                                     }
-                                    fs7Var6.b = frsTabInfo.tab_id.intValue();
-                                    fs7Var6.e = frsTabInfo.tab_type.intValue();
-                                    tabData.add(fs7Var6);
+                                    au7Var6.b = frsTabInfo.tab_id.intValue();
+                                    au7Var6.e = frsTabInfo.tab_type.intValue();
+                                    tabData.add(au7Var6);
                                     list.add(frsTabInfo);
                                 }
                             } else if (frsTabInfo.tab_id.intValue() == 1120) {
-                                fs7 fs7Var7 = new fs7();
-                                fs7Var7.b = frsTabInfo.tab_id.intValue();
-                                fs7Var7.a = frsTabInfo.tab_name;
-                                fs7Var7.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(fs7Var7);
+                                au7 au7Var7 = new au7();
+                                au7Var7.b = frsTabInfo.tab_id.intValue();
+                                au7Var7.a = frsTabInfo.tab_name;
+                                au7Var7.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(au7Var7);
                                 list.add(frsTabInfo);
                                 y(2);
                             } else if (frsTabInfo.tab_id.intValue() == 90) {
-                                fs7 fs7Var8 = new fs7();
-                                fs7Var8.b = frsTabInfo.tab_id.intValue();
-                                fs7Var8.a = frsTabInfo.tab_name;
-                                fs7Var8.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(fs7Var8);
+                                au7 au7Var8 = new au7();
+                                au7Var8.b = frsTabInfo.tab_id.intValue();
+                                au7Var8.a = frsTabInfo.tab_name;
+                                au7Var8.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(au7Var8);
                                 list.add(frsTabInfo);
                             } else if (frsTabInfo.tab_type.intValue() == 91) {
-                                fs7 fs7Var9 = new fs7();
-                                fs7Var9.b = frsTabInfo.tab_id.intValue();
-                                fs7Var9.a = StringHelper.cutChineseAndEnglishWithSuffix(frsTabInfo.tab_name, 8, (String) null);
-                                fs7Var9.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(fs7Var9);
+                                au7 au7Var9 = new au7();
+                                au7Var9.b = frsTabInfo.tab_id.intValue();
+                                au7Var9.a = StringHelper.cutChineseAndEnglishWithSuffix(frsTabInfo.tab_name, 8, (String) null);
+                                au7Var9.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(au7Var9);
                                 list.add(frsTabInfo);
                             } else if (frsTabInfo.tab_id.intValue() == 504) {
-                                fs7 fs7Var10 = new fs7();
-                                fs7Var10.b = frsTabInfo.tab_id.intValue();
-                                fs7Var10.a = frsTabInfo.tab_name;
-                                fs7Var10.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(fs7Var10);
+                                au7 au7Var10 = new au7();
+                                au7Var10.b = frsTabInfo.tab_id.intValue();
+                                au7Var10.a = frsTabInfo.tab_name;
+                                au7Var10.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(au7Var10);
                                 list.add(frsTabInfo);
                             } else if (frsTabInfo.tab_type.intValue() == 3) {
-                                fs7 fs7Var11 = new fs7();
-                                fs7Var11.b = frsTabInfo.tab_id.intValue();
-                                fs7Var11.a = frsTabInfo.tab_name;
-                                fs7Var11.e = frsTabInfo.tab_type.intValue();
-                                tabData.add(fs7Var11);
+                                au7 au7Var11 = new au7();
+                                au7Var11.b = frsTabInfo.tab_id.intValue();
+                                au7Var11.a = frsTabInfo.tab_name;
+                                au7Var11.e = frsTabInfo.tab_type.intValue();
+                                tabData.add(au7Var11);
                                 list.add(frsTabInfo);
                                 y(1);
                             }
                         } else {
-                            fs7 fs7Var12 = new fs7();
-                            fs7Var12.b = frsTabInfo.tab_id.intValue();
-                            fs7Var12.a = frsTabInfo.tab_name;
-                            fs7Var12.e = frsTabInfo.tab_type.intValue();
-                            tabData.add(fs7Var12);
+                            au7 au7Var12 = new au7();
+                            au7Var12.b = frsTabInfo.tab_id.intValue();
+                            au7Var12.a = frsTabInfo.tab_name;
+                            au7Var12.e = frsTabInfo.tab_type.intValue();
+                            tabData.add(au7Var12);
                             list.add(frsTabInfo);
                             if (frsTabInfo.tab_id.intValue() == 503) {
                                 String str2 = "";
@@ -1768,18 +1768,18 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                                 if (frsViewData.getForum() != null && frsViewData.getForum().getName() != null) {
                                     str2 = frsViewData.getForum().getName();
                                 }
-                                int h2 = nt7.h("503~" + str + str2);
+                                int h2 = iv7.h("503~" + str + str2);
                                 if (h2 == -1) {
                                     Iterator<FrsTabInfo> it = frsViewData.getEntelechyTabInfo().b.iterator();
                                     while (true) {
                                         if (it.hasNext()) {
                                             FrsTabInfo next = it.next();
                                             if (next.tab_type == frsTabInfo.tab_type) {
-                                                nt7.i("503~" + str + str2, next.tab_id.intValue());
+                                                iv7.i("503~" + str + str2, next.tab_id.intValue());
                                                 if (7 == h2) {
-                                                    wca.b();
+                                                    eha.b();
                                                 } else {
-                                                    wca.a();
+                                                    eha.a();
                                                 }
                                             }
                                         }
@@ -1788,17 +1788,17 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
                             }
                         }
                     } else {
-                        fs7 fs7Var13 = new fs7();
-                        fs7Var13.a = frsTabInfo.tab_name;
-                        fs7Var13.b = frsTabInfo.tab_id.intValue();
-                        fs7Var13.e = frsTabInfo.tab_type.intValue();
-                        fs7Var13.f = frsTabInfo.head_pics;
-                        fs7Var13.d = frsTabInfo.tab_url;
+                        au7 au7Var13 = new au7();
+                        au7Var13.a = frsTabInfo.tab_name;
+                        au7Var13.b = frsTabInfo.tab_id.intValue();
+                        au7Var13.e = frsTabInfo.tab_type.intValue();
+                        au7Var13.f = frsTabInfo.head_pics;
+                        au7Var13.d = frsTabInfo.tab_url;
                         if (frsTabInfo.is_no_show_publisher.intValue() == 1) {
                             z = true;
                         }
-                        fs7Var13.g = z;
-                        tabData.add(fs7Var13);
+                        au7Var13.g = z;
+                        tabData.add(au7Var13);
                         list.add(frsTabInfo);
                     }
                 }
@@ -1812,11 +1812,11 @@ public class FrsTabViewController implements gu7, TbTabLayout.c {
             int min = Math.min(this.i.size(), this.e.getTabCount());
             for (int i2 = 0; i2 < min; i2++) {
                 TbTabLayout.f w = this.e.w(i2);
-                fs7 fs7Var = this.i.get(i2);
-                if (w != null && fs7Var != null && fs7Var.e == 102 && fs7Var.f != null) {
+                au7 au7Var = this.i.get(i2);
+                if (w != null && au7Var != null && au7Var.e == 102 && au7Var.f != null) {
                     FrsTabItemCustomeView frsTabItemCustomeView = new FrsTabItemCustomeView(this.a.getContext());
                     frsTabItemCustomeView.setSelectColorFilter(new PorterDuffColorFilter(L(TbadkCoreApplication.getInst().getSkinType(), SkinManager.getColor(R.color.plugin_button_shadow_red)), PorterDuff.Mode.SRC_IN));
-                    frsTabItemCustomeView.e(fs7Var.f);
+                    frsTabItemCustomeView.e(au7Var.f);
                     w.o(frsTabItemCustomeView);
                 }
             }

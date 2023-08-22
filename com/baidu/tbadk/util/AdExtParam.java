@@ -2,7 +2,7 @@ package com.baidu.tbadk.util;
 
 import androidx.annotation.Keep;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yu5;
+import com.baidu.tieba.pv5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -64,8 +64,8 @@ public class AdExtParam {
                 a aVar = new a();
                 HashMap hashMap = new HashMap();
                 aVar.a = hashMap;
-                hashMap.put(AdExtParam.KEY_IADEX, yu5.e());
-                aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "5.12.0.90");
+                hashMap.put(AdExtParam.KEY_IADEX, pv5.e());
+                aVar.a.put(AdExtParam.KEY_NAD_CORE_VERSION, "5.12.0.98");
                 return aVar;
             }
             return (a) invokeV.objValue;

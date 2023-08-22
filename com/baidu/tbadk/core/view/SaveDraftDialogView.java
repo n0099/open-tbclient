@@ -11,7 +11,7 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -139,7 +139,7 @@ public class SaveDraftDialogView extends LinearLayout {
             textView4.setId(R.id.save_draft_dialog_cancle);
             this.d.setTextSize(0, f);
             this.d.setGravity(17);
-            this.d.setText(R.string.obfuscated_res_0x7f0f03ce);
+            this.d.setText(R.string.obfuscated_res_0x7f0f03cf);
             addView(this.d, -1, dimens2);
             addView(new TextView(context), -1, BdUtilHelper.getDimens(context, R.dimen.tbds36));
             a();
@@ -185,7 +185,7 @@ public class SaveDraftDialogView extends LinearLayout {
         if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) {
             this.a.setText(str);
             this.c.setText(str2);
-            if (!bi.isEmpty(str3)) {
+            if (!di.isEmpty(str3)) {
                 this.b.setText(str3);
             }
         }

@@ -1,31 +1,30 @@
 package com.baidu.tieba;
 
+import android.text.format.DateUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import com.baidu.tbadk.BdToken.completeTask.CompleteTaskReqMsg;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
+import com.baidu.tieba.compatible.EditorHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.ActInfo;
 /* loaded from: classes7.dex */
 public class r05 {
     public static /* synthetic */ Interceptable $ic;
+    public static r05 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public String e;
-    public int f;
-    public boolean g;
-    public int h;
-    public int i;
-    public q35 j;
+    public ArrayList<iu4> a;
 
     public r05() {
         Interceptable interceptable = $ic;
@@ -40,176 +39,202 @@ public class r05 {
                 return;
             }
         }
-        this.h = 1;
-        this.i = 1;
+        this.a = new ArrayList<>();
     }
 
-    public int a() {
+    public static r05 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (r05.class) {
+                    if (b == null) {
+                        b = new r05();
+                    }
+                }
+            }
+            return b;
         }
-        return invokeV.intValue;
+        return (r05) invokeV.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).edit().clear();
         }
-        return invokeV.intValue;
     }
 
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean d() {
+    public final ArrayList<iu4> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).getInt(str, 0);
         }
-        return invokeV.intValue;
+        return invokeL.intValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
+    public long d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).getLong(str, 0L);
         }
-        return invokeV.intValue;
+        return invokeL.longValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public void f(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, jSONArray) == null) && jSONArray != null) {
+            h(jSONArray);
         }
-        return (String) invokeV.objValue;
     }
 
-    public void h(JSONObject jSONObject) {
+    public boolean g(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0).contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
+            completeTaskReqMsg.completeId = str;
+            MessageManager.getInstance().sendMessage(completeTaskReqMsg);
+        }
+    }
+
+    public final void h(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONArray) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (!StringUtils.isNull(currentAccount) && jSONArray != null) {
+                this.a.clear();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    JSONObject jSONObject = null;
+                    try {
+                        jSONObject = jSONArray.getJSONObject(i);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if (jSONObject != null) {
+                        iu4 iu4Var = new iu4();
+                        iu4Var.a = jSONObject.optInt("active_id");
+                        iu4Var.b = jSONObject.optInt("mission_id");
+                        iu4Var.c = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE);
+                        long d = d("business_update_time" + currentAccount + iu4Var.a);
+                        if (g("business_count_hint" + currentAccount + iu4Var.a) && DateUtils.isToday(d)) {
+                            iu4Var.s = c("business_count_hint" + currentAccount + iu4Var.a);
+                        } else {
+                            iu4Var.s = jSONObject.optInt("show_num");
+                            a();
+                            i("business_count_hint" + currentAccount + iu4Var.a, iu4Var.s);
+                            j("business_update_time" + currentAccount + iu4Var.a, System.currentTimeMillis());
+                        }
+                        iu4Var.t = jSONObject.optInt("show_time_begin");
+                        iu4Var.u = jSONObject.optInt("show_time_end");
+                        JSONArray optJSONArray = jSONObject.optJSONArray("forumIds");
+                        for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                            try {
+                                iu4Var.w.add((String) optJSONArray.get(i2));
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
+                            }
+                        }
+                        JSONArray optJSONArray2 = jSONObject.optJSONArray("show_page");
+                        for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
+                            try {
+                                iu4Var.v.add((String) optJSONArray2.get(i3));
+                            } catch (JSONException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        this.a.add(iu4Var);
+                    }
+                }
+            }
+        }
+    }
+
+    public void i(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
+            EditorHelper.putInt(TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0), str, i);
+        }
+    }
+
+    public void j(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j) == null) {
+            EditorHelper.putLong(TbadkCoreApplication.getInst().getSharedPreferences("business_workspace", 0), str, j);
+        }
+    }
+
+    /* JADX WARN: Can't wrap try/catch for region: R(8:33|(5:35|(4:38|(2:40|41)(1:43)|42|36)|44|45|(2:56|52))(1:57)|47|48|49|50|51|52) */
+    /* JADX WARN: Code restructure failed: missing block: B:49:0x00ea, code lost:
+        r0 = move-exception;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x00eb, code lost:
+        r0.printStackTrace();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void l(String str, String str2) {
+        ArrayList<iu4> e;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048586, this, str, str2) != null) || (e = e()) == null || !BdNetTypeUtil.isNetWorkAvailable()) {
             return;
         }
-        try {
-            this.a = jSONObject.optInt("activity_type");
-            this.b = jSONObject.optInt("status");
-            this.c = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
-            this.d = jSONObject.optInt("end_time");
-            this.e = jSONObject.optString("url");
-            this.f = jSONObject.optInt("total_num");
-            jSONObject.optInt("activity_id");
-            jSONObject.optInt("award_act_id");
-            jSONObject.optInt("component_id");
-            this.g = jSONObject.optBoolean("is_senior");
-            jSONObject.optString("banner_img");
-            jSONObject.optInt("show_total_num");
-            String optString = jSONObject.optString("banner_img_size");
-            if (!bi.isEmpty(optString)) {
-                String[] split = optString.split(",");
-                this.h = JavaTypesHelper.toInt(split[0], 1);
-                this.i = JavaTypesHelper.toInt(split[1], 1);
-            }
-            if (this.h <= 0) {
-                this.h = 1;
-            }
-            if (this.i <= 0) {
-                this.i = 1;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    public void i(ActInfo actInfo) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, actInfo) != null) || actInfo == null) {
+        String currentAccount = TbadkCoreApplication.getCurrentAccount();
+        if (StringUtils.isNull(currentAccount)) {
             return;
         }
-        Integer num = actInfo.activity_type;
-        int i5 = -1;
-        if (num != null) {
-            i = num.intValue();
-        } else {
-            i = -1;
-        }
-        this.a = i;
-        Integer num2 = actInfo.status;
-        if (num2 != null) {
-            i2 = num2.intValue();
-        } else {
-            i2 = -1;
-        }
-        this.b = i2;
-        Integer num3 = actInfo.begin_time;
-        if (num3 != null) {
-            i3 = num3.intValue();
-        } else {
-            i3 = -1;
-        }
-        this.c = i3;
-        Integer num4 = actInfo.end_time;
-        if (num4 != null) {
-            i4 = num4.intValue();
-        } else {
-            i4 = -1;
-        }
-        this.d = i4;
-        this.e = actInfo.url;
-        Integer num5 = actInfo.total_num;
-        if (num5 != null) {
-            i5 = num5.intValue();
-        }
-        this.f = i5;
-        actInfo.activity_id.intValue();
-        actInfo.award_act_id.intValue();
-        actInfo.component_id.intValue();
-        this.g = actInfo.is_senior.booleanValue();
-        String str = actInfo.banner_img;
-        actInfo.show_total_num.intValue();
-        String str2 = actInfo.banner_img_size;
-        if (!bi.isEmpty(str2)) {
-            try {
-                String[] split = str2.split(",");
-                this.h = JavaTypesHelper.toInt(split[0], 1);
-                this.i = JavaTypesHelper.toInt(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        for (int i = 0; i < e.size(); i++) {
+            int i2 = e.get(i).a;
+            int i3 = e.get(i).b;
+            int i4 = e.get(i).c;
+            int c = c("business_count_hint" + currentAccount + i2);
+            long j = e.get(i).t;
+            long j2 = e.get(i).u;
+            ArrayList<String> arrayList = e.get(i).v;
+            ArrayList<String> arrayList2 = e.get(i).w;
+            if (c != 0 && System.currentTimeMillis() / 1000 > j && System.currentTimeMillis() / 1000 < j2) {
+                boolean z = false;
+                for (int i5 = 0; i5 < arrayList.size(); i5++) {
+                    if (arrayList.get(i5).equals(str)) {
+                        z = true;
+                    }
+                }
+                if (z) {
+                    if (str.equals("2")) {
+                        boolean z2 = false;
+                        for (int i6 = 0; i6 < arrayList2.size(); i6++) {
+                            if (arrayList2.get(i6).equals(str2)) {
+                                z2 = true;
+                            }
+                        }
+                        if (!z2) {
+                        }
+                    }
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put(String.valueOf(i2), String.valueOf(i3));
+                    k(jSONObject.toString());
+                }
             }
         }
-        if (this.h <= 0) {
-            this.h = 1;
-        }
-        if (this.i <= 0) {
-            this.i = 1;
-        }
-        q35 q35Var = new q35();
-        this.j = q35Var;
-        q35Var.a(actInfo.lottery_senior);
     }
 }

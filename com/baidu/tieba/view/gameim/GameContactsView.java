@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.data.GameMatchUser;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.nc8;
+import com.baidu.tieba.mg8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -157,7 +157,7 @@ public class GameContactsView extends LinearLayout implements View.OnClickListen
                 if (gameContactsItemView != null) {
                     gameContactsItemView.setGameMatchUser(gameMatchUser);
                     gameContactsItemView.setVisibility(0);
-                    if (gameMatchUser.getPos() != this.d && (h = nc8.n().h(gameMatchUser.getUserId(), 2)) != null && h.getUnread_count() > 0) {
+                    if (gameMatchUser.getPos() != this.d && (h = mg8.n().h(gameMatchUser.getUserId(), 2)) != null && h.getUnread_count() > 0) {
                         gameContactsItemView.g(h.getUnread_count());
                     }
                 }

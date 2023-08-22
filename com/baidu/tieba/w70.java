@@ -1,26 +1,18 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.android.imsdk.db.DBTableDefine;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.security.WarmTipsManager;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
 /* loaded from: classes8.dex */
 public class w70 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "liteUBC";
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
-    public final Map<String, String> b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,31 +27,30 @@ public class w70 {
                 return;
             }
         }
-        c = AppConfig.isDebug();
+        b = m70.d().b();
     }
 
-    public w70() {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && b) {
+            String str3 = a;
+            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
         }
-        new Handler(Looper.getMainLooper());
-        HashMap hashMap = new HashMap(2);
-        this.a = hashMap;
-        hashMap.put("click_searchbox", WarmTipsManager.WIDGET_HISSUG_EXT_VALUE);
-        this.a.put("click_feed_video", "video");
-        HashMap hashMap2 = new HashMap(2);
-        this.b = hashMap2;
-        hashMap2.put("click_searchbox", DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
-        this.b.put("click_feed_video", DBTableDefine.GroupInfoColumns.COLUMN_GROUP_HOMEPAGE);
-        new HashMap(2);
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && b) {
+            String str3 = a;
+            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        }
+    }
+
+    public static void b(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) && b) {
+            String str3 = a;
+            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
+        }
     }
 }

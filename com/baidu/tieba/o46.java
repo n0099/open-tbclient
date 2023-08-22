@@ -1,28 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Service
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class o46 extends zi0 {
+public class o46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.zi0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "commonVideo" : (String) invokeV.objValue;
-    }
+    public HashMap<Integer, Integer> a;
 
     public o46() {
         Interceptable interceptable = $ic;
@@ -34,18 +23,31 @@ public class o46 extends zi0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.zi0
-    public boolean b(@NonNull Context context, @NonNull dj0 dj0Var, @Nullable Map<String, Object> map, @Nullable hj0 hj0Var) {
-        InterceptResult invokeLLLL;
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, dj0Var, map, hj0Var)) == null) {
-            super.b(context, dj0Var, map, hj0Var);
-            return nx9.d(context, dj0Var.d());
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            HashMap<Integer, Integer> hashMap = this.a;
+            if (hashMap == null || !hashMap.containsKey(Integer.valueOf(i))) {
+                return 0;
+            }
+            return this.a.get(Integer.valueOf(i)).intValue();
         }
-        return invokeLLLL.booleanValue;
+        return invokeI.intValue;
+    }
+
+    public void b(int i, int i2) {
+        HashMap<Integer, Integer> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) != null) || (hashMap = this.a) == null) {
+            return;
+        }
+        hashMap.put(Integer.valueOf(i), Integer.valueOf(i2));
     }
 }

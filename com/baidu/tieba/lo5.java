@@ -1,11 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
-/* loaded from: classes6.dex */
-public interface lo5 extends xm5 {
-    public static final String a = "com.baidu.tieba.lo5";
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.JvmStatic;
+/* compiled from: HomePageSpriteStateService.kt */
+/* loaded from: classes7.dex */
+public final /* synthetic */ class lo5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    ko5 b(@NonNull TbPageContext tbPageContext);
+    @JvmStatic
+    public static mo5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? mo5.a.a() : (mo5) invokeV.objValue;
+    }
 }

@@ -22,14 +22,14 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.haa;
-import com.baidu.tieba.in;
-import com.baidu.tieba.pp7;
-import com.baidu.tieba.qp7;
-import com.baidu.tieba.rp7;
-import com.baidu.tieba.rx;
-import com.baidu.tieba.sp7;
-import com.baidu.tieba.ym;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.kr7;
+import com.baidu.tieba.ln;
+import com.baidu.tieba.lr7;
+import com.baidu.tieba.mr7;
+import com.baidu.tieba.nr7;
+import com.baidu.tieba.pea;
+import com.baidu.tieba.ux;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,8 +37,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes5.dex */
-public class FrsLikeRecommendLayout extends ConstraintLayout implements rx {
+/* loaded from: classes6.dex */
+public class FrsLikeRecommendLayout extends ConstraintLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -46,21 +46,21 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements rx {
     public TextView c;
     public ImageView d;
     public BdTypeRecyclerView e;
-    public pp7 f;
-    public qp7 g;
+    public kr7 f;
+    public lr7 g;
     public ValueAnimator h;
-    public rp7 i;
+    public mr7 i;
     public boolean j;
     public int k;
 
-    /* loaded from: classes5.dex */
-    public class d implements in {
+    /* loaded from: classes6.dex */
+    public class d implements ln {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsLikeRecommendLayout a;
 
-        /* loaded from: classes5.dex */
-        public class a implements sp7 {
+        /* loaded from: classes6.dex */
+        public class a implements nr7 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,23 +99,23 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements rx {
             this.a = frsLikeRecommendLayout;
         }
 
-        @Override // com.baidu.tieba.in
-        public void b(View view2, ym ymVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.ln
+        public void b(View view2, bn bnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, ymVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(ymVar instanceof haa)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, bnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(bnVar instanceof pea)) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f090cf5) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090d02) {
                 if (this.a.g != null) {
-                    this.a.g.b((haa) ymVar);
+                    this.a.g.b((pea) bnVar);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090be8 && this.a.g != null) {
-                this.a.g.c((haa) ymVar, i, new a(this, i));
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090bf5 && this.a.g != null) {
+                this.a.g.c((pea) bnVar, i, new a(this, i));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +156,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements rx {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class b extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -209,7 +209,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements rx {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public class c implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -324,28 +324,28 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements rx {
         }
     }
 
-    public void setHeightChangeListener(rp7 rp7Var) {
+    public void setHeightChangeListener(mr7 mr7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rp7Var) == null) {
-            this.i = rp7Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mr7Var) == null) {
+            this.i = mr7Var;
         }
     }
 
     public void setThemeColor(ThemeColorInfo themeColorInfo) {
-        pp7 pp7Var;
+        kr7 kr7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, themeColorInfo) == null) && (pp7Var = this.f) != null) {
-            pp7Var.u(themeColorInfo);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, themeColorInfo) == null) && (kr7Var = this.f) != null) {
+            kr7Var.u(themeColorInfo);
         }
     }
 
-    private in getItemClickListener() {
+    private ln getItemClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65543, this)) == null) {
             return new d(this);
         }
-        return (in) invokeV.objValue;
+        return (ln) invokeV.objValue;
     }
 
     public int getCurrentHeight() {
@@ -378,9 +378,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements rx {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            qp7 qp7Var = this.g;
-            if (qp7Var != null) {
-                qp7Var.a();
+            lr7 lr7Var = this.g;
+            if (lr7Var != null) {
+                lr7Var.a();
             }
             n();
         }
@@ -407,14 +407,14 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements rx {
     public final void m(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0381, this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091f71);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cf8);
-            this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090cf7);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cf4);
-            pp7 pp7Var = new pp7(getContext());
-            this.f = pp7Var;
-            pp7Var.setOnAdapterItemClickListener(getItemClickListener());
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0386, this);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091f96);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d05);
+            this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090d04);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d01);
+            kr7 kr7Var = new kr7(getContext());
+            this.f = kr7Var;
+            kr7Var.setOnAdapterItemClickListener(getItemClickListener());
             BdTypeRecyclerView bdTypeRecyclerView = this.e;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
@@ -426,7 +426,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements rx {
         }
     }
 
-    @Override // com.baidu.tieba.rx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
@@ -438,9 +438,9 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements rx {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0622, null);
             }
-            pp7 pp7Var = this.f;
-            if (pp7Var != null) {
-                pp7Var.notifyDataSetChanged();
+            kr7 kr7Var = this.f;
+            if (kr7Var != null) {
+                kr7Var.notifyDataSetChanged();
             }
         }
     }

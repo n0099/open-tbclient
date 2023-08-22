@@ -1,130 +1,115 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedContentResource;
-import tbclient.FeedItem;
-import tbclient.FeedOriginComponent;
-import tbclient.FeedOriginPic;
-import tbclient.PicInfo;
-import tbclient.VideoField;
 /* loaded from: classes8.dex */
 public final class w77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public final String b;
+    public final long c;
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x011a  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x011c  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final void a(FeedOriginComponent feedOriginComponent, List<v97<?>> dataList, b67 feedExtraData) {
-        q47 q47Var;
-        x47 x47Var;
-        n47 n47Var;
-        j47 j47Var;
-        String str;
-        String str2;
-        String str3;
-        boolean z;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedOriginComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedOriginComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            List<FeedContentResource> _abstract = feedOriginComponent._abstract;
-            Intrinsics.checkNotNullExpressionValue(_abstract, "_abstract");
-            i47 a = p77.a(spannableStringBuilder, _abstract, new b67());
-            if (a.i()) {
-                FeedOriginPic feedOriginPic = feedOriginComponent.pic_info;
-                if (feedOriginPic != null && feedOriginPic.pics != null) {
-                    String str4 = feedOriginPic.schema;
-                    if (str4 == null) {
-                        str4 = "";
-                    } else {
-                        Intrinsics.checkNotNullExpressionValue(str4, "pic_info.schema ?: \"\"");
-                    }
-                    List<PicInfo> list = feedOriginComponent.pic_info.pics;
-                    Intrinsics.checkNotNullExpressionValue(list, "pic_info.pics");
-                    q47Var = x77.a(list, str4, new b67());
-                } else {
-                    q47Var = null;
-                }
-                if (feedOriginComponent.video != null) {
-                    h77 h77Var = new h77();
-                    String schema = feedOriginComponent.schema;
-                    Intrinsics.checkNotNullExpressionValue(schema, "schema");
-                    h77Var.j(schema);
-                    VideoField video = feedOriginComponent.video;
-                    Intrinsics.checkNotNullExpressionValue(video, "video");
-                    x47Var = d87.b(video, h77Var, new b67());
-                } else {
-                    x47Var = null;
-                }
-                FeedItem feedItem = feedOriginComponent.item;
-                if (feedItem != null) {
-                    HashMap<String, String> a2 = a97.a.a(feedItem.business_info);
-                    String str5 = a2.get("apk_detail");
-                    String str6 = feedExtraData.a().a().get("origin_thread_id");
-                    if (str6 == null) {
-                        str3 = "";
-                    } else {
-                        str3 = str6;
-                    }
-                    long j = JavaTypesHelper.toLong(a2.get("item_id"), 0L);
-                    if (str5 == null) {
-                        String str7 = feedOriginComponent.item.name;
-                        if (str7 != null && str7.length() != 0) {
-                            z = false;
-                        } else {
-                            z = true;
-                        }
-                        if (!z) {
-                            FeedItem item = feedOriginComponent.item;
-                            Intrinsics.checkNotNullExpressionValue(item, "item");
-                            n47 b = s77.b(item, j, str3, "", "");
-                            b.a().j = R.color.CAM_X0205;
-                            b.d(false);
-                            n47Var = b;
-                            j47Var = null;
-                            d77 b2 = c67.b(feedExtraData, "origin_card_click");
-                            str = feedOriginComponent.schema;
-                            if (str == null) {
-                                str2 = "";
-                            } else {
-                                str2 = str;
-                            }
-                            dataList.add(new w97(new p47(a, q47Var, x47Var, n47Var, j47Var, str2, b2, null, 128, null), "origin_card"));
-                        }
-                    } else {
-                        FeedItem item2 = feedOriginComponent.item;
-                        Intrinsics.checkNotNullExpressionValue(item2, "item");
-                        j47 a3 = s77.a(item2, str5, j, str3, "", "");
-                        a3.a().j = R.color.CAM_X0205;
-                        a3.d(false);
-                        j47Var = a3;
-                        n47Var = null;
-                        d77 b22 = c67.b(feedExtraData, "origin_card_click");
-                        str = feedOriginComponent.schema;
-                        if (str == null) {
-                        }
-                        dataList.add(new w97(new p47(a, q47Var, x47Var, n47Var, j47Var, str2, b22, null, 128, null), "origin_card"));
-                    }
-                }
-                n47Var = null;
-                j47Var = null;
-                d77 b222 = c67.b(feedExtraData, "origin_card_click");
-                str = feedOriginComponent.schema;
-                if (str == null) {
-                }
-                dataList.add(new w97(new p47(a, q47Var, x47Var, n47Var, j47Var, str2, b222, null, 128, null), "origin_card"));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
+            if (obj instanceof w77) {
+                w77 w77Var = (w77) obj;
+                return this.a == w77Var.a && Intrinsics.areEqual(this.b, w77Var.b) && this.c == w77Var.c;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
+    /* JADX WARN: Type inference failed for: r0v8 */
+    /* JADX WARN: Type inference failed for: r0v9 */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            boolean z = this.a;
+            ?? r0 = z;
+            if (z) {
+                r0 = 1;
+            }
+            return (((r0 * 31) + this.b.hashCode()) * 31) + b.a(this.c);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "ForumAttentionData(isLike=" + this.a + ", forumName=" + this.b + ", forumId=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public w77(boolean z, String forumName, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), forumName, Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(forumName, "forumName");
+        this.a = z;
+        this.b = forumName;
+        this.c = j;
+    }
+
+    public final long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.a = z;
         }
     }
 }

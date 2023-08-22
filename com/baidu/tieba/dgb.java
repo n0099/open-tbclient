@@ -1,142 +1,105 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class dgb extends sfb<bgb> {
+public class dgb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public class a implements TTAdNative.FullScreenVideoAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dgb a;
-
-        public a(dgb dgbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dgbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dgbVar;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
-        public void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) {
-                LogPrinter.d();
-                this.a.onAdLoaded(new bgb(tTFullScreenVideoAd), new String[0]);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
-        public void onFullScreenVideoCached() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
-        public void onFullScreenVideoCached(TTFullScreenVideoAd tTFullScreenVideoAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, tTFullScreenVideoAd) == null) {
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dgb(FunAdType funAdType, Ssp.Pid pid) {
-        super(funAdType, pid);
+    public static <T> boolean a(List<T> list, List<T> list2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {funAdType, pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, list2)) == null) {
+            if (!e(list2) && list != null) {
+                return list.addAll(list2);
             }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    public static <T> T c(List<T> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            bgb bgbVar = (bgb) obj;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
+            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
+                return null;
+            }
+            return list.get(i);
         }
+        return (T) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.sfb
-    public void f(Context context, FunAdSlot funAdSlot) {
+    public static <T> T g(List<T> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            this.e.loadFullScreenVideoAd(i(funAdSlot), new a(this));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
+            if (!e(list) && list != null && i >= 0 && i < list.size()) {
+                return list.remove(i);
+            }
+            return null;
         }
+        return (T) invokeLI.objValue;
     }
 
-    public AdSlot i(FunAdSlot funAdSlot) {
+    public static <T> int b(List<T> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, funAdSlot)) == null) {
-            return new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setOrientation(this.mPid.isHorizontal ? 2 : 1).build();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                return list.size();
+            }
+            return 0;
         }
-        return (AdSlot) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public static <T> T d(List<T> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            bgb bgbVar = (bgb) obj;
-            onShowStart(bgbVar);
-            ((TTFullScreenVideoAd) bgbVar.a).setFullScreenVideoAdInteractionListener(new ggb(this, bgbVar));
-            ((TTFullScreenVideoAd) bgbVar.a).setDownloadListener(new ifb(null));
-            ((TTFullScreenVideoAd) bgbVar.a).showFullScreenVideoAd(activity);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                return (T) c(list, list.size() - 1);
+            }
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    public static <T> boolean e(List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
+            if (b(list) <= 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static <T> boolean f(Map map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
+            if (map != null && !map.isEmpty()) {
+                return false;
+            }
             return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public static <T> void h(List<T> list, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(65543, null, list, i, i2) == null) && !e(list) && i >= 0 && i2 >= 0 && i <= b(list) - 1 && i2 <= b(list) - 1) {
+            Collections.swap(list, i, i2);
+        }
     }
 }

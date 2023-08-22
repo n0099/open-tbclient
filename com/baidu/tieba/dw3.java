@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.bw3;
+import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public final class dw3 extends bw3.a {
+public class dw3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final dw3 b;
+    public static Method a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,29 +27,25 @@ public final class dw3 extends bw3.a {
                 return;
             }
         }
-        b = new dw3();
+        try {
+            a = hf4.i(hf4.b(CountryCodeBean.ANDRIOD_SYSTEMPROP, true), CommandUBCHelper.COMMAND_UBC_SOURCE_RECEIVE, String.class);
+        } catch (Throwable unused) {
+        }
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public dw3() {
-        super(r0);
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((bw3) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Method method = a;
+            if (method != null) {
+                try {
+                    return (String) method.invoke(null, str);
+                } catch (Throwable unused) {
+                }
             }
+            return null;
         }
-        bw3 a = cw3.a();
-        Intrinsics.checkNotNullExpressionValue(a, "Ioc.impl()");
+        return (String) invokeL.objValue;
     }
 }

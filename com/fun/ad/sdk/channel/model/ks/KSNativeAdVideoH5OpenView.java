@@ -101,9 +101,9 @@ public class KSNativeAdVideoH5OpenView extends y {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900b1);
-            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090117);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ed);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900b2);
+            this.c = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090119);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ef);
             this.e = (TextView) findViewById(R.id.ad_h5_description);
             this.f = (Button) findViewById(R.id.ad_h5_open);
         }

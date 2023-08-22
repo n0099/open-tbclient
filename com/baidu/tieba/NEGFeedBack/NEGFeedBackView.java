@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e36;
 import com.baidu.tieba.l9;
+import com.baidu.tieba.v36;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -43,7 +43,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     public int mPaddingLeft;
     public int mPaddingRight;
     public int mPaddingTop;
-    public e36 mViewController;
+    public v36 mViewController;
     public int mWebPColorId;
     public int mWebPResId;
 
@@ -163,7 +163,7 @@ public class NEGFeedBackView extends AppCompatImageView {
     private void init(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, this, tbPageContext) == null) {
-            this.mViewController = new e36(tbPageContext, this);
+            this.mViewController = new v36(tbPageContext, this);
             setOnClickListener(this.mOnPopupWindowClickListener);
             setScaleType(ImageView.ScaleType.CENTER_INSIDE);
             onChangeSkinType();

@@ -4,7 +4,7 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tt5;
+import com.baidu.tieba.ku5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tt5 mIResp;
+    public ku5 mIResp;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TemplateSocketResponsedMessage(int i) {
@@ -75,7 +75,7 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
             Log.i("Template", "TemplateSocketResponsedMessage-->decodeInBackGround");
             TemplateNetMessage templateNetMessage = getTemplateNetMessage();
             if (templateNetMessage != null && templateNetMessage.getIResp() != null) {
-                tt5 iResp = templateNetMessage.getIResp();
+                ku5 iResp = templateNetMessage.getIResp();
                 this.mIResp = iResp;
                 iResp.a(i, bArr);
                 setError(this.mIResp.getErrorCode());
@@ -87,12 +87,12 @@ public class TemplateSocketResponsedMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public tt5 getIResp() {
+    public ku5 getIResp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mIResp;
         }
-        return (tt5) invokeV.objValue;
+        return (ku5) invokeV.objValue;
     }
 }

@@ -7,11 +7,11 @@ import android.os.IBinder;
 import androidx.annotation.Nullable;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.am;
-import com.baidu.tieba.cm;
 import com.baidu.tieba.dm;
-import com.baidu.tieba.gs6;
+import com.baidu.tieba.fm;
+import com.baidu.tieba.gm;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.rt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,15 +40,15 @@ public class TitanDownloadService extends Service {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ am a;
+        public final /* synthetic */ dm a;
         public final /* synthetic */ TitanDownloadService b;
 
-        public a(TitanDownloadService titanDownloadService, am amVar) {
+        public a(TitanDownloadService titanDownloadService, dm dmVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {titanDownloadService, amVar};
+                Object[] objArr = {titanDownloadService, dmVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,20 +59,20 @@ public class TitanDownloadService extends Service {
                 }
             }
             this.b = titanDownloadService;
-            this.a = amVar;
+            this.a = dmVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                dm.e(this.b.mContext, "com.baidu.titan.patch", this.a);
+                gm.e(this.b.mContext, "com.baidu.titan.patch", this.a);
             }
         }
     }
 
     /* loaded from: classes.dex */
-    public class b implements am {
+    public class b implements dm {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
@@ -97,7 +97,7 @@ public class TitanDownloadService extends Service {
             this.a = i;
         }
 
-        @Override // com.baidu.tieba.am
+        @Override // com.baidu.tieba.dm
         public void onResult(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
@@ -133,7 +133,7 @@ public class TitanDownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
             DefaultLog.getInstance().i(TAG, "start service");
-            cm d = cm.d();
+            fm d = fm.d();
             d.g();
             if (d.e() == 0) {
                 DefaultLog.getInstance().i(TAG, "startServiceIfNeeded last update time = 0");
@@ -159,7 +159,7 @@ public class TitanDownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i, i2)) == null) {
             this.mContext = getApplicationContext();
-            gs6.a(new a(this, new b(this, i2)), "titan_sandbox_downloader", 0);
+            rt6.a(new a(this, new b(this, i2)), "titan_sandbox_downloader", 0);
             return super.onStartCommand(intent, i, i2);
         }
         return invokeLII.intValue;

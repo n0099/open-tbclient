@@ -1,137 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Bitmap;
+import com.baidu.tieba.aw2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class p13 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public long c;
-    public boolean d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public p13(int i) {
-        this(i, null);
+    public static JSONObject a(n13 n13Var, boolean z, Bitmap bitmap, boolean z2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{n13Var, Boolean.valueOf(z), bitmap, Boolean.valueOf(z2)})) == null) {
+            JSONObject e = m13.e();
+            if (n13Var != null) {
+                try {
+                    e.put("page", n13Var.b);
+                } catch (JSONException e2) {
+                    if (db3.v) {
+                        e2.printStackTrace();
+                    }
+                }
             }
-        }
-    }
-
-    public p13(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            e.put("firstPage", z2);
+            if (z && bitmap != null) {
+                e.put("image", m13.c(bitmap));
             }
+            return e;
         }
-        this.d = false;
-        this.a = i;
-        this.b = str;
+        return (JSONObject) invokeCommon.objValue;
     }
 
-    public p13(int i, String str, long j) {
+    public static JSONObject b(n13 n13Var) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, n13Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (n13Var != null) {
+                try {
+                    if (n13Var.g == 0) {
+                        str = "0";
+                    } else {
+                        str = "1";
+                    }
+                    jSONObject.put("isH5Componet", str);
+                } catch (JSONException e) {
+                    if (db3.v) {
+                        e.printStackTrace();
+                    }
+                }
             }
+            return jSONObject;
         }
-        this.d = false;
-        this.a = i;
-        this.b = str;
-        this.c = j;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public p13(int i, String str, long j, boolean z) {
+    public static void c(n13 n13Var, int i, boolean z, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, Long.valueOf(j), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{n13Var, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
+            d(n13Var, i, false, null, z, i2);
+        }
+    }
+
+    public static void d(n13 n13Var, int i, boolean z, Bitmap bitmap, boolean z2, int i2) {
+        aw2.a W;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{n13Var, Integer.valueOf(i), Boolean.valueOf(z), bitmap, Boolean.valueOf(z2), Integer.valueOf(i2)}) == null) {
+            wm3 wm3Var = new wm3();
+            wm3Var.k(5L);
+            wm3Var.i(i);
+            if (!rh3.d || z2) {
+                wm3Var.f(a(n13Var, z, bitmap, z2).toString());
             }
+            String valueOf = String.valueOf(i2);
+            ei3 ei3Var = new ei3();
+            ei3Var.p(wm3Var);
+            ei3Var.q(wh3.n(cb3.K().k()));
+            ei3Var.m(cb3.K().getAppId());
+            ei3Var.s = n13Var.b;
+            ei3Var.n(false);
+            db3 b0 = db3.b0();
+            if (b0 == null) {
+                W = null;
+            } else {
+                W = b0.W();
+            }
+            if (!rh3.d || z2) {
+                ei3Var.s(valueOf);
+                ei3Var.r(W);
+                ei3Var.e(b(n13Var));
+                ei3Var.e(dh3.d().e());
+                ei3Var.e(dh3.d().g());
+            }
+            wh3.R(ei3Var);
         }
-        this.d = false;
-        this.a = i;
-        this.b = str;
-        this.c = j;
-        this.d = z;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public long c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
     }
 }

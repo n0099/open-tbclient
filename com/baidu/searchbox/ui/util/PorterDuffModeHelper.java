@@ -63,6 +63,6 @@ public final class PorterDuffModeHelper {
     }
 
     public static int getUiCoverLayerColor(Context context) {
-        return context.getResources().getColor(R.color.obfuscated_res_0x7f060b8a);
+        return context.getResources().getColor(R.color.obfuscated_res_0x7f060b90);
     }
 }

@@ -1,12 +1,8 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
 import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.gb2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,132 +10,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class xb2 {
+public final class xb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gb2 a;
-    public final pb2 b;
-    public final db2 c;
-    public String d;
+    public final List<tb2> a;
+    public final List<tb2> b;
+    public final List<tb2> c;
 
     /* loaded from: classes8.dex */
-    public class a implements gb2.b {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SceneType a;
-        public final /* synthetic */ rb2 b;
-        public final /* synthetic */ fb2 c;
-        public final /* synthetic */ xb2 d;
 
-        public a(xb2 xb2Var, SceneType sceneType, rb2 rb2Var, fb2 fb2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xb2Var, sceneType, rb2Var, fb2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-294717724, "Lcom/baidu/tieba/xb2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-294717724, "Lcom/baidu/tieba/xb2$a;");
                     return;
                 }
             }
-            this.d = xb2Var;
-            this.a = sceneType;
-            this.b = rb2Var;
-            this.c = fb2Var;
-        }
-
-        @Override // com.baidu.tieba.gb2.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                xa2.b(this.d.d);
-                ab2.i(1);
-                za2.e(this.a.getType(), networkStatus.getStatus(), this.b.e().getStatus(), this.b.g(), this.b.b(), this.b.f(), this.b.a());
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.getScene());
-                sb.append(this.c.a());
-                sb.append(this.b.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.b.c());
-                ab2.g(sb.toString());
-                if (xb2.e) {
-                    Log.d("SceneSkeletonTips", ">> " + sb.toString());
-                }
-                this.d.h(networkStatus, this.c, this.b);
+            int[] iArr = new int[RequestStatus.values().length];
+            a = iArr;
+            try {
+                iArr[RequestStatus.STATUS_SEND.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements gb2.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(xb2 xb2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xb2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            try {
+                a[RequestStatus.STATUS_SUCCESS.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-        }
-
-        @Override // com.baidu.tieba.gb2.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                pb2.d().j();
-                db2.d().j();
-                xa2.c();
-                ab2.i(0);
-                za2.c("exit_skeleton", networkStatus.getStatus());
+            try {
+                a[RequestStatus.STATUS_FAILED.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948294529, "Lcom/baidu/tieba/xb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948294529, "Lcom/baidu/tieba/xb2;");
-                return;
-            }
-        }
-        e = ir1.a;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (e) {
-                Log.d("SceneSkeletonTips", ">> trigger skeleton error event.");
-            }
-            this.a.a(new b(this));
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f(SceneType.SCENE_SKELETON_TIMEOUT);
         }
     }
 
@@ -147,61 +61,172 @@ public class xb2 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = db2.d();
-        this.a = new gb2();
-        this.b = pb2.d();
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = new ArrayList();
     }
 
-    public void g(String str) {
+    public synchronized List<tb2> d() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void f(SceneType sceneType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sceneType) == null) {
-            if (so3.I(this.d) && so3.H()) {
-                if (e) {
-                    Log.d("SceneSkeletonTips", ">> trigger skeleton remove event.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                for (tb2 tb2Var : this.c) {
+                    if (tb2Var != null && tb2Var.g(true)) {
+                        arrayList.add(tb2Var);
+                    }
                 }
-                pb2.d().j();
-                db2.d().j();
-                fb2 f = this.c.f();
-                this.a.a(new a(this, sceneType, this.b.f(), f));
-            } else if (e) {
-                Log.d("SceneSkeletonTips", "path is not first page: " + this.d);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized List<tb2> f() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                for (tb2 tb2Var : this.c) {
+                    if (tb2Var != null && tb2Var.f()) {
+                        arrayList.add(tb2Var);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized List<tb2> g() {
+        InterceptResult invokeV;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                arrayList = new ArrayList();
+                for (tb2 tb2Var : this.b) {
+                    if (tb2Var != null && tb2Var.h()) {
+                        arrayList.add(tb2Var);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public synchronized void a(tb2 tb2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tb2Var) == null) {
+            synchronized (this) {
+                if (tb2Var == null) {
+                    return;
+                }
+                int i = a.a[tb2Var.e.ordinal()];
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            this.c.add(tb2Var);
+                            c(this.a, tb2Var);
+                        }
+                    } else {
+                        this.b.add(tb2Var);
+                        c(this.a, tb2Var);
+                    }
+                } else {
+                    this.a.add(tb2Var);
+                }
             }
         }
     }
 
-    public final void h(@NonNull NetworkStatus networkStatus, @NonNull fb2 fb2Var, @NonNull rb2 rb2Var) {
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, networkStatus, fb2Var, rb2Var) == null) {
-            boolean b2 = fb2Var.b();
-            int i = R.string.obfuscated_res_0x7f0f1574;
-            if (b2) {
-                i = R.string.obfuscated_res_0x7f0f1579;
-            } else if (rb2Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
-                i = R.string.obfuscated_res_0x7f0f1577;
-            } else if (rb2Var.e() != RequestStatus.STATUS_FAILED) {
-                if (rb2Var.e() == RequestStatus.STATUS_SLOW) {
-                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f1578 : R.string.obfuscated_res_0x7f0f1575;
-                } else if (rb2Var.e() != RequestStatus.STATUS_CORE_FAILED) {
-                    i = R.string.obfuscated_res_0x7f0f1576;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.c.clear();
+                this.a.clear();
+                this.b.clear();
+            }
+        }
+    }
+
+    public synchronized int e() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                size = this.c.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int h() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                size = this.b.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized int i() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this) {
+                size = this.a.size() + h() + e();
+            }
+            return size;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0024, code lost:
+        r5.remove();
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final synchronized void c(List<tb2> list, tb2 tb2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, tb2Var) == null) {
+            synchronized (this) {
+                if (list != null) {
+                    if (!list.isEmpty() && tb2Var != null) {
+                        Iterator<tb2> it = list.iterator();
+                        while (true) {
+                            if (!it.hasNext()) {
+                                break;
+                            } else if (tb2Var.equals(it.next())) {
+                                break;
+                            }
+                        }
+                    }
                 }
             }
-            ya2.f(i);
         }
     }
 }

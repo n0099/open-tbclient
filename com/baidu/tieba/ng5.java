@@ -1,58 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ng5 implements ny5 {
+public class ng5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public String c;
-    public boolean d;
-    public boolean e;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ng5 a;
-
-        public a(ng5 ng5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ng5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ng5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdResourceLoader.getInstance().loadResource(this.a.b, 10, null, null);
-                BdResourceLoader.getInstance().loadResource(this.a.c, 10, null, null);
-            }
-        }
-    }
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public int n;
+    public int o;
+    public boolean p;
+    public String q;
+    @NonNull
+    public List<ng5> r;
 
     public ng5() {
         Interceptable interceptable = $ic;
@@ -64,46 +51,125 @@ public class ng5 implements ny5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.r = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.ny5
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.g;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ny5
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.o;
+        }
+        return invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.n;
+        }
+        return invokeV.intValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ny5
-    public String d() {
+    public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.c;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ny5
-    public boolean e() {
+    public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.d && this.e) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.q;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (this.r.size() > 0) {
                 return true;
             }
             return false;
@@ -111,50 +177,135 @@ public class ng5 implements ny5 {
         return invokeV.booleanValue;
     }
 
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && isValid()) {
-            SafeHandler.getInst().post(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.ny5
-    public boolean isValid() {
+    public boolean p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b) && !StringUtils.isNull(this.c)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.p;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ny5
-    public void b(String str) {
+    public static HashMap<String, ng5> s(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            try {
+                Iterator<String> keys = jSONObject.keys();
+                HashMap<String, ng5> hashMap = new HashMap<>();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    JSONObject jSONObject2 = jSONObject.getJSONObject(next);
+                    ng5 ng5Var = new ng5();
+                    ng5Var.r(jSONObject2);
+                    hashMap.put(next, ng5Var);
+                }
+                return hashMap;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
-        if (!this.d) {
-            this.d = str.equals(this.b);
-        }
-        if (!this.e) {
-            this.e = str.equals(this.c);
-        }
+        return (HashMap) invokeL.objValue;
     }
 
-    public void f(JSONObject jSONObject) {
+    @NonNull
+    public List<String> k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (o()) {
+                for (ng5 ng5Var : this.r) {
+                    if (ng5Var != null) {
+                        arrayList.add(ng5Var.j());
+                    }
+                }
+            } else {
+                arrayList.add(j());
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Nullable
+    public ng5 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            if (i >= 0 && i < this.r.size()) {
+                return this.r.get(i);
+            }
+            return null;
+        }
+        return (ng5) invokeI.objValue;
+    }
+
+    public boolean q(ng5 ng5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, ng5Var)) == null) {
+            if (ng5Var == null) {
+                return false;
+            }
+            if (this == ng5Var) {
+                return true;
+            }
+            if (!this.a.equals(ng5Var.a) || !this.b.equals(ng5Var.b) || !this.c.equals(ng5Var.c) || !this.d.equals(ng5Var.d) || !this.e.equals(ng5Var.e) || !this.f.equals(ng5Var.f) || !this.g.equals(ng5Var.g) || !this.h.equals(ng5Var.h) || !this.i.equals(ng5Var.i) || !this.j.equals(ng5Var.j) || !this.k.equals(ng5Var.k) || !this.l.equals(ng5Var.l) || !this.m.equals(ng5Var.m) || this.n != ng5Var.n || this.o != ng5Var.o || this.p != ng5Var.p || !this.q.equals(ng5Var.q)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void r(JSONObject jSONObject) {
+        boolean z;
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048593, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optString("url");
-        this.b = jSONObject.optString("fold_lottie");
-        jSONObject.optString("fold_name");
-        this.c = jSONObject.optString("unfold_lottie");
-        jSONObject.optString("unfold_name");
-        g();
+        this.a = jSONObject.optString("color");
+        this.b = jSONObject.optString("color_night");
+        this.c = jSONObject.optString("color_dark");
+        this.d = jSONObject.optString(BigdayActivityConfig.IMG_URL);
+        this.e = jSONObject.optString("img_url_night");
+        this.f = jSONObject.optString("img_url_dark");
+        this.g = jSONObject.optString("card_color");
+        this.h = jSONObject.optString("card_color_night");
+        this.i = jSONObject.optString("card_color_dark");
+        this.j = jSONObject.optString("card_img_url");
+        this.k = jSONObject.optString("card_img_url_night");
+        this.l = jSONObject.optString("card_img_url_dark");
+        this.m = jSONObject.optString("card_jump_url");
+        this.n = jSONObject.optInt("card_show_height");
+        this.o = jSONObject.optInt("card_img_width");
+        if (jSONObject.optInt("is_black_title") != 2) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.p = z;
+        this.q = jSONObject.optString("h5_img_url");
+        this.r.clear();
+        JSONArray optJSONArray = jSONObject.optJSONArray("top_level_list");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                ng5 ng5Var = new ng5();
+                ng5Var.r(optJSONObject);
+                this.r.add(ng5Var);
+            }
+        }
     }
 }

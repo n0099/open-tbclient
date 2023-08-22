@@ -8,27 +8,27 @@ public class c extends XMPushService.j {
     public XMPushService a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fk[] f965a;
+    public fk[] f966a;
 
     public c(XMPushService xMPushService, fk[] fkVarArr) {
         super(4);
         this.a = null;
         this.a = xMPushService;
-        this.f965a = fkVarArr;
+        this.f966a = fkVarArr;
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public String mo753a() {
+    public String mo755a() {
         return "batch send message.";
     }
 
     @Override // com.xiaomi.push.service.XMPushService.j
     /* renamed from: a */
-    public void mo470a() {
+    public void mo472a() {
         try {
-            if (this.f965a != null) {
-                this.a.a(this.f965a);
+            if (this.f966a != null) {
+                this.a.a(this.f966a);
             }
         } catch (gg e) {
             com.xiaomi.channel.commonutils.logger.b.a(e);

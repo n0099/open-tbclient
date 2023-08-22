@@ -1,49 +1,129 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import java.security.InvalidKeyException;
 /* loaded from: classes8.dex */
-public class vz {
+public class vz extends xz {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public byte[] d;
+    public byte[] e;
+    public byte[] f;
 
-    public vz() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vz(tz tzVar) {
+        super(tzVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tzVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((tz) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.f = null;
+        int i3 = this.b;
+        this.e = new byte[i3];
+        this.d = new byte[i3];
+    }
+
+    @Override // com.baidu.tieba.xz
+    public void a(boolean z, String str, byte[] bArr, byte[] bArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, bArr, bArr2}) == null) {
+            if (bArr == null || bArr2 == null || bArr2.length != this.b) {
+                throw new InvalidKeyException("Internal error");
+            }
+            this.c = bArr2;
+            c();
+            this.a.e(z, str, bArr);
+        }
+    }
+
+    @Override // com.baidu.tieba.xz
+    public void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            int i4 = i2 + i;
+            while (i < i4) {
+                for (int i5 = 0; i5 < this.b; i5++) {
+                    this.e[i5] = (byte) (bArr[i5 + i] ^ this.d[i5]);
+                }
+                this.a.f(this.e, 0, bArr2, i3);
+                System.arraycopy(bArr2, i3, this.d, 0, this.b);
+                int i6 = this.b;
+                i += i6;
+                i3 += i6;
             }
         }
     }
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xz
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (vz.class) {
-                    if (a == null) {
-                        byte[] bArr = new byte[16];
-                        System.arraycopy(c00.b(), 0, bArr, 0, 16);
-                        rz rzVar = new rz();
-                        rzVar.a(2, bArr, bArr);
-                        a = rzVar.b(new byte[]{-71, -100, -115, 26, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -124, 14, 14, ExifInterface.MARKER_APP1, -46, -56, 1, 25, -127, -99, -107, ExifInterface.MARKER_SOF10, 51, Cea608Decoder.CTRL_ERASE_NON_DISPLAYED_MEMORY, 14, 68, -68, -19, 28, 66, 19, -113, 5, 25, -11, -123, 50});
-                    }
-                }
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            System.arraycopy(this.c, 0, this.d, 0, this.b);
         }
-        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xz
+    public void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+        int i4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
+            int i5 = i2 + i;
+            byte[] bArr3 = (bArr != bArr2 || i < i3 || i - i3 >= this.b) ? null : (byte[]) bArr.clone();
+            while (i < i5) {
+                this.a.j(bArr, i, this.e, 0);
+                int i6 = 0;
+                while (true) {
+                    i4 = this.b;
+                    if (i6 >= i4) {
+                        break;
+                    }
+                    bArr2[i6 + i3] = (byte) (this.e[i6] ^ this.d[i6]);
+                    i6++;
+                }
+                byte[] bArr4 = this.d;
+                if (bArr3 == null) {
+                    System.arraycopy(bArr, i, bArr4, 0, i4);
+                } else {
+                    System.arraycopy(bArr3, i, bArr4, 0, i4);
+                }
+                int i7 = this.b;
+                i += i7;
+                i3 += i7;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.xz
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.f == null) {
+                this.f = new byte[this.b];
+            }
+            System.arraycopy(this.d, 0, this.f, 0, this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.xz
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            System.arraycopy(this.f, 0, this.d, 0, this.b);
+        }
     }
 }

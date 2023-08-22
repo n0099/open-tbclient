@@ -35,7 +35,7 @@ import com.huawei.hms.utils.Util;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class BaseHmsClient implements AidlApiClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BINDING = 5;
@@ -60,7 +60,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
     public volatile IAIDLInvoke mService;
     public String sessionId;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface ConnectionCallbacks {
         public static final int CAUSE_API_CLIENT_EXPIRED = 3;
         public static final int CAUSE_NETWORK_LOST = 2;
@@ -71,7 +71,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
         void onConnectionSuspended(int i);
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface OnConnectionFailedListener {
         void onConnectionFailed(ConnectionResult connectionResult);
     }
@@ -86,7 +86,7 @@ public abstract class BaseHmsClient implements AidlApiClient {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class ConnectionResultWrapper {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

@@ -22,17 +22,17 @@ public abstract class gm {
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final DateFormat f442a;
+    public static final DateFormat f443a;
     public static String c;
 
     /* renamed from: a  reason: collision with other field name */
-    public gq f443a;
+    public gq f444a;
 
     /* renamed from: a  reason: collision with other field name */
-    public List<gj> f444a;
+    public List<gj> f445a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final Map<String, Object> f445a;
+    public final Map<String, Object> f446a;
     public String d;
     public String e;
     public String f;
@@ -41,12 +41,12 @@ public abstract class gm {
     public String i;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f441a = Locale.getDefault().getLanguage().toLowerCase();
+    public static final String f442a = Locale.getDefault().getLanguage().toLowerCase();
     public static String b = null;
 
     static {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
-        f442a = simpleDateFormat;
+        f443a = simpleDateFormat;
         simpleDateFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         c = gx.a(5) + "-";
         a = 0L;
@@ -59,9 +59,9 @@ public abstract class gm {
         this.g = null;
         this.h = null;
         this.i = null;
-        this.f444a = new CopyOnWriteArrayList();
-        this.f445a = new HashMap();
-        this.f443a = null;
+        this.f445a = new CopyOnWriteArrayList();
+        this.f446a = new HashMap();
+        this.f444a = null;
     }
 
     public gm(Bundle bundle) {
@@ -71,26 +71,26 @@ public abstract class gm {
         this.g = null;
         this.h = null;
         this.i = null;
-        this.f444a = new CopyOnWriteArrayList();
-        this.f445a = new HashMap();
-        this.f443a = null;
+        this.f445a = new CopyOnWriteArrayList();
+        this.f446a = new HashMap();
+        this.f444a = null;
         this.f = bundle.getString("ext_to");
         this.g = bundle.getString("ext_from");
         this.h = bundle.getString("ext_chid");
         this.e = bundle.getString("ext_pkt_id");
         Parcelable[] parcelableArray = bundle.getParcelableArray("ext_exts");
         if (parcelableArray != null) {
-            this.f444a = new ArrayList(parcelableArray.length);
+            this.f445a = new ArrayList(parcelableArray.length);
             for (Parcelable parcelable : parcelableArray) {
                 gj a2 = gj.a((Bundle) parcelable);
                 if (a2 != null) {
-                    this.f444a.add(a2);
+                    this.f445a.add(a2);
                 }
             }
         }
         Bundle bundle2 = bundle.getBundle("ext_ERROR");
         if (bundle2 != null) {
-            this.f443a = new gq(bundle2);
+            this.f444a = new gq(bundle2);
         }
     }
 
@@ -108,7 +108,7 @@ public abstract class gm {
     }
 
     public static String q() {
-        return f441a;
+        return f442a;
     }
 
     public Bundle a() {
@@ -128,15 +128,15 @@ public abstract class gm {
         if (!TextUtils.isEmpty(this.h)) {
             bundle.putString("ext_chid", this.h);
         }
-        gq gqVar = this.f443a;
+        gq gqVar = this.f444a;
         if (gqVar != null) {
             bundle.putBundle("ext_ERROR", gqVar.a());
         }
-        List<gj> list = this.f444a;
+        List<gj> list = this.f445a;
         if (list != null) {
             Bundle[] bundleArr = new Bundle[list.size()];
             int i = 0;
-            for (gj gjVar : this.f444a) {
+            for (gj gjVar : this.f445a) {
                 Bundle a2 = gjVar.a();
                 if (a2 != null) {
                     bundleArr[i] = a2;
@@ -153,9 +153,9 @@ public abstract class gm {
     }
 
     public gj a(String str, String str2) {
-        for (gj gjVar : this.f444a) {
+        for (gj gjVar : this.f445a) {
             if (str2 == null || str2.equals(gjVar.b())) {
-                if (str.equals(gjVar.m524a())) {
+                if (str.equals(gjVar.m526a())) {
                     return gjVar;
                 }
             }
@@ -164,42 +164,42 @@ public abstract class gm {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public gq m528a() {
-        return this.f443a;
+    public gq m530a() {
+        return this.f444a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Object m529a(String str) {
-        if (this.f445a == null) {
+    public synchronized Object m531a(String str) {
+        if (this.f446a == null) {
             return null;
         }
-        return this.f445a.get(str);
+        return this.f446a.get(str);
     }
 
     /* renamed from: a */
-    public abstract String mo527a();
+    public abstract String mo529a();
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized Collection<gj> m530a() {
-        if (this.f444a == null) {
+    public synchronized Collection<gj> m532a() {
+        if (this.f445a == null) {
             return Collections.emptyList();
         }
-        return Collections.unmodifiableList(new ArrayList(this.f444a));
+        return Collections.unmodifiableList(new ArrayList(this.f445a));
     }
 
     public void a(gj gjVar) {
-        this.f444a.add(gjVar);
+        this.f445a.add(gjVar);
     }
 
     public void a(gq gqVar) {
-        this.f443a = gqVar;
+        this.f444a = gqVar;
     }
 
     public synchronized Collection<String> b() {
-        if (this.f445a == null) {
+        if (this.f446a == null) {
             return Collections.emptySet();
         }
-        return Collections.unmodifiableSet(new HashSet(this.f445a.keySet()));
+        return Collections.unmodifiableSet(new HashSet(this.f446a.keySet()));
     }
 
     public boolean equals(Object obj) {
@@ -210,17 +210,17 @@ public abstract class gm {
             return false;
         }
         gm gmVar = (gm) obj;
-        gq gqVar = this.f443a;
-        if (gqVar == null ? gmVar.f443a == null : gqVar.equals(gmVar.f443a)) {
+        gq gqVar = this.f444a;
+        if (gqVar == null ? gmVar.f444a == null : gqVar.equals(gmVar.f444a)) {
             String str = this.g;
             if (str == null ? gmVar.g == null : str.equals(gmVar.g)) {
-                if (this.f444a.equals(gmVar.f444a)) {
+                if (this.f445a.equals(gmVar.f445a)) {
                     String str2 = this.e;
                     if (str2 == null ? gmVar.e == null : str2.equals(gmVar.e)) {
                         String str3 = this.h;
                         if (str3 == null ? gmVar.h == null : str3.equals(gmVar.h)) {
-                            Map<String, Object> map = this.f445a;
-                            if (map == null ? gmVar.f445a == null : map.equals(gmVar.f445a)) {
+                            Map<String, Object> map = this.f446a;
+                            if (map == null ? gmVar.f446a == null : map.equals(gmVar.f446a)) {
                                 String str4 = this.f;
                                 if (str4 == null ? gmVar.f == null : str4.equals(gmVar.f)) {
                                     String str5 = this.d;
@@ -259,8 +259,8 @@ public abstract class gm {
         String str4 = this.g;
         int hashCode4 = (hashCode3 + (str4 != null ? str4.hashCode() : 0)) * 31;
         String str5 = this.h;
-        int hashCode5 = (((((hashCode4 + (str5 != null ? str5.hashCode() : 0)) * 31) + this.f444a.hashCode()) * 31) + this.f445a.hashCode()) * 31;
-        gq gqVar = this.f443a;
+        int hashCode5 = (((((hashCode4 + (str5 != null ? str5.hashCode() : 0)) * 31) + this.f445a.hashCode()) * 31) + this.f446a.hashCode()) * 31;
+        gq gqVar = this.f444a;
         return hashCode5 + (gqVar != null ? gqVar.hashCode() : 0);
     }
 
@@ -318,41 +318,41 @@ public abstract class gm {
         Exception e;
         String str;
         sb = new StringBuilder();
-        for (gj gjVar : m530a()) {
+        for (gj gjVar : m532a()) {
             sb.append(gjVar.d());
         }
-        if (this.f445a != null && !this.f445a.isEmpty()) {
+        if (this.f446a != null && !this.f446a.isEmpty()) {
             sb.append(bl.b("PHByb3BlcnRpZXMgeG1sbnM9Imh0dHA6Ly93d3cuaml2ZXNvZnR3YXJlLmNvbS94bWxucy94bXBwL3Byb3BlcnRpZXMiPg=="));
             for (String str2 : b()) {
-                Object m529a = m529a(str2);
+                Object m531a = m531a(str2);
                 sb.append("<property>");
                 sb.append("<name>");
                 sb.append(gx.a(str2));
                 sb.append("</name>");
                 sb.append("<value type=\"");
-                if (m529a instanceof Integer) {
+                if (m531a instanceof Integer) {
                     sb.append("integer\">");
-                    sb.append(m529a);
+                    sb.append(m531a);
                     str = "</value>";
-                } else if (m529a instanceof Long) {
+                } else if (m531a instanceof Long) {
                     sb.append("long\">");
-                    sb.append(m529a);
+                    sb.append(m531a);
                     str = "</value>";
-                } else if (m529a instanceof Float) {
+                } else if (m531a instanceof Float) {
                     sb.append("float\">");
-                    sb.append(m529a);
+                    sb.append(m531a);
                     str = "</value>";
-                } else if (m529a instanceof Double) {
+                } else if (m531a instanceof Double) {
                     sb.append("double\">");
-                    sb.append(m529a);
+                    sb.append(m531a);
                     str = "</value>";
-                } else if (m529a instanceof Boolean) {
+                } else if (m531a instanceof Boolean) {
                     sb.append("boolean\">");
-                    sb.append(m529a);
+                    sb.append(m531a);
                     str = "</value>";
-                } else if (m529a instanceof String) {
+                } else if (m531a instanceof String) {
                     sb.append("string\">");
-                    sb.append(gx.a((String) m529a));
+                    sb.append(gx.a((String) m531a));
                     str = "</value>";
                 } else {
                     ObjectOutputStream objectOutputStream2 = null;
@@ -362,7 +362,7 @@ public abstract class gm {
                             objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                             try {
                                 try {
-                                    objectOutputStream.writeObject(m529a);
+                                    objectOutputStream.writeObject(m531a);
                                     sb.append("java-object\">");
                                     sb.append(gx.a(byteArrayOutputStream.toByteArray()));
                                     sb.append("</value>");

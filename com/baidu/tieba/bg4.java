@@ -1,15 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.UiSettings;
-import com.baidu.mapapi.model.LatLng;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PorterDuff;
+import android.graphics.RectF;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.zf4;
+import com.baidu.tieba.xx2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
@@ -18,17 +23,18 @@ public class bg4 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements zf4.c {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gf4 a;
+        public final /* synthetic */ ng4 a;
+        public final /* synthetic */ xx2 b;
 
-        public a(gf4 gf4Var) {
+        public a(ng4 ng4Var, xx2 xx2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gf4Var};
+                Object[] objArr = {ng4Var, xx2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,83 +44,73 @@ public class bg4 {
                     return;
                 }
             }
-            this.a = gf4Var;
+            this.a = ng4Var;
+            this.b = xx2Var;
         }
 
-        @Override // com.baidu.tieba.zf4.c
-        public void onFail() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                y72.i("map", "location permission fail");
-            }
-        }
-
-        @Override // com.baidu.tieba.zf4.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.p(true);
-                y72.i("map", "location permission success");
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ig4.a(this.a, this.b);
             }
         }
     }
 
-    public static void a(Context context, ig4 ig4Var, kx2 kx2Var, gf4 gf4Var) {
+    public static View a(ng4 ng4Var, xx2 xx2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, context, ig4Var, kx2Var, gf4Var) == null) {
-            b(context, ig4Var, kx2Var, gf4Var, false);
-        }
-    }
-
-    public static void b(Context context, ig4 ig4Var, kx2 kx2Var, gf4 gf4Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, ig4Var, kx2Var, gf4Var, Boolean.valueOf(z)}) == null) {
-            if (ig4Var != null && kx2Var != null && kx2Var.isValid()) {
-                BaiduMap map = ig4Var.l.getMap();
-                eg4 eg4Var = new eg4(ig4Var);
-                map.setOnMapClickListener(eg4Var);
-                map.setOnMarkerClickListener(eg4Var);
-                map.setOnMapLoadedCallback(eg4Var);
-                map.setOnMapRenderCallbadk(eg4Var);
-                map.setOnMapStatusChangeListener(eg4Var);
-                map.setOnMyLocationClickListener(eg4Var);
-                UiSettings uiSettings = map.getUiSettings();
-                uiSettings.setScrollGesturesEnabled(kx2Var.t);
-                uiSettings.setRotateGesturesEnabled(kx2Var.u);
-                uiSettings.setZoomGesturesEnabled(kx2Var.s);
-                ig4Var.l.showZoomControls(false);
-                ig4Var.l.showScaleControl(false);
-                map.setBuildingsEnabled(kx2Var.x);
-                uiSettings.setOverlookingGesturesEnabled(kx2Var.w);
-                rx2 rx2Var = kx2Var.j;
-                if (rx2Var != null && rx2Var.isValid()) {
-                    y72.i("map", "initMapView coordinate is " + kx2Var.j);
-                    rx2 rx2Var2 = kx2Var.j;
-                    map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(rx2Var2.a, rx2Var2.b)));
-                }
-                map.animateMapStatus(MapStatusUpdateFactory.zoomTo((float) kx2Var.k));
-                y72.i("map", "initMapView scale is " + kx2Var.k);
-                boolean z2 = kx2Var.r;
-                ig4Var.k = z2;
-                if (z2) {
-                    c(context, gf4Var);
-                } else {
-                    gf4Var.p(false);
-                    map.setMyLocationEnabled(false);
-                }
-                uiSettings.setCompassEnabled(kx2Var.v);
-                cg4.e(AppRuntime.getAppContext(), kx2Var, ig4Var);
-                cg4.d(kx2Var, ig4Var, eg4Var);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, ng4Var, xx2Var)) == null) {
+            d82.i("map", "creatCallout start");
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint.setColor(xx2Var.i.b);
+            paint.setTextSize(xx2Var.i.c);
+            xx2.b bVar = xx2Var.i;
+            float f = bVar.e;
+            float f2 = bVar.f;
+            Paint paint2 = new Paint();
+            paint2.setAntiAlias(true);
+            paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint2.setColor(xx2Var.i.h);
+            String str = xx2Var.i.a;
+            int g = uo3.g(6.0f);
+            float f3 = f * 2.0f;
+            float measureText = paint.measureText(str) + f3;
+            float f4 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
+            float f5 = g + f4 + f3;
+            if (f5 > 0.0f && measureText > 0.0f) {
+                Bitmap createBitmap = Bitmap.createBitmap((int) measureText, (int) f5, Bitmap.Config.ARGB_8888);
+                createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
+                Canvas canvas = new Canvas(createBitmap);
+                canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+                RectF rectF = new RectF();
+                rectF.left = 0.0f;
+                rectF.top = 0.0f;
+                float f6 = f4 + f3;
+                rectF.bottom = f6;
+                rectF.right = measureText;
+                canvas.drawRoundRect(rectF, f2, f2, paint2);
+                Path path = new Path();
+                float f7 = measureText / 2.0f;
+                float f8 = g / 2;
+                path.moveTo(f7 - f8, f6);
+                path.lineTo(f7, f5);
+                path.lineTo(f7 + f8, f6);
+                path.close();
+                canvas.drawPath(path, paint2);
+                canvas.drawText(str, f, (-paint.getFontMetrics().top) + f, paint);
+                ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
+                imageView.setImageBitmap(createBitmap);
+                imageView.setOnClickListener(new a(ng4Var, xx2Var));
+                d82.i("map", "creatCallout end");
+                return imageView;
             }
-            y72.c("map", "initMapView model is invalid");
+            d82.o("map", "callout height or wodth is 0");
+            return new ImageView(AppRuntime.getAppContext());
         }
-    }
-
-    public static void c(Context context, gf4 gf4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, gf4Var) == null) {
-            zf4.b(context, new a(gf4Var));
-        }
+        return (View) invokeLL.objValue;
     }
 }

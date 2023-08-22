@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class i3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class i3 {
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:29:0x005d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x005c, code lost:
         if (r3 != null) goto L36;
      */
     /*
@@ -229,7 +229,7 @@ public class i3 {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0060 A[Catch: all -> 0x0090, Exception -> 0x0093, TryCatch #8 {Exception -> 0x0093, all -> 0x0090, blocks: (B:6:0x001f, B:7:0x0024, B:9:0x002a, B:12:0x0032, B:14:0x0038, B:16:0x003e, B:17:0x0042, B:21:0x0052, B:24:0x005c, B:25:0x0060, B:28:0x006b, B:31:0x0077, B:18:0x0047, B:20:0x004d, B:34:0x0082), top: B:67:0x001f }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0060 A[Catch: all -> 0x008f, Exception -> 0x0092, TryCatch #7 {Exception -> 0x0092, all -> 0x008f, blocks: (B:6:0x001f, B:7:0x0024, B:9:0x002a, B:12:0x0032, B:14:0x0038, B:16:0x003e, B:17:0x0042, B:21:0x0052, B:24:0x005c, B:25:0x0060, B:28:0x006b, B:31:0x0076, B:18:0x0047, B:20:0x004d, B:34:0x0081), top: B:69:0x001f }] */
     /* JADX WARN: Removed duplicated region for block: B:76:0x005a A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -240,12 +240,15 @@ public class i3 {
         int indexOf;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(65542, null)) != null) {
-            return (JSONObject) invokeV.objValue;
-        }
-        BufferedReader bufferedReader2 = null;
-        try {
-            bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(" netstat -an ").getInputStream()));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            BufferedReader bufferedReader2 = null;
+            try {
+                bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(" netstat -an ").getInputStream()));
+            } catch (Exception unused) {
+                bufferedReader = null;
+            } catch (Throwable th) {
+                th = th;
+            }
             try {
                 JSONObject jSONObject = new JSONObject();
                 while (true) {
@@ -279,39 +282,36 @@ public class i3 {
                 if (jSONObject.length() > 0) {
                     try {
                         bufferedReader.close();
-                    } catch (Exception unused) {
+                    } catch (Exception unused2) {
                     }
                     return jSONObject;
                 }
                 try {
                     bufferedReader.close();
-                } catch (Exception unused2) {
+                } catch (Exception unused3) {
                 }
                 return null;
-            } catch (Exception unused3) {
+            } catch (Exception unused4) {
                 if (bufferedReader != null) {
                     try {
                         bufferedReader.close();
-                    } catch (Exception unused4) {
+                    } catch (Exception unused5) {
                     }
                 }
                 return null;
-            } catch (Throwable th) {
-                th = th;
+            } catch (Throwable th2) {
+                th = th2;
                 bufferedReader2 = bufferedReader;
                 if (bufferedReader2 != null) {
                     try {
                         bufferedReader2.close();
-                    } catch (Exception unused5) {
+                    } catch (Exception unused6) {
                     }
                 }
                 throw th;
             }
-        } catch (Exception unused6) {
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
         }
+        return (JSONObject) invokeV.objValue;
     }
 
     public static String e() {

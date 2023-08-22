@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
     public ImageView e;
     public NavigationBar f;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends BdResourceCallback<BdImage> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -100,7 +100,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -167,7 +167,7 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
         }
     }
 
-    public final void v1() {
+    public final void u1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TiebaStatic.log("c10746");
@@ -185,21 +185,21 @@ public class SignAllForumAdvertActivity extends BaseActivity<SignAllForumAdvertA
             this.a = intent.getStringExtra("ad_pic");
             this.b = intent.getStringExtra(SignAllForumAdvertActivityConfig.AD_URL);
             intent.getBooleanExtra(SignAllForumAdvertActivityConfig.HAS_PRIVILEGE, false);
-            w1();
             v1();
+            u1();
         }
     }
 
-    public final void w1() {
+    public final void v1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d08b2);
+            setContentView(R.layout.obfuscated_res_0x7f0d08b8);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.setTitleText(getPageContext().getString(R.string.signallforum));
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921fb);
-            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0921f6);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0921f5);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f092222);
+            this.d = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09221d);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f09221c);
             this.d.setDefaultBgResource(R.drawable.transparent_bg);
             BdResourceLoader.getInstance().loadResource(this.a, 10, new a(this), null);
             this.d.startLoad(this.a, 10, false);

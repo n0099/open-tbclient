@@ -17,11 +17,11 @@ import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tbadk.data.VisitedForumData;
 import com.baidu.tbadk.loading.LoadingView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.a07;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
+import com.baidu.tieba.dn5;
 import com.baidu.tieba.enterForum.data.RecentlyVisitedForumData;
-import com.baidu.tieba.i26;
-import com.baidu.tieba.my6;
-import com.baidu.tieba.om5;
+import com.baidu.tieba.z26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,8 +30,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
-/* loaded from: classes6.dex */
-public class LatelyView extends FrameLayout implements i26<String> {
+/* loaded from: classes7.dex */
+public class LatelyView extends FrameLayout implements z26<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -39,16 +39,16 @@ public class LatelyView extends FrameLayout implements i26<String> {
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
     public LoadingView e;
-    public om5 f;
+    public dn5 f;
 
-    @Override // com.baidu.tieba.i26
+    @Override // com.baidu.tieba.z26
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -146,7 +146,7 @@ public class LatelyView extends FrameLayout implements i26<String> {
         f();
     }
 
-    @Override // com.baidu.tieba.i26
+    @Override // com.baidu.tieba.z26
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -158,9 +158,9 @@ public class LatelyView extends FrameLayout implements i26<String> {
         if (loadingView != null) {
             loadingView.onChangeSkinType();
         }
-        om5 om5Var = this.f;
-        if (om5Var != null) {
-            om5Var.onChangeSkinType();
+        dn5 dn5Var = this.f;
+        if (dn5Var != null) {
+            dn5Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
@@ -177,9 +177,9 @@ public class LatelyView extends FrameLayout implements i26<String> {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            om5 om5Var = this.f;
-            if (om5Var != null) {
-                om5Var.dettachView(this);
+            dn5 dn5Var = this.f;
+            if (dn5Var != null) {
+                dn5Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
@@ -190,16 +190,16 @@ public class LatelyView extends FrameLayout implements i26<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            om5 om5Var = this.f;
-            if (om5Var != null) {
-                return om5Var.isViewAttached();
+            dn5 dn5Var = this.f;
+            if (dn5Var != null) {
+                return dn5Var.isViewAttached();
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.i26
+    @Override // com.baidu.tieba.z26
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -209,7 +209,7 @@ public class LatelyView extends FrameLayout implements i26<String> {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i26
+    @Override // com.baidu.tieba.z26
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -220,8 +220,8 @@ public class LatelyView extends FrameLayout implements i26<String> {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0897, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09214a);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d089d, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092170);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.s(1);
@@ -233,12 +233,12 @@ public class LatelyView extends FrameLayout implements i26<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i26
+    @Override // com.baidu.tieba.z26
     /* renamed from: h */
     public void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            RecentlyVisitedForumData j = my6.n().j();
+            RecentlyVisitedForumData j = a07.n().j();
             if (j == null) {
                 i(false, false);
                 return;
@@ -287,7 +287,7 @@ public class LatelyView extends FrameLayout implements i26<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new om5(getContext(), new a(this));
+            this.f = new dn5(getContext(), new a(this));
         }
         this.f.j(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);

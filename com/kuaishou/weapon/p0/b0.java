@@ -13,7 +13,7 @@ import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b0 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b0 a;
@@ -93,12 +93,12 @@ public class b0 {
         return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0068  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x007f  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0071 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:60:0x0061 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x005a A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x0078 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0067  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x007e  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0070 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0060 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x0059 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:68:0x0077 A[EXC_TOP_SPLITTER, SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -108,105 +108,105 @@ public class b0 {
         BufferedInputStream bufferedInputStream;
         BufferedOutputStream bufferedOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, str)) != null) {
-            return (String) invokeL.objValue;
-        }
-        BufferedOutputStream bufferedOutputStream2 = null;
-        try {
-            process = Runtime.getRuntime().exec("sh");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            BufferedOutputStream bufferedOutputStream2 = null;
             try {
-                bufferedOutputStream = new BufferedOutputStream(process.getOutputStream());
+                process = Runtime.getRuntime().exec("sh");
                 try {
-                    bufferedInputStream = new BufferedInputStream(process.getInputStream());
+                    bufferedOutputStream = new BufferedOutputStream(process.getOutputStream());
                     try {
-                        bufferedOutputStream.write(str.getBytes());
-                        bufferedOutputStream.write(10);
-                        bufferedOutputStream.flush();
-                        bufferedOutputStream.close();
-                        process.waitFor();
-                        String a2 = a(bufferedInputStream);
-                        try {
-                            bufferedOutputStream.close();
-                        } catch (IOException unused) {
-                        }
-                        try {
-                            bufferedInputStream.close();
-                        } catch (IOException unused2) {
-                        }
-                        if (process != null) {
-                            process.destroy();
-                        }
-                        return a2;
-                    } catch (Exception unused3) {
-                        if (bufferedOutputStream != null) {
-                        }
-                        if (bufferedInputStream != null) {
-                        }
-                        if (process != null) {
-                        }
-                        return null;
+                        bufferedInputStream = new BufferedInputStream(process.getInputStream());
+                    } catch (Exception unused) {
+                        bufferedInputStream = null;
                     } catch (Throwable th) {
                         th = th;
-                        bufferedOutputStream2 = bufferedOutputStream;
-                        if (bufferedOutputStream2 != null) {
-                        }
-                        if (bufferedInputStream != null) {
-                        }
-                        if (process != null) {
-                        }
-                        throw th;
+                        bufferedInputStream = null;
                     }
-                } catch (Exception unused4) {
+                } catch (Exception unused2) {
+                    bufferedOutputStream = null;
                     bufferedInputStream = null;
+                    if (bufferedOutputStream != null) {
+                        try {
+                            bufferedOutputStream.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    if (bufferedInputStream != null) {
+                        try {
+                            bufferedInputStream.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    if (process != null) {
+                        process.destroy();
+                    }
+                    return null;
                 } catch (Throwable th2) {
                     th = th2;
                     bufferedInputStream = null;
-                }
-            } catch (Exception unused5) {
-                bufferedOutputStream = null;
-                bufferedInputStream = null;
-                if (bufferedOutputStream != null) {
-                    try {
-                        bufferedOutputStream.close();
-                    } catch (IOException unused6) {
+                    if (bufferedOutputStream2 != null) {
+                        try {
+                            bufferedOutputStream2.close();
+                        } catch (IOException unused5) {
+                        }
                     }
-                }
-                if (bufferedInputStream != null) {
-                    try {
-                        bufferedInputStream.close();
-                    } catch (IOException unused7) {
+                    if (bufferedInputStream != null) {
+                        try {
+                            bufferedInputStream.close();
+                        } catch (IOException unused6) {
+                        }
                     }
+                    if (process != null) {
+                        process.destroy();
+                    }
+                    throw th;
                 }
-                if (process != null) {
-                    process.destroy();
-                }
-                return null;
+            } catch (Exception unused7) {
+                process = null;
             } catch (Throwable th3) {
                 th = th3;
-                bufferedInputStream = null;
-                if (bufferedOutputStream2 != null) {
-                    try {
-                        bufferedOutputStream2.close();
-                    } catch (IOException unused8) {
-                    }
+                process = null;
+            }
+            try {
+                bufferedOutputStream.write(str.getBytes());
+                bufferedOutputStream.write(10);
+                bufferedOutputStream.flush();
+                bufferedOutputStream.close();
+                process.waitFor();
+                String a2 = a(bufferedInputStream);
+                try {
+                    bufferedOutputStream.close();
+                } catch (IOException unused8) {
                 }
-                if (bufferedInputStream != null) {
-                    try {
-                        bufferedInputStream.close();
-                    } catch (IOException unused9) {
-                    }
+                try {
+                    bufferedInputStream.close();
+                } catch (IOException unused9) {
                 }
                 if (process != null) {
                     process.destroy();
+                }
+                return a2;
+            } catch (Exception unused10) {
+                if (bufferedOutputStream != null) {
+                }
+                if (bufferedInputStream != null) {
+                }
+                if (process != null) {
+                }
+                return null;
+            } catch (Throwable th4) {
+                th = th4;
+                bufferedOutputStream2 = bufferedOutputStream;
+                if (bufferedOutputStream2 != null) {
+                }
+                if (bufferedInputStream != null) {
+                }
+                if (process != null) {
                 }
                 throw th;
             }
-        } catch (Exception unused10) {
-            process = null;
-        } catch (Throwable th4) {
-            th = th4;
-            process = null;
         }
+        return (String) invokeL.objValue;
     }
 
     public String b(String str) {

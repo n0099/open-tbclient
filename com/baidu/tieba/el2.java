@@ -1,44 +1,50 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class el2<T> extends yk2 {
+public class el2 extends dl2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public T c;
-    public boolean d;
+    public final Map<String, String> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947738110, "Lcom/baidu/tieba/el2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947738110, "Lcom/baidu/tieba/el2;");
-                return;
-            }
-        }
-        e = ir1.a;
-    }
-
-    public el2() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public el2(@NonNull String str) {
+        this(str, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (Map) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public el2(@NonNull String str, @Nullable Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, map};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,28 +54,38 @@ public class el2<T> extends yk2 {
                 return;
             }
         }
-        this.d = true;
-        this.a = "message";
+        HashMap hashMap = new HashMap();
+        this.c = hashMap;
+        this.a = str;
+        if (map != null) {
+            hashMap.putAll(map);
+        }
     }
 
-    @Override // com.baidu.tieba.yk2
+    @Override // com.baidu.tieba.dl2
     public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            Object obj = this.c;
-            if (obj instanceof String) {
-                String str = (String) obj;
-                if (this.d) {
-                    str = Uri.encode(str);
-                }
-                if (e) {
-                    Log.d("SwanAppWebMessage", "mData: " + this.c);
-                    Log.d("SwanAppWebMessage", "encode mData: " + str);
-                }
-                map.put("message", str);
-            } else if (obj instanceof JSONObject) {
-                map.put("message", obj);
+            for (Map.Entry<String, String> entry : this.c.entrySet()) {
+                map.put(entry.getKey(), entry.getValue());
             }
         }
+    }
+
+    public JSONObject s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                n(jSONObject);
+            } catch (JSONException e) {
+                if (dl2.b) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

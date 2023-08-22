@@ -1,53 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.clientupdate.ClientUpdater;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.clientupdate.download.Download;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.immessagecenter.service.MessageCenterAIBotService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes8.dex */
-public class ww8 extends BdAsyncTask<String, Integer, Download> {
+public final class ww8 extends xk1<jf8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClientUpdateInfo a;
 
-    public ww8(ClientUpdateInfo clientUpdateInfo) {
+    public ww8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {clientUpdateInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = clientUpdateInfo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public Download doInBackground(String... strArr) throws IOException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xk1
+    /* renamed from: a */
+    public jf8 createService() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-            if (this.a == null) {
-                return null;
-            }
-            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.a, null);
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return MessageCenterAIBotService.b.a();
         }
-        return (Download) invokeL.objValue;
+        return (jf8) invokeV.objValue;
     }
 }

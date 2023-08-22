@@ -1,158 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.AdapterView;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.atomData.OfficalBarChatActivityConfig;
-import com.baidu.tbadk.core.atomData.OfficialBarFeedActivityConfig;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.immessagecenter.StrangerListActivityConfig;
-import com.baidu.tieba.immessagecenter.im.chat.notify.MessageAggregationListAdapter;
-import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgChatCenterSliceView;
-import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class kq8 implements AdapterView.OnItemClickListener {
+public class kq8 extends jq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final BdUniqueId b;
-    public final MsgChatCenterSliceView c;
-    public final MessageAggregationListAdapter d;
-    public final MsgChatCenterSliceViewModel e;
+    public boolean e;
 
-    public kq8(Context context, BdUniqueId uniqueId, MsgChatCenterSliceView sliceView, MessageAggregationListAdapter messageAggregationListAdapter, MsgChatCenterSliceViewModel viewModel) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947921847, "Lcom/baidu/tieba/kq8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947921847, "Lcom/baidu/tieba/kq8;");
+                return;
+            }
+        }
+        f = BdUniqueId.gen().getId();
+    }
+
+    @Override // com.baidu.tieba.jq8, com.baidu.tieba.fr8
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kq8(BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO) {
+        super(itemsDTO);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, uniqueId, sliceView, messageAggregationListAdapter, viewModel};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {itemsDTO};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((BotsDTO.BotListDTO.SkillDTO.ItemsDTO) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
-        Intrinsics.checkNotNullParameter(sliceView, "sliceView");
-        Intrinsics.checkNotNullParameter(viewModel, "viewModel");
-        this.a = context;
-        this.b = uniqueId;
-        this.c = sliceView;
-        this.d = messageAggregationListAdapter;
-        this.e = viewModel;
+        this.e = false;
     }
 
-    @Override // android.widget.AdapterView.OnItemClickListener
-    public void onItemClick(AdapterView<?> adapterView, View view2, int i, long j) {
-        ImMessageCenterShowItemData imMessageCenterShowItemData;
-        boolean z;
-        String str;
-        String str2;
+    public boolean p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || i < 0) {
-            return;
-        }
-        MessageAggregationListAdapter messageAggregationListAdapter = this.d;
-        String str3 = null;
-        if (messageAggregationListAdapter != null) {
-            imMessageCenterShowItemData = messageAggregationListAdapter.getItem(i);
-        } else {
-            imMessageCenterShowItemData = null;
-        }
-        if (imMessageCenterShowItemData != null && imMessageCenterShowItemData.getDataType() == 2) {
-            z = true;
-        } else {
-            z = false;
-        }
-        if (z) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a).createNormalCfg(imMessageCenterShowItemData.getForumName(), FrsActivityConfig.FRS_FROM_IM_REC_FORUM)));
-            ss8.a.f(imMessageCenterShowItemData);
-            return;
-        }
-        if (imMessageCenterShowItemData != null) {
-            ss8.a.d(imMessageCenterShowItemData, this.a);
-        }
-        StatisticItem statisticItem = new StatisticItem("c13720");
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-        if (imMessageCenterShowItemData != null) {
-            str = imMessageCenterShowItemData.getOwnerName();
-        } else {
-            str = null;
-        }
-        if (TextUtils.isEmpty(str)) {
-            us8.a(imMessageCenterShowItemData, this.a, this.b);
-            statisticItem.param("obj_type", 6);
-        } else if (Intrinsics.areEqual(str, "5")) {
-            TiebaStatic.log("c12931");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new OfficialBarFeedActivityConfig(this.a)));
-        } else if (Intrinsics.areEqual(str, "8")) {
-            long j2 = JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L);
-            OfficalBarChatActivityConfig officalBarChatActivityConfig = new OfficalBarChatActivityConfig(this.a, j2, imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0, imMessageCenterShowItemData.getUserType());
-            ss8.a.g(j2);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002006, officalBarChatActivityConfig));
-        } else if (Intrinsics.areEqual(str, "7")) {
-            TiebaStatic.log(new StatisticItem("c12614"));
-            statisticItem.param("obj_type", 6);
-            ss8.a.e(imMessageCenterShowItemData);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new StrangerListActivityConfig(this.a)));
-            return;
-        } else if (Intrinsics.areEqual(str, "9")) {
-            this.c.X(imMessageCenterShowItemData);
-            if (imMessageCenterShowItemData.getAtInfoData() != null) {
-                imMessageCenterShowItemData.setAtInfoData(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO optsDTO = this.c;
+            if (optsDTO == null || optsDTO.getExt() == null) {
+                return false;
             }
-            imMessageCenterShowItemData.setUnReadCount(0);
-            this.e.B(false);
-            this.e.o().X(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L));
-            this.e.E(null, imMessageCenterShowItemData, 2);
-            ss8.a.c(imMessageCenterShowItemData);
-            this.e.o().K();
-        } else {
-            us8.a(imMessageCenterShowItemData, this.a, this.b);
-            statisticItem.param("obj_type", 6);
-        }
-        if (imMessageCenterShowItemData != null) {
-            str2 = imMessageCenterShowItemData.getFriendName();
-        } else {
-            str2 = null;
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            if (imMessageCenterShowItemData != null) {
-                str3 = imMessageCenterShowItemData.getFriendName();
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = this.c.getExt();
+            if (StringUtils.isNull(ext.getPicPath()) || StringUtils.isNull(ext.getPicSize())) {
+                return false;
             }
-            if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cb9))) {
-                statisticItem.param("obj_type", 8);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cbc))) {
-                statisticItem.param("obj_type", 9);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cba))) {
-                statisticItem.param("obj_type", 10);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cb5))) {
-                statisticItem.param("obj_type", 4);
-            } else if (Intrinsics.areEqual(str3, this.a.getString(R.string.obfuscated_res_0x7f0f0cb7))) {
-                statisticItem.param("obj_type", 5);
-            }
+            return true;
         }
-        TiebaStatic.log(statisticItem);
-        if (imMessageCenterShowItemData != null) {
-            ss8.a.b(imMessageCenterShowItemData, this.a);
+        return invokeV.booleanValue;
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void s(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.c != null) {
+            BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext ext = new BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO.Ext();
+            ext.setPicPath(str);
+            ext.setPicSize(str2);
+            this.c.setExt(ext);
         }
     }
 }

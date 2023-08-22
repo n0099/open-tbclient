@@ -16,8 +16,8 @@ import com.baidu.tieba.interestlabel.message.ResponseHttpGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
-import com.baidu.tieba.nw8;
-import com.baidu.tieba.ow8;
+import com.baidu.tieba.q09;
+import com.baidu.tieba.r09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,8 +29,8 @@ public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public ow8 b;
-    public nw8 c;
+    public r09 b;
+    public q09 c;
     public NetMessageListener d;
     public NetMessageListener e;
 
@@ -74,18 +74,18 @@ public class LabelSettingModel extends BdBaseModel {
 
         @Override // com.baidu.adp.framework.listener.NetMessageListener
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            nw8 nw8Var;
+            q09 q09Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
                 if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.b != null) {
-                    ow8 ow8Var = this.a.b;
+                    r09 r09Var = this.a.b;
                     LabelRequestEnum labelRequestEnum = LabelRequestEnum.GET_LABEL;
                     if (responsedMessage.getError() == 0) {
-                        nw8Var = this.a.c;
+                        q09Var = this.a.c;
                     } else {
-                        nw8Var = null;
+                        q09Var = null;
                     }
-                    ow8Var.a(labelRequestEnum, nw8Var, responsedMessage.getError());
+                    r09Var.a(labelRequestEnum, q09Var, responsedMessage.getError());
                 }
             }
         }
@@ -158,7 +158,7 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new nw8();
+        this.c = new q09();
         registerListener(this.d);
         registerListener(this.e);
     }
@@ -167,7 +167,7 @@ public class LabelSettingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0e21);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0e29);
                 return;
             }
             RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -177,10 +177,10 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void U(ow8 ow8Var) {
+    public void U(r09 r09Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ow8Var) == null) {
-            this.b = ow8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, r09Var) == null) {
+            this.b = r09Var;
         }
     }
 
@@ -188,9 +188,9 @@ public class LabelSettingModel extends BdBaseModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                ow8 ow8Var = this.b;
-                if (ow8Var != null) {
-                    ow8Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+                r09 r09Var = this.b;
+                if (r09Var != null) {
+                    r09Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;

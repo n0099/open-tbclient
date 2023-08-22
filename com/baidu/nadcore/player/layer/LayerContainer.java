@@ -6,41 +6,41 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.cz0;
-import com.baidu.tieba.vt0;
+import com.baidu.tieba.fz0;
+import com.baidu.tieba.yt0;
 import java.util.ArrayList;
 import java.util.Iterator;
 /* loaded from: classes3.dex */
 public class LayerContainer extends FrameLayout {
     public FrameLayout.LayoutParams a;
-    public vt0 b;
-    public ArrayList<cz0> c;
+    public yt0 b;
+    public ArrayList<fz0> c;
 
     public LayerContainer(@NonNull Context context) {
         super(context);
         g();
     }
 
-    public void a(@NonNull cz0 cz0Var) {
-        b(cz0Var, getContainerParams());
+    public void a(@NonNull fz0 fz0Var) {
+        b(fz0Var, getContainerParams());
     }
 
-    public void c(@NonNull cz0 cz0Var) {
-        e(cz0Var);
-        cz0Var.K(this);
-        cz0Var.r(getBindPlayer().x());
-        this.c.add(0, cz0Var);
-        if (cz0Var.getContentView() != null) {
-            addView(cz0Var.getContentView(), 0, this.a);
+    public void c(@NonNull fz0 fz0Var) {
+        e(fz0Var);
+        fz0Var.K(this);
+        fz0Var.r(getBindPlayer().x());
+        this.c.add(0, fz0Var);
+        if (fz0Var.getContentView() != null) {
+            addView(fz0Var.getContentView(), 0, this.a);
         }
     }
 
-    public void d(@NonNull vt0 vt0Var) {
-        this.b = vt0Var;
+    public void d(@NonNull yt0 yt0Var) {
+        this.b = yt0Var;
     }
 
-    public void e(@NonNull cz0 cz0Var) {
-        f(cz0Var, false);
+    public void e(@NonNull fz0 fz0Var) {
+        f(fz0Var, false);
     }
 
     public LayerContainer(@NonNull Context context, @Nullable AttributeSet attributeSet) {
@@ -48,15 +48,15 @@ public class LayerContainer extends FrameLayout {
         g();
     }
 
-    public void f(@NonNull cz0 cz0Var, boolean z) {
+    public void f(@NonNull fz0 fz0Var, boolean z) {
         ViewGroup viewGroup;
-        this.c.remove(cz0Var);
-        cz0Var.F();
-        if (cz0Var.getContentView() != null && (viewGroup = (ViewGroup) cz0Var.getContentView().getParent()) != null) {
-            viewGroup.removeView(cz0Var.getContentView());
+        this.c.remove(fz0Var);
+        fz0Var.F();
+        if (fz0Var.getContentView() != null && (viewGroup = (ViewGroup) fz0Var.getContentView().getParent()) != null) {
+            viewGroup.removeView(fz0Var.getContentView());
         }
         if (z) {
-            cz0Var.s();
+            fz0Var.s();
         }
     }
 
@@ -65,16 +65,16 @@ public class LayerContainer extends FrameLayout {
         g();
     }
 
-    public void b(@NonNull cz0 cz0Var, FrameLayout.LayoutParams layoutParams) {
-        if (this.c.contains(cz0Var)) {
+    public void b(@NonNull fz0 fz0Var, FrameLayout.LayoutParams layoutParams) {
+        if (this.c.contains(fz0Var)) {
             return;
         }
-        cz0Var.K(this);
-        cz0Var.D();
-        cz0Var.r(getBindPlayer().x());
-        this.c.add(cz0Var);
-        if (cz0Var.getContentView() != null && cz0Var.getContentView() != this) {
-            addView(cz0Var.getContentView(), layoutParams);
+        fz0Var.K(this);
+        fz0Var.D();
+        fz0Var.r(getBindPlayer().x());
+        this.c.add(fz0Var);
+        if (fz0Var.getContentView() != null && fz0Var.getContentView() != this) {
+            addView(fz0Var.getContentView(), layoutParams);
         }
     }
 
@@ -84,7 +84,7 @@ public class LayerContainer extends FrameLayout {
     }
 
     @NonNull
-    public vt0 getBindPlayer() {
+    public yt0 getBindPlayer() {
         return this.b;
     }
 
@@ -92,14 +92,14 @@ public class LayerContainer extends FrameLayout {
         return new FrameLayout.LayoutParams(-1, -1);
     }
 
-    public ArrayList<cz0> getLayerList() {
+    public ArrayList<fz0> getLayerList() {
         return this.c;
     }
 
     public void h() {
-        ArrayList<cz0> arrayList = this.c;
+        ArrayList<fz0> arrayList = this.c;
         if (arrayList != null) {
-            Iterator<cz0> it = arrayList.iterator();
+            Iterator<fz0> it = arrayList.iterator();
             while (it.hasNext()) {
                 it.next().onContainerDetach();
             }

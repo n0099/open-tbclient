@@ -1,139 +1,117 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
-import com.baidu.tieba.pb.bot.BotEntranceManager;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.newdetail.HotTopicDetailActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.RobotEntrance;
-import tbclient.RobotSkill;
-import tbclient.RobotSkillInfo;
 /* loaded from: classes6.dex */
-public final class kc9 implements f65 {
+public class kc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947908424, "Lcom/baidu/tieba/kc9;")) == null) {
+    public static void a(String str, Object obj, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(65536, null, str, obj, i, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            if (obj instanceof m35) {
+                statisticItem.param("fid", ((m35) obj).f());
+            } else if (obj instanceof cd9) {
+                cd9 cd9Var = (cd9) obj;
+                ThreadData threadData = cd9Var.h;
+                if (threadData != null) {
+                    statisticItem.param("tid", threadData.getTid());
+                }
+                statisticItem.param("obj_locate", cd9Var.a());
+            }
+            statisticItem.param("topic_id", str2);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void b(oc9 oc9Var, w05 w05Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, oc9Var, w05Var) == null) {
+            d(oc9Var, w05Var, true);
+        }
+    }
+
+    public static void c(oc9 oc9Var, w05 w05Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, oc9Var, w05Var) == null) {
+            d(oc9Var, w05Var, false);
+        }
+    }
+
+    public static void d(oc9 oc9Var, w05 w05Var, boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65539, null, oc9Var, w05Var, z) == null) && w05Var != null && w05Var.getThreadData() != null) {
+            ThreadData threadData = w05Var.getThreadData();
+            boolean s = oc9Var.s();
+            if (z) {
+                if (s) {
+                    str = "c13823";
+                } else {
+                    str = "c13822";
+                }
+            } else if (s) {
+                str = "c13824";
+            } else {
+                str = "c13821";
+            }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("tid", threadData.getTid());
+            statisticItem.param("fid", threadData.getFid());
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            if (oc9Var.t().getOrignalPage() instanceof HotTopicDetailActivity) {
+                statisticItem.param("topic_id", ((HotTopicDetailActivity) oc9Var.t().getOrignalPage()).v1());
+            }
+            statisticItem.eventStat();
+        }
+    }
+
+    public static void e(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData) != null) || threadData == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947908424, "Lcom/baidu/tieba/kc9;");
+        new StatisticItem("c13022").addParam("tid", threadData.getTid()).addParam("fid", threadData.getFid()).addParam("fname", threadData.getForum_name()).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_TO, 2).eventStat();
+    }
+
+    public static void f(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", tbPageContext.getOrignalPage().v1());
+            statisticItem.eventStat();
         }
     }
 
-    public kc9() {
+    public static void g(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", str2);
+            statisticItem.eventStat();
         }
     }
 
-    @Override // com.baidu.tieba.f65
-    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
-        InterceptResult invokeLLL;
+    public static void h(TbPageContext<HotTopicDetailActivity> tbPageContext, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
-            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
-            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
-            Intrinsics.checkNotNullParameter(extraData, "extraData");
-            HashMap hashMap = new HashMap(strategyData);
-            hashMap.put("dialogName", "pbFriendBotBottomNewSkill");
-            hashMap.putAll(strategyData);
-            hashMap.putAll(extraData);
-            return hashMap;
+        if ((interceptable == null || interceptable.invokeLL(65543, null, tbPageContext, str) == null) && tbPageContext != null && !StringUtils.isNull(str)) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("topic_id", tbPageContext.getOrignalPage().v1());
+            statisticItem.eventStat();
         }
-        return (Map) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.f65
-    public boolean b(Map<String, ? extends Object> map) {
-        InterceptResult invokeL;
-        List<RobotSkillInfo> list;
-        List<RobotSkill> list2;
-        td9 s1;
-        td9 s12;
-        RobotEntrance K;
-        td9 s13;
-        RobotEntrance K2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Intrinsics.checkNotNullParameter(map, "map");
-            if (!LooperBlockSwitch.getIsOn()) {
-                return false;
-            }
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (!(currentActivity instanceof PbActivity)) {
-                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部新人设上线引导策略校验失败：当前Activity非PbActivity");
-                return false;
-            }
-            PbActivity pbActivity = (PbActivity) currentActivity;
-            PbModel J1 = pbActivity.J1();
-            RobotEntrance robotEntrance = null;
-            if (J1 != null && (s13 = J1.s1()) != null && (K2 = s13.K()) != null) {
-                list = K2.robot_skill_info;
-            } else {
-                list = null;
-            }
-            PbModel J12 = pbActivity.J1();
-            if (J12 != null && (s12 = J12.s1()) != null && (K = s12.K()) != null) {
-                list2 = K.bottom_bar_robot_skill;
-            } else {
-                list2 = null;
-            }
-            if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
-                PbModel J13 = pbActivity.J1();
-                if (J13 != null && (s1 = J13.s1()) != null) {
-                    robotEntrance = s1.K();
-                }
-                if (robotEntrance == null) {
-                    return false;
-                }
-                String string = SharedPrefHelper.getInstance().getString("pb_friend_bot_bottom_new_skill_text", "default");
-                String j = BotEntranceManager.c.c().j(robotEntrance.robot_skill_info);
-                if (!TextUtils.equals("default", string) && !TextUtils.isEmpty(j)) {
-                    return !TextUtils.equals(string, j);
-                }
-                if (!TextUtils.equals(j, string)) {
-                    SharedPrefHelper.getInstance().putString("pb_friend_bot_bottom_new_skill_text", j);
-                }
-                return false;
-            }
-            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部新人设上线引导此时没有数据");
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

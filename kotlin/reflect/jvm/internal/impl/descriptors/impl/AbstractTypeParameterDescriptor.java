@@ -26,7 +26,7 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinTypeFactory;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class AbstractTypeParameterDescriptor extends DeclarationDescriptorNonRootImpl implements TypeParameterDescriptor {
     public final NotNullLazyValue<SimpleType> defaultType;
     public final int index;
@@ -151,11 +151,11 @@ public abstract class AbstractTypeParameterDescriptor extends DeclarationDescrip
     }
 
     /* renamed from: reportSupertypeLoopError */
-    public abstract void mo2105reportSupertypeLoopError(KotlinType kotlinType);
+    public abstract void mo2107reportSupertypeLoopError(KotlinType kotlinType);
 
     public abstract List<KotlinType> resolveUpperBounds();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public class TypeParameterTypeConstructor extends AbstractTypeConstructor {
         public final SupertypeLoopChecker supertypeLoopChecker;
         public final /* synthetic */ AbstractTypeParameterDescriptor this$0;
@@ -252,7 +252,7 @@ public abstract class AbstractTypeParameterDescriptor extends DeclarationDescrip
 
         @Override // kotlin.reflect.jvm.internal.impl.types.AbstractTypeConstructor, kotlin.reflect.jvm.internal.impl.types.TypeConstructor
         /* renamed from: getDeclarationDescriptor */
-        public ClassifierDescriptor mo2102getDeclarationDescriptor() {
+        public ClassifierDescriptor mo2104getDeclarationDescriptor() {
             AbstractTypeParameterDescriptor abstractTypeParameterDescriptor = this.this$0;
             if (abstractTypeParameterDescriptor == null) {
                 $$$reportNull$$$0(3);
@@ -287,7 +287,7 @@ public abstract class AbstractTypeParameterDescriptor extends DeclarationDescrip
             if (kotlinType == null) {
                 $$$reportNull$$$0(6);
             }
-            this.this$0.mo2105reportSupertypeLoopError(kotlinType);
+            this.this$0.mo2107reportSupertypeLoopError(kotlinType);
         }
     }
 
@@ -380,11 +380,11 @@ public abstract class AbstractTypeParameterDescriptor extends DeclarationDescrip
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor
     public List<KotlinType> getUpperBounds() {
-        List<KotlinType> mo2103getSupertypes = ((TypeParameterTypeConstructor) getTypeConstructor()).mo2103getSupertypes();
-        if (mo2103getSupertypes == null) {
+        List<KotlinType> mo2105getSupertypes = ((TypeParameterTypeConstructor) getTypeConstructor()).mo2105getSupertypes();
+        if (mo2105getSupertypes == null) {
             $$$reportNull$$$0(8);
         }
-        return mo2103getSupertypes;
+        return mo2105getSupertypes;
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.TypeParameterDescriptor

@@ -1,77 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import androidx.transition.Transition;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.payment.PaymentManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.vv2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class it3 implements iw1 {
+public class it3 extends d73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public PaymentManager a;
 
     /* loaded from: classes6.dex */
-    public class a extends ih1 {
+    public class a implements wp3<Bundle> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
+        public final /* synthetic */ it3 a;
 
-        public a(it3 it3Var, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {it3Var, Long.valueOf(j)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-        }
-
-        @Override // com.baidu.tieba.ih1
-        public void a(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                if (it3.b) {
-                    Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
-                }
-                cr4.j(it3.d());
-                cr4.N(String.valueOf(this.a), it3.d());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends ih1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(it3 it3Var) {
+        public a(it3 it3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -83,128 +31,92 @@ public class it3 implements iw1 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = it3Var;
         }
 
-        @Override // com.baidu.tieba.ih1
-        public void a(int i, String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wp3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && it3.b) {
-                Log.d("RebateInfoManager", "requestSingleRebateInfo onResult: " + i + " " + str);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                if (bundle != null) {
+                    this.a.d.putParcelable("quick_login_info", bundle.getParcelable("quick_login_info_result"));
+                }
+                this.a.c();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864993, "Lcom/baidu/tieba/it3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class b implements jt3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wp3 a;
+        public final /* synthetic */ it3 b;
+
+        public b(it3 it3Var, wp3 wp3Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {it3Var, wp3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947864993, "Lcom/baidu/tieba/it3;");
-                return;
+            this.b = it3Var;
+            this.a = wp3Var;
+        }
+
+        @Override // com.baidu.tieba.jt3
+        public void a(QuickLoginInfo quickLoginInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, quickLoginInfo) == null) {
+                if (quickLoginInfo == null) {
+                    this.a.a(null);
+                    return;
+                }
+                this.b.d.putParcelable("quick_login_info_result", quickLoginInfo);
+                this.a.a(this.b.d);
             }
         }
-        b = ir1.a;
     }
 
     public it3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new PaymentManager();
     }
 
-    public static /* synthetic */ File d() {
-        return e();
-    }
-
-    public static File e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.d73
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new File(AppRuntime.getAppContext().getFilesDir().getPath(), "rebate_info_timestamp");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.iw1
-    public boolean a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        ya3 b0;
-        vv2.a W;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            if (!gf3.l() || (b0 = ya3.b0()) == null || (W = b0.W()) == null) {
-                return false;
-            }
-            f(str, eq4.g().u(AppRuntime.getAppContext()), fu2.h0().i(fu2.c()), zq3.i(b0.getApplicationContext()), str2, str3, fu2.n().a(), W.T());
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.iw1
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String E = cr4.E(e());
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            if (!TextUtils.isEmpty(E)) {
-                try {
-                    if (currentTimeMillis - Long.parseLong(E) < 86400) {
-                        if (b) {
-                            Log.d("RebateInfoManager", "requestBatchRebateInfo: 相邻请求时间需要大于一天");
-                            return;
-                        }
-                        return;
-                    }
-                } catch (NumberFormatException e) {
-                    if (b) {
-                        e.printStackTrace();
-                        return;
-                    }
-                    return;
-                }
-            }
-            this.a.p(new a(this, currentTimeMillis));
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            e(new a(this));
         }
     }
 
-    public final void f(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
+    public void e(wp3<Bundle> wp3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8}) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("masterId", str);
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("userPassId", str2);
-                }
-                jSONObject.put("cuid", str3);
-                jSONObject.put("bduss", str4);
-                jSONObject.put(Transition.MATCH_ITEM_ID_STR, str5);
-                jSONObject.put("businessId", str6);
-                jSONObject.put("naid", str7);
-                jSONObject.put("scene", str8);
-                this.a.o(jSONObject, new b(this));
-            } catch (JSONException e) {
-                if (b) {
-                    e.printStackTrace();
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wp3Var) == null) {
+            mt3.a(new b(this, wp3Var));
         }
     }
 }

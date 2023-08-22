@@ -1,25 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TimerTask;
+import java.util.Calendar;
 /* loaded from: classes7.dex */
-public final class r16 extends TimerTask {
+public class r16 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public final float b;
-    public final WheelView c;
+    public s16 a;
 
-    public r16(WheelView wheelView, float f) {
+    public r16(Context context, OnTimeSelectListener onTimeSelectListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView, Float.valueOf(f)};
+            Object[] objArr = {context, onTimeSelectListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,59 +32,182 @@ public final class r16 extends TimerTask {
                 return;
             }
         }
-        this.c = wheelView;
-        this.b = f;
-        this.a = 2.1474836E9f;
+        s16 s16Var = new s16(2);
+        this.a = s16Var;
+        s16Var.A = context;
+        s16Var.a = onTimeSelectListener;
     }
 
-    @Override // java.util.TimerTask, java.lang.Runnable
-    public final void run() {
+    public c26 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == 2.1474836E9f) {
-                float f = 2000.0f;
-                if (Math.abs(this.b) > 2000.0f) {
-                    if (this.b <= 0.0f) {
-                        f = -2000.0f;
-                    }
-                    this.a = f;
-                } else {
-                    this.a = this.b;
-                }
-            }
-            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
-                this.c.b();
-                this.c.getHandler().sendEmptyMessage(2000);
-                return;
-            }
-            WheelView wheelView = this.c;
-            float f2 = (int) (this.a / 100.0f);
-            wheelView.setTotalScrollY(wheelView.getTotalScrollY() - f2);
-            if (!this.c.i()) {
-                float itemHeight = this.c.getItemHeight();
-                float f3 = (-this.c.getInitPosition()) * itemHeight;
-                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
-                double d = itemHeight * 0.25d;
-                if (this.c.getTotalScrollY() - d < f3) {
-                    f3 = this.c.getTotalScrollY() + f2;
-                } else if (this.c.getTotalScrollY() + d > itemsCount) {
-                    itemsCount = this.c.getTotalScrollY() + f2;
-                }
-                if (this.c.getTotalScrollY() <= f3) {
-                    this.a = 40.0f;
-                    this.c.setTotalScrollY((int) f3);
-                } else if (this.c.getTotalScrollY() >= itemsCount) {
-                    this.c.setTotalScrollY((int) itemsCount);
-                    this.a = -40.0f;
-                }
-            }
-            float f4 = this.a;
-            if (f4 < 0.0f) {
-                this.a = f4 + 20.0f;
-            } else {
-                this.a = f4 - 20.0f;
-            }
-            this.c.getHandler().sendEmptyMessage(1000);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new c26(this.a);
         }
+        return (c26) invokeV.objValue;
+    }
+
+    public r16 b(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            this.a.f1167T = z;
+            return this;
+        }
+        return (r16) invokeZ.objValue;
+    }
+
+    public r16 c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            this.a.R = z;
+            return this;
+        }
+        return (r16) invokeZ.objValue;
+    }
+
+    public r16 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            this.a.P = i;
+            return this;
+        }
+        return (r16) invokeI.objValue;
+    }
+
+    public r16 e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.a.H = i;
+            return this;
+        }
+        return (r16) invokeI.objValue;
+    }
+
+    public r16 f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.a.L = i;
+            return this;
+        }
+        return (r16) invokeI.objValue;
+    }
+
+    public r16 g(Calendar calendar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
+            this.a.e = calendar;
+            return this;
+        }
+        return (r16) invokeL.objValue;
+    }
+
+    public r16 h(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            this.a.y = viewGroup;
+            return this;
+        }
+        return (r16) invokeL.objValue;
+    }
+
+    public r16 i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            this.a.O = i;
+            return this;
+        }
+        return (r16) invokeI.objValue;
+    }
+
+    public r16 l(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
+            this.a.Q = f;
+            return this;
+        }
+        return (r16) invokeF.objValue;
+    }
+
+    public r16 m(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+            this.a.N = i;
+            return this;
+        }
+        return (r16) invokeI.objValue;
+    }
+
+    public r16 n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+            this.a.M = i;
+            return this;
+        }
+        return (r16) invokeI.objValue;
+    }
+
+    public r16 p(boolean[] zArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
+            this.a.d = zArr;
+            return this;
+        }
+        return (r16) invokeL.objValue;
+    }
+
+    public r16 j(String str, String str2, String str3, String str4, String str5, String str6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
+            s16 s16Var = this.a;
+            s16Var.l = str;
+            s16Var.m = str2;
+            s16Var.n = str3;
+            s16Var.o = str4;
+            s16Var.p = str5;
+            s16Var.q = str6;
+            return this;
+        }
+        return (r16) invokeCommon.objValue;
+    }
+
+    public r16 k(int i, t16 t16Var) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, t16Var)) == null) {
+            s16 s16Var = this.a;
+            s16Var.x = i;
+            s16Var.c = t16Var;
+            return this;
+        }
+        return (r16) invokeIL.objValue;
+    }
+
+    public r16 o(int i, int i2, int i3, int i4, int i5, int i6) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
+            s16 s16Var = this.a;
+            s16Var.r = i;
+            s16Var.s = i2;
+            s16Var.t = i3;
+            s16Var.u = i4;
+            s16Var.v = i5;
+            s16Var.w = i6;
+            return this;
+        }
+        return (r16) invokeCommon.objValue;
     }
 }

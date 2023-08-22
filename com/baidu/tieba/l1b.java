@@ -1,79 +1,60 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.net.TrafficStats;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Pair;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
+import com.baidu.tbadk.img.WriteImagesInfo;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tieba.s45;
+import com.baidu.tieba.write.write.WriteMultiImgsActivity;
+import com.baidu.tieba.write.write.sticker.view.StickerLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.CronetException;
-import com.baidu.turbonet.net.ExperimentalUrlRequest;
-import com.baidu.turbonet.net.TurbonetEngine;
-import com.baidu.turbonet.net.UrlRequest;
-import com.baidu.turbonet.net.UrlResponseInfo;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.nio.ByteBuffer;
-import java.util.AbstractMap;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-import org.chromium.base.Log;
 /* loaded from: classes6.dex */
-public class l1b extends HttpURLConnection {
+public class l1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TurbonetEngine a;
-    public final o1b b;
-    public UrlRequest c;
-    public final List<Pair<String, String>> d;
-    public boolean e;
-    public int f;
-    public boolean g;
-    public int h;
-    public m1b i;
-    public n1b j;
-    public UrlResponseInfo k;
-    public IOException l;
-    public boolean m;
-    public boolean n;
-    public List<Map.Entry<String, String>> o;
-    public Map<String, List<String>> p;
-    public boolean q;
-    public boolean r;
-    public String s;
-    public String t;
-    public int u;
-    public boolean v;
-    public boolean w;
-
-    @Override // java.net.HttpURLConnection
-    public boolean usingProxy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    public int a;
+    public s45 b;
+    public vya c;
+    public uya d;
+    public BdBaseViewPager e;
+    public StickerLayout f;
+    public TextView g;
+    public FragmentTabWidget h;
+    public TbPageContext<WriteMultiImgsActivity> i;
+    public int j;
+    public LinearLayout k;
+    public List<String> l;
+    public WriteImagesInfo m;
+    public r4b n;
+    public NavigationBar o;
+    public ArrayList<FragmentTabIndicator> p;
 
     /* loaded from: classes6.dex */
-    public class a extends UrlRequest.Callback {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l1b a;
@@ -96,640 +77,372 @@ public class l1b extends HttpURLConnection {
             this.a = l1bVar;
         }
 
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, urlRequest, urlResponseInfo) == null) {
-                this.a.k = urlResponseInfo;
-                g(new IOException("disconnect() called"));
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void e(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, urlRequest, urlResponseInfo) == null) {
-                this.a.k = urlResponseInfo;
-                this.a.n = true;
-                this.a.b.quit();
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void b(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, CronetException cronetException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlRequest, urlResponseInfo, cronetException) == null) {
-                if (cronetException != null) {
-                    Log.e("cr_CronetHttpURLConn", "****** onFailed, url is: %s, error is: %s", this.a.getURL().toString(), cronetException);
-                    this.a.k = urlResponseInfo;
-                    g(cronetException);
-                    return;
-                }
-                throw new IllegalStateException("Exception cannot be null in onFailed.");
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void c(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, ByteBuffer byteBuffer) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, urlRequest, urlResponseInfo, byteBuffer) == null) {
-                this.a.k = urlResponseInfo;
-                this.a.b.quit();
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void d(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, urlRequest, urlResponseInfo, str) == null) {
-                this.a.m = true;
-                try {
-                    URL url = new URL(str);
-                    boolean equals = url.getProtocol().equals(((HttpURLConnection) this.a).url.getProtocol());
-                    if (((HttpURLConnection) this.a).instanceFollowRedirects) {
-                        ((HttpURLConnection) this.a).url = url;
-                    }
-                    if (((HttpURLConnection) this.a).instanceFollowRedirects && (equals || this.a.r)) {
-                        this.a.c.c();
-                        return;
-                    }
-                } catch (MalformedURLException e) {
-                    android.util.Log.e("cr_CronetHttpURLConn", android.util.Log.getStackTraceString(e));
-                }
-                this.a.k = urlResponseInfo;
-                this.a.c.a();
-                g(null);
-            }
-        }
-
-        @Override // com.baidu.turbonet.net.UrlRequest.Callback
-        public void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, urlRequest, urlResponseInfo) == null) {
-                Log.i("cr_CronetHttpURLConn", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.f(), Integer.valueOf(urlResponseInfo.b()), Long.valueOf(urlResponseInfo.e()));
-                this.a.k = urlResponseInfo;
-                g(null);
-            }
-        }
-
-        public final void g(IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
-                this.a.l = iOException;
-                if (this.a.i != null) {
-                    this.a.i.d(iOException);
-                }
-                if (this.a.j != null) {
-                    this.a.j.h(iOException);
-                }
-                this.a.n = true;
-                this.a.b.quit();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.i != null && this.a.i.getPageActivity() != null) {
+                this.a.i.getPageActivity().setResult(0);
+                this.a.i.getPageActivity().finish();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l1b(URL url, TurbonetEngine turbonetEngine) {
-        super(url);
+    /* loaded from: classes6.dex */
+    public class b implements g1b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l1b a;
+
+        public b(l1b l1bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l1bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l1bVar;
+        }
+
+        @Override // com.baidu.tieba.g1b
+        public void a(Bitmap bitmap, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(1048576, this, bitmap, z) == null) {
+                if (this.a.n != null && this.a.n.c(bitmap)) {
+                    return;
+                }
+                this.a.i(bitmap);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements FragmentTabWidget.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l1b a;
+
+        public c(l1b l1bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l1bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l1bVar;
+        }
+
+        @Override // com.baidu.tbadk.core.tabHost.FragmentTabWidget.a
+        public void onTabSelectionChanged(int i, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+                l1b l1bVar = this.a;
+                if (i == l1bVar.j) {
+                    return;
+                }
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            StickerLayout stickerLayout = l1bVar.f;
+                            if (stickerLayout != null) {
+                                stickerLayout.e();
+                            }
+                            this.a.c.x().setVisibility(8);
+                            this.a.d.x().setVisibility(0);
+                        }
+                    } else {
+                        StickerLayout stickerLayout2 = l1bVar.f;
+                        if (stickerLayout2 != null) {
+                            stickerLayout2.e();
+                        }
+                        this.a.c.x().setVisibility(8);
+                        this.a.d.x().setVisibility(0);
+                    }
+                } else {
+                    l1bVar.c.x().setVisibility(0);
+                    this.a.d.x().setVisibility(8);
+                    if (ListUtils.isEmpty(this.a.l)) {
+                        if (this.a.n != null) {
+                            this.a.n.b();
+                        }
+                    } else {
+                        l1b l1bVar2 = this.a;
+                        l1bVar2.c.z(l1bVar2.l);
+                    }
+                }
+                l1b l1bVar3 = this.a;
+                l1bVar3.j = i;
+                l1bVar3.h.setCurrentTab(this.a.j, true, true);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements s45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l1b a;
+
+        public d(l1b l1bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l1bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l1bVar;
+        }
+
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
+                if (this.a.b != null) {
+                    this.a.b.dismiss();
+                }
+                this.a.j(true);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements s45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l1b a;
+
+        public e(l1b l1bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l1bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = l1bVar;
+        }
+
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
+                if (this.a.b != null) {
+                    this.a.b.dismiss();
+                }
+                this.a.j(false);
+            }
+        }
+    }
+
+    public l1b(TbPageContext<WriteMultiImgsActivity> tbPageContext, r4b r4bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {url, turbonetEngine};
+            Object[] objArr = {tbPageContext, r4bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((URL) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = turbonetEngine;
-        this.b = new o1b(getURL().toString());
-        this.i = new m1b(this);
-        this.d = new ArrayList();
+        this.a = 3;
+        this.e = null;
+        this.g = null;
+        this.j = 0;
+        this.p = new ArrayList<>();
+        this.i = tbPageContext;
+        this.n = r4bVar;
+        this.k = (LinearLayout) LayoutInflater.from(tbPageContext.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a4b, (ViewGroup) null);
+        m();
     }
 
-    @Override // java.net.URLConnection
-    public final void addRequestProperty(String str, String str2) {
+    public void a(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            B(str, str2, false);
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.l = list;
+            this.c.z(list);
         }
     }
 
-    @Override // java.net.URLConnection
-    public final void setRequestProperty(String str, String str2) {
+    public final void j(boolean z) {
+        TbPageContext<WriteMultiImgsActivity> tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048599, this, str, str2) == null) {
-            B(str, str2, true);
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (tbPageContext = this.i) != null && tbPageContext.getOrignalPage() != null) {
+            this.i.getOrignalPage().v1(z, this.m);
         }
     }
 
-    @Override // java.net.HttpURLConnection, java.net.URLConnection
-    public final String getHeaderField(int i) {
-        InterceptResult invokeI;
+    public void p(WriteImagesInfo writeImagesInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            Map.Entry<String, String> u = u(i);
-            if (u == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048585, this, writeImagesInfo) == null) {
+            this.m = writeImagesInfo;
+        }
+    }
+
+    public void k(boolean z, WriteImagesInfo writeImagesInfo) {
+        TbPageContext<WriteMultiImgsActivity> tbPageContext;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(1048580, this, z, writeImagesInfo) == null) && (tbPageContext = this.i) != null && tbPageContext.getOrignalPage() != null) {
+            this.i.getOrignalPage().v1(z, writeImagesInfo);
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a == i) {
+            return;
+        }
+        this.a = i;
+        SkinManager.setBackgroundResource(this.k, R.color.CAM_X0205);
+        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.o.getBackImageView(), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        this.o.onChangeSkinType(this.i, i);
+        SkinManager.setNavbarTitleColor(this.g, R.color.CAM_X0302, R.color.s_navbar_title_color);
+        this.f.setRemoveRes(R.drawable.icon_sticker_delete);
+        this.c.a();
+        this.d.a();
+        Iterator<FragmentTabIndicator> it = this.p.iterator();
+        while (it.hasNext()) {
+            FragmentTabIndicator next = it.next();
+            if (next != null) {
+                next.onChangeSkin(i);
             }
-            return u.getValue();
         }
-        return (String) invokeI.objValue;
+        this.h.setDiverColor(SkinManager.getColor(R.color.CAM_X0107));
     }
 
-    @Override // java.net.HttpURLConnection, java.net.URLConnection
-    public final String getHeaderFieldKey(int i) {
-        InterceptResult invokeI;
+    public void i(Bitmap bitmap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            Map.Entry<String, String> u = u(i);
-            if (u == null) {
-                return null;
-            }
-            return u.getKey();
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public String getRequestProperty(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            int r = r(str);
-            if (r >= 0) {
-                return (String) this.d.get(r).second;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final int r(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            for (int i = 0; i < this.d.size(); i++) {
-                if (((String) this.d.get(i).first).equalsIgnoreCase(str)) {
-                    return i;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public void v(ByteBuffer byteBuffer) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, byteBuffer) == null) {
-            this.c.e(byteBuffer);
-            this.b.b(getReadTimeout());
-        }
-    }
-
-    public final boolean A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (((HttpURLConnection) this).chunkLength > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.net.URLConnection
-    public void connect() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            getOutputStream();
-            C();
-        }
-    }
-
-    @Override // java.net.HttpURLConnection
-    public void disconnect() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && ((HttpURLConnection) this).connected) {
-            this.c.a();
-        }
-    }
-
-    @Override // java.net.HttpURLConnection
-    public InputStream getErrorStream() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
+            this.f.setVisibility(0);
             try {
-                x();
-                if (this.k.b() < 400) {
-                    return null;
-                }
-                return this.i;
-            } catch (IOException e) {
-                android.util.Log.e("cr_CronetHttpURLConn", android.util.Log.getStackTraceString(e));
-                return null;
+                Matrix matrix = new Matrix();
+                matrix.postScale(0.6f, 0.6f);
+                bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            } catch (Throwable th) {
+                TbadkCoreApplication.getInst().onAppMemoryLow();
+                th.printStackTrace();
             }
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public Map<String, List<String>> getHeaderFields() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            try {
-                x();
-                return s();
-            } catch (IOException e) {
-                android.util.Log.e("cr_CronetHttpURLConn", android.util.Log.getStackTraceString(e));
-                return Collections.emptyMap();
-            }
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // java.net.HttpURLConnection
-    public int getResponseCode() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            x();
-            return this.k.b();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.net.HttpURLConnection
-    public String getResponseMessage() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            x();
-            return this.k.c();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void n() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            if (this.n) {
-                IOException iOException = this.l;
-                if (iOException == null) {
-                    if (this.k != null) {
-                        return;
-                    }
-                    throw new NullPointerException("Response info is null when there is no exception.");
-                }
-                throw iOException;
-            }
-            throw new IllegalStateException("No response.");
+            this.f.b(bitmap, this.n);
         }
     }
 
-    public final boolean o() {
-        InterceptResult invokeV;
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            if (this.e) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.h = (FragmentTabWidget) this.k.findViewById(R.id.obfuscated_res_0x7f09238b);
+            Resources resources = this.i.getResources();
+            String[] stringArray = resources.getStringArray(R.array.obfuscated_res_0x7f030011);
+            this.p.clear();
+            for (int i = 0; i < stringArray.length; i++) {
+                FragmentTabIndicator fragmentTabIndicator = new FragmentTabIndicator(this.i.getContext());
+                fragmentTabIndicator.setText(stringArray[i]);
+                fragmentTabIndicator.setTextColorResId(R.color.CAM_X0105);
+                fragmentTabIndicator.setTextSize(0, resources.getDimension(R.dimen.obfuscated_res_0x7f07045a));
+                fragmentTabIndicator.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+                this.h.addView(fragmentTabIndicator, i);
+                this.p.add(fragmentTabIndicator);
             }
-            int threadStatsTag = TrafficStats.getThreadStatsTag();
-            if (threadStatsTag != -1) {
-                this.f = threadStatsTag;
-                this.e = true;
-            }
-            return this.e;
+            this.h.setDiverColor(SkinManager.getColor(R.color.CAM_X0107));
+            this.h.setCurrentTab(this.j, true, false);
+            this.h.setDviderRectWidth(BdUtilHelper.getDimens(this.i.getContext(), R.dimen.obfuscated_res_0x7f070258));
+            this.h.setTabSelectionListener(new c(this));
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean p() {
-        InterceptResult invokeV;
+    public final void m() {
+        Resources resources;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.g) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.e = (BdBaseViewPager) this.k.findViewById(R.id.obfuscated_res_0x7f092a87);
+            this.f = (StickerLayout) this.k.findViewById(R.id.obfuscated_res_0x7f0922e4);
+            if (this.i.getResources() == null) {
+                resources = TbadkCoreApplication.getInst().getResources();
+            } else {
+                resources = this.i.getResources();
             }
-            if (Build.VERSION.SDK_INT < 28) {
-                return false;
-            }
-            int threadStatsUid = TrafficStats.getThreadStatsUid();
-            if (threadStatsUid != -1) {
-                this.h = threadStatsUid;
-                this.g = true;
-            }
-            return this.g;
+            NavigationBar navigationBar = (NavigationBar) this.k.findViewById(R.id.obfuscated_res_0x7f092a86);
+            this.o = navigationBar;
+            navigationBar.setCenterTextTitle(resources.getString(R.string.obfuscated_res_0x7f0f10ab));
+            this.o.showBottomLine();
+            this.g = this.o.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, resources.getString(R.string.obfuscated_res_0x7f0f05a9));
+            this.o.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
+            FrameLayout frameLayout = (FrameLayout) this.k.findViewById(R.id.obfuscated_res_0x7f09097e);
+            vya vyaVar = new vya(this.i);
+            this.c = vyaVar;
+            vyaVar.A(new b(this));
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
+            layoutParams.setMargins(0, BdUtilHelper.getDimens(this.i.getContext(), R.dimen.obfuscated_res_0x7f070215), 0, 0);
+            this.c.x().setLayoutParams(layoutParams);
+            frameLayout.addView(this.c.x());
+            uya uyaVar = new uya(this.i);
+            this.d = uyaVar;
+            frameLayout.addView(uyaVar.x());
+            this.d.x().setVisibility(8);
+            l();
         }
-        return invokeV.booleanValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.y();
+        }
+    }
+
+    public void o() {
+        StickerLayout stickerLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (stickerLayout = this.f) != null) {
+            stickerLayout.f(null);
+        }
     }
 
     public void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.r = true;
-        }
-    }
-
-    public int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return this.u;
-        }
-        return invokeV.intValue;
-    }
-
-    public UrlResponseInfo z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
-            return this.k;
-        }
-        return (UrlResponseInfo) invokeV.objValue;
-    }
-
-    public final void B(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, z) == null) {
-            if (!((HttpURLConnection) this).connected) {
-                int r = r(str);
-                if (r >= 0) {
-                    if (z) {
-                        this.d.remove(r);
-                    } else {
-                        throw new UnsupportedOperationException("Cannot add multiple headers of the same key, " + str + ". crbug.com/432719.");
-                    }
-                }
-                this.d.add(Pair.create(str, str2));
-                return;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            if (this.b == null) {
+                s45 s45Var = new s45(this.i.getPageActivity());
+                this.b = s45Var;
+                s45Var.setMessageId(R.string.obfuscated_res_0x7f0f0f0d);
+                this.b.setPositiveButton(R.string.alert_yes_button, new d(this));
+                this.b.setNegativeButton(R.string.obfuscated_res_0x7f0f03cf, new e(this));
+                this.b.create(this.i);
             }
-            throw new IllegalStateException("Cannot modify request property after connection is made.");
+            this.b.show();
         }
-    }
-
-    public final void C() throws IOException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || ((HttpURLConnection) this).connected) {
-            return;
-        }
-        ExperimentalUrlRequest.Builder builder = (ExperimentalUrlRequest.Builder) this.a.d(getURL().toString(), new a(this), this.b);
-        if (((HttpURLConnection) this).doOutput) {
-            if ("GET".equals(((HttpURLConnection) this).method)) {
-                ((HttpURLConnection) this).method = "POST";
-            }
-            n1b n1bVar = this.j;
-            if (n1bVar != null) {
-                builder.m(n1bVar.f(), this.b);
-                if (getRequestProperty("Content-Length") == null && !A()) {
-                    addRequestProperty("Content-Length", Long.toString(this.j.f().a()));
-                }
-                this.j.g();
-            } else if (getRequestProperty("Content-Length") == null) {
-                addRequestProperty("Content-Length", "0");
-            }
-            if (getRequestProperty("Content-Type") == null) {
-                addRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            }
-        }
-        for (Pair<String, String> pair : this.d) {
-            builder.a((String) pair.first, (String) pair.second);
-        }
-        if (!getUseCaches()) {
-            builder.c();
-        }
-        builder.f(((HttpURLConnection) this).method);
-        if (o()) {
-            builder.k(this.f);
-        }
-        if (p()) {
-            builder.l(this.h);
-        }
-        if (this.q) {
-            builder.d();
-        }
-        if (!TextUtils.isEmpty(this.s)) {
-            builder.e(this.s);
-        }
-        if (!TextUtils.isEmpty(this.t)) {
-            builder.g(this.t);
-        }
-        builder.i(getConnectTimeout());
-        builder.h(getReadTimeout());
-        builder.j(w());
-        ExperimentalUrlRequest b = builder.b();
-        this.c = b;
-        b.m();
-        ((HttpURLConnection) this).connected = true;
-    }
-
-    @Override // java.net.URLConnection
-    public final String getHeaderField(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            try {
-                x();
-                Map<String, List<String>> s = s();
-                if (!s.containsKey(str)) {
-                    return null;
-                }
-                List<String> list = s.get(str);
-                return list.get(list.size() - 1);
-            } catch (IOException e) {
-                android.util.Log.e("cr_CronetHttpURLConn", android.util.Log.getStackTraceString(e));
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final Map.Entry<String, String> u(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048601, this, i)) == null) {
-            try {
-                x();
-                List<Map.Entry<String, String>> t = t();
-                if (i >= t.size()) {
-                    return null;
-                }
-                return t.get(i);
-            } catch (IOException e) {
-                android.util.Log.e("cr_CronetHttpURLConn", android.util.Log.getStackTraceString(e));
-                return null;
-            }
-        }
-        return (Map.Entry) invokeI.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public InputStream getInputStream() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            x();
-            if (!((HttpURLConnection) this).instanceFollowRedirects && this.m) {
-                throw new IOException("Cannot read response body of a redirect.");
-            }
-            if (this.k.b() < 400) {
-                return this.i;
-            }
-            throw new FileNotFoundException(((HttpURLConnection) this).url.toString());
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    public final void x() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            n1b n1bVar = this.j;
-            if (n1bVar != null) {
-                n1bVar.e();
-                if (A()) {
-                    this.j.close();
-                }
-            }
-            if (!this.n) {
-                C();
-                this.b.b(getReadTimeout());
-            }
-            n();
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public final long y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            long j = ((HttpURLConnection) this).fixedContentLength;
-            try {
-                long j2 = getClass().getDeclaredField("fixedContentLengthLong").getLong(this);
-                if (j2 != -1) {
-                    return j2;
-                }
-                return j;
-            } catch (IllegalAccessException | NoSuchFieldException e) {
-                android.util.Log.e("cr_CronetHttpURLConn", android.util.Log.getStackTraceString(e));
-                return j;
-            }
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // java.net.URLConnection
-    public OutputStream getOutputStream() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.j == null && ((HttpURLConnection) this).doOutput) {
-                if (!((HttpURLConnection) this).connected) {
-                    if (A()) {
-                        this.j = new j1b(this, ((HttpURLConnection) this).chunkLength, this.b, this.v, this.w);
-                        C();
-                    } else {
-                        long y = y();
-                        if (y != -1) {
-                            this.j = new k1b(this, y, this.b);
-                            C();
-                        } else {
-                            android.util.Log.d("cr_CronetHttpURLConn", "Outputstream is being buffered in memory.");
-                            String requestProperty = getRequestProperty("Content-Length");
-                            if (requestProperty == null) {
-                                this.j = new i1b(this);
-                            } else {
-                                try {
-                                    this.j = new i1b(this, Long.parseLong(requestProperty));
-                                } catch (NumberFormatException unused) {
-                                    android.util.Log.e("cr_CronetHttpURLConn", "CONTENT_LENGTH has wrong format.");
-                                    this.j = new i1b(this);
-                                }
-                            }
-                        }
-                    }
-                } else {
-                    throw new ProtocolException("Cannot write to OutputStream after receiving response.");
-                }
-            }
-            return this.j;
-        }
-        return (OutputStream) invokeV.objValue;
-    }
-
-    @Override // java.net.URLConnection
-    public Map<String, List<String>> getRequestProperties() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (!((HttpURLConnection) this).connected) {
-                TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-                for (Pair<String, String> pair : this.d) {
-                    if (!treeMap.containsKey(pair.first)) {
-                        ArrayList arrayList = new ArrayList();
-                        arrayList.add((String) pair.second);
-                        treeMap.put((String) pair.first, Collections.unmodifiableList(arrayList));
-                    } else {
-                        throw new IllegalStateException("Should not have multiple values.");
-                    }
-                }
-                return Collections.unmodifiableMap(treeMap);
-            }
-            throw new IllegalStateException("Cannot access request headers after connection is set.");
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final Map<String, List<String>> s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            Map<String, List<String>> map = this.p;
-            if (map != null) {
-                return map;
-            }
-            TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
-            for (Map.Entry<String, String> entry : t()) {
-                ArrayList arrayList = new ArrayList();
-                if (treeMap.containsKey(entry.getKey())) {
-                    arrayList.addAll((Collection) treeMap.get(entry.getKey()));
-                }
-                arrayList.add(entry.getValue());
-                treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
-            }
-            Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
-            this.p = unmodifiableMap;
-            return unmodifiableMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public final List<Map.Entry<String, String>> t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            List<Map.Entry<String, String>> list = this.o;
-            if (list != null) {
-                return list;
-            }
-            this.o = new ArrayList();
-            for (Map.Entry<String, String> entry : this.k.a()) {
-                if (!entry.getKey().equalsIgnoreCase("Content-Encoding")) {
-                    this.o.add(new AbstractMap.SimpleImmutableEntry(entry));
-                }
-            }
-            List<Map.Entry<String, String>> unmodifiableList = Collections.unmodifiableList(this.o);
-            this.o = unmodifiableList;
-            return unmodifiableList;
-        }
-        return (List) invokeV.objValue;
     }
 }

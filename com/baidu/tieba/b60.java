@@ -1,151 +1,37 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import androidx.core.view.InputDeviceCompat;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.RandomAccessFile;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import kotlin.UShort;
+import com.baidu.webkit.internal.Base64;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import kotlin.jvm.internal.ByteCompanionObject;
+import org.apache.commons.codec.net.QCodec;
 /* loaded from: classes5.dex */
-public abstract class b60 {
+public final class b60 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] a;
+    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) ? byteBuffer.getShort(i) & UShort.MAX_VALUE : invokeLI.intValue;
-    }
-
-    public static long b(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, byteBuffer)) == null) {
-            k(byteBuffer);
-            return i(byteBuffer, byteBuffer.position() + 16);
-        }
-        return invokeL.longValue;
-    }
-
-    public static Pair<ByteBuffer, Long> c(RandomAccessFile randomAccessFile) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, randomAccessFile)) == null) {
-            if (randomAccessFile.length() < 22) {
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947596781, "Lcom/baidu/tieba/b60;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            Pair<ByteBuffer, Long> d = d(randomAccessFile, 0);
-            return d != null ? d : d(randomAccessFile, 65535);
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static Pair<ByteBuffer, Long> d(RandomAccessFile randomAccessFile, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, randomAccessFile, i)) == null) {
-            if (i < 0 || i > 65535) {
-                throw new IllegalArgumentException("maxCommentSize: " + i);
-            }
-            long length = randomAccessFile.length();
-            if (length < 22) {
-                return null;
-            }
-            ByteBuffer allocate = ByteBuffer.allocate(((int) Math.min(i, length - 22)) + 22);
-            allocate.order(ByteOrder.LITTLE_ENDIAN);
-            long capacity = length - allocate.capacity();
-            randomAccessFile.seek(capacity);
-            randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
-            int j = j(allocate);
-            if (j == -1) {
-                return null;
-            }
-            allocate.position(j);
-            ByteBuffer slice = allocate.slice();
-            slice.order(ByteOrder.LITTLE_ENDIAN);
-            return Pair.create(slice, Long.valueOf(capacity + j));
-        }
-        return (Pair) invokeLI.objValue;
-    }
-
-    public static void e(ByteBuffer byteBuffer, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (j >= 0 && j <= 4294967295L) {
-                byteBuffer.putInt(byteBuffer.position() + i, (int) j);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947596781, "Lcom/baidu/tieba/b60;");
                 return;
             }
-            throw new IllegalArgumentException("uint32 value of out range: " + j);
         }
-    }
-
-    public static void f(ByteBuffer byteBuffer, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65541, null, byteBuffer, j) == null) {
-            k(byteBuffer);
-            e(byteBuffer, byteBuffer.position() + 16, j);
-        }
-    }
-
-    public static final boolean g(RandomAccessFile randomAccessFile, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, randomAccessFile, j)) == null) {
-            long j2 = j - 20;
-            if (j2 < 0) {
-                return false;
-            }
-            randomAccessFile.seek(j2);
-            return randomAccessFile.readInt() == 1347094023;
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public static long h(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
-            k(byteBuffer);
-            return i(byteBuffer, byteBuffer.position() + 12);
-        }
-        return invokeL.longValue;
-    }
-
-    public static long i(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, byteBuffer, i)) == null) ? byteBuffer.getInt(i) & 4294967295L : invokeLI.longValue;
-    }
-
-    public static int j(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, byteBuffer)) == null) {
-            k(byteBuffer);
-            int capacity = byteBuffer.capacity();
-            if (capacity < 22) {
-                return -1;
-            }
-            int i = capacity - 22;
-            int min = Math.min(i, 65535);
-            for (int i2 = 0; i2 < min; i2++) {
-                int i3 = i - i2;
-                if (byteBuffer.getInt(i3) == 101010256 && a(byteBuffer, i3 + 20) == i2) {
-                    return i3;
-                }
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void k(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, null, byteBuffer) == null) && byteBuffer.order() != ByteOrder.LITTLE_ENDIAN) {
-            throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
-        }
+        a = new byte[]{0, -118, 109, 108, -43, -56, 63, 62, 108, ExifInterface.MARKER_SOF1, -94, 72, -110, -122, -111, -109, 102, -12, 17, 110, 123, 1, -110, 124, 18, 78, -48, -23, 85, -21, -48, 4, ExifInterface.MARKER_SOF14, -68, 88, -15, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -32, -14, 54, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, ExifInterface.MARKER_SOF3, -110, ExifInterface.MARKER_SOF3, 113, -21, -60, 66, -122, -52, Base64.INTERNAL_PADDING, 28, -48, -24, -96, -25, 13, -88, -96, -98, 23, -14, -89, 24, 90, 82, -16, -65, 107, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -22, 113, 24, -46, 120, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -13, 2, Constants.SHORT_PING_CMD_TYPE, 92, 9, 69, 91, 107, ExifInterface.MARKER_SOF15, -127, 54, -70, 104, 34, -13, 76, 26, 84, -1, -99, 80, -98, 43, ExifInterface.MARKER_SOS, -60, 86, 58, 107, 40, -69, -43, -109, -124, 103, -79, -43, -22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -11, -52, 55, 86, 75, -43, 114, -18, 2, 77, ExifInterface.MARKER_SOF11, -65, 3, 8, 45, 106, -117, -42, 56, 51, -11, -76, 21, 68, 116, -52, -71, 81, -17, 49, 71, 4, -1, -60, 52, ExifInterface.MARKER_SOF9, -72, 8, -100, 90, -12, 15, 108, 45, 86, 97, 20, 53, 70, -106, -36, -1, 10, -115, 53, -109, -52, -73, 108, 122, -8, 113, 98, Byte.MIN_VALUE, -81, 79, 98, -15, -36, 119, 118, ExifInterface.MARKER_SOF9, -125, 61, -98, 59, 111, 16, 22, 118, 40, -18, -5, 2, -17, 71, -114, ExifInterface.START_CODE, -45, 96, 10, -104, 64, QCodec.UNDERSCORE, -47, 73, ByteCompanionObject.MAX_VALUE, 88, ExifInterface.MARKER_SOF10, -3, -99, 16, ExifInterface.MARKER_SOF6, 27, -7, -36, 60, -60, -13, -99, 55, 55, -7, -96, -34, 7, -34, 28, ExifInterface.MARKER_APP1, -26, -96, ExifInterface.MARKER_APP1, 54, -108, 45, 6, -27, -106, -104, ExifInterface.MARKER_SOF6, -22, -71, -81, -30, 100, 61, -1, ExifInterface.MARKER_SOF5, 56, 48, ExifInterface.MARKER_SOF3, -11};
+        b = new byte[]{1, 0, 1};
     }
 }

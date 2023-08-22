@@ -23,20 +23,20 @@ import com.baidu.tbadk.mvc.message.MvcNetMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetModel;
-import com.baidu.tieba.aaa;
 import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.d56;
+import com.baidu.tieba.ax7;
+import com.baidu.tieba.b56;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.di;
+import com.baidu.tieba.eha;
 import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.fv7;
-import com.baidu.tieba.iaa;
-import com.baidu.tieba.k46;
-import com.baidu.tieba.nt7;
-import com.baidu.tieba.pw9;
+import com.baidu.tieba.iea;
+import com.baidu.tieba.iv7;
+import com.baidu.tieba.qea;
 import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.tieba.tbadkCore.FrsViewData;
-import com.baidu.tieba.wca;
-import com.baidu.tieba.ym;
+import com.baidu.tieba.u0a;
+import com.baidu.tieba.u56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,15 +44,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.meizu.cloud.pushsdk.constants.PushConstants;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
-public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k<FrsRequestData, iaa> {
+/* loaded from: classes6.dex */
+public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k<FrsRequestData, qea> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FrsNewAreaFragment a;
     public FrsViewData b;
     public FrsNetModel<FrsNewAreaFragment> c;
     public FrsRequestData d;
-    public aaa e;
+    public iea e;
     public String f;
     public int g;
     public int h;
@@ -119,26 +119,26 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.l
-    public void H(MvcHttpResponsedMessage<iaa> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, iaa> mvcHttpMessage, MvcNetMessage<FrsRequestData, iaa> mvcNetMessage) {
+    public void G(MvcHttpResponsedMessage<qea> mvcHttpResponsedMessage, MvcHttpMessage<FrsRequestData, qea> mvcHttpMessage, MvcNetMessage<FrsRequestData, qea> mvcNetMessage) {
         boolean z;
         FrsRequestData frsRequestData;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
             return;
         }
-        aaa aaaVar = new aaa();
+        iea ieaVar = new iea();
         if (mvcHttpResponsedMessage.getError() >= -13 && mvcHttpResponsedMessage.getError() <= -10) {
             z = false;
         } else {
             z = true;
         }
-        aaaVar.a = z;
-        aaaVar.b = !mvcHttpResponsedMessage.hasError();
-        aaaVar.c = mvcHttpResponsedMessage.getError();
-        aaaVar.d = mvcHttpResponsedMessage.getErrorString();
-        aaaVar.e = mvcHttpResponsedMessage.getDownSize();
-        this.e = aaaVar;
-        iaa data = mvcHttpResponsedMessage.getData();
+        ieaVar.a = z;
+        ieaVar.b = !mvcHttpResponsedMessage.hasError();
+        ieaVar.c = mvcHttpResponsedMessage.getError();
+        ieaVar.d = mvcHttpResponsedMessage.getErrorString();
+        ieaVar.e = mvcHttpResponsedMessage.getDownSize();
+        this.e = ieaVar;
+        qea data = mvcHttpResponsedMessage.getData();
         String str = null;
         if (mvcHttpMessage != null) {
             frsRequestData = mvcHttpMessage.getRequestData();
@@ -174,26 +174,26 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel.m
-    public void v(MvcSocketResponsedMessage<iaa, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, iaa> mvcSocketMessage, MvcNetMessage<FrsRequestData, iaa> mvcNetMessage) {
+    public void v(MvcSocketResponsedMessage<qea, ?> mvcSocketResponsedMessage, MvcSocketMessage<FrsRequestData, qea> mvcSocketMessage, MvcNetMessage<FrsRequestData, qea> mvcNetMessage) {
         boolean z;
         FrsRequestData frsRequestData;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLLL(1048599, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
             return;
         }
-        aaa aaaVar = new aaa();
+        iea ieaVar = new iea();
         if (mvcSocketResponsedMessage.getError() >= -13 && mvcSocketResponsedMessage.getError() <= -10) {
             z = false;
         } else {
             z = true;
         }
-        aaaVar.a = z;
-        aaaVar.b = !mvcSocketResponsedMessage.hasError();
-        aaaVar.c = mvcSocketResponsedMessage.getError();
-        aaaVar.d = mvcSocketResponsedMessage.getErrorString();
-        aaaVar.e = mvcSocketResponsedMessage.getDownSize();
-        this.e = aaaVar;
-        iaa data = mvcSocketResponsedMessage.getData();
+        ieaVar.a = z;
+        ieaVar.b = !mvcSocketResponsedMessage.hasError();
+        ieaVar.c = mvcSocketResponsedMessage.getError();
+        ieaVar.d = mvcSocketResponsedMessage.getErrorString();
+        ieaVar.e = mvcSocketResponsedMessage.getDownSize();
+        this.e = ieaVar;
+        qea data = mvcSocketResponsedMessage.getData();
         String str = null;
         if (mvcSocketMessage != null) {
             frsRequestData = mvcSocketMessage.getRequestData();
@@ -239,12 +239,12 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
             } else {
                 this.b.getThreadList().add(0, threadData);
             }
-            this.a.y2(this.b);
+            this.a.K2(this.b);
         }
     }
 
     public void Y(int i) {
-        ArrayList<ym> threadList;
+        ArrayList<bn> threadList;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || this.c.h0()) {
             return;
@@ -258,7 +258,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
         } else {
             threadList = frsViewData.getThreadList();
         }
-        frsRequestData2.U(pw9.e(threadList, false));
+        frsRequestData2.U(u0a.e(threadList, false));
         O(frsRequestData, 4);
     }
 
@@ -274,10 +274,10 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
             frsRequestData.s0(1);
             frsRequestData.c0(0);
             frsRequestData.W(0);
-            nt7.e(this.m, frsRequestData);
+            iv7.e(this.m, frsRequestData);
             if (UbsABTestHelper.isFrsNewAreaTabSortTestA()) {
-                nt7.e(FrsTabTestHelper.getFrsNewAreaTabSort(), frsRequestData);
-                frsRequestData.Z(nt7.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
+                iv7.e(FrsTabTestHelper.getFrsNewAreaTabSort(), frsRequestData);
+                frsRequestData.Z(iv7.d(FrsTabTestHelper.getFrsNewAreaTabSort()));
             }
             int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.a.getPageContext().getPageActivity());
             int equipmentHeight = BdUtilHelper.getEquipmentHeight(this.a.getPageContext().getPageActivity());
@@ -384,7 +384,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             this.n = System.currentTimeMillis();
             this.c.loadData();
-            fv7.a();
+            ax7.a();
         }
     }
 
@@ -409,7 +409,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
     }
 
     public void W(Bundle bundle) {
-        ArrayList<ym> threadList;
+        ArrayList<bn> threadList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
             if (bundle != null) {
@@ -433,7 +433,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
                 d0(2);
             }
             this.b = new FrsViewData();
-            this.d.N("forum_name", bi.getUrlEncode(this.f));
+            this.d.N("forum_name", di.getUrlEncode(this.f));
             this.d.N("client_type", "2");
             FrsRequestData frsRequestData = this.d;
             FrsViewData frsViewData = this.b;
@@ -442,7 +442,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
             } else {
                 threadList = frsViewData.getThreadList();
             }
-            frsRequestData.U(pw9.e(threadList, true));
+            frsRequestData.U(u0a.e(threadList, true));
             FrsNetModel<FrsNewAreaFragment> frsNetModel = new FrsNetModel<>(this.a.getPageContext(), this.d);
             this.c = frsNetModel;
             frsNetModel.p0(this);
@@ -472,34 +472,34 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.m = i;
             if (7 == i) {
-                wca.b();
+                eha.b();
             } else {
-                wca.a();
+                eha.a();
             }
         }
     }
 
-    public final boolean b0(FrsRequestData frsRequestData, iaa iaaVar) {
+    public final boolean b0(FrsRequestData frsRequestData, qea qeaVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, frsRequestData, iaaVar)) == null) {
-            if (k46.k().l(AbsDataRecorder.Scene.FRS_NEW)) {
-                k46.k().g(AbsDataRecorder.Scene.FRS_NEW).b();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, frsRequestData, qeaVar)) == null) {
+            if (b56.k().l(AbsDataRecorder.Scene.FRS_NEW)) {
+                b56.k().g(AbsDataRecorder.Scene.FRS_NEW).b();
             }
-            if (d56.i().o(AbsDataRecorder.Scene.FRS_NEW)) {
-                d56.i().g(AbsDataRecorder.Scene.FRS_NEW).b();
+            if (u56.i().o(AbsDataRecorder.Scene.FRS_NEW)) {
+                u56.i().g(AbsDataRecorder.Scene.FRS_NEW).b();
             }
-            this.b.receiveData(iaaVar);
+            this.b.receiveData(qeaVar);
             this.b.frsCurrentTabId = 503;
             if (frsRequestData != null) {
                 this.d = frsRequestData;
                 this.h = frsRequestData.getPn();
                 String R = this.d.R();
                 this.f = R;
-                this.a.F2(R);
+                this.a.R2(R);
                 this.a.setFrom(this.i);
-                this.a.G2(this.h);
-                this.a.E2(this.j);
+                this.a.S2(this.h);
+                this.a.Q2(this.j);
             }
             this.a.B.d(this.g, false, this.e);
             this.k = null;
@@ -510,7 +510,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
 
     public boolean c0() {
         InterceptResult invokeV;
-        ArrayList<ym> threadList;
+        ArrayList<bn> threadList;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             FrsRequestData frsRequestData = (FrsRequestData) OrmObject.objectWithJson(OrmObject.jsonWithObject(this.d), FrsRequestData.class);
@@ -522,7 +522,7 @@ public class FrsNewAreaModelController extends BdBaseModel implements NetModel.k
             } else {
                 threadList = frsViewData.getThreadList();
             }
-            frsRequestData2.U(pw9.e(threadList, true));
+            frsRequestData2.U(u0a.e(threadList, true));
             O(frsRequestData, 3);
             return true;
         }

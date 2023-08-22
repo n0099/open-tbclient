@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import com.fun.ad.sdk.FunAdSdk;
+import java.io.ObjectInput;
 /* loaded from: classes5.dex */
-public class clb extends ukb {
+public class clb {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedHashMap<Long, String> f;
+    public static final Object a;
+    public static final SharedPreferences b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int d;
-    public Thread e;
 
     static {
         InterceptResult invokeClinit;
@@ -31,85 +29,140 @@ public class clb extends ukb {
                 return;
             }
         }
-        f = new LinkedHashMap<>();
+        a = new Object();
+        b = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk", 0);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public clb(Thread thread, int i, long j) {
-        super(j);
+    public static mkb b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {thread, Integer.valueOf(i), Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? (mkb) qkb.b(b.getString("key_adcfg", null), new hlb() { // from class: com.baidu.tieba.tjb
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.hlb
+            public final Object a(ObjectInput objectInput) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectInput)) == null) ? clb.c(objectInput) : invokeL.objValue;
             }
-        }
-        this.d = 100;
-        this.e = thread;
-        this.d = i;
+        }) : (mkb) invokeV.objValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public clb(Thread thread, long j) {
-        this(thread, 100, j);
+    public static /* synthetic */ mkb c(ObjectInput objectInput) {
+        return new mkb(objectInput.readInt(), objectInput);
+    }
+
+    public static void d(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {thread, Long.valueOf(j)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Thread) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Long) objArr2[2]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Double.valueOf(d)}) == null) {
+            b.edit().putLong("key_price_total", Double.doubleToRawLongBits(d)).apply();
         }
     }
 
-    @Override // com.baidu.tieba.ukb
-    public void b() {
+    public static void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (StackTraceElement stackTraceElement : this.e.getStackTrace()) {
-                sb.append(stackTraceElement.toString());
-                sb.append("\r\n");
-            }
-            synchronized (f) {
-                if (f.size() == this.d && this.d > 0) {
-                    f.remove(f.keySet().iterator().next());
-                }
-                f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
+            g("key_rpt_fai_c", h() + i);
+        }
+    }
+
+    public static void f(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(65542, null, i, i2, i3) == null) {
+            synchronized (a) {
+                int k = k();
+                int l = l();
+                int j = j();
+                b.edit().putInt("key_rpt_req_c", ((k - i) - i2) - i3).putInt("key_rpt_fai_c", h() - i).putInt("key_rpt_suc_c", l - i2).putInt("key_rpt_mis_c", j - i3).apply();
             }
         }
     }
 
-    public ArrayList<String> e(long j, long j2) {
-        InterceptResult invokeCommon;
+    public static void g(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            synchronized (f) {
-                for (Long l : f.keySet()) {
-                    if (j < l.longValue() && l.longValue() < j2) {
-                        arrayList.add(dlb.x.format(l) + "\r\n\r\n" + f.get(l));
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || interceptable.invokeLI(65543, null, str, i) == null) {
+            b.edit().putInt(str, i).apply();
         }
-        return (ArrayList) invokeCommon.objValue;
+    }
+
+    public static /* synthetic */ vkb i(ObjectInput objectInput) {
+        return new vkb(objectInput.readInt(), objectInput);
+    }
+
+    public static vkb m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) ? (vkb) qkb.b(b.getString("key_rptcfg", null), new hlb() { // from class: com.baidu.tieba.xjb
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.hlb
+            public final Object a(ObjectInput objectInput) {
+                InterceptResult invokeL;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, objectInput)) == null) ? clb.i(objectInput) : invokeL.objValue;
+            }
+        }) : (vkb) invokeV.objValue;
+    }
+
+    public static double n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) ? Double.longBitsToDouble(b.getLong("key_price_total", 0L)) : invokeV.doubleValue;
+    }
+
+    public static void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65551, null) == null) {
+            synchronized (a) {
+                g("key_rpt_req_c", k() + 1);
+            }
+        }
+    }
+
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return b.getInt("key_sid_c_pre_" + str, 0);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return b.getInt("key_rpt_fai_c", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return b.getInt("key_rpt_mis_c", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return b.getInt("key_rpt_req_c", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return b.getInt("key_rpt_suc_c", 0);
+        }
+        return invokeV.intValue;
     }
 }

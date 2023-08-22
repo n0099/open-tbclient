@@ -1,109 +1,109 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ca3;
-import com.baidu.tieba.vu1;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class u92 {
+public final class u92 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static volatile u92 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public HashMap<String, Long> b;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(boolean z, String str);
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a implements vu1.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ b b;
-
-        public a(Context context, b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948165755, "Lcom/baidu/tieba/u92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = context;
-            this.b = bVar;
-        }
-
-        @Override // com.baidu.tieba.vu1.b
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                if (!z) {
-                    y72.c("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
-                    this.b.a(false, this.a.getString(R.string.obfuscated_res_0x7f0f0139));
-                    return;
-                }
-                y72.c("DeveloperAuthenticateHelper", "Authentication Success");
-                this.b.a(true, "");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948165755, "Lcom/baidu/tieba/u92;");
+                return;
             }
         }
+        c = nr1.a;
+    }
 
-        @Override // com.baidu.tieba.vu1.b
-        public void b(Exception exc) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                y72.d("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
-                String message = exc.getMessage();
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f0139));
-                if (TextUtils.isEmpty(message)) {
-                    str = "";
+    public u92() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = new HashMap<>();
+    }
+
+    public static u92 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (u92.class) {
+                    if (d == null) {
+                        d = new u92();
+                    }
+                }
+            }
+            return d;
+        }
+        return (u92) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            HashMap<String, Long> hashMap = this.b;
+            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.b.get(str).longValue() <= 18000000) {
+                if (c) {
+                    Log.d("SilentUpdateManager", "id = " + str + " 的小程序已在5小时内被标记为无需更新，不走MaxAge逻辑");
+                    return true;
+                }
+                return true;
+            }
+            if (c) {
+                HashMap<String, Long> hashMap2 = this.b;
+                if (hashMap2 != null && hashMap2.containsKey(str)) {
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.b.get(str) + " ，id = " + str);
                 } else {
-                    str = "\n" + message;
+                    Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
                 }
-                sb.append(str);
-                this.b.a(false, sb.toString());
             }
+            return false;
         }
-    }
-
-    public static void a(@NonNull ya3 ya3Var, @NonNull Context context, @NonNull b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, ya3Var, context, bVar) == null) {
-            lr1.b(ya3Var.O(), new a(context, bVar));
-        }
-    }
-
-    public static void b(Context context, @StringRes int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
-            ca3.a aVar = new ca3.a(context);
-            aVar.U(i);
-            aVar.x(str);
-            aVar.n(new gq3());
-            aVar.O(R.string.obfuscated_res_0x7f0f0146, null);
-            aVar.X();
-        }
-    }
-
-    public static void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
-            b(context, R.string.obfuscated_res_0x7f0f017f, str);
-        }
+        return invokeL.booleanValue;
     }
 }

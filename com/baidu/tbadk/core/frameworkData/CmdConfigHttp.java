@@ -204,6 +204,7 @@ public class CmdConfigHttp {
     public static final int CMD_HOT_TOPIC_RANKLIST = 1003078;
     public static final int CMD_HOT_TOPIC_TAB = 1003463;
     public static final int CMD_HOT_USER_RANK = 1003455;
+    public static final int CMD_HTTP_AIBOT_CHAT_DETAIL = 1003573;
     public static final int CMD_HTTP_CHAT_GROUP_ROOM_LIST = 1003552;
     public static final int CMD_HTTP_CHAT_ROOM_DETAIL = 1003550;
     public static final int CMD_HTTP_DECRYPT_CODE = 1003421;

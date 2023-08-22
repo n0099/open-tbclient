@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public interface ul1 {
-    void a(Surface surface);
+    @Nullable
+    tj1 a();
 
-    void b();
+    JSONObject b();
 }

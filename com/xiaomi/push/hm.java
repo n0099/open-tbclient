@@ -130,13 +130,13 @@ public enum hm {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f492a;
+    public final int f493a;
 
     hm(int i) {
-        this.f492a = i;
+        this.f493a = i;
     }
 
     public int a() {
-        return this.f492a;
+        return this.f493a;
     }
 }

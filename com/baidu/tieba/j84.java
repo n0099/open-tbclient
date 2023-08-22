@@ -1,17 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface j84 {
-    boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull boolean z, @NonNull do2 do2Var);
+public class j84 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile i84 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, String str2, String str3, String str4, String str5);
-
-    void c(@NonNull String str);
-
-    void d(@NonNull String str, @NonNull String str2);
-
-    void e(@NonNull String str);
-
-    void f(@NonNull String str);
+    public static synchronized i84 a() {
+        InterceptResult invokeV;
+        i84 i84Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (j84.class) {
+                if (a == null) {
+                    a = new i84();
+                }
+                i84Var = a;
+            }
+            return i84Var;
+        }
+        return (i84) invokeV.objValue;
+    }
 }

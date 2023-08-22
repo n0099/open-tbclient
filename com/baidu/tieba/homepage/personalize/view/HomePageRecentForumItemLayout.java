@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.c48;
-import com.baidu.tieba.vka;
-import com.baidu.tieba.y9a;
+import com.baidu.tieba.di;
+import com.baidu.tieba.epa;
+import com.baidu.tieba.gea;
+import com.baidu.tieba.x58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -39,7 +39,7 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
     public View d;
     public BarImageView e;
     public TbImage f;
-    public c48 g;
+    public x58 g;
     public ImageView h;
 
     public final void c() {
@@ -130,12 +130,12 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d085c, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0862, (ViewGroup) this, true);
             this.c = (TextView) findViewById(R.id.forum_name);
-            this.d = findViewById(R.id.obfuscated_res_0x7f09044f);
-            this.e = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090be0);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090be1);
-            this.f = (TbImage) findViewById(R.id.obfuscated_res_0x7f0921eb);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090451);
+            this.e = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090bed);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bee);
+            this.f = (TbImage) findViewById(R.id.obfuscated_res_0x7f092212);
             b();
             c();
         }
@@ -155,22 +155,22 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
         int f;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c48 c48Var = this.g;
+            x58 x58Var = this.g;
             int i2 = Integer.MAX_VALUE;
-            if (c48Var != null && c48Var.g() != null) {
-                i2 = y9a.f(vka.d(this.g.g()));
-                i = y9a.f(vka.f(this.g.g()));
+            if (x58Var != null && x58Var.g() != null) {
+                i2 = gea.f(epa.d(this.g.g()));
+                i = gea.f(epa.f(this.g.g()));
             } else {
                 i = Integer.MAX_VALUE;
             }
-            if (y9a.e(i2) || y9a.e(i)) {
+            if (gea.e(i2) || gea.e(i)) {
                 if (TbadkApplication.getInst().getSkinType() == 4) {
-                    f = y9a.f("#4D4070FF");
+                    f = gea.f("#4D4070FF");
                 } else {
-                    f = y9a.f("#324070FF");
+                    f = gea.f("#324070FF");
                 }
                 i2 = f;
-                i = y9a.f("#004070FF");
+                i = gea.f("#004070FF");
             }
             EMManager.from(this.d).setCorner(R.string.J_X05).setGradientColorValue(new int[]{i2, i}, Direction.TOP);
         }
@@ -194,31 +194,31 @@ public class HomePageRecentForumItemLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onAttachedToWindow();
-            c48 c48Var = this.g;
-            if (c48Var != null) {
-                f("c15375", c48Var.e(), this.g.b(), this.g.d(), this.g.h());
+            x58 x58Var = this.g;
+            if (x58Var != null) {
+                f("c15375", x58Var.e(), this.g.b(), this.g.d(), this.g.h());
             }
         }
     }
 
-    public void setData(c48 c48Var) {
+    public void setData(x58 x58Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, c48Var) == null) {
-            if (c48Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, x58Var) == null) {
+            if (x58Var == null) {
                 ViewCommonUtil.setVisibility(this, 8);
                 return;
             }
-            this.g = c48Var;
-            String c = c48Var.c();
-            String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0774);
-            if (!bi.isEmpty(c) && !c.endsWith(string)) {
+            this.g = x58Var;
+            String c = x58Var.c();
+            String string = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f077c);
+            if (!di.isEmpty(c) && !c.endsWith(string)) {
                 c = c + string;
             }
             this.c.setText(c);
             this.e.startLoad(this.g.a(), 10, false);
-            if (!bi.isEmpty(c48Var.d())) {
+            if (!di.isEmpty(x58Var.d())) {
                 ViewCommonUtil.setVisibility(this.f, 0);
-                this.f.k(c48Var.d());
+                this.f.k(x58Var.d());
             } else {
                 ViewCommonUtil.setVisibility(this.f, 8);
             }

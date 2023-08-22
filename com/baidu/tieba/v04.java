@@ -1,66 +1,139 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.ComponentName;
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.entity.AdElementInfo;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageInfo;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.IntentConstants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.download.util.ApkUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class v04 extends t04 {
+public class v04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.t04
-    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.t04
-    public String q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "reward_banner_html" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v04(Context context, AdElementInfo adElementInfo, uz3 uz3Var) {
-        super(context, adElementInfo, uz3Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, adElementInfo, uz3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (uz3) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (context == null) {
+                return false;
+            }
+            try {
+                if (context.getPackageManager() == null) {
+                    return false;
+                }
+                context.getPackageManager().getPackageInfo(str, 0);
+                return true;
+            } catch (Exception unused) {
+                return false;
             }
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.t04
-    @SuppressLint({"InflateParams"})
-    public View u() {
-        InterceptResult invokeV;
+    public static boolean c(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d071e, (ViewGroup) null);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                return b(AppRuntime.getAppContext(), new File(str), z);
+            } catch (Exception unused) {
+                return false;
+            }
         }
-        return (View) invokeV.objValue;
+        return invokeLZ.booleanValue;
+    }
+
+    public static boolean b(Context context, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, file, z)) == null) {
+            if (context != null && file != null && file.isFile() && file.exists()) {
+                Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER);
+                try {
+                    intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
+                    intent.setFlags(1342177280);
+                    intent.putExtra(ApkUtil.KEY_INSTALLER_PACKAGE_NAME, context.getPackageName());
+                    if (z) {
+                        intent.putExtra("android.intent.extra.RETURN_RESULT", true);
+                    }
+                    if (!w04.m()) {
+                        intent.setComponent(new ComponentName(ApkUtil.PACKAGE_INSTALLER, ApkUtil.PACKAGE_INSTALLER_ACTIVITY));
+                    }
+                    e(context, file, intent);
+                    context.startActivity(intent);
+                } catch (Exception unused) {
+                    intent.setComponent(null);
+                    e(context, file, intent);
+                    try {
+                        context.startActivity(intent);
+                    } catch (Exception unused2) {
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static String d(Context context, @NonNull String str) {
+        InterceptResult invokeLL;
+        PackageInfo packageArchiveInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            File file = new File(str);
+            if (file.exists() && (packageArchiveInfo = context.getPackageManager().getPackageArchiveInfo(file.getAbsolutePath(), 1)) != null) {
+                return packageArchiveInfo.packageName;
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean e(Context context, File file, Intent intent) {
+        InterceptResult invokeLLL;
+        ActivityInfo activityInfo;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, file, intent)) == null) {
+            if (w04.m()) {
+                try {
+                    Uri l = vz3.b().l(context, file);
+                    if (l == null) {
+                        return false;
+                    }
+                    intent.setDataAndType(l, intent.getType());
+                    List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+                    if (queryIntentActivities == null) {
+                        return true;
+                    }
+                    for (ResolveInfo resolveInfo : queryIntentActivities) {
+                        if (resolveInfo != null && (activityInfo = resolveInfo.activityInfo) != null && (str = activityInfo.packageName) != null) {
+                            context.grantUriPermission(str, l, 1);
+                        }
+                    }
+                } catch (IllegalArgumentException unused) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

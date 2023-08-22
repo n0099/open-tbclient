@@ -1,107 +1,82 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import com.baidu.nadcore.sweetsqlite.Column;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.database.FrsVisitedInfoManager;
-import com.baidu.tieba.nv6;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import kotlin.Unit;
-import kotlin.io.CloseableKt;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__IndentKt;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
 public final class pv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final Map<String, Map<String, r7a>> c(nv6.a aVar, List<String> list) {
-        InterceptResult invokeLL;
+    public static final <T extends nu6> T a(ou6 ou6Var, Class<T> type, h0 entity, gu6 item) {
+        InterceptResult invokeLLLL;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, aVar, list)) == null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            String replace$default = StringsKt__StringsJVMKt.replace$default(StringsKt__StringsJVMKt.replace$default(list.toString(), PreferencesUtil.LEFT_MOUNT, "(", false, 4, (Object) null), PreferencesUtil.RIGHT_MOUNT, SmallTailInfo.EMOTION_SUFFIX, false, 4, (Object) null);
-            Cursor b = aVar.b(StringsKt__IndentKt.trimIndent("\n            SELECT * FROM forum_visited_info \n            WHERE fid IN " + replace$default + " \n            ORDER BY fid, date \n            DESC"), new String[0]);
-            try {
-                if (b.moveToFirst()) {
-                    do {
-                        String fid = b.getString(0);
-                        String date = b.getString(1);
-                        long j = b.getLong(2);
-                        long j2 = b.getLong(3);
-                        r7a r7aVar = new r7a();
-                        r7aVar.g(fid);
-                        r7aVar.f(date);
-                        r7aVar.e(j);
-                        r7aVar.h(j2);
-                        if (linkedHashMap.get(fid) == null) {
-                            Intrinsics.checkNotNullExpressionValue(fid, "fid");
-                            linkedHashMap.put(fid, new LinkedHashMap());
-                        }
-                        Map map = (Map) linkedHashMap.get(fid);
-                        if (map != null) {
-                            Intrinsics.checkNotNullExpressionValue(date, "date");
-                            map.put(date, r7aVar);
-                        }
-                        g41.i(b, new Column[]{nv6.a.d(0), nv6.a.d(1), nv6.a.c(2), nv6.a.c(3)});
-                    } while (b.moveToNext());
-                    Unit unit = Unit.INSTANCE;
-                    CloseableKt.closeFinally(b, null);
-                    return linkedHashMap;
-                }
-                Unit unit2 = Unit.INSTANCE;
-                CloseableKt.closeFinally(b, null);
-                return linkedHashMap;
-            } finally {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, ou6Var, type, entity, item)) == null) {
+            Intrinsics.checkNotNullParameter(ou6Var, "<this>");
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            Intrinsics.checkNotNullParameter(item, "item");
+            g0 f = ou6Var.f();
+            if (f != null && (t = (T) f.h(type)) != null) {
+                entity.a(t);
+                t.b(item);
+                return t;
             }
-        } else {
-            return (Map) invokeLL.objValue;
+            return null;
         }
+        return (T) invokeLLLL.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, INVOKE, MOVE_EXCEPTION, THROW, THROW, INVOKE, MOVE_EXCEPTION] complete} */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public static final List<String> d(nv6.a aVar, int i) {
-        InterceptResult invokeLI;
+    public static final long b(ou6 ou6Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, aVar, i)) == null) {
-            String curDate = FrsVisitedInfoManager.d.b().format(new Date());
-            String fifteenAgoDate = FrsVisitedInfoManager.d.b().format(TimeHelper.getNDaysAgoDate(-14));
-            Intrinsics.checkNotNullExpressionValue(fifteenAgoDate, "fifteenAgoDate");
-            Intrinsics.checkNotNullExpressionValue(curDate, "curDate");
-            Cursor b = aVar.b("SELECT fid, sum(custom_count) as sum_counts \nFROM forum_visited_info \nWHERE date BETWEEN ? AND ? \nGROUP BY fid \nORDER BY sum_counts \nDESC \nLIMIT ?", fifteenAgoDate, curDate, String.valueOf(i));
-            try {
-                ArrayList arrayList = new ArrayList();
-                if (b.moveToFirst()) {
-                    do {
-                        String fid = b.getString(0);
-                        Intrinsics.checkNotNullExpressionValue(fid, "fid");
-                        arrayList.add(fid);
-                        g41.i(b, new Column[]{nv6.a.d(0), nv6.a.b(1)});
-                    } while (b.moveToNext());
-                    Unit unit = Unit.INSTANCE;
-                    CloseableKt.closeFinally(b, null);
-                    return arrayList;
-                }
-                Unit unit2 = Unit.INSTANCE;
-                CloseableKt.closeFinally(b, null);
-                return arrayList;
-            } finally {
-            }
-        } else {
-            return (List) invokeLI.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ou6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ou6Var, "<this>");
+            return d(ou6Var).a();
         }
+        return invokeL.longValue;
+    }
+
+    public static final gw6 c(ou6 ou6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ou6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ou6Var, "<this>");
+            return ou6Var.i().d();
+        }
+        return (gw6) invokeL.objValue;
+    }
+
+    public static final jw6 d(ou6 ou6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ou6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ou6Var, "<this>");
+            return ou6Var.i().f();
+        }
+        return (jw6) invokeL.objValue;
+    }
+
+    public static final boolean e(ou6 ou6Var) {
+        InterceptResult invokeL;
+        mu6 mu6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ou6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ou6Var, "<this>");
+            g0 f = ou6Var.f();
+            if (f instanceof mu6) {
+                mu6Var = (mu6) f;
+            } else {
+                mu6Var = null;
+            }
+            if (mu6Var != null) {
+                return mu6Var.x();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

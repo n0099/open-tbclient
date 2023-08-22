@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q99;
+import com.baidu.tieba.vd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,7 +36,7 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     public NavigationBar c;
     public View d;
     public TextView e;
-    public q99 f;
+    public vd9 f;
     public List<BazhuInfoData.BaInfo> g;
     public View h;
     public View i;
@@ -75,11 +75,11 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 return;
             }
             if (view2.getId() == this.a.a.getId()) {
-                if (this.a.z1() == null) {
+                if (this.a.y1() == null) {
                     return;
                 }
                 Intent intent = new Intent();
-                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.a.z1());
+                intent.putExtra(SelectSingleForumActivityConfig.KEY_OUTPUT_FORUM, this.a.y1());
                 this.a.setResult(-1, intent);
                 this.a.finish();
             } else if (view2.getId() == this.a.d.getId()) {
@@ -118,10 +118,10 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
                 BazhuInfoData.BaInfo baInfo = (BazhuInfoData.BaInfo) this.a.g.get(i);
-                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f09268c);
+                CheckBox checkBox = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f0926bd);
                 if (!checkBox.isChecked()) {
-                    if (this.a.z1() != null && this.a.z1().isChecked) {
-                        this.a.z1().isChecked = false;
+                    if (this.a.y1() != null && this.a.y1().isChecked) {
+                        this.a.y1().isChecked = false;
                     }
                     baInfo.isChecked = true;
                     checkBox.setChecked(!checkBox.isChecked());
@@ -149,31 +149,10 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
         this.l = new b(this);
     }
 
-    public final void A1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f1345);
-        }
-    }
-
-    public final BazhuInfoData.BaInfo z1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            for (BazhuInfoData.BaInfo baInfo : this.g) {
-                if (baInfo.isChecked) {
-                    return baInfo;
-                }
-            }
-            return null;
-        }
-        return (BazhuInfoData.BaInfo) invokeV.objValue;
-    }
-
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
             this.c.onChangeSkinType(getPageContext(), i);
             SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
@@ -190,10 +169,10 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d089b);
-            this.h = findViewById(R.id.obfuscated_res_0x7f091f87);
+            setContentView(R.layout.obfuscated_res_0x7f0d08a1);
+            this.h = findViewById(R.id.obfuscated_res_0x7f091fac);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.c = navigationBar;
             View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
@@ -203,14 +182,14 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 layoutParams.leftMargin = BdUtilHelper.getDimens(getActivity(), R.dimen.obfuscated_res_0x7f070359);
                 this.d.setLayoutParams(layoutParams);
             }
-            this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f0646));
+            this.e = this.c.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f064d));
             this.d.setOnClickListener(this.k);
             this.i = findViewById(R.id.view_divider);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09268d);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0926be);
             this.a = textView;
             textView.setOnClickListener(this.k);
-            this.j = findViewById(R.id.obfuscated_res_0x7f09148b);
-            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f092691);
+            this.j = findViewById(R.id.obfuscated_res_0x7f0914a1);
+            this.b = (BdListView) findViewById(R.id.obfuscated_res_0x7f0926c2);
             if (getIntent() != null) {
                 ArrayList parcelableArrayListExtra = getIntent().getParcelableArrayListExtra("KEY_INTPUT_FORUM_LIST");
                 if (ListUtils.getCount(parcelableArrayListExtra) > 0) {
@@ -218,12 +197,33 @@ public class SelectSingleForumActivity extends BaseActivity<SelectSingleForumAct
                 }
             }
             this.b.setOnItemClickListener(this.l);
-            q99 q99Var = new q99(getActivity());
-            this.f = q99Var;
-            this.b.setAdapter((ListAdapter) q99Var);
+            vd9 vd9Var = new vd9(getActivity());
+            this.f = vd9Var;
+            this.b.setAdapter((ListAdapter) vd9Var);
             this.f.b(this.g);
-            A1();
+            z1();
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public final BazhuInfoData.BaInfo y1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            for (BazhuInfoData.BaInfo baInfo : this.g) {
+                if (baInfo.isChecked) {
+                    return baInfo;
+                }
+            }
+            return null;
+        }
+        return (BazhuInfoData.BaInfo) invokeV.objValue;
+    }
+
+    public final void z1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.setText(R.string.obfuscated_res_0x7f0f1351);
         }
     }
 }

@@ -1,73 +1,87 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.message.LoadDraftMessage;
+import com.baidu.tieba.im.message.LoadDraftResponsedMessage;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ai8 extends ug8 {
+public class ai8 implements CustomMessageTask.CustomRunnable<LoadDraftMessage.a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
+    public ih8 a;
+    public int b;
 
-    @Override // com.baidu.tieba.ug8
-    public int getViewType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
-
-    public ai8(String str, String str2, long j) {
+    public ai8(ih8 ih8Var, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Long.valueOf(j)};
+            Object[] objArr = {ih8Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = j;
+        this.a = ih8Var;
+        this.b = i;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public final LoadDraftResponsedMessage a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(i);
+            loadDraftResponsedMessage.setError(-18);
+            return loadDraftResponsedMessage;
         }
-        return invokeV.longValue;
+        return (LoadDraftResponsedMessage) invokeI.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<LoadDraftMessage.a> customMessage) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
+            LoadDraftResponsedMessage loadDraftResponsedMessage = new LoadDraftResponsedMessage(this.b);
+            if (customMessage != null && (customMessage instanceof LoadDraftMessage)) {
+                LoadDraftMessage loadDraftMessage = (LoadDraftMessage) customMessage;
+                if (TbadkCoreApplication.getCurrentAccountObj() != null) {
+                    str = TbadkCoreApplication.getCurrentAccountObj().getID();
+                } else {
+                    str = "";
+                }
+                LoadDraftMessage.a data = loadDraftMessage.getData();
+                ChatSetting setting = this.a.getSetting(str, data.a);
+                if (setting == null) {
+                    return a(loadDraftMessage.getCmd());
+                }
+                String draft = setting.getDraft();
+                LoadDraftResponsedMessage.a aVar = new LoadDraftResponsedMessage.a();
+                aVar.a = draft;
+                String str2 = data.a;
+                try {
+                    loadDraftResponsedMessage.decodeInBackGround(this.b, aVar);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return loadDraftResponsedMessage;
+            }
+            return a(this.b);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

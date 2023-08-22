@@ -1,18 +1,15 @@
 package com.baidu.tieba;
 
+import android.media.AudioRecord;
 import android.os.Handler;
+import android.os.Message;
+import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.voice.Amrnb;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.FieldBuilder;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.TbErrInfo;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.voice.service.MediaService;
+import com.baidu.ar.auth.FeatureCodes;
+import com.baidu.audiorecorder.lib.voice.BdSoundGate;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,147 +17,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class qo implements lda {
+public class qo implements Runnable {
     public static /* synthetic */ Interceptable $ic;
+    public static int k;
     public transient /* synthetic */ FieldHolder $fh;
-    public qi a;
-    public Handler b;
-    public String c;
-    public int d;
-    public ri e;
-    public Runnable f;
-    public TbPageContext<?> g;
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ qo c;
-
-        /* loaded from: classes7.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    qo qoVar = this.a.c;
-                    qoVar.a.onShowErr(4, qoVar.g.getString(R.string.obfuscated_res_0x7f0f1849));
-                    si.a = 1;
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.qo$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0456b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
-            public final /* synthetic */ b b;
-
-            public RunnableC0456b(b bVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = str;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    si.a = 1;
-                    b bVar = this.b;
-                    bVar.c.a.onSendVoice(this.a, bVar.b);
-                }
-            }
-        }
-
-        public b(qo qoVar, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qoVar, str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = qoVar;
-            this.a = str;
-            this.b = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String d = hb5.c(fb5.d(this.a)).d();
-                if (this.c.b != null) {
-                    this.c.b.removeCallbacks(this.c.f);
-                    if (StringUtils.isNull(d)) {
-                        this.c.b.post(new a(this));
-                    } else {
-                        this.c.b.post(new RunnableC0456b(this, d));
-                    }
-                }
-            }
-        }
-    }
+    public volatile int a;
+    public String b;
+    public int c;
+    public FileOutputStream d;
+    public Amrnb e;
+    public final Handler f;
+    public long g;
+    public long h;
+    public final Handler i;
+    public final Runnable j;
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
+        public final /* synthetic */ qo a;
 
         public a(qo qoVar) {
             Interceptable interceptable = $ic;
@@ -174,29 +57,6 @@ public class qo implements lda {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qo a;
-
-        public c(qo qoVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qoVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
@@ -205,147 +65,10 @@ public class qo implements lda {
 
         @Override // java.lang.Runnable
         public void run() {
-            qi qiVar;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (qiVar = this.a.a) != null && si.a == 2) {
-                qiVar.onStopingRecorder();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements ri {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qo a;
-
-        public d(qo qoVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qoVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qoVar;
-        }
-
-        @Override // com.baidu.tieba.ri
-        public void a(int i) {
-            qi qiVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || (qiVar = this.a.a) == null) {
-                return;
-            }
-            qiVar.onShowRecordTime(i);
-        }
-
-        @Override // com.baidu.tieba.pi
-        public void b(int i) {
-            qi qiVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || (qiVar = this.a.a) == null) {
-                return;
-            }
-            qiVar.onShowRecording(i);
-        }
-
-        public /* synthetic */ d(qo qoVar, a aVar) {
-            this(qoVar);
-        }
-
-        @Override // com.baidu.tieba.pi
-        public void c(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-                si.a = 1;
-                if (this.a.c != null && str != null) {
-                    qo qoVar = this.a;
-                    qi qiVar = qoVar.a;
-                    if (qiVar == null) {
-                        return;
-                    }
-                    if (i <= 1000) {
-                        qiVar.onShowErr(2, si.a(R.string.obfuscated_res_0x7f0f184e));
-                        FieldBuilder fieldBuilder = new FieldBuilder();
-                        fieldBuilder.append("file", str);
-                        fieldBuilder.append("dur", Integer.valueOf(i));
-                        TiebaStatic.voiceError(TbErrInfo.ERR_VOI_LEN, "voice too short", fieldBuilder.toString());
-                        return;
-                    } else if (!str.endsWith(qoVar.c)) {
-                        FieldBuilder fieldBuilder2 = new FieldBuilder();
-                        fieldBuilder2.append("file", str);
-                        fieldBuilder2.append("dur", Integer.valueOf(i));
-                        TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILENAME, "RecoreCallback.succ: filename error", fieldBuilder2.toString());
-                        return;
-                    } else {
-                        qo qoVar2 = this.a;
-                        qoVar2.m(qoVar2.c, (int) Math.round((i * 1.0d) / 1000.0d));
-                        this.a.c = null;
-                        return;
-                    }
-                }
-                FieldBuilder fieldBuilder3 = new FieldBuilder();
-                fieldBuilder3.append("file", str);
-                fieldBuilder3.append("dur", Integer.valueOf(i));
-                TiebaStatic.voiceError(TbErrInfo.ERR_VOI_FILE, "RecoreCallback.succ: file is null", fieldBuilder3.toString());
-            }
-        }
-
-        @Override // com.baidu.tieba.ri
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                si.a = 1;
-            }
-        }
-
-        @Override // com.baidu.tieba.pi
-        public void error(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
-                TiebaStatic.voiceError(i, "RecoreCallback.error: " + str, "");
-                qo qoVar = this.a;
-                if (qoVar.a == null) {
-                    si.a = 1;
-                } else if (i == 7) {
-                    if (qoVar.c == null) {
-                        TiebaStatic.voiceError(i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
-                    } else if (this.a.a.isOnCancle()) {
-                        xh.k(fb5.c(this.a.c));
-                        this.a.c = null;
-                        this.a.a.onStopingRecorder();
-                        si.a = 1;
-                    } else {
-                        qo qoVar2 = this.a;
-                        qoVar2.m(qoVar2.c, this.a.d / 1000);
-                        this.a.c = null;
-                        if (this.a.d == oi.b) {
-                            qo qoVar3 = this.a;
-                            qoVar3.a.onShowErr(3, qoVar3.g.getString(R.string.obfuscated_res_0x7f0f1850));
-                        } else if (this.a.d == oi.c) {
-                            qo qoVar4 = this.a;
-                            qoVar4.a.onShowErr(3, qoVar4.g.getString(R.string.obfuscated_res_0x7f0f184f));
-                        } else {
-                            qo qoVar5 = this.a;
-                            qoVar5.a.onShowErr(3, qoVar5.g.getString(R.string.obfuscated_res_0x7f0f1851));
-                        }
-                    }
-                } else {
-                    si.a = 1;
-                    if (i == 8) {
-                        i = 2;
-                    }
-                    this.a.a.onShowErr(i, str);
-                    TiebaStatic.voiceError(i, "RecoreCallback.err: " + str, "");
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.g((int) (System.currentTimeMillis() - this.a.g));
+                this.a.i.postDelayed(this.a.j, 200L);
             }
         }
     }
@@ -363,55 +86,48 @@ public class qo implements lda {
                 return;
             }
         }
-        si.a = 1;
+        k = qi.a;
     }
 
-    public static qo n() {
-        InterceptResult invokeV;
+    public void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return new qo();
-        }
-        return (qo) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lda
-    public void cancelRecord() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            mo.e();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = 5;
         }
     }
 
-    @Override // com.baidu.tieba.lda
-    public boolean f() {
+    public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (si.a == 1) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FileOutputStream fileOutputStream = this.d;
+            if (fileOutputStream != null) {
+                try {
+                    fileOutputStream.close();
+                    return true;
+                } catch (IOException e) {
+                    BdLog.e(e.getMessage());
+                    return false;
+                }
             }
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.lda
-    public void stopRecord() {
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            mo.h();
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.postDelayed(this.f, 100L);
-            }
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a = 4;
         }
     }
 
-    public qo() {
+    public qo(Handler handler) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {handler};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -421,134 +137,366 @@ public class qo implements lda {
                 return;
             }
         }
-        this.c = null;
-        this.d = oi.a;
-        this.e = null;
-        this.f = new c(this);
-        this.b = new Handler();
-    }
-
-    @Override // com.baidu.tieba.lda
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            stopRecord();
-            TbPageContext<?> tbPageContext = this.g;
-            if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
-                MediaService.stopMy(this.g.getPageActivity());
+        this.a = 0;
+        this.i = new Handler();
+        this.j = new a(this);
+        this.f = handler;
+        try {
+            Amrnb amrnb = Amrnb.getInstance();
+            this.e = amrnb;
+            if (amrnb == null || !Amrnb.bLoadLibrary) {
+                this.e = null;
+                if (this.f != null) {
+                    this.f.sendMessage(this.f.obtainMessage(5));
+                }
             }
-            Handler handler = this.b;
-            if (handler != null) {
-                handler.removeCallbacks(this.f);
+        } catch (Exception unused) {
+            Handler handler2 = this.f;
+            if (handler2 != null) {
+                handler2.sendMessage(handler2.obtainMessage(5));
             }
-            this.g = null;
-            this.a = null;
-            this.b = null;
         }
     }
 
-    @Override // com.baidu.tieba.lda
-    public void a(TbPageContext<?> tbPageContext) {
+    public final void f(short[] sArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
-            this.g = tbPageContext;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sArr) == null) {
+            byte[] bArr = new byte[32];
+            try {
+                this.d.write(bArr, 0, this.e.encoderEncode(2, sArr, bArr));
+            } catch (IOException unused) {
+            }
         }
     }
 
-    @Override // com.baidu.tieba.lda
-    public void b(String str) {
+    public final void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            stopRecord();
-            o(false);
-            qi qiVar = this.a;
-            if (qiVar != null) {
-                qiVar.onDeletedVoice(str);
-            }
-            Handler handler = this.b;
-            if (handler == null) {
-                return;
-            }
-            handler.postDelayed(new a(this), 200L);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            Message obtainMessage = this.f.obtainMessage(9);
+            obtainMessage.arg1 = i;
+            this.f.sendMessage(obtainMessage);
         }
     }
 
-    @Override // com.baidu.tieba.lda
-    public void d(int i) {
+    public void h(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.d = i;
-            try {
-                mo.f(i);
-            } catch (NoClassDefFoundError e) {
-                e.printStackTrace();
-            }
+            k = i;
         }
     }
 
-    @Override // com.baidu.tieba.lda
-    public void e(qi qiVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, qiVar) == null) {
-            this.a = qiVar;
-        }
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001273, Boolean.valueOf(z)));
-        }
-    }
-
-    public final void m(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) && str != null && i >= 1) {
-            si.a = 3;
-            gs6.a(new b(this, str, i), "RecorderManager", 1);
-        }
-    }
-
-    @Override // com.baidu.tieba.lda
-    public boolean c(qi qiVar, int i) {
+    public boolean j(String str, int i) {
         InterceptResult invokeLI;
-        TbPageContext<?> tbPageContext;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, qiVar, i)) == null) {
-            if (qiVar == null || (tbPageContext = this.g) == null || !PermissionUtil.checkWriteExternalStorage(tbPageContext.getPageActivity())) {
-                return false;
-            }
-            this.a = qiVar;
-            if (!FileHelper.checkSD()) {
-                String sdErrorString = FileHelper.getSdErrorString();
-                if (sdErrorString == null) {
-                    sdErrorString = si.a(R.string.voice_error_sdcard);
-                }
-                this.a.onShowErr(0, sdErrorString);
-                return false;
-            }
-            o(true);
-            String e = fb5.e();
-            this.c = e;
-            String c2 = fb5.c(e);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
             if (this.e == null) {
-                this.e = new d(this, null);
+                return false;
             }
-            mo.h();
-            boolean g = mo.g(c2, i, this.e);
-            if (g) {
-                this.a.onStartedRecorder(true, this.d);
-                si.a = 2;
-            } else {
-                si.a = 1;
-                mo.h();
-                FieldBuilder fieldBuilder = new FieldBuilder();
-                fieldBuilder.append("voiceType", Integer.valueOf(i));
-                TiebaStatic.voiceError(TbErrInfo.ERR_VOI_START, "onTouch-getBtnMsgsendVoice: user click too often", fieldBuilder.toString());
-                this.a.onStartedRecorder(false, this.d);
-            }
-            return g;
+            this.a = 0;
+            this.b = str;
+            this.c = i;
+            return true;
         }
         return invokeLI.booleanValue;
+    }
+
+    public final void i(List<short[]> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            int a2 = BdSoundGate.b().a();
+            short[] sArr = new short[a2];
+            short[] sArr2 = new short[a2];
+            int size = list.size();
+            int i = 0;
+            for (int i2 = 0; i2 < size; i2++) {
+                System.arraycopy(list.get(i2), 0, sArr2, i, 160);
+                i += 160;
+                if (i2 == size - 1) {
+                    BdSoundGate.b().f(sArr2, sArr);
+                    int i3 = 0;
+                    for (int i4 = 0; i4 < size; i4++) {
+                        System.arraycopy(sArr, i3, list.get(i4), 0, 160);
+                        i3 += 160;
+                        f(list.get(i4));
+                    }
+                    i = 0;
+                }
+            }
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        AudioRecord audioRecord;
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Process.setThreadPriority(-19);
+            if (this.e == null) {
+                Handler handler2 = this.f;
+                if (handler2 != null) {
+                    handler2.sendMessage(handler2.obtainMessage(5));
+                }
+            } else if (this.a == 4) {
+                Handler handler3 = this.f;
+                if (handler3 != null) {
+                    handler3.sendMessage(handler3.obtainMessage(8));
+                }
+                this.a = 0;
+            } else {
+                String str = this.b;
+                AudioRecord audioRecord2 = null;
+                boolean z = true;
+                if (str != null && str.length() > 0) {
+                    try {
+                        File h = zh.h(null, this.b);
+                        if (h != null) {
+                            this.d = new FileOutputStream(h);
+                        } else if (this.f != null) {
+                            this.f.sendMessage(this.f.obtainMessage(1));
+                            return;
+                        } else {
+                            return;
+                        }
+                    } catch (Exception e) {
+                        BdLog.e(e.getMessage());
+                        e();
+                        Handler handler4 = this.f;
+                        if (handler4 != null) {
+                            handler4.sendMessage(handler4.obtainMessage(1));
+                        }
+                        this.a = 0;
+                        return;
+                    }
+                }
+                if (this.a == 4) {
+                    Handler handler5 = this.f;
+                    if (handler5 != null) {
+                        handler5.sendMessage(handler5.obtainMessage(8));
+                    }
+                    e();
+                    this.a = 0;
+                    return;
+                }
+                try {
+                    audioRecord = ro.b().a();
+                } catch (IllegalArgumentException unused) {
+                    Handler handler6 = this.f;
+                    if (handler6 != null) {
+                        handler6.sendMessage(handler6.obtainMessage(6));
+                    }
+                    e();
+                    this.a = 0;
+                    return;
+                } catch (Exception unused2) {
+                    audioRecord = null;
+                }
+                if (audioRecord != null && audioRecord.getState() != 0) {
+                    if (this.a == 4) {
+                        try {
+                            audioRecord.release();
+                        } catch (Exception unused3) {
+                        }
+                        Handler handler7 = this.f;
+                        if (handler7 != null) {
+                            handler7.sendMessage(handler7.obtainMessage(8));
+                        }
+                        e();
+                        this.a = 0;
+                        return;
+                    }
+                    audioRecord.startRecording();
+                    if (this.a == 4) {
+                        try {
+                            audioRecord.stop();
+                            audioRecord.release();
+                        } catch (Exception unused4) {
+                        }
+                        Handler handler8 = this.f;
+                        if (handler8 != null) {
+                            handler8.sendMessage(handler8.obtainMessage(8));
+                        }
+                        e();
+                        this.a = 0;
+                        return;
+                    }
+                    this.a = 3;
+                    try {
+                        if (this.d == null) {
+                            try {
+                                audioRecord.stop();
+                                audioRecord.release();
+                            } catch (Exception unused5) {
+                                audioRecord2 = audioRecord;
+                            }
+                            try {
+                                if (this.f != null) {
+                                    this.f.sendMessage(this.f.obtainMessage(1));
+                                }
+                                this.a = 0;
+                                return;
+                            } catch (IOException unused6) {
+                                audioRecord = audioRecord2;
+                                try {
+                                    audioRecord.stop();
+                                    audioRecord.release();
+                                } catch (Exception unused7) {
+                                }
+                                Handler handler9 = this.f;
+                                if (handler9 != null) {
+                                    handler9.sendMessage(handler9.obtainMessage(3));
+                                }
+                                this.a = 0;
+                                return;
+                            }
+                        }
+                        zh.A(this.d);
+                        this.e.encoderInit();
+                        if (this.c > 0) {
+                            BdSoundGate.b().d(FeatureCodes.ADVANCE_BEAUTY, this.c);
+                        }
+                        ArrayList arrayList = new ArrayList();
+                        this.g = System.currentTimeMillis();
+                        this.i.post(this.j);
+                        short[] sArr = null;
+                        short s = 0;
+                        while (true) {
+                            if (this.a == 3) {
+                                if (sArr == null) {
+                                    sArr = new short[160];
+                                    s = 0;
+                                }
+                                int read = audioRecord.read(sArr, s, 160 - s);
+                                if (read > 0) {
+                                    int i = 0;
+                                    for (int i2 = 0; i2 < sArr.length; i2++) {
+                                        i += sArr[i2] * sArr[i2];
+                                    }
+                                    Handler handler10 = this.f;
+                                    if (handler10 != null) {
+                                        Message obtainMessage = handler10.obtainMessage(4);
+                                        int abs = Math.abs((((int) (i / read)) / DefaultOggSeeker.MATCH_BYTE_RANGE) >> 1);
+                                        while (abs > 100) {
+                                            abs = (int) (abs / 10.0d);
+                                        }
+                                        obtainMessage.arg1 = abs;
+                                        this.f.sendMessage(obtainMessage);
+                                    }
+                                }
+                                s = (short) (s + read);
+                                if (s == 160) {
+                                    if (this.c > 0) {
+                                        int size = arrayList.size() + 1;
+                                        if (size > 1 && size % 10 == 0) {
+                                            i(arrayList);
+                                            arrayList.clear();
+                                        }
+                                        arrayList.add(sArr);
+                                    } else {
+                                        f(sArr);
+                                    }
+                                    sArr = null;
+                                }
+                                ArrayList arrayList2 = arrayList;
+                                if (System.currentTimeMillis() - this.g > k) {
+                                    break;
+                                }
+                                arrayList = arrayList2;
+                            } else {
+                                z = false;
+                                break;
+                            }
+                        }
+                        System.currentTimeMillis();
+                        if (sArr != null) {
+                            while (s < 160) {
+                                try {
+                                    if (s >= sArr.length || s < 0) {
+                                        break;
+                                    }
+                                    sArr[s] = 0;
+                                    s = (short) (s + 1);
+                                } catch (Exception unused8) {
+                                }
+                            }
+                            f(sArr);
+                        }
+                        if (this.c > 0) {
+                            BdSoundGate.b().e();
+                        }
+                        System.currentTimeMillis();
+                        audioRecord.stop();
+                        audioRecord.release();
+                        System.currentTimeMillis();
+                        if (this.a == 5) {
+                            if (!e()) {
+                                Handler handler11 = this.f;
+                                if (handler11 != null) {
+                                    handler11.sendMessage(handler11.obtainMessage(2));
+                                }
+                            } else {
+                                try {
+                                    zh.k(this.b);
+                                    if (this.f != null) {
+                                        this.f.sendMessage(this.f.obtainMessage(100));
+                                    }
+                                } catch (Exception unused9) {
+                                    Handler handler12 = this.f;
+                                    if (handler12 != null) {
+                                        handler12.sendMessage(handler12.obtainMessage(101));
+                                    }
+                                    this.a = 0;
+                                }
+                            }
+                            this.a = 0;
+                            Handler handler13 = this.i;
+                            if (handler13 != null) {
+                                handler13.removeCallbacks(this.j);
+                                return;
+                            }
+                            return;
+                        }
+                        this.a = 4;
+                        long currentTimeMillis = System.currentTimeMillis() - this.g;
+                        this.h = currentTimeMillis;
+                        g((int) currentTimeMillis);
+                        Handler handler14 = this.i;
+                        if (handler14 != null) {
+                            handler14.removeCallbacks(this.j);
+                        }
+                        System.currentTimeMillis();
+                        if (!e() && (handler = this.f) != null) {
+                            handler.sendMessage(handler.obtainMessage(2));
+                        }
+                        this.e.encoderDeinit();
+                        this.a = 0;
+                        Handler handler15 = this.f;
+                        if (handler15 != null) {
+                            if (z) {
+                                handler15.sendMessage(handler15.obtainMessage(7));
+                                return;
+                            }
+                            Message obtainMessage2 = handler15.obtainMessage(0);
+                            obtainMessage2.arg1 = (int) this.h;
+                            this.f.sendMessage(obtainMessage2);
+                        }
+                    } catch (IOException unused10) {
+                    }
+                } else {
+                    if (audioRecord != null) {
+                        try {
+                            audioRecord.release();
+                        } catch (Exception unused11) {
+                        }
+                    }
+                    Handler handler16 = this.f;
+                    if (handler16 != null) {
+                        handler16.sendMessage(handler16.obtainMessage(6));
+                    }
+                    e();
+                    this.a = 0;
+                }
+            }
+        }
     }
 }

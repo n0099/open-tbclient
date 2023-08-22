@@ -89,7 +89,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
                     }
                     ImageView imageView3 = this.d;
                     if (imageView3 != null) {
-                        imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.qo5
+                        imageView3.postDelayed(new Runnable() { // from class: com.baidu.tieba.hp5
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -218,7 +218,7 @@ public final class TiebaAudioFloatView extends RelativeLayout implements View.On
             this.a = (ImageView) findViewById(R.id.user_avatar);
             this.b = (RelativeLayout) findViewById(R.id.audio_avatar);
             this.c = (TBLottieAnimationView) findViewById(R.id.float_lottie);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090736);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09073a);
             this.d = imageView;
             if (imageView != null) {
                 imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_voiceroom_close20, SkinManager.getColor(0, (int) R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS));

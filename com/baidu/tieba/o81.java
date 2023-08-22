@@ -1,44 +1,68 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.PermissionRequest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes7.dex */
-public class o81 {
+public final class o81 {
     public static /* synthetic */ Interceptable $ic;
+    public static i81 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            return r61.a(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947986017, "Lcom/baidu/tieba/o81;")) == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947986017, "Lcom/baidu/tieba/o81;");
+        }
     }
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    public o81() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            boolean z = false;
-            if (context == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            boolean a = r61.a(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (Build.VERSION.SDK_INT >= 16) {
-                return (a || r61.a(context, com.kuaishou.weapon.p0.h.i)) ? true : true;
+        }
+    }
+
+    @JvmStatic
+    public static final i81 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (o81.class) {
+                    if (a == null) {
+                        a = (i81) ServiceManager.getService(i81.a);
+                    }
+                    if (a == null) {
+                        a = i81.b;
+                    }
+                    Unit unit = Unit.INSTANCE;
+                }
             }
             return a;
         }
-        return invokeL.booleanValue;
+        return (i81) invokeV.objValue;
     }
 }

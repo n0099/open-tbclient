@@ -30,10 +30,10 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ag;
-import com.baidu.tieba.im;
-import com.baidu.tieba.jz5;
-import com.baidu.tieba.w65;
-import com.baidu.tieba.y65;
+import com.baidu.tieba.b06;
+import com.baidu.tieba.c75;
+import com.baidu.tieba.e75;
+import com.baidu.tieba.lm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,7 +49,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public int c;
     public int d;
     public boolean e;
-    public jz5 f;
+    public b06 f;
     public String g;
     public Paint h;
     public Paint i;
@@ -57,7 +57,7 @@ public class ConstrainImageLayout extends ViewGroup {
     public double k;
     public int l;
     public boolean m;
-    public im n;
+    public lm n;
     public Bitmap o;
     public boolean p;
     public int q;
@@ -306,14 +306,14 @@ public class ConstrainImageLayout extends ViewGroup {
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.f == null) {
                 return;
             }
-            jz5 jz5Var = this.d.f;
+            b06 b06Var = this.d.f;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            jz5Var.a(view2, i, z);
+            b06Var.a(view2, i, z);
         }
     }
 
@@ -370,7 +370,7 @@ public class ConstrainImageLayout extends ViewGroup {
                 if (e == null) {
                     return;
                 }
-                d(canvas, e, w65.B(R.string.J_X11));
+                d(canvas, e, c75.B(R.string.J_X11));
             }
         }
     }
@@ -495,13 +495,13 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    public void setImageClickListener(jz5 jz5Var) {
+    public void setImageClickListener(b06 b06Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, jz5Var) == null) {
-            if (jz5Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, b06Var) == null) {
+            if (b06Var == null) {
                 setClickable(false);
             } else {
-                this.f = jz5Var;
+                this.f = b06Var;
             }
         }
     }
@@ -538,10 +538,10 @@ public class ConstrainImageLayout extends ViewGroup {
         }
     }
 
-    public void setPreloadSizeReadyCallback(im imVar) {
+    public void setPreloadSizeReadyCallback(lm lmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, imVar) == null) {
-            this.n = imVar;
+        if (interceptable == null || interceptable.invokeL(1048598, this, lmVar) == null) {
+            this.n = lmVar;
         }
     }
 
@@ -609,14 +609,14 @@ public class ConstrainImageLayout extends ViewGroup {
             float f = i2;
             RectF rectF2 = new RectF(-fArr[0], 0.0f, i, f);
             this.i.setShader(new LinearGradient(0.0f, 0.0f, 0.0f, f, SkinManager.getColor(R.color.CAM_X0601), SkinManager.getColor(R.color.CAM_X0606), Shader.TileMode.CLAMP));
-            canvas2.drawPath(y65.a(rectF2, fArr), this.i);
+            canvas2.drawPath(e75.a(rectF2, fArr), this.i);
         }
         canvas.drawBitmap(this.o, rectF.left, rectF.top, this.h);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
         int i3 = ((int) rectF.bottom) - dimenPixelSize;
         int measureText = (((int) rectF.right) - dimenPixelSize2) - ((int) this.j.measureText(this.g));
-        float[] E = w65.E(R.array.S_O_X001);
+        float[] E = c75.E(R.array.S_O_X001);
         this.j.setShadowLayer(E[1], E[2], E[3], (int) E[0]);
         canvas.drawText(this.g, measureText, i3, this.j);
     }

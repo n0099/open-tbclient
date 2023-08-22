@@ -1,58 +1,36 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
 /* loaded from: classes5.dex */
-public class e2a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
+public interface e2a extends IAdBaseAsyncController {
+    View b(@NonNull String str, boolean z);
 
-    public e2a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b();
-    }
+    AdvertAppInfo d(@NonNull String str);
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
-            this.a.clear();
-            this.a.add(BdUniDispatchSchemeController.PARAM_SHOUBAI);
-            this.a.add(BdUniDispatchSchemeController.PARAM_WISE);
-        }
-    }
+    void e(@NonNull String str, @NonNull AdvertAppInfo advertAppInfo);
 
-    public boolean a(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uri)) == null) {
-            if (uri == null) {
-                return false;
-            }
-            return this.a.contains(uri.getQueryParameter("obj_source"));
-        }
-        return invokeL.booleanValue;
-    }
+    boolean f(@NonNull String str);
+
+    void g(@NonNull ov5 ov5Var);
+
+    int getAdCount();
+
+    void h(@NonNull TbPageContext tbPageContext, @NonNull DragImageView.h hVar, boolean z);
+
+    void j(@NonNull String str);
+
+    void k(@NonNull AdvertAppInfo advertAppInfo);
+
+    void l();
+
+    boolean n();
+
+    void o(String str);
+
+    void onDestroy();
 }

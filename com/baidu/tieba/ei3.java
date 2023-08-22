@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
-import com.baidu.swan.game.ad.utils.NetworkUtils;
-import com.baidu.tieba.vv2;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,49 +12,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class ei3 {
+public class ei3 extends gi3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean x;
+    public static int y;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ai3 a;
-
-        public a(ai3 ai3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ai3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ai3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fh3.k("4165", this.a.f());
-            }
-        }
-    }
+    public boolean v;
+    public JSONObject w;
 
     static {
         InterceptResult invokeClinit;
@@ -69,95 +36,177 @@ public final class ei3 {
                 return;
             }
         }
-        a = ir1.a;
+        x = nr1.a;
+        y = 35;
     }
 
-    public static String a(Response response) {
-        InterceptResult invokeL;
-        ResponseBody body;
-        String str;
+    public ei3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, response)) == null) {
-            if (response == null || (body = response.body()) == null) {
-                return "";
-            }
-            JSONObject jSONObject = null;
-            try {
-                str = body.string();
-            } catch (IOException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                str = null;
-            }
-            if (str == null) {
-                return "";
-            }
-            try {
-                jSONObject = new JSONObject(str);
-            } catch (JSONException e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-            }
-            if (jSONObject == null) {
-                return "";
-            }
-            return jSONObject.optString(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, "");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(String str, int i, String str2, int i2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) != null) || TextUtils.equals(str, GameAssistConstKt.METHOD_GET_LOCATION)) {
-            return;
-        }
-        c(str, i, str2, i2, str3, null);
-    }
-
-    public static void c(String str, int i, String str2, int i2, String str3, Response response) {
-        ga2 H;
-        ex1 q3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, response}) == null) {
-            ai3 ai3Var = new ai3();
-            ya3 b0 = ya3.b0();
-            if (b0 == null || (H = lw2.T().H()) == null || (q3 = H.q3()) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            String l = q3.l();
-            vv2.a W = b0.W();
-            String Z = b0.Z();
-            String appId = b0.getAppId();
-            String W2 = W.W();
-            String v1 = W.v1();
-            String i3 = dk3.i(lw2.T().getCoreVersion(), W.G());
-            String a2 = a(response);
-            String d = NetworkUtils.d();
-            ai3Var.a = rh3.n(W.G());
-            ai3Var.c = b0.W().T();
-            ai3Var.d = b0.W().V();
-            ai3Var.f = appId;
-            ai3Var.a("name", Z);
-            ai3Var.a("apiName", str);
-            ai3Var.a("errorCode", String.valueOf(i));
-            ai3Var.a("errorMsg", str2);
-            ai3Var.a("pagePath", l);
-            if (i2 != -1) {
-                ai3Var.a("oldErrorCode", String.valueOf(i2));
-            }
-            ai3Var.a("oldErrorMsg", str3);
-            ai3Var.a("scheme", W2);
-            ai3Var.a("appVersion", v1);
-            ai3Var.a("swan", i3);
-            ai3Var.a("requestid", a2);
-            ai3Var.a("net", d);
-            if (ji4.b() != null) {
-                ai3Var.a("SDKVersion", ji4.b().b());
-                ai3Var.a("hostName", ji4.b().c());
-            }
-            sn3.j(new a(ai3Var), "monitor");
         }
+        this.v = false;
+        this.c = "NA";
+    }
+
+    @Override // com.baidu.tieba.gi3, com.baidu.tieba.fi3
+    public JSONObject f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                if (this.w != null) {
+                    if (this.v) {
+                        String z = xo3.z(y);
+                        if (!TextUtils.isEmpty(z)) {
+                            this.w.put("stacktrace", z);
+                        }
+                    }
+                    if (this.w.length() != 0) {
+                        this.h.put("info", this.w);
+                    }
+                }
+                ExtensionCore T2 = xh2.U().T();
+                if (T2 != null) {
+                    this.h.put("extension_ver", T2.extensionCoreVersionName);
+                }
+            } catch (JSONException e) {
+                if (x) {
+                    e.printStackTrace();
+                }
+            }
+            return super.f();
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public ei3 l(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            if (str != null && str2 != null) {
+                if (this.w == null) {
+                    this.w = new JSONObject();
+                }
+                try {
+                    this.w.put(str, str2);
+                } catch (JSONException e) {
+                    if (x) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return this;
+        }
+        return (ei3) invokeLL.objValue;
+    }
+
+    public ei3 m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.f = str;
+            return this;
+        }
+        return (ei3) invokeL.objValue;
+    }
+
+    public ei3 n(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.v = z;
+            return this;
+        }
+        return (ei3) invokeZ.objValue;
+    }
+
+    public ei3 o(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.b = String.valueOf(i);
+            return this;
+        }
+        return (ei3) invokeI.objValue;
+    }
+
+    public ei3 p(@NonNull wm3 wm3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, wm3Var)) == null) {
+            this.b = String.valueOf(wm3Var.a());
+            String sb = wm3Var.g().toString();
+            if (!TextUtils.isEmpty(sb)) {
+                l("detail", sb);
+            }
+            return this;
+        }
+        return (ei3) invokeL.objValue;
+    }
+
+    public ei3 q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (ei3) invokeL.objValue;
+    }
+
+    public ei3 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.g = str;
+            return this;
+        }
+        return (ei3) invokeL.objValue;
+    }
+
+    public ei3 t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (ei3) invokeL.objValue;
+    }
+
+    public ei3 r(dw2 dw2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, dw2Var)) == null) {
+            if (dw2Var == null) {
+                return this;
+            }
+            if (!TextUtils.isEmpty(dw2Var.T())) {
+                this.c = dw2Var.T();
+            }
+            if (!TextUtils.isEmpty(dw2Var.H())) {
+                this.f = dw2Var.H();
+            }
+            if (!TextUtils.isEmpty(dw2Var.W())) {
+                this.p = dw2Var.W();
+            }
+            if (!TextUtils.isEmpty(dw2Var.e0())) {
+                this.s = dw2Var.e0();
+            }
+            return this;
+        }
+        return (ei3) invokeL.objValue;
     }
 }

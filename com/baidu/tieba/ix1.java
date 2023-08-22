@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.tieba.fx1;
+import android.view.ViewGroup;
+import com.baidu.tieba.kx1;
 /* loaded from: classes6.dex */
-public interface ix1<T extends fx1> extends gx1<T> {
-    void G();
+public interface ix1<T extends kx1> extends lx1<T> {
+    void D();
 
-    boolean c();
+    void E(ViewGroup viewGroup);
 
-    void f(boolean z);
+    void F(View view2);
 
-    void h(View.OnClickListener onClickListener);
+    void O(boolean z);
 
-    void removeFromParent();
+    void T();
+
+    void e0(String str, String str2);
 }

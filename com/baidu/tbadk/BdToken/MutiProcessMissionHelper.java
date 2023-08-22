@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.et4;
-import com.baidu.tieba.iu4;
-import com.baidu.tieba.r45;
+import com.baidu.tieba.jt4;
+import com.baidu.tieba.ku4;
+import com.baidu.tieba.x45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public class MutiProcessMissionHelper {
                         return;
                     }
                     UrlManager.getInstance().dealOneLink(currentActivityPageContext, new String[]{completeTaskToastData.url});
-                    iu4.b(completeTaskToastData.activityId, completeTaskToastData.missionId);
+                    ku4.b(completeTaskToastData.activityId, completeTaskToastData.missionId);
                 }
             }
         }
@@ -127,7 +127,7 @@ public class MutiProcessMissionHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             if (isMainProcess()) {
-                et4.w().Q(i, j);
+                jt4.w().Q(i, j);
             } else {
                 dispatchMutiProcessMessage(i, i2, j, "onResume");
             }
@@ -166,7 +166,7 @@ public class MutiProcessMissionHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (isMainProcess()) {
-                et4.w().E();
+                jt4.w().E();
             } else {
                 dispatchMutiProcessMessage(i, j, MissionEvent.MESSAGE_PAUSE);
             }
@@ -177,7 +177,7 @@ public class MutiProcessMissionHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (isMainProcess()) {
-                et4.w().F();
+                jt4.w().F();
             } else {
                 dispatchMutiProcessMessage(i, j, MissionEvent.MESSAGE_TOUCH);
             }
@@ -188,14 +188,14 @@ public class MutiProcessMissionHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
             if (isMainProcess()) {
-                et4.w().L(i, j);
+                jt4.w().L(i, j);
             } else {
                 dispatchMutiProcessMessage(i, j, MissionEvent.MESSAGE_ACTIVITY);
             }
         }
     }
 
-    public static r45 showCompleteTaskToast(CompleteTaskToastData completeTaskToastData) {
+    public static x45 showCompleteTaskToast(CompleteTaskToastData completeTaskToastData) {
         InterceptResult invokeL;
         TbPageContext currentActivityPageContext;
         Interceptable interceptable = $ic;
@@ -203,13 +203,13 @@ public class MutiProcessMissionHelper {
             if (completeTaskToastData == null || (currentActivityPageContext = getCurrentActivityPageContext()) == null || currentActivityPageContext.getUniqueId() == null || completeTaskToastData.pageId != currentActivityPageContext.getUniqueId().getId()) {
                 return null;
             }
-            r45 f = r45.f(currentActivityPageContext.getPageActivity(), completeTaskToastData.message);
+            x45 f = x45.f(currentActivityPageContext.getPageActivity(), completeTaskToastData.message);
             f.g(completeTaskToastData.duration);
             f.h(mOnClickListener);
             f.i(completeTaskToastData);
             f.j();
             return f;
         }
-        return (r45) invokeL.objValue;
+        return (x45) invokeL.objValue;
     }
 }

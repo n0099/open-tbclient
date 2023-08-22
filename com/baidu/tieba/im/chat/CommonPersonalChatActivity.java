@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.model.CommonPersonalMsglistModel;
 import com.baidu.tieba.im.model.MsglistModel;
-import com.baidu.tieba.ve8;
+import com.baidu.tieba.ui8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void g2(UserData userData) {
+    public void h2(UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, userData) == null) {
         }
@@ -48,7 +48,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         }
     }
 
-    public void c2() {
+    public void d2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             Intent intent = getIntent();
@@ -58,7 +58,7 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
                 return;
             }
             msglistModel.setIsAcceptNotify(booleanExtra);
-            e2(intent);
+            f2(intent);
         }
     }
 
@@ -71,16 +71,16 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     }
 
     @Override // com.baidu.tieba.im.chat.TalkableActivity
-    public String[] A1(int i, boolean z) {
+    public String[] B1(int i, boolean z) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            return super.A1(i, true);
+            return super.B1(i, true);
         }
         return (String[]) invokeCommon.objValue;
     }
 
-    public boolean b2() {
+    public boolean c2() {
         InterceptResult invokeV;
         UserData user;
         Interceptable interceptable = $ic;
@@ -97,28 +97,28 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
         return invokeV.booleanValue;
     }
 
-    public void d2(Bundle bundle) throws Exception {
+    public void e2(Bundle bundle) throws Exception {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             this.c.setIsAcceptNotify(bundle.getBoolean(IntentConfig.IS_ACCEPT_NOTIFY, true));
-            f2(bundle);
+            g2(bundle);
         }
     }
 
-    public void e2(Intent intent) {
+    public void f2(Intent intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
             UserData userData = (UserData) intent.getSerializableExtra("user");
-            g2(userData);
+            h2(userData);
             ((CommonPersonalMsglistModel) this.c).setUser(userData);
         }
     }
 
-    public void f2(Bundle bundle) {
+    public void g2(Bundle bundle) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) && bundle != null && bundle.getString("user") != null) {
             UserData userData = (UserData) OrmObject.objectWithJsonStr(bundle.getString("user"), UserData.class);
-            g2(userData);
+            h2(userData);
             ((CommonPersonalMsglistModel) this.c).setUser(userData);
         }
     }
@@ -139,14 +139,14 @@ public abstract class CommonPersonalChatActivity<T> extends MsglistActivity<T> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void z(View view2, int i, int i2, long j) {
+    public void y(View view2, int i, int i2, long j) {
         MsglistModel msglistModel;
         ChatMessage msg;
         String content;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            super.z(view2, i, i2, j);
-            if (i != 7 || !G1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !ve8.z(msg) || content == null) {
+            super.y(view2, i, i2, j);
+            if (i != 7 || !G1() || (msglistModel = this.c) == null || (msg = msglistModel.getMsg(i2)) == null || !ui8.z(msg) || content == null) {
                 return;
             }
             JSONObject jSONObject = null;

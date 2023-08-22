@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.GetSugTopic.TopicList;
+import tbclient.GetSugTopic.TopicListModule;
 /* loaded from: classes5.dex */
 public class eb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<fb8> a;
-    public List<fb8> b;
+    public String a;
+    public int b;
+    public List<fb8> c;
+    public List<hb8> d;
 
     public eb8() {
         Interceptable interceptable = $ic;
@@ -30,55 +30,84 @@ public class eb8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = -1;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
     }
 
-    @NonNull
-    public List<fb8> a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (!ListUtils.isEmpty(this.a)) {
-                arrayList.addAll(this.a);
-            }
-            if (!ListUtils.isEmpty(this.b)) {
-                arrayList.addAll(this.b);
-            }
-            return arrayList;
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<fb8> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
         return (List) invokeV.objValue;
     }
 
-    public void b(@Nullable JSONObject jSONObject) {
+    public List<hb8> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        this.a = c(jSONObject, "tieba_memes");
-        this.b = c(jSONObject, "outer_memes");
+        return (List) invokeV.objValue;
     }
 
-    @Nullable
-    public final List<fb8> c(@NonNull JSONObject jSONObject, @NonNull String str) {
-        InterceptResult invokeLL;
+    public int getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray(str);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    fb8 fb8Var = new fb8();
-                    fb8Var.a(optJSONArray.optJSONObject(i));
-                    if (fb8Var.isValid()) {
-                        arrayList.add(fb8Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void d(TopicListModule topicListModule) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, topicListModule) == null) && topicListModule != null) {
+            this.a = topicListModule.module_title;
+            List<TopicList> list = topicListModule.topic_list;
+            if (list == null) {
+                return;
+            }
+            int count = ListUtils.getCount(list);
+            for (int i = 0; i < count; i++) {
+                fb8 fb8Var = new fb8();
+                TopicList topicList = (TopicList) ListUtils.getItem(topicListModule.topic_list, i);
+                if (topicList != null) {
+                    fb8Var.c(topicList);
+                    if (!di.isEmptyStringAfterTrim(fb8Var.b())) {
+                        this.c.add(fb8Var);
+                        this.d.add(new hb8(topicList));
                     }
                 }
-                return arrayList;
             }
-            return null;
         }
-        return (List) invokeLL.objValue;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b = i;
+        }
     }
 }

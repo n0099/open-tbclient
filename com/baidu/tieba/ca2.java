@@ -1,93 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.KeyEvent;
+import android.view.MotionEvent;
 /* loaded from: classes5.dex */
-public class ca2 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
-    public static lj3 b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ca2 {
+    boolean dispatchTouchEvent(MotionEvent motionEvent);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947667957, "Lcom/baidu/tieba/ca2;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947667957, "Lcom/baidu/tieba/ca2;");
-        }
-    }
+    boolean onKeyDown(int i, KeyEvent keyEvent);
 
-    public ca2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
+    void onScrollChanged(int i, int i2, int i3, int i4);
 
-    public static lj3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (ca2.class) {
-                    if (b == null) {
-                        b = new lj3("swan_about_page_sp", true);
-                    }
-                }
-            }
-            return b;
-        }
-        return (lj3) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (a == -1) {
-                a = a().getInt(b(), 0);
-            }
-            if (a != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        String O;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ya3 b0 = ya3.b0();
-            if (b0 == null) {
-                O = a32.a(xa3.K().getAppId());
-            } else {
-                O = b0.O();
-            }
-            return "pref_tool_" + O;
-        }
-        return (String) invokeV.objValue;
-    }
+    boolean onTouchEvent(MotionEvent motionEvent);
 }

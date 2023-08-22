@@ -1,82 +1,126 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.faceunity.encoder.MediaMuxerWrapper;
+import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
 public class mfb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MediaMuxer a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    public static com.fun.module.csj.f0 a(TTNativeAd tTNativeAd) {
-        InterceptResult invokeL;
-        int i;
+    public mfb(String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tTNativeAd)) == null) {
-            int imageMode = tTNativeAd.getImageMode();
-            if (imageMode == 15) {
-                i = R.layout.fun_csj_ad_native_vertical_video_view;
-            } else if (imageMode != 16) {
-                if (imageMode != 166) {
-                    if (imageMode == 2) {
-                        i = R.layout.fun_csj_ad_native_small_img_view;
-                    } else if (imageMode == 3) {
-                        i = R.layout.fun_csj_ad_native_large_img_view;
-                    } else if (imageMode == 4) {
-                        i = R.layout.fun_csj_ad_native_group_img_view;
-                    } else if (imageMode != 5) {
-                        return null;
-                    }
-                }
-                i = R.layout.fun_csj_ad_native_large_video_view;
-            } else {
-                i = R.layout.fun_csj_ad_native_vertical_img_view;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            com.fun.module.csj.f0 f0Var = (com.fun.module.csj.f0) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(i, (ViewGroup) null);
-            f0Var.a(tTNativeAd);
-            return f0Var;
         }
-        return (com.fun.module.csj.f0) invokeL.objValue;
+        this.b = 2;
+        this.c = 0;
+        this.d = false;
+        this.a = new MediaMuxer(str, 0);
     }
 
-    public static String b(boolean z) {
-        InterceptResult invokeZ;
-        String str;
+    public synchronized int a(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        int addTrack;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            HashMap hashMap = new HashMap();
-            if (z) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put("personal_ads_type", str);
-            if (hashMap.isEmpty()) {
-                return "";
-            }
-            try {
-                JSONArray jSONArray = new JSONArray();
-                for (Map.Entry entry : hashMap.entrySet()) {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("name", entry.getKey());
-                    jSONObject.put("value", entry.getValue());
-                    jSONArray.put(jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
+            synchronized (this) {
+                if (this.d) {
+                    throw new IllegalStateException("muxer already started");
                 }
-                return jSONArray.toString();
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return "";
+                addTrack = this.a.addTrack(mediaFormat);
+                yfb.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+            }
+            return addTrack;
+        }
+        return invokeL.intValue;
+    }
+
+    public synchronized void b(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, byteBuffer, bufferInfo) == null) {
+            synchronized (this) {
+                if (this.c > 0) {
+                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
+                }
             }
         }
-        return (String) invokeZ.objValue;
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                yfb.k(MediaMuxerWrapper.TAG, "start:");
+                int i = this.c + 1;
+                this.c = i;
+                if (this.b > 0 && i == this.b) {
+                    this.a.start();
+                    this.d = true;
+                    notifyAll();
+                    yfb.k(MediaMuxerWrapper.TAG, "MediaMuxer started:");
+                }
+                z = this.d;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                yfb.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.c);
+                int i = this.c + (-1);
+                this.c = i;
+                if (this.b > 0 && i <= 0) {
+                    if (this.d) {
+                        this.a.stop();
+                    }
+                    this.a.release();
+                    this.d = false;
+                    yfb.k(MediaMuxerWrapper.TAG, "MediaMuxer stopped:");
+                }
+            }
+        }
+    }
+
+    public synchronized boolean e() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this) {
+                z = this.d;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 }

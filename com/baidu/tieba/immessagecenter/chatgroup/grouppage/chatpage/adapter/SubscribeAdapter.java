@@ -53,9 +53,9 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
                     return;
                 }
             }
-            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09255c);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0922e1);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092493);
+            this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09258b);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092308);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c1);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
@@ -93,17 +93,17 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: P */
+    /* renamed from: O */
     public Holder J(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0904, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d090c, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public void R(boolean z) {
+    public void Q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.k = z;
@@ -113,8 +113,8 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: Q */
-    public View M(int i, @NonNull ViewGroup viewGroup, @NonNull SubscribeSysMsg subscribeSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: P */
+    public View L(int i, @NonNull ViewGroup viewGroup, @NonNull SubscribeSysMsg subscribeSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, subscribeSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
@@ -127,10 +127,10 @@ public class SubscribeAdapter extends BaseSysAdapter<SubscribeSysMsg, Holder> {
                 i3 = R.color.CAM_X0304;
             }
             textSize.setTextColor(i3).setTextStyle(R.string.F_X01);
-            holder.b.setText(R.string.obfuscated_res_0x7f0f147d);
+            holder.b.setText(R.string.obfuscated_res_0x7f0f148b);
             if (getContext() != null) {
                 TextView textView = holder.a;
-                textView.setText(subscribeSysMsg.getSubscribeTips() + getContext().getString(R.string.obfuscated_res_0x7f0f147e));
+                textView.setText(subscribeSysMsg.getSubscribeTips() + getContext().getString(R.string.obfuscated_res_0x7f0f148c));
             }
             return holder.getView();
         }

@@ -70,7 +70,7 @@ public class u8 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String d = y10.d();
+            String d = b20.d();
             if (!TextUtils.isEmpty(d)) {
                 try {
                     JsonReader jsonReader = new JsonReader(new StringReader(d));
@@ -100,7 +100,7 @@ public class u8 {
                     try {
                         jSONObject.put("version", b);
                         jSONObject.put("data", new JSONObject(config));
-                        y10.j(jSONObject);
+                        b20.j(jSONObject);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -168,7 +168,7 @@ public class u8 {
                                 Iterator<String> keys = jSONObject.keys();
                                 while (keys.hasNext()) {
                                     String next = keys.next();
-                                    if (i20.a(next, this.c) == i) {
+                                    if (l20.a(next, this.c) == i) {
                                         arrayList.add(new b9(next, jSONObject.get(next)));
                                     }
                                 }
@@ -283,12 +283,12 @@ public class u8 {
                         jSONArray2 = jSONArray;
                         z = false;
                     }
-                    y10.i(jSONObject2, jSONObject3, arrayList3);
+                    b20.i(jSONObject2, jSONObject3, arrayList3);
                     if (AppConfig.isDebug()) {
                         Log.d("V1DataProcessor", "v1DataProcessor saveExpInfoList >> " + arrayList3.size());
                         Log.d("V1DataProcessor", "v1DataProcessor updateAddSwitchInfoList >> " + arrayList.size());
                     }
-                    c20.a().b(arrayList, false);
+                    f20.a().b(arrayList, false);
                 }
             } catch (JSONException e3) {
                 e = e3;

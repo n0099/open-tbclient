@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.view.View;
+import android.view.ViewGroup;
 /* loaded from: classes5.dex */
-public interface dn<T> extends zm<T> {
-    int g(int i, int i2);
+public interface dn<V extends ViewGroup> {
+    int getContentViewsCount();
 
-    lm<ym, TypeAdapter.ViewHolder> h(ym ymVar);
+    int getFooterViewsCount();
 
-    void notifyItemChanged(int i);
+    int getHeaderViewsCount();
 
-    void notifyItemChanged(int i, @Nullable Object obj);
+    V getListView();
+
+    boolean removeHeaderView(View view2);
 }

@@ -416,7 +416,7 @@ public class ToastCustom {
                 }
             };
             this.mNextView.setClickable(true);
-            View findViewById = this.mNextView.findViewById(R.id.obfuscated_res_0x7f090728);
+            View findViewById = this.mNextView.findViewById(R.id.obfuscated_res_0x7f09072c);
             if (findViewById != null) {
                 findViewById.setOnClickListener(onClickListener);
             } else {

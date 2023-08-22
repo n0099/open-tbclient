@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.text.TextUtils;
-import android.view.View;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
+import androidx.annotation.Nullable;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.android.imrtc.BIMRtcClient;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.account.ILoginListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.ShareService;
-import com.baidu.searchbox.live.shell.list.basic.MixYYFakeShell;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,14 +23,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class q39 implements ShareService {
-    public static /* synthetic */ Interceptable $ic;
+public class q39 implements ILoginListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile q39 e = null;
+    public static boolean f = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public ShareService.IOnSocialListener a;
-    public CustomMessageListener b;
+    public boolean a;
+    public b b;
+    @Nullable
+    public String c;
+    public BroadcastReceiver d;
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(int i, String str);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -45,77 +55,98 @@ public class q39 implements ShareService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public boolean canShareInLandScreen() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public void clean() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public boolean isShowing() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
     /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q39 a;
+        public final /* synthetic */ q39 this$0;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(q39 q39Var, int i) {
-            super(i);
+        /* renamed from: com.baidu.tieba.q39$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0457a extends bx5<Object> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0457a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.bx5
+            public Object doInBackground() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive doInBackground");
+                    this.a.this$0.e(null);
+                    return null;
+                }
+                return invokeV.objValue;
+            }
+        }
+
+        public a(q39 q39Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q39Var, Integer.valueOf(i)};
+                Object[] objArr = {q39Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = q39Var;
+            this.this$0 = q39Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
-                Integer num = (Integer) customResponsedMessage.getData();
-                if (this.a.a != null) {
-                    if (num.intValue() == 1) {
-                        this.a.a.onComplete("");
-                    } else if (num.intValue() == 2) {
-                        this.a.a.onError("");
-                    } else if (num.intValue() == 3) {
-                        this.a.a.onCancel("");
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive context=" + context + ", intent=" + intent);
+                if (intent != null && "com.baidu.lcp.sdk.broadcast".equals(intent.getAction())) {
+                    if (intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1) == 0) {
+                        z = true;
+                    } else {
+                        z = false;
                     }
-                    this.a.a = null;
+                    Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive connect=" + z);
+                    Log.d("ImSdkManager", "registerConnectListener connect ：" + intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1));
+                    v39.l(z);
+                    if (z) {
+                        v39.m("login_lcp");
+                        v39.c("login_lcp");
+                        fx5.b(new C0457a(this), null);
+                    }
                 }
-                MessageManager.getInstance().unRegisterListener(this.a.b);
             }
         }
     }
@@ -133,80 +164,139 @@ public class q39 implements ShareService {
                 return;
             }
         }
-        this.a = null;
-        this.b = new a(this, 2921550);
+        this.d = new a(this);
     }
 
-    public final void a(Context context, View view2, String str, String str2, String str3, String str4, String str5, ShareService.IOnSocialListener iOnSocialListener) {
-        boolean z;
+    public static q39 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, view2, str, str2, str3, str4, str5, iOnSocialListener}) == null) {
-            ShareItem shareItem = new ShareItem();
-            shareItem.title = str;
-            shareItem.content = str2;
-            shareItem.imageUrl = str4;
-            shareItem.linkUrl = str3;
-            try {
-                JSONObject jSONObject = new JSONObject(str5);
-                String optString = jSONObject.optString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID);
-                shareItem.voiceRoomId = jSONObject.optLong(MixYYFakeShell.ROOM_ID_YY);
-                shareItem.voiceRoomShareType = jSONObject.optString(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_VOICE_ROOM_TYPE);
-                if (TextUtils.isEmpty(optString)) {
-                    String optString2 = jSONObject.optString("liveId");
-                    String optString3 = jSONObject.optString("userId");
-                    shareItem.extData = optString2;
-                    shareItem.extLiveInfo = optString3;
-                } else {
-                    if (jSONObject.optInt("yy_show_tieba_entrance", 1) == 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (z) {
-                        shareItem.mYyAnchorBdUid = optString;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (e == null) {
+                synchronized (q39.class) {
+                    if (e == null) {
+                        e = new q39();
                     }
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
-            this.a = iOnSocialListener;
-            MessageManager.getInstance().registerListener(this.b);
-            if (context == null) {
-                context = TbadkCoreApplication.getInst();
+            return e;
+        }
+        return (q39) invokeV.objValue;
+    }
+
+    @NonNull
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.c)) {
+                this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaSDKShareEmptyActivityConfig(context, shareItem, 0, 1)));
+            String str = this.c;
+            if (str == null) {
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            v39.c("login_lcp");
+            v39.c("login_im");
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init context=" + context);
+            int i = 0;
+            this.a = false;
+            String version = TbConfig.getVersion();
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
+            LocalBroadcastManager.getInstance(context).registerReceiver(this.d, intentFilter);
+            String a2 = a();
+            if (d()) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init debug");
+                BIMManager.init(context, 10773430L, 1, a2);
+                BIMManager.enableDebugMode(true);
+                BIMRtcClient.setRtcDebugAndLogEnable(context, true, true);
+                y90.d(context, 1);
+                y90.c(context, true);
+                aa0.O(context, "");
+                i = 1;
+            } else {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init online");
+                BIMManager.init(context, 10773430L, 0, a2);
+                BIMRtcClient.setRtcDebugAndLogEnable(context, false, false);
+            }
+            BIMManager.setProductLine(context, 3, version);
+            LogUtils.d("imlog", "BIMManager init env:" + i);
+            f(context, a2);
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public void startShare(Context context, View view2, String str, String str2, String str3, String str4, String str5, ShareService.IOnSocialListener iOnSocialListener) {
+    public void e(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, view2, str, str2, str3, str4, str5, iOnSocialListener}) == null) {
-            a(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM listener=" + bVar);
+            this.b = bVar;
+            String from = TbConfig.getFrom();
+            String currentFrom = TbConfig.getCurrentFrom();
+            if (TbadkCoreApplication.isLogin()) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM login");
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                String currentBduss = TbadkCoreApplication.getCurrentBduss();
+                BIMManager.login(currentAccount, currentBduss, 1, from, currentFrom, this);
+                LogUtils.d("imlog", "IMSdkManager PassIsLogin loginToIM uid = " + currentAccount + ", bduss = " + currentBduss + ", from = " + from + ", cfrom = " + currentFrom);
+                return;
+            }
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM cuid");
+            String a2 = a();
+            BIMManager.login(null, a2, 6, from, currentFrom, this);
+            LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + a2 + ", from = " + from + ", cfrom = " + currentFrom);
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public void startShare(Context context, View view2, String str, String str2, String str3, String str4, String str5, String str6, ShareService.IOnSocialListener iOnSocialListener) {
+    public final void f(Context context, String str) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, view2, str, str2, str3, str4, str5, str6, iOnSocialListener}) == null) {
-            startShare(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP context=" + context);
+            if (f) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            f = false;
+            v80.a(context, "10773430", str, i);
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP connect end");
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public void startShare(@NonNull Context context, @NonNull View view2, String str, String str2, String str3, String str4, @NonNull String str5, String str6, String str7, int i, String str8, ShareService.IOnSocialListener iOnSocialListener) {
+    @Override // com.baidu.android.imsdk.account.ILoginListener
+    public void onLoginResult(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, view2, str, str2, str3, str4, str5, str6, str7, Integer.valueOf(i), str8, iOnSocialListener}) == null) {
-            startShare(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            v39.k(0L, i, str);
+            if (i == 0) {
+                v39.m("login_im");
+                v39.c("login_im");
+            }
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLoginResult errno=" + i + ", errMsg=" + str);
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.a(i, str);
+                this.b = null;
+            }
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.ShareService
-    public void startShare(@NonNull Context context, @NonNull View view2, String str, String str2, String str3, String str4, @NonNull String str5, String str6, String str7, int i, String str8, String str9, ShareService.IOnSocialListener iOnSocialListener) {
+    @Override // com.baidu.android.imsdk.account.ILoginListener
+    public void onLogoutResult(int i, String str, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, view2, str, str2, str3, str4, str5, str6, str7, Integer.valueOf(i), str8, str9, iOnSocialListener}) == null) {
-            startShare(context, view2, str, str2, str3, str4, str5, iOnSocialListener);
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLogoutResult errno=" + i + ", errMsg=" + str + ", type=" + i2);
+            if (!this.a) {
+                e(null);
+            }
         }
     }
 }

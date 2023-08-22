@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HMSPackageManager {
     public static /* synthetic */ Interceptable $ic;
     public static HMSPackageManager l;
@@ -52,7 +52,7 @@ public class HMSPackageManager {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? "com.huawei.hms.core.internal" : (String) invokeV.objValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -91,7 +91,7 @@ public class HMSPackageManager {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b implements Comparable<b> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

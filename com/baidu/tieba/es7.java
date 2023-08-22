@@ -1,5 +1,8 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
 public interface es7 {
-    void d();
+    void a(@NonNull View view2, @NonNull View.OnClickListener onClickListener);
 }

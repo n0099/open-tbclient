@@ -3,7 +3,7 @@ package com.huawei.hms.common.data;
 import android.os.Bundle;
 import com.huawei.hms.common.api.Releasable;
 import java.util.Iterator;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface DataBuffer<T> extends Releasable, Iterable<T> {
     @Deprecated
     void close();

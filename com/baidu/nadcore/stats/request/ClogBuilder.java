@@ -11,33 +11,33 @@ import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
 import com.baidu.searchbox.ui.animview.util.PraiseUBCHelper;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.b31;
-import com.baidu.tieba.k51;
-import com.baidu.tieba.l51;
-import com.baidu.tieba.o51;
+import com.baidu.tieba.e31;
+import com.baidu.tieba.p51;
 import com.baidu.tieba.q51;
-import com.baidu.tieba.s51;
-import com.baidu.tieba.v31;
-import com.baidu.tieba.vj0;
-import com.baidu.tieba.w31;
+import com.baidu.tieba.t51;
+import com.baidu.tieba.v51;
+import com.baidu.tieba.x51;
+import com.baidu.tieba.y31;
+import com.baidu.tieba.yj0;
+import com.baidu.tieba.z31;
 import com.huawei.hms.framework.network.grs.GrsBaseInfo;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.net.URLEncoder;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ClogBuilder extends v31 {
-    public final JSONObject c = b31.c(null);
+public class ClogBuilder extends y31 {
+    public final JSONObject c = e31.c(null);
 
     public ClogBuilder() {
         d("origin_time", String.valueOf(System.currentTimeMillis()));
     }
 
-    @Override // com.baidu.tieba.t31, com.baidu.tieba.w31
+    @Override // com.baidu.tieba.w31, com.baidu.tieba.z31
     public void a() {
-        vj0 vj0Var = (vj0) ServiceManager.getService(vj0.a);
-        if (vj0Var != null) {
-            A(vj0Var.a(this.c.optString("extra_param")));
+        yj0 yj0Var = (yj0) ServiceManager.getService(yj0.a);
+        if (yj0Var != null) {
+            A(yj0Var.a(this.c.optString("extra_param")));
         }
         g();
     }
@@ -47,7 +47,7 @@ public class ClogBuilder extends v31 {
         return this.c;
     }
 
-    @Override // com.baidu.tieba.v31, com.baidu.tieba.w31
+    @Override // com.baidu.tieba.y31, com.baidu.tieba.z31
     public boolean isValid() {
         if (!TextUtils.isEmpty(this.c.optString("da_type"))) {
             return super.isValid();
@@ -78,6 +78,7 @@ public class ClogBuilder extends v31 {
         AD_CALL("CALL"),
         APP_PRIVACY("app_privacy"),
         APP_PERMISSION("app_permission"),
+        APP_FEATURE("app_feature"),
         FLOATING("floating_btn"),
         IMAGE("image"),
         CLOSE_BTN("close_btn"),
@@ -334,40 +335,40 @@ public class ClogBuilder extends v31 {
         return this;
     }
 
-    @Override // com.baidu.tieba.t31, com.baidu.tieba.w31
-    public <T extends w31> T b(String str, String str2) {
+    @Override // com.baidu.tieba.w31, com.baidu.tieba.z31
+    public <T extends z31> T b(String str, String str2) {
         d(str, str2);
         return this;
     }
 
-    @Override // com.baidu.tieba.t31
-    public <T extends w31> T d(String str, Object obj) {
+    @Override // com.baidu.tieba.w31
+    public <T extends z31> T d(String str, Object obj) {
         if (TextUtils.isEmpty(str)) {
             return this;
         }
-        b31.f(this.c, str, obj);
+        e31.f(this.c, str, obj);
         return this;
     }
 
     public final void g() {
-        if (!l51.a) {
+        if (!q51.a) {
             return;
         }
-        s51 s51Var = (s51) k51.a().a(s51.class);
-        if (s51Var != null) {
-            s51Var.a(h());
+        x51 x51Var = (x51) p51.a().a(x51.class);
+        if (x51Var != null) {
+            x51Var.a(h());
         }
-        o51 o51Var = (o51) k51.a().a(o51.class);
-        if (o51Var != null) {
-            o51Var.a(h());
+        t51 t51Var = (t51) p51.a().a(t51.class);
+        if (t51Var != null) {
+            t51Var.a(h());
         }
-        q51 q51Var = (q51) k51.a().a(q51.class);
-        if (q51Var != null) {
-            q51Var.a(h());
+        v51 v51Var = (v51) p51.a().a(v51.class);
+        if (v51Var != null) {
+            v51Var.a(h());
         }
     }
 
-    @Override // com.baidu.tieba.v31, com.baidu.tieba.t31, com.baidu.tieba.w31
+    @Override // com.baidu.tieba.y31, com.baidu.tieba.w31, com.baidu.tieba.z31
     @NonNull
     public String toString() {
         super.toString();

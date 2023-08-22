@@ -1,104 +1,141 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.RevenueConfig;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatisticsApi;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
-import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.api.IMiddleRevenue;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.IMiddlePayService;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.exceptions.InvalidFrameException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public final class l6c implements IMiddleRevenue {
+public class l6c implements m6c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final k6c b;
-    public final IRevenue c;
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayEventStatisticsApi getPayEventStatisticApi() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m6c
+    public boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return true;
         }
-        return (IPayEventStatisticsApi) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IPayServiceStatisticsApi getPayServiceStatisticsApi() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.m6c
+    public void c(Framedata framedata) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, framedata) == null) {
         }
-        return (IPayServiceStatisticsApi) invokeV.objValue;
     }
 
-    public l6c(MiddleRevenueConfig middleRevenueConfig, IRevenue iRevenue) {
+    @Override // com.baidu.tieba.m6c
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m6c
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.m6c
+    public void f(Framedata framedata) throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, framedata) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.m6c
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? "" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.m6c
+    public void reset() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        }
+    }
+
+    public l6c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {middleRevenueConfig, iRevenue};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = iRevenue;
-        this.a = "MiddleRevenue";
-        IAppPayService appPayService = this.c.getAppPayService();
-        Intrinsics.checkExpressionValueIsNotNull(appPayService, "revenue.appPayService");
-        this.b = new k6c(middleRevenueConfig, appPayService);
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public IAppPayService getAppPayService() {
+    @Override // com.baidu.tieba.m6c
+    public m6c a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return new l6c();
         }
-        return (IAppPayService) invokeV.objValue;
+        return (m6c) invokeV.objValue;
     }
 
-    @Override // tv.athena.revenue.api.IMiddleRevenue
-    public IMiddlePayService getMiddlePayService() {
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return l6c.class.hashCode();
         }
-        return (IMiddlePayService) invokeV.objValue;
+        return invokeV.intValue;
     }
 
+    @Override // com.baidu.tieba.m6c
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a + hashCode() + " :{revenue:" + this.c + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return l6c.class.getSimpleName();
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.IRevenue
-    public void updateConfig(RevenueConfig revenueConfig) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, revenueConfig) == null) {
-            this.c.updateConfig(revenueConfig);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && l6c.class == obj.getClass()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.m6c
+    public void h(Framedata framedata) throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, framedata) == null) {
+            if (!framedata.b() && !framedata.c() && !framedata.e()) {
+                return;
+            }
+            throw new InvalidFrameException("bad rsv RSV1: " + framedata.b() + " RSV2: " + framedata.c() + " RSV3: " + framedata.e());
         }
     }
 }

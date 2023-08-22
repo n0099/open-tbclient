@@ -1,90 +1,181 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public class lob extends cob {
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.banner2.UnifiedBannerADListener;
+import com.qq.e.ads.banner2.UnifiedBannerView;
+import com.qq.e.comm.util.AdError;
+/* loaded from: classes7.dex */
+public class lob extends vnb<rob> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, cob> a;
-    public static final Object b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947951018, "Lcom/baidu/tieba/lob;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class a implements UnifiedBannerADListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public rob c;
+        public final /* synthetic */ UnifiedBannerView[] d;
+        public final /* synthetic */ lob e;
+
+        public a(lob lobVar, UnifiedBannerView[] unifiedBannerViewArr) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lobVar, unifiedBannerViewArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947951018, "Lcom/baidu/tieba/lob;");
-                return;
+            this.e = lobVar;
+            this.d = unifiedBannerViewArr;
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClicked((lob) this.c, this.b, new String[0]);
+                this.b = true;
             }
         }
-        a = new HashMap();
-        b = new Object();
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.e();
+                this.e.onAdClose(this.c);
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADExposure() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                this.e.onAdShow((lob) this.c, this.a, new String[0]);
+                this.a = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADLeftApplication() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADReceive() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+                rob robVar = new rob(this.d[0]);
+                this.c = robVar;
+                this.e.onAdLoaded(robVar, new String[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onNoAD(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
+                this.e.onError(adError.getErrorCode(), adError.getErrorMsg());
+            }
+        }
     }
 
-    public lob(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lob(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        hob.d(context, str);
     }
 
-    public static cob a(Context context) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
-            }
-            String packageName = context.getPackageName();
-            c = packageName;
-            return b(context, packageName);
-        }
-        return (cob) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new cob(pid) : (AdRipper) invokeL.objValue;
     }
 
-    public static cob b(Context context, String str) {
-        InterceptResult invokeLL;
-        cob cobVar;
+    @Override // com.baidu.tieba.vnb
+    public void e(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                throw new IllegalArgumentException("packageName can not be empty");
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (!(context instanceof Activity)) {
+                onError(0, "NoA");
+                return;
             }
-            synchronized (b) {
-                cobVar = a.get(str);
-                if (cobVar == null) {
-                    a.put(str, new lob(context, str));
-                }
-            }
-            return cobVar;
+            UnifiedBannerView unifiedBannerView = new UnifiedBannerView((Activity) context, this.mPid.pid, new a(this, r6));
+            unifiedBannerView.setRefresh(0);
+            unifiedBannerView.loadAD();
+            UnifiedBannerView[] unifiedBannerViewArr = {unifiedBannerView};
         }
-        return (cob) invokeLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        rob robVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (robVar = (rob) obj) != null) {
+            ((UnifiedBannerView) robVar.a).destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            rob robVar = (rob) obj;
+            onShowStart(robVar);
+            if (((UnifiedBannerView) robVar.a).getParent() != null) {
+                ((ViewGroup) ((UnifiedBannerView) robVar.a).getParent()).removeView((View) robVar.a);
+            }
+            viewGroup.removeAllViews();
+            int width = viewGroup.getWidth();
+            viewGroup.addView((View) robVar.a, new ViewGroup.LayoutParams(width, Math.round(width / 6.4f)));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

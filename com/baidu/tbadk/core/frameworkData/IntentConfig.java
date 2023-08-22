@@ -28,12 +28,12 @@ import com.baidu.tbadk.mutiprocess.MutiProcessManager;
 import com.baidu.tbadk.mutiprocess.prePageKey.PrePageKeyEvent;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
-import com.baidu.tieba.br5;
-import com.baidu.tieba.er5;
-import com.baidu.tieba.fr5;
 import com.baidu.tieba.ig;
 import com.baidu.tieba.l9;
 import com.baidu.tieba.log.TbLog;
+import com.baidu.tieba.sr5;
+import com.baidu.tieba.vr5;
+import com.baidu.tieba.wr5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -170,10 +170,19 @@ public class IntentConfig extends OrmObject {
         return invokeV.booleanValue;
     }
 
+    public Class<?> getActivityClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (Class) invokeV.objValue;
+    }
+
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
@@ -181,7 +190,7 @@ public class IntentConfig extends OrmObject {
 
     public void preJump() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
     }
 
@@ -367,7 +376,7 @@ public class IntentConfig extends OrmObject {
         ArrayList<String> c2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
-            br5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
+            sr5 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(context);
             if (currentVisiblePageExtra == null) {
                 c2 = null;
             } else {
@@ -467,7 +476,7 @@ public class IntentConfig extends OrmObject {
 
     public void setComponentClass(Class<?> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cls) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, cls) == null) {
             if (cls == null) {
                 if (!BdBaseApplication.getInst().isDebugMode()) {
                     return;
@@ -484,7 +493,7 @@ public class IntentConfig extends OrmObject {
 
     public void setContext(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, context) == null) {
             this.mContext = context;
         }
     }
@@ -492,35 +501,35 @@ public class IntentConfig extends OrmObject {
     public void setForceInterceptStimeStat(boolean z) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048587, this, z) == null) && (intent = getIntent()) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048588, this, z) == null) && (intent = getIntent()) != null) {
             intent.putExtra(KEY_FORCE_INTERCEPT_STIME_STAT, z);
         }
     }
 
     public void setIntent(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, intent) == null) {
             this.mIntent = intent;
         }
     }
 
     public void setIntentAction(IntentAction intentAction) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, intentAction) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, intentAction) == null) {
             this.mIntentAction = intentAction;
         }
     }
 
     public void setRequestCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.mRequestCode = i;
         }
     }
 
     public void startActivityForRemote(Class<?> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, cls) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, cls) == null) {
             setComponentClass(cls);
             logIntent("startActivityForRemote");
             Intent intent = new Intent();
@@ -532,7 +541,7 @@ public class IntentConfig extends OrmObject {
     public void startService(Class<?> cls) {
         Context context;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, cls) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, cls) == null) {
             setComponentClass(cls);
             logIntent("startService");
             if (this.mComponentClass != null && (context = this.mContext) != null) {
@@ -547,7 +556,7 @@ public class IntentConfig extends OrmObject {
 
     public void startActivityForResultForRemote(int i, Class<?> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048596, this, i, cls) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048597, this, i, cls) == null) {
             setRequestCode(i);
             this.isForResult = true;
             setComponentClass(cls);
@@ -563,12 +572,12 @@ public class IntentConfig extends OrmObject {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65548, this) == null) && this.mIntent != null && (context = this.mContext) != null) {
             BdPageContextSupport<?> b2 = l9.b(context);
-            fr5 fr5Var = null;
-            if (b2 instanceof er5) {
-                fr5Var = ((er5) b2).getTbPageInfo();
+            wr5 wr5Var = null;
+            if (b2 instanceof vr5) {
+                wr5Var = ((vr5) b2).getTbPageInfo();
             }
-            if (fr5Var != null) {
-                this.mIntent.putExtra("tb_page_tag_source_trace", fr5Var.a());
+            if (wr5Var != null) {
+                this.mIntent.putExtra("tb_page_tag_source_trace", wr5Var.a());
             }
         }
     }
@@ -590,7 +599,7 @@ public class IntentConfig extends OrmObject {
 
     public void run() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || !isValid()) {
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || !isValid()) {
             return;
         }
         IntentAction intentAction = this.mIntentAction;
@@ -608,7 +617,7 @@ public class IntentConfig extends OrmObject {
     public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mContext;
         }
         return (Context) invokeV.objValue;
@@ -617,7 +626,7 @@ public class IntentConfig extends OrmObject {
     public Intent getIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mIntent;
         }
         return (Intent) invokeV.objValue;
@@ -626,7 +635,7 @@ public class IntentConfig extends OrmObject {
     public int getRequestCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mRequestCode;
         }
         return invokeV.intValue;
@@ -634,14 +643,14 @@ public class IntentConfig extends OrmObject {
 
     public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
 
     public void startService() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             logIntent("startService");
             this.mContext.startService(this.mIntent);
         }
@@ -649,7 +658,7 @@ public class IntentConfig extends OrmObject {
 
     public void stopService() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             logIntent("stopService");
             this.mContext.stopService(this.mIntent);
         }
@@ -659,7 +668,7 @@ public class IntentConfig extends OrmObject {
         InterceptResult invokeL;
         Class<?> loadClass;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, cls)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, cls)) == null) {
             preJump();
             setComponentClass(cls);
             logIntent(WBConstants.SHARE_START_ACTIVITY);
@@ -701,7 +710,7 @@ public class IntentConfig extends OrmObject {
     public void startActivityForResult(int i) {
         Class<?> cls;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             logIntent("startActivityForResult");
             if (!checkStartActivityInterval(this.mComponentClass)) {
                 ActivityLog.getInstance().e("startActivityForResult", "fail checkStartActivityInterval");
@@ -719,7 +728,7 @@ public class IntentConfig extends OrmObject {
 
     public void startActivityForResult(int i, Class<?> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048595, this, i, cls) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048596, this, i, cls) == null) {
             setComponentClass(cls);
             if (this.mComponentClass != null && this.mContext != null) {
                 try {

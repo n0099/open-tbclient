@@ -10,10 +10,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hk8;
+import com.baidu.tieba.go8;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.holder.ResponsePanelEmojiHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
-import com.baidu.tieba.lk8;
+import com.baidu.tieba.ko8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
     public transient /* synthetic */ FieldHolder $fh;
     @NonNull
     public final List<Reaction> a;
-    public lk8 b;
+    public ko8 b;
 
     /* loaded from: classes6.dex */
     public class a implements View.OnClickListener {
@@ -93,10 +93,10 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
         notifyDataSetChanged();
     }
 
-    public void p(lk8 lk8Var) {
+    public void p(ko8 ko8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, lk8Var) == null) {
-            this.b = lk8Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ko8Var) == null) {
+            this.b = ko8Var;
         }
     }
 
@@ -130,8 +130,8 @@ public class ResponsePanelEmojiAdapter extends RecyclerView.Adapter<ResponsePane
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d028e, viewGroup, false);
-            int i2 = hk8.b;
+            View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0291, viewGroup, false);
+            int i2 = go8.b;
             inflate.setPadding(i2, 0, i2, 0);
             return new ResponsePanelEmojiHolder(inflate);
         }

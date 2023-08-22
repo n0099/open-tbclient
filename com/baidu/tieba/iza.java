@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import android.content.Intent;
 /* loaded from: classes6.dex */
 public interface iza {
-    void j(int i);
+    void a(int i, Intent intent);
 
-    void r1(VideoInfo videoInfo);
+    Integer[] b();
 }

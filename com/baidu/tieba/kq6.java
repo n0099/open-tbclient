@@ -1,25 +1,70 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ne;
+import com.baidu.tieba.y47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
+import kotlin.Unit;
 import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class kq6 implements z97 {
+public final class kq6 implements y47.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.z97
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13566" : (String) invokeV.objValue;
+    /* loaded from: classes6.dex */
+    public static final class a extends bx5<Unit> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ JSONObject d;
+
+        public a(String str, String str2, String str3, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, str3, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+            this.d = jSONObject;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    r45.m(this.a, this.b).g(this.c, this.d.toString());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.bx5
+        public /* bridge */ /* synthetic */ Unit doInBackground() {
+            a();
+            return Unit.INSTANCE;
+        }
     }
 
     public kq6() {
@@ -36,28 +81,58 @@ public final class kq6 implements z97 {
         }
     }
 
-    @Override // com.baidu.tieba.z97
-    public Map<String, String> a(m57 businessInfo) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.y47.g
+    public void a(String spaceName, String uid, String key, JSONObject value) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            hashMap.put("obj_locate", "1");
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            String str = "";
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            hashMap.put("obj_id", currentAccount);
-            String str2 = a.get("user_id");
-            if (str2 != null) {
-                str = str2;
-            }
-            hashMap.put("obj_param1", str);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, spaceName, uid, key, value) == null) {
+            Intrinsics.checkNotNullParameter(spaceName, "spaceName");
+            Intrinsics.checkNotNullParameter(uid, "uid");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(value, "value");
+            fx5.b(new a(spaceName, uid, key, value), null);
         }
-        return (Map) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:38:0x003f A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x001f A[SYNTHETIC] */
+    @Override // com.baidu.tieba.y47.g
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public Map<String, JSONObject> b(String spaceName, String uid) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, spaceName, uid)) == null) {
+            Intrinsics.checkNotNullParameter(spaceName, "spaceName");
+            Intrinsics.checkNotNullParameter(uid, "uid");
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            try {
+                for (ne.b<String> bVar : ii.b(r45.m(spaceName, uid))) {
+                    if (bVar != null) {
+                        String str = bVar.a;
+                        boolean z2 = false;
+                        if (str != null && str.length() != 0) {
+                            z = false;
+                            if (!z) {
+                                String str2 = bVar.b;
+                                if (!((str2 == null || str2.length() == 0) ? true : true)) {
+                                    String str3 = bVar.a;
+                                    Intrinsics.checkNotNullExpressionValue(str3, "element.key");
+                                    linkedHashMap.put(str3, new JSONObject(bVar.b));
+                                }
+                            }
+                        }
+                        z = true;
+                        if (!z) {
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return linkedHashMap;
+        }
+        return (Map) invokeLL.objValue;
     }
 }

@@ -112,10 +112,10 @@ public class ComplianceTextView extends TextView {
     private void b(Context context, AttributeSet attributeSet) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_ComplianceTextView);
         this.OH = obtainStyledAttributes.getDimensionPixelOffset(2, Cea708Decoder.COMMAND_DF2);
-        this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06078d));
+        this.OJ = obtainStyledAttributes.getColor(0, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060793));
         this.OK = obtainStyledAttributes.getBoolean(1, true);
         if (getBackground() == null) {
-            setBackground(ContextCompat.getDrawable(context, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e21));
+            setBackground(ContextCompat.getDrawable(context, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080e32));
         }
         obtainStyledAttributes.recycle();
     }
@@ -162,7 +162,7 @@ public class ComplianceTextView extends TextView {
         }
         spannableStringBuilder.append((CharSequence) " ");
         setMovementMethod(LinkMovementMethod.getInstance());
-        setHighlightColor(ContextCompat.getColor(getContext(), com.baidu.tieba.R.color.obfuscated_res_0x7f0607a4));
+        setHighlightColor(ContextCompat.getColor(getContext(), com.baidu.tieba.R.color.obfuscated_res_0x7f0607aa));
         setText(spannableStringBuilder);
     }
 

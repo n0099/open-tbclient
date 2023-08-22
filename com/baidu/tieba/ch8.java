@@ -1,71 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire.Wire;
+import tbclient.Bigvip.BigvipResIdl;
+import tbclient.Bigvip.UserInfoBigVip;
 /* loaded from: classes5.dex */
-public class ch8 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "1";
-    public static String b = "2";
-    public static String c = "3";
-    public static String d = "1";
-    public static String e = "2";
+public class ch8 implements CustomMessageTask.CustomRunnable<Object> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947674870, "Lcom/baidu/tieba/ch8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ch8() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947674870, "Lcom/baidu/tieba/ch8;");
-        }
-    }
-
-    public static void a(long j, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), str, str2, str3}) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_DIALOG_SHOW);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", j);
-            statisticItem.param("fname", str);
-            statisticItem.param("obj_source", str2);
-            statisticItem.param("obj_locate", str3);
-            TiebaStatic.log(statisticItem);
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(long j, String str) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65538, null, j, str) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_CREATE_CLICK);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", j);
-            statisticItem.param("obj_locate", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            UserInfoBigVip userInfoBigVip = null;
+            if (customMessage != null && (customMessage.getData() instanceof Long)) {
+                long longValue = ((Long) customMessage.getData()).longValue();
+                r45.k();
+                ne<byte[]> i = r45.i("tb.im_recommend_detail");
+                if (i == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
+                }
+                byte[] bArr = i.get(longValue + "");
+                if (bArr == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
+                }
+                try {
+                    userInfoBigVip = ((BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class)).data.user_info;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+                return new CustomResponsedMessage<>(2001306, userInfoBigVip);
+            }
+            return new CustomResponsedMessage<>(2001306, null);
         }
-    }
-
-    public static void c(long j, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65539, null, j, str) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_GROUP_LIST_MANAGE_CLICK);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("fid", j);
-            statisticItem.param("obj_locate", str);
-            TiebaStatic.log(statisticItem);
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -1,161 +1,80 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tieba.pb.pb.main.PbBjhRecommendViewHolder;
+import com.baidu.tieba.pb.bot.BotEntranceManager;
+import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.CallRobotEntrance;
+import tbclient.RobotEntrance;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
 /* loaded from: classes7.dex */
-public class mg9 extends qg9<h15, PbBjhRecommendViewHolder> {
+public final class mg9 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public td9 g;
-    public int h;
+    public final WeakReference<PbFragment> a;
+    public final String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mg9(vl9 vl9Var, BdUniqueId bdUniqueId) {
-        super(vl9Var, bdUniqueId);
+    public mg9(String token, PbFragment pbFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vl9Var, bdUniqueId};
+            Object[] objArr = {token, pbFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((vl9) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        Intrinsics.checkNotNullParameter(token, "token");
+        Intrinsics.checkNotNullParameter(pbFragment, "pbFragment");
+        this.a = new WeakReference<>(pbFragment);
+        this.b = token;
     }
 
-    public void A(td9 td9Var) {
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0067  */
+    @Override // java.lang.Runnable
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void run() {
+        PbFragment pbFragment;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, td9Var) == null) {
-            this.g = td9Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: x */
-    public PbBjhRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            PbBjhRecommendViewHolder pbBjhRecommendViewHolder = new PbBjhRecommendViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0176, (ViewGroup) null), this.a.Y());
-            u(pbBjhRecommendViewHolder);
-            return pbBjhRecommendViewHolder;
-        }
-        return (PbBjhRecommendViewHolder) invokeL.objValue;
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public final void u(PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, pbBjhRecommendViewHolder) != null) || pbBjhRecommendViewHolder == null) {
-            return;
-        }
-        int skinType = TbadkCoreApplication.getInst().getSkinType();
-        if (pbBjhRecommendViewHolder.a != skinType) {
-            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.h, R.color.CAM_X0204, skinType);
-            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.v, R.color.CAM_X0203, skinType);
-            SkinManager.setBackgroundColor(pbBjhRecommendViewHolder.q, R.color.CAM_X0204, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.s, R.color.CAM_X0302, 1, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.l, R.color.CAM_X0105, 1, skinType);
-            pbBjhRecommendViewHolder.n.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, null));
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.o, R.color.CAM_X0101, 1, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.t, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setViewTextColor(pbBjhRecommendViewHolder.u, R.color.CAM_X0109, 1, skinType);
-            SkinManager.setBackgroundSelector(pbBjhRecommendViewHolder.g, R.color.CAM_X0302, R.color.CAM_X0204, skinType);
-            EMManager.from(pbBjhRecommendViewHolder.g).setBackGroundSelectorColor(R.color.CAM_X0205, R.color.CAM_X0204);
-            TBSelector.makeDrawableSelector().setShape(0).gradientLinear(R.color.cp_bg_line_d_alpha0, R.color.CAM_X0105).cornerRadius(BdUtilHelper.getDimens(this.a.Y(), R.dimen.tbds10)).into(pbBjhRecommendViewHolder.k);
-        }
-        pbBjhRecommendViewHolder.a = skinType;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qg9, com.baidu.tieba.lm
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, h15 h15Var, PbBjhRecommendViewHolder pbBjhRecommendViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, h15Var, pbBjhRecommendViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) h15Var, (h15) pbBjhRecommendViewHolder);
-            if (h15Var == null) {
-                return null;
-            }
-            u(pbBjhRecommendViewHolder);
-            pbBjhRecommendViewHolder.g(h15Var);
-            pbBjhRecommendViewHolder.h(this.h);
-            td9 td9Var = this.g;
-            if (td9Var != null) {
-                pbBjhRecommendViewHolder.k(td9Var.Q());
-                pbBjhRecommendViewHolder.j(this.g.x0());
-                if (this.g.O() != null && this.g.O().getBaijiahaoData() != null) {
-                    pbBjhRecommendViewHolder.i(this.g.O().getBaijiahaoData().oriUgcNid);
-                }
-                int i2 = this.h;
-                int i3 = 3;
-                if (i2 == 2) {
-                    i3 = 1;
-                } else if (i2 == 1) {
-                    i3 = 2;
-                } else if (i2 != 3) {
-                    i3 = 4;
-                }
-                if (h15Var.threadType == 40) {
-                    StatisticItem.make("c13536").param("tid", h15Var.getTid()).param("fid", h15Var.getFid()).param("obj_source", i3).param("obj_locate", h15Var.c()).param("obj_id", this.g.Q()).param("obj_type", h15Var.isBjhDynamicThread() ? 1 : 0).eventStat();
-                } else {
-                    StatisticItem.make("c13533").param("tid", h15Var.getTid()).param("fid", h15Var.getFid()).param("obj_source", i3).param("obj_locate", h15Var.c()).param("obj_id", this.g.Q()).eventStat();
-                }
-                if (this.g.x0()) {
-                    StatisticItem statisticItem = new StatisticItem("c13588");
-                    if (h15Var.getForumData() != null) {
-                        statisticItem.param("fid", h15Var.getForumData().b());
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pbFragment = this.a.get()) != null && pbFragment.Y5() != null && pbFragment.W() != null && pbFragment.Y5().T0() != null && pbFragment.W().s1() != null) {
+            RobotEntrance K = pbFragment.W().s1().K();
+            if (K != null) {
+                List<RobotSkillInfo> list = K.robot_skill_info;
+                List<RobotSkill> list2 = K.bottom_bar_robot_skill;
+                if (list != null && list2 != null) {
+                    CallRobotEntrance c = BotEntranceManager.c.c().c(list, list2);
+                    Intrinsics.checkNotNull(c);
+                    str = c.style_conf.android_extra.bot_timeout_content;
+                    Intrinsics.checkNotNullExpressionValue(str, "robotEntrance!!.style_co…extra.bot_timeout_content");
+                    if (TextUtils.isEmpty(str)) {
+                        str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f07f7);
+                        Intrinsics.checkNotNullExpressionValue(str, "getInst()\n              …bot_loading_timeout_text)");
                     }
-                    statisticItem.param("tid", h15Var.getTid());
-                    statisticItem.param("obj_param1", h15Var.mRecomWeight);
-                    statisticItem.param("obj_source", h15Var.mRecomSource);
-                    statisticItem.param("obj_locate", h15Var.c());
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, System.currentTimeMillis());
-                    statisticItem.param("obj_id", this.g.Q());
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    if (h15Var.getThreadData().getBaijiahaoData() != null) {
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, h15Var.getThreadData().getBaijiahaoData().oriUgcNid);
-                        statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, h15Var.getThreadData().getBaijiahaoData().oriUgcVid);
-                    }
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, h15Var.getVideoRecStaticticType());
-                    statisticItem.param("ab_tag", h15Var.mRecomAbTag);
-                    statisticItem.param("extra", h15Var.mRecomExtra);
-                    TiebaStatic.log(statisticItem);
+                    go9.d(this.b, str, "", 2);
+                    pbFragment.Y5().T0().f0();
                 }
             }
-            return view2;
+            str = "";
+            if (TextUtils.isEmpty(str)) {
+            }
+            go9.d(this.b, str, "", 2);
+            pbFragment.Y5().T0().f0();
         }
-        return (View) invokeCommon.objValue;
     }
 }

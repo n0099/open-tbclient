@@ -1,25 +1,12 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-/* loaded from: classes8.dex */
+import android.content.Intent;
+/* loaded from: classes9.dex */
 public interface zw1 {
-    hx1 a(Context context);
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    dx1 b(Context context);
+    boolean c();
 
-    hx1 c(Context context);
-
-    tc2 d();
-
-    ex1 e(Context context, int i);
-
-    hx1 f(Context context);
-
-    hx1 g(Context context);
-
-    uc2 h(Context context, int i);
-
-    hx1 i(Context context);
-
-    boolean j(int i);
+    boolean d();
 }

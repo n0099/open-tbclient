@@ -1,57 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AgreeMeActivityConfig;
-import com.baidu.tbadk.core.atomData.AtMeActivityConfig;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.atomData.ReplyMeActivityConfig;
-import com.baidu.tieba.immessagecenter.msgtab.data.NotifyType;
-import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.immessagecenter.chatgroup.data.RecentlyBotSkillInfoDto;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class tq8 {
+public class tq8 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile tq8 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public /* synthetic */ class a {
-        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-395202767, "Lcom/baidu/tieba/tq8$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-395202767, "Lcom/baidu/tieba/tq8$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[NotifyType.values().length];
-            iArr[NotifyType.AT_ME.ordinal()] = 1;
-            iArr[NotifyType.AGREE_ME.ordinal()] = 2;
-            iArr[NotifyType.REPLY_ME.ordinal()] = 3;
-            iArr[NotifyType.FANS.ordinal()] = 4;
-            $EnumSwitchMapping$0 = iArr;
-        }
-    }
 
     public tq8() {
         Interceptable interceptable = $ic;
@@ -67,103 +36,174 @@ public final class tq8 {
         }
     }
 
-    public final void a(np8 np8Var) {
-        NotifyType notifyType;
-        int i;
+    public static tq8 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, np8Var) == null) {
-            if (np8Var != null) {
-                notifyType = np8Var.getType();
-            } else {
-                notifyType = null;
-            }
-            if (notifyType == null) {
-                i = -1;
-            } else {
-                i = a.$EnumSwitchMapping$0[notifyType.ordinal()];
-            }
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 4) {
-                            ob8.b().g(4, 0);
-                            PersonRedTipManager.getInstance().updateRedTipState(2, false, true);
-                            be5.p0().l();
-                            be5.p0().j0(0);
-                            return;
-                        }
-                        return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (tq8.class) {
+                    if (a == null) {
+                        a = new tq8();
                     }
-                    ob8.b().g(2, 0);
-                    be5.p0().o();
-                    be5.p0().m0(0);
-                    return;
                 }
-                ob8.b().g(1, 0);
-                be5.p0().h();
-                be5.p0().f0(0);
-                return;
             }
-            ob8.b().g(3, 0);
-            be5.p0().j();
-            be5.p0().g0(0);
+            return a;
+        }
+        return (tq8) invokeV.objValue;
+    }
+
+    @NonNull
+    public final String i() {
+        InterceptResult invokeV;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                string = SharedPrefHelper.getInstance().getString("key_group_bot_skill_info", "");
+            }
+            return string;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public final String a(@NonNull List<RecentlyBotSkillInfoDto> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return "";
+            }
+            return DataExt.toJson(list);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public final List<RecentlyBotSkillInfoDto> b(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return DataExt.toEntityList(str, RecentlyBotSkillInfoDto.class);
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @NonNull
+    public final List<RecentlyBotSkillInfoDto> d(@NonNull List<RecentlyBotSkillInfoDto> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            synchronized (this) {
+                if (10 >= list.size()) {
+                    return list;
+                }
+                return list.subList(0, 10);
+            }
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final void j(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            synchronized (this) {
+                SharedPrefHelper.getInstance().putString("key_group_bot_skill_info", str);
+            }
         }
     }
 
-    public final void b(BaseFragment frag, int i) {
+    public RecentlyBotSkillInfoDto c(@NonNull String str, int i, @NonNull String str2, @NonNull String str3, @NonNull String str4, @NonNull String str5, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frag, i) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            AgreeMeActivityConfig agreeMeActivityConfig = new AgreeMeActivityConfig(frag.getContext());
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                agreeMeActivityConfig.setLastUniqueId(uniqueId.getId());
-            }
-            agreeMeActivityConfig.setAgreeNumber(i);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, agreeMeActivityConfig));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), str2, str3, str4, str5, Integer.valueOf(i2)})) == null) {
+            RecentlyBotSkillInfoDto recentlyBotSkillInfoDto = new RecentlyBotSkillInfoDto();
+            recentlyBotSkillInfoDto.setBotUk(str);
+            recentlyBotSkillInfoDto.setSkillId(i);
+            recentlyBotSkillInfoDto.setBotName(str2);
+            recentlyBotSkillInfoDto.setSkillName(str3);
+            recentlyBotSkillInfoDto.setAvatar(str4);
+            recentlyBotSkillInfoDto.setDesc(str5);
+            recentlyBotSkillInfoDto.setFuncType(i2);
+            recentlyBotSkillInfoDto.setTimeStamp(System.currentTimeMillis());
+            return recentlyBotSkillInfoDto;
         }
+        return (RecentlyBotSkillInfoDto) invokeCommon.objValue;
     }
 
-    public final void c(BaseFragment frag, int i) {
+    public List<RecentlyBotSkillInfoDto> e(List<BotsDTO.BotListDTO> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, frag, i) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            AtMeActivityConfig atMeActivityConfig = new AtMeActivityConfig(frag.getContext());
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                atMeActivityConfig.setLastUniqueId(uniqueId.getId());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            String i = i();
+            if (!TextUtils.isEmpty(i) && !ListUtils.isEmpty(list)) {
+                int i2 = 0;
+                ArrayList arrayList = new ArrayList();
+                List<RecentlyBotSkillInfoDto> b = b(i);
+                synchronized (this) {
+                    for (RecentlyBotSkillInfoDto recentlyBotSkillInfoDto : b) {
+                        if (recentlyBotSkillInfoDto != null && i2 < 3) {
+                            for (BotsDTO.BotListDTO botListDTO : list) {
+                                if (i2 < 3 && botListDTO != null && botListDTO.getUser() != null && !TextUtils.isEmpty(botListDTO.getUser().getUk()) && recentlyBotSkillInfoDto.getBotUk().equals(botListDTO.getUser().getUk()) && !ListUtils.isEmpty(botListDTO.getSkill())) {
+                                    for (BotsDTO.BotListDTO.SkillDTO skillDTO : botListDTO.getSkill()) {
+                                        if (i2 < 3 && skillDTO != null && skillDTO.isShow() && skillDTO.getType() == recentlyBotSkillInfoDto.getSkillId()) {
+                                            recentlyBotSkillInfoDto.setDesc(skillDTO.getDesc());
+                                            recentlyBotSkillInfoDto.setSkillName(skillDTO.getName());
+                                            recentlyBotSkillInfoDto.setBotName(botListDTO.getUser().getNameShow());
+                                            recentlyBotSkillInfoDto.setAvatar(botListDTO.getUser().getPortrait());
+                                            recentlyBotSkillInfoDto.setFuncType(skillDTO.getFuncType());
+                                            arrayList.add(recentlyBotSkillInfoDto);
+                                            i2++;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                return arrayList;
             }
-            atMeActivityConfig.setAtNumber(i);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, atMeActivityConfig));
+            return new ArrayList();
         }
+        return (List) invokeL.objValue;
     }
 
-    public final void d(BaseFragment frag) {
+    public final Boolean g(@NonNull RecentlyBotSkillInfoDto recentlyBotSkillInfoDto, @NonNull List<RecentlyBotSkillInfoDto> list) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, frag) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            PersonListActivityConfig personListActivityConfig = new PersonListActivityConfig(frag.getContext(), false, TbadkCoreApplication.getCurrentAccount(), 0);
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                personListActivityConfig.setLastUniqueId(uniqueId.getId());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, recentlyBotSkillInfoDto, list)) == null) {
+            synchronized (this) {
+                if (list.contains(recentlyBotSkillInfoDto)) {
+                    list.remove(recentlyBotSkillInfoDto);
+                    list.add(0, recentlyBotSkillInfoDto);
+                    return Boolean.TRUE;
+                }
+                return Boolean.FALSE;
             }
-            personListActivityConfig.setFansNumber(be5.p0().y());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personListActivityConfig));
         }
+        return (Boolean) invokeLL.objValue;
     }
 
-    public final void e(BaseFragment frag) {
+    public void h(@NonNull RecentlyBotSkillInfoDto recentlyBotSkillInfoDto) {
+        List<RecentlyBotSkillInfoDto> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, frag) == null) {
-            Intrinsics.checkNotNullParameter(frag, "frag");
-            ReplyMeActivityConfig replyMeActivityConfig = new ReplyMeActivityConfig(frag.getContext());
-            replyMeActivityConfig.setFrom(1);
-            BdUniqueId uniqueId = frag.getUniqueId();
-            if (uniqueId != null) {
-                replyMeActivityConfig.setLastUniqueId(uniqueId.getId());
+        if (interceptable == null || interceptable.invokeL(1048582, this, recentlyBotSkillInfoDto) == null) {
+            String i = i();
+            if (!TextUtils.isEmpty(i)) {
+                list = b(i);
+            } else {
+                list = null;
             }
-            replyMeActivityConfig.setReplyNumber(be5.p0().B());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, replyMeActivityConfig));
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            if (!g(recentlyBotSkillInfoDto, list).booleanValue()) {
+                list.add(0, recentlyBotSkillInfoDto);
+            }
+            String a2 = a(d(list));
+            if (!TextUtils.isEmpty(a2)) {
+                j(a2);
+            }
         }
     }
 }

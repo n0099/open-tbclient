@@ -1,86 +1,54 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.SocketMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.coreExtra.message.PingMessage;
-import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
-import com.baidu.tbadk.task.TbSocketMessageTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.coreExtra.view.AbsFloorImageTextView;
+import com.baidu.tbadk.coreExtra.view.FaceGroupDownloadLayout;
+import com.baidu.tbadk.coreExtra.view.FloorImageTextViewNew;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class wf5 extends Handler implements ca {
+public class wf5 {
     public static /* synthetic */ Interceptable $ic;
-    public static wf5 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public int d;
-    public PingMessage e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948268675, "Lcom/baidu/tieba/wf5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948268675, "Lcom/baidu/tieba/wf5;");
-        }
-    }
-
-    @Override // com.baidu.tieba.ca
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1003;
-        }
-        return invokeV.intValue;
-    }
+    public Context a;
+    public ImageViewerBottomLayout b;
+    public AbsFloorImageTextView c;
+    public LinearLayout d;
+    public FaceGroupDownloadLayout e;
+    public boolean f;
+    public final ImageViewerBottomLayout.a g;
 
     /* loaded from: classes8.dex */
-    public class a extends SocketMessageListener {
+    public class a implements ImageViewerBottomLayout.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wf5 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(wf5 wf5Var, int i) {
-            super(i);
+        public a(wf5 wf5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wf5Var, Integer.valueOf(i)};
+                Object[] objArr = {wf5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -89,231 +57,241 @@ public class wf5 extends Handler implements ca {
             this.a = wf5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: a */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        @Override // com.baidu.tbadk.coreExtra.view.ImageViewerBottomLayout.a
+        public void a(ImageViewerBottomLayout imageViewerBottomLayout, boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null) {
-                this.a.l(socketResponsedMessage);
+            if (interceptable != null && interceptable.invokeLZ(1048576, this, imageViewerBottomLayout, z) != null) {
+                return;
             }
+            this.a.f = z;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016496, Boolean.valueOf(this.a.f)));
+            this.a.s(z);
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wf5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(wf5 wf5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wf5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wf5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null) {
-                this.a.h((BackgroundSwitchMessage) customResponsedMessage);
-            }
-        }
-    }
-
-    public wf5() {
+    public wf5(@NonNull Context context, @NonNull RelativeLayout relativeLayout) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, relativeLayout};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
-        this.b = 180000;
-        this.c = 900000;
-        this.d = 900000;
-        this.e = null;
+        this.f = true;
+        this.g = new a(this);
+        this.a = context;
+        LinearLayout linearLayout = new LinearLayout(context);
+        this.d = linearLayout;
+        linearLayout.setOrientation(1);
+        this.d.setVisibility(8);
+        SkinManager.setBackgroundColorToTransparent(this.d, R.color.CAM_X0607, GradientDrawable.Orientation.BOTTOM_TOP);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
+        layoutParams.addRule(12);
+        relativeLayout.addView(this.d, layoutParams);
+        d();
+        e();
+        f();
     }
 
-    public void m() {
+    public final boolean i(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            int[] socketHeartBeatStratgy = TbadkCoreApplication.getInst().getSocketHeartBeatStratgy();
-            if (socketHeartBeatStratgy.length == 2) {
-                int i = socketHeartBeatStratgy[0] * 1000;
-                this.b = i;
-                this.c = socketHeartBeatStratgy[1] * 1000;
-                if (i < 180000) {
-                    this.b = 180000;
-                }
-                if (this.c < 180000) {
-                    this.c = 180000;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
+            if (view2 != null && view2.getVisibility() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void l(ImageViewerBottomLayout.b bVar) {
+        ImageViewerBottomLayout imageViewerBottomLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, bVar) == null) && (imageViewerBottomLayout = this.b) != null) {
+            imageViewerBottomLayout.setOnDownloadImageListener(bVar);
+        }
+    }
+
+    public void m(View.OnClickListener onClickListener) {
+        ImageViewerBottomLayout imageViewerBottomLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, onClickListener) == null) && (imageViewerBottomLayout = this.b) != null) {
+            imageViewerBottomLayout.setOnReplyClickListener(onClickListener);
+        }
+    }
+
+    public void n(ImageViewerBottomLayout.c cVar) {
+        ImageViewerBottomLayout imageViewerBottomLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) && (imageViewerBottomLayout = this.b) != null) {
+            imageViewerBottomLayout.setOnShareImageListener(cVar);
+        }
+    }
+
+    public void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            AbsFloorImageTextView absFloorImageTextView = this.c;
+            if (absFloorImageTextView != null) {
+                absFloorImageTextView.setUserId(str);
+            }
+            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
+            if (imageViewerBottomLayout != null) {
+                imageViewerBottomLayout.setUserId(str);
             }
         }
     }
 
-    public static wf5 j() {
-        InterceptResult invokeV;
+    public void p(int i) {
+        LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f == null) {
-                synchronized (wf5.class) {
-                    if (f == null) {
-                        f = new wf5();
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeI(1048589, this, i) == null) && (linearLayout = this.d) != null) {
+            linearLayout.clearAnimation();
+            this.d.setVisibility(i);
+        }
+    }
+
+    public void r(boolean z) {
+        ImageViewerBottomLayout imageViewerBottomLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048591, this, z) == null) && (imageViewerBottomLayout = this.b) != null) {
+            imageViewerBottomLayout.setYoungterCoverSomeView(z);
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            AbsFloorImageTextView absFloorImageTextView = this.c;
+            if (absFloorImageTextView != null) {
+                absFloorImageTextView.e(z);
             }
-            return f;
+            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
+            if (imageViewerBottomLayout != null) {
+                imageViewerBottomLayout.e(!z);
+            }
+            FaceGroupDownloadLayout faceGroupDownloadLayout = this.e;
+            if (faceGroupDownloadLayout != null) {
+                faceGroupDownloadLayout.n(!z);
+            }
         }
-        return (wf5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ca
-    public void a() {
+    public void q(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            removeMessages(1);
+        if (interceptable == null || interceptable.invokeII(1048590, this, i, i2) == null) {
+            if (i == 0) {
+                poa.d(this.d, i2);
+            } else {
+                poa.b(this.d, i2);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.ca
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            removeMessages(1);
-            sendMessageDelayed(obtainMessage(1), this.d);
-            this.a = System.currentTimeMillis();
-        }
-    }
-
-    public int i() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
+            if (imageViewerBottomLayout != null && this.c != null) {
+                return imageViewerBottomLayout.getHeight() + AbsFloorImageTextView.i;
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ca
-    public boolean b(boolean z, String str) {
-        InterceptResult invokeZL;
-        String str2;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            if ((!z && System.currentTimeMillis() - this.a < LiveFeedPageSdk.REFRESH_TIME) || !BdSocketLinkService.isOpen()) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            FaceGroupDownloadLayout faceGroupDownloadLayout = new FaceGroupDownloadLayout(this.a);
+            this.e = faceGroupDownloadLayout;
+            this.d.addView(faceGroupDownloadLayout, layoutParams);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            FloorImageTextViewNew floorImageTextViewNew = new FloorImageTextViewNew(this.a);
+            this.c = floorImageTextViewNew;
+            this.d.addView(floorImageTextViewNew, layoutParams);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ImageViewerBottomLayout.r);
+            ImageViewerBottomLayout imageViewerBottomLayout = new ImageViewerBottomLayout(this.a);
+            this.b = imageViewerBottomLayout;
+            this.d.addView(imageViewerBottomLayout, layoutParams);
+            this.b.setExpandButtonListener(this.g);
+        }
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return i(this.d);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void j() {
+        FaceGroupDownloadLayout faceGroupDownloadLayout;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (faceGroupDownloadLayout = this.e) != null) {
+            faceGroupDownloadLayout.f();
+        }
+    }
+
+    public void k(ImageUrlData imageUrlData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageUrlData) == null) {
+            AbsFloorImageTextView absFloorImageTextView = this.c;
+            if (absFloorImageTextView != null) {
+                absFloorImageTextView.f(imageUrlData);
             }
-            this.a = System.currentTimeMillis();
-            MessageManager.getInstance().sendMessage(this.e);
-            PingMessage pingMessage = this.e;
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            sb.append("-");
-            if (this.d == this.c) {
-                str2 = "back";
-            } else {
-                str2 = "fore";
+            ImageViewerBottomLayout imageViewerBottomLayout = this.b;
+            if (imageViewerBottomLayout != null) {
+                imageViewerBottomLayout.d(imageUrlData);
             }
-            sb.append(str2);
-            ja.c("PingManager", pingMessage, 0, "send_ping", 0, sb.toString());
-            return true;
+            FaceGroupDownloadLayout faceGroupDownloadLayout = this.e;
+            if (faceGroupDownloadLayout != null) {
+                faceGroupDownloadLayout.l(imageUrlData);
+                AbsFloorImageTextView absFloorImageTextView2 = this.c;
+                if (absFloorImageTextView2 != null) {
+                    FaceGroupDownloadLayout faceGroupDownloadLayout2 = this.e;
+                    if (absFloorImageTextView2.getVisibility() == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    faceGroupDownloadLayout2.setFloorImageTextViewVisible(z);
+                }
+            }
         }
-        return invokeZL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ca
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
-            return;
-        }
-        if (BdSocketLinkService.isClose()) {
-            hm5.b(0, 0, 0, 1, 10);
-            BdSocketLinkService.startService(false, str);
-        } else if (BdSocketLinkService.isOpen()) {
-            b(false, str);
-        }
-    }
-
-    public final void h(BackgroundSwitchMessage backgroundSwitchMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, backgroundSwitchMessage) != null) || backgroundSwitchMessage == null) {
-            return;
-        }
-        if (backgroundSwitchMessage.getData().booleanValue()) {
-            this.d = this.c;
-            return;
-        }
-        this.d = this.b;
-        d("switchToForeground");
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, message) == null) && message.what == 1) {
-            e();
-            b(true, "regular time send");
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(1003);
-            tbSocketMessageTask.setResponsedClass(ResponsedPingMessage.class);
-            tbSocketMessageTask.setNeedCompress(false);
-            tbSocketMessageTask.setPriority(-3);
-            tbSocketMessageTask.setDupLicateMode(SocketMessageTask.DupLicateMode.REMOVE_ME);
-            tbSocketMessageTask.setCanRetry(false);
-            MessageManager.getInstance().registerTask(tbSocketMessageTask);
-            this.e = new PingMessage();
-            m();
-            a aVar = new a(this, 1003);
-            MessageManager.getInstance().registerListener(new b(this, 2001011));
-            MessageManager.getInstance().registerListener(aVar);
-        }
-    }
-
-    public final void l(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, responsedMessage) != null) || responsedMessage == null) {
-            return;
-        }
-        int error = responsedMessage.getError();
-        if (error == 0) {
-            com.baidu.adp.framework.message.Message<?> orginalMessage = responsedMessage.getOrginalMessage();
-            int i = xz4.a;
-            ja.c("PingManager", orginalMessage, 0, "ping_succ", i, "costtime:" + String.valueOf(System.currentTimeMillis() - this.a));
-            return;
-        }
-        BdSocketLinkService.close(7, "ping error");
-        int cmd = this.e.getCmd();
-        long clientLogID = this.e.getClientLogID();
-        ja.b("PingManager", cmd, clientLogID, 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.a));
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hc2 extends zb2<JSONObject, y22> {
+public class hc2 extends ec2<JSONObject, d32> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,41 +28,15 @@ public class hc2 extends zb2<JSONObject, y22> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dc2
+    @Override // com.baidu.tieba.ic2
     @NonNull
     /* renamed from: c */
-    public y22 a(@NonNull JSONObject jSONObject) {
+    public d32 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return new y22(202);
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject == null) {
-                return new y22(202, "data is required");
-            }
-            String optString = optJSONObject.optString("status");
-            if (TextUtils.isEmpty(optString)) {
-                return new y22(202, "status is required");
-            }
-            char c = 65535;
-            int hashCode = optString.hashCode();
-            if (hashCode != 48) {
-                if (hashCode == 49 && optString.equals("1")) {
-                    c = 0;
-                }
-            } else if (optString.equals("0")) {
-                c = 1;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return new y22(202, "status value is invalid");
-                }
-                new xb2().d();
-            }
-            return new y22(0);
+            return new d32(101, "error type is not support");
         }
-        return (y22) invokeL.objValue;
+        return (d32) invokeL.objValue;
     }
 }

@@ -1,70 +1,84 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsRewardVideoAd;
-import com.kwad.sdk.api.model.AdExposureFailedReason;
+import com.baidu.yalog.Logger;
+import com.baidu.yalog.LoggerManager;
+import java.io.File;
+import java.util.List;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class djb extends bkb<KsRewardVideoAd> {
+public class djb extends LoggerManager.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public djb(KsRewardVideoAd ksRewardVideoAd) {
-        super(ksRewardVideoAd);
+    public djb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ksRewardVideoAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.bkb
-    public double a() {
+    @Override // com.baidu.yalog.LoggerManager.c
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            ejb.C();
+        }
+    }
+
+    @Override // com.baidu.yalog.LoggerManager.c
+    public List<String> a(long j, long j2, String str, String str2, boolean z, boolean z2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2, Boolean.valueOf(z), Boolean.valueOf(z2), str3})) == null) {
+            return ejb.q(j, j2, str, str2, z, z2, str3);
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.yalog.LoggerManager.c
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            A a = this.a;
-            if (a == 0) {
-                return 0.0d;
-            }
-            return ((KsRewardVideoAd) a).getECPM();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return AppRuntime.getAppContext().getApplicationInfo().dataDir + File.separator + ".yalog";
         }
-        return invokeV.doubleValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bkb
-    public void b(int i, int i2, int i3, String str) {
+    @Override // com.baidu.yalog.LoggerManager.c
+    public Logger d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return new ejb(str);
         }
-        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
-        adExposureFailedReason.winEcpm = i;
-        ((KsRewardVideoAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
+        return (Logger) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bkb
-    public void c(long j, long j2) {
-        A a;
+    @Override // com.baidu.yalog.LoggerManager.c
+    public List<String> e(long j, long j2, String str, String str2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str, str2})) == null) {
+            return ejb.B(j, j2, str, str2);
         }
-        ((KsRewardVideoAd) a).setBidEcpm((int) j);
+        return (List) invokeCommon.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.huawei.hms.common.internal;
 
 import android.os.Parcelable;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface ResponseErrorCode {
     int getErrorCode();
 

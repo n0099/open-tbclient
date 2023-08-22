@@ -15,7 +15,7 @@ import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class sd implements fd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -67,7 +67,7 @@ public class sd implements fd {
                                             }
                                             if (a == byte[].class) {
                                                 try {
-                                                    return uh.e(this.a, 0);
+                                                    return wh.e(this.a, 0);
                                                 } catch (IOException e2) {
                                                     e2.printStackTrace();
                                                     return null;

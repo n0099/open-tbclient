@@ -87,12 +87,12 @@ public class AdRewardPreviewActivityProxy extends a {
 
     @SuppressLint({"SetTextI18n"})
     private void initView() {
-        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091443);
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091459);
         this.mAdWebView = ksAdWebView;
         this.mAdWebView.setClientConfig(ksAdWebView.getClientConfig().b(getClientParams()).R(this.mAdTemplate).aA(false).b(getWebErrorListener()));
         this.mAdWebView.pp();
-        this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f091447);
-        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912f6);
+        this.mWebCloseBtn = (ImageView) findViewById(R.id.obfuscated_res_0x7f09145d);
+        this.mWebContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09130c);
         this.mWebCloseBtn.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
@@ -100,7 +100,7 @@ public class AdRewardPreviewActivityProxy extends a {
                 AdRewardPreviewActivityProxy.this.finish();
             }
         });
-        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0913c7);
+        TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0913dd);
         this.mCountDownTips = textView;
         textView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.reward.page.AdRewardPreviewActivityProxy.2
             @Override // android.view.View.OnClickListener
@@ -239,7 +239,7 @@ public class AdRewardPreviewActivityProxy extends a {
 
     @Override // com.kwad.components.core.i.a, com.kwad.sdk.api.proxy.IActivityProxy
     public void onCreate(Bundle bundle) {
-        setContentView(R.layout.obfuscated_res_0x7f0d047c);
+        setContentView(R.layout.obfuscated_res_0x7f0d0483);
         String stringExtra = getIntent().getStringExtra("key_template_json");
         this.mUrl = getIntent().getStringExtra(KEY_URL);
         try {

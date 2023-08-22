@@ -1,51 +1,39 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.BdSailor;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.av1;
+import com.baidu.tieba.ha3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.baidu.webkit.sdk.WebKitFactory;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes8.dex */
-public class z92 implements kx1 {
+/* loaded from: classes9.dex */
+public class z92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<aa2> a;
-    public final Lock b;
-    public volatile boolean c;
-    public volatile boolean d;
-    public c e;
-    public WebKitFactory.IForceInitZeusListener f;
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void a();
+    /* loaded from: classes9.dex */
+    public interface b {
+        void a(boolean z, String str);
     }
 
-    /* loaded from: classes8.dex */
-    public class a implements c {
+    /* loaded from: classes9.dex */
+    public static class a implements av1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z92 a;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ b b;
 
-        public a(z92 z92Var) {
+        public a(Context context, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z92Var};
+                Object[] objArr = {context, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,279 +43,67 @@ public class z92 implements kx1 {
                     return;
                 }
             }
-            this.a = z92Var;
+            this.a = context;
+            this.b = bVar;
         }
 
-        @Override // com.baidu.tieba.z92.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.b.lock();
-                    this.a.d = true;
-                    this.a.j();
-                    this.a.p();
-                } finally {
-                    this.a.b.unlock();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements WebKitFactory.IForceInitZeusListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z92 a;
-
-        public b(z92 z92Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z92Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z92Var;
-        }
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
-        public void onForceInitZeusFinish(boolean z) {
+        @Override // com.baidu.tieba.av1.b
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                try {
-                    this.a.b.lock();
-                    this.a.c = true;
-                    this.a.p();
-                    this.a.b.unlock();
-                    BdSailor.getInstance().removeForceInitListener(this.a.f);
-                } catch (Throwable th) {
-                    this.a.b.unlock();
-                    throw th;
+                if (!z) {
+                    d82.c("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
+                    this.b.a(false, this.a.getString(R.string.obfuscated_res_0x7f0f013a));
+                    return;
                 }
+                d82.c("DeveloperAuthenticateHelper", "Authentication Success");
+                this.b.a(true, "");
             }
         }
 
-        @Override // com.baidu.webkit.sdk.WebKitFactory.IForceInitZeusListener
-        public void onForceInitZeusStart() {
+        @Override // com.baidu.tieba.av1.b
+        public void b(Exception exc) {
+            String str;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && z92.g) {
-                Log.d("NgWebViewInitHelper", "onForceInitZeusStart");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final z92 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-275323690, "Lcom/baidu/tieba/z92$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                d82.d("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
+                String message = exc.getMessage();
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f013a));
+                if (TextUtils.isEmpty(message)) {
+                    str = "";
+                } else {
+                    str = "\n" + message;
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-275323690, "Lcom/baidu/tieba/z92$d;");
-                    return;
-                }
+                sb.append(str);
+                this.b.a(false, sb.toString());
             }
-            a = new z92(null);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314710, "Lcom/baidu/tieba/z92;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948314710, "Lcom/baidu/tieba/z92;");
-                return;
-            }
-        }
-        g = ir1.a;
-    }
-
-    public static z92 k() {
-        InterceptResult invokeV;
+    public static void a(@NonNull db3 db3Var, @NonNull Context context, @NonNull b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return d.a;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, db3Var, context, bVar) == null) {
+            qr1.b(db3Var.O(), new a(context, bVar));
         }
-        return (z92) invokeV.objValue;
     }
 
-    public final synchronized void j() {
+    public static void b(Context context, @StringRes int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (!ProcessUtils.isMainProcess()) {
-                    WebSettingsGlobalBlink.setFileInIOEnabled(true);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
+            ha3.a aVar = new ha3.a(context);
+            aVar.U(i);
+            aVar.x(str);
+            aVar.n(new lq3());
+            aVar.O(R.string.obfuscated_res_0x7f0f0147, null);
+            aVar.X();
         }
     }
 
-    public void l() {
+    public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            m(false);
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            b(context, R.string.obfuscated_res_0x7f0f0180, str);
         }
-    }
-
-    public z92() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList<>();
-        this.b = new ReentrantLock();
-        this.c = false;
-        this.d = false;
-        this.e = new a(this);
-        b bVar = new b(this);
-        this.f = bVar;
-        BdSailor.addForceInitListener(bVar);
-        fu2.g().h(this.e);
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                this.b.lock();
-                if (!n()) {
-                    return;
-                }
-                Iterator<aa2> it = this.a.iterator();
-                while (it.hasNext()) {
-                    aa2 next = it.next();
-                    if (next != null) {
-                        next.a();
-                    }
-                }
-                this.a.clear();
-            } finally {
-                this.b.unlock();
-            }
-        }
-    }
-
-    public /* synthetic */ z92(a aVar) {
-        this();
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            fu2.g().d(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.kx1
-    public void a(aa2 aa2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aa2Var) == null) {
-            try {
-                this.b.lock();
-                if (aa2Var != null && this.a.contains(aa2Var)) {
-                    this.a.remove(aa2Var);
-                }
-            } finally {
-                this.b.unlock();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.kx1
-    public void b(aa2 aa2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aa2Var) == null) {
-            try {
-                this.b.lock();
-                if (aa2Var == null) {
-                    return;
-                }
-                if (!this.a.contains(aa2Var)) {
-                    this.a.add(aa2Var);
-                }
-                if (n()) {
-                    p();
-                }
-            } finally {
-                this.b.unlock();
-            }
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0053, code lost:
-        if (o() != false) goto L15;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean n() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                this.b.lock();
-                if (g) {
-                    Log.d("NgWebViewInitHelper", "isLoaded() mIsBlinkInited: " + this.d);
-                    Log.d("NgWebViewInitHelper", "isLoaded() mIsZeusForceInited: " + this.c + " ,isZeusForceInited: " + o());
-                }
-                if (this.d) {
-                    if (!this.c) {
-                    }
-                    z = true;
-                    return z;
-                }
-                z = false;
-                return z;
-            } finally {
-                this.b.unlock();
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (g) {
-                Log.d("NgWebViewInitHelper", "checkZeusForceInit: " + BdSailor.getInstance().checkZeusForceInit());
-                Log.d("NgWebViewInitHelper", "isZeusForceInited: " + BdSailor.getInstance().isZeusForceInited());
-            }
-            if (BdSailor.getInstance().checkZeusForceInit() && (!BdSailor.getInstance().checkZeusForceInit() || !BdSailor.getInstance().isZeusForceInited())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -44,7 +44,7 @@ public class SingleForumBroadcastFeedActivityConfig extends IntentConfig {
         Intent intent;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeB(1048576, this, b) == null) && (intent = getIntent()) != null) {
-            intent.putExtra(KEY_SOURCE, b);
+            intent.putExtra("key_source", b);
         }
     }
 }

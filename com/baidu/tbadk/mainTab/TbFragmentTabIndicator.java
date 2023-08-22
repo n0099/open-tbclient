@@ -186,7 +186,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
         public int textDayColor;
 
         /* renamed from: view  reason: collision with root package name */
-        public View f1082view;
+        public View f1084view;
 
         public FragmentTapTip() {
             Interceptable interceptable = $ic;
@@ -212,7 +212,7 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
                 if (textView == null) {
                     return -1;
                 }
-                String charSequence = ((TextView) this.f1082view).getText().toString();
+                String charSequence = ((TextView) this.f1084view).getText().toString();
                 if ("   ".equals(charSequence)) {
                     return 100;
                 }
@@ -226,24 +226,24 @@ public abstract class TbFragmentTabIndicator extends FrameLayout {
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
                 int i2 = this.bgDayRes;
                 if (i2 != 0) {
-                    SkinManager.setBackgroundResource(this.f1082view, i2);
+                    SkinManager.setBackgroundResource(this.f1084view, i2);
                 }
-                View view2 = this.f1082view;
+                View view2 = this.f1084view;
                 if (view2 instanceof TextView) {
                     int i3 = this.textDayColor;
                     if (i3 != 0) {
                         SkinManager.setViewTextColor(view2, i3, 1);
                     }
-                    int messageCount = getMessageCount((TextView) this.f1082view);
+                    int messageCount = getMessageCount((TextView) this.f1084view);
                     if (messageCount > 0 && messageCount < 10) {
-                        SkinManager.setBackgroundResource(this.f1082view, R.drawable.icon_news_head_prompt_one);
+                        SkinManager.setBackgroundResource(this.f1084view, R.drawable.icon_news_head_prompt_one);
                     } else if (messageCount >= 10 && messageCount < 100) {
-                        SkinManager.setBackgroundResource(this.f1082view, R.drawable.icon_news_head_prompt_two);
+                        SkinManager.setBackgroundResource(this.f1084view, R.drawable.icon_news_head_prompt_two);
                     } else if (messageCount >= 100) {
-                        SkinManager.setBackgroundResource(this.f1082view, R.drawable.icon_news_head_prompt_more);
+                        SkinManager.setBackgroundResource(this.f1084view, R.drawable.icon_news_head_prompt_more);
                     }
                 }
-                View view3 = this.f1082view;
+                View view3 = this.f1084view;
                 if (view3 instanceof MessageRedDotView) {
                     ((MessageRedDotView) view3).onChangeSkinType();
                 }

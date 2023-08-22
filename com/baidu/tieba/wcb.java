@@ -3,135 +3,185 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.player.AudioPlayData;
+import com.baidu.ugc.utils.FileUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
 public class wcb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
+    public List<AudioPlayData> a;
+    public List<AudioPlayData> b;
+    public edb c;
+    public int d;
+    public b e;
 
-    public wcb(long j, int i) {
+    /* loaded from: classes8.dex */
+    public class a extends teb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ AudioPlayData b;
+        public final /* synthetic */ wcb c;
+
+        public a(wcb wcbVar, String str, AudioPlayData audioPlayData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wcbVar, str, audioPlayData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = wcbVar;
+            this.a = str;
+            this.b = audioPlayData;
+        }
+
+        @Override // com.baidu.tieba.teb, com.baidu.tieba.seb
+        public void onExceptionThrown(String str) {
+            Interceptable interceptable = $ic;
+            if (!(interceptable == null || interceptable.invokeL(1048576, this, str) == null) || this.c.e == null) {
+                return;
+            }
+            this.c.e.onFailed(str);
+        }
+
+        @Override // com.baidu.tieba.teb
+        public void onFinishedWriting(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                AudioPlayData audioPlayData = new AudioPlayData(this.a, 0, (int) tgb.b(this.a), this.b.volume);
+                if (this.c.b == null) {
+                    this.c.b = new ArrayList();
+                }
+                this.c.b.add(audioPlayData);
+                wcb.c(this.c);
+                this.c.f();
+            }
+        }
+
+        @Override // com.baidu.tieba.teb, com.baidu.tieba.seb
+        public void onProgressChanged(int i, double d, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Long.valueOf(j)}) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.teb, com.baidu.tieba.seb
+        public void onTrackEnd(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public interface b {
+        void onFailed(String str);
+
+        void onSuccess(List<AudioPlayData> list);
+    }
+
+    public wcb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static /* synthetic */ int c(wcb wcbVar) {
+        int i = wcbVar.d;
+        wcbVar.d = i + 1;
+        return i;
+    }
+
+    public final void f() {
+        AudioPlayData audioPlayData;
+        ArrayList arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (dgb.c(this.a, this.d) == null) {
+                b bVar = this.e;
+                if (bVar != null) {
+                    bVar.onSuccess(this.b);
+                    return;
+                }
                 return;
             }
+            AudioPlayData audioPlayData2 = this.a.get(this.d);
+            if (!FileUtils.isExists(audioPlayData2.audioPath)) {
+                String str = audioPlayData2.audioPath;
+                int i = audioPlayData2.start;
+                audioPlayData = new AudioPlayData(str, i, audioPlayData2.end - i, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
+                }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
+            } else if (audioPlayData2.mSpeed == 1.0f) {
+                audioPlayData = new AudioPlayData(audioPlayData2.audioPath, audioPlayData2.start, audioPlayData2.end, audioPlayData2.volume);
+                if (this.b == null) {
+                    arrayList = new ArrayList();
+                    this.b = arrayList;
+                }
+                this.b.add(audioPlayData);
+                this.d++;
+                f();
+            } else {
+                String str2 = FileUtils.removeExtention(audioPlayData2.audioPath) + "_speed.aac";
+                try {
+                    edb edbVar = new edb(audioPlayData2.audioPath, str2, null);
+                    this.c = edbVar;
+                    edbVar.S(new a(this, str2, audioPlayData2));
+                    this.c.D(null);
+                    this.c.G(audioPlayData2.mSpeed);
+                    this.c.B(audioPlayData2.start);
+                    this.c.R(audioPlayData2.end);
+                    this.c.I();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
         }
-        this.b = j;
-        this.a = i;
     }
 
-    public static wcb b(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        long j;
-        int i3;
+    public void g(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
-            if (i >= i2) {
-                return null;
-            }
-            long j2 = 0;
-            int i4 = i;
-            while (i4 < i2) {
-                char charAt = str.charAt(i4);
-                if (charAt >= '0' && charAt <= '9') {
-                    j2 = (j2 * 16) + (charAt - '0');
-                } else {
-                    if (charAt >= 'A' && charAt <= 'F') {
-                        j = j2 * 16;
-                        i3 = charAt - 'A';
-                    } else if (charAt < 'a' || charAt > 'f') {
-                        break;
-                    } else {
-                        j = j2 * 16;
-                        i3 = charAt - 'a';
-                    }
-                    j2 = j + i3 + 10;
-                }
-                if (j2 > 4294967295L) {
-                    return null;
-                }
-                i4++;
-            }
-            if (i4 == i) {
-                return null;
-            }
-            return new wcb(j2, i4);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.e = bVar;
         }
-        return (wcb) invokeLII.objValue;
     }
 
-    public static wcb c(String str, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
+    public void h(List<AudioPlayData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i >= i2) {
-                return null;
-            }
-            boolean z2 = false;
-            if (z) {
-                char charAt = str.charAt(i);
-                if (charAt != '+') {
-                    if (charAt == '-') {
-                        z2 = true;
-                    }
-                }
-                i++;
-            }
-            long j = 0;
-            int i3 = i;
-            while (i3 < i2) {
-                char charAt2 = str.charAt(i3);
-                if (charAt2 < '0' || charAt2 > '9') {
-                    break;
-                }
-                if (z2) {
-                    j = (j * 10) - (charAt2 - '0');
-                    if (j < -2147483648L) {
-                        return null;
-                    }
-                } else {
-                    j = (j * 10) + (charAt2 - '0');
-                    if (j > 2147483647L) {
-                        return null;
-                    }
-                }
-                i3++;
-            }
-            if (i3 == i) {
-                return null;
-            }
-            return new wcb(j, i3);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
-        return (wcb) invokeCommon.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            f();
         }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (int) this.b;
-        }
-        return invokeV.intValue;
     }
 }

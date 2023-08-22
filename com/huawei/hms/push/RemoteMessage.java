@@ -28,7 +28,7 @@ import java.util.Iterator;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class RemoteMessage implements Parcelable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<RemoteMessage> CREATOR;
@@ -48,7 +48,7 @@ public class RemoteMessage implements Parcelable {
     public Notification j;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public @interface MessagePriority {
     }
 
@@ -62,7 +62,7 @@ public class RemoteMessage implements Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -234,7 +234,7 @@ public class RemoteMessage implements Parcelable {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class Notification implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

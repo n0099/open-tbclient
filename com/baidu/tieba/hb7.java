@@ -1,97 +1,71 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.lang.ref.WeakReference;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class hb7 {
+public class hb7 implements ua7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Runnable> a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947818028, "Lcom/baidu/tieba/hb7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947818028, "Lcom/baidu/tieba/hb7;");
-                return;
+    public hb7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = new a(null);
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public final boolean b() {
+        InterceptResult invokeV;
+        Runnable runnable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WeakReference<Runnable> weakReference = this.a;
+            if (weakReference != null) {
+                runnable = weakReference.get();
+            } else {
+                runnable = null;
             }
-        }
-
-        public final int a(t57 colorData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                int type = colorData.getType();
-                if (type != 1) {
-                    if (type == 2) {
-                        return SkinManager.getColor(i37.a.getResources().getIdentifier(colorData.b(), "color", i37.a.getPackageName()));
-                    }
-                } else {
-                    int currentSkinType = SkinManager.getCurrentSkinType();
-                    if (currentSkinType != 0) {
-                        if (currentSkinType == 4) {
-                            return y9a.f(colorData.a());
-                        }
-                    } else {
-                        return y9a.f(colorData.b());
-                    }
-                }
-                return 0;
+            if (runnable != null) {
+                runnable.run();
             }
-            return invokeL.intValue;
-        }
-
-        public final int b(t57 colorData) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, colorData)) == null) {
-                Intrinsics.checkNotNullParameter(colorData, "colorData");
-                if (colorData.getType() == 2) {
-                    return i37.a.getResources().getIdentifier(colorData.b(), "color", i37.a.getPackageName());
-                }
-                return 0;
+            if (runnable != null) {
+                return true;
             }
-            return invokeL.intValue;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ua7
+    public final void a(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            Intrinsics.checkNotNullParameter(runnable, "runnable");
+            this.b = true;
+            this.a = new WeakReference<>(runnable);
+        }
+    }
+
+    public final void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
+            Intrinsics.checkNotNullParameter(runnable, "runnable");
+            this.a = new WeakReference<>(runnable);
         }
     }
 }

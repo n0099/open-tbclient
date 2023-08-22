@@ -1,116 +1,95 @@
 package com.baidu.tieba;
 
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.abtest.UbsABTestDataManager;
+import android.text.style.ForegroundColorSpan;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class eg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
 
-    public eg9(TbPageContext tbPageContext) {
+    public static SpannableString a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            SpannableString spannableString = new SpannableString(str);
+            if (i <= 0) {
+                i = R.color.CAM_X0101;
             }
+            spannableString.setSpan(new ForegroundColorSpan(TbadkCoreApplication.getInst().getResources().getColor(i)), 0, str.length(), 17);
+            return spannableString;
         }
-        this.a = tbPageContext;
+        return (SpannableString) invokeLI.objValue;
     }
 
-    public final void a(PbModel pbModel, int i) {
+    public static void b(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, pbModel, i) != null) || pbModel == null) {
+        if ((interceptable != null && interceptable.invokeLI(65537, null, str, i) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        StatisticItem statisticItem = new StatisticItem("c13719");
-        statisticItem.param("fid", pbModel.G.l());
-        statisticItem.param("tid", pbModel.G.Q());
-        statisticItem.param("obj_type", i);
-        if (pbModel.r1() == 5) {
-            statisticItem.param("obj_source", 1);
-        } else if (pbModel.r1() == 7) {
-            statisticItem.param("obj_source", 2);
-        } else {
-            statisticItem.param("obj_source", 3);
-        }
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        TiebaStatic.log(statisticItem);
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
     }
 
-    public boolean b(PbModel pbModel) {
-        InterceptResult invokeL;
-        td9 td9Var;
-        String str;
-        String str2;
+    public static void c(String str, int i, String str2, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbModel)) == null) {
-            int i = 0;
-            if (this.a.getPageActivity() != null && pbModel != null && (td9Var = pbModel.G) != null) {
-                if ("3".equals(td9Var.e0)) {
-                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
-                    createNormalCfg.setSubTabName(this.a.getString(R.string.tab_name_topic_rank));
-                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
-                    return true;
-                }
-                String string = SharedPrefHelper.getInstance().getString("key_pb_back_sid1", "");
-                String string2 = SharedPrefHelper.getInstance().getString("key_pb_back_sid2", "");
-                if (!TextUtils.isEmpty(string) && UbsABTestDataManager.getInstance().getABTestSwitchData(string) != null) {
-                    str = "1";
-                } else if (!TextUtils.isEmpty(string2) && UbsABTestDataManager.getInstance().getABTestSwitchData(string2) != null) {
-                    str = "2";
-                } else {
-                    str = null;
-                }
-                if (str == null && (str2 = pbModel.G.d0) != null) {
-                    str = str2;
-                }
-                if (str == null) {
-                    return false;
-                }
-                if (str.equals("1")) {
-                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
-                    createNormalCfg2.setSubTab(1, null);
-                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
-                    a(pbModel, 1);
-                    return true;
-                } else if (str.equals("2")) {
-                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(1);
-                    createNormalCfg3.setSubTab(0, pbModel.G.e0);
-                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
-                    if ("游戏".equals(pbModel.G.e0)) {
-                        i = 2;
-                    } else if ("数码".equals(pbModel.G.e0)) {
-                        i = 3;
-                    }
-                    a(pbModel, i);
-                    return true;
-                }
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return invokeL.booleanValue;
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
+        }
+        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
+    }
+
+    public static void d(String str, int i, String str2, int i2, String str3, int i3, String str4, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), str3, Integer.valueOf(i3), str4, Integer.valueOf(i4)}) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+        spannableStringBuilder.append((CharSequence) a(str, i));
+        if (!TextUtils.isEmpty(str2)) {
+            spannableStringBuilder.append((CharSequence) a(str2, i2));
+        }
+        if (!TextUtils.isEmpty(str3)) {
+            spannableStringBuilder.append((CharSequence) "\n");
+            spannableStringBuilder.append((CharSequence) a(str3, i3));
+            if (!TextUtils.isEmpty(str4)) {
+                spannableStringBuilder.append((CharSequence) a(str4, i4));
+            }
+        }
+        BdToast.makeText(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).show();
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            b(str, R.color.CAM_X0101);
+        }
+    }
+
+    public static void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c(str, R.color.CAM_X0101, str2, R.color.CAM_X0305);
+        }
+    }
+
+    public static void g(String str, String str2, String str3, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, str, str2, str3, str4) == null) {
+            d(str, R.color.CAM_X0101, str2, R.color.CAM_X0305, str3, R.color.CAM_X0109, str4, R.color.CAM_X0305);
+        }
     }
 }

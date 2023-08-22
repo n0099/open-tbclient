@@ -1,112 +1,124 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.MemeDiyEnableSwitch;
-import com.baidu.tieba.bi5;
-import com.baidu.tieba.faceshop.DiyEmotionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes8.dex */
-public class w17 extends bi5 {
+public class w17 implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
-    public static w17 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<ei5> a;
-    public final CustomMessageListener b;
+    public b a;
+    public int b;
+    public c c;
 
-    @Override // com.baidu.tieba.bi5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
-        }
-        return invokeV.intValue;
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes8.dex */
-    public class a extends CustomMessageListener {
+    public interface c {
+        void a(AbsListView absListView, int i, int i2);
+    }
+
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScrollStateChanged(AbsListView absListView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, absListView, i) == null) {
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ w17 a;
+        public List<d> a;
 
-        /* renamed from: com.baidu.tieba.w17$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public class RunnableC0513a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0513a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g();
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(w17 w17Var, int i) {
-            super(i);
+        public b(w17 w17Var, AbsListView absListView, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {w17Var, Integer.valueOf(i)};
+                Object[] objArr = {w17Var, absListView, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
                     int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = w17Var;
+            this.a = new ArrayList();
+            int childCount = absListView.getChildCount();
+            for (int i4 = 0; i4 < childCount; i4++) {
+                View childAt = absListView.getChildAt(i4);
+                if (childAt != null) {
+                    this.a.add(new d(w17Var, childAt, i + i4, null));
+                }
+            }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        public /* synthetic */ b(w17 w17Var, AbsListView absListView, int i, a aVar) {
+            this(w17Var, absListView, i);
+        }
+
+        public final int b(b bVar) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.d();
-                gs6.a(new RunnableC0513a(this), "FaceShop", 1);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bVar)) == null) {
+                if (bVar == null) {
+                    return 0;
+                }
+                for (d dVar : this.a) {
+                    for (d dVar2 : bVar.a) {
+                        if (dVar.a == dVar2.a) {
+                            return dVar.b - dVar2.b;
+                        }
+                    }
+                }
+                return 0;
             }
+            return invokeL.intValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+
+        public d(w17 w17Var, View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w17Var, view2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+            this.b = view2.getTop();
+        }
+
+        public /* synthetic */ d(w17 w17Var, View view2, int i, a aVar) {
+            this(w17Var, view2, i);
         }
     }
 
@@ -123,113 +135,53 @@ public class w17 extends bi5 {
                 return;
             }
         }
-        this.b = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.b);
+        this.b = 0;
     }
 
-    public synchronized void g() {
+    public void a(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    return;
-                }
-                Iterator<ei5> it = this.a.iterator();
-                while (it.hasNext()) {
-                    ei5 next = it.next();
-                    if (next instanceof v17) {
-                        ((v17) next).y();
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 
-    public static w17 e() {
-        InterceptResult invokeV;
+    @Override // android.widget.AbsListView.OnScrollListener
+    public void onScroll(AbsListView absListView, int i, int i2, int i3) {
+        View childAt;
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (w17.class) {
-                    if (c == null) {
-                        c = new w17();
-                    }
-                }
-            }
-            return c;
+        if ((interceptable != null && interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absListView, i, i2, i3) != null) || absListView == null || i < 0 || absListView.getChildCount() <= 0 || (childAt = absListView.getChildAt(0)) == null) {
+            return;
         }
-        return (w17) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bi5
-    public void b(bi5.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD() && MemeDiyEnableSwitch.isOn()) {
-            LinkedList<ei5> linkedList = this.a;
-            if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<ei5> it = this.a.iterator();
-                while (it.hasNext()) {
-                    ei5 next = it.next();
-                    if (aVar != null) {
-                        aVar.a(next);
-                    }
-                }
+        if (i == 0 && childAt.getTop() == absListView.getPaddingTop()) {
+            int i4 = this.b;
+            if (i4 != 0 && (cVar = this.c) != null) {
+                cVar.a(absListView, 0, -i4);
+            }
+            this.b = 0;
+            this.a = null;
+            return;
+        }
+        b bVar = new b(this, absListView, i, null);
+        b bVar2 = this.a;
+        if (bVar2 != null) {
+            int b2 = bVar2.b(bVar);
+            this.a = bVar;
+            int i5 = this.b + b2;
+            this.b = i5;
+            c cVar2 = this.c;
+            if (cVar2 != null) {
+                cVar2.a(absListView, i5, b2);
                 return;
             }
-            this.a = new LinkedList<>();
-            v17 v17Var = new v17();
-            this.a.add(v17Var);
-            if (aVar != null) {
-                aVar.a(v17Var);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bi5
-    public void d() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             return;
         }
-        List<DiyEmotionData> r = z17.o().r(TbadkCoreApplication.getCurrentAccount());
-        if (r != null && r.size() != 0) {
-            if (r != null && r.size() != 0) {
-                i = r.size() - 1;
-            } else {
-                i = 0;
-            }
-            StatisticItem statisticItem = new StatisticItem("c12224");
-            statisticItem.param("obj_param1", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-            return;
+        this.a = bVar;
+        int paddingTop = absListView.getPaddingTop() - childAt.getTop();
+        this.b = paddingTop;
+        c cVar3 = this.c;
+        if (cVar3 != null) {
+            cVar3.a(absListView, paddingTop, 0);
         }
-        DiyEmotionData diyEmotionData = new DiyEmotionData();
-        diyEmotionData.setPid("setting_icon");
-        diyEmotionData.setOrderId(301);
-        diyEmotionData.setSharpText("#(meme,diysetting)");
-        diyEmotionData.setUid(TbadkCoreApplication.getCurrentAccount());
-        z17.o().c(diyEmotionData);
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<ei5> linkedList = this.a;
-            if (linkedList == null) {
-                return false;
-            }
-            Iterator<ei5> it = linkedList.iterator();
-            while (it.hasNext()) {
-                ei5 next = it.next();
-                if (next instanceof v17) {
-                    return ((v17) next).w(str);
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

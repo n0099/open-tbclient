@@ -1,113 +1,103 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tieba.sharesdk.ShareHandlerActivity;
+import com.baidu.tieba.sharesdk.bean.ShareEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public final class i7a extends sk1<ao5> {
+public class i7a implements jf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    /* loaded from: classes6.dex */
-    public static final class a implements ao5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ao5
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return FunnySpriteResDownloadUtil.j("funny_sprite_chat_baseboard", null, false, 6, null);
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ao5
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return FunnySpriteResDownloadUtil.j("funny_sprite_chat_wall", null, false, 6, null);
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ao5
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return FunnySpriteResDownloadUtil.j("funny_sprite_chat_light", null, false, 6, null);
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ao5
-        public as6 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                as6 as6Var = new as6();
-                as6Var.d(FunnySpriteResDownloadUtil.j("personal_chat_sprite_stage", null, false, 6, null));
-                as6Var.c(true);
-                if (StringsKt__StringsJVMKt.endsWith$default(as6Var.a(), DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, false, 2, null)) {
-                    as6Var.e(1);
-                } else if (StringsKt__StringsJVMKt.endsWith$default(as6Var.a(), ".webp", false, 2, null)) {
-                    as6Var.e(2);
-                } else if (TbadkCoreApplication.getInst().isDebugMode()) {
-                    throw new IllegalStateException("unsupported file path " + as6Var.a());
-                }
-                return as6Var;
-            }
-            return (as6) invokeV.objValue;
-        }
-    }
-
-    public i7a() {
+    public i7a(Context context, if5 if5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, if5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = null;
+        this.a = context;
+    }
+
+    @Override // com.baidu.tieba.jf5
+    public void a(ShareItem shareItem, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            b(shareItem, i);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sk1
-    /* renamed from: a */
-    public ao5 createService() {
-        InterceptResult invokeV;
+    public final void b(ShareItem shareItem, int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) && this.a != null && shareItem != null) {
+            IntentConfig intentConfig = new IntentConfig(this.a);
+            ShareEntity shareEntity = new ShareEntity();
+            shareEntity.setTitle(shareItem.title);
+            shareEntity.setContent(shareItem.content);
+            shareEntity.setReadCount(shareItem.readCount);
+            int i2 = shareItem.obj_type;
+            if (i2 != 2 && i2 != 6 && i2 != 8) {
+                z = false;
+            } else {
+                z = true;
+            }
+            shareEntity.setIsVideoThread(z);
+            shareEntity.setFestivalTaskTid(shareItem.festivalTaskTid);
+            shareEntity.setFestivalTaskType(shareItem.festivalTaskType);
+            shareEntity.setImageUri(shareItem.imageUri);
+            shareEntity.canShareBySmartApp = shareItem.canShareBySmartApp;
+            String str = shareItem.linkUrl;
+            if (i == 6 && !StringUtils.isNull(shareItem.spareLinkUrl)) {
+                str = shareItem.spareLinkUrl;
+            }
+            shareEntity.setLinkUrl(str);
+            shareEntity.setLocalFile(shareItem.localFile);
+            shareEntity.setLocation(shareItem.location);
+            shareEntity.setShareTo(i);
+            shareEntity.setStats(shareItem.getStats());
+            shareEntity.setPreferImageToLink(shareItem.shareType);
+            shareEntity.setTid(shareItem.tid);
+            shareEntity.setFloorAuthorUid(shareItem.floorAuthorUid);
+            shareEntity.setfName(shareItem.fName);
+            shareEntity.setTypeShareToSmallApp(shareItem.typeShareToSmallApp);
+            shareEntity.topic = shareItem.topic;
+            if (i == 6 && !StringUtils.isNull(shareItem.wbcontent)) {
+                shareEntity.topic = shareItem.wbtitle + shareItem.wbcontent;
+                shareEntity.setContent("");
+            }
+            shareEntity.taskCompleteId = shareItem.taskCompleteId;
+            shareEntity.diskPicOperate = shareItem.diskPicOperate;
+            shareEntity.setExtLiveInfo(shareItem.extLiveInfo);
+            shareEntity.setFromDuXiaoMan(shareItem.isFromDuXiaoMan);
+            shareEntity.setTopicId(shareItem.topicId);
+            shareEntity.groupData = shareItem.groupData;
+            shareEntity.shareMediaType = shareItem.shareMediaType;
+            Bundle bundle = new Bundle();
+            bundle.putParcelable("extra_share_data", shareEntity);
+            bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
+            intentConfig.getIntent().putExtras(bundle);
+            shareItem.setShowShare(true);
+            intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
         }
-        return (ao5) invokeV.objValue;
     }
 }

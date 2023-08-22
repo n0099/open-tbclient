@@ -6,12 +6,12 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.md7;
-import com.baidu.tieba.sc7;
-import com.baidu.tieba.tc7;
-import com.baidu.tieba.uc7;
-import com.baidu.tieba.wc7;
+import com.baidu.tieba.df7;
+import com.baidu.tieba.ifa;
+import com.baidu.tieba.je7;
+import com.baidu.tieba.ke7;
+import com.baidu.tieba.le7;
+import com.baidu.tieba.ne7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,14 +21,14 @@ import java.util.ArrayList;
 public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uc7 a;
-    public sc7 b;
+    public le7 a;
+    public je7 b;
     public long c;
-    public sc7.c d;
+    public je7.c d;
     public NoNetworkView.b e;
 
     /* loaded from: classes5.dex */
-    public class a implements sc7.c {
+    public class a implements je7.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BawuTeamInfoActivity a;
@@ -51,15 +51,15 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             this.a = bawuTeamInfoActivity;
         }
 
-        @Override // com.baidu.tieba.sc7.c
-        public void a(ArrayList<wc7> arrayList, md7 md7Var, boolean z, int i, String str) {
+        @Override // com.baidu.tieba.je7.c
+        public void a(ArrayList<ne7> arrayList, df7 df7Var, boolean z, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, md7Var, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, df7Var, Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
                 if (!z) {
                     if (arrayList != null && arrayList.size() > 0) {
                         BawuTeamInfoActivity bawuTeamInfoActivity = this.a;
                         bawuTeamInfoActivity.hideLoadingView(bawuTeamInfoActivity.a.d());
-                        this.a.a.k(arrayList, md7Var, false);
+                        this.a.a.k(arrayList, df7Var, false);
                     }
                     this.a.b.l(this.a.c);
                     return;
@@ -67,7 +67,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                 BawuTeamInfoActivity bawuTeamInfoActivity2 = this.a;
                 bawuTeamInfoActivity2.hideLoadingView(bawuTeamInfoActivity2.a.d());
                 if (i == 0) {
-                    this.a.a.k(arrayList, md7Var, true);
+                    this.a.a.k(arrayList, df7Var, true);
                     return;
                 }
                 this.a.showToast(str);
@@ -108,7 +108,7 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
             if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || !z) {
                 return;
             }
-            this.a.z1();
+            this.a.y1();
         }
     }
 
@@ -128,27 +128,18 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
         this.e = new b(this);
     }
 
-    public void A1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            aba.h(301007, BawuTeamSocketResponseMessage.class, false, false);
-            aba.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, true, false);
-            aba.b(2003005, tc7.class);
-        }
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            sc7 sc7Var = this.b;
-            if (sc7Var != null) {
-                sc7Var.h();
+            je7 je7Var = this.b;
+            if (je7Var != null) {
+                je7Var.h();
             }
-            uc7 uc7Var = this.a;
-            if (uc7Var != null) {
-                uc7Var.g();
+            le7 le7Var = this.a;
+            if (le7Var != null) {
+                le7Var.g();
             }
         }
     }
@@ -156,32 +147,41 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            z1();
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            y1();
         }
     }
 
-    public void y1() {
+    public void x1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            le7 le7Var = new le7(this, this.c);
+            this.a = le7Var;
+            le7Var.h(this.e);
+        }
+    }
+
+    public final void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            uc7 uc7Var = new uc7(this, this.c);
-            this.a = uc7Var;
-            uc7Var.h(this.e);
+            showLoadingView(this.a.d(), true);
+            this.b.l(this.c);
         }
     }
 
-    public final void z1() {
+    public void z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            showLoadingView(this.a.d(), true);
-            this.b.l(this.c);
+            ifa.h(301007, BawuTeamSocketResponseMessage.class, false, false);
+            ifa.c(301007, CmdConfigHttp.BAWU_TEAM_INFO_CMD, TbConfig.GET_BAWU_INFO, BawuTeamHttpResponseMessage.class, false, false, true, false);
+            ifa.b(2003005, ke7.class);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
             this.a.f(i);
         }
@@ -190,21 +190,21 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             if (getIntent() != null) {
                 this.c = getIntent().getLongExtra("forum_id", 0L);
             }
-            A1();
-            y1();
+            z1();
+            x1();
             initData();
         }
     }
 
     public void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = new sc7();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = new je7();
             a aVar = new a(this);
             this.d = aVar;
             this.b.n(aVar);

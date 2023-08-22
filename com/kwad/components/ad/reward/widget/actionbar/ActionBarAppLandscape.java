@@ -108,17 +108,17 @@ public class ActionBarAppLandscape extends LinearLayout implements c {
     }
 
     private void initView() {
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04eb, this);
-        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f09126d);
-        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091271);
-        this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f091269);
-        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091270);
-        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f09126c);
-        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f09126b);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04f2, this);
+        this.cw = (ImageView) findViewById(R.id.obfuscated_res_0x7f091283);
+        this.cx = (TextView) findViewById(R.id.obfuscated_res_0x7f091287);
+        this.dh = (TextView) findViewById(R.id.obfuscated_res_0x7f09127f);
+        this.wH = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091286);
+        this.cz = (TextView) findViewById(R.id.obfuscated_res_0x7f091282);
+        TextProgressBar textProgressBar = (TextProgressBar) findViewById(R.id.obfuscated_res_0x7f091281);
         this.wI = textProgressBar;
         textProgressBar.setTextDimen(com.kwad.sdk.b.kwai.a.a(getContext(), 16.0f));
         this.wI.setTextColor(-1);
-        this.wJ = findViewById(R.id.obfuscated_res_0x7f0912a4);
+        this.wJ = findViewById(R.id.obfuscated_res_0x7f0912ba);
     }
 
     private void jg() {

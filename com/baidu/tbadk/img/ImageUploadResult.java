@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -78,7 +79,7 @@ public class ImageUploadResult extends OrmObject implements Serializable {
             }
             this.width = jSONObject.optInt("width");
             this.height = jSONObject.optInt("height");
-            this.picUrl = jSONObject.optString("picUrl");
+            this.picUrl = jSONObject.optString(AiBotChatDispatcher.AI_SINGLE_CHAT_PIC_URL);
         }
 
         public JSONObject toJson() {
@@ -89,7 +90,7 @@ public class ImageUploadResult extends OrmObject implements Serializable {
                 try {
                     jSONObject.put("width", this.width);
                     jSONObject.put("height", this.height);
-                    jSONObject.put("picUrl", this.picUrl);
+                    jSONObject.put(AiBotChatDispatcher.AI_SINGLE_CHAT_PIC_URL, this.picUrl);
                 } catch (JSONException e) {
                     BdLog.e(e.getMessage());
                 }

@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.v8engine.net.NetRedirectInfo;
-import com.baidu.searchbox.v8engine.net.NetRequest;
-import com.baidu.searchbox.v8engine.net.NetRequestParam;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.net.NetInfo;
+import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Observable;
+import java.util.Observer;
 /* loaded from: classes7.dex */
-public class o02 implements NetRequest.RedirectInterceptor {
+public class o02 implements Observer {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,20 +31,78 @@ public class o02 implements NetRequest.RedirectInterceptor {
         }
     }
 
-    @Override // com.baidu.searchbox.v8engine.net.NetRequest.RedirectInterceptor
-    public boolean shouldInterceptRedirect(NetRequestParam netRequestParam, NetRedirectInfo netRedirectInfo) {
-        InterceptResult invokeLL;
+    public final String a(@NonNull NetInfo netInfo, @NonNull NetRequestResult netRequestResult, int i) {
+        InterceptResult invokeLLI;
+        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, netRequestParam, netRedirectInfo)) == null) {
-            if (netRedirectInfo == null) {
-                return false;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, netInfo, netRequestResult, i)) == null) {
+            Object obj = "";
+            if (i == 200) {
+                return "";
             }
-            String newUrl = netRedirectInfo.getNewUrl();
-            if (!TextUtils.isEmpty(newUrl) && pb3.c("request", newUrl, null) == 0) {
-                return false;
+            String statusMsg = netRequestResult.getStatusMsg();
+            NetInfo.Response response = netInfo.getResponse();
+            NetInfo.Base base = netInfo.getBase();
+            StringBuilder sb = new StringBuilder();
+            sb.append(statusMsg);
+            sb.append("; code=");
+            if (response == null) {
+                num = "";
+            } else {
+                num = Integer.valueOf(response.mCode);
             }
-            return true;
+            sb.append(num);
+            String sb2 = sb.toString();
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append(sb2);
+            sb3.append("; status=");
+            if (base != null) {
+                obj = Integer.valueOf(base.mStatus);
+            }
+            sb3.append(obj);
+            return sb3.toString();
         }
-        return invokeLL.booleanValue;
+        return (String) invokeLLI.objValue;
+    }
+
+    @Override // java.util.Observer
+    @SuppressLint({"BDThrowableCheck"})
+    public void update(Observable observable, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observable, obj) != null) || !(obj instanceof NetRequestResult)) {
+            return;
+        }
+        NetRequestResult netRequestResult = (NetRequestResult) obj;
+        String url = netRequestResult.getUrl();
+        String valueOf = String.valueOf(netRequestResult.getId());
+        int statusCode = netRequestResult.getStatusCode();
+        if (statusCode != 3) {
+            if (statusCode != 4) {
+                if (statusCode != 5) {
+                    if (statusCode == 6) {
+                        ng2.D(valueOf, netRequestResult.getCreatedTime(), 0L, 0L);
+                    }
+                } else {
+                    ng2.D(valueOf, 0L, 0L, netRequestResult.getCreatedTime());
+                }
+            } else if (url != null) {
+                ng2.k().q(valueOf, url);
+            }
+        } else {
+            ng2.D(valueOf, 0L, netRequestResult.getCreatedTime(), 0L);
+        }
+        NetInfo netInfo = netRequestResult.getNetInfo();
+        int statusCode2 = netRequestResult.getStatusCode();
+        if (netRequestResult.getFromType() == 1 && url != null && netInfo != null) {
+            ng2.k().B(valueOf, url, netInfo);
+            long l = ng2.k().l(valueOf);
+            long currentTimeMillis = System.currentTimeMillis();
+            String e = xo3.n().e();
+            wh3.Q(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), wh3.l(), e, l, currentTimeMillis, valueOf);
+        } else if (netInfo != null) {
+            if (statusCode2 < 0 || statusCode2 >= 400) {
+                wh3.P(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), 0L, 0L, valueOf);
+            }
+        }
     }
 }

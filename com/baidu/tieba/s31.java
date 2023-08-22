@@ -1,51 +1,96 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.IntegerColumn;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 /* loaded from: classes7.dex */
-public class s31 {
+public final class s31 extends l41 {
     public static /* synthetic */ Interceptable $ic;
+    public static final d41 A;
+    public static final d41[] B;
+    public static final d41[][] C;
+    public static final d41[] D;
+    public static final d41 o;
+    public static final d41 p;
+    public static final d41 q;
+    public static final d41 r;
+    public static final d41 s;
+    public static final d41 t;
+    public static final d41 u;
+    public static final d41 v;
+    public static final d41 w;
+    public static final d41 x;
+    public static final d41 y;
+    public static final d41 z;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClogBuilder.LogType a;
-    public String b;
-    public String c;
-    public boolean d;
-    public String e;
+    public final StringColumn a;
+    public final IntegerColumn b;
+    public final IntegerColumn c;
+    public final StringColumn d;
+    public final StringColumn e;
+    public final StringColumn f;
+    public final IntegerColumn g;
+    public final IntegerColumn h;
+    public final LongColumn i;
+    public final LongColumn j;
+    public final StringColumn k;
+    public final StringColumn l;
+    public final StringColumn m;
+    public final Column[] n;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public s31(ClogBuilder.LogType logType, String str, String str2, boolean z) {
-        this(logType, str, str2, z, "");
+    @Override // com.baidu.tieba.l41
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {logType, str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((ClogBuilder.LogType) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), (String) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "t_apk_info" : (String) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948100376, "Lcom/baidu/tieba/s31;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948100376, "Lcom/baidu/tieba/s31;");
                 return;
             }
         }
+        o = l41.b(4, "key", "                   key", 0, 2);
+        p = l41.a(2, "task_id", "               task_id", 1);
+        q = l41.a(2, "status", "                status", 2);
+        r = l41.a(4, "package_name", "          package_name", 3);
+        s = l41.a(4, "url", "                   url", 4);
+        t = l41.a(4, "file", "                  file", 5);
+        u = l41.a(2, "progress", "              progress", 6);
+        v = l41.a(2, "v_progress", "            v_progress", 7);
+        w = l41.a(3, "start_download_time", "   start_download_time", 8);
+        x = l41.a(3, "finished_download_time", "finished_download_time", 9);
+        y = l41.a(4, "mt", "                    mt", 10);
+        z = l41.a(4, "ctrl", "                  ctrl", 11);
+        d41 a = l41.a(4, "extra", "                 extra", 12);
+        A = a;
+        d41 d41Var = o;
+        B = new d41[]{d41Var, p, q, r, s, t, u, v, w, x, y, z, a};
+        C = new d41[0];
+        D = new d41[]{d41Var};
     }
 
-    public s31(ClogBuilder.LogType logType, String str, String str2, boolean z, String str3) {
+    public s31() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {logType, str, str2, Boolean.valueOf(z), str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,53 +100,60 @@ public class s31 {
                 return;
             }
         }
-        this.c = "";
-        this.a = logType;
-        this.b = str;
-        this.c = str2;
-        this.d = z;
-        this.e = str3;
+        this.a = new StringColumn(o);
+        this.b = new IntegerColumn(p);
+        this.c = new IntegerColumn(q);
+        this.d = new StringColumn(r);
+        this.e = new StringColumn(s);
+        this.f = new StringColumn(t);
+        this.g = new IntegerColumn(u);
+        this.h = new IntegerColumn(v);
+        this.i = new LongColumn(w);
+        this.j = new LongColumn(x);
+        this.k = new StringColumn(y);
+        this.l = new StringColumn(z);
+        StringColumn stringColumn = new StringColumn(A);
+        this.m = stringColumn;
+        this.n = new Column[]{this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, stringColumn};
     }
 
-    public x31 a(int i, String str) {
-        InterceptResult invokeIL;
+    @Override // com.baidu.tieba.l41
+    public Column[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            return b(i, str, "normal");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.n;
         }
-        return (x31) invokeIL.objValue;
+        return (Column[]) invokeV.objValue;
     }
 
-    public x31 b(int i, String str, String str2) {
-        InterceptResult invokeILL;
+    @Override // com.baidu.tieba.l41
+    public d41[] d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
-            x31 x31Var = new x31();
-            try {
-                x31Var.g("1030").h(this.c).b("f1", this.a.type).b("f2", str2).b("f3", URLEncoder.encode(this.b, "utf-8")).b("f4", String.valueOf(i)).b("f5", str);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-            return x31Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return B;
         }
-        return (x31) invokeILL.objValue;
+        return (d41[]) invokeV.objValue;
     }
 
-    public boolean c() {
+    @Override // com.baidu.tieba.l41
+    public d41[][] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return C;
         }
-        return invokeV.booleanValue;
+        return (d41[][]) invokeV.objValue;
     }
 
-    public String d() {
+    @Override // com.baidu.tieba.l41
+    public d41[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+            return D;
         }
-        return (String) invokeV.objValue;
+        return (d41[]) invokeV.objValue;
     }
 }

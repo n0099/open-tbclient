@@ -230,7 +230,7 @@ public class VideoControllerView extends RelativeLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0075, (ViewGroup) null);
+            return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0077, (ViewGroup) null);
         }
         return (View) invokeL.objValue;
     }

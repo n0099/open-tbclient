@@ -1,367 +1,146 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cb3;
-import com.baidu.tieba.hk4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class je2 extends ie2 implements hk4 {
+public class je2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public class a implements rp3<j73> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        public a(je2 je2Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {je2Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x009e, code lost:
+        if (r10.equals("1") != false) goto L13;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            char c = 0;
+            if (TextUtils.isEmpty(str)) {
+                return 0;
             }
-            this.a = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rp3
-        /* renamed from: b */
-        public void a(j73 j73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j73Var) == null) {
-                this.a.onFail(j73Var.N());
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements hk4.a, rp3<cb3.a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final hk4.a a;
-        public final boolean b;
-        public boolean c;
-        public final /* synthetic */ je2 d;
-
-        public b(je2 je2Var, hk4.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {je2Var, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = je2Var;
-            this.c = false;
-            this.a = aVar;
-            this.b = aVar != null;
-            if (je2.b) {
-                je2Var.O("IpcHttpCallbackWrapper", "wrappedCallback=" + aVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.hk4.a
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
-                synchronized (this) {
-                    boolean e = e();
-                    if (je2.b) {
-                        je2 je2Var = this.d;
-                        je2Var.O("IpcHttpCallbackWrapper#onSuccess", "valid=" + e + " statusCode=" + i + " response=" + str);
+            int hashCode = str.hashCode();
+            switch (hashCode) {
+                case 49:
+                    break;
+                case 50:
+                    if (str.equals("2")) {
+                        c = 1;
+                        break;
                     }
-                    if (e) {
-                        c();
-                        this.a.onSuccess(str, i);
+                    c = 65535;
+                    break;
+                case 51:
+                    if (str.equals("3")) {
+                        c = 2;
+                        break;
                     }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.hk4.a
-        public void b(String str, String str2, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) {
-                synchronized (this) {
-                    boolean e = e();
-                    if (je2.b) {
-                        je2 je2Var = this.d;
-                        je2Var.O("IpcHttpCallbackWrapper#onStatRecord", "valid=" + e + " url=" + str + " statRecord=" + jSONObject);
+                    c = 65535;
+                    break;
+                case 52:
+                    if (str.equals("4")) {
+                        c = 3;
+                        break;
                     }
-                    if (e) {
-                        this.a.b(str, str2, jSONObject);
+                    c = 65535;
+                    break;
+                case 53:
+                    if (str.equals("5")) {
+                        c = 4;
+                        break;
                     }
-                }
-            }
-        }
-
-        public synchronized void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                synchronized (this) {
-                    this.c = true;
-                }
-            }
-        }
-
-        public synchronized boolean e() {
-            InterceptResult invokeV;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                synchronized (this) {
-                    if (this.b) {
-                        if (!this.c) {
-                            z = true;
-                        }
+                    c = 65535;
+                    break;
+                case 54:
+                    if (str.equals("6")) {
+                        c = 5;
+                        break;
                     }
-                    z = false;
-                }
-                return z;
-            }
-            return invokeV.booleanValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rp3
-        /* renamed from: d */
-        public void a(cb3.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-                synchronized (this) {
-                    boolean e = e();
-                    if (je2.b) {
-                        je2 je2Var = this.d;
-                        je2Var.O("IpcHttpCallbackWrapper#onCallback", "valid=" + e + " msg=" + aVar);
+                    c = 65535;
+                    break;
+                case 55:
+                    if (str.equals("7")) {
+                        c = 6;
+                        break;
                     }
-                    if (e) {
-                        String o = aVar.o("pms_http_with_ipc_key_action", "");
-                        char c = 65535;
-                        switch (o.hashCode()) {
-                            case -2080875416:
-                                if (o.equals("pms_http_with_ipc_action_success")) {
-                                    c = 1;
-                                    break;
-                                }
+                    c = 65535;
+                    break;
+                case 56:
+                    if (str.equals("8")) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 57:
+                    if (str.equals("9")) {
+                        c = '\b';
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    switch (hashCode) {
+                        case 1567:
+                            if (str.equals("10")) {
+                                c = '\t';
                                 break;
-                            case -898655015:
-                                if (o.equals("pms_http_with_ipc_action_fail")) {
-                                    c = 2;
-                                    break;
-                                }
-                                break;
-                            case -480804291:
-                                if (o.equals("pms_http_with_ipc_action_on_start")) {
-                                    c = 3;
-                                    break;
-                                }
-                                break;
-                            case 1737801345:
-                                if (o.equals("pms_http_with_ipc_action_stat_record")) {
-                                    c = 0;
-                                    break;
-                                }
-                                break;
-                        }
-                        if (c != 0) {
-                            if (c != 1) {
-                                if (c != 2) {
-                                    if (c == 3) {
-                                        onStart();
-                                    }
-                                } else {
-                                    onFail(new Exception(aVar.n("pms_http_with_ipc_key_error")));
-                                }
-                            } else {
-                                onSuccess(aVar.n("pms_http_with_ipc_key_response"), aVar.h("pms_http_with_ipc_key_status_code"));
                             }
-                        } else {
-                            b(aVar.n("pms_http_with_ipc_key_url"), aVar.n("pms_http_with_ipc_key_response"), yn3.d(aVar.n("pms_http_with_ipc_key_stat_record")));
-                        }
+                            c = 65535;
+                            break;
+                        case 1568:
+                            if (str.equals("11")) {
+                                c = '\n';
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        case 1569:
+                            if (str.equals("12")) {
+                                c = 11;
+                                break;
+                            }
+                            c = 65535;
+                            break;
+                        default:
+                            c = 65535;
+                            break;
                     }
-                }
+            }
+            switch (c) {
+                case 0:
+                    return 6;
+                case 1:
+                    return 5;
+                case 2:
+                    return 8;
+                case 3:
+                    return 9;
+                case 4:
+                    return 10;
+                case 5:
+                    return 11;
+                case 6:
+                    return 12;
+                case 7:
+                    return 13;
+                case '\b':
+                    return 14;
+                case '\t':
+                    return 15;
+                case '\n':
+                    return 11;
+                case 11:
+                    return 12;
+                default:
+                    return 7;
             }
         }
-
-        @Override // com.baidu.tieba.hk4.a
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, exc) == null) {
-                synchronized (this) {
-                    boolean e = e();
-                    if (je2.b) {
-                        je2 je2Var = this.d;
-                        je2Var.O("IpcHttpCallbackWrapper#onFail", "valid=" + e + " exception=" + exc);
-                    }
-                    if (e) {
-                        c();
-                        hk4.a aVar = this.a;
-                        if (exc == null) {
-                            exc = new Exception("onFail");
-                        }
-                        aVar.onFail(exc);
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.hk4.a
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-                synchronized (this) {
-                    boolean e = e();
-                    if (je2.b) {
-                        je2 je2Var = this.d;
-                        je2Var.O("IpcHttpCallbackWrapper#onStart", "valid=" + e);
-                    }
-                    if (e) {
-                        this.a.onStart();
-                    }
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947880338, "Lcom/baidu/tieba/je2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947880338, "Lcom/baidu/tieba/je2;");
-                return;
-            }
-        }
-        b = ir1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public je2(db3 db3Var) {
-        super(db3Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {db3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((xa3) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public final void M(@NonNull String str, String str2, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, hk4.a aVar) {
-        String jSONObject2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, map, map2, jSONObject, aVar}) == null) {
-            if (b) {
-                N("ipcHttp");
-            }
-            String str3 = "";
-            if (jSONObject == null) {
-                jSONObject2 = "";
-            } else {
-                jSONObject2 = jSONObject.toString();
-            }
-            b bVar = new b(this, aVar);
-            j73 z = k73.Q("pms_http_with_ipc").z("pms_http_with_ipc_key_action", str);
-            if (TextUtils.isEmpty(str2)) {
-                str2 = "";
-            }
-            j73 z2 = z.z("pms_http_with_ipc_key_url", str2);
-            if (!TextUtils.isEmpty(jSONObject2)) {
-                str3 = jSONObject2;
-            }
-            j73 u = z2.z("pms_http_with_ipc_keyjson_body", str3).u("pms_http_with_ipc_key_url_param_map", ie2.J(map)).u("pms_http_with_ipc_key_header_param_map", ie2.J(map2));
-            u.K(true);
-            u.G(bVar);
-            u.F(new a(this, bVar));
-            if (b) {
-                O("ipcHttp", "session=" + u);
-            }
-            u.call(me2.m0);
-        }
-    }
-
-    public final void N(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && b) {
-            Log.i("PmsHttpForClient", str);
-        }
-    }
-
-    public final void O(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            N(str + ": " + str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.ie2, com.baidu.tieba.hk4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, hk4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, str, map, map2, jSONObject, aVar) == null) {
-            if (b) {
-                N("buildJsonPostRequest");
-            }
-            M("pms_http_with_ipc_action_build_json_post_request", str, map, map2, jSONObject, aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.ie2, com.baidu.tieba.hk4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, hk4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, str, map, map2, aVar) == null) {
-            if (b) {
-                N("buildGetRequest");
-            }
-            String b2 = y43.b();
-            if (b2 != null) {
-                if (map == null) {
-                    map = new HashMap<>();
-                }
-                map.put("launchid", b2);
-            }
-            M("pms_http_with_ipc_action_build_get_request", str, map, map2, null, aVar);
-        }
+        return invokeL.intValue;
     }
 }

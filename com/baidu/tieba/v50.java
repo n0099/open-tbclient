@@ -1,37 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.o20;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import com.baidu.tieba.s50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class v50 implements o20.a {
+public class v50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public v50() {
+    public static void a(Context context, s50.a aVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            if (context == null) {
+                aVar.a(false, null);
+                return;
+            }
+            try {
+                Cursor query = context.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+                if (query != null) {
+                    str = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
+                    query.close();
+                } else {
+                    str = null;
+                }
+                aVar.a(true, str);
+            } catch (Throwable unused) {
+                aVar.a(false, null);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.o20.a
-    public n20 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new q20(true);
-        }
-        return (n20) invokeV.objValue;
     }
 }

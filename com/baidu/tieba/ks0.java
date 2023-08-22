@@ -9,15 +9,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class ks0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a b;
+    public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    @JvmField
+    public String a;
+    @JvmField
+    public String b;
+    public String c;
+    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -32,15 +38,19 @@ public final class ks0 {
                 return;
             }
         }
-        b = new a(null);
+        e = new a(null);
     }
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
             if (this != obj) {
-                return (obj instanceof ks0) && Intrinsics.areEqual(this.a, ((ks0) obj).a);
+                if (obj instanceof ks0) {
+                    ks0 ks0Var = (ks0) obj;
+                    return Intrinsics.areEqual(this.a, ks0Var.a) && Intrinsics.areEqual(this.b, ks0Var.b) && Intrinsics.areEqual(this.c, ks0Var.c) && Intrinsics.areEqual(this.d, ks0Var.d);
+                }
+                return false;
             }
             return true;
         }
@@ -50,12 +60,15 @@ public final class ks0 {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String str = this.a;
-            if (str != null) {
-                return str.hashCode();
-            }
-            return 0;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            String str3 = this.c;
+            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
+            String str4 = this.d;
+            return hashCode3 + (str4 != null ? str4.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -63,8 +76,8 @@ public final class ks0 {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "TagItem(text=" + this.a + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "RewardFestivalData(guideLottieUrl=" + this.a + ", guideBubbleLottieUrl=" + this.b + ", lottieCmd=" + this.c + ", requestUrl=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -97,9 +110,15 @@ public final class ks0 {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
                 if (jSONObject != null) {
-                    String optString = jSONObject.optString("text");
-                    Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"text\")");
-                    return new ks0(optString);
+                    String optString = jSONObject.optString("guide_lottie_url");
+                    Intrinsics.checkNotNullExpressionValue(optString, "optString(\"guide_lottie_url\")");
+                    String optString2 = jSONObject.optString("guide_bubble_lottie_url");
+                    Intrinsics.checkNotNullExpressionValue(optString2, "optString(\"guide_bubble_lottie_url\")");
+                    String optString3 = jSONObject.optString("lottie_cmd");
+                    Intrinsics.checkNotNullExpressionValue(optString3, "optString(\"lottie_cmd\")");
+                    String optString4 = jSONObject.optString("request_url");
+                    Intrinsics.checkNotNullExpressionValue(optString4, "optString(\"request_url\")");
+                    return new ks0(optString, optString2, optString3, optString4);
                 }
                 return null;
             }
@@ -107,12 +126,12 @@ public final class ks0 {
         }
     }
 
-    public ks0(String text) {
+    public ks0(String guideLottieUrl, String guideBubbleLottieUrl, String lottieCmd, String requestUrl) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {text};
+            Object[] objArr = {guideLottieUrl, guideBubbleLottieUrl, lottieCmd, requestUrl};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -122,7 +141,31 @@ public final class ks0 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(text, "text");
-        this.a = text;
+        Intrinsics.checkNotNullParameter(guideLottieUrl, "guideLottieUrl");
+        Intrinsics.checkNotNullParameter(guideBubbleLottieUrl, "guideBubbleLottieUrl");
+        Intrinsics.checkNotNullParameter(lottieCmd, "lottieCmd");
+        Intrinsics.checkNotNullParameter(requestUrl, "requestUrl");
+        this.a = guideLottieUrl;
+        this.b = guideBubbleLottieUrl;
+        this.c = lottieCmd;
+        this.d = requestUrl;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 }

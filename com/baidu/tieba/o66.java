@@ -1,128 +1,219 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.net.Proxy;
-import android.telephony.TelephonyManager;
+import android.text.Editable;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
+import android.text.TextWatcher;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.advert.sdk.data.WirelessNetworkType;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class o66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public EditText a;
+    public TextView b;
+    public ImageView c;
+    public TextWatcher d;
+    public c e;
+    public Context f;
+    public TbPageContext<?> g;
+    public View.OnClickListener h;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            String imei = TbadkCoreApplication.getInst().getImei();
-            if (imei == null || "000000000000000".equals(imei)) {
-                return "-";
-            }
-            return imei;
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(String str);
     }
 
-    public static Integer e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            return Integer.valueOf(context.getResources().getDisplayMetrics().heightPixels);
-        }
-        return (Integer) invokeL.objValue;
-    }
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o66 a;
 
-    public static Integer f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return Integer.valueOf(context.getResources().getDisplayMetrics().widthPixels);
-        }
-        return (Integer) invokeL.objValue;
-    }
-
-    public static Integer b(Context context) {
-        InterceptResult invokeL;
-        int value;
-        WirelessNetworkType wirelessNetworkType;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
-            Integer valueOf = Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
-                String typeName = activeNetworkInfo.getTypeName();
-                if (typeName.equalsIgnoreCase("WIFI")) {
-                    return Integer.valueOf(WirelessNetworkType.WIFI.getValue());
+        public a(o66 o66Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o66Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (typeName.equalsIgnoreCase("MOBILE")) {
-                    if (TextUtils.isEmpty(Proxy.getDefaultHost())) {
-                        if (g(context)) {
-                            wirelessNetworkType = WirelessNetworkType.MOBILE_3G;
-                        } else {
-                            wirelessNetworkType = WirelessNetworkType.MOBILE_2G;
-                        }
-                        value = wirelessNetworkType.getValue();
-                    } else {
-                        value = WirelessNetworkType.NETWORKTYPE_WAP.getValue();
+            }
+            this.a = o66Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2 == this.a.b) {
+                    String charSequence2String = di.charSequence2String(this.a.a.getText(), null);
+                    if (StringUtils.isNULL(charSequence2String)) {
+                        return;
                     }
-                    return Integer.valueOf(value);
+                    if (charSequence2String.trim().length() == 0) {
+                        if (charSequence2String.length() > 0) {
+                            this.a.g.showToast(R.string.obfuscated_res_0x7f0f0a93);
+                            return;
+                        }
+                        return;
+                    }
+                    this.a.i(charSequence2String.trim());
+                    this.a.b.setClickable(false);
+                } else if (view2 == this.a.c) {
+                    this.a.k("");
                 }
-                return valueOf;
-            }
-            return Integer.valueOf(WirelessNetworkType.UNKNOWN_NETWORK.getValue());
-        }
-        return (Integer) invokeL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return DeviceInfoHelper.getModel();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return DeviceInfoHelper.getOsVersion();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            switch (((TelephonyManager) context.getSystemService("phone")).getNetworkType()) {
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 13:
-                case 14:
-                case 15:
-                    return true;
-                case 4:
-                case 7:
-                case 11:
-                default:
-                    return false;
             }
         }
-        return invokeL.booleanValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements TextWatcher {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o66 a;
+
+        @Override // android.text.TextWatcher
+        public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        @Override // android.text.TextWatcher
+        public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIII(Constants.METHOD_SEND_USER_MSG, this, charSequence, i, i2, i3) == null) {
+            }
+        }
+
+        public b(o66 o66Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o66Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = o66Var;
+        }
+
+        @Override // android.text.TextWatcher
+        public void afterTextChanged(Editable editable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, editable) == null) {
+                if (TextUtils.isEmpty(editable)) {
+                    this.a.c.setVisibility(8);
+                } else {
+                    this.a.c.setVisibility(0);
+                }
+            }
+        }
+    }
+
+    public o66(TbPageContext<?> tbPageContext, View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.h = new a(this);
+        this.g = tbPageContext;
+        this.f = tbPageContext.getPageActivity();
+        this.a = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f09193f);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091943);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09193e);
+        this.b.setOnClickListener(this.h);
+        this.c.setOnClickListener(this.h);
+        b bVar = new b(this);
+        this.d = bVar;
+        this.a.addTextChangedListener(bVar);
+        f(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            SkinManager.setViewTextColor(this.b, R.color.CAM_X0111, 1);
+            this.a.setHintTextColor(SkinManager.getColor(R.color.CAM_X0110));
+            SkinManager.setImageResource(this.c, R.drawable.icon_search_close);
+        }
+    }
+
+    public final void i(String str) {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (cVar = this.e) != null) {
+            cVar.a(str);
+        }
+    }
+
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b.setClickable(z);
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.setText(str);
+        }
+    }
+
+    public void l(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, cVar) == null) {
+            this.e = cVar;
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            BdUtilHelper.hideSoftKeyPad(this.f, this.a);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.removeTextChangedListener(this.d);
+        }
     }
 }

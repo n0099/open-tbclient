@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.zo8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class hp8 extends iv9 {
+public class hp8 extends hr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.mv9
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "fan_message_bar" : (String) invokeV.objValue;
-    }
 
     public hp8() {
         Interceptable interceptable = $ic;
@@ -31,5 +27,61 @@ public final class hp8 extends iv9 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.gr8
+    public boolean a(int i, boolean z, Object obj) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            i(i);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hr8
+    public void h(List list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            if (this.a.isEmpty()) {
+                g(list);
+            } else {
+                super.h(list);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hr8
+    public List<fr8> j(List list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            if (list != null && !list.isEmpty()) {
+                ArrayList arrayList = new ArrayList();
+                for (Object obj : list) {
+                    if (obj instanceof AbilityItem) {
+                        arrayList.add(new ip8((AbilityItem) obj));
+                    } else {
+                        boolean z = obj instanceof zo8.b;
+                        if (z) {
+                            Object obj2 = ((zo8.b) obj).a;
+                            if (obj2 instanceof AbilityItem) {
+                                arrayList.add(new ip8((AbilityItem) obj2));
+                            }
+                        }
+                        if (z) {
+                            Object obj3 = ((zo8.b) obj).a;
+                            if (obj3 instanceof ip8) {
+                                arrayList.add((ip8) obj3);
+                            }
+                        }
+                    }
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeL.objValue;
     }
 }

@@ -1,35 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gd4 extends JSEvent {
+public class gd4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile fd4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public boolean hasUpdate;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gd4(String str) {
-        super(str);
+    public static synchronized fd4 a() {
+        InterceptResult invokeV;
+        fd4 fd4Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (gd4.class) {
+                if (a == null) {
+                    a = new fd4();
+                }
+                fd4Var = a;
             }
+            return fd4Var;
         }
+        return (fd4) invokeV.objValue;
     }
 }

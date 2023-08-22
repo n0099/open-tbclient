@@ -12,6 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
@@ -107,10 +108,10 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0298, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c24);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c00);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bac);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d029b, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090c31);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c0d);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090bb9);
             setOnClickListener(this);
         }
     }
@@ -118,9 +119,9 @@ public class EmotionCenterForumView extends RelativeLayout implements View.OnCli
     public void b(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            SkinManager.setViewTextColor(this.b, R.color.CAM_X0105, i);
-            SkinManager.setViewTextColor(this.c, R.color.cp_cont_r, i);
-            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0805de, i);
+            EMManager.from(this.b).setTextColor(R.color.CAM_X0105);
+            EMManager.from(this.c).setTextColor(R.color.cp_cont_r);
+            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f0805e3, i);
         }
     }
 

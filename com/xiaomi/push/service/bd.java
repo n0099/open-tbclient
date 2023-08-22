@@ -6,14 +6,14 @@ public class bd {
     public static long a = 0;
 
     /* renamed from: a  reason: collision with other field name */
-    public static String f924a = "";
+    public static String f925a = "";
 
     public static String a() {
-        if (TextUtils.isEmpty(f924a)) {
-            f924a = com.xiaomi.push.bo.a(4);
+        if (TextUtils.isEmpty(f925a)) {
+            f925a = com.xiaomi.push.bo.a(4);
         }
         StringBuilder sb = new StringBuilder();
-        sb.append(f924a);
+        sb.append(f925a);
         long j = a;
         a = 1 + j;
         sb.append(j);

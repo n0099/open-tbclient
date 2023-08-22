@@ -78,11 +78,11 @@ public class a extends com.kwad.components.core.i.b implements a.InterfaceC0653a
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
         getActivity().setTheme(R.style.obfuscated_res_0x7f100243);
-        setContentView(R.layout.obfuscated_res_0x7f0d047b);
+        setContentView(R.layout.obfuscated_res_0x7f0d0482);
         d(getIntent());
-        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f09133a);
+        this.mRootContainer = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f091350);
         nv();
-        com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09133f));
+        com.kwad.components.core.playable.a aVar = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091355));
         this.mk = aVar;
         aVar.a(this.mAdTemplate, this.mRootContainer, this.mApkDownloadHelper);
         this.mk.a(this);

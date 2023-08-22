@@ -5,7 +5,7 @@ import android.view.ViewGroup;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ss9;
+import com.baidu.tieba.xw9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,21 +15,21 @@ import tbclient.User;
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ss9 a;
+    public xw9 a;
 
-    public abstract void I1(boolean z);
+    public abstract void U1(boolean z);
 
-    public abstract int J1();
+    public abstract int V1();
 
-    public abstract boolean K1();
+    public abstract boolean W1();
 
-    public void L1(MetaData metaData) {
+    public void X1(MetaData metaData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, metaData) == null) {
         }
     }
 
-    public abstract void M1(User user);
+    public abstract void Y1(User user);
 
     public PersonCenterTabBaseFragment() {
         Interceptable interceptable = $ic;
@@ -47,10 +47,10 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view2) {
-        ss9 ss9Var;
+        xw9 xw9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (ss9Var = this.a) != null) {
-            ss9Var.dettachView(view2);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, view2) == null) && (xw9Var = this.a) != null) {
+            xw9Var.dettachView(view2);
         }
     }
 
@@ -59,9 +59,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             super.onChangeSkinType(i);
-            ss9 ss9Var = this.a;
-            if (ss9Var != null) {
-                ss9Var.onChangeSkinType();
+            xw9 xw9Var = this.a;
+            if (xw9Var != null) {
+                xw9Var.onChangeSkinType();
             }
         }
     }
@@ -71,9 +71,9 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048583, this, view2, str, z) == null) {
             if (this.a == null) {
-                ss9 ss9Var = new ss9(getPageContext().getPageActivity(), getNetRefreshListener());
-                this.a = ss9Var;
-                ss9Var.d(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+                xw9 xw9Var = new xw9(getPageContext().getPageActivity(), getNetRefreshListener());
+                this.a = xw9Var;
+                xw9Var.d(getPageContext().getResources().getString(R.string.refresh_view_title_text));
                 this.a.c(null);
                 this.a.b(getPageContext().getResources().getString(R.string.refresh_view_button_text));
                 this.a.e();

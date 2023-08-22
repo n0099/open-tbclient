@@ -1,96 +1,143 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.nadcore.player.remote.BDRemotePlayerService;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.addresslist.relationship.RequestGetAddressListMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class f66 extends SQLiteOpenHelper {
+public final class f66 extends xk1<fk0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f66(Context context) {
-        super(context, "relationship.db", (SQLiteDatabase.CursorFactory) null, 4);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xk1
+    /* renamed from: a */
+    public fk0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new fk0() { // from class: com.baidu.tieba.e66
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.fk0
+            public final boolean a() {
+                InterceptResult invokeV2;
+                Interceptable interceptable2 = $ic;
+                return (interceptable2 == null || (invokeV2 = interceptable2.invokeV(1048576, this)) == null) ? f66.b() : invokeV2.booleanValue;
+            }
+        } : (fk0) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a implements CyberPlayerManager.InstallListener2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallProgress(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallError(int i, int i2, String detail) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, detail) == null) {
+                Intrinsics.checkNotNullParameter(detail, "detail");
+                sk0.c("NadCyberManagerImpl", "onInstallError: type=" + i + ", errorType=" + i2 + ", detail=" + detail);
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener2
+        public void onInstallInfo(int i, int i2, Object obj) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
+                if (obj instanceof String) {
+                    str = (String) obj;
+                } else {
+                    str = null;
+                }
+                if (str == null) {
+                    return;
+                }
+                sk0.c("NadCyberManagerImpl", "onInstallInfo: what=" + i + ", message=" + str);
+            }
+        }
+
+        @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.InstallListener
+        public void onInstallSuccess(int i, String coreVer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048579, this, i, coreVer) == null) {
+                Intrinsics.checkNotNullParameter(coreVer, "coreVer");
+                sk0.c("NadCyberManagerImpl", "onInstallSuccess: type=" + i + ", ver=" + coreVer);
+            }
+        }
+    }
+
+    public f66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final void b(SQLiteDatabase sQLiteDatabase) {
+    public static final boolean b() {
+        InterceptResult invokeV;
+        Class<BDRemotePlayerService> cls;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (CyberPlayerManager.isCoreLoaded(31)) {
+                return true;
+            }
+            new HashMap().put(CyberPlayerManager.INSTALL_OPT_CRASHPAD_INSTALL_TYPE, "2");
+            boolean l = l21.l();
             try {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (TextUtils.isEmpty(currentAccount)) {
-                    return;
+                Context context = TbadkCoreApplication.getInst().getContext();
+                String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                if (l) {
+                    cls = BDRemotePlayerService.class;
+                } else {
+                    cls = null;
                 }
-                sQLiteDatabase.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
+                CyberPlayerManager.install(context, cuidGalaxy2, (String) null, 31, (Class<?>) cls, (Map<String, String>) null, (CyberPlayerManager.InstallListener2) new a());
             } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.dropTables", new Object[0]);
-                BdLog.e("drop table wrong " + e.toString());
+                e.printStackTrace();
             }
+            return true;
         }
-    }
-
-    public final void a(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            try {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (TextUtils.isEmpty(currentAccount)) {
-                    return;
-                }
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT, location_time LONG, user_type INT);");
-            } catch (Exception e) {
-                TiebaStatic.printDBExceptionLog(e, "RelationshipDbHelper.createTables", new Object[0]);
-                BdLog.e("create table wrong " + e.toString());
-            }
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            a(sQLiteDatabase);
-        }
-    }
-
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-            b(sQLiteDatabase);
-            a(sQLiteDatabase);
-            try {
-                MessageManager.getInstance().sendMessageFromBackground(new RequestGetAddressListMessage(304001));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

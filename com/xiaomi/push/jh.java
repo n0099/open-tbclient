@@ -4,7 +4,7 @@ public final class jh {
     public final byte a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final int f816a;
+    public final int f817a;
 
     public jh() {
         this((byte) 0, 0);
@@ -12,6 +12,6 @@ public final class jh {
 
     public jh(byte b, int i) {
         this.a = b;
-        this.f816a = i;
+        this.f817a = i;
     }
 }

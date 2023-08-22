@@ -1,6 +1,7 @@
 package com.kwad.sdk.core.b.kwai;
 
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.kwad.sdk.core.response.model.AdInfo;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -10,8 +11,8 @@ public final class j implements com.kwad.sdk.core.d<AdInfo.AdConversionInfo> {
         if (jSONObject == null) {
             return;
         }
-        adConversionInfo.h5Url = jSONObject.optString("h5Url");
-        if (jSONObject.opt("h5Url") == JSONObject.NULL) {
+        adConversionInfo.h5Url = jSONObject.optString(AiBotChatDispatcher.AI_SINGLE_H5_URL);
+        if (jSONObject.opt(AiBotChatDispatcher.AI_SINGLE_H5_URL) == JSONObject.NULL) {
             adConversionInfo.h5Url = "";
         }
         adConversionInfo.h5Type = jSONObject.optInt("h5Type");
@@ -57,7 +58,7 @@ public final class j implements com.kwad.sdk.core.d<AdInfo.AdConversionInfo> {
         }
         String str = adConversionInfo.h5Url;
         if (str != null && !str.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "h5Url", adConversionInfo.h5Url);
+            com.kwad.sdk.utils.r.putValue(jSONObject, AiBotChatDispatcher.AI_SINGLE_H5_URL, adConversionInfo.h5Url);
         }
         int i = adConversionInfo.h5Type;
         if (i != 0) {

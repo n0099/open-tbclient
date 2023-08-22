@@ -1,15 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface qw3 {
-    void a(vb3 vb3Var);
+public class qw3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile pw3 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    Map<String, Object> b(@NonNull zy1 zy1Var);
-
-    @Nullable
-    Map<String, Object> c(@NonNull zy1 zy1Var);
+    public static synchronized pw3 a() {
+        InterceptResult invokeV;
+        pw3 pw3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (qw3.class) {
+                if (a == null) {
+                    a = new pw3();
+                }
+                pw3Var = a;
+            }
+            return pw3Var;
+        }
+        return (pw3) invokeV.objValue;
+    }
 }

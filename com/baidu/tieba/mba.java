@@ -1,95 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sprite.funnysprite.data.SpriteTipHttpResponseMessage;
+import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
+import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Timgs;
+import kotlin.collections.CollectionsKt__CollectionsJVMKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class mba implements b75 {
+public final class mba implements lba {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public int d;
 
-    public mba(Timgs timgs) {
+    public mba() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {timgs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = null;
-        this.b = null;
-        this.c = 1;
-        this.d = 1;
-        if (timgs == null) {
-            return;
-        }
-        this.a = timgs.img_url;
-        timgs.flag.intValue();
-        this.b = timgs.url;
-        String str = timgs.big_cdn_url;
-        String str2 = timgs.des_main;
-        String str3 = timgs.des_sub;
-        String str4 = timgs.bsize;
-        if (str4 != null) {
-            try {
-                String[] split = str4.split(",");
-                this.c = JavaTypesHelper.toInt(split[0], 1);
-                this.d = JavaTypesHelper.toInt(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-        if (this.c <= 0) {
-            this.c = 1;
-        }
-        if (this.d <= 0) {
-            this.d = 1;
         }
     }
 
-    public String a() {
+    @Override // com.baidu.tieba.lba
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return lla.i.a().h();
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.b75
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lba
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && HomeSpriteEdgeFloatManager.l.c().W()) {
+            HomeSpriteEdgeFloatManager.l.c().a0();
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.b75
-    public String getPicUrl() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lba
+    public void hide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            HomeSpriteEdgeFloatManager.l.c().Q();
         }
-        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lba
+    public void b(pda hotEventShowData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hotEventShowData) == null) {
+            Intrinsics.checkNotNullParameter(hotEventShowData, "hotEventShowData");
+            HomeSpriteEdgeFloatManager.l.c().X(hotEventShowData);
+        }
+    }
+
+    @Override // com.baidu.tieba.lba
+    public void c(Activity context, SpriteTipHttpResponseMessage response, HomePageSpriteBottomTipView spriteTipView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, response, spriteTipView) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(response, "response");
+            Intrinsics.checkNotNullParameter(spriteTipView, "spriteTipView");
+            i55.g(CollectionsKt__CollectionsJVMKt.listOf(new ena(context, response, spriteTipView, null, 8, null)));
+        }
     }
 }

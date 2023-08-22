@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
@@ -17,8 +13,7 @@ import org.json.JSONObject;
 public class gc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<Double> a;
-    public List<Integer> b;
+    public List<hc5> a;
 
     public gc5() {
         Interceptable interceptable = $ic;
@@ -30,65 +25,23 @@ public class gc5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
     }
 
-    public int a(double d) {
-        InterceptResult invokeCommon;
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d)})) == null) {
-            if (!ListUtils.isEmpty(this.a) && !ListUtils.isEmpty(this.b)) {
-                for (int i = 0; i < this.a.size(); i++) {
-                    if (d <= this.a.get(i).doubleValue()) {
-                        return b(i);
-                    }
-                    if (i == this.a.size() - 1) {
-                        return b(i + 1);
-                    }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("applist")) != null && optJSONArray.length() != 0) {
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    hc5 hc5Var = new hc5();
+                    hc5Var.a(jSONObject2);
+                    this.a.add(hc5Var);
                 }
-            }
-            return -1;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public final int b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < this.b.size()) {
-                return this.b.get(i).intValue();
-            }
-            return -1;
-        }
-        return invokeI.intValue;
-    }
-
-    public void c(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                JSONArray optJSONArray = jSONObject.optJSONArray("divide");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    this.a = new ArrayList();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        double optDouble = optJSONArray.optDouble(i);
-                        if (!Double.isNaN(optDouble)) {
-                            this.a.add(Double.valueOf(optDouble));
-                        }
-                    }
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("threshold");
-                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    this.b = new ArrayList();
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        this.b.add(Integer.valueOf(optJSONArray2.optInt(i2)));
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
         }
     }

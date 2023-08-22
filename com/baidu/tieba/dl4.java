@@ -6,32 +6,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class dl4 implements wk4 {
+public class dl4 {
     public static /* synthetic */ Interceptable $ic;
+    public static dl4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<kk4> a;
-    public qi4 b;
-    public List<wj4> c;
-    public List<wj4> d;
-    public List<wj4> e;
+    public tk4 a;
 
-    @Override // com.baidu.tieba.wk4
-    public <T> void a(al4<T> al4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, al4Var) == null) {
-        }
-    }
-
-    public dl4(qi4 qi4Var) {
+    public dl4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {qi4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,73 +26,90 @@ public class dl4 implements wk4 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        this.e = new ArrayList();
-        this.b = qi4Var;
-        this.a = new ArrayList();
-        yk4.b().e(this);
+        this.a = new tk4();
     }
 
-    @Override // com.baidu.tieba.wk4
-    public <T> void b(al4<T> al4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, al4Var) != null) || al4Var.k()) {
-            return;
-        }
-        Iterator<kk4> it = this.a.iterator();
-        while (true) {
-            if (!it.hasNext()) {
-                break;
-            }
-            kk4 next = it.next();
-            if (next.b(al4Var)) {
-                int i = al4Var.i();
-                this.a.remove(next);
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i == 10) {
-                            this.c.add(next.a().a.b);
-                        }
-                    } else {
-                        this.d.add(next.a().a.b);
-                    }
-                } else {
-                    this.e.add(next.a().a.b);
-                }
-            }
-        }
-        d();
-    }
-
-    public void c(kk4 kk4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kk4Var) == null) && kk4Var != null) {
-            this.a.add(kk4Var);
-        }
-    }
-
-    public final boolean d() {
+    public static dl4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a.isEmpty()) {
-                this.b.b();
-                yk4.b().g(this);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            dl4 dl4Var = b;
+            if (dl4Var != null) {
+                return dl4Var;
             }
-            return false;
+            synchronized (dl4.class) {
+                if (b == null) {
+                    b = new dl4();
+                }
+            }
+            return b;
         }
-        return invokeV.booleanValue;
+        return (dl4) invokeV.objValue;
     }
 
-    public void e() {
+    public pk4 a(fl4 fl4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || d()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fl4Var)) == null) {
+            if (fl4Var == null) {
+                return null;
+            }
+            return new kl4(fl4Var, false);
         }
-        for (kk4 kk4Var : this.a) {
-            kk4Var.c(false);
+        return (pk4) invokeL.objValue;
+    }
+
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                e = this.a.e(str);
+            }
+            return e;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                f = this.a.f(str);
+            }
+            return f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void e(bl4 bl4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bl4Var) == null) {
+            synchronized (this) {
+                this.a.c(bl4Var);
+            }
+        }
+    }
+
+    public synchronized <T> void f(fl4<T> fl4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fl4Var) == null) {
+            synchronized (this) {
+                fl4Var.s(false);
+                this.a.h(fl4Var);
+            }
+        }
+    }
+
+    public synchronized void g(bl4 bl4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bl4Var) == null) {
+            synchronized (this) {
+                this.a.i(bl4Var);
+            }
         }
     }
 }

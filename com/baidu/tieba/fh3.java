@@ -1,159 +1,211 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.ubc.Flow;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.Date;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fh3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    public static eh3 a(String str) {
-        InterceptResult invokeL;
-        Object obj;
+    /* loaded from: classes5.dex */
+    public class a implements Comparator<File> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(fh3 fh3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fh3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(File file, File file2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
+                long lastModified = file.lastModified();
+                long lastModified2 = file2.lastModified();
+                if (lastModified == lastModified2) {
+                    return 0;
+                }
+                if (lastModified - lastModified2 > 0) {
+                    return 1;
+                }
+                return -1;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947764088, "Lcom/baidu/tieba/fh3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947764088, "Lcom/baidu/tieba/fh3;");
+                return;
+            }
+        }
+        b = nr1.a;
+    }
+
+    public fh3() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Flow d = eq4.d(str);
-            if (g()) {
-                obj = fu2.A0().beginFlow(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        try {
+            str = AppRuntime.getAppContext().getFilesDir().getPath();
+        } catch (Exception e) {
+            if (!b) {
+                str = "";
             } else {
-                obj = null;
+                throw e;
             }
-            return new eh3(obj, d);
         }
-        return (eh3) invokeL.objValue;
+        if (!TextUtils.isEmpty(str)) {
+            this.a = str + File.separator + "aiapps_folder/stability";
+            return;
+        }
+        this.a = "";
     }
 
-    public static void b(@NonNull eh3 eh3Var) {
+    public final void a(int i) {
+        File[] c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, eh3Var) == null) {
-            if (g()) {
-                fu2.A0().b(eh3Var.b());
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (c = c()) != null && c.length != 0) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Arrays.sort(c, new a(this));
+            ArrayList<File> arrayList = new ArrayList(c.length);
+            int i2 = 0;
+            for (File file : c) {
+                if (i2 < i) {
+                    if (file.lastModified() - currentTimeMillis > 172800000) {
+                        arrayList.add(file);
+                    }
+                } else {
+                    arrayList.add(file);
+                }
+                i2++;
             }
-            Flow a = eh3Var.a();
-            if (a != null) {
-                a.cancel();
+            for (File file2 : arrayList) {
+                hr4.j(file2);
             }
         }
     }
 
-    public static void c(@NonNull eh3 eh3Var) {
+    public final File b(long j) {
+        InterceptResult invokeJ;
+        String g0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, eh3Var) == null) {
-            if (g()) {
-                fu2.A0().c(eh3Var.b());
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                return null;
             }
-            Flow a = eh3Var.a();
-            if (a != null) {
-                a.end();
+            if (db3.g0() == null) {
+                g0 = "";
+            } else {
+                g0 = db3.g0();
             }
+            return new File(this.a + File.separator + g0 + "_" + j + "_swan_stability_traces.log");
         }
+        return (File) invokeJ.objValue;
     }
 
-    public static void d(@NonNull eh3 eh3Var, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, eh3Var, str, str2) == null) {
-            if (g()) {
-                fu2.A0().a(eh3Var.b(), str, str2);
-            }
-            Flow a = eh3Var.a();
-            if (a != null) {
-                a.addEvent(str, str2);
-            }
-        }
-    }
-
-    public static void i(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, jSONObject) == null) {
-            if (g()) {
-                fu2.A0().f(str, jSONObject);
-            }
-            eq4.l(str2, jSONObject);
-        }
-    }
-
-    public static void e(@NonNull eh3 eh3Var, String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{eh3Var, str, str2, Long.valueOf(j)}) == null) {
-            if (g()) {
-                fu2.A0().g(eh3Var.b(), str, str2, j);
-            }
-            Flow a = eh3Var.a();
-            if (a != null) {
-                a.addEvent(str, str2, j);
-            }
-        }
-    }
-
-    public static void f(@NonNull eh3 eh3Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, eh3Var, str) == null) {
-            if (g()) {
-                fu2.A0().h(eh3Var.b(), str);
-            }
-            Flow a = eh3Var.a();
-            if (a != null) {
-                a.setValueWithDuration(str);
-            }
-        }
-    }
-
-    public static void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
-            if (g()) {
-                fu2.A0().i(str, str2);
-            }
-            eq4.h(str, str2);
-        }
-    }
-
-    public static void j(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, map) == null) {
-            if (g()) {
-                fu2.A0().d(str, map);
-            }
-            eq4.j(str, map);
-        }
-    }
-
-    public static void k(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, jSONObject) == null) {
-            if (g()) {
-                fu2.A0().f(str, jSONObject);
-            }
-            eq4.l(str, jSONObject);
-        }
-    }
-
-    public static void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            fu2.A0().i(str, str2);
-        }
-    }
-
-    public static void m(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, jSONObject) == null) {
-            fu2.A0().f(str, jSONObject);
-        }
-    }
-
-    public static boolean g() {
+    public File[] c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return fu2.A0().e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                return null;
+            }
+            try {
+                return new File(this.a).listFiles();
+            } catch (Exception e) {
+                if (b) {
+                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
+                }
+                return null;
+            }
         }
-        return invokeV.booleanValue;
+        return (File[]) invokeV.objValue;
+    }
+
+    public File d(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        String g0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            try {
+                a(9);
+                JSONObject jSONObject = new JSONObject();
+                if (db3.g0() == null) {
+                    g0 = "";
+                } else {
+                    g0 = db3.g0();
+                }
+                jSONObject.put("_app_id", g0);
+                jSONObject.put("_date", rn3.b(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
+                jSONArray.put(jSONObject);
+                File b2 = b(currentTimeMillis);
+                if (b2 == null) {
+                    return null;
+                }
+                if (!gu2.b(b2.getPath(), jSONArray.toString(), false)) {
+                    return null;
+                }
+                return b2;
+            } catch (Exception e) {
+                if (b) {
+                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
+                }
+                return null;
+            }
+        }
+        return (File) invokeL.objValue;
     }
 }

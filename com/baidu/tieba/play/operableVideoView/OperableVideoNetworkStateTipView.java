@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ila;
-import com.baidu.tieba.w95;
-import com.baidu.tieba.y95;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.fa5;
+import com.baidu.tieba.rpa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -151,19 +151,19 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LinearLayout.inflate(getContext(), getLayoutR(), this);
-            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091c96);
+            this.a = (TBSpecificationBtn) findViewById(R.id.obfuscated_res_0x7f091cb9);
             this.b = (TBSpecificationBtn) findViewById(R.id.free_flow);
-            y95 y95Var = new y95();
-            y95Var.u();
-            y95Var.j(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
-            y95Var.h(BdUtilHelper.getDimens(getContext(), R.dimen.tbds32));
+            fa5 fa5Var = new fa5();
+            fa5Var.u();
+            fa5Var.j(R.drawable.ic_icon_pure_video_play12_svg, 0, TBSpecificationButtonConfig.IconType.SVG);
+            fa5Var.h(BdUtilHelper.getDimens(getContext(), R.dimen.tbds32));
             this.a.setText(getResources().getString(R.string.video_flow_play));
             this.a.setTextSize(R.dimen.tbds36);
-            this.a.setConfig(y95Var);
-            w95 w95Var = new w95();
+            this.a.setConfig(fa5Var);
+            da5 da5Var = new da5();
             this.b.setText(getResources().getString(R.string.video_open_free_data));
             this.b.setTextSize(R.dimen.tbds36);
-            this.b.setConfig(w95Var);
+            this.b.setConfig(da5Var);
             this.a.setOnClickListener(this);
             this.b.setOnClickListener(this);
             setOnClickListener(this);
@@ -174,7 +174,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (b() || ila.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
+            if (b() || rpa.c().d() || TbadkCoreApplication.getInst().getAutoPlaySwitch() == 2 || BdNetTypeUtil.isMobileNet()) {
             }
             return false;
         }
@@ -189,7 +189,7 @@ public class OperableVideoNetworkStateTipView extends LinearLayout implements Vi
         }
         if (view2.getId() == R.id.free_flow) {
             BrowserHelper.startWebActivity(true, getContext(), getResources().getString(R.string.free_data_privilege), TbConfig.URL_BAIDU_SINGKIL);
-        } else if (view2.getId() == R.id.obfuscated_res_0x7f091c96) {
+        } else if (view2.getId() == R.id.obfuscated_res_0x7f091cb9) {
             setHasAgreeToPlay(true);
             View.OnClickListener onClickListener = this.c;
             if (onClickListener != null) {

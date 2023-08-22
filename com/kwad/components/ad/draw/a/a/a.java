@@ -4,7 +4,7 @@ import androidx.annotation.MainThread;
 import androidx.annotation.Nullable;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     @Nullable
     public b bA;
@@ -13,12 +13,12 @@ public final class a {
     public AdTemplate mAdTemplate;
 
     /* renamed from: com.kwad.components.ad.draw.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface InterfaceC0598a {
         void ax();
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface b {
         boolean ay();
     }

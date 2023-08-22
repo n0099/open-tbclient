@@ -1,181 +1,148 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
-import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
-import com.baidu.searchbox.yy.gameassist.GameAssistNPSPluginManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wallet.YYPayManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelpay.PayReq;
-import com.tencent.mm.opensdk.openapi.IWXAPI;
-import com.tencent.mm.opensdk.openapi.WXAPIFactory;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class v39 implements ThirdPartWxRechargeService {
+public class v39 {
     public static /* synthetic */ Interceptable $ic;
-    public static BroadcastReceiver b;
     public transient /* synthetic */ FieldHolder $fh;
-    public IWXAPI a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948189997, "Lcom/baidu/tieba/v39;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948189997, "Lcom/baidu/tieba/v39;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v39 this$0;
-        public final /* synthetic */ ThirdPartWxRechargeService.WxPayType val$wxPayType;
-
-        public a(v39 v39Var, ThirdPartWxRechargeService.WxPayType wxPayType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v39Var, wxPayType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = v39Var;
-            this.val$wxPayType = wxPayType;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-                intent.getExtras();
-                if (this.val$wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
-                    str = "wx_pay_result";
-                } else {
-                    str = GameAssistNPSPluginManager.KEY_YY_WX_PAY_RESULT;
-                }
-                HashMap<String, Object> hashMap = new HashMap<>();
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, Integer.valueOf(intent.getExtras().getInt("errorCode", -1)));
-                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, intent.getExtras().getString("errorMsg"));
-                LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str, hashMap);
-                tv7.i().g(TbadkCoreApplication.getInst().getContext(), str, hashMap);
-            }
-        }
-    }
-
-    public v39() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void initWx() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public boolean isWxInstalled() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-            }
-            return this.a.isWXAppInstalled();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final PayReq a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            PayReq payReq = new PayReq();
-            payReq.appId = jSONObject.optString("appid");
-            payReq.partnerId = jSONObject.optString("partnerid");
-            payReq.prepayId = jSONObject.optString("prepayid");
-            payReq.packageValue = jSONObject.optString("package");
-            payReq.nonceStr = jSONObject.optString("noncestr");
-            payReq.timeStamp = jSONObject.optString("timestamp");
-            payReq.sign = jSONObject.optString("sign");
-            payReq.extData = "YY";
-            return payReq;
-        }
-        return (PayReq) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
-    public void wxRecharge(String str, ThirdPartWxRechargeService.WxPayType wxPayType) {
+    public static void a(@NonNull StringBuilder sb, long j, boolean z, int i, @NonNull String str) {
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, wxPayType) == null) {
-            try {
-                if (this.a == null) {
-                    this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
-                }
-                PayReq a2 = a(new JSONObject(str));
-                this.a.registerApp(a2.appId);
-                if (!this.a.sendReq(a2)) {
-                    if (wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
-                        str2 = "wx_pay_result";
-                    } else {
-                        str2 = GameAssistNPSPluginManager.KEY_YY_WX_PAY_RESULT;
-                    }
-                    HashMap<String, Object> hashMap = new HashMap<>();
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, 6);
-                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
-                    LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
-                    tv7.i().g(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
-                }
-                if (b != null) {
-                    TbadkCoreApplication.getInst().unregisterReceiver(b);
-                }
-                b = new a(this, wxPayType);
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addAction("WXPayResult");
-                TbadkCoreApplication.getInst().registerReceiver(b, intentFilter);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{sb, Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i), str}) == null) {
+            if (z) {
+                str2 = "groupId";
+            } else {
+                str2 = "roomId";
             }
+            sb.append(str2);
+            sb.append("=");
+            sb.append(j);
+            sb.append(",");
+            sb.append(StatConstants.KEY_EXT_ERR_CODE);
+            sb.append("=");
+            sb.append(i);
+            sb.append(",");
+            sb.append(StatConstants.KEY_EXT_ERR_MSG);
+            sb.append("=");
+            sb.append(str);
+            sb.append(",");
+        }
+    }
+
+    public static void b(@NonNull StringBuilder sb, boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65537, null, sb, z) == null) {
+            if (z) {
+                str = "success";
+            } else {
+                str = "fail";
+            }
+            sb.append(str);
+            sb.append(",");
+        }
+    }
+
+    public static void d(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65539, null, str, j) == null) {
+            i05.d(str + j);
+        }
+    }
+
+    public static void n(@NonNull String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65549, null, str, j) == null) {
+            i05.e(str + j);
+        }
+    }
+
+    public static void c(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            i05.d(str);
+        }
+    }
+
+    public static void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
+            StringBuilder sb = new StringBuilder();
+            b(sb, z);
+            i05.b("login_lcp", sb.toString());
+        }
+    }
+
+    public static void m(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
+            i05.e(str);
+        }
+    }
+
+    public static void e(long j, long j2, int i, boolean z, boolean z2, int i2, @NonNull String str, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
+            i05.b("fetch_chat_room_msg_request", "roomId=" + j + ",beginMsgId=" + j2 + ",count=" + i + ",isFirstFetch=" + z + ",isFetchHistory=" + z2 + ",errCode=" + i2 + ",errMsg=" + str + ",resultCount=" + i3 + ",");
+        }
+    }
+
+    public static void f(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, false, i, str);
+            i05.b("im_enter_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void g(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, false, i, str);
+            i05.b("im_exit_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void h(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, true, i, str);
+            i05.b("im_group_enter_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void i(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, false, i, str);
+            i05.b("im_group_exit_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65545, null, j) == null) {
+            i05.d("key_im_on_enter_lose");
+            i05.b("key_im_on_enter_lose", "roomId=" + j + ",");
+            i05.e("key_im_on_enter_lose");
+        }
+    }
+
+    public static void k(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, false, i, str);
+            i05.b("login_im", sb.toString());
         }
     }
 }

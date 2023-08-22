@@ -1,58 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.arch.view.BaseView;
-import com.baidu.tieba.immessagecenter.arch.vm.StatelessViewModel;
+import com.baidu.android.imsdk.BIMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "ChatUtil")
 /* loaded from: classes6.dex */
-public abstract class ig8 extends BaseView<kg8, jg8, StatelessViewModel> {
+public final class ig8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: P */
-    public void H(kg8 state) {
+    public static final long a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, state) == null) {
-            Intrinsics.checkNotNullParameter(state, "state");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ig8(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Intrinsics.checkNotNullParameter(str, "<this>");
+            try {
+                String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(str);
+                Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(this)");
+                return Long.parseLong(bdUidFromBdUK);
+            } catch (NumberFormatException unused) {
+                return 0L;
             }
         }
+        return invokeL.longValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.immessagecenter.arch.view.BaseView
-    /* renamed from: O */
-    public StatelessViewModel r() {
-        InterceptResult invokeV;
+    public static final String b(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new StatelessViewModel();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
+            return c(String.valueOf(j));
         }
-        return (StatelessViewModel) invokeV.objValue;
+        return (String) invokeJ.objValue;
+    }
+
+    public static final String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            Intrinsics.checkNotNullParameter(str, "<this>");
+            return BIMManager.getBdUKFromBdUid(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

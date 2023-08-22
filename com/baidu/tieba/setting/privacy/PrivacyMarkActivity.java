@@ -13,20 +13,20 @@ import com.baidu.tbadk.core.atomData.PrivacyMarkActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b3a;
+import com.baidu.tieba.g7a;
 import com.baidu.tieba.setting.im.more.PrivacySettingMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b3a a;
+    public g7a a;
     public HttpMessageListener b;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -75,9 +75,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
                     this.a.a.G();
                 }
                 if (httpResponsedMessage.getError() != -1 && BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f1142);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f114d);
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e21);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e29);
                 }
             }
         }
@@ -121,9 +121,9 @@ public class PrivacyMarkActivity extends BaseActivity<PrivacyMarkActivity> {
             if (intExtra2 != 1 && intExtra2 != 3) {
                 intExtra2 = 1;
             }
-            b3a b3aVar = new b3a(getPageContext(), (intExtra << 2) | intExtra2);
-            this.a = b3aVar;
-            setContentView(b3aVar.D());
+            g7a g7aVar = new g7a(getPageContext(), (intExtra << 2) | intExtra2);
+            this.a = g7aVar;
+            setContentView(g7aVar.D());
             registerListener(this.b);
         }
     }

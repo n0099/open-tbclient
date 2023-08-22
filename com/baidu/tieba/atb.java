@@ -10,9 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class atb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile int a;
-    public volatile int b;
-    public volatile int c;
+    public int a;
+    public long b;
+    public String c;
 
     public atb() {
         Interceptable interceptable = $ic;
@@ -28,52 +28,46 @@ public class atb {
             }
         }
         this.a = 0;
-        this.b = 0;
-        this.c = 0;
     }
 
-    public synchronized void b() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                if (this.a != 2) {
-                    this.b++;
-                    if (this.b >= this.c) {
-                        this.a = 2;
-                        notify();
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void a(int i) {
+    public void d(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.a = 0;
-            this.b = 0;
-            this.c = i;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.b = j;
         }
-    }
-
-    public synchronized boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            synchronized (this) {
-                if (this.a != 0) {
-                    return true;
-                }
-                try {
-                    this.a = 1;
-                    wait(i);
-                    return true;
-                } catch (Exception unused) {
-                    this.a = 2;
-                    return false;
-                }
-            }
-        }
-        return invokeI.booleanValue;
     }
 }

@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class p79 {
+public class p79 implements LiveCustomSettingService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a(Object... objArr);
 
     public p79() {
         Interceptable interceptable = $ic;
@@ -23,5 +23,15 @@ public abstract class p79 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveCustomSettingService
+    public boolean isFreeTrafficMode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return rpa.c().d();
+        }
+        return invokeV.booleanValue;
     }
 }

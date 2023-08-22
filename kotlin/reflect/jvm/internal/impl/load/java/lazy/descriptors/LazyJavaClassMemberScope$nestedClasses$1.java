@@ -18,7 +18,7 @@ import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
 import kotlin.reflect.jvm.internal.impl.storage.NotNullLazyValue;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LazyJavaClassMemberScope$nestedClasses$1 extends Lambda implements Function1<Name, ClassDescriptorBase> {
     public final /* synthetic */ LazyJavaResolverContext $c;
     public final /* synthetic */ LazyJavaClassMemberScope this$0;

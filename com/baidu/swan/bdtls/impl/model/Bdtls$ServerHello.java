@@ -1,8 +1,8 @@
 package com.baidu.swan.bdtls.impl.model;
 
 import com.baidu.swan.bdtls.impl.model.Bdtls$Random;
-import com.baidu.tieba.cu3;
-import com.baidu.tieba.du3;
+import com.baidu.tieba.hu3;
+import com.baidu.tieba.iu3;
 import com.google.protobuf.AbstractMessageLite;
 import com.google.protobuf.AbstractParser;
 import com.google.protobuf.ByteString;
@@ -233,7 +233,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         @Override // com.google.protobuf.MessageLite.Builder
         /* renamed from: m */
         public Bdtls$ServerHello buildPartial() {
-            Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (cu3) null);
+            Bdtls$ServerHello bdtls$ServerHello = new Bdtls$ServerHello(this, (hu3) null);
             int i = this.a;
             int i2 = 1;
             if ((i & 1) != 1) {
@@ -377,7 +377,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         return this.extensions_;
     }
 
-    public List<? extends du3> getExtensionsOrBuilderList() {
+    public List<? extends iu3> getExtensionsOrBuilderList() {
         return this.extensions_;
     }
 
@@ -521,7 +521,7 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         }
     }
 
-    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, cu3 cu3Var) throws InvalidProtocolBufferException {
+    public /* synthetic */ Bdtls$ServerHello(CodedInputStream codedInputStream, ExtensionRegistryLite extensionRegistryLite, hu3 hu3Var) throws InvalidProtocolBufferException {
         this(codedInputStream, extensionRegistryLite);
     }
 
@@ -549,11 +549,11 @@ public final class Bdtls$ServerHello extends GeneratedMessageLite implements Mes
         return this.extensions_.get(i);
     }
 
-    public du3 getExtensionsOrBuilder(int i) {
+    public iu3 getExtensionsOrBuilder(int i) {
         return this.extensions_.get(i);
     }
 
-    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, cu3 cu3Var) {
+    public /* synthetic */ Bdtls$ServerHello(GeneratedMessageLite.Builder builder, hu3 hu3Var) {
         this(builder);
     }
 

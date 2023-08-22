@@ -1,108 +1,160 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.crypto.SecretKey;
+import com.fun.ad.sdk.ChannelNativeAds;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.nativ.MediaView;
+import com.qq.e.ads.nativ.NativeUnifiedADData;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class pob implements rob {
+public class pob extends BaseFunNativeAd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final oob a;
-    public SecretKey b;
+    public final uob b;
+    public final ChannelNativeAds c;
+    public final MediaView d;
+    public final eob e;
 
-    public pob(oob oobVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pob(uob uobVar, MediaView mediaView, String str, Ssp.Pid pid, eob eobVar) {
+        super(str, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {oobVar};
+            Object[] objArr = {uobVar, mediaView, str, pid, eobVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = oobVar;
-        b();
+        this.b = uobVar;
+        this.d = mediaView;
+        this.c = ChannelNativeAds.createGdt(uobVar.a());
+        this.e = eobVar;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public ChannelNativeAds getChannelNativeAds() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && Pattern.matches("^\\[!([A-Fa-f0-9]*)]", str) : invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ChannelNativeAds) invokeV.objValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public View getVideoView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                Matcher matcher = Pattern.compile("^\\[!([A-Fa-f0-9]*)]").matcher(str);
-                return matcher.find() ? matcher.group(1) : "";
-            } catch (IllegalStateException | IndexOutOfBoundsException unused) {
-                Log.e("ExclamationMark", "getRawString exception");
-                return "";
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (View) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
+    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
+            if (viewGroup instanceof NativeAdContainer) {
+                this.e.p(this.b, this.mSid, (NativeAdContainer) viewGroup, this.d, list, funAdInteractionListener, this.c.getGdtADStatusChangeListener());
+                return;
+            }
+            LogPrinter.e("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer", new Object[0]);
+            if (FunAdSdk.isLogEnabled()) {
+                throw new IllegalArgumentException("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer");
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.rob
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.b == null) {
-                str3 = "mKey is null, return default value";
-            } else if (!c(str)) {
-                return str2;
-            } else {
-                try {
-                    return new String(tob.b(this.b, job.b(d(str))), "UTF-8");
-                } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                    str3 = "UnsupportedEncodingException||GeneralSecurityException||IllegalArgumentException";
-                }
-            }
-            Log.e("ExclamationMark", str3);
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final SecretKey b() {
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getDescription() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                String a = this.a.a("/code/code1", null);
-                String a2 = this.a.a("/code/code2", null);
-                String a3 = this.a.a("/code/code3", null);
-                String a4 = this.a.a("/code/code4", null);
-                if (a != null && a2 != null && a3 != null && a4 != null) {
-                    this.b = tob.a(job.b(a), job.b(a2), job.b(a3), job.b(a4), 10000);
-                }
-            } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-                Log.e("ExclamationMark", "Exception when reading the 'K&I' for 'Config'.");
-                this.b = null;
-            }
-            return this.b;
+            return ((NativeUnifiedADData) this.b.a).getDesc();
         }
-        return (SecretKey) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getIconUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ((NativeUnifiedADData) this.b.a).getIconUrl();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ((NativeUnifiedADData) this.b.a).getTitle();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public List<String> getImageUrls() {
+        InterceptResult invokeV;
+        String imgUrl;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            List<String> imgList = ((NativeUnifiedADData) this.b.a).getImgList();
+            if (imgList == null) {
+                imgList = new ArrayList<>();
+            }
+            if (imgList.isEmpty() && (imgUrl = ((NativeUnifiedADData) this.b.a).getImgUrl()) != null) {
+                imgList.add(imgUrl);
+            }
+            return imgList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
+    public FunNativeAd.InteractionType getInteractionType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!((NativeUnifiedADData) this.b.a).isAppAd()) {
+                return FunNativeAd.InteractionType.TYPE_BROWSE;
+            }
+            int appStatus = ((NativeUnifiedADData) this.b.a).getAppStatus();
+            if (appStatus != 0) {
+                if (appStatus != 1) {
+                    if (appStatus != 2 && appStatus != 4) {
+                        if (appStatus != 8) {
+                            if (appStatus != 16) {
+                                return FunNativeAd.InteractionType.TYPE_UNKNOW;
+                            }
+                        }
+                    }
+                }
+                return FunNativeAd.InteractionType.TYPE_BROWSE;
+            }
+            return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
+        }
+        return (FunNativeAd.InteractionType) invokeV.objValue;
     }
 }

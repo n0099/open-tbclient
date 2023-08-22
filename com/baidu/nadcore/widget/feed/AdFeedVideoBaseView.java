@@ -4,20 +4,20 @@ import android.content.Context;
 import android.util.AttributeSet;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.tieba.du0;
-import com.baidu.tieba.hu0;
-import com.baidu.tieba.pr0;
+import com.baidu.tieba.gu0;
+import com.baidu.tieba.ku0;
 import com.baidu.tieba.sr0;
+import com.baidu.tieba.vr0;
 /* loaded from: classes3.dex */
 public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
-    public du0 i;
+    public gu0 i;
 
     /* loaded from: classes3.dex */
-    public class a extends hu0 {
+    public class a extends ku0 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.hu0, com.baidu.tieba.au0
+        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
         public void onEnd(int i) {
             AdFeedVideoBaseView adFeedVideoBaseView = AdFeedVideoBaseView.this;
             if (adFeedVideoBaseView.b != null && (adFeedVideoBaseView.getTag() instanceof AdBaseModel)) {
@@ -26,7 +26,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.hu0, com.baidu.tieba.au0
+        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
         public void onError(int i, int i2, String str) {
             AdFeedVideoBaseView adFeedVideoBaseView = AdFeedVideoBaseView.this;
             if (adFeedVideoBaseView.b != null && (adFeedVideoBaseView.getTag() instanceof AdBaseModel)) {
@@ -35,7 +35,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.hu0, com.baidu.tieba.au0
+        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
         public void onPause() {
             AdFeedVideoBaseView adFeedVideoBaseView = AdFeedVideoBaseView.this;
             if (adFeedVideoBaseView.b != null && (adFeedVideoBaseView.getTag() instanceof AdBaseModel)) {
@@ -44,7 +44,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.hu0, com.baidu.tieba.au0
+        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
         public void onPrepared() {
             AdFeedVideoBaseView adFeedVideoBaseView = AdFeedVideoBaseView.this;
             if (adFeedVideoBaseView.b != null && (adFeedVideoBaseView.getTag() instanceof AdBaseModel)) {
@@ -53,7 +53,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.hu0, com.baidu.tieba.au0
+        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
         public void onResume() {
             AdFeedVideoBaseView adFeedVideoBaseView = AdFeedVideoBaseView.this;
             if (adFeedVideoBaseView.b != null && (adFeedVideoBaseView.getTag() instanceof AdBaseModel)) {
@@ -62,7 +62,7 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.hu0, com.baidu.tieba.au0
+        @Override // com.baidu.tieba.ku0, com.baidu.tieba.du0
         public void onStart() {
             AdFeedVideoBaseView adFeedVideoBaseView = AdFeedVideoBaseView.this;
             if (adFeedVideoBaseView.b != null && (adFeedVideoBaseView.getTag() instanceof AdBaseModel)) {
@@ -77,10 +77,10 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
     }
 
     public final void i(@NonNull AdBaseModel adBaseModel) {
-        pr0 pr0Var;
-        du0 du0Var = this.i;
-        if (du0Var != null && (pr0Var = adBaseModel.j) != null) {
-            du0Var.c(pr0Var);
+        sr0 sr0Var;
+        gu0 gu0Var = this.i;
+        if (gu0Var != null && (sr0Var = adBaseModel.j) != null) {
+            gu0Var.c(sr0Var);
             this.i.a(new a());
         }
     }
@@ -99,25 +99,25 @@ public abstract class AdFeedVideoBaseView extends AdFeedBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public AdFeedVideoBaseView(Context context, AttributeSet attributeSet, int i, sr0 sr0Var) {
+    public AdFeedVideoBaseView(Context context, AttributeSet attributeSet, int i, vr0 vr0Var) {
         super(context, attributeSet, i);
     }
 
     @Override // com.baidu.nadcore.widget.feed.AdFeedBaseView
     public void c() {
         super.c();
-        du0 du0Var = this.i;
-        if (du0Var != null) {
-            du0Var.release();
+        gu0 gu0Var = this.i;
+        if (gu0Var != null) {
+            gu0Var.release();
             this.i = null;
         }
     }
 
     public long getVideoPosMs() {
-        du0 du0Var = this.i;
-        if (du0Var == null) {
+        gu0 gu0Var = this.i;
+        if (gu0Var == null) {
             return -1L;
         }
-        return du0Var.b();
+        return gu0Var.b();
     }
 }

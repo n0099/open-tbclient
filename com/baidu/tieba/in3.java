@@ -1,121 +1,84 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.view.View;
+import android.widget.AbsoluteLayout;
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.motion.widget.Key;
+import androidx.annotation.Nullable;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class in3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947859227, "Lcom/baidu/tieba/in3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = view2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setTranslationX(0.0f);
-            }
-        }
-    }
-
-    public static void a(ha2 ha2Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, ha2Var, context) == null) {
-            b(ha2Var, context, 2);
-        }
-    }
-
-    public static void b(ha2 ha2Var, Context context, int i) {
-        View b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, ha2Var, context, i) == null) && ha2Var != null && ha2Var.k() >= i) {
-            ea2 j = ha2Var.j(ha2Var.k() - i);
-            ea2 m = ha2Var.m();
-            if (m != null && m.E0) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947859227, "Lcom/baidu/tieba/in3;");
                 return;
             }
-            float o = po3.o(context) >> 2;
-            if (j != null && (b0 = j.b0()) != null) {
-                ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
-            }
         }
+        a = nr1.a;
     }
 
-    public static void c(ha2 ha2Var, Context context) {
-        View b0;
+    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
+        AbsoluteLayout webView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, ha2Var, context) == null) && ha2Var != null && ha2Var.k() >= 2) {
-            ea2 j = ha2Var.j(ha2Var.k() - 2);
-            float o = po3.o(context) >> 2;
-            if (j != null && (b0 = j.b0()) != null) {
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, 0.0f, -o);
-                ofFloat.setDuration(300L).start();
-                ofFloat.addListener(new a(b0));
+        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
+            Drawable d = gp4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081411);
+            Drawable d2 = gp4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081410);
+            if (BdZeusUtil.isWebkitLoaded()) {
+                webView = bdSailorWebView.getCurrentWebView();
+            } else {
+                webView = bdSailorWebView.getCurrentWebView().getWebView();
             }
-        }
-    }
-
-    public static void d(@NonNull wo4 wo4Var, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLII(65539, null, wo4Var, str, i, i2) != null) || wo4Var == null) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1876181062) {
-            if (hashCode != -983638536) {
-                if (hashCode == 1528366175 && str.equals("showModalPage")) {
-                    c = 1;
-                }
-            } else if (str.equals("navigateBack")) {
-                c = 0;
-            }
-        } else if (str.equals("hideModalPage")) {
-            c = 2;
-        }
-        if (c != 0) {
-            if (c != 1 && c != 2) {
-                wo4Var.i(i, i2);
+            if (Build.VERSION.SDK_INT >= 29) {
+                webView.setVerticalScrollbarThumbDrawable(d);
+                webView.setHorizontalScrollbarThumbDrawable(d2);
                 return;
             }
+            b(webView, d, d2);
+        }
+    }
+
+    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, view2, drawable, drawable2) != null) || view2 == null) {
             return;
         }
-        ha2 U = lw2.T().U();
-        ea2 j = U.j(U.k() - 1);
-        if (j != null && j.E0) {
-            return;
+        try {
+            Field declaredField = View.class.getDeclaredField("mScrollCache");
+            declaredField.setAccessible(true);
+            Object obj = declaredField.get(view2);
+            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
+            declaredField2.setAccessible(true);
+            Object obj2 = declaredField2.get(obj);
+            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(obj2, drawable);
+            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
+            declaredMethod2.setAccessible(true);
+            declaredMethod2.invoke(obj2, drawable2);
+        } catch (Throwable th) {
+            if (a) {
+                th.printStackTrace();
+            }
         }
-        wo4Var.i(i, i2);
     }
 }

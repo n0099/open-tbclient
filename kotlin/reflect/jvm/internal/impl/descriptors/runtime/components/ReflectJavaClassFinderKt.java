@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.descriptors.runtime.components;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectJavaClassFinderKt {
     public static final Class<?> tryLoadClass(ClassLoader classLoader, String str) {
         try {

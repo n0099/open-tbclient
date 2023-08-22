@@ -1,38 +1,30 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
-import java.util.HashMap;
-import java.util.List;
+import android.widget.MediaController;
+import com.baidu.tieba.play.TbVideoViewContainer;
 /* loaded from: classes6.dex */
-public interface jx9 {
-    lm<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+public interface jx9 extends MediaController.MediaPlayerControl {
+    void a(long j, long j2, long j3);
 
-    ex9 b();
+    int getCurrentPositionSync();
 
-    void c(AdvertAppInfo advertAppInfo, ly8<?> ly8Var, String str, String str2, int i, int i2);
+    int getPcdnState();
 
-    zw9 d();
+    void setLooping(boolean z);
 
-    lm<?, ?> e(ix9 ix9Var, BdUniqueId bdUniqueId);
+    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
 
-    void f();
+    void setOperableVideoContainer(dy9 dy9Var);
 
-    List<AdvertAppInfo> g();
+    void setPlayMode(String str);
 
-    lm<?, ?> h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
+    void setStageType(String str);
 
-    IAdBaseAsyncController i(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
+    void setVideoPath(String str, String str2);
 
-    gx9 j();
+    void setVideoStatData(yx9 yx9Var);
 
-    void k(AdvertAppInfo advertAppInfo);
+    void setVolume(float f, float f2);
 
-    void l(HashMap<String, String> hashMap, Context context);
+    void stopPlayback();
 }

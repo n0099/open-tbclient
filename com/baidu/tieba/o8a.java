@@ -1,252 +1,217 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SingleSquareActivityConfig;
-import com.baidu.tbadk.core.flow.CoverFlowView;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.searchbox.dns.DnsParseResult;
+import com.baidu.searchbox.dns.util.DnsUtil;
+import com.baidu.searchbox.http.IHttpDns;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Pattern;
+import okhttp3.Dns;
 /* loaded from: classes7.dex */
-public class o8a extends BaseAdapter {
+public class o8a implements Dns, IHttpDns {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern j;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashSet<String> a;
-    public ArrayList<m8a> b;
-    public CoverFlowView<m8a> c;
-    public e75<m8a> d;
-    public TbPageContext<?> e;
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) ? i : invokeI.longValue;
-    }
+    public boolean a;
+    public long b;
+    public long c;
+    public DnsParseResult e;
+    public boolean f;
+    public DnsHelper g;
+    public boolean h;
+    public a i;
 
     /* loaded from: classes7.dex */
-    public class a implements e75<m8a> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o8a a;
+    public interface a {
+        void a(long j, long j2, DnsParseResult dnsParseResult);
+    }
 
-        public a(o8a o8aVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947987505, "Lcom/baidu/tieba/o8a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o8aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = o8aVar;
-        }
-
-        @Override // com.baidu.tieba.e75
-        public void b(int i, String str) {
-            String str2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                String makeStatisticsParam = SingleSquareActivityConfig.makeStatisticsParam("carousel_recommend", String.valueOf(i));
-                m8a m8aVar = (m8a) ListUtils.getItem(this.a.b, i);
-                if (m8aVar != null) {
-                    str2 = m8aVar.a();
-                } else {
-                    str2 = null;
-                }
-                if (UrlManager.getInstance().dealOneLink(this.a.e, new String[]{str, null, makeStatisticsParam}) && i == 2 && !TextUtils.isEmpty(str2)) {
-                    TiebaStatic.eventStat(this.a.e.getPageActivity(), "tbanner", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "CLICK", DownloadStatisticConstants.UBC_VALUE_TASK, "tbanner", "obj_id", String.valueOf(str2), "obj_name", String.valueOf(str2), "obj_cpid", 0, TiebaStatic.Params.OBJ_URL, str, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", HttpConstants.OS_VERSION, DeviceInfoHelper.getOsVersion(), "log_ver", "1.1");
-                }
-                TiebaStatic.eventStat(this.a.e.getPageActivity(), "square_banner_picture", "click", 1, "loc", (i - 1) + "");
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.e75
-        /* renamed from: c */
-        public void a(int i, m8a m8aVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, m8aVar) != null) || m8aVar == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947987505, "Lcom/baidu/tieba/o8a;");
                 return;
             }
-            String a = m8aVar.a();
-            if (i == 2 && !TextUtils.isEmpty(a) && this.a.a.add(a)) {
-                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getBaseContext(), "ad_tpoint", null, 1, "line", "PT", "page", "OT", "locate", "c0116", "action_type", "VIEW_TRUE", DownloadStatisticConstants.UBC_VALUE_TASK, "tbanner", "obj_id", String.valueOf(a), "obj_name", String.valueOf(a), "obj_cpid", 0, "obj_good_id", 0, "obj_throw_type", "BY_POST", "client_type", "MOBILE_APP", "user_timestamp", String.valueOf(System.currentTimeMillis()), "os", "android", HttpConstants.OS_VERSION, DeviceInfoHelper.getOsVersion());
-            }
         }
+        j = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends c75 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public b(o8a o8aVar, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o8aVar, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
+    public DnsHelper a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-
-        @Override // com.baidu.tieba.c75, com.baidu.tieba.a75
-        public d75 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                d75 a = super.a();
-                if (a != null) {
-                    a.d(85);
-                    a.e(R.dimen.obfuscated_res_0x7f0701d5);
-                    a.f(R.dimen.obfuscated_res_0x7f070201);
-                }
-                return a;
-            }
-            return (d75) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.c75, com.baidu.tieba.a75
-        public g75 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                g75 g75Var = new g75();
-                g75Var.a(this.a.getPageActivity().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703c0));
-                return g75Var;
-            }
-            return (g75) invokeV.objValue;
-        }
+        return (DnsHelper) invokeV.objValue;
     }
 
-    public o8a(TbPageContext<?> tbPageContext) {
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public boolean getHttpDnsEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public o8a(DnsHelper dnsHelper, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {dnsHelper, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashSet<>();
-        this.b = new ArrayList<>();
-        this.c = null;
-        this.d = new a(this);
-        this.e = tbPageContext;
-        this.c = new CoverFlowView<>(tbPageContext.getPageActivity());
-        this.c.setCoverFlowFactory(new b(this, tbPageContext));
-        this.c.setCallback(this.d);
-    }
-
-    public void e(int i) {
-        CoverFlowView<m8a> coverFlowView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (coverFlowView = this.c) != null) {
-            coverFlowView.t();
+        this.f = z;
+        this.b = -1L;
+        this.c = -1L;
+        this.g = dnsHelper;
+        if (dnsHelper != null && dnsHelper.isHttpDnsEnable()) {
+            z2 = true;
+        } else {
+            z2 = false;
         }
+        this.a = z2;
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return Integer.valueOf(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return j.matcher(str).matches();
         }
-        return invokeI.objValue;
+        return invokeL.booleanValue;
     }
 
-    public CoverFlowView<m8a> d() {
-        InterceptResult invokeV;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (CoverFlowView) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList<m8a> arrayList = this.b;
-            if (arrayList != null) {
-                i = arrayList.size() + 0;
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj instanceof o8a) {
+                return true;
             }
-            if (i <= 0) {
-                return 0;
-            }
-            return 1;
+            return super.equals(obj);
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
-    public void f(ArrayList<t35> arrayList) {
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public void setHttpDnsEnable(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            ArrayList<m8a> arrayList2 = new ArrayList<>();
-            Iterator<t35> it = arrayList.iterator();
-            while (it.hasNext()) {
-                t35 next = it.next();
-                if (next != null) {
-                    arrayList2.add(new m8a(next));
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a = z;
+            DnsHelper dnsHelper = this.g;
+            if (dnsHelper != null) {
+                dnsHelper.setHttpDnsEnable(z);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public void setHttpDnsIPv4OnlyEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    @Override // okhttp3.Dns
+    public List<InetAddress> lookup(String str) throws UnknownHostException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str != null) {
+                boolean z = this.f;
+                if (z) {
+                    this.b = System.currentTimeMillis();
+                }
+                List arrayList = new ArrayList();
+                try {
+                    if (b(str)) {
+                        return Arrays.asList(InetAddress.getAllByName(str));
+                    }
+                    if (this.a && this.g != null) {
+                        DnsParseResult parseResult = this.g.getParseResult(str);
+                        if (parseResult != null) {
+                            arrayList = DnsUtil.parseInetAddressList(parseResult.getIpList());
+                        }
+                        if (z) {
+                            long currentTimeMillis = System.currentTimeMillis();
+                            this.c = currentTimeMillis;
+                            this.e = parseResult;
+                            if (this.i != null) {
+                                this.i.a(this.b, currentTimeMillis, parseResult);
+                            }
+                        }
+                    } else {
+                        arrayList = Arrays.asList(InetAddress.getAllByName(str));
+                        if (z) {
+                            this.c = System.currentTimeMillis();
+                            DnsParseResult dnsParseResult = new DnsParseResult(DnsUtil.parseRawAddressList(arrayList), 0, 1, DnsUtil.stackType);
+                            this.e = dnsParseResult;
+                            if (this.i != null) {
+                                this.i.a(this.b, this.c, dnsParseResult);
+                            }
+                        }
+                    }
+                    if (DnsUtil.stackType == 3 && this.h && arrayList != null) {
+                        ArrayList arrayList2 = new ArrayList();
+                        for (InetAddress inetAddress : arrayList) {
+                            if (inetAddress instanceof Inet6Address) {
+                                arrayList2.add(inetAddress);
+                            }
+                        }
+                        arrayList.removeAll(arrayList2);
+                        if (arrayList.isEmpty()) {
+                            throw new UnknownHostException("request support ipv4 address only!");
+                        }
+                    }
+                    return arrayList;
+                } catch (IllegalArgumentException e) {
+                    e = e;
+                    throw new UnknownHostException(e.getMessage());
+                } catch (NullPointerException e2) {
+                    if (e2.getMessage() != null && e2.getMessage().contains("Attempt to get length of null array")) {
+                        UnknownHostException unknownHostException = new UnknownHostException("Broken system behaviour for dns lookup of " + str);
+                        unknownHostException.initCause(e2);
+                        throw unknownHostException;
+                    }
+                    throw e2;
+                } catch (SecurityException e3) {
+                    e = e3;
+                    throw new UnknownHostException(e.getMessage());
                 }
             }
-            this.b = arrayList2;
-            this.c.setData(arrayList2);
-            notifyDataSetChanged();
+            throw new UnknownHostException("hostname == null");
         }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            return this.c;
-        }
-        return (View) invokeILL.objValue;
+        return (List) invokeL.objValue;
     }
 }

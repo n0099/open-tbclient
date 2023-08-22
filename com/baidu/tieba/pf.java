@@ -220,7 +220,7 @@ public class pf {
                 }
                 sb.append(this.e.get(i).getName());
                 sb.append("=");
-                sb.append(bi.getUrlEncode(this.e.get(i).getValue()));
+                sb.append(di.getUrlEncode(this.e.get(i).getValue()));
             }
             if (nfVar != null) {
                 nfVar.a = sb.length();

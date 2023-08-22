@@ -1,82 +1,75 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewConfiguration;
-import android.view.ViewStub;
-import android.webkit.WebView;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.pb.view.PbGiftListView;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tieba.pb.pb.main.PbActivity;
+import com.baidu.tieba.pb.pb.main.PbModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class zg9 {
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.RobotEntrance;
+import tbclient.RobotSkill;
+import tbclient.RobotSkillInfo;
+/* loaded from: classes9.dex */
+public final class zg9 implements l65 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewStub a;
-    public PbGiftListView b;
-    public ViewStub c;
-    public LinearLayout d;
-    public View e;
-    public BaseWebView f;
 
-    public void f(int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948359133, "Lcom/baidu/tieba/zg9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948359133, "Lcom/baidu/tieba/zg9;");
+                return;
+            }
+        }
+        a = new a(null);
+    }
+
+    @JvmStatic
+    public static final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.a();
         }
     }
 
-    /* loaded from: classes8.dex */
-    public class a implements BaseWebView.c {
+    /* loaded from: classes9.dex */
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.c
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
 
-        public a(zg9 zg9Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zg9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements BaseWebView.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(zg9 zg9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zg9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -87,164 +80,88 @@ public class zg9 {
             }
         }
 
-        @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.d
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                webView.loadUrl("javascript:(function(){var iframe=document.getElementsByClassName(\"video_iframe\");if(iframe&&iframe.length>0){for(var i=iframe.length-1;i>=0;i--){iframe[i].contentWindow.document.getElementsByClassName(\"tvp_fullscreen_button\")[0].style.display=\"none\"}}})();");
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zg9 a;
-
-        public c(zg9 zg9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zg9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zg9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
+        @JvmStatic
+        public final void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a.f != null) {
-                        this.a.f.destroy();
-                        this.a.f = null;
-                    }
-                } catch (Throwable th) {
-                    BdLog.e(th);
-                }
+                SharedPrefHelper.getInstance().putLong("pb_friend_bot_bottom_no_use_time", System.currentTimeMillis());
             }
         }
     }
 
-    public zg9(View view2) {
+    public zg9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f090e36);
-        this.c = (ViewStub) view2.findViewById(R.id.obfuscated_res_0x7f09152e);
     }
 
-    public void a() {
-        BaseWebView baseWebView;
+    @Override // com.baidu.tieba.l65
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, ? extends Object> strategyData, Map<String, ? extends Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (baseWebView = this.f) != null) {
-            baseWebView.removeAllViews();
-            this.f.getSettings().setBuiltInZoomControls(true);
-            this.f.setVisibility(8);
-            SafeHandler.getInst().postDelayed(new c(this), ViewConfiguration.getZoomControlsTimeout() + 1000);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap(strategyData);
+            hashMap.put("dialogName", "pbFriendBotBottomNoUse");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
         }
+        return (Map) invokeLLL.objValue;
     }
 
-    public void b(v25 v25Var, String str, String str2, long j, long j2, long j3) {
-        ViewStub viewStub;
+    @Override // com.baidu.tieba.l65
+    public boolean b(Map<String, ? extends Object> map) {
+        InterceptResult invokeL;
+        List<RobotSkillInfo> list;
+        yh9 s1;
+        RobotEntrance K;
+        yh9 s12;
+        RobotEntrance K2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{v25Var, str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) == null) {
-            if (v25Var != null && !ListUtils.isEmpty(v25Var.a()) && (viewStub = this.a) != null) {
-                if (this.b == null) {
-                    this.b = (PbGiftListView) viewStub.inflate();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!(currentActivity instanceof PbActivity)) {
+                YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部N天未点击引导策略校验失败：当前Activity非PbActivity");
+                return false;
+            }
+            long j = SharedPrefHelper.getInstance().getLong("pb_friend_bot_bottom_no_use_time", -1L);
+            if (j == -1) {
+                a.a();
+                return false;
+            }
+            PbActivity pbActivity = (PbActivity) currentActivity;
+            PbModel I1 = pbActivity.I1();
+            List<RobotSkill> list2 = null;
+            if (I1 != null && (s12 = I1.s1()) != null && (K2 = s12.K()) != null) {
+                list = K2.robot_skill_info;
+            } else {
+                list = null;
+            }
+            PbModel I12 = pbActivity.I1();
+            if (I12 != null && (s1 = I12.s1()) != null && (K = s1.K()) != null) {
+                list2 = K.bottom_bar_robot_skill;
+            }
+            if (!ListUtils.isEmpty(list) && !ListUtils.isEmpty(list2)) {
+                if (TimeHelper.getDayDifference(System.currentTimeMillis(), j) < 7 || SharedPrefHelper.getInstance().getInt("pb_friend_bot_bottom_no_use_count", 0) >= 3) {
+                    return false;
                 }
-                this.b.setVisibility(0);
-                this.b.g(v25Var, str, str2, j, j2, j3);
-                this.b.i();
-                return;
+                return true;
             }
-            PbGiftListView pbGiftListView = this.b;
-            if (pbGiftListView != null) {
-                pbGiftListView.setVisibility(8);
-            }
+            YunDialogLog.getInstance().e(YunDialogManager.LOG_KEY, "pb好朋友bot底部N天未点击引导此时没有数据");
+            return false;
         }
-    }
-
-    public void c(l25 l25Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l25Var) == null) && l25Var != null && !bi.isEmpty(l25Var.e())) {
-            BaseWebView baseWebView = this.f;
-            if ((baseWebView == null || !baseWebView.getIsLoaded()) && l25Var.c() == l25.g && this.c != null) {
-                if (l25Var.f()) {
-                    LinearLayout linearLayout = this.d;
-                    if (linearLayout != null) {
-                        linearLayout.setVisibility(8);
-                        return;
-                    }
-                    return;
-                }
-                if (this.d == null) {
-                    LinearLayout linearLayout2 = (LinearLayout) this.c.inflate();
-                    this.d = linearLayout2;
-                    this.e = linearLayout2.findViewById(R.id.obfuscated_res_0x7f091529);
-                    this.f = (BaseWebView) this.d.findViewById(R.id.obfuscated_res_0x7f09152f);
-                }
-                this.e.setVisibility(0);
-                SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-                this.f.setVisibility(0);
-                this.f.setFocusable(false);
-                this.f.setBackgroundColor(0);
-                this.f.getSettings().setCacheMode(-1);
-                this.f.setVerticalScrollBarEnabled(false);
-                this.f.setHorizontalScrollBarEnabled(false);
-                this.f.getSettings().setAllowFileAccess(true);
-                this.f.getSettings().setAppCacheEnabled(true);
-                this.f.getSettings().setDomStorageEnabled(true);
-                this.f.getSettings().setDatabaseEnabled(true);
-                this.f.setOnLoadUrlListener(new a(this));
-                this.f.setOnPageFinishedListener(new b(this));
-                this.f.loadUrl(l25Var.e());
-            }
-        }
-    }
-
-    public void d() {
-        BaseWebView baseWebView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (baseWebView = this.f) != null) {
-            try {
-                baseWebView.onPause();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void e() {
-        BaseWebView baseWebView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (baseWebView = this.f) != null) {
-            try {
-                baseWebView.onResume();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

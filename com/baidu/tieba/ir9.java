@@ -1,62 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BookInfo;
+import tbclient.TbBookrack;
 /* loaded from: classes6.dex */
-public class ir9 extends BaseCardInfo {
+public class ir9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947863257, "Lcom/baidu/tieba/ir9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947863257, "Lcom/baidu/tieba/ir9;");
-                return;
-            }
-        }
-        f = BdUniqueId.gen();
-    }
+    public String a;
+    public int b;
+    public List<jr9> c;
+    public String d;
+    public String e;
+    public String f;
 
     public ir9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.ym
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void a(TbBookrack tbBookrack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return f;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbBookrack) != null) || tbBookrack == null) {
+            return;
         }
-        return (BdUniqueId) invokeV.objValue;
+        this.a = tbBookrack.booktown;
+        this.b = tbBookrack.num.intValue();
+        this.d = tbBookrack.title;
+        this.e = tbBookrack.icon;
+        this.f = tbBookrack.tip;
+        this.c = new ArrayList();
+        List<BookInfo> list = tbBookrack.book_list;
+        if (list != null) {
+            for (BookInfo bookInfo : list) {
+                if (bookInfo != null) {
+                    jr9 jr9Var = new jr9();
+                    jr9Var.a(bookInfo);
+                    this.c.add(jr9Var);
+                }
+            }
+        }
     }
 }

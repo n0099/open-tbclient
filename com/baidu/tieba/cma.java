@@ -1,43 +1,69 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.coreExtra.data.VideoInfo;
-import com.baidu.tieba.pla;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.editvideo.model.SelectMusicModel;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.BackgroundItemView;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class cma implements kla, pla.c, fr6 {
+public class cma extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public cla b;
-    public ola c;
-    public SelectMusicModel d;
-    public String e;
+    public List<Object> a;
+    public TbPageContext<?> b;
+    public fma c;
 
-    @Override // com.baidu.tieba.kla
-    public void setMusicData(List<MusicData> list) {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TextView a;
+        public BackgroundItemView b;
+        public BackgroundItemView c;
+        public BackgroundItemView d;
+        public View e;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
     }
 
-    public cma(cla claVar) {
+    public cma(TbPageContext<?> tbPageContext, fma fmaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {claVar};
+            Object[] objArr = {tbPageContext, fmaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,139 +73,121 @@ public class cma implements kla, pla.c, fr6 {
                 return;
             }
         }
-        this.b = claVar;
-        this.a = claVar.a;
+        this.b = tbPageContext;
+        this.c = fmaVar;
     }
 
-    public final void a(String str) {
-        cla claVar;
+    public void a(List<Object> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || (claVar = this.b) == null) {
-            return;
-        }
-        if (claVar.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        this.e = str;
-        VideoInfo videoInfo = new VideoInfo();
-        videoInfo.setVideoPath(this.e);
-        videoInfo.setThumbPath(this.b.c);
-        cla claVar2 = this.b;
-        if (claVar2 != null) {
-            claVar2.f(videoInfo);
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a = list;
         }
     }
 
-    public void b() {
-        cla claVar;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (claVar = this.b) == null) {
-            return;
-        }
-        if (claVar.b()) {
-            this.b.c();
-            this.b = null;
-            return;
-        }
-        if (StringUtils.isNull(this.b.d)) {
-            cla claVar2 = this.b;
-            if (!claVar2.e) {
-                l1(claVar2.b, -4399, "");
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            List<Object> list = this.a;
+            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
             }
+            return null;
         }
-        if (this.d == null) {
-            this.d = new SelectMusicModel(this.a.getPageContext(), this);
-        }
-        SelectMusicModel selectMusicModel = this.d;
-        cla claVar3 = this.b;
-        selectMusicModel.Q(claVar3.b, claVar3.d, dla.f + "video_" + System.currentTimeMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION, !claVar3.e);
+        return invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.fr6
-    public void cancel() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            cla claVar = this.b;
-            if (claVar != null) {
-                claVar.i(true);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (getItem(i) != null) {
+                return i;
             }
-            ola olaVar = this.c;
-            if (olaVar != null && olaVar.f()) {
-                this.c.e();
-            }
+            return -1L;
         }
+        return invokeI.longValue;
     }
 
-    @Override // com.baidu.tieba.kla
-    public void l1(String str, int i, String str2) {
+    @Override // android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, str2) == null) {
-            cla claVar = this.b;
-            if (claVar != null && claVar.b()) {
-                this.b.c();
-                this.b = null;
-            } else if (TextUtils.isEmpty(str)) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0c8f);
-                cla claVar2 = this.b;
-                if (claVar2 != null) {
-                    claVar2.g(i, str2);
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return getItem(i) instanceof List ? 1 : 0;
+        }
+        return invokeI.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            List<Object> list = this.a;
+            if (list != null) {
+                return list.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            Object item = getItem(i);
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else if (getItemViewType(i) == 0) {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0137, viewGroup, false);
+                aVar = new a();
+                aVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090eca);
+                view2.setTag(aVar);
             } else {
-                cla claVar3 = this.b;
-                if (claVar3 != null) {
-                    claVar3.h();
-                }
-                if (!StringUtils.isNull(this.b.f)) {
-                    if (!StringHelper.equals(str, this.b.b)) {
-                        this.b.g = str;
-                    }
-                    if (this.c == null) {
-                        ola olaVar = new ola(this.a.getActivity());
-                        this.c = olaVar;
-                        olaVar.i(this);
-                    }
-                    this.c.g(str, this.b.f);
-                    return;
-                }
-                cla claVar4 = this.b;
-                if (claVar4 != null) {
-                    claVar4.e();
-                }
-                a(str);
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d013d, viewGroup, false);
+                aVar = new a();
+                aVar.b = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903e0);
+                aVar.c = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903e1);
+                aVar.d = (BackgroundItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903e2);
+                aVar.e = view2.findViewById(R.id.obfuscated_res_0x7f09090d);
+                view2.setTag(aVar);
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.pla.c
-    public void onGenFilterVideoFail(int i, String str) {
-        cla claVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) && (claVar = this.b) != null) {
-            claVar.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.pla.c
-    public void onGenFilterVideoRecordError(int i, String str) {
-        cla claVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) && (claVar = this.b) != null) {
-            claVar.d(i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.pla.c
-    public void onGenFilterVideoSuccess(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            cla claVar = this.b;
-            if (claVar != null) {
-                claVar.e();
+            if (item != null) {
+                if (getItemViewType(i) == 0) {
+                    aVar.a.setText(item.toString());
+                } else {
+                    List list = (List) item;
+                    aVar.b.e((DressItemData) list.get(0));
+                    aVar.b.setController(this.c);
+                    if (list.size() > 2) {
+                        aVar.c.e((DressItemData) list.get(1));
+                        aVar.d.e((DressItemData) list.get(2));
+                        aVar.c.setController(this.c);
+                        aVar.d.setController(this.c);
+                    } else if (list.size() > 1) {
+                        aVar.c.e((DressItemData) list.get(1));
+                        aVar.c.setController(this.c);
+                        aVar.d.f();
+                    } else {
+                        aVar.c.f();
+                        aVar.d.f();
+                    }
+                    if (getItem(i + 1) instanceof List) {
+                        aVar.e.setVisibility(8);
+                    } else {
+                        aVar.e.setVisibility(0);
+                    }
+                }
             }
-            a(str);
+            this.b.getLayoutMode().onModeChanged(view2);
+            return view2;
         }
+        return (View) invokeILL.objValue;
     }
 }

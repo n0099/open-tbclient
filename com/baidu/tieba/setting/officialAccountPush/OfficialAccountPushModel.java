@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.GetOfficialSwitch.OfficialList;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class OfficialAccountPushModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public static int NET_SUCCESS;
@@ -25,7 +25,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
     public ArrayList<OfficialAccountPushInfo> list;
     public List<OfficialList> official_list;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface b {
         void a(ArrayList<OfficialAccountPushInfo> arrayList, int i, String str);
     }
@@ -55,7 +55,7 @@ public class OfficialAccountPushModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends NetMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

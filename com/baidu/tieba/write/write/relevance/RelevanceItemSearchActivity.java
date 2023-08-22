@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.ms5;
+import com.baidu.tieba.dt5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     public RelevanceItemSearchView k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void B1() {
+    public void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
@@ -105,7 +105,7 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ms5 t1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public dt5 s1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, linearLayout, navigationBar)) == null) {
@@ -113,6 +113,6 @@ public class RelevanceItemSearchActivity extends SuspendedActivity {
             this.k = relevanceItemSearchView;
             return relevanceItemSearchView;
         }
-        return (ms5) invokeLL.objValue;
+        return (dt5) invokeLL.objValue;
     }
 }

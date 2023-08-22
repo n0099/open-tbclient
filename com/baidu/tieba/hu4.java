@@ -1,109 +1,113 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mutiprocess.MutiProcessManager;
-import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
+import com.baidu.tbadk.BdToken.backUser.BackUserHTTPResMsg;
+import com.baidu.tbadk.BdToken.backUser.BackUserSocketResMsg;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class hu4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gu4 a;
-    public t45 b;
+    public BdUniqueId a;
+    public NetMessageListener b;
 
-    public hu4() {
+    /* loaded from: classes6.dex */
+    public class a extends NetMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hu4 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hu4 hu4Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hu4Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hu4Var;
+        }
+
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null && this.a.a() == responsedMessage.getOrginalMessage().getTag() && !responsedMessage.hasError() && responsedMessage.getError() == 0) {
+                gu4 gu4Var = null;
+                if (responsedMessage instanceof BackUserHTTPResMsg) {
+                    gu4Var = ((BackUserHTTPResMsg) responsedMessage).getData();
+                } else if (responsedMessage instanceof BackUserSocketResMsg) {
+                    gu4Var = ((BackUserSocketResMsg) responsedMessage).getData();
+                }
+                if (gu4Var != null && gu4Var.a) {
+                    SharedPrefHelper.getInstance().putLong(SharedPrefHelper.getSharedPrefKeyWithAccount("pref_key_last_request_mission"), System.currentTimeMillis());
+                    a95.e().i();
+                }
+            }
+        }
+    }
+
+    public hu4(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new a(this, CmdConfigHttp.CMD_BACK_USER, 309689);
+        this.a = bdUniqueId;
+        b();
+        this.b.setTag(this.a);
+        MessageManager.getInstance().registerListener(this.b);
     }
 
-    public void a() {
-        t45 t45Var;
+    public BdUniqueId a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (t45Var = this.b) != null) {
-            t45Var.f();
-            this.b = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void b(String str) {
-        Activity currentActivity;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !bi.isEmpty(str) && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null && !StringUtils.isNull(str)) {
-            BrowserHelper.startWebActivity((Context) currentActivity, "", str, true);
-        }
-    }
-
-    public void c(gu4 gu4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gu4Var) == null) {
-            this.a = gu4Var;
-        }
-    }
-
-    public void d() {
-        gu4 gu4Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (gu4Var = this.a) == null) {
-            return;
-        }
-        int i = gu4Var.c;
-        if (i == gu4.y) {
-            t45 h = t45.h(TbadkCoreApplication.getInst().getCurrentActivity(), this.a);
-            h.j();
-            this.b = h;
-        } else if (i == gu4.z) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            m05 m05Var = new m05(currentActivity);
-            m05Var.d(currentActivity, this.a);
-            m05Var.i();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            l05 b = l05.b();
-            l05 b2 = l05.b();
-            b2.i("business_count_hint" + currentAccount + this.a.a, b.c("business_count_hint" + currentAccount + this.a.a) - 1);
-        } else if (i == gu4.A) {
-            int i2 = gu4Var.d;
-            if (i2 == gu4.E) {
-                if (!UtilHelper.dealOneScheme(TbadkCoreApplication.getInst().getCurrentActivity(), this.a.l) && !bi.isEmpty(this.a.k)) {
-                    b(this.a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-                }
-            } else if (i2 == gu4.F && !bi.isEmpty(gu4Var.k)) {
-                b(this.a.k + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE);
-            }
-        } else if (i == gu4.B && !TextUtils.isEmpty(gu4Var.e)) {
-            CompleteTaskToastData completeTaskToastData = new CompleteTaskToastData();
-            gu4 gu4Var2 = this.a;
-            completeTaskToastData.activityId = gu4Var2.a;
-            completeTaskToastData.missionId = gu4Var2.b;
-            completeTaskToastData.duration = gu4Var2.i;
-            completeTaskToastData.message = gu4Var2.e;
-            completeTaskToastData.url = gu4Var2.k;
-            completeTaskToastData.pageId = et4.w().v();
-            CompeteTaskEvent competeTaskEvent = new CompeteTaskEvent();
-            competeTaskEvent.taskToastData = completeTaskToastData;
-            MutiProcessManager.publishEvent(competeTaskEvent);
-            gu4 gu4Var3 = this.a;
-            iu4.c(gu4Var3.a, gu4Var3.b);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ifa.h(309689, BackUserSocketResMsg.class, false, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BACK_USER, ifa.a(TbConfig.URL_BACK_USER, 309689));
+            tbHttpMessageTask.setResponsedClass(BackUserHTTPResMsg.class);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 }

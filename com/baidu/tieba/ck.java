@@ -1,103 +1,124 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.PointF;
-import android.graphics.Rect;
-import android.graphics.RectF;
-import android.widget.ImageView;
-import com.baidu.adp.newwidget.ImageView.DrawerArgs;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public class ck extends ak {
+public final class ck {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect s;
 
-    public ck() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448301637, "Lcom/baidu/tieba/ck;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448301637, "Lcom/baidu/tieba/ck;");
                 return;
             }
         }
-        this.s = new Rect();
+        a = new a(null);
     }
 
-    @Override // com.baidu.tieba.ak
-    public void a(dk dkVar, ImageView imageView) {
+    @JvmStatic
+    public static final TbLog a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, dkVar, imageView) == null) {
-            DrawerArgs drawerArgs = this.l;
-            if (!drawerArgs.c) {
-                return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a() : (TbLog) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            float f = drawerArgs.d / 2.0f;
-            if (!drawerArgs.g) {
-                this.h.set(f, f, imageView.getWidth() - f, imageView.getHeight() - f);
-                return;
+        }
+
+        @JvmStatic
+        public final TbLog a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
             }
-            int width = (imageView.getWidth() - imageView.getPaddingLeft()) - imageView.getPaddingRight();
-            int height = (imageView.getHeight() - imageView.getPaddingTop()) - imageView.getPaddingBottom();
-            RectF rectF = this.g;
-            PointF b = b(rectF.left, rectF.top, this.f);
-            RectF rectF2 = this.g;
-            PointF b2 = b(rectF2.right, rectF2.bottom, this.f);
-            this.h.set(Math.max((int) b.x, 0) + f, Math.max((int) b.y, 0) + f, Math.min((int) b2.x, width) - f, Math.min((int) b2.y, height) - f);
+            return (TbLog) invokeV.objValue;
         }
     }
 
-    @Override // com.baidu.tieba.ak
-    public void f(Canvas canvas, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, imageView) != null) || !this.l.c) {
-            return;
-        }
-        canvas.drawRect(this.h, this.d);
-    }
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final TbLog b;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ak
-    public void h(Canvas canvas, dk dkVar, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, canvas, dkVar, imageView) == null) {
-            Matrix matrix = this.f;
-            if (matrix != null) {
-                canvas.concat(matrix);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(248450247, "Lcom/baidu/tieba/ck$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(248450247, "Lcom/baidu/tieba/ck$b;");
+                    return;
+                }
             }
-            if (dkVar.e()) {
-                Bitmap bitmap = dkVar.a.getBitmap();
-                this.s.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                canvas.drawBitmap(bitmap, this.s, this.g, this.c);
-            } else if (dkVar.d()) {
-                this.s.set(0, 0, dkVar.b(), dkVar.a());
-                dkVar.b.drawImageTo(canvas, this.s, this.g, this.c);
-            }
+            a = new b();
+            b = new TbLog(Config.DEVICE_PART);
         }
-    }
 
-    @Override // com.baidu.tieba.ak
-    public void i(Canvas canvas, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, canvas, imageView) != null) || this.l.m == 0) {
-            return;
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
         }
-        int scrollX = imageView.getScrollX();
-        int scrollY = imageView.getScrollY();
-        canvas.translate(scrollX, scrollY);
-        this.o.set(0.0f, 0.0f, imageView.getWidth(), imageView.getHeight());
-        this.e.setColor(this.l.m);
-        canvas.drawRect(this.o, this.e);
-        canvas.translate(-scrollX, -scrollY);
+
+        public final TbLog a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (TbLog) invokeV.objValue;
+        }
     }
 }

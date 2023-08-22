@@ -1,5 +1,5 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface s<TTaskResult, TContinuationResult> {
     TContinuationResult then(t<TTaskResult> tVar) throws Exception;
 }

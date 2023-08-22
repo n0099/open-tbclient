@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.p35;
+import com.baidu.tieba.v35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,7 +24,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ImageProgressItemView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public p35 a;
+    public v35 a;
     public TbImageView b;
     public RoundTbImageView c;
     public TbImageView d;
@@ -51,15 +51,15 @@ public class ImageProgressItemView extends FrameLayout {
         }
     }
 
-    public void b(p35 p35Var) {
+    public void b(v35 v35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, p35Var) == null) {
-            this.a = p35Var;
-            if (p35Var == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v35Var) == null) {
+            this.a = v35Var;
+            if (v35Var == null) {
                 return;
             }
-            this.c.startLoad(p35Var.a(), 10, false);
-            this.e.setText(String.format("%s人", p35Var.b()));
+            this.c.startLoad(v35Var.a(), 10, false);
+            this.e.setText(String.format("%s人", v35Var.b()));
             d();
         }
     }
@@ -136,12 +136,12 @@ public class ImageProgressItemView extends FrameLayout {
     }
 
     public final void d() {
-        p35 p35Var;
+        v35 v35Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (p35Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (v35Var = this.a) == null) {
             return;
         }
-        if (p35Var.c()) {
+        if (v35Var.c()) {
             setAlpha(1.0f);
         } else {
             setAlpha(0.4f);

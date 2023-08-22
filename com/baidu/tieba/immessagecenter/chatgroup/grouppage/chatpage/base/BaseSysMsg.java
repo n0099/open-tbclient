@@ -9,6 +9,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.lib.socket.msg.TbSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatEggRainData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,7 +32,7 @@ public abstract class BaseSysMsg extends BaseMsg {
     public long roomId;
     @SerializedName("msg_type")
     public int sysMsgType;
-    @SerializedName("user_from")
+    @SerializedName(TbSysMsg.FIELD_USER_FROM)
     public User userFrom;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -42,7 +43,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (CharSequence) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.ym
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.bn
     public abstract /* synthetic */ BdUniqueId getType();
 
     public boolean isConvertToNormalMsg() {

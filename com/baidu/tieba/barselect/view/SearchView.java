@@ -93,12 +93,12 @@ public class SearchView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = findViewById(R.id.obfuscated_res_0x7f092121);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092120);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09211f);
-            this.e = findViewById(R.id.obfuscated_res_0x7f0920f0);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0920e9);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09211c);
+            this.b = findViewById(R.id.obfuscated_res_0x7f092147);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092146);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092145);
+            this.e = findViewById(R.id.obfuscated_res_0x7f092116);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f09210f);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f092142);
         }
     }
 
@@ -109,7 +109,7 @@ public class SearchView extends LinearLayout {
             setOrientation(1);
             setMinimumHeight(BdUtilHelper.getDimens(getContext(), R.dimen.tbds90));
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a14, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a1c, (ViewGroup) this, true);
             b();
         }
     }

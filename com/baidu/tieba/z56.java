@@ -1,115 +1,150 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetAddressList.DataRes;
-import tbclient.GetAddressList.listData;
-import tbclient.GetAddressList.robotsList;
-/* loaded from: classes8.dex */
-public class z56 {
+/* loaded from: classes9.dex */
+public class z56 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<d66> a;
-    public List<d66> b;
+    public boolean a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    public z56() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310990, "Lcom/baidu/tieba/z56;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948310990, "Lcom/baidu/tieba/z56;");
+                return;
             }
         }
+        g = BdUniqueId.gen();
     }
 
-    public List<d66> a() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList();
-            }
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final boolean b(List<d66> list, we5 we5Var) {
-        InterceptResult invokeLL;
-        List<we5> a;
+    public String getTitle() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, we5Var)) == null) {
-            if (list != null && we5Var != null) {
-                for (d66 d66Var : list) {
-                    if (d66Var != null && (a = d66Var.a()) != null) {
-                        for (we5 we5Var2 : a) {
-                            if (we5Var2 != null && we5Var2.d() == we5Var.d()) {
-                                return true;
-                            }
-                        }
-                        continue;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean c(DataRes dataRes) {
-        InterceptResult invokeL;
-        boolean z;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes)) == null) {
-            if (dataRes != null && dataRes.robots_list != null) {
-                this.b = new ArrayList();
-                z = false;
-                for (robotsList robotslist : dataRes.robots_list) {
-                    if (TextUtils.isEmpty(robotslist.key)) {
-                        z = true;
-                    } else {
-                        d66 d66Var = new d66();
-                        d66Var.d(robotslist);
-                        this.b.add(d66Var);
-                    }
-                }
-            } else {
-                z = false;
-            }
-            if (dataRes != null && dataRes.address_list != null) {
-                this.a = new ArrayList();
-                for (listData listdata : dataRes.address_list) {
-                    if (TextUtils.isEmpty(listdata.key)) {
-                        z = true;
-                    } else {
-                        d66 d66Var2 = new d66();
-                        d66Var2.c(listdata);
-                        if (d66Var2.a() != null) {
-                            for (we5 we5Var : d66Var2.a()) {
-                                if (b(this.b, we5Var)) {
-                                    we5Var.q(1);
-                                } else {
-                                    we5Var.q(0);
-                                }
-                            }
-                        }
-                        this.a.add(d66Var2);
-                    }
-                }
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return g;
         }
-        return invokeL.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public z56(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+        this.b = i;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void setTitle(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.d = str;
+        }
     }
 }

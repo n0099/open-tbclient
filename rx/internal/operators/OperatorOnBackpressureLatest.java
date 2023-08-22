@@ -1,14 +1,14 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.a1c;
-import com.baidu.tieba.e1c;
-import com.baidu.tieba.f1c;
-import com.baidu.tieba.y0c;
-import com.baidu.tieba.z0c;
+import com.baidu.tieba.n7c;
+import com.baidu.tieba.o7c;
+import com.baidu.tieba.p7c;
+import com.baidu.tieba.t7c;
+import com.baidu.tieba.u7c;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes2.dex */
-public final class OperatorOnBackpressureLatest<T> implements y0c.b<T, T> {
+public final class OperatorOnBackpressureLatest<T> implements n7c.b<T, T> {
 
     /* loaded from: classes2.dex */
     public static final class a {
@@ -16,11 +16,11 @@ public final class OperatorOnBackpressureLatest<T> implements y0c.b<T, T> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class LatestEmitter<T> extends AtomicLong implements a1c, f1c, z0c<T> {
+    public static final class LatestEmitter<T> extends AtomicLong implements p7c, u7c, o7c<T> {
         public static final Object EMPTY = new Object();
         public static final long NOT_REQUESTED = -4611686018427387904L;
         public static final long serialVersionUID = -1364393685005146274L;
-        public final e1c<? super T> child;
+        public final t7c<? super T> child;
         public volatile boolean done;
         public boolean emitting;
         public boolean missed;
@@ -28,7 +28,7 @@ public final class OperatorOnBackpressureLatest<T> implements y0c.b<T, T> {
         public Throwable terminal;
         public final AtomicReference<Object> value = new AtomicReference<>(EMPTY);
 
-        @Override // com.baidu.tieba.f1c
+        @Override // com.baidu.tieba.u7c
         public boolean isUnsubscribed() {
             if (get() == Long.MIN_VALUE) {
                 return true;
@@ -36,32 +36,32 @@ public final class OperatorOnBackpressureLatest<T> implements y0c.b<T, T> {
             return false;
         }
 
-        @Override // com.baidu.tieba.z0c
+        @Override // com.baidu.tieba.o7c
         public void onCompleted() {
             this.done = true;
             emit();
         }
 
-        @Override // com.baidu.tieba.f1c
+        @Override // com.baidu.tieba.u7c
         public void unsubscribe() {
             if (get() >= 0) {
                 getAndSet(Long.MIN_VALUE);
             }
         }
 
-        public LatestEmitter(e1c<? super T> e1cVar) {
-            this.child = e1cVar;
+        public LatestEmitter(t7c<? super T> t7cVar) {
+            this.child = t7cVar;
             lazySet(-4611686018427387904L);
         }
 
-        @Override // com.baidu.tieba.z0c
+        @Override // com.baidu.tieba.o7c
         public void onError(Throwable th) {
             this.terminal = th;
             this.done = true;
             emit();
         }
 
-        @Override // com.baidu.tieba.z0c
+        @Override // com.baidu.tieba.o7c
         public void onNext(T t) {
             this.value.lazySet(t);
             emit();
@@ -147,7 +147,7 @@ public final class OperatorOnBackpressureLatest<T> implements y0c.b<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.a1c
+        @Override // com.baidu.tieba.p7c
         public void request(long j) {
             long j2;
             int i;
@@ -177,7 +177,7 @@ public final class OperatorOnBackpressureLatest<T> implements y0c.b<T, T> {
     }
 
     /* loaded from: classes2.dex */
-    public static final class b<T> extends e1c<T> {
+    public static final class b<T> extends t7c<T> {
         public final LatestEmitter<T> e;
 
         public b(LatestEmitter<T> latestEmitter) {
@@ -188,22 +188,22 @@ public final class OperatorOnBackpressureLatest<T> implements y0c.b<T, T> {
             e(j);
         }
 
-        @Override // com.baidu.tieba.z0c
+        @Override // com.baidu.tieba.o7c
         public void onError(Throwable th) {
             this.e.onError(th);
         }
 
-        @Override // com.baidu.tieba.z0c
+        @Override // com.baidu.tieba.o7c
         public void onNext(T t) {
             this.e.onNext(t);
         }
 
-        @Override // com.baidu.tieba.e1c
+        @Override // com.baidu.tieba.t7c
         public void d() {
             e(0L);
         }
 
-        @Override // com.baidu.tieba.z0c
+        @Override // com.baidu.tieba.o7c
         public void onCompleted() {
             this.e.onCompleted();
         }
@@ -213,18 +213,18 @@ public final class OperatorOnBackpressureLatest<T> implements y0c.b<T, T> {
         return (OperatorOnBackpressureLatest<T>) a.a;
     }
 
-    public e1c<? super T> call(e1c<? super T> e1cVar) {
-        LatestEmitter latestEmitter = new LatestEmitter(e1cVar);
+    public t7c<? super T> call(t7c<? super T> t7cVar) {
+        LatestEmitter latestEmitter = new LatestEmitter(t7cVar);
         b<? super T> bVar = new b<>(latestEmitter);
         latestEmitter.parent = bVar;
-        e1cVar.b(bVar);
-        e1cVar.b(latestEmitter);
-        e1cVar.f(latestEmitter);
+        t7cVar.b(bVar);
+        t7cVar.b(latestEmitter);
+        t7cVar.f(latestEmitter);
         return bVar;
     }
 
-    @Override // com.baidu.tieba.y0c.b, com.baidu.tieba.q1c
+    @Override // com.baidu.tieba.n7c.b, com.baidu.tieba.g8c
     public /* bridge */ /* synthetic */ Object call(Object obj) {
-        return call((e1c) ((e1c) obj));
+        return call((t7c) ((t7c) obj));
     }
 }

@@ -1,56 +1,95 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.view.View;
-import android.widget.ImageView;
-import com.baidu.android.util.media.WebpUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.l37;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public final class kb7 {
+public final class kb7<T> extends ta7<T> implements a87, ja7, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final T c;
+    public final String d;
 
-    public static final void a(View imageView, String iconUrl) {
+    public kb7(@NonNull T t, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, imageView, iconUrl) == null) {
-            Intrinsics.checkNotNullParameter(imageView, "imageView");
-            Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
-            l37.e a = l37.a().a();
-            boolean z = false;
-            if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
-                if (!(imageView instanceof ImageView)) {
-                    return;
-                }
-                Uri parse = Uri.parse(iconUrl);
-                List<String> pathSegments = parse.getPathSegments();
-                if (pathSegments.size() > 0) {
-                    int identifier = i37.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, i37.a.getPackageName());
-                    String queryParameter = parse.getQueryParameter("type");
-                    String queryParameter2 = parse.getQueryParameter("color");
-                    if ((queryParameter2 == null || queryParameter2.length() == 0) ? true : true) {
-                        SkinManager.setImageResource((ImageView) imageView, identifier);
-                        return;
-                    }
-                    int identifier2 = i37.a.getResources().getIdentifier(queryParameter2, "color", i37.a.getPackageName());
-                    if (Intrinsics.areEqual(queryParameter, WebpUtils.TYPE_IMG_WEBP)) {
-                        ((ImageView) imageView).setImageDrawable(WebPManager.getPureDrawable(identifier, SkinManager.getColor(identifier2), WebPManager.ResourceStateType.NORMAL));
-                    } else if (Intrinsics.areEqual(queryParameter, "svg")) {
-                        ((ImageView) imageView).setImageDrawable(SvgManager.getInstance().getPureDrawable(identifier, identifier2, null));
-                    } else {
-                        SkinManager.setImageResource((ImageView) imageView, identifier);
-                    }
-                }
-            } else if (a != null) {
-                a.f(imageView, iconUrl);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = t;
+        this.d = str;
+    }
+
+    @Override // com.baidu.tieba.jb7
+    @NonNull
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.jb7
+    @NonNull
+    public T b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            T t = this.c;
+            if (t instanceof PreLoadImageProvider) {
+                return ((PreLoadImageProvider) t).getImages();
+            }
+            return null;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ja7
+    public void d(@NonNull Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            T t = this.c;
+            if (t instanceof ja7) {
+                ((ja7) t).d(obj);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.a87
+    public void setPosition(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            T t = this.c;
+            if (t instanceof a87) {
+                ((a87) t).setPosition(i);
             }
         }
     }

@@ -136,7 +136,7 @@ public final class h extends com.kwad.sdk.mvp.a {
             return null;
         }
         String jB = jB();
-        final ImageView imageView = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913ff);
+        final ImageView imageView = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091415);
         Bitmap createBitmap = Bitmap.createBitmap(this.mRootContainer.getWidth(), this.mRootContainer.getHeight(), Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(createBitmap);
         Bitmap bitmap = this.yc.ky().getBitmap();

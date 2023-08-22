@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.wf8;
+import com.baidu.tieba.wj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -133,7 +133,7 @@ public class GroupChatKeyboardLayout extends ViewGroup {
         BdUtilHelper.getEquipmentHeight(getContext());
         TypedArray typedArray = null;
         try {
-            typedArray = context.obtainStyledAttributes(attributeSet, wf8.GroupChatKeyboardLayout, 0, 0);
+            typedArray = context.obtainStyledAttributes(attributeSet, wj8.GroupChatKeyboardLayout, 0, 0);
             this.g = typedArray.getResourceId(1, -1);
             this.h = typedArray.getResourceId(0, -1);
         } finally {

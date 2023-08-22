@@ -36,7 +36,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.scopes.DescriptorKindFilter;
 import kotlin.reflect.jvm.internal.impl.storage.MemoizedFunctionToNullable;
 import kotlin.reflect.jvm.internal.impl.storage.NullableLazyValue;
 import kotlin.reflect.jvm.internal.impl.utils.FunctionsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LazyJavaPackageScope extends LazyJavaStaticScope {
     public final MemoizedFunctionToNullable<FindClassRequest, ClassDescriptor> classes;
     public final JavaPackage jPackage;
@@ -47,10 +47,10 @@ public final class LazyJavaPackageScope extends LazyJavaStaticScope {
     public void computeNonDeclaredFunctions(Collection<SimpleFunctionDescriptor> collection, Name name) {
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static abstract class KotlinClassLookupResult {
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class Found extends KotlinClassLookupResult {
             public final ClassDescriptor descriptor;
 
@@ -64,7 +64,7 @@ public final class LazyJavaPackageScope extends LazyJavaStaticScope {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class NotFound extends KotlinClassLookupResult {
             public static final NotFound INSTANCE = new NotFound();
 
@@ -73,7 +73,7 @@ public final class LazyJavaPackageScope extends LazyJavaStaticScope {
             }
         }
 
-        /* loaded from: classes10.dex */
+        /* loaded from: classes2.dex */
         public static final class SyntheticClass extends KotlinClassLookupResult {
             public static final SyntheticClass INSTANCE = new SyntheticClass();
 
@@ -90,7 +90,7 @@ public final class LazyJavaPackageScope extends LazyJavaStaticScope {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class FindClassRequest {
         public final JavaClass javaClass;
         public final Name name;
@@ -246,7 +246,7 @@ public final class LazyJavaPackageScope extends LazyJavaStaticScope {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassDescriptor mo2104getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassDescriptor mo2106getContributedClassifier(Name name, LookupLocation lookupLocation) {
         return findClassifier(name, null);
     }
 

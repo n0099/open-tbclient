@@ -1,90 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.res.ColorStateList;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.os.Process;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class gp4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static final Object[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            for (int i2 = 4; i2 < 32; i2++) {
-                int i3 = (1 << i2) - 12;
-                if (i <= i3) {
-                    return i3;
-                }
-            }
-            return i;
-        }
-        return invokeI.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947801598, "Lcom/baidu/tieba/gp4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947801598, "Lcom/baidu/tieba/gp4;");
-                return;
-            }
-        }
-        a = new int[0];
-        b = new Object[0];
-    }
-
-    public static int a(int[] iArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, iArr, i, i2)) == null) {
-            int i3 = i - 1;
-            int i4 = 0;
-            while (i4 <= i3) {
-                int i5 = (i4 + i3) >>> 1;
-                int i6 = iArr[i5];
-                if (i6 < i2) {
-                    i4 = i5 + 1;
-                } else if (i6 > i2) {
-                    i3 = i5 - 1;
-                } else {
-                    return i5;
-                }
-            }
-            return ~i4;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static boolean b(Object obj, Object obj2) {
+    public static int a(@NonNull Context context, @NonNull String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
-            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            if (str != null) {
+                return context.checkPermission(str, Process.myPid(), Process.myUid());
             }
-            return true;
+            throw new IllegalArgumentException("permission is null");
         }
-        return invokeLL.booleanValue;
+        return invokeLL.intValue;
     }
 
-    public static int d(int i) {
-        InterceptResult invokeI;
+    public static final int b(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return c(i * 4) / 4;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return ip4.a(context, i);
+            }
+            return context.getResources().getColor(i);
         }
-        return invokeI.intValue;
+        return invokeLI.intValue;
+    }
+
+    public static final ColorStateList c(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return ip4.b(context, i);
+            }
+            return context.getResources().getColorStateList(i);
+        }
+        return (ColorStateList) invokeLI.objValue;
+    }
+
+    public static final Drawable d(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, context, i)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                return hp4.a(context, i);
+            }
+            return context.getResources().getDrawable(i);
+        }
+        return (Drawable) invokeLI.objValue;
     }
 }

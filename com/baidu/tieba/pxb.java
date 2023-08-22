@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface pxb {
-    void a(String str, boolean z, HashMap<String, String> hashMap);
+public final class pxb {
+    public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public transient /* synthetic */ FieldHolder $fh;
 }

@@ -1,86 +1,65 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class etb {
     public static /* synthetic */ Interceptable $ic;
-    public static dtb a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947747286, "Lcom/baidu/tieba/etb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public etb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947747286, "Lcom/baidu/tieba/etb;");
-                return;
+        }
+    }
+
+    public static void b(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || str2.length() <= 4000) {
+            return;
+        }
+        int i = 0;
+        while (i < str2.length()) {
+            int i2 = i + 4000;
+            if (i2 < str2.length()) {
+                str2.substring(i, i2);
+            } else {
+                str2.substring(i);
             }
-        }
-        a = new itb();
-    }
-
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            a.d(str, str2);
+            i = i2;
         }
     }
 
-    public static void b(String str, String str2) {
+    public static void a(String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            a.e(str, str2);
-        }
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            a.i(str, str2);
-        }
-    }
-
-    public static void g(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
-            a.w(str, str2);
-        }
-    }
-
-    public static void c(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) {
-            a.e(str, str2, th);
-        }
-    }
-
-    public static void e(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, str, str2, th) == null) {
-            a.i(str, str2, th);
-        }
-    }
-
-    public static void h(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, th) == null) {
-            a.w(str, str2, th);
-        }
-    }
-
-    public static void f(dtb dtbVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, dtbVar) == null) && dtbVar != null) {
-            a = dtbVar;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StackTraceElement[] stackTrace = new Throwable().fillInStackTrace().getStackTrace();
+            int i = 2;
+            while (true) {
+                if (i < stackTrace.length) {
+                    if (!stackTrace[i].getClass().equals(etb.class)) {
+                        String className = stackTrace[i].getClassName();
+                        str2 = className.substring(className.lastIndexOf(46) + 1);
+                        break;
+                    }
+                    i++;
+                } else {
+                    str2 = "";
+                    break;
+                }
+            }
+            b("HonorPush_" + str2, str, null);
         }
     }
 }

@@ -1,36 +1,51 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class xk2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface xk2 {
+    public static final boolean n0 = nr1.a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303178, "Lcom/baidu/tieba/xk2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public interface a {
+        String a();
+
+        JSONObject b();
+
+        boolean isValid();
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Map<String, a> a;
+        public boolean b;
+        public int c;
+        public int d;
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948303178, "Lcom/baidu/tieba/xk2;");
-                return;
-            }
-        }
-        a = ir1.a;
-        fu2.g0().getSwitch("swan_js_event_dispatch_opt", 0);
-        b = false;
-        if (a) {
-            Log.d("MessageDispatchOptSwitch", "swan_js_event_dispatch_opt - " + b);
+            this.a = new HashMap();
+            this.b = true;
+            this.c = 0;
+            this.d = 0;
         }
     }
 }

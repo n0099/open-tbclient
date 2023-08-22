@@ -13,8 +13,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.gz4;
+import com.baidu.tieba.ifa;
+import com.baidu.tieba.lz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public RelateRecThreadRequestMessage b;
-    public gz4 c;
+    public lz4 c;
     public NetMessageListener d;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -108,7 +108,7 @@ public class RelateRecThreadListModel extends BdBaseModel {
                     }
                     Log.e("RecThreadList", "errno=" + error + ",errmsg=" + errorString);
                     if (StringUtils.isNull(errorString)) {
-                        errorString = this.a.R(R.string.obfuscated_res_0x7f0f06a2);
+                        errorString = this.a.R(R.string.obfuscated_res_0x7f0f06a9);
                     }
                     if (this.a.c != null) {
                         this.a.c.onError(error, errorString);
@@ -151,18 +151,18 @@ public class RelateRecThreadListModel extends BdBaseModel {
         return (String) invokeI.objValue;
     }
 
-    public void U(gz4 gz4Var) {
+    public void U(lz4 lz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gz4Var) == null) {
-            this.c = gz4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lz4Var) == null) {
+            this.c = lz4Var;
         }
     }
 
     public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            aba.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
-            aba.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
+            ifa.h(309701, RelateRecThreadSocketResponseMessage.class, false, false);
+            ifa.c(309701, CmdConfigHttp.CMD_RELATE_REC_THREAD, TbConfig.URL_RELATE_REC_THREAD, RelateRecThreadHttpResponseMessage.class, true, false, true, false);
             this.d.getHttpMessageListener().setSelfListener(true);
             this.d.getSocketMessageListener().setSelfListener(true);
             registerListener(this.d);

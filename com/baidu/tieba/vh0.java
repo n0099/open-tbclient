@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,12 +7,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vh0 extends sk1<ho0> {
+public class vh0 extends xk1<ck0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public class a implements ho0 {
+    public class a implements ck0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -34,23 +32,14 @@ public class vh0 extends sk1<ho0> {
             }
         }
 
-        @Override // com.baidu.tieba.ho0
-        @NonNull
-        public String a() {
+        @Override // com.baidu.tieba.ck0
+        public String m() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return wh0.c().a();
+                return th0.e();
             }
             return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ho0
-        public void request() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                wh0.c().request();
-            }
         }
     }
 
@@ -69,14 +58,14 @@ public class vh0 extends sk1<ho0> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sk1
+    @Override // com.baidu.tieba.xk1
     /* renamed from: a */
-    public ho0 createService() throws ServiceNotFoundException {
+    public ck0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return new a(this);
         }
-        return (ho0) invokeV.objValue;
+        return (ck0) invokeV.objValue;
     }
 }

@@ -1,128 +1,176 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.file.util.AESUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.database.Cursor;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tieba.ne;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.math.BigInteger;
-import java.nio.charset.Charset;
-import java.security.GeneralSecurityException;
-import java.security.Key;
-import java.security.KeyFactory;
-import java.security.NoSuchAlgorithmException;
-import java.security.PublicKey;
-import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.X509EncodedKeySpec;
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ii {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307341, "Lcom/baidu/tieba/ii;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Comparator<ne.b<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448307341, "Lcom/baidu/tieba/ii;");
-                return;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(ne.b<?> bVar, ne.b<?> bVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bVar, bVar2)) == null) {
+                long j = bVar.c;
+                long j2 = bVar2.c;
+                if (j == j2) {
+                    return 0;
+                }
+                if (j > j2) {
+                    return -1;
+                }
+                return 1;
             }
+            return invokeLL.intValue;
         }
-        Charset.forName("UTF-8");
-        a = new byte[]{-92, Constants.GZIP_CAST_TYPE, -56, 52, -42, -107, -13, 19};
     }
 
-    public static byte[] a(SecretKey secretKey, byte[] bArr, int i, int i2) throws GeneralSecurityException {
-        InterceptResult invokeLLII;
+    /* JADX WARN: Type inference failed for: r3v11, types: [T, byte[]] */
+    @SuppressLint({"Range"})
+    public static List<ne.b<byte[]>> a(ne<byte[]> neVar) {
+        InterceptResult invokeL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65537, null, secretKey, bArr, i, i2)) == null) {
-            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
-            cipher.init(2, secretKey);
-            return cipher.doFinal(bArr, i, i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, neVar)) == null) {
+            LinkedList linkedList = new LinkedList();
+            try {
+                cursor = c(neVar);
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            if (cursor == null) {
+                return null;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    ne.b bVar = new ne.b();
+                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.b = cursor.getBlob(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        BdCloseHelper.close(cursor);
+                        Collections.sort(linkedList, new b(null));
+                        return linkedList;
+                    } finally {
+                        BdCloseHelper.close(cursor);
+                    }
+                }
+            }
+            BdCloseHelper.close(cursor);
+            Collections.sort(linkedList, new b(null));
+            return linkedList;
         }
-        return (byte[]) invokeLLII.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public static byte[] b(Key key, byte[] bArr) throws GeneralSecurityException {
-        InterceptResult invokeLL;
+    /* JADX WARN: Type inference failed for: r3v11, types: [T, java.lang.String] */
+    @SuppressLint({"Range"})
+    public static List<ne.b<String>> b(ne<String> neVar) {
+        InterceptResult invokeL;
+        Cursor cursor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, key, bArr)) == null) {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(2, key);
-            return cipher.doFinal(bArr);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, neVar)) == null) {
+            LinkedList linkedList = new LinkedList();
+            try {
+                cursor = c(neVar);
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+            }
+            if (cursor == null) {
+                return null;
+            }
+            while (cursor.moveToNext()) {
+                try {
+                    ne.b bVar = new ne.b();
+                    bVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                    bVar.c = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                    cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                    bVar.b = cursor.getString(cursor.getColumnIndex("m_value"));
+                    linkedList.add(bVar);
+                } catch (Throwable th2) {
+                    th = th2;
+                    try {
+                        BdLog.e(th);
+                        BdCloseHelper.close(cursor);
+                        Collections.sort(linkedList, new b(null));
+                        return linkedList;
+                    } finally {
+                        BdCloseHelper.close(cursor);
+                    }
+                }
+            }
+            BdCloseHelper.close(cursor);
+            Collections.sort(linkedList, new b(null));
+            return linkedList;
         }
-        return (byte[]) invokeLL.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public static byte[] c(SecretKey secretKey, byte[] bArr) throws GeneralSecurityException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, secretKey, bArr)) == null) {
-            Cipher cipher = Cipher.getInstance(AESUtil.ECB_TRANSFORMATION);
-            cipher.init(1, secretKey);
-            return cipher.doFinal(bArr);
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] d(PublicKey publicKey, byte[] bArr) throws GeneralSecurityException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, publicKey, bArr)) == null) {
-            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
-            cipher.init(1, publicKey);
-            return cipher.doFinal(bArr);
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static PublicKey e(byte[] bArr) throws Exception {
+    public static Cursor c(ne<?> neVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            return KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(bArr));
-        }
-        return (PublicKey) invokeL.objValue;
-    }
-
-    public static SecretKey f(String str) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            SecretKeyFactory secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-            int length = str.length();
-            char[] cArr = new char[length];
-            for (int i = 0; i < length; i++) {
-                cArr[i] = (char) (((byte) str.charAt(i)) & 255);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, neVar)) == null) {
+            if (neVar == null || !(neVar instanceof ne.c)) {
+                return null;
             }
-            return secretKeyFactory.generateSecret(new PBEKeySpec(cArr, a, 5, 256));
-        }
-        return (SecretKey) invokeL.objValue;
-    }
-
-    public static String g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
-            String bigInteger = new BigInteger(i * 5, new SecureRandom()).toString(36);
-            if (bigInteger.length() > i) {
-                return bigInteger.substring(0, bigInteger.length());
+            ne.c cVar = (ne.c) neVar;
+            if (!(cVar.c() instanceof le)) {
+                return null;
             }
-            return bigInteger;
+            ee n = ((le) cVar.c()).n();
+            return n.q(n.h().f(), cVar.j());
         }
-        return (String) invokeI.objValue;
+        return (Cursor) invokeL.objValue;
     }
 }

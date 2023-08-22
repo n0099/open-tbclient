@@ -1,58 +1,163 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.BdStatsItem;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gga extends CustomMessageListener {
+public class gga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public f35 b;
+    public BdStatsItem a;
+    public String b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gga(MainTabActivity mainTabActivity, iea ieaVar) {
-        super(2921333);
+    public gga(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ieaVar};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
+        this.b = null;
+        this.c = false;
+        e(str, false);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void a() {
+        jga c;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
+            long timeCost = this.a.getTimeCost();
+            if (timeCost > 3000) {
+                iga igaVar = c.f;
+                igaVar.a += timeCost;
+                igaVar.b++;
+                hga.b(c, 10);
+            }
+        }
+    }
+
+    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
+        jga c;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
             return;
         }
-        if (this.b == null && !(customResponsedMessage.getData() instanceof f35)) {
-            return;
+        if (z) {
+            iga igaVar = c.d;
+            if (igaVar == null) {
+                return;
+            }
+            igaVar.b++;
+            if (z2) {
+                igaVar.a += j2;
+                igaVar.d += j;
+            } else {
+                igaVar.c++;
+            }
+        } else {
+            iga igaVar2 = c.e;
+            if (igaVar2 == null) {
+                return;
+            }
+            igaVar2.b++;
+            if (z2) {
+                igaVar2.a += j3;
+                igaVar2.d += j;
+            } else {
+                igaVar2.c++;
+            }
+            j2 = j3;
         }
-        if (customResponsedMessage.getData() != null) {
-            this.b = (f35) customResponsedMessage.getData();
+        this.a = null;
+        if (z2) {
+            hga.b(c, 10);
         }
-        if (this.b != null && TbadkCoreApplication.isLogin()) {
-            gea geaVar = this.a.v;
-            f35 f35Var = this.b;
-            geaVar.j(f35Var.a, f35Var.b, f35Var.c);
+        if (this.b == "frsStat") {
+            if (!z2 || j2 > 3000) {
+                BdStatsItem bdStatsItem = new BdStatsItem("dbg");
+                bdStatsItem.append("act", "frs");
+                String str3 = "0";
+                if (z2) {
+                    str2 = "0";
+                } else {
+                    str2 = "1";
+                }
+                bdStatsItem.append("result", str2);
+                if (z) {
+                    str3 = "1";
+                }
+                bdStatsItem.append("isHttp", str3);
+                bdStatsItem.append("timeCost", String.valueOf(j2));
+                bdStatsItem.append(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
+                bdStatsItem.append(StatConstants.KEY_EXT_ERR_MSG, str);
+                bdStatsItem.append("down", String.valueOf(j));
+                BdStatisticsManager.getInstance().debug("frs", bdStatsItem);
+            }
+        }
+    }
+
+    public final jga c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return hga.e(this.b, d(), this.c);
+        }
+        return (jga) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            int netType = BdNetTypeUtil.netType();
+            if (netType == 0) {
+                return "N";
+            }
+            if (netType == 1) {
+                return "WIFI";
+            }
+            if (netType == 3) {
+                return "3G";
+            }
+            if (netType != 2) {
+                return "N";
+            }
+            return "2G";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a.startTimer();
+        }
+    }
+
+    public void e(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
+            this.b = str;
+            this.c = z;
+            this.a = new BdStatsItem("dbg");
+            hga.c(str, d(), z);
         }
     }
 }

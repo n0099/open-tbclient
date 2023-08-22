@@ -1,56 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
 /* loaded from: classes7.dex */
-public final class pt6 extends mt6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean b;
+public interface pt6 {
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pt6() {
-        super(4096);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface a {
+        void onProgress(long j);
     }
 
-    @Override // com.baidu.tieba.mt6
-    public boolean b(vs6 item, yu6 timer, ps6 config) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            ws6 e = item.e();
-            if (e.i() == 0) {
-                return false;
-            }
-            if (this.b) {
-                if (e.i() != 1) {
-                    return false;
-                }
-            } else if (e.i() != 2) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLLL.booleanValue;
+    /* loaded from: classes7.dex */
+    public interface b {
+        boolean a(String str);
+
+        boolean b();
     }
+
+    /* loaded from: classes7.dex */
+    public interface c {
+        void a(boolean z, String str);
+    }
+
+    boolean a(QmFilterItem qmFilterItem);
+
+    boolean b(QmStickerItem qmStickerItem);
+
+    boolean c();
+
+    boolean d();
+
+    bi6 e();
+
+    yh6 f();
+
+    void g(c cVar);
+
+    boolean onDestroy();
+
+    boolean onPause();
+
+    boolean onResume();
+
+    boolean startRecord();
+
+    boolean stopRecord();
 }

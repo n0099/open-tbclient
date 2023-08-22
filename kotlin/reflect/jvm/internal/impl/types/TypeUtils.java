@@ -562,9 +562,9 @@ public class TypeUtils {
         if (kotlinType == null) {
             $$$reportNull$$$0(30);
         }
-        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
-        if (mo2102getDeclarationDescriptor instanceof ClassDescriptor) {
-            return (ClassDescriptor) mo2102getDeclarationDescriptor;
+        ClassifierDescriptor mo2104getDeclarationDescriptor = kotlinType.getConstructor().mo2104getDeclarationDescriptor();
+        if (mo2104getDeclarationDescriptor instanceof ClassDescriptor) {
+            return (ClassDescriptor) mo2104getDeclarationDescriptor;
         }
         return null;
     }
@@ -573,8 +573,8 @@ public class TypeUtils {
         if (kotlinType == null) {
             $$$reportNull$$$0(62);
         }
-        if (kotlinType.getConstructor().mo2102getDeclarationDescriptor() instanceof TypeParameterDescriptor) {
-            return (TypeParameterDescriptor) kotlinType.getConstructor().mo2102getDeclarationDescriptor();
+        if (kotlinType.getConstructor().mo2104getDeclarationDescriptor() instanceof TypeParameterDescriptor) {
+            return (TypeParameterDescriptor) kotlinType.getConstructor().mo2104getDeclarationDescriptor();
         }
         return null;
     }
@@ -583,7 +583,7 @@ public class TypeUtils {
         if (kotlinType == null) {
             $$$reportNull$$$0(29);
         }
-        if (kotlinType.getConstructor().mo2102getDeclarationDescriptor() instanceof ClassDescriptor) {
+        if (kotlinType.getConstructor().mo2104getDeclarationDescriptor() instanceof ClassDescriptor) {
             return false;
         }
         for (KotlinType kotlinType2 : getImmediateSupertypes(kotlinType)) {
@@ -699,7 +699,7 @@ public class TypeUtils {
         }
         TypeConstructor constructor = kotlinType.getConstructor();
         if (constructor instanceof IntersectionTypeConstructor) {
-            for (KotlinType kotlinType2 : ((IntersectionTypeConstructor) constructor).mo2103getSupertypes()) {
+            for (KotlinType kotlinType2 : ((IntersectionTypeConstructor) constructor).mo2105getSupertypes()) {
                 if (contains(kotlinType2, function1, hashSet)) {
                     return true;
                 }
@@ -764,9 +764,9 @@ public class TypeUtils {
             $$$reportNull$$$0(18);
         }
         TypeSubstitutor create = TypeSubstitutor.create(kotlinType);
-        Collection<KotlinType> mo2103getSupertypes = kotlinType.getConstructor().mo2103getSupertypes();
-        ArrayList arrayList = new ArrayList(mo2103getSupertypes.size());
-        for (KotlinType kotlinType2 : mo2103getSupertypes) {
+        Collection<KotlinType> mo2105getSupertypes = kotlinType.getConstructor().mo2105getSupertypes();
+        ArrayList arrayList = new ArrayList(mo2105getSupertypes.size());
+        for (KotlinType kotlinType2 : mo2105getSupertypes) {
             KotlinType createSubstitutedSupertype = createSubstitutedSupertype(kotlinType, kotlinType2, create);
             if (createSubstitutedSupertype != null) {
                 arrayList.add(createSubstitutedSupertype);
@@ -790,7 +790,7 @@ public class TypeUtils {
         }
         TypeConstructor constructor = kotlinType.getConstructor();
         if (constructor instanceof IntersectionTypeConstructor) {
-            for (KotlinType kotlinType2 : constructor.mo2103getSupertypes()) {
+            for (KotlinType kotlinType2 : constructor.mo2105getSupertypes()) {
                 if (isNullableType(kotlinType2)) {
                     return true;
                 }

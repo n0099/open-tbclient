@@ -14,15 +14,15 @@ public class ab implements Runnable {
     public void run() {
         ScheduledFuture scheduledFuture;
         ScheduledFuture scheduledFuture2;
-        if (this.a.f43a.size() != 0) {
+        if (this.a.f44a.size() != 0) {
             this.a.b();
             return;
         }
-        scheduledFuture = this.a.f44a;
+        scheduledFuture = this.a.f45a;
         if (scheduledFuture != null) {
-            scheduledFuture2 = this.a.f44a;
+            scheduledFuture2 = this.a.f45a;
             scheduledFuture2.cancel(false);
-            this.a.f44a = null;
+            this.a.f45a = null;
         }
     }
 }

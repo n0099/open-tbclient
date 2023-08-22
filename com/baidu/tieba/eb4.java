@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ab4;
+import com.baidu.swan.games.screenrecord.GameRecorderController;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,58 +11,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 /* loaded from: classes5.dex */
 public class eb4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean c;
+    public static volatile eb4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ab4> a;
-    public String b;
-    public String c;
-    public int d;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cb4 a;
-        public final /* synthetic */ eb4 b;
-
-        public a(eb4 eb4Var, cb4 cb4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eb4Var, cb4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = eb4Var;
-            this.a = cb4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ArrayList<long[]> e = this.b.e();
-                db4 db4Var = new db4();
-                db4Var.a = this.b.b;
-                db4Var.b = e;
-                db4Var.c = this.b.c;
-                p74.i().b(db4Var, this.a);
-            }
-        }
-    }
+    public GameRecorderController a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
@@ -76,88 +33,100 @@ public class eb4 {
                 return;
             }
         }
-        e = ir1.a;
+        c = nr1.a;
+        d = null;
     }
 
-    public eb4(ArrayList<bb4> arrayList, String str, String str2) {
+    public eb4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList, str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        if (e) {
-            Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
-        }
-        ArrayList<ab4> d = d(arrayList);
-        this.a = d;
-        this.b = str;
-        this.c = str2;
-        this.d = d.size();
     }
 
-    public void c(cb4 cb4Var) {
+    public static eb4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, cb4Var) != null) || cb4Var == null) {
-            return;
-        }
-        sn3.l(new a(this, cb4Var), "clipVideo");
-    }
-
-    public final ArrayList<ab4> d(ArrayList<bb4> arrayList) {
-        InterceptResult invokeL;
-        ab4 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
-            ArrayList<ab4> arrayList2 = new ArrayList<>();
-            if (arrayList != null && arrayList.size() != 0) {
-                Iterator<bb4> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    bb4 next = it.next();
-                    if (next != null && (a2 = next.a()) != null) {
-                        arrayList2.add(a2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (eb4.class) {
+                    if (d == null) {
+                        d = new eb4();
                     }
                 }
             }
-            return arrayList2;
+            return d;
         }
-        return (ArrayList) invokeL.objValue;
+        return (eb4) invokeV.objValue;
     }
 
-    public ArrayList<long[]> e() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ArrayList<long[]> arrayList = new ArrayList<>();
-            if (this.d == 0) {
-                return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (c) {
+                Log.i("GameRecorderManager", "isGamePause:" + this.b);
             }
-            if (e) {
-                Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.a);
-            }
-            Collections.sort(this.a, new ab4.a());
-            ab4 ab4Var = this.a.get(0);
-            for (int i = 1; i < this.d; i++) {
-                ab4 ab4Var2 = this.a.get(i);
-                if (!ab4Var.b(ab4Var2)) {
-                    arrayList.add(ab4.a(ab4Var));
-                    ab4Var = ab4Var2;
-                }
-            }
-            arrayList.add(ab4.a(ab4Var));
-            if (e) {
-                Log.d("ClipVideoTask", "mergeRange mergeList = " + arrayList);
-            }
-            return arrayList;
+            return this.b;
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = true;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = false;
+        }
+    }
+
+    @NonNull
+    public GameRecorderController b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c) {
+                Log.i("GameRecorderManager", "getRecorderController:" + this.a);
+            }
+            GameRecorderController gameRecorderController = this.a;
+            if (gameRecorderController == null) {
+                return GameRecorderController.j();
+            }
+            return gameRecorderController;
+        }
+        return (GameRecorderController) invokeV.objValue;
+    }
+
+    public void f(GameRecorderController gameRecorderController) {
+        GameRecorderController gameRecorderController2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, gameRecorderController) == null) && (gameRecorderController2 = this.a) != null && gameRecorderController2 == gameRecorderController) {
+            gameRecorderController2.p();
+            this.a = null;
+        }
+    }
+
+    public void g(GameRecorderController gameRecorderController) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, gameRecorderController) == null) {
+            GameRecorderController gameRecorderController2 = this.a;
+            if (gameRecorderController2 != null && gameRecorderController2 != gameRecorderController) {
+                gameRecorderController2.p();
+            }
+            this.a = gameRecorderController;
+        }
     }
 }

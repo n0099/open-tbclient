@@ -1,24 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface gv7 {
-    lm<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
+public class gv7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    View b(@NonNull Context context, @NonNull BdUniqueId bdUniqueId);
-
-    lm<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
-
-    lm<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
-
-    void e(@NonNull View view2);
-
-    void f(@NonNull View view2, @Nullable pba pbaVar, @NonNull BdUniqueId bdUniqueId, String str, String str2, String str3, String str4, int i, View.OnClickListener onClickListener);
-
-    lm<?, ?> g(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str);
+    public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{frsFragment, str, str2, Boolean.valueOf(z)})) == null) {
+            if (!z || frsFragment == null || TextUtils.isEmpty(str) || !frsFragment.isAdded() || !kv7.j(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
+                return true;
+            }
+            Intent intent = new Intent();
+            intent.putExtra("class", 2);
+            intent.putExtra("fname", str);
+            intent.putExtra(str2, "short_cut");
+            frsFragment.sendMessage(new CustomMessage(2002001, new LogoActivityConfig(frsFragment.getPageContext().getPageActivity(), intent)));
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
 }

@@ -1,27 +1,33 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes8.dex */
 public class sw3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile rw3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized rw3 a() {
+    @Inject(force = false)
+    public static tw3 a() {
         InterceptResult invokeV;
-        rw3 rw3Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (sw3.class) {
-                if (a == null) {
-                    a = new rw3();
-                }
-                rw3Var = a;
-            }
-            return rw3Var;
+            return m96.a();
         }
-        return (rw3) invokeV.objValue;
+        return (tw3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static uw3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new br3();
+        }
+        return (uw3) invokeV.objValue;
     }
 }

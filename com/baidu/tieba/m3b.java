@@ -1,50 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
+import androidx.annotation.NonNull;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class m3b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public fk1<g3b> a;
 
-    public void b() {
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull ai5 ai5Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dk1 b = dk1.b();
-            this.a = b;
-            b.a(new h3b());
-        }
-    }
-
-    public m3b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, editorTools, ai5Var, str) == null) {
+            if ("e1".equals(str)) {
+                u3b.h(tbPageContext, editorTools, ai5Var);
+            } else if (Config.SESSTION_TRACK_END_TIME.equals(str)) {
+                u3b.j(tbPageContext, editorTools, ai5Var);
+            } else if ("e3".equals(str)) {
+                u3b.k(tbPageContext, editorTools, ai5Var);
+            } else if ("e4".equals(str)) {
+                u3b.g(tbPageContext, editorTools, ai5Var);
+            } else if ("e5".equals(str)) {
+                u3b.d(editorTools, ai5Var);
+            } else if ("e6".equals(str)) {
+                u3b.a(tbPageContext, editorTools, ai5Var);
+            } else if ("e7".equals(str)) {
+                u3b.l(tbPageContext, editorTools, ai5Var);
+            } else if ("e8".equals(str)) {
+                u3b.b(tbPageContext, editorTools, ai5Var);
+            } else if ("e9".equals(str)) {
+                u3b.i(tbPageContext, editorTools);
+            } else if ("e10".equals(str)) {
+                u3b.c(tbPageContext, editorTools, ai5Var);
+            } else if ("e11".equals(str)) {
+                u3b.f(tbPageContext, editorTools, ai5Var);
+            } else if ("e12".equals(str)) {
+                u3b.e(tbPageContext, editorTools, ai5Var);
             }
         }
-        b();
-    }
-
-    public g3b a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
-        }
-        return (g3b) invokeV.objValue;
     }
 }

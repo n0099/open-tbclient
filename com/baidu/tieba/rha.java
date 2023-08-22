@@ -1,216 +1,93 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseView;
-import com.baidu.adp.base.BdPageContext;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
-import com.baidu.tieba.themeCenter.avatarPendant.AvatarPendantActivity;
-import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public class rha extends BdBaseView<AvatarPendantActivity> {
+public class rha extends pha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sha a;
-    public BdListView b;
-    public NoNetworkView c;
-    public MemberRecommendView d;
-    public NavigationBar e;
-    public int f;
-    public TextView g;
-    public TextView h;
-    public AvatarPendantActivity i;
-    public View j;
-    public TextView k;
-
-    /* loaded from: classes7.dex */
-    public interface a {
-        void O0(DressItemData dressItemData);
-    }
+    public boolean g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rha(AvatarPendantActivity avatarPendantActivity) {
-        super(avatarPendantActivity.getPageContext());
+    public rha(String str, int i, int i2, long j, String str2) {
+        super(str, i, i2, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {avatarPendantActivity};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((BdPageContext) newInitContext.callArgs[0]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = 0;
-        this.i = avatarPendantActivity;
-        avatarPendantActivity.setContentView(R.layout.obfuscated_res_0x7f0d012f);
-        this.j = avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f091f87);
-        this.f = BdUtilHelper.getDimens(avatarPendantActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f0703bc);
-        this.b = (BdListView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f09031e);
-        this.c = (NoNetworkView) avatarPendantActivity.findViewById(R.id.view_no_network);
-        NavigationBar navigationBar = (NavigationBar) avatarPendantActivity.findViewById(R.id.view_navigation_bar);
-        this.e = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.e.setTitleText(R.string.obfuscated_res_0x7f0f0303);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) avatarPendantActivity.findViewById(R.id.obfuscated_res_0x7f090320);
-        this.d = memberRecommendView;
-        memberRecommendView.setFromType(8);
-        this.d.getButton().setOnClickListener(avatarPendantActivity);
-        TextView textView = new TextView(avatarPendantActivity.getActivity());
-        this.g = textView;
-        textView.setHeight(BdUtilHelper.getDimens(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        this.k = new TextView(avatarPendantActivity.getActivity());
-        AbsListView.LayoutParams layoutParams = new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + BdUtilHelper.getDimens(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f070282));
-        TextView textView2 = new TextView(avatarPendantActivity.getActivity());
-        this.h = textView2;
-        textView2.setHeight(BdUtilHelper.getDimens(avatarPendantActivity.getActivity(), R.dimen.obfuscated_res_0x7f0703ec));
-        this.k.setLayoutParams(layoutParams);
-        this.b.w(this.k, 0);
-        this.b.addFooterView(this.h);
-        sha shaVar = new sha(avatarPendantActivity);
-        this.a = shaVar;
-        this.b.setAdapter((ListAdapter) shaVar);
     }
 
-    public TextView A() {
+    @Override // com.baidu.tieba.pha
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.pha
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.k;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.g;
         }
-        return (TextView) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void x() {
+    @Override // com.baidu.tieba.pha
+    public sha g(ArrayList<Integer> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.i.hideNetRefreshView(this.j);
-            this.b.setVisibility(0);
-        }
-    }
-
-    public MemberRecommendView y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return (MemberRecommendView) invokeV.objValue;
-    }
-
-    public View z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.j;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ks5.a(this.i.getPageContext(), this.j);
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-            this.a.notifyDataSetChanged();
-            this.e.onChangeSkinType(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.c.onChangeSkinType(this.i.getPageContext(), TbadkApplication.getInst().getSkinType());
-            this.d.d();
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
-        }
-    }
-
-    public void E(List<pha> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.b.setVisibility(0);
-                this.a.c(list);
-                this.a.notifyDataSetChanged();
-                return;
-            }
-            this.b.setVisibility(8);
-        }
-    }
-
-    public void G(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
-            this.a.b(aVar);
-        }
-    }
-
-    public void u(NoNetworkView.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.c.addNetworkChangeListener(bVar);
-        }
-    }
-
-    public final boolean F(ria riaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, riaVar)) == null) {
-            if (riaVar != null && !StringUtils.isNull(riaVar.c())) {
-                this.d.setVisibility(0);
-                this.d.e(riaVar);
-                return true;
-            }
-            this.d.setVisibility(8);
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void H() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.setVisibility(8);
-            String string = this.i.getPageContext().getResources().getString(R.string.no_data_text);
-            this.i.setNetRefreshViewTopMargin(this.f);
-            this.i.showNetRefreshView(this.j, string, false);
-        }
-    }
-
-    public void I(ria riaVar, List<pha> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, riaVar, list) == null) {
-            if ((riaVar != null && !StringUtils.isNull(riaVar.c())) || (list != null && list.size() > 0)) {
-                x();
-                if (F(riaVar)) {
-                    this.b.removeHeaderView(this.g);
-                    this.b.addHeaderView(this.g);
-                } else {
-                    this.b.removeHeaderView(this.g);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
+            sha shaVar = new sha();
+            try {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
+                int i2 = 0;
+                int size = arrayList.size();
+                Iterator<Integer> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    int i3 = i2 + 1;
+                    sha h = h(randomAccessFile, it.next().intValue(), i, str);
+                    if (h == null) {
+                        return null;
+                    }
+                    d((int) (((i3 * 50.0f) / size) + 30.0f));
+                    if (!StringUtils.isNull(h.a)) {
+                        return h;
+                    }
+                    if (h.b != 0) {
+                        return h;
+                    }
+                    i2 = i3;
+                    shaVar = h;
                 }
-                E(list);
-                return;
+            } catch (FileNotFoundException unused) {
             }
-            H();
+            return shaVar;
         }
+        return (sha) invokeLLI.objValue;
     }
 }

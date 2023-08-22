@@ -13,7 +13,7 @@ import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.JsonUtil;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ResponseWrap {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ResponseWrap";

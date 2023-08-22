@@ -1,99 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.text.TextUtils;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
 public class zh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static NetworkInfo a() {
-        InterceptResult invokeV;
-        ConnectivityManager connectivityManager;
+    public static String a(int i, String str, String str2) {
+        InterceptResult invokeILL;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = bi1.a();
-            if (a == null || (connectivityManager = (ConnectivityManager) a.getSystemService("connectivity")) == null) {
-                return null;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65536, null, i, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (!TextUtils.isEmpty(str2)) {
+                str3 = "statecode={" + i + "};order_no={" + str + "};notify=" + str2;
+            } else {
+                str3 = "statecode={" + i + "};order_no={" + str + "};notify={" + str2 + "}";
             }
-            return connectivityManager.getActiveNetworkInfo();
-        }
-        return (NetworkInfo) invokeV.objValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            NetworkInfo a = a();
-            if (a != null && a.isConnected()) {
-                return true;
+            try {
+                jSONObject.put("statusCode", i);
+                jSONObject.put(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_MSG, str2);
+                jSONObject.put("responseData", str3);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return false;
+            return jSONObject.toString();
         }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String b(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            switch (i) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "1";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "2";
-                case 13:
-                case 18:
-                case 19:
-                    break;
-                default:
-                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
-                        return "unknown";
-                    }
-                    break;
-            }
-            return "3";
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            NetworkInfo a = a();
-            if (a != null && a.isConnected()) {
-                if (a.getType() == 1) {
-                    return "4";
-                }
-                if (a.getType() == 0) {
-                    return b(a.getSubtype(), a.getSubtypeName());
-                }
-                return "unknown";
-            }
-            return "0";
-        }
-        return (String) invokeV.objValue;
+        return (String) invokeILL.objValue;
     }
 }

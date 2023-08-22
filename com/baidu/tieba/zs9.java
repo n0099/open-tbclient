@@ -1,78 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class zs9 implements Runnable {
+/* loaded from: classes9.dex */
+public class zs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
-    public boolean d;
-    public jt9 e;
 
-    public zs9(jt9 jt9Var) {
+    public static void a(ps9 ps9Var, TbPageContext<?> tbPageContext) {
+        Uri parse;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jt9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, ps9Var, tbPageContext) == null) && ps9Var != null && tbPageContext != null) {
+            int i = ps9Var.l;
+            boolean z = false;
+            if (i == 1) {
+                if (!TextUtils.isEmpty(ps9Var.f)) {
+                    UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{ps9Var.f});
+                }
+            } else if (i == 2) {
+                if (!TextUtils.isEmpty(ps9Var.f) && (parse = Uri.parse(ps9Var.f)) != null) {
+                    String queryParameter = parse.getQueryParameter("paramfromna");
+                    if (!TextUtils.isEmpty(queryParameter)) {
+                        ps9Var.f = b(ps9Var.f, queryParameter);
+                    }
+                    if ("1".equalsIgnoreCase(parse.getQueryParameter("fixtitle"))) {
+                        str = parse.getQueryParameter("title");
+                        z = true;
+                    } else {
+                        str = "";
+                    }
+                    BrowserHelper.startWebActivity(z, tbPageContext.getPageActivity(), str, ps9Var.f);
+                }
+            } else if (i == 3 && !TextUtils.isEmpty(ps9Var.f)) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921361, ps9Var.f));
             }
         }
-        this.d = false;
-        this.e = jt9Var;
     }
 
-    public void a(int i) {
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str2) && (split = str2.split("#")) != null) {
+                StringBuilder sb = new StringBuilder(str);
+                boolean z = false;
+                for (String str3 : split) {
+                    if ("skin".equalsIgnoreCase(str3)) {
+                        sb.append("&skin=");
+                        sb.append(SkinManager.getCurrentSkinTypeString());
+                    } else if ("user_id".equalsIgnoreCase(str3)) {
+                        sb.append("&user_id=");
+                        sb.append(TbadkCoreApplication.getCurrentAccountId());
+                    } else if ("comparams".equalsIgnoreCase(str3)) {
+                        z = true;
+                    }
+                }
+                if (z) {
+                    return or5.e(sb.toString());
+                }
+                return sb.toString();
+            }
+            return null;
         }
-    }
-
-    public void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        jt9 jt9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (jt9Var = this.e) == null) {
-            return;
-        }
-        if (!this.d) {
-            jt9Var.m(this.b, this.c, this.a, 2);
-        } else {
-            jt9Var.m(this.b, this.c, this.a, 1);
-        }
+        return (String) invokeLL.objValue;
     }
 }

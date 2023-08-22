@@ -1,22 +1,29 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Looper;
-import android.os.Message;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class ye1 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile ye1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public Map<String, af1> a;
 
     public ye1() {
         Interceptable interceptable = $ic;
@@ -31,13 +38,13 @@ public class ye1 {
                 return;
             }
         }
-        this.a = false;
+        this.a = new HashMap();
     }
 
-    public static ye1 a() {
+    public static ye1 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
             if (b == null) {
                 synchronized (ye1.class) {
                     if (b == null) {
@@ -50,32 +57,110 @@ public class ye1 {
         return (ye1) invokeV.objValue;
     }
 
-    public void b(Context context) {
+    public static <T> T[] a(Class<T> cls, Object[] objArr, Object[] objArr2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || this.a) {
-            return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, objArr, objArr2)) == null) {
+            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, objArr.length + objArr2.length));
+            System.arraycopy(objArr, 0, tArr, 0, objArr.length);
+            System.arraycopy(objArr2, 0, tArr, objArr.length, objArr2.length);
+            return tArr;
         }
-        if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
-            c(context);
-            return;
-        }
-        CountDownLatch countDownLatch = new CountDownLatch(1);
-        new xe1(context, countDownLatch).sendMessage(Message.obtain());
-        try {
-            countDownLatch.await();
-        } catch (Exception unused) {
+        return (T[]) ((Object[]) invokeLLL.objValue);
+    }
+
+    public static void e(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, field, obj, obj2) == null) {
+            field.set(obj, c((Object[]) field.get(obj), (Object[]) field.get(obj2)));
         }
     }
 
-    public final void c(Context context) {
+    public static Object[] c(Object[] objArr, Object[] objArr2) throws IllegalArgumentException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            je1.a().c();
-            try {
-                new WebView(context);
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
+            ArrayList arrayList = new ArrayList(Arrays.asList(objArr));
+            for (Object obj : objArr2) {
+                if (!arrayList.contains(obj)) {
+                    arrayList.add(obj);
+                }
             }
-            this.a = true;
+            Object[] objArr3 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), arrayList.size());
+            for (int i = 0; i < objArr3.length; i++) {
+                objArr3[i] = arrayList.get(i);
+            }
+            return objArr3;
         }
+        return (Object[]) invokeLL.objValue;
+    }
+
+    public static void f(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, field, obj, obj2) == null) {
+            List list = (List) field.get(obj);
+            list.addAll((List) field.get(obj2));
+            field.set(obj, list);
+            Field b2 = nf1.b(obj.getClass(), "nativeLibraryPathElements");
+            b2.set(obj, c((Object[]) b2.get(obj), (Object[]) b2.get(obj2)));
+        }
+    }
+
+    public static ClassLoader g(af1 af1Var, af1 af1Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, af1Var, af1Var2)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                h(af1Var, af1Var2);
+                return af1Var;
+            }
+            return null;
+        }
+        return (ClassLoader) invokeLL.objValue;
+    }
+
+    public static ClassLoader h(af1 af1Var, af1 af1Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, af1Var, af1Var2)) == null) {
+            Field b2 = nf1.b(af1.class, "pathList");
+            try {
+                Object obj = b2.get(af1Var);
+                Field b3 = nf1.b(obj.getClass(), "dexElements");
+                Field b4 = nf1.b(obj.getClass(), "nativeLibraryDirectories");
+                Object[] objArr = (Object[]) b3.get(obj);
+                Object obj2 = b2.get(af1Var2);
+                b3.set(obj, a(objArr.getClass().getComponentType(), objArr, (Object[]) b3.get(obj2)));
+                if (Build.VERSION.SDK_INT >= 23) {
+                    f(b4, obj, obj2);
+                } else {
+                    e(b4, obj, obj2);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return af1Var;
+        }
+        return (ClassLoader) invokeLL.objValue;
+    }
+
+    public af1 b(BundleInfo bundleInfo, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundleInfo, context)) == null) {
+            boolean z = !TextUtils.isEmpty(bundleInfo.getGroupName());
+            af1 af1Var = new af1(if1.d(context, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), if1.f(context, bundleInfo.getPackageName()).getAbsolutePath(), if1.e(context, bundleInfo.getPackageName()).getAbsolutePath(), context);
+            if (z && Build.VERSION.SDK_INT >= 21) {
+                af1 af1Var2 = this.a.get(bundleInfo.getGroupName());
+                if (af1Var2 == null) {
+                    this.a.put(bundleInfo.getGroupName(), af1Var);
+                    return af1Var;
+                }
+                g(af1Var2, af1Var);
+                return af1Var2;
+            }
+            return af1Var;
+        }
+        return (af1) invokeLL.objValue;
     }
 }

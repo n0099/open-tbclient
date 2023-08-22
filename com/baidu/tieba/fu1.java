@@ -1,15 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class fu1 implements vw1 {
+public class fu1 implements tw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.tw1
+    public String[] a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.tw1
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     public fu1() {
         Interceptable interceptable = $ic;
@@ -25,39 +46,19 @@ public class fu1 implements vw1 {
         }
     }
 
-    @Override // com.baidu.tieba.vw1
-    public void a(Context context, rp3<Boolean> rp3Var) {
+    @Override // com.baidu.tieba.tw1
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, rp3Var) != null) || rp3Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!ku2.w0().d()) {
+                if (dh2.b()) {
+                    return dh2.b + File.separator + "libcom.baidu.zeus.so";
+                }
+                return dh2.d + File.separator + "libcom.baidu.zeus.so";
+            }
+            return null;
         }
-        rp3Var.a(null);
-    }
-
-    @Override // com.baidu.tieba.vw1
-    public void b(boolean z, rp3<String> rp3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, rp3Var) != null) || rp3Var == null) {
-            return;
-        }
-        rp3Var.a(null);
-    }
-
-    @Override // com.baidu.tieba.vw1
-    public void c(Context context, rp3<String> rp3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, rp3Var) != null) || rp3Var == null) {
-            return;
-        }
-        rp3Var.a(null);
-    }
-
-    @Override // com.baidu.tieba.vw1
-    public void d(rp3<Integer> rp3Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, rp3Var) != null) || rp3Var == null) {
-            return;
-        }
-        rp3Var.a(null);
+        return (String) invokeV.objValue;
     }
 }

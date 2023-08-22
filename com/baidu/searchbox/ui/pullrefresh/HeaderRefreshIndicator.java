@@ -11,11 +11,11 @@ import com.baidu.searchbox.skin.NightModeHelper;
 /* loaded from: classes4.dex */
 public class HeaderRefreshIndicator extends DrawableCenterTextView {
     public static final long ANIMATION_DURATION_MS = 280;
-    public static final int DEFAULT_BG_ID = 2131235424;
+    public static final int DEFAULT_BG_ID = 2131235445;
     public static final int DEFAULT_BORDER_DIRECTION = 3;
     public static final int DEFAULT_REFRESH_RESULT = -1;
-    public static final int DEFAULT_SUCCESS_TIP_ICON = 2131235425;
-    public static final int DEFAULT_TEXT_COLOR_ID = 2131102055;
+    public static final int DEFAULT_SUCCESS_TIP_ICON = 2131235446;
+    public static final int DEFAULT_TEXT_COLOR_ID = 2131102061;
     public boolean isInited;
     @DrawableRes
     public int mBackgroundDrawableId;

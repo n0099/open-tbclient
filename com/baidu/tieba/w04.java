@@ -1,171 +1,226 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.DisplayMetrics;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.util.BaiduIdentityManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 /* loaded from: classes8.dex */
 public class w04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static w04 b;
+    public static DisplayMetrics a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948216750, "Lcom/baidu/tieba/w04;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
+            return (int) (f * d(AppRuntime.getAppContext()));
+        }
+        return invokeF.intValue;
+    }
+
+    public static float d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            n(AppRuntime.getAppContext());
+            DisplayMetrics displayMetrics = a;
+            if (displayMetrics != null) {
+                return displayMetrics.density;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948216750, "Lcom/baidu/tieba/w04;");
+            return 0.0f;
+        }
+        return invokeL.floatValue;
+    }
+
+    public static int h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            n(AppRuntime.getAppContext());
+            DisplayMetrics displayMetrics = a;
+            if (displayMetrics != null) {
+                return displayMetrics.heightPixels;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int i(@Nullable Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            n(AppRuntime.getAppContext());
+            DisplayMetrics displayMetrics = a;
+            if (displayMetrics != null) {
+                return displayMetrics.widthPixels;
+            }
+            return 0;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void n(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && a == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext != null) {
+                context = appContext;
+            }
+            if (context == null) {
                 return;
             }
+            a = context.getResources().getDisplayMetrics();
         }
-        a = AppRuntime.getAppContext().getCacheDir() + File.separator + "gamenowGuide" + File.separator + "configCache";
-        b = new w04();
     }
 
-    public w04() {
+    public static int p(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeF = interceptable.invokeF(65551, null, f)) == null) {
+            return (int) (f / d(AppRuntime.getAppContext()));
         }
+        return invokeF.intValue;
     }
 
-    public static w04 c() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String substring = new p04().a(String.valueOf(System.currentTimeMillis())).substring(4, 14);
+            String e = vz3.b().e();
+            return PayUVEventType.PAY_FULL_SPLIT_ORDER_CLOSE_BTN_CLICK + substring + e.substring(0, 4);
         }
-        return (w04) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public synchronized void a(String str, String str2, long j) {
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            synchronized (this) {
-                long elapsedRealtime = SystemClock.elapsedRealtime();
-                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j > elapsedRealtime) {
-                    File file = new File(a);
-                    if (!file.exists() && !file.mkdirs()) {
-                        if (ir1.a) {
-                            Log.d("GameGuideConfigCache", "创建缓存目录失败");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                String[] split = str.split(ParamableElem.DIVIDE_PARAM);
+                int length = split.length;
+                for (int i = 0; i != length; i++) {
+                    String trim = split[i].trim();
+                    String[] split2 = trim.split("=");
+                    if (split2.length >= 2 && TextUtils.equals(str2, split2[0])) {
+                        if (split2.length == 2) {
+                            return split2[1];
                         }
-                        return;
-                    }
-                    File[] listFiles = file.listFiles();
-                    if (listFiles != null && listFiles.length > 0) {
-                        for (File file2 : listFiles) {
-                            if (file2 != null && file2.exists() && file2.getName().startsWith(str)) {
-                                cr4.j(file2);
-                            }
-                        }
-                    }
-                    boolean N = cr4.N(str2, new File(a, b(str, j)));
-                    if (ir1.a) {
-                        Log.d("GameGuideConfigCache", "缓存配置信息成功：  " + N);
-                    }
-                    return;
-                }
-                if (ir1.a) {
-                    Log.d("GameGuideConfigCache", "缓存失败，参数异常  appKey = " + str + ",  config = " + str2 + ",  expiration = " + j + ",  currentTime = " + elapsedRealtime);
-                }
-            }
-        }
-    }
-
-    public final String b(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
-            return str + "_" + j;
-        }
-        return (String) invokeLJ.objValue;
-    }
-
-    public final boolean d(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            if (file != null && file.exists()) {
-                String[] split = file.getName().split("_");
-                if (split.length != 2) {
-                    return true;
-                }
-                try {
-                    if (Long.valueOf(split[1]).longValue() > SystemClock.elapsedRealtime()) {
-                        return false;
-                    }
-                } catch (Throwable th) {
-                    if (ir1.a) {
-                        th.printStackTrace();
+                        return trim.substring(split2[0].length() + 1);
                     }
                 }
             }
-            return true;
+            return null;
         }
-        return invokeL.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    public synchronized String e(String str) {
-        InterceptResult invokeL;
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    if (ir1.a) {
-                        Log.d("GameGuideConfigCache", "获取缓存配置失败， appKey为null");
-                    }
-                    return null;
-                }
-                File file = new File(a);
-                if (!file.exists()) {
-                    if (ir1.a) {
-                        Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录不存在");
-                    }
-                    return null;
-                }
-                File[] listFiles = file.listFiles();
-                if (listFiles != null && listFiles.length > 0) {
-                    File file2 = null;
-                    for (File file3 : listFiles) {
-                        if (d(file3)) {
-                            cr4.j(file3);
-                        } else if (file3.getName().startsWith(str)) {
-                            file2 = file3;
-                        }
-                    }
-                    if (file2 == null) {
-                        return null;
-                    }
-                    return cr4.E(file2);
-                }
-                if (ir1.a) {
-                    Log.d("GameGuideConfigCache", "获取缓存配置失败， 缓存目录中的文件为空");
-                }
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            String str = Build.MODEL;
+            if (TextUtils.isEmpty(str)) {
+                return "NUL";
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(str)) {
+                return "0.0";
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String str = Build.MANUFACTURER;
+            if (TextUtils.isEmpty(str)) {
+                return "NUL";
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return AppRuntime.getAppContext().getPackageName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            try {
+                Context appContext = AppRuntime.getAppContext();
+                return appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                return "";
             }
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            return TextUtils.equals(BaiduIdentityManager.VALUE_OSNAME, vz3.b().a());
+        }
+        return invokeV.booleanValue;
     }
 }

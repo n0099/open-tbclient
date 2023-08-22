@@ -1,14 +1,142 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.o72;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public interface um3 {
-    public static final tm3<Long> b = new tm3<>("index_cost_recent_launch_total");
-    public static final tm3<Long> c = new tm3<>("index_cost_recent_download");
-    public static final tm3<Long> d = new tm3<>("index_cost_recent_page_switch");
-    public static final tm3<Long> e = new tm3<>("index_cost_recent_page_rendered_initial");
-    public static final tm3<Long> f = new tm3<>("index_cost_current_page_rendered");
-    public static final tm3<Long> g = new tm3<>("index_cost_startup_page_first_rendered");
-    public static final tm3<Long> h = new tm3<>("index_storage_size");
-    public static final tm3<Long> i = new tm3<>("index_cost_on_screen");
-    public static final tm3<String> j = new tm3<>("index_start_up_api_info");
-    public static final tm3<String> k = new tm3<>("index_prelink_info");
+public class um3 extends ad3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public class a implements o72.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ um3 b;
+
+        public a(um3 um3Var, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {um3Var, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = um3Var;
+            this.a = callbackHandler;
+        }
+
+        @Override // com.baidu.tieba.o72.i
+        public void a(String str, String str2, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, jSONObject) == null) {
+                this.b.k(str, str2, this.a, 0, jSONObject);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public um3(ac3 ac3Var) {
+        super(ac3Var, "/swanAPI/openTextarea");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ac3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ad3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
+            if (ad3.b) {
+                Log.d("OpenTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            d82.i("OpenTextAreaAction", "OpenTextAreaAction paramsJson: " + optParamsAsJo);
+            p72 p72Var = new p72();
+            try {
+                p72Var.a(optParamsAsJo);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                d82.d("OpenTextAreaAction", "model parse exception:", e);
+            }
+            SwanAppActivity activity = qw2.T().getActivity();
+            if (activity == null) {
+                d82.c("OpenTextAreaAction", "activity is null when add textarea");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add textarea");
+                return false;
+            }
+            ma2 U = qw2.T().U();
+            if (U == null) {
+                d82.c("OpenTextAreaAction", "fragmentManager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
+                return false;
+            }
+            la2 o = U.o();
+            if (o == null) {
+                d82.c("OpenTextAreaAction", "fragment is null when add input");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
+                return false;
+            }
+            u62 insert = new o72(context, p72Var, activity, o, new a(this, callbackHandler)).insert();
+            if (!insert.a()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
+                return false;
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void k(String str, String str2, CallbackHandler callbackHandler, int i, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, callbackHandler, Integer.valueOf(i), jSONObject}) == null) {
+            d82.i("OpenTextAreaAction", "sendAsyncCallback, arg0: " + i + ", arg1: " + jSONObject);
+            if (TextUtils.isEmpty(str2)) {
+                w72.a("OpenTextAreaAction", "sendAsyncCallback with a empty callback");
+            } else {
+                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+            }
+        }
+    }
 }

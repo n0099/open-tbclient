@@ -4,7 +4,7 @@ import android.widget.FrameLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
 import com.kwad.components.ad.i.b;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.components.ad.draw.kwai.a {
     public com.kwad.sdk.core.webview.a.kwai.a bJ = new com.kwad.sdk.core.webview.a.kwai.a() { // from class: com.kwad.components.ad.draw.a.b.b.1
         @Override // com.kwad.sdk.core.webview.a.kwai.a
@@ -37,7 +37,7 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091328);
+        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09133e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

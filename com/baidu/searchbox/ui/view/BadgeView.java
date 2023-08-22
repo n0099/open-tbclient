@@ -287,7 +287,7 @@ public class BadgeView extends TextView {
     }
 
     private int createNormalBg() {
-        int color = getResources().getColor(R.color.obfuscated_res_0x7f06037c);
+        int color = getResources().getColor(R.color.obfuscated_res_0x7f060382);
         if (this.isChangeBackgroundColor) {
             if (NightModeHelper.isNightMode()) {
                 return this.backgroundColorNight;
@@ -323,7 +323,7 @@ public class BadgeView extends TextView {
         if (this.mIsNormalSize) {
             return R.drawable.badge_bg_small_text_normal_style;
         }
-        return R.drawable.obfuscated_res_0x7f080226;
+        return R.drawable.obfuscated_res_0x7f080227;
     }
 
     private void updateBadgeLayout() {
@@ -408,7 +408,7 @@ public class BadgeView extends TextView {
     }
 
     public void updateNightMode() {
-        setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06037b));
+        setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060381));
         if (this.mType == Type.SMALL_TEXT) {
             Drawable createSmallTextBg = createSmallTextBg();
             this.smallTextBg = createSmallTextBg;
@@ -468,7 +468,7 @@ public class BadgeView extends TextView {
         if (getLayoutParams() == null) {
             setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 53));
         }
-        setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06037b));
+        setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060381));
         setGravity(17);
     }
 

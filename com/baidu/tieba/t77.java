@@ -1,73 +1,90 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
-import tbclient.FeedKV;
 /* loaded from: classes8.dex */
 public final class t77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
 
-    public static final String a(List<FeedKV> list, String key) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            for (FeedKV feedKV : list) {
-                if (Intrinsics.areEqual(feedKV.key, key)) {
-                    return feedKV.value;
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static final List<d77> b(List<FeedKV> list) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            ArrayList arrayList = new ArrayList();
-            for (FeedKV feedKV : list) {
-                String str = feedKV.key;
-                Intrinsics.checkNotNullExpressionValue(str, "kv.key");
-                d77 d77Var = new d77(str, null, null, null, null, 30, null);
-                Map<String, String> d = d77Var.d();
-                try {
-                    JSONObject jSONObject = new JSONObject(feedKV.value);
-                    if (d instanceof HashMap) {
-                        Iterator<String> keys = jSONObject.keys();
-                        Intrinsics.checkNotNullExpressionValue(keys, "jsonObject.keys()");
-                        while (keys.hasNext()) {
-                            String key = keys.next();
-                            if (!Intrinsics.areEqual(key, "position_name")) {
-                                Intrinsics.checkNotNullExpressionValue(key, "key");
-                                String optString = jSONObject.optString(key);
-                                Intrinsics.checkNotNullExpressionValue(optString, "jsonObject.optString(key)");
-                                d.put(key, optString);
-                            }
-                        }
-                    }
-                    String optString2 = jSONObject.optString("position_name");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObject.optString(\"position_name\")");
-                    d77Var.g(optString2);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                arrayList.add(d77Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            return arrayList;
+            if (obj instanceof t77) {
+                t77 t77Var = (t77) obj;
+                return Intrinsics.areEqual(this.a, t77Var.a) && Intrinsics.areEqual(this.b, t77Var.b);
+            }
+            return false;
         }
-        return (List) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
+            String str2 = this.b;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "FeedFeedbackUserData(userId=" + this.a + ", portrait=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public t77(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = str2;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

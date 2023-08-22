@@ -12,7 +12,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import androidx.annotation.Nullable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.u71;
+import com.baidu.tieba.z71;
 /* loaded from: classes3.dex */
 public class BdVideoSeekbarImageView extends View {
     public static final int A;
@@ -23,11 +23,11 @@ public class BdVideoSeekbarImageView extends View {
     public static final int F;
     public static final int G;
     public static final int H;
-    public static final int p = u71.a(12.0f);
-    public static final int q = u71.d(30.0f);
-    public static final int r = u71.a(17.0f);
-    public static final int s = u71.a(13.0f);
-    public static final int t = u71.a(2.0f);
+    public static final int p = z71.a(12.0f);
+    public static final int q = z71.d(30.0f);
+    public static final int r = z71.a(17.0f);
+    public static final int s = z71.a(13.0f);
+    public static final int t = z71.a(2.0f);
     public static final int u;
     public static final int v;
     public static final int w;
@@ -51,21 +51,21 @@ public class BdVideoSeekbarImageView extends View {
     public boolean o;
 
     static {
-        u71.a(9.0f);
-        u = u71.b(90.0f);
-        v = u71.b(90.0f);
-        w = u71.a(77.0f);
-        x = u71.a(7.0f);
-        y = u71.a(1.0f);
-        z = u71.a(23.0f);
-        A = u71.a(21.0f);
-        B = u71.a(64.0f);
-        C = u71.a(34.0f);
-        D = u71.a(27.0f);
-        E = u71.a(25.0f);
-        F = u71.a(11.0f);
-        G = u71.a(9.0f);
-        H = u71.a(60.0f);
+        z71.a(9.0f);
+        u = z71.b(90.0f);
+        v = z71.b(90.0f);
+        w = z71.a(77.0f);
+        x = z71.a(7.0f);
+        y = z71.a(1.0f);
+        z = z71.a(23.0f);
+        A = z71.a(21.0f);
+        B = z71.a(64.0f);
+        C = z71.a(34.0f);
+        D = z71.a(27.0f);
+        E = z71.a(25.0f);
+        F = z71.a(11.0f);
+        G = z71.a(9.0f);
+        H = z71.a(60.0f);
     }
 
     public BdVideoSeekbarImageView(Context context) {

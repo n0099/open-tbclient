@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class zg {
     public static /* synthetic */ Interceptable $ic;
     public static volatile zg j;
@@ -39,14 +39,14 @@ public class zg {
     public BdStatSwitchData f;
     public ah g;
     public b h;
-    public fi i;
+    public hi i;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         void a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -77,13 +77,13 @@ public class zg {
             if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 1) {
                 Object obj = message.obj;
                 if (obj instanceof BdUploadStatMsgData) {
-                    lh.i().r(((BdUploadStatMsgData) obj).parentType);
+                    mh.i().r(((BdUploadStatMsgData) obj).parentType);
                 }
             }
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -123,12 +123,12 @@ public class zg {
             if ("com.baidu.adp.stats.background".equals(action)) {
                 BdStatisticsManager.getInstance().save();
                 if (this.this$0.a) {
-                    lh.i().f();
+                    mh.i().f();
                 }
             } else if ("com.baidu.adp.stats.switch".equals(action)) {
                 if (!this.this$0.a) {
                     this.this$0.p();
-                    lh.i().s();
+                    mh.i().s();
                 }
             } else if ("com.baidu.adp.stats.updatecmd".equals(action) && !this.this$0.a && (serializableExtra = intent.getSerializableExtra("switchsCmdBrdMsg")) != null && (serializableExtra instanceof BdUploadStatMsgData)) {
                 BdUploadStatMsgData bdUploadStatMsgData = (BdUploadStatMsgData) serializableExtra;
@@ -148,7 +148,7 @@ public class zg {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class d extends BdAsyncTask<Object, Integer, BdStatSwitchData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -215,7 +215,7 @@ public class zg {
                     this.a.f = bdStatSwitchData;
                     if (this.a.a && this.a.b && !BdBaseApplication.getInst().checkInterrupt()) {
                         this.a.z();
-                        lh.i().s();
+                        mh.i().s();
                     }
                     b bVar = this.a.h;
                     if (bVar != null) {
@@ -259,9 +259,9 @@ public class zg {
     }
 
     public void p() {
-        fi fiVar;
+        hi hiVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (fiVar = this.i) != null && fiVar.isAgreePrivacyPolicy()) {
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (hiVar = this.i) != null && hiVar.isAgreePrivacyPolicy()) {
             d dVar = new d(this, null);
             dVar.setPriority(4);
             dVar.execute(new Object[0]);
@@ -317,10 +317,10 @@ public class zg {
         return (String) invokeV.objValue;
     }
 
-    public void A(fi fiVar) {
+    public void A(hi hiVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, fiVar) == null) {
-            this.i = fiVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hiVar) == null) {
+            this.i = hiVar;
         }
     }
 

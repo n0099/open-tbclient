@@ -1,68 +1,69 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class qf7 extends CustomMessageListener {
+public class qf7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsActivity a;
-    public kp7 b;
-    public lp7 c;
+    public TbPageContext<?> a;
+    public BdTypeRecyclerView b;
+    public rf7 c;
+    public jn d;
+    public List<om> e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qf7(FrsActivity frsActivity) {
-        super(2921728);
+    public qf7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = frsActivity;
-        kp7 kp7Var = new kp7(frsActivity);
-        this.b = kp7Var;
-        kp7Var.a(true);
-        lp7 lp7Var = new lp7(frsActivity);
-        this.c = lp7Var;
-        lp7Var.a(true);
-        PriorityOrganizer.makeChain(this.b, this.c);
-        setPriority(1);
+        this.e = new LinkedList();
+        this.a = tbPageContext;
+        this.b = bdTypeRecyclerView;
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            BdUniqueId bdUniqueId = null;
-            if (currentActivity instanceof BdBaseFragmentActivity) {
-                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
-            }
-            if (getTag() == bdUniqueId && !this.b.isExecuting(true)) {
-                this.b.reset(true);
-                this.a.q0().tryAdd(this.b);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            rf7 rf7Var = new rf7(this.a);
+            this.c = rf7Var;
+            this.e.add(rf7Var);
+            jn jnVar = new jn(this.a);
+            this.d = jnVar;
+            this.e.add(jnVar);
+            this.b.addAdapters(this.e);
+        }
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void c(List<bn> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b.setData(list);
         }
     }
 }

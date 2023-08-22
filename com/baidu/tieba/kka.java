@@ -1,45 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Process;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tbadkCore.writeModel.AttentionBarData;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class kka {
+public class kka extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final eja b;
 
-    public static final String a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kka(MainTabActivity mainTabActivity, qia qiaVar) {
+        super(2001437);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            String packageName = wka.d().getPackageName();
-            Intrinsics.checkNotNullExpressionValue(packageName, "getAppCtx().packageName");
-            return packageName;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, qiaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
-    @JvmOverloads
-    public static final void b(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        eja ejaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            Intent launchIntentForPackage = wka.d().getPackageManager().getLaunchIntentForPackage(wka.d().getPackageName());
-            if (launchIntentForPackage != null) {
-                launchIntentForPackage.addFlags(335577088);
-            }
-            if (launchIntentForPackage != null) {
-                int h = wka.h();
-                wka.d().startActivity(launchIntentForPackage);
-                if (z && h > 0) {
-                    Process.killProcess(h);
-                    System.exit(0);
-                    throw new RuntimeException("System.exit returned normally, while it was supposed to halt JVM.");
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof AttentionBarData) && ((AttentionBarData) customResponsedMessage.getData()).isSuccess && this.a.x == 0 && (ejaVar = this.b) != null && ejaVar.a() != null) {
+            this.b.a().d();
         }
     }
 }

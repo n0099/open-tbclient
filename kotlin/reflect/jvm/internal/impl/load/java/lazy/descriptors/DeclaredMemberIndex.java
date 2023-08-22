@@ -8,7 +8,7 @@ import kotlin.collections.SetsKt__SetsKt;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaField;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaMethod;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface DeclaredMemberIndex {
     JavaField findFieldByName(Name name);
 
@@ -18,7 +18,7 @@ public interface DeclaredMemberIndex {
 
     Set<Name> getMethodNames();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Empty implements DeclaredMemberIndex {
         public static final Empty INSTANCE = new Empty();
 

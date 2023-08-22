@@ -1,55 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes8.dex */
-public class ul5 {
+public class ul5 implements vl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
+    public vl5 a;
 
-    public ul5() {
+    public ul5(vl5 vl5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vl5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = vl5Var;
+    }
+
+    @Override // com.baidu.tieba.vl5
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048583, this, j)) == null) {
+            return this.a.skip(j);
+        }
+        return invokeJ.longValue;
+    }
+
+    @Override // com.baidu.tieba.vl5
+    public InputStream a() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            reset();
+            return this.a.a();
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vl5
+    public int available() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.available();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.vl5
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.close();
         }
     }
 
-    public static ul5 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vl5
+    public byte peek() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            try {
-                ul5 ul5Var = new ul5();
-                ul5Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
-                ul5Var.b = jSONObject.optInt("width");
-                ul5Var.c = jSONObject.optInt("height");
-                ul5Var.d = jSONObject.optString("pic_url");
-                ul5Var.e = jSONObject.optString("thumbnail");
-                ul5Var.g = jSONObject.optString("origin_url");
-                return ul5Var;
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.peek();
         }
-        return (ul5) invokeL.objValue;
+        return invokeV.byteValue;
+    }
+
+    @Override // com.baidu.tieba.vl5
+    public int position() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.position();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.vl5
+    public void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a.reset();
+        }
+    }
+
+    @Override // com.baidu.tieba.vl5
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048581, this, bArr, i, i2)) == null) {
+            return this.a.read(bArr, i, i2);
+        }
+        return invokeLII.intValue;
     }
 }

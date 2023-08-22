@@ -33,7 +33,7 @@ public class ClipBoxView extends View {
     public static final int S = 7;
 
     /* renamed from: T  reason: collision with root package name */
-    public static final int f1057T = 8;
+    public static final int f1058T = 8;
     public static final float U = 50.0f;
     public static final float V = 50.0f;
     public static final float W = 1.01f;

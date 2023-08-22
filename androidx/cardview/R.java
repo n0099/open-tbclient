@@ -20,10 +20,10 @@ public final class R {
 
     /* loaded from: classes.dex */
     public static final class color {
-        public static final int cardview_dark_background = 0x7f0604d4;
-        public static final int cardview_light_background = 0x7f0604d5;
-        public static final int cardview_shadow_end_color = 0x7f0604d6;
-        public static final int cardview_shadow_start_color = 0x7f0604d7;
+        public static final int cardview_dark_background = 0x7f0604da;
+        public static final int cardview_light_background = 0x7f0604db;
+        public static final int cardview_shadow_end_color = 0x7f0604dc;
+        public static final int cardview_shadow_start_color = 0x7f0604dd;
     }
 
     /* loaded from: classes.dex */

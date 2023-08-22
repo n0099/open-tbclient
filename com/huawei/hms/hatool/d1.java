@@ -2,7 +2,7 @@ package com.huawei.hms.hatool;
 
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.spb;
+import com.baidu.tieba.hwb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,12 +10,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d1 extends v {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
@@ -80,7 +80,7 @@ public class d1 extends v {
             f1 a2 = v.a(str, str2, str3, str4);
             String a3 = z0.a().a(c.c(str2, str3));
             long currentTimeMillis = System.currentTimeMillis();
-            String b = spb.b(b.f() + a3 + currentTimeMillis);
+            String b = hwb.b(b.f() + a3 + currentTimeMillis);
             a2.f(String.valueOf(currentTimeMillis));
             a2.g(b);
             return a2;

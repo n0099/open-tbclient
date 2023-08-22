@@ -20,14 +20,17 @@ import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tbadk.data.JSONLikeSerializable;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.pda;
-import com.baidu.tieba.qda;
-import com.baidu.tieba.rda;
-import com.baidu.tieba.vsa;
+import com.baidu.tieba.gxa;
+import com.baidu.tieba.xha;
+import com.baidu.tieba.yha;
+import com.baidu.tieba.zha;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,6 +63,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public static final String KEY_GAME_NAME = "key_game_name";
     public static final String KEY_GAME_RANK_IMG_URL = "key_game_rank_img_url";
     public static final String KEY_IS_FROM_GAME_RANK = "key_is_from_game_rank";
+    public static final String KEY_IS_WRITE_TEST = "key_is_write_test";
     public static final String KEY_LOCAL_CHANNEL_TOPIC = "key_local_channel_topic";
     public static final String KEY_NOTIFICATION_H5 = "key_notification_h5";
     public static final String KEY_NOT_FAKE_POST = "key_not_fake_post";
@@ -69,6 +73,8 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public static final String KEY_PUT_STORAGE_TID = "put_storage_tid";
     public static final String KEY_REWARDS_TYPE = "key_rewards_type";
     public static final String KEY_STATISTIS_FROM = "key_statistic_from";
+    public static final String KEY_TARGET_TAB = "targetTab";
+    public static final String KEY_WEBVIEW_DATA = "webviewData";
     public static final String KEY_WRITE_AT_LIST = "key_write_at_list";
     public static final String KEY_WRITE_HINT_TEXT = "key_write_hint_text";
     public static final String KEY_XIUXIU_ORIGINAL_CONTENT = "key_xiuxiu_original_content";
@@ -86,7 +92,24 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public static final String STAR_COUNT = "star_count";
     public static final String VIDEO_INFO = "video_info";
     public static final String VIDEO_TITLE = "video_title";
+    public static Class<?> sActivityClass;
     public transient /* synthetic */ FieldHolder $fh;
+    public Class<?> mActivityClass;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-265855054, "Lcom/baidu/tbadk/core/atomData/WriteActivityConfig;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(-265855054, "Lcom/baidu/tbadk/core/atomData/WriteActivityConfig;");
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public WriteActivityConfig(Context context) {
@@ -96,16 +119,17 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.mActivityClass = null;
         setIntentAction(IntentAction.ActivityForResult);
         setRequestCode(13003);
     }
@@ -114,9 +138,9 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         InterceptResult invokeZ;
         Activity currentActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean n = pda.k().n();
-            qda.a("发帖阻拦状态 = " + n);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65539, null, z)) == null) {
+            boolean n = xha.k().n();
+            yha.a("发帖阻拦状态 = " + n);
             if (n && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
                 BdUtilHelper.showToast(currentActivity, "正在发布，请稍后");
             }
@@ -128,16 +152,30 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public static boolean isAsyncWriting() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return isAsyncWriting(true);
         }
         return invokeV.booleanValue;
     }
 
+    @Override // com.baidu.tbadk.core.frameworkData.IntentConfig
+    public Class<?> getActivityClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            Class<?> cls = this.mActivityClass;
+            if (cls != null) {
+                return cls;
+            }
+            return sActivityClass;
+        }
+        return (Class) invokeV.objValue;
+    }
+
     public void send() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            rda.h = new Intent(getIntent());
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            zha.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -145,7 +183,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public static WriteActivityConfig newInstance(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
             return new WriteActivityConfig(context);
         }
         return (WriteActivityConfig) invokeL.objValue;
@@ -153,15 +191,22 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
 
     public void setActiveName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             getIntent().putExtra(KEY_ACTIVE_NAME, str);
+        }
+    }
+
+    public void setActivityClass(Class<?> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cls) == null) {
+            this.mActivityClass = cls;
         }
     }
 
     public WriteActivityConfig setAlbumThread(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             getIntent().putExtra(IntentConfig.KEY_ALBUM_THREAD, i);
             return this;
         }
@@ -171,7 +216,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setAntiData(AntiData antiData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, antiData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, antiData)) == null) {
             if (antiData != null) {
                 setEnableAudio(antiData.isIfvoice());
                 setAudioMsg(antiData.getVoice_message());
@@ -185,7 +230,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setAtList(ArrayList<AtSelectData> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, arrayList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, arrayList)) == null) {
             getIntent().putParcelableArrayListExtra(KEY_WRITE_AT_LIST, arrayList);
             return this;
         }
@@ -195,7 +240,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setAudioMsg(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
             getIntent().putExtra(DISABLE_AUDIO_MESSAGE, str);
             return this;
         }
@@ -205,7 +250,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setCallFrom(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
             getIntent().putExtra(BaseWriteConfig.KEY_CALL_FROM, str);
             return this;
         }
@@ -215,7 +260,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setCanGoods(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048583, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
             getIntent().putExtra(CAN_GOODS, z);
             return this;
         }
@@ -225,7 +270,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setContent(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             getIntent().putExtra(BaseWriteConfig.CONTENT, str);
             return this;
         }
@@ -235,7 +280,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setDynamicParams(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
             getIntent().putExtra(DYNAMIC_PARAMS, str);
             return this;
         }
@@ -245,7 +290,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setEnableAudio(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048586, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
             getIntent().putExtra(ENABLE_AUDIO, z);
             return this;
         }
@@ -255,7 +300,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setFloorNum(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
             getIntent().putExtra("floor_num", i);
             return this;
         }
@@ -265,7 +310,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setForumCategory(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
             getIntent().putExtra(FORUM_FIRST_CATEGORY, str);
             return this;
         }
@@ -275,7 +320,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setForumId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
             Intent intent = getIntent();
             if (str == null) {
                 str = "0";
@@ -289,7 +334,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setForumName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
             getIntent().putExtra("forum_name", str);
             return this;
         }
@@ -299,7 +344,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setForumTagInfo(ForumTagInfo forumTagInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, forumTagInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, forumTagInfo)) == null) {
             getIntent().putExtra(FORUM_TAG_INFO, forumTagInfo);
             return this;
         }
@@ -309,7 +354,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setFrom(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, str)) == null) {
             getIntent().putExtra("from", str);
             return this;
         }
@@ -319,9 +364,9 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setFromArticle(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (vsa.l.equals(str)) {
+            if (gxa.l.equals(str)) {
                 setType(11);
             }
             return this;
@@ -332,7 +377,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setFromErrorDialog(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048596, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
             getIntent().putExtra(IS_FROM_ERROR_DIALOG, z);
             return this;
         }
@@ -342,7 +387,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setFromGameRank(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048597, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048599, this, z)) == null) {
             getIntent().putExtra(KEY_IS_FROM_GAME_RANK, z);
             return this;
         }
@@ -352,7 +397,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setFrsTabInfo(FrsTabInfoData frsTabInfoData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, frsTabInfoData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, frsTabInfoData)) == null) {
             getIntent().putExtra("tab_list", frsTabInfoData);
             return this;
         }
@@ -362,7 +407,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setGameId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
             getIntent().putExtra(KEY_GAME_ID, str);
             return this;
         }
@@ -372,7 +417,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setGameName(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
             getIntent().putExtra(KEY_GAME_NAME, str);
             return this;
         }
@@ -382,7 +427,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setGameRankImgUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
             getIntent().putExtra(KEY_GAME_RANK_IMG_URL, str);
             return this;
         }
@@ -392,7 +437,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setGoodsList(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
             if (!StringUtils.isNull(str)) {
                 getIntent().putExtra(GOODS_LIST, str);
             }
@@ -404,17 +449,24 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setHintText(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
             getIntent().putExtra(KEY_WRITE_HINT_TEXT, str);
             return this;
         }
         return (WriteActivityConfig) invokeL.objValue;
     }
 
+    public void setInitData(JSONLikeSerializable jSONLikeSerializable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048606, this, jSONLikeSerializable) == null) && getIntent() != null) {
+            getIntent().putExtra(KEY_WEBVIEW_DATA, jSONLikeSerializable);
+        }
+    }
+
     public WriteActivityConfig setIsEvaluate(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048604, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048607, this, z)) == null) {
             getIntent().putExtra(IntentConfig.IS_EVALUATE, z);
             setType(12);
             return this;
@@ -425,7 +477,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setIsItemDetail(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048605, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048608, this, z)) == null) {
             getIntent().putExtra(IntentConfig.IS_ITEM_DETAIL, z);
             return this;
         }
@@ -435,7 +487,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setIsPostLocalChannelDynamic(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048606, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048609, this, z)) == null) {
             getIntent().putExtra(KEY_POST_LOCAL_CHANNEL_DYNAMIC, z);
             setType(13);
             return this;
@@ -446,7 +498,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setIsQuestionThread(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048607, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048610, this, z)) == null) {
             getIntent().putExtra(IS_QUESTION_THREAD, z);
             if (z) {
                 setType(14);
@@ -459,8 +511,18 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setIsSaveDraft(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048608, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048611, this, z)) == null) {
             getIntent().putExtra(BaseWriteConfig.IS_SAVE_DRAFTE, z);
+            return this;
+        }
+        return (WriteActivityConfig) invokeZ.objValue;
+    }
+
+    public WriteActivityConfig setIsWriteTest(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048612, this, z)) == null) {
+            getIntent().putExtra(KEY_IS_WRITE_TEST, z);
             return this;
         }
         return (WriteActivityConfig) invokeZ.objValue;
@@ -469,7 +531,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setLocalChannelTopic(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, str)) == null) {
             getIntent().putExtra(KEY_LOCAL_CHANNEL_TOPIC, str);
             return this;
         }
@@ -479,7 +541,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setMoreForumImg(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
             getIntent().putExtra("more_forum_img", str);
             return this;
         }
@@ -489,7 +551,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setMoreForumTitle(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, str)) == null) {
             getIntent().putExtra("more_forum_title", str);
             return this;
         }
@@ -499,7 +561,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setMoreForumUrl(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, str)) == null) {
             getIntent().putExtra("more_forum_url", str);
             return this;
         }
@@ -509,7 +571,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setNeedClosePrePage(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048613, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048617, this, z)) == null) {
             getIntent().putExtra(NEED_CLOSE_PRE_PAGE, z);
             return this;
         }
@@ -518,7 +580,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
 
     public void setNoSuccessToast(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048614, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, str) == null) {
             getIntent().putExtra(NO_SUCCESS_TOAST, str);
         }
     }
@@ -526,7 +588,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setNotFakePost(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048615, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048619, this, z)) == null) {
             getIntent().putExtra(KEY_NOT_FAKE_POST, z);
             return this;
         }
@@ -536,7 +598,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setNotShowVideoWorkListPage(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048616, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048620, this, z)) == null) {
             getIntent().putExtra(KEY_NOT_SHOW_VIDEO_WORK_LIST_PAGE, z);
             return this;
         }
@@ -545,7 +607,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
 
     public void setNotUseDraft(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048617, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
             getIntent().putExtra(KEY_NOT_USE_DRAFT, z);
         }
     }
@@ -553,7 +615,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setNotificationH5(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048618, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048622, this, z)) == null) {
             getIntent().putExtra(KEY_NOTIFICATION_H5, z);
             return this;
         }
@@ -563,7 +625,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setPrefixData(PostPrefixData postPrefixData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, postPrefixData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048623, this, postPrefixData)) == null) {
             if (postPrefixData != null) {
                 getIntent().putExtra(BaseWriteConfig.PREFIX_DATA, postPrefixData);
             }
@@ -575,7 +637,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setPrivateThread(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048620, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048624, this, i)) == null) {
             getIntent().putExtra(BaseWriteConfig.PRIVATE_THREAD, i);
             return this;
         }
@@ -584,7 +646,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
 
     public void setPutStorageTid(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048621, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
             getIntent().putExtra(KEY_PUT_STORAGE_TID, z);
         }
     }
@@ -592,7 +654,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setRewardsType(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048622, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, str)) == null) {
             getIntent().putExtra(KEY_REWARDS_TYPE, str);
             return this;
         }
@@ -602,7 +664,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setRichModeEnable(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048623, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048627, this, z)) == null) {
             getIntent().putExtra(RICH_MODE_ENABLE, z);
             return this;
         }
@@ -612,7 +674,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setRichTextMode(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048624, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048628, this, z)) == null) {
             getIntent().putExtra(RICH_TEXT_MODE, z);
             if (z) {
                 setType(11);
@@ -625,7 +687,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setScoreItemInfo(SerializableItemInfo serializableItemInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, serializableItemInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048629, this, serializableItemInfo)) == null) {
             getIntent().putExtra(ITEM_INFO, serializableItemInfo);
             return this;
         }
@@ -634,7 +696,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
 
     public void setShowNotSavePopup(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048626, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
             getIntent().putExtra(SHOW_NOT_SAVE_POPUP, str);
         }
     }
@@ -642,7 +704,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setShowVoteData(WriteVoteData writeVoteData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048627, this, writeVoteData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, writeVoteData)) == null) {
             getIntent().putExtra(IntentConfig.WRITE_VOTE_DATA, writeVoteData);
             return this;
         }
@@ -652,7 +714,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setStarCount(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048628, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048632, this, i)) == null) {
             getIntent().putExtra(STAR_COUNT, i);
             return this;
         }
@@ -662,16 +724,23 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setStatisticFrom(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048629, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048633, this, i)) == null) {
             getIntent().putExtra(KEY_STATISTIS_FROM, i);
             return this;
         }
         return (WriteActivityConfig) invokeI.objValue;
     }
 
+    public void setTargetTab(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048634, this, str) == null) && getIntent() != null) {
+            getIntent().putExtra(KEY_TARGET_TAB, str);
+        }
+    }
+
     public void setTaskName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048630, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048635, this, str) == null) {
             getIntent().putExtra(KEY_ACTIVE_TASK_NAME, str);
         }
     }
@@ -679,7 +748,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setThreadId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048631, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, str)) == null) {
             getIntent().putExtra("thread_id", str);
             return this;
         }
@@ -689,7 +758,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setTitle(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048632, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, str)) == null) {
             getIntent().putExtra(BaseWriteConfig.TITLE, str);
             return this;
         }
@@ -699,7 +768,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setTopicId(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048633, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, str)) == null) {
             getIntent().putExtra(HOT_TOPIC_ID, str);
             return this;
         }
@@ -709,7 +778,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048634, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048639, this, i)) == null) {
             getIntent().putExtra("type", i);
             return this;
         }
@@ -719,7 +788,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setVideoInfo(VideoInfo videoInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048635, this, videoInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048640, this, videoInfo)) == null) {
             getIntent().putExtra(VIDEO_INFO, videoInfo);
             return this;
         }
@@ -729,7 +798,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setWriteImagesInfo(WriteImagesInfo writeImagesInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048636, this, writeImagesInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048641, this, writeImagesInfo)) == null) {
             if (writeImagesInfo != null) {
                 getIntent().putExtra(BaseWriteConfig.KEY_WRITE_IMAGES_INFO_STRING, writeImagesInfo.toJsonString());
             }
@@ -741,7 +810,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setXiuxiuOriginalContent(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048637, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048642, this, str)) == null) {
             getIntent().putExtra(KEY_XIUXIU_ORIGINAL_CONTENT, str);
             return this;
         }
@@ -751,7 +820,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setXiuxiuOriginalFname(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048638, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048643, this, str)) == null) {
             getIntent().putExtra(KEY_XIUXIU_ORIGINAL_FNAME, str);
             return this;
         }
@@ -761,7 +830,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setForumData(ForumData forumData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, forumData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, forumData)) == null) {
             String str = "0";
             if (forumData != null) {
                 if (forumData.getId() != null) {
@@ -784,7 +853,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public WriteActivityConfig setForumWriteData(ForumWriteData forumWriteData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, forumWriteData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, forumWriteData)) == null) {
             String str = "0";
             if (forumWriteData != null) {
                 String str2 = forumWriteData.forumId;
@@ -800,7 +869,10 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
                 setFrsTabInfo(forumWriteData.frsTabInfo);
                 setForumTagInfo(forumWriteData.forumTagInfo);
                 setForumCategory(forumWriteData.firstCategory);
-                setFrom(forumWriteData.mFrom);
+                String str3 = forumWriteData.mFrom;
+                if (str3 != null) {
+                    setFrom(str3);
+                }
                 setCallFrom(forumWriteData.writeCallFrom);
                 setStatisticFrom(forumWriteData.statisticFrom);
             } else {

@@ -27,6 +27,7 @@ import java.util.TimerTask;
 public class TbImageAutoSwitch extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final c A;
     public int a;
     public int b;
     public boolean c;
@@ -52,7 +53,7 @@ public class TbImageAutoSwitch extends FrameLayout {
     public View[] w;
     public d x;
     public boolean y;
-    public final c z;
+    public boolean z;
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -285,7 +286,7 @@ public class TbImageAutoSwitch extends FrameLayout {
             if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) != null) {
                 return;
             }
-            this.a.o();
+            this.a.p();
             TbImageAutoSwitch.d(this.a);
             this.a.h %= this.a.s.getCount();
             this.a.s.b(this.a.h);
@@ -437,7 +438,8 @@ public class TbImageAutoSwitch extends FrameLayout {
         this.h = 3;
         this.i = true;
         this.y = false;
-        this.z = new a(this);
+        this.z = false;
+        this.A = new a(this);
         k();
     }
 
@@ -449,7 +451,7 @@ public class TbImageAutoSwitch extends FrameLayout {
 
     public void setAdapter(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, bVar) == null) {
             this.s = bVar;
         }
     }
@@ -457,35 +459,42 @@ public class TbImageAutoSwitch extends FrameLayout {
     @Override // android.view.View
     public void setAlpha(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048592, this, f2) == null) {
             this.d = f2;
         }
     }
 
     public void setAnimationDuration(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.b = i;
         }
     }
 
     public void setCarouselDelayPeriod(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
             this.g = i;
         }
     }
 
     public void setCarouselPeriod(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             this.f = i;
+        }
+    }
+
+    public void setFromCarousel(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.z = z;
         }
     }
 
     public void setScale(float f2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048595, this, f2) == null) {
+        if (interceptable == null || interceptable.invokeF(1048597, this, f2) == null) {
             this.e = f2;
         }
     }
@@ -535,9 +544,47 @@ public class TbImageAutoSwitch extends FrameLayout {
         }
     }
 
-    public final void o() {
+    public void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            j();
+            this.y = false;
+            d dVar = this.x;
+            if (dVar != null) {
+                dVar.d = null;
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            super.onAttachedToWindow();
+            r();
+            d dVar = this.x;
+            if (dVar != null) {
+                dVar.d = this.A;
+            }
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void onDetachedFromWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            super.onDetachedFromWindow();
+            if (!this.z && this.x != null) {
+                j();
+                this.y = false;
+                this.x.d = null;
+            }
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             View[] viewArr = this.w;
             int i = this.a;
             View view2 = viewArr[i - 1];
@@ -550,36 +597,9 @@ public class TbImageAutoSwitch extends FrameLayout {
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void onAttachedToWindow() {
+    public void r() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            super.onAttachedToWindow();
-            q();
-            d dVar = this.x;
-            if (dVar != null) {
-                dVar.d = this.z;
-            }
-        }
-    }
-
-    @Override // android.view.ViewGroup, android.view.View
-    public void onDetachedFromWindow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            super.onDetachedFromWindow();
-            j();
-            this.y = false;
-            d dVar = this.x;
-            if (dVar != null) {
-                dVar.d = null;
-            }
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.x != null && !this.y) {
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.x != null && !this.y) {
             m();
             this.t.schedule(this.u, this.g, this.f);
             this.y = true;
@@ -592,7 +612,7 @@ public class TbImageAutoSwitch extends FrameLayout {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.c && (dVar = this.x) != null) {
             this.c = true;
             dVar.h(this.w);
-            this.x.g(this.z);
+            this.x.g(this.A);
             this.x.e(this.b);
             this.x.i();
         }
@@ -670,9 +690,9 @@ public class TbImageAutoSwitch extends FrameLayout {
         }
     }
 
-    public void p() {
+    public void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             int i = 0;
             if (!this.i) {
                 int i2 = this.h;
@@ -736,7 +756,7 @@ public class TbImageAutoSwitch extends FrameLayout {
                         }
                     }
                 }
-                q();
+                r();
             }
         }
     }

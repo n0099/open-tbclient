@@ -11,33 +11,33 @@ public class bw {
     public static volatile bw a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f152a;
+    public Context f153a;
 
     /* renamed from: a  reason: collision with other field name */
-    public cl f154a;
+    public cl f155a;
 
     /* renamed from: a  reason: collision with other field name */
-    public cm f155a;
+    public cm f156a;
     public String e;
     public String f;
 
     /* renamed from: a  reason: collision with other field name */
-    public final String f156a = "push_stat_sp";
+    public final String f157a = "push_stat_sp";
 
     /* renamed from: b  reason: collision with other field name */
-    public final String f157b = "upload_time";
+    public final String f158b = "upload_time";
 
     /* renamed from: c  reason: collision with other field name */
-    public final String f158c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
+    public final String f159c = DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM;
     public final String d = "check_time";
 
     /* renamed from: a  reason: collision with other field name */
-    public aj.a f153a = new bx(this);
+    public aj.a f154a = new bx(this);
     public aj.a b = new by(this);
     public aj.a c = new bz(this);
 
     public bw(Context context) {
-        this.f152a = context;
+        this.f153a = context;
     }
 
     public static bw a(Context context) {
@@ -52,48 +52,48 @@ public class bw {
     }
 
     private boolean a() {
-        return com.xiaomi.push.service.ba.a(this.f152a).a(hm.StatDataSwitch.a(), true);
+        return com.xiaomi.push.service.ba.a(this.f153a).a(hm.StatDataSwitch.a(), true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(String str) {
-        SharedPreferences.Editor edit = this.f152a.getSharedPreferences("push_stat_sp", 0).edit();
+        SharedPreferences.Editor edit = this.f153a.getSharedPreferences("push_stat_sp", 0).edit();
         edit.putLong(str, System.currentTimeMillis());
         q.a(edit);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String c() {
-        return this.f152a.getDatabasePath(ca.f162a).getAbsolutePath();
+        return this.f153a.getDatabasePath(ca.f163a).getAbsolutePath();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m306a() {
+    public String m308a() {
         return this.e;
     }
 
     public void a(ci.a aVar) {
-        ci.a(this.f152a).a(aVar);
+        ci.a(this.f153a).a(aVar);
     }
 
     public void a(hl hlVar) {
         if (a() && com.xiaomi.push.service.bz.a(hlVar.e())) {
-            a(cf.a(this.f152a, c(), hlVar));
+            a(cf.a(this.f153a, c(), hlVar));
         }
     }
 
     public void a(String str) {
         if (a() && !TextUtils.isEmpty(str)) {
-            a(cn.a(this.f152a, str));
+            a(cn.a(this.f153a, str));
         }
     }
 
     public void a(String str, String str2, Boolean bool) {
-        if (this.f154a != null) {
+        if (this.f155a != null) {
             if (bool.booleanValue()) {
-                this.f154a.a(this.f152a, str2, str);
+                this.f155a.a(this.f153a, str2, str);
             } else {
-                this.f154a.b(this.f152a, str2, str);
+                this.f155a.b(this.f153a, str2, str);
             }
         }
     }

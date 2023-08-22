@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.az9;
-import com.baidu.tieba.jv7;
+import com.baidu.tieba.ex7;
+import com.baidu.tieba.f3a;
+import com.baidu.tieba.lv5;
+import com.baidu.tieba.qv5;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
-import com.baidu.tieba.uu5;
-import com.baidu.tieba.zu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ThreadList.AdParam;
 import tbclient.ThreadList.DataReq;
 import tbclient.ThreadList.ThreadListReqIdl;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class LoadMoreRequestMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -71,11 +71,11 @@ public class LoadMoreRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.thread_ids = this.thread_ids;
             builder.forum_id = Long.valueOf(this.forum_id);
-            String d = jv7.e().d("frs_feed");
+            String d = ex7.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = uu5.g(d, uu5.f());
-            builder.ad_bear_sid_price = Double.valueOf(uu5.i());
-            builder.has_ad_bear = Integer.valueOf(uu5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = lv5.g(d, lv5.f());
+            builder.ad_bear_sid_price = Double.valueOf(lv5.i());
+            builder.has_ad_bear = Integer.valueOf(lv5.n(builder.ad_bear_sid) ? 1 : 0);
             builder.need_abstract = Integer.valueOf(this.need_abstract);
             builder.user_id = Long.valueOf(JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L));
             builder.forum_name = this.forumName;
@@ -95,7 +95,7 @@ public class LoadMoreRequestMessage extends NetMessage {
             builder.last_click_tid = Long.valueOf(this.mLastClickTid);
             builder.sort_type = Integer.valueOf(this.mSortType);
             builder.request_times = Integer.valueOf(this.requestTimes);
-            builder.ad_context_list = az9.f().d("FRS");
+            builder.ad_context_list = f3a.f().d("FRS");
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
@@ -105,7 +105,7 @@ public class LoadMoreRequestMessage extends NetMessage {
             builder2.load_count = Integer.valueOf(this.loadCount);
             builder2.refresh_count = Integer.valueOf(this.refreshCount);
             builder.ad_param = builder2.build(false);
-            builder.app_transmit_data = zu5.b();
+            builder.app_transmit_data = qv5.b();
             ThreadListReqIdl.Builder builder3 = new ThreadListReqIdl.Builder();
             builder3.data = builder.build(false);
             return builder3.build(false);

@@ -13,10 +13,10 @@ public class TrafficProvider extends ContentProvider {
     public static final UriMatcher a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final Uri f827a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
+    public static final Uri f828a = Uri.parse("content://com.xiaomi.push.providers.TrafficProvider/traffic");
 
     /* renamed from: a  reason: collision with other field name */
-    public SQLiteOpenHelper f828a;
+    public SQLiteOpenHelper f829a;
 
     static {
         UriMatcher uriMatcher = new UriMatcher(-1);
@@ -50,18 +50,18 @@ public class TrafficProvider extends ContentProvider {
 
     @Override // android.content.ContentProvider
     public boolean onCreate() {
-        this.f828a = new a(getContext());
+        this.f829a = new a(getContext());
         return true;
     }
 
     @Override // android.content.ContentProvider
     public Cursor query(Uri uri, String[] strArr, String str, String[] strArr2, String str2) {
         Cursor query;
-        synchronized (a.f829a) {
+        synchronized (a.f830a) {
             if (a.match(uri) != 1) {
                 throw new IllegalArgumentException("Unknown URI " + uri);
             }
-            query = this.f828a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
+            query = this.f829a.getReadableDatabase().query("traffic", strArr, str, strArr2, null, null, str2);
         }
         return query;
     }
@@ -69,7 +69,7 @@ public class TrafficProvider extends ContentProvider {
     @Override // android.content.ContentProvider
     public int update(Uri uri, ContentValues contentValues, String str, String[] strArr) {
         if (a.match(uri) == 2 && contentValues != null && contentValues.containsKey(BaseStatisContent.IMSI)) {
-            ha.m544a(contentValues.getAsString(BaseStatisContent.IMSI));
+            ha.m546a(contentValues.getAsString(BaseStatisContent.IMSI));
             return 0;
         }
         return 0;

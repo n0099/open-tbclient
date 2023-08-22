@@ -45,7 +45,7 @@ import com.baidu.searchbox.download.util.FileClassifyHelper;
 import com.baidu.searchbox.download.util.LocalDataScanHelper;
 import com.baidu.searchbox.launch.LaunchStatsUtils;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.v10;
+import com.baidu.tieba.y10;
 import com.baidu.tieba.z;
 import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
@@ -584,7 +584,7 @@ public class DownloadCenterUtils {
             sb.append("',");
         }
         String str = ((("mimetype IN (" + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX) + " AND extra_info IS NOT NULL") + " AND is_visible_in_downloads_ui != '0'") + " AND status = '200'";
-        if (!v10.d(v10.a)) {
+        if (!y10.d(y10.a)) {
             str = str + getFilterPrivateFileSql();
         }
         Cursor query = sQLiteDatabase.query("downloads", new String[]{"_id", "extra_info"}, str, null, null, null, null);
@@ -637,7 +637,7 @@ public class DownloadCenterUtils {
             sb.append("',");
         }
         String str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND mimetype IN (" + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
-        if (!v10.d(v10.a)) {
+        if (!y10.d(y10.a)) {
             str = str + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NOT NULL)");
         }
         String str2 = str;
@@ -772,7 +772,7 @@ public class DownloadCenterUtils {
         Cursor cursor = null;
         sb.append(FileClassifyHelper.getSQliteSelectionByCategory(i, null));
         String sb2 = sb.toString();
-        if (!v10.d(v10.a)) {
+        if (!y10.d(y10.a)) {
             sb2 = sb2 + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
         }
         try {
@@ -805,7 +805,7 @@ public class DownloadCenterUtils {
         try {
             try {
                 String str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND lower(mimetype)= ?";
-                if (!v10.d(v10.a)) {
+                if (!y10.d(y10.a)) {
                     str = "status= ? AND is_visible_in_downloads_ui= ? AND deleted!= ? AND lower(mimetype)= ?" + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
                 }
                 cursor = AppRuntime.getAppContext().getContentResolver().query(Downloads.Impl.CONTENT_URI, new String[]{"_data"}, str, new String[]{String.valueOf(200), String.valueOf(1), String.valueOf(1), "application/vnd.apple.mpegurl"}, "status asc LIMIT 0," + i);
@@ -877,7 +877,7 @@ public class DownloadCenterUtils {
             sb.append("',");
         }
         String str3 = str2 + sb.substring(0, sb.length() - 1) + SmallTailInfo.EMOTION_SUFFIX;
-        if (!v10.d(v10.a)) {
+        if (!y10.d(y10.a)) {
             str3 = str3 + (" AND (_data like '%" + DownloadHelper.getDownloadDirectory(AppRuntime.getAppContext()).getParentFile().getParent() + "%' OR _data like '%" + AppRuntime.getAppContext().getFilesDir().getParent() + "%' OR _data IS NULL)");
         }
         String str4 = str3;
@@ -1927,9 +1927,9 @@ public class DownloadCenterUtils {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.searchbox.download.business.util.DownloadCenterUtils.queryDownloaded(boolean, long, long, int, boolean, boolean, boolean, java.util.List):java.util.ArrayList");
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0136 A[Catch: Exception -> 0x01a5, all -> 0x01a9, TryCatch #2 {all -> 0x01a9, blocks: (B:3:0x000d, B:5:0x0037, B:6:0x003e, B:8:0x0044, B:10:0x004a, B:12:0x009b, B:13:0x00ab, B:15:0x00eb, B:17:0x00fd, B:19:0x0106, B:27:0x0118, B:35:0x0132, B:37:0x0136, B:38:0x0142, B:40:0x0189, B:25:0x0114, B:28:0x011b, B:29:0x0120, B:34:0x012c, B:49:0x01ac, B:53:0x01b6, B:54:0x01bb), top: B:59:0x000d }] */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0193 A[LOOP:0: B:13:0x00ab->B:43:0x0193, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x01b2 A[EDGE_INSN: B:65:0x01b2->B:51:0x01b2 ?: BREAK  , SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0137 A[Catch: Exception -> 0x01a6, all -> 0x01aa, TryCatch #2 {Exception -> 0x01a6, blocks: (B:12:0x009c, B:13:0x00ac, B:15:0x00ec, B:27:0x0119, B:35:0x0133, B:37:0x0137, B:38:0x0143, B:25:0x0115, B:28:0x011c, B:29:0x0121, B:34:0x012d), top: B:61:0x009c }] */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x0194 A[LOOP:0: B:13:0x00ac->B:43:0x0194, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:66:0x01b3 A[EDGE_INSN: B:66:0x01b3->B:51:0x01b3 ?: BREAK  , SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -2073,12 +2073,12 @@ public class DownloadCenterUtils {
             }
             return arrayList;
         } finally {
-            Closeables.closeSafely((Cursor) null);
+            Closeables.closeSafely(cursor);
         }
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
-        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:82:0x026f
+        jadx.core.utils.exceptions.JadxRuntimeException: Unreachable block: B:82:0x0270
         	at jadx.core.dex.visitors.blocks.BlockProcessor.checkForUnreachableBlocks(BlockProcessor.java:81)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
@@ -2088,294 +2088,294 @@ public class DownloadCenterUtils {
             java.util.ArrayList r1 = new java.util.ArrayList
             r1.<init>()
             java.lang.String r0 = " AND uri not like '%content://%'"
-            com.baidu.searchbox.download.manager.DownloadManager$Query r3 = new com.baidu.searchbox.download.manager.DownloadManager$Query     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
-            r3.<init>()     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
-            com.baidu.searchbox.download.manager.DownloadManager r4 = new com.baidu.searchbox.download.manager.DownloadManager     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
-            android.content.Context r5 = com.baidu.searchbox.common.runtime.AppRuntime.getAppContext()     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
-            android.content.ContentResolver r5 = r5.getContentResolver()     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
-            android.content.Context r6 = com.baidu.searchbox.common.runtime.AppRuntime.getAppContext()     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
-            java.lang.String r6 = r6.getPackageName()     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
-            r4.<init>(r5, r6)     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
+            com.baidu.searchbox.download.manager.DownloadManager$Query r3 = new com.baidu.searchbox.download.manager.DownloadManager$Query     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
+            r3.<init>()     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
+            com.baidu.searchbox.download.manager.DownloadManager r4 = new com.baidu.searchbox.download.manager.DownloadManager     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
+            android.content.Context r5 = com.baidu.searchbox.common.runtime.AppRuntime.getAppContext()     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
+            android.content.ContentResolver r5 = r5.getContentResolver()     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
+            android.content.Context r6 = com.baidu.searchbox.common.runtime.AppRuntime.getAppContext()     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
+            java.lang.String r6 = r6.getPackageName()     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
+            r4.<init>(r5, r6)     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
             r5 = 1
-            com.baidu.searchbox.download.manager.DownloadManager$Query r6 = r3.setOnlyIncludeVisibleInDownloadsUi(r5)     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
+            com.baidu.searchbox.download.manager.DownloadManager$Query r6 = r3.setOnlyIncludeVisibleInDownloadsUi(r5)     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
             r7 = 0
-            com.baidu.searchbox.download.manager.DownloadManager$Query r6 = r6.setOnlyDownloading(r7)     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
-            com.baidu.searchbox.download.manager.DownloadManager$Query r0 = r6.setFilterBySelection(r0)     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
+            com.baidu.searchbox.download.manager.DownloadManager$Query r6 = r6.setOnlyDownloading(r7)     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
+            com.baidu.searchbox.download.manager.DownloadManager$Query r0 = r6.setFilterBySelection(r0)     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
             r6 = r26
-            com.baidu.searchbox.download.manager.DownloadManager$Query r0 = r0.showDeleted(r6)     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
+            com.baidu.searchbox.download.manager.DownloadManager$Query r0 = r0.showDeleted(r6)     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
             r6 = r25
-            com.baidu.searchbox.download.manager.DownloadManager$Query r0 = r0.setLimit(r6)     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
+            com.baidu.searchbox.download.manager.DownloadManager$Query r0 = r0.setLimit(r6)     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
             java.lang.String r6 = "create_time"
             r8 = 2
-            r0.orderBy(r6, r8)     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
+            r0.orderBy(r6, r8)     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
             if (r24 != 0) goto L4a
-            java.lang.String r0 = getFilterPrivateFileSql()     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
-            r3.setFilterBySelection(r0)     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
+            java.lang.String r0 = getFilterPrivateFileSql()     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
+            r3.setFilterBySelection(r0)     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
         L4a:
-            java.lang.String[] r0 = com.baidu.searchbox.download.business.util.DownloadCenterUtils.PROJECTIONS_FILTER_BY_TYPE     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
-            android.database.Cursor r3 = r4.query(r3, r0)     // Catch: java.lang.Throwable -> L2b2 java.lang.Exception -> L2b5
-            if (r3 == 0) goto L2ad
-            int r0 = r3.getCount()     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
-            if (r0 <= 0) goto L2ad
+            java.lang.String[] r0 = com.baidu.searchbox.download.business.util.DownloadCenterUtils.PROJECTIONS_FILTER_BY_TYPE     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
+            android.database.Cursor r3 = r4.query(r3, r0)     // Catch: java.lang.Throwable -> L2b3 java.lang.Exception -> L2b6
+            if (r3 == 0) goto L2ae
+            int r0 = r3.getCount()     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
+            if (r0 <= 0) goto L2ae
             java.lang.String r0 = "_id"
-            int r4 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r4 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "status"
-            int r6 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r6 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "mimetype"
-            int r9 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r9 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "total_bytes"
-            int r10 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r10 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "_data"
-            int r11 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r11 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "title"
-            int r12 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r12 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "lastmod"
-            int r13 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r13 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "extra_info"
-            int r14 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r14 = r3.getColumnIndex(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "uri"
-            int r15 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r15 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "deleted"
-            int r2 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r2 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "business_type"
-            int r7 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r7 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "netdisk_upload_info"
-            int r5 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r5 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "bytes_so_far"
-            int r8 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a6 java.lang.Exception -> L2a9
+            int r8 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Throwable -> L2a7 java.lang.Exception -> L2aa
             java.lang.String r0 = "source"
             r17 = r1
-            int r1 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            int r1 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             java.lang.String r0 = "progress"
             r24 = r5
-            int r5 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r3.moveToFirst()     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            int r5 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r3.moveToFirst()     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r26 = r1
-            com.google.gson.Gson r1 = new com.google.gson.Gson     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r1.<init>()     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-        Lc5:
-            java.lang.String r0 = r3.getString(r9)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            com.google.gson.Gson r1 = new com.google.gson.Gson     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r1.<init>()     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+        Lc6:
+            java.lang.String r0 = r3.getString(r9)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r18 = r9
-            java.lang.String r9 = r3.getString(r12)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            java.lang.String r9 = r3.getString(r12)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r19 = r12
-            java.lang.String r12 = com.baidu.searchbox.download.util.FileClassifyHelper.getFileSuffix(r9)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            int r12 = com.baidu.searchbox.download.util.FileClassifyHelper.getCategory(r12, r0)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            java.lang.String r12 = com.baidu.searchbox.download.util.FileClassifyHelper.getFileSuffix(r9)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            int r12 = com.baidu.searchbox.download.util.FileClassifyHelper.getCategory(r12, r0)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r20 = r1
-            com.baidu.searchbox.download.model.CategoryInfoData r1 = new com.baidu.searchbox.download.model.CategoryInfoData     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r1.<init>()     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            com.baidu.searchbox.download.model.CategoryInfoData r1 = new com.baidu.searchbox.download.model.CategoryInfoData     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r1.<init>()     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r22 = r9
             r21 = r10
-            long r9 = r3.getLong(r4)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r1.mId = r9     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            boolean r9 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            long r9 = r3.getLong(r4)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r1.mId = r9     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            boolean r9 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             java.lang.String r10 = ""
-            if (r9 == 0) goto Lf3
+            if (r9 == 0) goto Lf4
             r0 = r10
-        Lf3:
-            r1.mMimeType = r0     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+        Lf4:
+            r1.mMimeType = r0     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r9 = r13
             r23 = r14
-            long r13 = (long) r12     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r1.mType = r13     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            int r0 = r3.getInt(r7)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r1.mBusinessType = r0     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            java.lang.String r0 = r3.getString(r11)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r1.mDownloadPath = r0     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            int r0 = r3.getInt(r5)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r1.progress = r0     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            com.baidu.searchbox.download.model.DownloadingInfo r0 = new com.baidu.searchbox.download.model.DownloadingInfo     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r0.<init>()     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r1.mDownloadingInfo = r0     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            java.lang.String r0 = r3.getString(r15)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            com.baidu.searchbox.download.model.DownloadingInfo r13 = r1.mDownloadingInfo     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r13.mUrl = r0     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            com.baidu.searchbox.download.model.DownloadingInfo r0 = r1.mDownloadingInfo     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            int r13 = r3.getInt(r6)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r0.mStatus = r13     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            com.baidu.searchbox.download.model.DownloadingInfo r0 = r1.mDownloadingInfo     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            long r13 = r3.getLong(r8)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r0.mCurrentSize = r13     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            long r13 = (long) r12     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r1.mType = r13     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            int r0 = r3.getInt(r7)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r1.mBusinessType = r0     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            java.lang.String r0 = r3.getString(r11)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r1.mDownloadPath = r0     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            int r0 = r3.getInt(r5)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r1.progress = r0     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            com.baidu.searchbox.download.model.DownloadingInfo r0 = new com.baidu.searchbox.download.model.DownloadingInfo     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r0.<init>()     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r1.mDownloadingInfo = r0     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            java.lang.String r0 = r3.getString(r15)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            com.baidu.searchbox.download.model.DownloadingInfo r13 = r1.mDownloadingInfo     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r13.mUrl = r0     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            com.baidu.searchbox.download.model.DownloadingInfo r0 = r1.mDownloadingInfo     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            int r13 = r3.getInt(r6)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r0.mStatus = r13     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            com.baidu.searchbox.download.model.DownloadingInfo r0 = r1.mDownloadingInfo     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            long r13 = r3.getLong(r8)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r0.mCurrentSize = r13     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r0 = 6
-            if (r0 != r12) goto L1c4
-            com.baidu.searchbox.download.ioc.IDownloadApp r0 = com.baidu.searchbox.download.ioc.IDownloadApp.Impl.get()     // Catch: java.lang.Throwable -> L1ae java.lang.Exception -> L1b1
-            long r12 = r1.mId     // Catch: java.lang.Throwable -> L1ae java.lang.Exception -> L1b1
-            android.database.Cursor r12 = r0.getSearchboxDownloadCursor(r12)     // Catch: java.lang.Throwable -> L1ae java.lang.Exception -> L1b1
-            if (r12 == 0) goto L1a2
-            boolean r0 = r12.moveToFirst()     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            if (r0 == 0) goto L1a2
-            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.viewprogress     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            float r0 = r12.getFloat(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            r1.mStoryViewProgress = r0     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.viewposition     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            java.lang.String r0 = r12.getString(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            r1.mStoryPosition = r0     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.gid     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            long r13 = r12.getLong(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            r1.mGid = r13     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.booksrc     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            java.lang.String r0 = r12.getString(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            r1.mBookDirectoryUrl = r0     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.booktype     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            int r0 = r12.getInt(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            r1.mBookType = r0     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.bookfree     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            java.lang.String r0 = r12.getString(r0)     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            r1.mFree = r0     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            goto L1a8
-        L1a2:
+            if (r0 != r12) goto L1c5
+            com.baidu.searchbox.download.ioc.IDownloadApp r0 = com.baidu.searchbox.download.ioc.IDownloadApp.Impl.get()     // Catch: java.lang.Throwable -> L1af java.lang.Exception -> L1b2
+            long r12 = r1.mId     // Catch: java.lang.Throwable -> L1af java.lang.Exception -> L1b2
+            android.database.Cursor r12 = r0.getSearchboxDownloadCursor(r12)     // Catch: java.lang.Throwable -> L1af java.lang.Exception -> L1b2
+            if (r12 == 0) goto L1a3
+            boolean r0 = r12.moveToFirst()     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            if (r0 == 0) goto L1a3
+            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.viewprogress     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            float r0 = r12.getFloat(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            r1.mStoryViewProgress = r0     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.viewposition     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            java.lang.String r0 = r12.getString(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            r1.mStoryPosition = r0     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.gid     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            long r13 = r12.getLong(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            r1.mGid = r13     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.booksrc     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            java.lang.String r0 = r12.getString(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            r1.mBookDirectoryUrl = r0     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.booktype     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            int r0 = r12.getInt(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            r1.mBookType = r0     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            com.baidu.searchbox.download.table.SearchBoxDownloadTable r0 = com.baidu.searchbox.download.table.SearchBoxDownloadTable.bookfree     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            java.lang.String r0 = r0.name()     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            int r0 = r12.getColumnIndex(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            java.lang.String r0 = r12.getString(r0)     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            r1.mFree = r0     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            goto L1a9
+        L1a3:
             r0 = -1082130432(0xffffffffbf800000, float:-1.0)
-            r1.mStoryViewProgress = r0     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-            r1.mStoryPosition = r10     // Catch: java.lang.Exception -> L1ac java.lang.Throwable -> L1be
-        L1a8:
-            com.baidu.android.util.io.Closeables.closeSafely(r12)     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-            goto L1bb
-        L1ac:
+            r1.mStoryViewProgress = r0     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+            r1.mStoryPosition = r10     // Catch: java.lang.Exception -> L1ad java.lang.Throwable -> L1bf
+        L1a9:
+            com.baidu.android.util.io.Closeables.closeSafely(r12)     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+            goto L1bc
+        L1ad:
             r0 = move-exception
-            goto L1b3
-        L1ae:
+            goto L1b4
+        L1af:
             r0 = move-exception
             r2 = 0
-            goto L1c0
-        L1b1:
+            goto L1c1
+        L1b2:
             r0 = move-exception
             r12 = 0
-        L1b3:
-            boolean r13 = com.baidu.searchbox.download.business.util.DownloadCenterUtils.DEBUG     // Catch: java.lang.Throwable -> L1be
-            if (r13 == 0) goto L1a8
-            r0.printStackTrace()     // Catch: java.lang.Throwable -> L1be
-            goto L1a8
-        L1bb:
+        L1b4:
+            boolean r13 = com.baidu.searchbox.download.business.util.DownloadCenterUtils.DEBUG     // Catch: java.lang.Throwable -> L1bf
+            if (r13 == 0) goto L1a9
+            r0.printStackTrace()     // Catch: java.lang.Throwable -> L1bf
+            goto L1a9
+        L1bc:
             r13 = r23
-            goto L1e0
-        L1be:
+            goto L1e1
+        L1bf:
             r0 = move-exception
             r2 = r12
-        L1c0:
-            com.baidu.android.util.io.Closeables.closeSafely(r2)     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-            throw r0     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-        L1c4:
+        L1c1:
+            com.baidu.android.util.io.Closeables.closeSafely(r2)     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+            throw r0     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+        L1c5:
             r0 = 3
-            if (r12 != r0) goto L1e8
+            if (r12 != r0) goto L1e9
             r13 = r23
-            java.lang.String r0 = r3.getString(r13)     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-            boolean r12 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-            if (r12 != 0) goto L1e0
-            org.json.JSONObject r12 = new org.json.JSONObject     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-            r12.<init>(r0)     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
+            java.lang.String r0 = r3.getString(r13)     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+            boolean r12 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+            if (r12 != 0) goto L1e1
+            org.json.JSONObject r12 = new org.json.JSONObject     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+            r12.<init>(r0)     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
             java.lang.String r0 = "icon"
-            java.lang.String r0 = r12.optString(r0, r10)     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-            r1.mAppIcon = r0     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-        L1e0:
+            java.lang.String r0 = r12.optString(r0, r10)     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+            r1.mAppIcon = r0     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+        L1e1:
             r14 = 2
-            goto L1fb
-        L1e2:
+            goto L1fc
+        L1e3:
             r0 = move-exception
             r2 = r3
             r10 = r17
-            goto L2b8
-        L1e8:
+            goto L2b9
+        L1e9:
             r13 = r23
             r14 = 2
-            if (r12 == r14) goto L1ef
-            if (r12 != 0) goto L1fb
-        L1ef:
-            com.baidu.searchbox.download.model.DownloadingInfo r0 = r1.mDownloadingInfo     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            int r0 = r0.mStatus     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            if (r12 == r14) goto L1f0
+            if (r12 != 0) goto L1fc
+        L1f0:
+            com.baidu.searchbox.download.model.DownloadingInfo r0 = r1.mDownloadingInfo     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            int r0 = r0.mStatus     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r12 = 8
-            if (r0 != r12) goto L1fb
-            java.lang.String r0 = r1.mDownloadPath     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-            r1.mAppIcon = r0     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-        L1fb:
-            int r0 = r1.mBusinessType     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            if (r0 == 0) goto L20b
+            if (r0 != r12) goto L1fc
+            java.lang.String r0 = r1.mDownloadPath     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+            r1.mAppIcon = r0     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+        L1fc:
+            int r0 = r1.mBusinessType     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            if (r0 == 0) goto L20c
             java.lang.String r0 = "business_id"
-            int r0 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-            java.lang.String r0 = r3.getString(r0)     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-            r1.businessId = r0     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-        L20b:
+            int r0 = r3.getColumnIndexOrThrow(r0)     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+            java.lang.String r0 = r3.getString(r0)     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+            r1.businessId = r0     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+        L20c:
             r25 = r15
             r12 = r21
-            long r14 = r3.getLong(r12)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r1.mSize = r14     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            long r14 = r3.getLong(r12)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r1.mSize = r14     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r14 = r22
-            r1.mFileName = r14     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            long r14 = r3.getLong(r9)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r1.mCompletionTime = r14     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            java.lang.String r0 = r3.getString(r13)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            boolean r14 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            if (r14 == 0) goto L22a
-            goto L22b
-        L22a:
-            r10 = r0
+            r1.mFileName = r14     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            long r14 = r3.getLong(r9)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r1.mCompletionTime = r14     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            java.lang.String r0 = r3.getString(r13)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            boolean r14 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            if (r14 == 0) goto L22b
+            goto L22c
         L22b:
-            r1.mExtraInfo = r10     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            int r0 = r3.getInt(r2)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            r10 = r0
+        L22c:
+            r1.mExtraInfo = r10     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            int r0 = r3.getInt(r2)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r10 = 1
-            if (r0 != r10) goto L236
+            if (r0 != r10) goto L237
             r0 = 1
-            goto L237
-        L236:
-            r0 = 0
+            goto L238
         L237:
-            r1.mIsDeleted = r0     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            com.baidu.searchbox.download.ioc.IDownloadApp r0 = com.baidu.searchbox.download.ioc.IDownloadApp.Impl.get()     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            long r14 = r1.mId     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            boolean r0 = r0.isRead(r14)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            if (r0 != 0) goto L247
-            r0 = 1
-            goto L248
-        L247:
             r0 = 0
+        L238:
+            r1.mIsDeleted = r0     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            com.baidu.searchbox.download.ioc.IDownloadApp r0 = com.baidu.searchbox.download.ioc.IDownloadApp.Impl.get()     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            long r14 = r1.mId     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            boolean r0 = r0.isRead(r14)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            if (r0 != 0) goto L248
+            r0 = 1
+            goto L249
         L248:
-            r1.newFlag = r0     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            r0 = 0
+        L249:
+            r1.newFlag = r0     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r14 = r26
-            java.lang.String r0 = r3.getString(r14)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            r1.mSource = r0     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
+            java.lang.String r0 = r3.getString(r14)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            r1.mSource = r0     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
             r15 = r24
-            java.lang.String r0 = r3.getString(r15)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            boolean r16 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Exception -> L2a2 java.lang.Throwable -> L2a6
-            if (r16 != 0) goto L27c
+            java.lang.String r0 = r3.getString(r15)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            boolean r16 = android.text.TextUtils.isEmpty(r0)     // Catch: java.lang.Exception -> L2a3 java.lang.Throwable -> L2a7
+            if (r16 != 0) goto L27d
             java.lang.Class<com.baidu.searchbox.boxdownload.model.NetdiskUploadInfo> r10 = com.baidu.searchbox.boxdownload.model.NetdiskUploadInfo.class
             r24 = r2
             r2 = r20
-            java.lang.Object r0 = r2.fromJson(r0, r10)     // Catch: java.lang.Exception -> L1e2 com.google.gson.JsonSyntaxException -> L26d java.lang.Throwable -> L2a6
-            com.baidu.searchbox.boxdownload.model.NetdiskUploadInfo r0 = (com.baidu.searchbox.boxdownload.model.NetdiskUploadInfo) r0     // Catch: java.lang.Exception -> L1e2 com.google.gson.JsonSyntaxException -> L26d java.lang.Throwable -> L2a6
-            r1.mNetdiskUploadInfo = r0     // Catch: java.lang.Exception -> L1e2 com.google.gson.JsonSyntaxException -> L26d java.lang.Throwable -> L2a6
-            goto L280
-        L26d:
+            java.lang.Object r0 = r2.fromJson(r0, r10)     // Catch: java.lang.Exception -> L1e3 com.google.gson.JsonSyntaxException -> L26e java.lang.Throwable -> L2a7
+            com.baidu.searchbox.boxdownload.model.NetdiskUploadInfo r0 = (com.baidu.searchbox.boxdownload.model.NetdiskUploadInfo) r0     // Catch: java.lang.Exception -> L1e3 com.google.gson.JsonSyntaxException -> L26e java.lang.Throwable -> L2a7
+            r1.mNetdiskUploadInfo = r0     // Catch: java.lang.Exception -> L1e3 com.google.gson.JsonSyntaxException -> L26e java.lang.Throwable -> L2a7
+            goto L281
+        L26e:
             r0 = move-exception
-            goto L274
-        L26f:
+            goto L275
+        L270:
             r0 = move-exception
             r24 = r2
             r2 = r20
-        L274:
-            boolean r10 = com.baidu.searchbox.download.business.util.DownloadCenterUtils.DEBUG     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-            if (r10 == 0) goto L280
-            r0.printStackTrace()     // Catch: java.lang.Exception -> L1e2 java.lang.Throwable -> L2a6
-            goto L280
-        L27c:
+        L275:
+            boolean r10 = com.baidu.searchbox.download.business.util.DownloadCenterUtils.DEBUG     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+            if (r10 == 0) goto L281
+            r0.printStackTrace()     // Catch: java.lang.Exception -> L1e3 java.lang.Throwable -> L2a7
+            goto L281
+        L27d:
             r24 = r2
             r2 = r20
-        L280:
+        L281:
             r10 = r17
-            r10.add(r1)     // Catch: java.lang.Exception -> L2a0 java.lang.Throwable -> L2a6
-            boolean r0 = r3.moveToNext()     // Catch: java.lang.Exception -> L2a0 java.lang.Throwable -> L2a6
-            if (r0 != 0) goto L28c
-            goto L2ae
-        L28c:
+            r10.add(r1)     // Catch: java.lang.Exception -> L2a1 java.lang.Throwable -> L2a7
+            boolean r0 = r3.moveToNext()     // Catch: java.lang.Exception -> L2a1 java.lang.Throwable -> L2a7
+            if (r0 != 0) goto L28d
+            goto L2af
+        L28d:
             r1 = r2
             r17 = r10
             r10 = r12
@@ -2387,48 +2387,48 @@ public class DownloadCenterUtils {
             r15 = r25
             r13 = r9
             r9 = r18
-            goto Lc5
-        L2a0:
+            goto Lc6
+        L2a1:
             r0 = move-exception
-            goto L2ab
-        L2a2:
+            goto L2ac
+        L2a3:
             r0 = move-exception
             r10 = r17
-            goto L2ab
-        L2a6:
+            goto L2ac
+        L2a7:
             r0 = move-exception
             r2 = r3
-            goto L2c4
-        L2a9:
+            goto L2c5
+        L2aa:
             r0 = move-exception
             r10 = r1
-        L2ab:
+        L2ac:
             r2 = r3
-            goto L2b8
-        L2ad:
-            r10 = r1
+            goto L2b9
         L2ae:
+            r10 = r1
+        L2af:
             com.baidu.android.util.io.Closeables.closeSafely(r3)
-            goto L2c2
-        L2b2:
+            goto L2c3
+        L2b3:
             r0 = move-exception
             r2 = 0
-            goto L2c4
-        L2b5:
+            goto L2c5
+        L2b6:
             r0 = move-exception
             r10 = r1
             r2 = 0
-        L2b8:
-            boolean r1 = com.baidu.searchbox.download.business.util.DownloadCenterUtils.DEBUG     // Catch: java.lang.Throwable -> L2c3
-            if (r1 == 0) goto L2bf
-            r0.printStackTrace()     // Catch: java.lang.Throwable -> L2c3
-        L2bf:
+        L2b9:
+            boolean r1 = com.baidu.searchbox.download.business.util.DownloadCenterUtils.DEBUG     // Catch: java.lang.Throwable -> L2c4
+            if (r1 == 0) goto L2c0
+            r0.printStackTrace()     // Catch: java.lang.Throwable -> L2c4
+        L2c0:
             com.baidu.android.util.io.Closeables.closeSafely(r2)
-        L2c2:
-            return r10
         L2c3:
-            r0 = move-exception
+            return r10
         L2c4:
+            r0 = move-exception
+        L2c5:
             com.baidu.android.util.io.Closeables.closeSafely(r2)
             throw r0
         */

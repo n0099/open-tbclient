@@ -1,52 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import kotlin.jvm.JvmName;
-@JvmName(name = "LayerUtils")
+import java.util.Calendar;
 /* loaded from: classes5.dex */
-public final class c21 {
+public class c21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622759, "Lcom/baidu/tieba/c21;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947622759, "Lcom/baidu/tieba/c21;");
-                return;
-            }
-        }
-        u71.a(253.0f);
-        u71.a(9.0f);
-    }
-
-    public static final gz0 a(ArrayList<cz0> arrayList) {
-        InterceptResult invokeL;
+    public static boolean a(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, arrayList)) == null) {
-            if (arrayList != null) {
-                Iterator<cz0> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    cz0 next = it.next();
-                    if (next instanceof gz0) {
-                        return (gz0) next;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                String[] split = str.split(":");
+                String[] split2 = str2.split(":");
+                if (split.length != 0 && split2.length != 0) {
+                    try {
+                        Calendar calendar = Calendar.getInstance();
+                        long timeInMillis = calendar.getTimeInMillis();
+                        calendar.set(11, x11.c(split[0]));
+                        calendar.set(12, x11.c(split[1]));
+                        long timeInMillis2 = calendar.getTimeInMillis();
+                        calendar.set(11, x11.c(split2[0]));
+                        calendar.set(12, x11.c(split2[1]));
+                        long timeInMillis3 = calendar.getTimeInMillis();
+                        if (timeInMillis < timeInMillis2 || timeInMillis > timeInMillis3) {
+                            return false;
+                        }
+                        return true;
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
-                return null;
             }
-            return null;
+            return false;
         }
-        return (gz0) invokeL.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void b(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
+            b21.b("BdVideoSys", "SCREEN_ORIENTATION_LANDSCAPE");
+            if (z) {
+                activity.setRequestedOrientation(8);
+            } else {
+                activity.setRequestedOrientation(0);
+            }
+            activity.getWindow().setFlags(1024, 1024);
+        }
+    }
+
+    public static void c(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, activity, z) == null) && activity != null) {
+            if (z) {
+                activity.getWindow().addFlags(128);
+            } else {
+                activity.getWindow().clearFlags(128);
+            }
+        }
+    }
+
+    public static void startActivity(Context context, ComponentName componentName) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, componentName) == null) {
+            new Intent().setComponent(componentName);
+        }
+    }
+
+    public static void startActivity(Context context, String str, String str2, String str3) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3) == null) {
+            new Intent().setComponent(new ComponentName(str, str2 + str3));
+        }
     }
 }

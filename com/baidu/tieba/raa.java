@@ -1,45 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes7.dex */
-public class raa {
+public final class raa implements bf5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, Boolean bool) {
-        InterceptResult invokeLL;
+    public raa() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, bool)) == null) {
-            if (SwitchManager.getInstance().findType("voice") != 0 || ((str != null && b(str)) || bool == null)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return bool.booleanValue();
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bf5
+    public void parseJson(JSONObject json) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] stringArray = TbadkCoreApplication.getInst().getApp().getResources().getStringArray(R.array.voice_black_frs_list);
-            String string = TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f0774);
-            int length = stringArray.length;
-            for (int i = 0; i < length; i++) {
-                if (!stringArray[i].equals(str)) {
-                    if (str.equals(stringArray[i] + string)) {
-                        return true;
-                    }
-                } else {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
+            Intrinsics.checkNotNullParameter(json, "json");
+            SharedPrefHelper.getInstance().putInt("key_sprite_show_text_len_limit", json.optInt("sprite_show_text_len"));
+            SharedPrefHelper.getInstance().putInt("key_sprite_show_line_num_limit", json.optInt("sprite_show_line_num"));
         }
-        return invokeL.booleanValue;
     }
 }

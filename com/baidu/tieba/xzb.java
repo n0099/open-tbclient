@@ -1,26 +1,83 @@
 package com.baidu.tieba;
 
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface xzb {
-    xzb a();
+public class xzb implements szb {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(String str);
+    public xzb() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(Framedata framedata);
+    @Override // com.baidu.tieba.szb
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            Log.d(str, str2);
+        }
+    }
 
-    String d();
+    @Override // com.baidu.tieba.szb
+    public void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            Log.e(str, str2);
+        }
+    }
 
-    boolean e(String str);
+    @Override // com.baidu.tieba.szb
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            Log.i(str, str2);
+        }
+    }
 
-    void f(Framedata framedata) throws InvalidDataException;
+    @Override // com.baidu.tieba.szb
+    public void w(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            Log.w(str, str2);
+        }
+    }
 
-    String g();
+    @Override // com.baidu.tieba.szb
+    public void e(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th) == null) {
+            Log.e(str, str2, th);
+        }
+    }
 
-    void h(Framedata framedata) throws InvalidDataException;
+    @Override // com.baidu.tieba.szb
+    public void i(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
+            Log.i(str, str2, th);
+        }
+    }
 
-    void reset();
-
-    String toString();
+    @Override // com.baidu.tieba.szb
+    public void w(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, th) == null) {
+            Log.w(str, str2, th);
+        }
+    }
 }

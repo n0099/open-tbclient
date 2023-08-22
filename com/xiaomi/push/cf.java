@@ -26,7 +26,7 @@ public class cf extends ci.e {
         contentValues.put("messageItemId", hlVar.d());
         contentValues.put("messageItem", a);
         contentValues.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, bw.a(context).b());
-        contentValues.put("packageName", bw.a(context).m306a());
+        contentValues.put("packageName", bw.a(context).m308a());
         contentValues.put("createTimeStamp", Long.valueOf(System.currentTimeMillis()));
         contentValues.put("uploadTimestamp", (Integer) 0);
         return new cf(str, contentValues, "a job build to insert message to db");

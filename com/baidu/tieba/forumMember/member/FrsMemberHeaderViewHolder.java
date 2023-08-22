@@ -46,18 +46,18 @@ public class FrsMemberHeaderViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09150d);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0914fe);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f1b);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09282e);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090f16);
-        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092940);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092547);
-        this.h = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091f7c);
-        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090f17);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092546);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09167d);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09167c);
+        this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091524);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091515);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f28);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09285f);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090f23);
+        this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092971);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092576);
+        this.h = (NoPressedLinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091fa1);
+        this.i = view2.findViewById(R.id.obfuscated_res_0x7f090f24);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092575);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091694);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091693);
         this.a.setOnClickListener(onClickListener);
         this.d.setOnClickListener(onClickListener);
     }

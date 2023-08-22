@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Intent;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,34 +11,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class k24 {
+public class k24 extends j34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final k24 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-711166113, "Lcom/baidu/tieba/k24$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-711166113, "Lcom/baidu/tieba/k24$a;");
-                    return;
-                }
-            }
-            a = new k24();
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public k24() {
+        super("openSpaceCleanActivity");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,79 +25,48 @@ public class k24 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static k24 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (k24) invokeV.objValue;
-    }
-
-    public void a(@NonNull JSONObject jSONObject, @NonNull r24 r24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, r24Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                r24Var.a(new s24(31008, "download is not exist"));
-            } else {
-                p74.c().c(optString);
-            }
-        }
-    }
-
-    public void c(@NonNull JSONObject jSONObject, @NonNull r24 r24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, r24Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                r24Var.a(new s24(31008, "download is not exist"));
-            } else {
-                p74.c().e(optString);
-            }
-        }
-    }
-
-    public void e(@NonNull JSONObject jSONObject, @NonNull r24 r24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, r24Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                r24Var.a(new s24(31008, "download is not exist"));
-            } else {
-                p74.c().f(optString);
-            }
-        }
-    }
-
-    public void d(@NonNull JSONObject jSONObject, @NonNull r24 r24Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, r24Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            if (!optBoolean) {
-                r24Var.a(new s24(31008, "download is not exist"));
                 return;
             }
-            String optString = jSONObject.optString("packageName");
-            String optString2 = jSONObject.optString("apkId");
-            String optString3 = jSONObject.optString("url");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                if (!p74.c().a(optString3, optString, optString2, optBoolean, new m24(r24Var))) {
-                    r24Var.a(new s24(31006, "is not in main process"));
-                    return;
-                }
-                return;
-            }
-            r24Var.a(new s24(31007, "invalid params"));
         }
+    }
+
+    @Override // com.baidu.tieba.j34
+    public d32 a(@NonNull JSONObject jSONObject, @NonNull ho2 ho2Var) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ho2Var)) == null) {
+            if (mo3.m()) {
+                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
+            } else if (mo3.n()) {
+                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
+            } else if (mo3.o()) {
+                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
+            } else if (mo3.r()) {
+                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
+            } else {
+                z = false;
+            }
+            if (!z) {
+                Toast.makeText(ku2.c(), (int) R.string.obfuscated_res_0x7f0f01bd, 0).show();
+            }
+            ho2Var.onSuccess(null);
+            return null;
+        }
+        return (d32) invokeLL.objValue;
+    }
+
+    public final boolean b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            Intent intent = new Intent();
+            intent.setClassName(str, str2);
+            return mn3.i(ku2.c(), intent, true, false);
+        }
+        return invokeLL.booleanValue;
     }
 }

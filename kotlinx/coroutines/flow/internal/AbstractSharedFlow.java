@@ -128,7 +128,7 @@ public abstract class AbstractSharedFlow<S extends AbstractSharedFlowSlot<?>> {
             i++;
             if (continuation != null) {
                 Result.Companion companion = Result.Companion;
-                continuation.resumeWith(Result.m847constructorimpl(Unit.INSTANCE));
+                continuation.resumeWith(Result.m849constructorimpl(Unit.INSTANCE));
             }
         }
         if (subscriptionCountStateFlow != null) {

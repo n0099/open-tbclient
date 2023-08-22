@@ -1,61 +1,85 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.view.View;
-import androidx.annotation.ColorInt;
-import androidx.annotation.FloatRange;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import tv.athena.revenue.payui.activity.immersion.BarHide;
-/* loaded from: classes7.dex */
-public class s6c implements Cloneable {
+import java.nio.ByteBuffer;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
+/* loaded from: classes8.dex */
+public abstract class s6c implements Framedata {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ContentObserver A;
-    @ColorInt
-    public int a;
-    @ColorInt
-    public int b;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float c;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float d;
+    public boolean a;
+    public Framedata.Opcode b;
+    public ByteBuffer c;
+    public boolean d;
     public boolean e;
     public boolean f;
-    public BarHide g;
-    public boolean h;
-    public boolean i;
-    @ColorInt
-    public int j;
-    @ColorInt
-    public int k;
-    public Map<View, Map<Integer, Integer>> l;
-    @FloatRange(from = 0.0d, to = 1.0d)
-    public float m;
-    public boolean n;
-    public View o;
-    public View p;
-    public View q;
-    @ColorInt
-    public int r;
-    public boolean s;
-    public boolean t;
-    public int u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public v6c y;
-    public x6c z;
+    public boolean g;
 
-    public s6c() {
+    public abstract void h() throws InvalidDataException;
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-477038644, "Lcom/baidu/tieba/s6c$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-477038644, "Lcom/baidu/tieba/s6c$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[Framedata.Opcode.values().length];
+            a = iArr;
+            try {
+                iArr[Framedata.Opcode.PING.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[Framedata.Opcode.PONG.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[Framedata.Opcode.TEXT.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[Framedata.Opcode.BINARY.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[Framedata.Opcode.CLOSING.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[Framedata.Opcode.CONTINUOUS.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+        }
+    }
+
+    public s6c(Framedata.Opcode opcode) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {opcode};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -65,41 +89,218 @@ public class s6c implements Cloneable {
                 return;
             }
         }
-        this.a = 0;
-        this.b = -16777216;
-        this.c = 0.0f;
-        this.d = 0.0f;
+        this.b = opcode;
+        this.c = i7c.a();
+        this.a = true;
+        this.d = false;
         this.e = false;
         this.f = false;
-        this.g = BarHide.FLAG_SHOW_BAR;
-        this.h = false;
-        this.i = true;
-        this.j = -16777216;
-        this.k = -16777216;
-        this.l = new HashMap();
-        this.m = 0.0f;
-        this.n = false;
-        this.s = false;
-        this.t = false;
-        this.u = 18;
-        this.v = true;
-        this.w = true;
-        this.x = false;
+        this.g = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public s6c clone() {
+    public static s6c g(Framedata.Opcode opcode) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, opcode)) == null) {
+            if (opcode != null) {
+                switch (a.a[opcode.ordinal()]) {
+                    case 1:
+                        return new t6c();
+                    case 2:
+                        return new u6c();
+                    case 3:
+                        return new v6c();
+                    case 4:
+                        return new n6c();
+                    case 5:
+                        return new o6c();
+                    case 6:
+                        return new p6c();
+                    default:
+                        throw new IllegalArgumentException("Supplied opcode is invalid");
+                }
+            }
+            throw new IllegalArgumentException("Supplied opcode cannot be null");
+        }
+        return (s6c) invokeL.objValue;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public ByteBuffer a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (s6c) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return null;
-            }
+            return this.c;
         }
-        return (s6c) invokeV.objValue;
+        return (ByteBuffer) invokeV.objValue;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public Framedata.Opcode d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (Framedata.Opcode) invokeV.objValue;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // org.java_websocket.framing.Framedata
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || getClass() != obj.getClass()) {
+                return false;
+            }
+            s6c s6cVar = (s6c) obj;
+            if (this.a != s6cVar.a || this.d != s6cVar.d || this.e != s6cVar.e || this.f != s6cVar.f || this.g != s6cVar.g || this.b != s6cVar.b) {
+                return false;
+            }
+            ByteBuffer byteBuffer = this.c;
+            ByteBuffer byteBuffer2 = s6cVar.c;
+            if (byteBuffer != null) {
+                return byteBuffer.equals(byteBuffer2);
+            }
+            if (byteBuffer2 == null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int hashCode = (((this.a ? 1 : 0) * 31) + this.b.hashCode()) * 31;
+            ByteBuffer byteBuffer = this.c;
+            if (byteBuffer != null) {
+                i = byteBuffer.hashCode();
+            } else {
+                i = 0;
+            }
+            return ((((((((hashCode + i) * 31) + (this.d ? 1 : 0)) * 31) + (this.e ? 1 : 0)) * 31) + (this.f ? 1 : 0)) * 31) + (this.g ? 1 : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void j(ByteBuffer byteBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, byteBuffer) == null) {
+            this.c = byteBuffer;
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.f = z;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("Framedata{ optcode:");
+            sb.append(d());
+            sb.append(", fin:");
+            sb.append(f());
+            sb.append(", rsv1:");
+            sb.append(b());
+            sb.append(", rsv2:");
+            sb.append(c());
+            sb.append(", rsv3:");
+            sb.append(e());
+            sb.append(", payloadlength:[pos:");
+            sb.append(this.c.position());
+            sb.append(", len:");
+            sb.append(this.c.remaining());
+            sb.append("], payload:");
+            if (this.c.remaining() > 1000) {
+                str = "(too big to display)";
+            } else {
+                str = new String(this.c.array());
+            }
+            sb.append(str);
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

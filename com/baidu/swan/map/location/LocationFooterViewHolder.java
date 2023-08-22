@@ -17,7 +17,7 @@ public class LocationFooterViewHolder extends RecyclerView.ViewHolder {
 
     public final void b(View view2) {
         this.a = (TextView) view2.findViewById(R.id.loading_text);
-        this.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091639);
+        this.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091650);
     }
 
     public void c(boolean z) {

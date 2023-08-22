@@ -1,143 +1,70 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Executor;
+import com.kwad.sdk.api.KsFeedAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 /* loaded from: classes7.dex */
-public final class ppb {
+public class ppb extends qqb<KsFeedAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hpb a;
-        public final /* synthetic */ Callable b;
-
-        public a(ppb ppbVar, hpb hpbVar, Callable callable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ppbVar, hpbVar, callable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hpbVar;
-            this.b = callable;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.setResult(this.b.call());
-                } catch (Exception e) {
-                    this.a.c(e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b<TResult> implements Object, epb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final CountDownLatch a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new CountDownLatch(1);
-        }
-
-        @Override // com.baidu.tieba.epb
-        public final void onFailure(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.a.countDown();
-            }
-        }
-
-        public final void onSuccess(TResult tresult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
-                this.a.countDown();
-            }
-        }
-    }
-
-    public ppb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ppb(KsFeedAd ksFeedAd) {
+        super(ksFeedAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ksFeedAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static <TResult> TResult b(gpb<TResult> gpbVar) throws ExecutionException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qqb
+    public double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, gpbVar)) == null) {
-            if (gpbVar.h()) {
-                return gpbVar.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            A a = this.a;
+            if (a == 0) {
+                return 0.0d;
             }
-            throw new ExecutionException(gpbVar.d());
+            return ((KsFeedAd) a).getECPM();
         }
-        return (TResult) invokeL.objValue;
+        return invokeV.doubleValue;
     }
 
-    public static void c(String str) {
+    @Override // com.baidu.tieba.qqb
+    public void b(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && Looper.myLooper() == Looper.getMainLooper()) {
-            throw new IllegalStateException(str);
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
+            return;
         }
+        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
+        adExposureFailedReason.winEcpm = i;
+        ((KsFeedAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
     }
 
-    public final <TResult> gpb<TResult> a(Executor executor, Callable<TResult> callable) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.qqb
+    public void c(long j, long j2) {
+        A a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, executor, callable)) == null) {
-            hpb hpbVar = new hpb();
-            try {
-                executor.execute(new a(this, hpbVar, callable));
-            } catch (Exception e) {
-                hpbVar.c(e);
-            }
-            return hpbVar.b();
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
+            return;
         }
-        return (gpb) invokeLL.objValue;
+        ((KsFeedAd) a).setBidEcpm((int) j);
     }
 }

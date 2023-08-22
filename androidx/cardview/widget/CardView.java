@@ -208,9 +208,9 @@ public class CardView extends FrameLayout {
             float[] fArr = new float[3];
             Color.colorToHSV(color2, fArr);
             if (fArr[2] > 0.5f) {
-                color = getResources().getColor(R.color.obfuscated_res_0x7f0604d5);
+                color = getResources().getColor(R.color.obfuscated_res_0x7f0604db);
             } else {
-                color = getResources().getColor(R.color.obfuscated_res_0x7f0604d4);
+                color = getResources().getColor(R.color.obfuscated_res_0x7f0604da);
             }
             valueOf = ColorStateList.valueOf(color);
         }

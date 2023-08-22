@@ -1,83 +1,140 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import java.util.Map;
+import java.util.Locale;
 /* loaded from: classes8.dex */
-public class yfb extends rfb<TTNativeAd> {
+public class yfb {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yfb(TTNativeAd tTNativeAd) {
-        super(tTNativeAd);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tTNativeAd};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.rfb
-    public double a() {
-        InterceptResult invokeV;
-        Map<String, Object> mediaExtraInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                A a = this.a;
-                if (a == 0 || (mediaExtraInfo = ((TTNativeAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
-                    return 0.0d;
-                }
-                return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
-            } catch (Exception unused) {
-                return 0.0d;
-            }
-        }
-        return invokeV.doubleValue;
-    }
-
-    @Override // com.baidu.tieba.rfb
-    public void b(String str, double d, double d2, boolean z, int i) {
-        A a;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948329652, "Lcom/baidu/tieba/yfb;")) == null) {
             return;
         }
-        TTNativeAd tTNativeAd = (TTNativeAd) a;
-        if (z) {
-            tTNativeAd.win(Double.valueOf(d2));
-        } else {
-            tTNativeAd.loss(Double.valueOf(d), str, String.valueOf(i));
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948329652, "Lcom/baidu/tieba/yfb;");
         }
     }
 
-    @Override // com.baidu.tieba.rfb
-    public String c() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b.isEmpty() && ((TTNativeAd) this.a).getMediaExtraInfo() != null) {
-                this.b = (String) ((TTNativeAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
-            }
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            String fileName = stackTrace[4].getFileName();
+            String methodName = stackTrace[4].getMethodName();
+            return String.format(Locale.US, "[%d] %s: %s", Long.valueOf(Thread.currentThread().getId()), "[ (" + fileName + ":" + stackTrace[4].getLineNumber() + ")#" + (methodName.substring(0, 1).toUpperCase() + methodName.substring(1)) + " ] ", str);
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && a) {
+            String[] h = h(str);
+            if (h != null && h.length == 2) {
+                Log.d(h[0], h[1]);
+            } else {
+                Log.d("BdLog", str);
+            }
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a) {
+            String[] h = h(str);
+            if (h != null && h.length == 2) {
+                Log.e(h[0], h[1]);
+            } else {
+                Log.e("BdLog", str);
+            }
+        }
+    }
+
+    public static void g(Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, th) == null) && a && th != null) {
+            th.printStackTrace();
+        }
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65545, null, str) == null) && a) {
+            String[] h = h(str);
+            if (h != null && h.length == 2) {
+                Log.i(h[0], h[1]);
+            } else {
+                Log.i("BdLog", str);
+            }
+        }
+    }
+
+    public static void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && a) {
+            Log.d(str, a(str2));
+        }
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && a) {
+            Log.e(str, a(str2));
+        }
+    }
+
+    public static void j(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) && a) {
+            Log.i(str, a(str2));
+        }
+    }
+
+    public static void k(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) && a) {
+            Log.v(str, a(str2));
+        }
+    }
+
+    public static void l(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65548, null, str, str2) == null) && a) {
+            Log.w(str, a(str2));
+        }
+    }
+
+    public static void f(String str, String str2, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65542, null, str, str2, th) == null) && a) {
+            Log.e(str, a(str2), th);
+        }
+    }
+
+    public static String[] h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            String fileName = stackTrace[4].getFileName();
+            String methodName = stackTrace[4].getMethodName();
+            return new String[]{fileName, String.format(Locale.US, "[%d] %s: %s", Long.valueOf(Thread.currentThread().getId()), "[ (" + fileName + ":" + stackTrace[4].getLineNumber() + ")#" + (methodName.substring(0, 1).toUpperCase() + methodName.substring(1)) + " ] ", str)};
+        }
+        return (String[]) invokeL.objValue;
     }
 }

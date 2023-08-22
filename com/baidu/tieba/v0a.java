@@ -1,86 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.App;
+import tbclient.GoodsInfo;
 /* loaded from: classes8.dex */
-public abstract class v0a implements z97 {
+public class v0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public v0a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.z97
-    public Map<String, String> a(m57 businessInfo) {
+    @NonNull
+    public static String a(@NonNull App app) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            Map<String, String> a = businessInfo.a();
-            String str = a.get("live_type");
-            String str2 = "";
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, app)) == null) {
+            List<GoodsInfo> list = app.goods_info;
+            String str = "";
+            if (list == null) {
+                return "";
             }
-            hashMap.put("obj_type", str);
-            String str3 = a.get("live_app_id");
-            if (str3 == null) {
-                str3 = "";
+            for (GoodsInfo goodsInfo : list) {
+                if (goodsInfo != null) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(goodsInfo.lego_card).optJSONObject("ad_common");
+                        if (optJSONObject != null) {
+                            str = optJSONObject.optString("id");
+                        }
+                        return str;
+                    } catch (JSONException unused) {
+                    }
+                }
             }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, str3);
-            String str4 = a.get("abtest_tag");
-            if (str4 == null) {
-                str4 = "";
-            }
-            hashMap.put("ab_tag", str4);
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount == null) {
-                currentAccount = "";
-            }
-            hashMap.put("uid", currentAccount);
-            String str5 = a.get("extra");
-            if (str5 == null) {
-                str5 = "";
-            }
-            hashMap.put("obj_param1", str5);
-            String str6 = a.get("source");
-            if (str6 == null) {
-                str6 = "";
-            }
-            hashMap.put("obj_source", str6);
-            String str7 = a.get("position_from_1");
-            if (str7 == null) {
-                str7 = "";
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_FLOOR, str7);
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM4, "0");
-            String cuid = TbadkCoreApplication.getInst().getCuid();
-            if (cuid != null) {
-                str2 = cuid;
-            }
-            hashMap.put("cuid", str2);
-            return hashMap;
+            return str;
         }
-        return (Map) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static int b(@NonNull App app) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, app)) == null) {
+            List<GoodsInfo> list = app.goods_info;
+            if (list == null) {
+                return -1;
+            }
+            Iterator<GoodsInfo> it = list.iterator();
+            while (it.hasNext()) {
+                GoodsInfo next = it.next();
+                if (next != null) {
+                    try {
+                        JSONObject optJSONObject = new JSONObject(next.lego_card).optJSONObject("ad_common");
+                        if (optJSONObject == null) {
+                            return -1;
+                        }
+                        return JavaTypesHelper.toInt(optJSONObject.optString("pos"), -1);
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void c(@NonNull App.Builder builder, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65538, null, builder, i) != null) || builder.goods_info == null) {
+            return;
+        }
+        for (int i2 = 0; i2 < builder.goods_info.size(); i2++) {
+            GoodsInfo goodsInfo = (GoodsInfo) g29.d(builder.goods_info, i2);
+            if (goodsInfo != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(goodsInfo.lego_card);
+                    JSONObject optJSONObject = jSONObject.optJSONObject("ad_common");
+                    if (optJSONObject != null) {
+                        optJSONObject.put("pos", String.valueOf(JavaTypesHelper.toInt(optJSONObject.optString("pos"), 0) + i));
+                        GoodsInfo.Builder builder2 = new GoodsInfo.Builder(goodsInfo);
+                        builder2.lego_card = jSONObject.toString();
+                        builder.goods_info.set(i2, builder2.build(false));
+                    }
+                } catch (JSONException unused) {
+                }
+            }
+        }
     }
 }

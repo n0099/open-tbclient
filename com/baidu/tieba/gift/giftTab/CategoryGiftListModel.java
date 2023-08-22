@@ -7,8 +7,8 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.d25;
+import com.baidu.tieba.ifa;
+import com.baidu.tieba.j25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,13 +19,13 @@ import java.util.ArrayList;
 public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<d25> a;
+    public ArrayList<j25> a;
     public b b;
     public NetMessageListener c;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, int i2, ArrayList<d25> arrayList);
+        void a(int i, String str, int i2, ArrayList<j25> arrayList);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -151,8 +151,8 @@ public class CategoryGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            aba.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
-            aba.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
+            ifa.h(309055, CategoryGiftListSocketResponseMessage.class, false, false);
+            ifa.c(309055, CmdConfigHttp.CMD_GIFT_LIST_BY_CATEGORY, TbConfig.GET_GIFT_LIST_BY_CATEGORY, CategoryGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

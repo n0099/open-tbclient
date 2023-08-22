@@ -1,110 +1,130 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class md4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public kd4 a;
 
     /* loaded from: classes7.dex */
-    public static class a extends StringResponseCallback {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-            }
-        }
-
-        public a() {
+        public a(md4 md4Var, SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {md4Var, swanAppActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = swanAppActivity;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(String str, int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) && 200 == i) {
-                try {
-                    if (!TextUtils.isEmpty(str)) {
-                        JSONObject jSONObject = new JSONObject(str);
-                        if (md4.a && jSONObject.optInt("errno") != 0) {
-                            Log.e("SwanGameNowUtils", "report game history error");
-                        }
-                    }
-                } catch (JSONException unused) {
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                lo3.a(this.a);
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947968812, "Lcom/baidu/tieba/md4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947968812, "Lcom/baidu/tieba/md4;");
+    public md4(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ir1.a;
+        this.a = kd4.d(k32.F(jsObject));
+        jd4.a().f(this);
     }
 
-    public static void b() {
-        ya3 M;
-        String str;
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0053, code lost:
+        if (r1.equals("checkForUpdate") != false) goto L16;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(ld4 ld4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || (M = ya3.M()) == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ld4Var) == null) && this.a != null && JSEvent.isValid(ld4Var)) {
+            char c = 0;
+            d82.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", ld4Var.type, Boolean.valueOf(ld4Var.hasUpdate)));
+            String str = ld4Var.type;
+            int hashCode = str.hashCode();
+            if (hashCode != -1330233754) {
+                if (hashCode != -1317168438) {
+                    if (hashCode == -585906598 && str.equals("updateReady")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("updateFailed")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        this.a.b();
+                        return;
+                    }
+                    return;
+                }
+                this.a.c();
+                return;
+            }
+            this.a.a(ld4Var);
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cuid", fu2.h0().i(fu2.c()));
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("game", M.O());
-            jSONObject2.put("type", 0);
-            jSONObject2.put("upload_time", System.currentTimeMillis() / 1000);
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put(jSONObject2);
-            jSONObject.put("app_infos", jSONArray);
-            str = jSONObject.toString();
-        } catch (Exception unused) {
-            str = "";
+    }
+
+    @JavascriptInterface
+    public boolean applyUpdate() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            SwanAppActivity activity = qw2.T().getActivity();
+            if (activity == null) {
+                d82.c("UpdateManagerApi", "applyUpdate activity is null");
+                return false;
+            } else if (activity.isDestroyed() || activity.getIntent() == null) {
+                return false;
+            } else {
+                xo3.e0(new a(this, activity));
+                return true;
+            }
         }
-        ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) M.i0().postRequest().cookieManager(fu2.q().a())).url(p74.b().l())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), str)).requestFrom(16)).requestFrom(1606)).build().executeAsync(new a());
+        return invokeV.booleanValue;
     }
 }

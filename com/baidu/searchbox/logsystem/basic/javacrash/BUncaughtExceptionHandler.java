@@ -24,7 +24,7 @@ import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.hk1;
+import com.baidu.tieba.mk1;
 import java.io.File;
 import java.util.HashSet;
 import java.util.List;
@@ -60,7 +60,7 @@ public abstract class BUncaughtExceptionHandler extends UncaughtExceptionHandler
         this.mProcessLaunchTime = System.currentTimeMillis();
         Context applicationContext = context.getApplicationContext();
         this.mContext = applicationContext != null ? applicationContext : context;
-        this.mProcessName = hk1.b();
+        this.mProcessName = mk1.b();
     }
 
     private LogExtra createLogExtra(@NonNull Thread thread) {

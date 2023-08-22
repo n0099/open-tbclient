@@ -1,84 +1,74 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Interpolator;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.motion.utils.Easing;
-import androidx.constraintlayout.motion.widget.Key;
-import androidx.core.view.InputDeviceCompat;
-import androidx.core.view.animation.PathInterpolatorCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.tieba.m62;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
+import com.facebook.drawee.controller.AbstractDraweeController;
+import com.facebook.drawee.controller.BaseControllerListener;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
+import com.facebook.drawee.generic.RoundingParams;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.image.ImageInfo;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public abstract class l62<V extends View, M extends m62> extends n62<V, M> {
+public abstract class l62<V extends SimpleDraweeView, M extends m62> extends q62<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppComponentContainerView a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ m62 c;
 
-        public a(l62 l62Var, SwanAppComponentContainerView swanAppComponentContainerView, boolean z, m62 m62Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l62Var, swanAppComponentContainerView, Boolean.valueOf(z), m62Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-678902460, "Lcom/baidu/tieba/l62$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-678902460, "Lcom/baidu/tieba/l62$a;");
                     return;
                 }
             }
-            this.a = swanAppComponentContainerView;
-            this.b = z;
-            this.c = m62Var;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
-                if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
-                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-                    if (this.b) {
-                        marginLayoutParams.leftMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                    } else {
-                        marginLayoutParams.topMargin = ((Integer) valueAnimator.getAnimatedValue()).intValue();
-                    }
-                    this.c.h.l(marginLayoutParams.leftMargin);
-                    this.c.h.m(marginLayoutParams.topMargin);
-                    this.a.setLayoutParams(marginLayoutParams);
-                }
+            int[] iArr = new int[PathType.values().length];
+            a = iArr;
+            try {
+                iArr[PathType.BD_FILE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[PathType.RELATIVE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[PathType.NETWORK.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[PathType.ERROR.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
             }
         }
     }
@@ -96,7 +86,7 @@ public abstract class l62<V extends View, M extends m62> extends n62<V, M> {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (o62) objArr2[1]);
+                super((Context) objArr2[0], (r62) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -104,291 +94,126 @@ public abstract class l62<V extends View, M extends m62> extends n62<V, M> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.n62
-    @NonNull
-    /* renamed from: I */
-    public q72 k(@NonNull M m, @NonNull M m2) {
-        InterceptResult invokeLL;
-        JSONObject jSONObject;
+    public static Uri W(@NonNull String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, m, m2)) == null) {
-            q72 k = super.k(m, m2);
-            if (m2.j != null && ((jSONObject = m.j) == null || !TextUtils.equals(jSONObject.toString(), m2.j.toString()))) {
-                k.b(4);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            PathType s = li3.s(str);
+            db3 M = db3.M();
+            if (M != null) {
+                str2 = M.b;
+                str3 = M.k0();
+            } else {
+                str2 = null;
+                str3 = null;
+            }
+            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            int i = a.a[s.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return Uri.parse(str);
+                }
+                File file = new File(str);
+                if (file.exists()) {
+                    return Uri.fromFile(file);
+                }
+                String L = li3.L(str, M, str3);
+                if (TextUtils.isEmpty(L)) {
+                    return null;
+                }
+                return Uri.fromFile(new File(L));
+            }
+            String M2 = li3.M(str, str2);
+            if (TextUtils.isEmpty(M2)) {
+                return null;
+            }
+            return Uri.fromFile(new File(M2));
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.q62
+    /* renamed from: T */
+    public void O(@NonNull V v, @NonNull M m, @NonNull v72 v72Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, v72Var) == null) {
+            super.C(v, m, v72Var);
+            if (v72Var.a(9)) {
+                U(v, m);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.q62, com.baidu.tieba.s62
+    @NonNull
+    /* renamed from: S */
+    public v72 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
+            v72 k = super.k(m, m2);
+            if (!TextUtils.equals(m.t, m2.t)) {
+                k.b(9);
             }
             return k;
         }
-        return (q72) invokeLL.objValue;
+        return (v72) invokeLL.objValue;
     }
 
-    public void Q(@NonNull V v, @NonNull M m) {
+    public void U(@NonNull V v, @NonNull M m) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048588, this, v, m) != null) || m.j == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
+            V(v, m, null);
+        }
+    }
+
+    public final void V(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
+        Uri W;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) != null) || m.j == null) {
             return;
         }
-        if (n62.h) {
-            Log.d("Component-View", "renderBackground");
+        if (s62.h) {
+            Log.d("Component-SimpleDrawee", "renderImageStyle");
         }
-        GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setColor(m.k);
-        gradientDrawable.setCornerRadius(m.n);
-        gradientDrawable.setStroke(m.l, m.m);
-        v.setBackground(gradientDrawable);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.n62
-    /* renamed from: O */
-    public void C(@NonNull V v, @NonNull M m, @NonNull q72 q72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, v, m, q72Var) == null) {
-            super.C(v, m, q72Var);
-            if (q72Var.a(4)) {
-                R(v, m);
-                Q(v, m);
-                P(v, m);
-            }
-        }
-    }
-
-    @Nullable
-    public final ValueAnimator F(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull m62 m62Var, @NonNull m62 m62Var2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppComponentContainerView, m62Var, m62Var2)) == null) {
-            if (m62Var2.j != null) {
-                float b = yn3.b(m62Var.j, NativeConstants.OPACITY, 1.0f);
-                float b2 = yn3.b(m62Var2.j, NativeConstants.OPACITY, b);
-                if (b != b2) {
-                    return ObjectAnimator.ofFloat(swanAppComponentContainerView, Key.ALPHA, b, b2);
-                }
-            }
-            return null;
-        }
-        return (ValueAnimator) invokeLLL.objValue;
-    }
-
-    public final AnimatorSet G(long j, @NonNull Interpolator interpolator, List<Animator> list) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), interpolator, list})) == null) {
-            if (j <= 0 || list == null) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (Animator animator : list) {
-                if (animator != null) {
-                    arrayList.add(animator);
-                }
-            }
-            if (arrayList.size() == 0) {
-                return null;
-            }
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.setInterpolator(interpolator);
-            animatorSet.setDuration(j);
-            animatorSet.playTogether(arrayList);
-            return animatorSet;
-        }
-        return (AnimatorSet) invokeCommon.objValue;
-    }
-
-    @Nullable
-    public final ValueAnimator H(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull m62 m62Var, @NonNull m62 m62Var2, boolean z) {
-        InterceptResult invokeCommon;
-        int e;
-        int e2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{swanAppComponentContainerView, m62Var, m62Var2, Boolean.valueOf(z)})) == null) {
-            e13 e13Var = m62Var.h;
-            if (e13Var == null || m62Var2.h == null) {
-                return null;
-            }
-            if (z) {
-                e = e13Var.d();
-            } else {
-                e = e13Var.e();
-            }
-            e13 e13Var2 = m62Var2.h;
-            if (z) {
-                e2 = e13Var2.d();
-            } else {
-                e2 = e13Var2.e();
-            }
-            if (e == e2) {
-                return null;
-            }
-            ValueAnimator ofInt = ValueAnimator.ofInt(e, e2);
-            ofInt.addUpdateListener(new a(this, swanAppComponentContainerView, z, m62Var2));
-            return ofInt;
-        }
-        return (ValueAnimator) invokeCommon.objValue;
-    }
-
-    public final boolean J() {
-        InterceptResult invokeV;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!s(4) || !t() || (jSONObject = ((m62) n()).q) == null || TextUtils.isEmpty(jSONObject.optString("duration"))) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final Interpolator K(@NonNull String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            switch (str.hashCode()) {
-                case -1965120668:
-                    if (str.equals("ease-in")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1102672091:
-                    if (str.equals(Easing.LINEAR_NAME)) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -789192465:
-                    if (str.equals("ease-out")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -361990811:
-                    if (str.equals("ease-in-out")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3105774:
-                    if (str.equals("ease")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            return PathInterpolatorCompat.create(0.25f, 0.1f, 0.25f, 1.0f);
-                        }
-                        return PathInterpolatorCompat.create(0.42f, 0.0f, 0.58f, 1.0f);
-                    }
-                    return PathInterpolatorCompat.create(0.0f, 0.0f, 0.58f, 1.0f);
-                }
-                return PathInterpolatorCompat.create(0.42f, 0.0f, 1.0f, 1.0f);
-            }
-            return PathInterpolatorCompat.create(0.0f, 0.0f, 1.0f, 1.0f);
-        }
-        return (Interpolator) invokeL.objValue;
-    }
-
-    public final boolean N(boolean z) {
-        InterceptResult invokeZ;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            SwanAppComponentContainerView m = m();
-            m62 m62Var = (m62) p();
-            m62 m62Var2 = (m62) n();
-            if (m == null || m62Var == null || (jSONObject = m62Var2.q) == null || TextUtils.isEmpty(jSONObject.optString("duration"))) {
-                return false;
-            }
-            ArrayList arrayList = new ArrayList();
-            if (z) {
-                arrayList.add(H(m, m62Var, m62Var2, false));
-                arrayList.add(H(m, m62Var, m62Var2, true));
-            } else {
-                arrayList.add(F(m, m62Var, m62Var2));
-            }
-            AnimatorSet G = G(m62Var2.r, K(m62Var2.s), arrayList);
-            if (G != null) {
-                G.start();
-            }
-            return true;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public final boolean L() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return N(false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return N(true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void P(@NonNull View view2, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048587, this, view2, m) != null) || m.j == null) {
+        String str = m.t;
+        if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
             return;
         }
-        if (n62.h) {
-            Log.d("Component-View", "renderAlpha");
+        d82.i("Component-SimpleDrawee", "Image Uri:" + W);
+        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
+        if (baseControllerListener != null) {
+            oldController.setControllerListener(baseControllerListener);
         }
-        if (J()) {
-            if (n62.h) {
-                Log.d("Component-View", "renderAlpha with animation");
-            }
-            if (!L()) {
-                y72.o("Component-View", "performAlphaUpdateAnimation fail");
-                return;
-            }
-            return;
+        HashMap hashMap = new HashMap();
+        String g0 = xh2.U().g0();
+        if (!TextUtils.isEmpty(g0)) {
+            hashMap.put("User-Agent", g0);
         }
-        float f = m.p;
-        if (f >= 0.0f && f <= 1.0f) {
-            view2.setAlpha(f);
-            return;
+        String b = ko3.b();
+        if (!TextUtils.isEmpty(b) && ko3.c(W.toString())) {
+            hashMap.put("Referer", b);
         }
-        y72.o("Component-View", "alpha invalid: " + m.p);
-    }
-
-    public void R(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048589, this, v, m) != null) || m.j == null) {
-            return;
-        }
-        if (n62.h) {
-            Log.d("Component-View", "renderPadding");
-        }
-        JSONArray jSONArray = m.o;
-        if (jSONArray == null) {
-            return;
-        }
-        if (jSONArray.length() == 4) {
-            v.setPadding(po3.g((float) jSONArray.optDouble(3, 0.0d)), po3.g((float) jSONArray.optDouble(0, 0.0d)), po3.g((float) jSONArray.optDouble(1, 0.0d)), po3.g((float) jSONArray.optDouble(2, 0.0d)));
-            return;
-        }
-        y72.c("Component-View", "invalid padding array length: " + jSONArray.length());
+        xv1 C = ku2.C();
+        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(W);
+        C.e(newBuilderWithSource, hashMap);
+        oldController.setImageRequest(newBuilderWithSource.build());
+        AbstractDraweeController build = oldController.build();
+        RoundingParams roundingParams = new RoundingParams();
+        roundingParams.setCornersRadius(m.n);
+        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
+        build2.setRoundingParams(roundingParams);
+        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
+        v.setHierarchy(build2);
+        v.setController(build);
     }
 }

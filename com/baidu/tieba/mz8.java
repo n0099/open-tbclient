@@ -1,40 +1,112 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class mz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    @NonNull
+    public lz8 b;
 
-    public static String a(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSONObject)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str + "?");
-            Iterator<String> keys = jSONObject.keys();
-            boolean z = true;
-            while (keys.hasNext()) {
-                if (z) {
-                    String next = keys.next();
-                    if (next != null) {
-                        sb.append(next + "=" + jSONObject.optString(next));
-                        z = false;
-                    }
-                } else {
-                    String next2 = keys.next();
-                    if (next2 != null) {
-                        sb.append("&");
-                        sb.append(next2 + "=" + jSONObject.optString(next2));
-                    }
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ mz8 b;
+
+        public a(mz8 mz8Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mz8Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return sb.toString();
+            this.b = mz8Var;
+            this.a = str;
         }
-        return (String) invokeLL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.d(this.a);
+            }
+        }
+    }
+
+    public mz8(Context context, @NonNull lz8 lz8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, lz8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = context;
+        this.b = lz8Var;
+    }
+
+    public void b(@Nullable String str, @Nullable String str2, Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, bool) == null) {
+            int i = JavaTypesHelper.toInt(str, 0);
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        return;
+                    }
+                } else if (TextUtils.isEmpty(str2)) {
+                    return;
+                } else {
+                    SafeHandler.getInst().postDelayed(new a(this, str2), 1000L);
+                    return;
+                }
+            }
+            if (bool.booleanValue()) {
+                return;
+            }
+            c();
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            jn5.l(2);
+        }
+    }
+
+    public final void d(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b.t(gy8.a(str));
+        }
     }
 }

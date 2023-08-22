@@ -1,66 +1,127 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.annotation.SuppressLint;
+import android.webkit.WebView;
+import androidx.collection.ArrayMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.browser.exception.JsInterfaceException;
+import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 /* loaded from: classes7.dex */
-public class qj6 {
+public class qj6 extends rj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WebView a;
+    public final Map<String, AbsJsInterface> b;
 
-    public static mw9 a(ak6 ak6Var) {
-        InterceptResult invokeL;
+    public qj6(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ak6Var)) == null) {
-            mw9 mw9Var = new mw9();
-            if (ak6Var != null) {
-                mw9Var.b = ak6Var.c;
-                mw9Var.e = ak6Var.g;
-                mw9Var.f = ak6Var.i;
-                mw9Var.c = ak6Var.d;
-                if (!fl6.a(ak6Var.b)) {
-                    ArrayList<String> arrayList = new ArrayList<>();
-                    mw9Var.a = arrayList;
-                    arrayList.addAll(ak6Var.b);
-                }
-                if (!fl6.a(ak6Var.f)) {
-                    ArrayList<String> arrayList2 = new ArrayList<>();
-                    mw9Var.d = arrayList2;
-                    arrayList2.addAll(ak6Var.f);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return mw9Var;
         }
-        return (mw9) invokeL.objValue;
+        this.a = webView;
+        this.b = new ArrayMap();
     }
 
-    public static void b(vj6 vj6Var, String str) {
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, vj6Var, str) == null) {
-            try {
-                if (vj6Var != null) {
-                    kw9.n().z(str, vj6Var.b());
-                    kw9.n().x();
-                    if (!fl6.b(vj6Var.a())) {
-                        HashMap<String, mw9> hashMap = new HashMap<>();
-                        for (Map.Entry<String, ak6> entry : vj6Var.a().entrySet()) {
-                            hashMap.put(entry.getKey(), a(entry.getValue()));
-                        }
-                        lw9.a().l(str, hashMap);
-                    }
-                    lw9.a().h(true, str);
-                    return;
-                }
-                kw9.n().h(str);
-                kw9.n().x();
-                lw9.a().f(str);
-            } catch (Exception e) {
-                BdLog.e(e);
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            im6.c("newHybrid", "remove k:" + str);
+            AbsJsInterface absJsInterface = this.b.get(str);
+            if (absJsInterface != null) {
+                absJsInterface.deAttachWebView();
             }
+            this.a.removeJavascriptInterface(str);
+        }
+    }
+
+    public static qj6 g(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, webView)) == null) {
+            return new qj6(webView);
+        }
+        return (qj6) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pj6
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (String str : this.b.keySet()) {
+                h(str);
+            }
+            this.b.clear();
+        }
+    }
+
+    @Override // com.baidu.tieba.pj6
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Map<String, Class<? extends AbsJsInterface>> b = yl6.a().b();
+            if (!b.isEmpty()) {
+                try {
+                    e(b);
+                } catch (JsInterfaceException e) {
+                    if (!ll6.a()) {
+                        ((jm6) ServiceManager.getService(jm6.a)).a(e);
+                        return;
+                    }
+                    throw e;
+                }
+            }
+        }
+    }
+
+    public final void e(Map<String, Class<? extends AbsJsInterface>> map) throws JsInterfaceException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            if (d()) {
+                for (Map.Entry<String, Class<? extends AbsJsInterface>> entry : map.entrySet()) {
+                    Class<? extends AbsJsInterface> value = entry.getValue();
+                    if (c(value)) {
+                        try {
+                            f(entry.getKey(), value);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    } else {
+                        throw new JsInterfaceException("This object has not offer method javascript to call ,please check addJavascriptInterface annotation was be added");
+                    }
+                }
+                return;
+            }
+            throw new JsInterfaceException("The injected object is not safe, give up injection");
+        }
+    }
+
+    @SuppressLint({"JavascriptInterface"})
+    public final void f(String str, Class<? extends AbsJsInterface> cls) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, InstantiationException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, cls) == null) {
+            im6.c("newHybrid", "inject k:" + str + "  v:" + cls);
+            AbsJsInterface newInstance = cls.getDeclaredConstructor(new Class[0]).newInstance(new Object[0]);
+            newInstance.attachWebView(this.a);
+            this.b.put(str, newInstance);
+            this.a.addJavascriptInterface(newInstance, str);
         }
     }
 }

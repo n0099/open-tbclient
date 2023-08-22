@@ -1,47 +1,55 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
-import android.hardware.Camera;
-import android.media.MediaMetadataRetriever;
-import android.net.Uri;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
-import com.baidu.swan.apps.media.chooser.model.VideoModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.toolbar.CommonToolbarStatisticConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.smallgame.sdk.permission.PermissionProxy;
+import com.baidu.swan.apps.media.chooser.model.ImageModel;
+import com.baidu.swan.apps.media.chooser.model.MediaModel;
+import com.baidu.tieba.ig3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import com.baidu.webkit.sdk.PermissionRequest;
 import java.io.File;
-import java.util.Calendar;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class my2 {
+public class my2 extends ad3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int c;
+    public String d;
+    public String e;
 
     /* loaded from: classes7.dex */
-    public static class a implements ActivityResultConsumer {
+    public class a implements wp3<gg3<ig3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sy2 a;
-        public final /* synthetic */ File b;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ db3 d;
+        public final /* synthetic */ my2 e;
 
-        public a(sy2 sy2Var, File file) {
+        public a(my2 my2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, db3 db3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sy2Var, file};
+                Object[] objArr = {my2Var, callbackHandler, unitedSchemeEntity, context, db3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,39 +59,44 @@ public class my2 {
                     return;
                 }
             }
-            this.a = sy2Var;
-            this.b = file;
+            this.e = my2Var;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = context;
+            this.d = db3Var;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
-        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
-            InterceptResult invokeLIL;
-            sy2 sy2Var;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wp3
+        /* renamed from: b */
+        public void a(gg3<ig3.e> gg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
-                if (i == -1 && (sy2Var = this.a) != null) {
-                    sy2Var.a(this.b);
-                    return true;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gg3Var) == null) {
+                if (bg3.h(gg3Var)) {
+                    this.e.v(this.c, this.b, this.a, this.d);
+                    return;
                 }
-                return true;
+                bg3.p(gg3Var, this.a, this.b);
+                d82.c("chooseImage", "camera authorize failure");
             }
-            return invokeLIL.booleanValue;
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements ActivityResultConsumer {
+    public class b implements g63 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sy2 a;
-        public final /* synthetic */ File b;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ db3 c;
+        public final /* synthetic */ my2 d;
 
-        public b(sy2 sy2Var, File file) {
+        public b(my2 my2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sy2Var, file};
+                Object[] objArr = {my2Var, unitedSchemeEntity, callbackHandler, db3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,202 +106,395 @@ public class my2 {
                     return;
                 }
             }
-            this.a = sy2Var;
-            this.b = file;
+            this.d = my2Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = db3Var;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
-        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
-            InterceptResult invokeLIL;
-            sy2 sy2Var;
+        @Override // com.baidu.tieba.g63
+        public void a(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
-                if (i == -1 && (sy2Var = this.a) != null) {
-                    sy2Var.a(this.b);
-                    return true;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (ad3.b) {
+                    Log.d("SwanAppAction", str + "");
                 }
-                return true;
+                this.d.t(this.a, this.b, this.c);
             }
-            return invokeLIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.g63
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                UnitedSchemeUtility.safeCallback(this.b, this.a, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.d.e);
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947988931, "Lcom/baidu/tieba/my2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public class c implements g63 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ db3 d;
+        public final /* synthetic */ boolean e;
+        public final /* synthetic */ my2 f;
+
+        public c(my2 my2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var, boolean z) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {my2Var, context, unitedSchemeEntity, callbackHandler, db3Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947988931, "Lcom/baidu/tieba/my2;");
+            this.f = my2Var;
+            this.a = context;
+            this.b = unitedSchemeEntity;
+            this.c = callbackHandler;
+            this.d = db3Var;
+            this.e = z;
+        }
+
+        @Override // com.baidu.tieba.g63
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                if (ad3.b) {
+                    Log.d("SwanAppAction", str + "");
+                }
+                this.f.x(this.a, this.b, this.c, this.d, this.e);
+            }
+        }
+
+        @Override // com.baidu.tieba.g63
+        public void b(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                UnitedSchemeUtility.safeCallback(this.c, this.b, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.f.e);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class d implements zy2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ db3 a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ UnitedSchemeEntity c;
+        public final /* synthetic */ my2 d;
+
+        public d(my2 my2Var, db3 db3Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {my2Var, db3Var, callbackHandler, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = my2Var;
+            this.a = db3Var;
+            this.b = callbackHandler;
+            this.c = unitedSchemeEntity;
+        }
+
+        @Override // com.baidu.tieba.zy2
+        public void a(boolean z, String str, Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), str, obj}) == null) {
+                if (z && (obj instanceof ArrayList)) {
+                    ArrayList arrayList = (ArrayList) obj;
+                    if (ad3.b) {
+                        Iterator it = arrayList.iterator();
+                        while (it.hasNext()) {
+                            Log.d("chooseImage", "tempPath = " + ((MediaModel) it.next()).getTempPath());
+                        }
+                    }
+                    d82.i("chooseImage", "choose success");
+                    UnitedSchemeUtility.safeCallback(this.b, this.c, UnitedSchemeUtility.wrapCallbackParamsWithEncode(ty2.m(arrayList, this.a, "Image"), 0).toString(), this.d.e);
+                }
+                uy2.a();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class e implements xy2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ db3 a;
+        public final /* synthetic */ zy2 b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ my2 e;
+
+        public e(my2 my2Var, db3 db3Var, zy2 zy2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {my2Var, db3Var, zy2Var, callbackHandler, unitedSchemeEntity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = my2Var;
+            this.a = db3Var;
+            this.b = zy2Var;
+            this.c = callbackHandler;
+            this.d = unitedSchemeEntity;
+        }
+
+        @Override // com.baidu.tieba.xy2
+        public void a(File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
+                d82.i("chooseImage", "capture success");
+                ImageModel imageModel = new ImageModel(file.getAbsolutePath());
+                imageModel.setSize(file.length());
+                uy2.i(imageModel);
+                Bundle bundle = new Bundle();
+                bundle.putString("swanTmpPath", qw2.T().G().k());
+                bundle.putBoolean("compressed", TextUtils.equals(this.e.d, "compressed"));
+                bundle.putString("swanAppId", this.a.b);
+                bundle.putParcelableArrayList("mediaModels", uy2.e());
+                ty2.h(this.a.w(), bundle, this.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.xy2
+        public void b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                UnitedSchemeUtility.safeCallback(this.c, this.d, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.e.e);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class f implements yy2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ db3 c;
+        public final /* synthetic */ my2 d;
+
+        public f(my2 my2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, db3 db3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {my2Var, callbackHandler, unitedSchemeEntity, db3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = my2Var;
+            this.a = callbackHandler;
+            this.b = unitedSchemeEntity;
+            this.c = db3Var;
+        }
+
+        @Override // com.baidu.tieba.yy2
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                d82.i("chooseImage", str);
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1002, str).toString(), this.d.e);
+            }
+        }
+
+        @Override // com.baidu.tieba.yy2
+        public void f(List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                if (list != null && list.size() > 0) {
+                    d82.i("chooseImage", "choose success");
+                    UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParamsWithEncode(ty2.m(list, this.c, "Image"), 0).toString(), this.d.e);
+                    return;
+                }
+                UnitedSchemeUtility.safeCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(1002, "choose file list is error").toString(), this.d.e);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public my2(ac3 ac3Var) {
+        super(ac3Var, "/swanAPI/chooseImage");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ac3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ir1.a;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public final boolean w(JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            int numberOfCameras = Camera.getNumberOfCameras();
-            for (int i = 0; i < numberOfCameras; i++) {
-                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
-                Camera.getCameraInfo(i, cameraInfo);
-                if (1 == cameraInfo.facing) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONArray)) == null) {
+            if (jSONArray == null || jSONArray.length() == 0) {
+                return true;
+            }
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                if (TextUtils.equals("camera", jSONArray.optString(i))) {
                     return true;
                 }
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public static File a(@NonNull String str) {
+    public final void v(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, context, unitedSchemeEntity, callbackHandler, db3Var) == null) {
+            f63.e(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new b(this, unitedSchemeEntity, callbackHandler, db3Var));
+        }
+    }
+
+    public final String r(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String x = gi3.x(str);
-            File file = new File(x + File.separator + "IMG_" + Calendar.getInstance().getTimeInMillis() + ".jpg");
-            cr4.h(file);
-            return file;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
+            boolean z = true;
+            if ((jSONArray != null && jSONArray.length() == 1 && TextUtils.equals("original", jSONArray.optString(0))) ? false : false) {
+                return "original";
+            }
+            return "compressed";
         }
-        return (File) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static File b(@NonNull String str) {
+    public final String s(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String x = gi3.x(str);
-            File file = new File(x + File.separator + "VID_" + Calendar.getInstance().getTimeInMillis() + DefaultHlsExtractorFactory.MP4_FILE_EXTENSION);
-            cr4.h(file);
-            return file;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
+            boolean z = true;
+            if ((jSONArray != null && jSONArray.length() == 1 && TextUtils.equals("camera", jSONArray.optString(0))) ? false : false) {
+                return "camera";
+            }
+            return CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER;
         }
-        return (File) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static VideoModel c(File file) {
-        InterceptResult invokeL;
-        MediaMetadataRetriever mediaMetadataRetriever;
+    @Override // com.baidu.tieba.ad3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            String absolutePath = file.getAbsolutePath();
-            VideoModel videoModel = new VideoModel(absolutePath);
-            MediaMetadataRetriever mediaMetadataRetriever2 = null;
-            try {
-                try {
-                    mediaMetadataRetriever = new MediaMetadataRetriever();
-                } catch (Exception e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                mediaMetadataRetriever.setDataSource(absolutePath);
-                String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
-                String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
-                String extractMetadata3 = mediaMetadataRetriever.extractMetadata(9);
-                videoModel.setWidth(Integer.parseInt(extractMetadata));
-                videoModel.setHeight(Integer.parseInt(extractMetadata2));
-                videoModel.setDuration(Long.parseLong(extractMetadata3));
-                videoModel.setSize(file.length());
-                mediaMetadataRetriever.release();
-            } catch (Exception e2) {
-                e = e2;
-                mediaMetadataRetriever2 = mediaMetadataRetriever;
-                if (ny2.a) {
-                    e.printStackTrace();
-                }
-                if (mediaMetadataRetriever2 != null) {
-                    mediaMetadataRetriever2.release();
-                }
-                return videoModel;
-            } catch (Throwable th2) {
-                th = th2;
-                mediaMetadataRetriever2 = mediaMetadataRetriever;
-                if (mediaMetadataRetriever2 != null) {
-                    mediaMetadataRetriever2.release();
-                }
-                throw th;
-            }
-            return videoModel;
-        }
-        return (VideoModel) invokeL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r6v1 */
-    /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v3, types: [boolean, int] */
-    public static void e(Activity activity, String str, int i, boolean z, sy2 sy2Var) {
-        ActivityResultDispatcher resultDispatcher;
-        Uri fromFile;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{activity, str, Integer.valueOf(i), Boolean.valueOf(z), sy2Var}) != null) || (resultDispatcher = ((ActivityResultDispatcherHolder) activity).getResultDispatcher()) == null) {
-            return;
-        }
-        Intent intent = new Intent("android.media.action.VIDEO_CAPTURE");
-        File b2 = b(str);
-        if (fn3.i()) {
-            fromFile = vo3.a(activity, b2);
-            intent.setFlags(3);
-        } else {
-            fromFile = Uri.fromFile(b2);
-        }
-        intent.putExtra("output", fromFile);
-        intent.putExtra("android.intent.extra.durationLimit", i);
-        ?? r6 = 1;
-        intent.putExtra("android.intent.extra.videoQuality", 1);
-        r6 = (z && d()) ? 0 : 0;
-        if (fn3.g()) {
-            intent.putExtra("android.intent.extras.CAMERA_FACING", (int) r6);
-            intent.putExtra("android.intent.extras.LENS_FACING_FRONT", (int) r6);
-            intent.putExtra("android.intent.extra.USE_FRONT_CAMERA", (boolean) r6);
-        } else {
-            intent.putExtra("android.intent.extras.CAMERA_FACING", (int) r6);
-        }
-        resultDispatcher.addConsumer(new b(sy2Var, b2));
-        try {
-            resultDispatcher.startActivityForResult(intent);
-        } catch (ActivityNotFoundException e) {
-            if (a) {
-                Log.e("SwanAppAlbumCameraHelper", "startRecordActivity: ", e);
-            }
-        }
-    }
-
-    public static void f(Activity activity, String str, sy2 sy2Var) {
-        ActivityResultDispatcher resultDispatcher;
-        Uri fromFile;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65542, null, activity, str, sy2Var) != null) || (resultDispatcher = ((ActivityResultDispatcherHolder) activity).getResultDispatcher()) == null) {
-            return;
-        }
-        Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
-        if (intent.resolveActivity(activity.getPackageManager()) != null) {
-            File a2 = a(str);
-            if (a2 != null && a2.exists()) {
-                if (fn3.i()) {
-                    fromFile = vo3.a(activity, a2);
-                    intent.setFlags(3);
-                } else {
-                    fromFile = Uri.fromFile(a2);
-                }
-                intent.putExtra("output", fromFile);
-                resultDispatcher.addConsumer(new a(sy2Var, a2));
-                try {
-                    resultDispatcher.startActivityForResult(intent);
-                } catch (ActivityNotFoundException e) {
-                    if (a) {
-                        Log.e("SwanAppAlbumCameraHelper", "startTakePhotoActivity: ", e);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
+            if (db3Var != null && db3Var.w() != null) {
+                if (db3Var.n0()) {
+                    if (ad3.b) {
+                        Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                     }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
+                    return false;
                 }
-            } else if (sy2Var != null) {
-                sy2Var.b("error create file");
+                JSONObject d2 = do3.d(unitedSchemeEntity.getParam("params"));
+                String optString = d2.optString("cb");
+                this.e = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    d82.c("chooseImage", "empty cb");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                try {
+                    int parseInt = Integer.parseInt(d2.optString("count"));
+                    this.c = parseInt;
+                    if (parseInt < 1 || parseInt > 9) {
+                        this.c = 9;
+                    }
+                } catch (NumberFormatException unused) {
+                    d82.c("chooseImage", "count format error");
+                    this.c = 9;
+                }
+                this.d = r(d2.optJSONArray("sizeType"));
+                JSONArray optJSONArray = d2.optJSONArray("sourceType");
+                String s = s(optJSONArray);
+                d82.i("chooseImage", "sizeType: " + this.d + ",sourceType: " + s);
+                if (TextUtils.equals(s, CommonToolbarStatisticConstants.TOOLBAR_MENU_STAT_SOURCE_PICTURE_BROWSER)) {
+                    u(context, unitedSchemeEntity, callbackHandler, db3Var, w(optJSONArray));
+                } else {
+                    db3Var.e0().g(db3Var.w(), PermissionProxy.SCOPE_ID_CAMERA, new a(this, callbackHandler, unitedSchemeEntity, context, db3Var));
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
+            d82.c("chooseImage", "illegal swanApp");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void t(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, unitedSchemeEntity, callbackHandler, db3Var) == null) {
+            ry2.f(db3Var.w(), db3Var.b, new e(this, db3Var, new d(this, db3Var, callbackHandler, unitedSchemeEntity), callbackHandler, unitedSchemeEntity));
+        }
+    }
+
+    public final void u(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, unitedSchemeEntity, callbackHandler, db3Var, Boolean.valueOf(z)}) == null) {
+            f63.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new c(this, context, unitedSchemeEntity, callbackHandler, db3Var, z));
+        }
+    }
+
+    public final void x(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{context, unitedSchemeEntity, callbackHandler, db3Var, Boolean.valueOf(z)}) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("launchType", "Image");
+            bundle.putBoolean("isShowCamera", z);
+            bundle.putInt("count", this.c);
+            bundle.putString("mode", "single");
+            bundle.putBoolean("compressed", TextUtils.equals(this.d, "compressed"));
+            bundle.putString("swanAppId", db3Var.b);
+            bundle.putString("swanTmpPath", qw2.T().G().k());
+            ty2.l(context, bundle, new f(this, callbackHandler, unitedSchemeEntity, db3Var));
         }
     }
 }

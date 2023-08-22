@@ -6,7 +6,6 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.switchs.AndroidActivityLogSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -66,7 +65,7 @@ public class LogUtil {
     @Keep
     public static void logActivity(Activity activity, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, activity, str) != null) || !AndroidActivityLogSwitch.isOn() || !"onCreate".equals(str) || activity == null) {
+        if ((interceptable != null && interceptable.invokeLL(65539, null, activity, str) != null) || !"onCreate".equals(str) || activity == null) {
             return;
         }
         logUBC(activity.getComponentName().getClassName());

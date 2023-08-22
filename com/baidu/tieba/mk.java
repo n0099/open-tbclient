@@ -1,19 +1,30 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Rect;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.RectF;
 import android.widget.ImageView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mk extends jk {
+public abstract class mk extends fk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Rect x;
+    public Path t;
+    public Paint u;
+    public a v;
+    public boolean w;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+        Path a(RectF rectF);
+
+        void b(Canvas canvas);
+    }
 
     public mk() {
         Interceptable interceptable = $ic;
@@ -28,33 +39,61 @@ public class mk extends jk {
                 return;
             }
         }
-        this.x = new Rect();
+        this.t = new Path();
+        this.u = null;
+        this.w = false;
     }
 
-    @Override // com.baidu.tieba.ck, com.baidu.tieba.ak
-    public void h(Canvas canvas, dk dkVar, ImageView imageView) {
+    @Override // com.baidu.tieba.dk
+    public void c(gk gkVar, ImageView imageView, ImageView.ScaleType scaleType) {
+        Path a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, dkVar, imageView) == null) {
-            Matrix matrix = this.f;
-            if (matrix != null) {
-                canvas.concat(matrix);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, gkVar, imageView, scaleType) == null) {
+            super.c(gkVar, imageView, scaleType);
+            a aVar = this.v;
+            if (aVar == null || (a2 = aVar.a(j())) == null) {
+                return;
             }
-            canvas.save();
-            if (this.w) {
-                try {
-                    canvas.clipPath(this.t);
-                } catch (Error unused) {
-                }
+            this.t.set(a2);
+            if (this.u == null) {
+                Paint paint = new Paint();
+                this.u = paint;
+                paint.setStyle(Paint.Style.STROKE);
+                this.u.setAntiAlias(true);
+                this.u.setColor(637534208);
+                this.u.setDither(true);
+                this.u.setStrokeWidth(2.0f);
             }
-            if (dkVar.e()) {
-                Bitmap bitmap = dkVar.a.getBitmap();
-                this.x.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
-                canvas.drawBitmap(bitmap, this.x, this.g, this.c);
-            } else {
-                this.x.set(0, 0, dkVar.b(), dkVar.a());
-                dkVar.b.drawImageTo(canvas, this.x, this.g, this.c);
+        }
+    }
+
+    @Override // com.baidu.tieba.dk
+    public void g(Canvas canvas, gk gkVar, ImageView imageView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, gkVar, imageView) == null) {
+            super.g(canvas, gkVar, imageView);
+            if (!this.w) {
+                return;
             }
-            canvas.restore();
+            canvas.drawPath(this.t, this.u);
+            a aVar = this.v;
+            if (aVar != null) {
+                aVar.b(canvas);
+            }
+        }
+    }
+
+    public void t(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.v = aVar;
+        }
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.w = z;
         }
     }
 }

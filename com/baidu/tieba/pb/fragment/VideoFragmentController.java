@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.cj9;
 import com.baidu.tieba.pb.fragment.VideoFragmentController;
-import com.baidu.tieba.td9;
 import com.baidu.tieba.video.VideoItemData;
-import com.baidu.tieba.xe9;
+import com.baidu.tieba.yh9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,13 +154,13 @@ public final class VideoFragmentController {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final xe9 d() {
+    public final cj9 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (xe9) this.a.getValue();
+            return (cj9) this.a.getValue();
         }
-        return (xe9) invokeV.objValue;
+        return (cj9) invokeV.objValue;
     }
 
     public final ImageView e() {
@@ -184,7 +184,7 @@ public final class VideoFragmentController {
     public final void l() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.ve9
+            SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.aj9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -277,7 +277,7 @@ public final class VideoFragmentController {
             WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_topbar_return40, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             ImageView imageView2 = this.b;
             Intrinsics.checkNotNull(imageView2);
-            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.we9
+            imageView2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bj9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -296,14 +296,14 @@ public final class VideoFragmentController {
         }
     }
 
-    public final Bundle g(td9 td9Var) {
+    public final Bundle g(yh9 yh9Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, td9Var)) == null) {
-            if (td9Var == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, yh9Var)) == null) {
+            if (yh9Var == null) {
                 return null;
             }
-            ThreadData O = td9Var.O();
+            ThreadData O = yh9Var.O();
             Intrinsics.checkNotNullExpressionValue(O, "pbData.thread");
             VideoItemData videoItemData = new VideoItemData();
             videoItemData.buildWithThreadData(O);
@@ -320,11 +320,11 @@ public final class VideoFragmentController {
     public final void n(Activity activity) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048587, this, activity) == null) && activity != null) {
-            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f0907b1);
+            View findViewById = activity.findViewById(R.id.obfuscated_res_0x7f0907b5);
             if (findViewById != null) {
                 findViewById.setBackgroundResource(R.color.CAM_X0611);
             }
-            View findViewById2 = activity.findViewById(R.id.obfuscated_res_0x7f0907c1);
+            View findViewById2 = activity.findViewById(R.id.obfuscated_res_0x7f0907c5);
             if (findViewById2 != null) {
                 findViewById2.setBackgroundResource(R.color.CAM_X0611);
             }

@@ -413,7 +413,7 @@ public class tf implements IHttpNet {
                         sb.append("&");
                     }
                     sb.append(name + "=");
-                    sb.append(bi.getUrlEncode(value));
+                    sb.append(di.getUrlEncode(value));
                     i++;
                 }
             }

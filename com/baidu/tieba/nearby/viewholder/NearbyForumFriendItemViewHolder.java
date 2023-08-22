@@ -52,21 +52,21 @@ public class NearbyForumFriendItemViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.a = context;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091f88);
-        this.c = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910d9);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092707);
-        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092709);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f091498);
-        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09120b);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092702);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092708);
-        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092703);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092706);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091497);
-        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09120a);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092705);
-        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092704);
-        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092701);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f091fae);
+        this.c = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910eb);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092738);
+        this.n = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09273a);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f0914ae);
+        this.f = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091221);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092733);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092739);
+        this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092734);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092737);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f0914ad);
+        this.l = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091220);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092736);
+        this.o = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092735);
+        this.p = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092732);
         b();
     }
 

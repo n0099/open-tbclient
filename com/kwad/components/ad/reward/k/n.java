@@ -113,15 +113,15 @@ public final class n extends d implements View.OnClickListener {
     }
 
     private void initView() {
-        this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f09131d);
-        this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f091321);
-        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091320);
-        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091324);
-        this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f091323);
-        this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09131e);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09131f);
-        this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f09131c);
-        this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09131b);
+        this.vM = (ViewGroup) this.pV.findViewById(R.id.obfuscated_res_0x7f091333);
+        this.bq = (KsLogoView) this.pV.findViewById(R.id.obfuscated_res_0x7f091337);
+        this.nC = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091336);
+        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09133a);
+        this.vN = (KSRatingBar) this.pV.findViewById(R.id.obfuscated_res_0x7f091339);
+        this.vO = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091334);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091335);
+        this.vP = (KsStyledTextButton) this.pV.findViewById(R.id.obfuscated_res_0x7f091332);
+        this.vQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091331);
         this.vM.setOnClickListener(this);
         this.vQ.setOnClickListener(this);
         this.vP.setOnClickListener(this);
@@ -215,17 +215,17 @@ public final class n extends d implements View.OnClickListener {
                 marginLayoutParams.bottomMargin = fR().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0704e1);
             }
             this.vM.setBackgroundColor(-1);
-            this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06079b));
-            this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060792));
+            this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0607a1));
+            this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06079d));
             this.qC = com.kwad.sdk.b.kwai.a.A(this.mj);
             com.kwad.sdk.b.kwai.a.i(this.mj, 49);
         } else {
             if (marginLayoutParams != null) {
                 marginLayoutParams.bottomMargin = 0;
             }
-            this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06079c));
-            this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060793));
-            this.vM.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060799));
+            this.eQ.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0607a2));
+            this.iu.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06079e));
+            this.vM.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06079f));
         }
         if (marginLayoutParams != null) {
             this.vM.setLayoutParams(marginLayoutParams);

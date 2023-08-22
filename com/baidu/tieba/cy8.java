@@ -1,29 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Objects;
 /* loaded from: classes5.dex */
-public class cy8 {
+public final class cy8<T> extends xx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
+    public final ay8 c;
+    public T d;
+    public Object e;
+    public by8 f;
 
-    public cy8(JSONObject jSONObject) {
+    public cy8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,70 +29,89 @@ public class cy8 {
                 return;
             }
         }
-        if (jSONObject != null) {
-            this.a = jSONObject.optString("moreText");
-            this.b = ColorUtils.parseColor(jSONObject.optString("moreColor", ""));
-            this.c = ColorUtils.parseColor(jSONObject.optString("moreColorNight", ""));
-            this.d = jSONObject.optString("moreScheme");
-            return;
-        }
-        this.a = "";
-        this.b = Integer.MAX_VALUE;
-        this.c = Integer.MAX_VALUE;
-        this.d = "";
+        this.c = new ay8();
+        this.f = new by8();
     }
 
-    public static cy8 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new cy8(jSONObject);
-        }
-        return (cy8) invokeL.objValue;
-    }
-
-    public int b() {
+    public final ay8 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.c;
         }
-        return invokeV.intValue;
+        return (ay8) invokeV.objValue;
     }
 
-    public String d() {
+    public final T f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.d;
         }
-        return (String) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public String e() {
+    public final by8 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+            return this.f;
         }
-        return (String) invokeV.objValue;
+        return (by8) invokeV.objValue;
     }
 
-    public boolean f() {
+    public final Object h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
+            return this.e;
         }
-        return invokeV.booleanValue;
+        return invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return Objects.hashCode(b());
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        cy8 cy8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            String str = null;
+            if (obj instanceof cy8) {
+                cy8Var = (cy8) obj;
+            } else {
+                cy8Var = null;
+            }
+            String b = b();
+            if (cy8Var != null) {
+                str = cy8Var.b();
+            }
+            return Objects.equals(b, str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void i(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+            this.d = t;
+        }
+    }
+
+    public final void j(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, obj) == null) {
+            this.e = obj;
+        }
     }
 }

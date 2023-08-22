@@ -44,7 +44,7 @@ public final class JavaDescriptorResolver {
                 memberScope = null;
             }
             if (memberScope != null) {
-                classifierDescriptor = memberScope.mo2104getContributedClassifier(javaClass.getName(), NoLookupLocation.FROM_JAVA_LOADER);
+                classifierDescriptor = memberScope.mo2106getContributedClassifier(javaClass.getName(), NoLookupLocation.FROM_JAVA_LOADER);
             } else {
                 classifierDescriptor = null;
             }

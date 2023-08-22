@@ -1,66 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-import com.baidu.tieba.fx1;
+import android.content.Context;
 /* loaded from: classes5.dex */
-public interface ex1<T extends fx1> extends gx1<T>, nw1 {
-    void B(int i);
+public interface ex1 {
+    mx1 a(Context context);
 
-    boolean H();
+    ix1 b(Context context);
 
-    boolean I();
+    mx1 c(Context context);
 
-    void J(ph2 ph2Var);
+    yc2 d();
 
-    px1 M();
+    jx1 e(Context context, int i);
 
-    void N(FrameLayout frameLayout, nb3 nb3Var);
+    mx1 f(Context context);
 
-    int P();
+    mx1 g(Context context);
 
-    void Q(String str);
+    zc2 h(Context context, int i);
 
-    void R();
+    mx1 i(Context context);
 
-    boolean U(we3 we3Var);
-
-    boolean V(we3 we3Var);
-
-    void W(mc2 mc2Var);
-
-    void X(nc2 nc2Var);
-
-    @Nullable
-    o72 a0();
-
-    boolean c();
-
-    int e0();
-
-    PullToRefreshBaseWebView f0();
-
-    void g(y03 y03Var);
-
-    boolean g0();
-
-    @Nullable
-    String h0();
-
-    void i(ViewGroup viewGroup, View view2);
-
-    hx1 j();
-
-    String l();
-
-    boolean q(int i);
-
-    void u(String str);
-
-    boolean x(we3 we3Var);
-
-    void y(FrameLayout frameLayout, nb3 nb3Var);
+    boolean j(int i);
 }

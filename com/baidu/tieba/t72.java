@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import java.util.zip.CRC32;
 /* loaded from: classes8.dex */
 public class t72 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final long b;
-    public final String c;
-    public final Map<String, String> d;
+    public Context a;
+    public s72 b;
 
-    public t72(long j) {
+    public t72(@NonNull Context context, @NonNull hq3 hq3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
+            Object[] objArr = {context, hq3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,60 +30,41 @@ public class t72 {
                 return;
             }
         }
-        this.d = new HashMap();
-        this.b = TimeUnit.MILLISECONDS.toSeconds(j);
-        this.a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
-        this.c = Long.toHexString(a(this.a + "#" + this.b));
-        this.d.put("timestamp", Long.toString(this.a));
-        this.d.put("delta", Long.toString(this.b));
-        this.d.put("rasign", this.c);
+        this.a = context;
+        this.b = new s72(hq3Var);
     }
 
-    public static t72 b() {
+    @NonNull
+    public s72 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new t72(0L);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (t72) invokeV.objValue;
+        return (s72) invokeV.objValue;
     }
 
-    public final long a(String str) {
-        InterceptResult invokeL;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            CRC32 crc32 = new CRC32();
-            crc32.reset();
-            crc32.update(str.getBytes());
-            return crc32.getValue();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.c();
         }
-        return invokeL.longValue;
     }
 
-    public String c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return Long.toHexString(a(j + "#smartapp_formid"));
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public String d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            return Long.toHexString(a(j + "#payid"));
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public String toString() {
+    @NonNull
+    public Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return super.toString() + " serverTime:" + this.a + " delta:" + this.b + " rasign:" + this.c;
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (Context) invokeV.objValue;
+    }
+
+    public void c(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.a = context;
+        }
     }
 }

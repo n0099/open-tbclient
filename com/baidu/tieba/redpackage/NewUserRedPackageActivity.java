@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tt4;
 import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.tieba.yt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -32,7 +32,7 @@ public class NewUserRedPackageActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public RoundRelativeLayout a;
     public NewUserRedPackageData b;
-    public tt4 c;
+    public yt4 c;
     public ImageView d;
     public ImageView e;
     public View.OnClickListener f;
@@ -144,21 +144,21 @@ public class NewUserRedPackageActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0048);
+            setContentView(R.layout.obfuscated_res_0x7f0d0049);
             RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.round_corner_layout);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(BdUtilHelper.getDimens(this, R.dimen.tbds31));
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910be);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0910d3);
             this.e = (ImageView) findViewById(R.id.img_btn_close);
             this.d.setOnClickListener(this.f);
             this.e.setOnClickListener(this.f);
-            x1();
+            w1();
             TiebaStatic.log(new StatisticItem("c13684").param("obj_type", 1));
-            this.c = new tt4();
+            this.c = new yt4();
         }
     }
 
-    public final void x1() {
+    public final void w1() {
         BdImage bdImage;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || getIntent() == null) {

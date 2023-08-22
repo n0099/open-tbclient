@@ -9,7 +9,7 @@ import com.kwad.sdk.api.KsDrawAd;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends com.kwad.components.ad.draw.kwai.a {
     public DrawCardApp bC;
     public DrawCardH5 bD;
@@ -89,9 +89,9 @@ public final class b extends com.kwad.components.ad.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091261);
-        this.bC = (DrawCardApp) findViewById(R.id.obfuscated_res_0x7f091280);
-        this.bD = (DrawCardH5) findViewById(R.id.obfuscated_res_0x7f091289);
+        this.bh = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091277);
+        this.bC = (DrawCardApp) findViewById(R.id.obfuscated_res_0x7f091296);
+        this.bD = (DrawCardH5) findViewById(R.id.obfuscated_res_0x7f09129f);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

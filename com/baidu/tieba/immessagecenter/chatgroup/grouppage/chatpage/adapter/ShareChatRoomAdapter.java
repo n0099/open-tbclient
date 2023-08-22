@@ -71,7 +71,7 @@ public final class ShareChatRoomAdapter extends BaseChatAdapter<ShareChatRoomSys
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    public BaseViewHolder O(ViewGroup parent) {
+    public BaseViewHolder N(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parent)) == null) {
@@ -84,7 +84,7 @@ public final class ShareChatRoomAdapter extends BaseChatAdapter<ShareChatRoomSys
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    public BaseViewHolder Q(ViewGroup parent) {
+    public BaseViewHolder P(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parent)) == null) {
@@ -101,7 +101,7 @@ public final class ShareChatRoomAdapter extends BaseChatAdapter<ShareChatRoomSys
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             final ChatShareChatroomCard chatShareChatroomCard = new ChatShareChatroomCard(context, null, 2, null);
-            chatShareChatroomCard.setId(R.id.obfuscated_res_0x7f090eab);
+            chatShareChatroomCard.setId(R.id.obfuscated_res_0x7f090eb8);
             chatShareChatroomCard.setScene(1);
             chatShareChatroomCard.setLayoutParams(new ViewGroup.LayoutParams(l, -2));
             return new BaseViewHolder(chatShareChatroomCard) { // from class: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.ShareChatRoomAdapter$createViewHolder$1
@@ -143,7 +143,7 @@ public final class ShareChatRoomAdapter extends BaseChatAdapter<ShareChatRoomSys
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     /* renamed from: c0 */
-    public void V(int i, ViewGroup directParent, ShareChatRoomSysMsg data, BaseViewHolder holder, List<Object> payloads, int i2) {
+    public void U(int i, ViewGroup directParent, ShareChatRoomSysMsg data, BaseViewHolder holder, List<Object> payloads, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), directParent, data, holder, payloads, Integer.valueOf(i2)}) == null) {

@@ -7,15 +7,15 @@ import android.text.TextUtils;
 import com.baidu.minivideo.arface.bean.BeautyType;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
-import com.baidu.tieba.bab;
-import com.baidu.tieba.j9b;
-import com.baidu.tieba.jf0;
-import com.baidu.tieba.k9b;
-import com.baidu.tieba.m5b;
-import com.baidu.tieba.o9b;
-import com.baidu.tieba.t9b;
-import com.baidu.tieba.u9b;
-import com.baidu.tieba.ug0;
+import com.baidu.tieba.bcb;
+import com.baidu.tieba.dgb;
+import com.baidu.tieba.igb;
+import com.baidu.tieba.jgb;
+import com.baidu.tieba.mf0;
+import com.baidu.tieba.qgb;
+import com.baidu.tieba.xg0;
+import com.baidu.tieba.yfb;
+import com.baidu.tieba.zfb;
 import com.baidu.ugc.editvideo.data.AREditSticker;
 import com.baidu.ugc.editvideo.data.ImageQualityData;
 import com.baidu.ugc.editvideo.data.MediaInfo;
@@ -107,11 +107,11 @@ public class ComposeThemeVideoModel {
             list.add(aEffectProcessor);
             return;
         }
-        ug0 ug0Var = new ug0();
-        ug0Var.a(m5b.c().getContext());
-        multiMediaOutputSurface.setVlogCore(ug0Var);
+        xg0 xg0Var = new xg0();
+        xg0Var.a(bcb.c().getContext());
+        multiMediaOutputSurface.setVlogCore(xg0Var);
         MediaTrackConfig mediaTrackConfig2 = this.editTrackConfig;
-        ug0Var.f(mediaTrackConfig2.mediaTracks, mediaTrackConfig2.shaderConfigMapDebug);
+        xg0Var.f(mediaTrackConfig2.mediaTracks, mediaTrackConfig2.shaderConfigMapDebug);
         MultiMediaDataSourceViewAdapter.buildDefault(list, list2);
         for (IEffectProcessor iEffectProcessor : list) {
             if (iEffectProcessor instanceof AREditProcessor) {
@@ -120,13 +120,13 @@ public class ComposeThemeVideoModel {
                 if (aREditSticker != null) {
                     aREditProcessor.setSticker(aREditSticker.sticker, aREditSticker.startTime, aREditSticker.endTime);
                 }
-                aREditProcessor.setBeautyValues((!this.mIsDefaultMale ? o9b.f(this.mAREditBeautyMap) : !o9b.f(this.mAREditBeautyMapForMale)) ? this.mAREditBeautyMapForMale : this.mAREditBeautyMap);
+                aREditProcessor.setBeautyValues((!this.mIsDefaultMale ? dgb.f(this.mAREditBeautyMap) : !dgb.f(this.mAREditBeautyMapForMale)) ? this.mAREditBeautyMapForMale : this.mAREditBeautyMap);
                 if (isOpenImageQuality()) {
                     ImageQualityData imageQualityData = this.mImageQualityData;
                     aREditProcessor.setImageQualityStatus(imageQualityData.isOpen, imageQualityData.needDefog, imageQualityData.needDenoise);
                 }
                 aREditProcessor.setSyncInputContent(true);
-                if (!o9b.f(this.mAREditBeautyMap) && !o9b.f(this.mAREditBeautyMapForMale)) {
+                if (!dgb.f(this.mAREditBeautyMap) && !dgb.f(this.mAREditBeautyMapForMale)) {
                     aREditProcessor.setEditProcessCallback(new AREditProcessor.DuArEditProcessorCallback() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.3
                         public boolean isMale;
 
@@ -135,7 +135,7 @@ public class ComposeThemeVideoModel {
                         }
 
                         @Override // com.baidu.ugc.editvideo.record.processor.AREditProcessor.DuArEditProcessorCallback
-                        public void onBeautyEnableChanged(jf0 jf0Var) {
+                        public void onBeautyEnableChanged(mf0 mf0Var) {
                         }
 
                         @Override // com.baidu.ugc.editvideo.record.processor.AREditProcessor.DuArEditProcessorCallback
@@ -159,7 +159,7 @@ public class ComposeThemeVideoModel {
                 }
             }
         }
-        if (o9b.e(this.mStickerList)) {
+        if (dgb.e(this.mStickerList)) {
             return;
         }
         for (IMediaRenderer iMediaRenderer : list2) {
@@ -176,7 +176,7 @@ public class ComposeThemeVideoModel {
         if (this.mIsAudioReady && this.mIsVideoReady && !this.mIsMuxerStop) {
             this.mMuxer.stop();
             this.mIsMuxerStop = true;
-            bab.a().postDelayed(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.5
+            qgb.a().postDelayed(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.5
                 @Override // java.lang.Runnable
                 public void run() {
                     if (ComposeThemeVideoModel.this.mOnInterrupt) {
@@ -190,12 +190,12 @@ public class ComposeThemeVideoModel {
 
     private boolean hasAudioTrack(String str) {
         try {
-            return u9b.g(str);
+            return jgb.g(str);
         } catch (Exception e) {
             e.printStackTrace();
             OnGenFilterVideoListener onGenFilterVideoListener = this.mListener;
             if (onGenFilterVideoListener != null) {
-                onGenFilterVideoListener.onGenFilterVideoFail(-1, "check audio track error!" + t9b.g(e));
+                onGenFilterVideoListener.onGenFilterVideoFail(-1, "check audio track error!" + igb.g(e));
                 return false;
             }
             return false;
@@ -363,7 +363,7 @@ public class ComposeThemeVideoModel {
             public void onInterrupt() {
                 ComposeThemeVideoModel.this.mOnInterrupt = true;
                 if (this.mListener != null) {
-                    bab.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.2.2
+                    qgb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.2.2
                         @Override // java.lang.Runnable
                         public void run() {
                             OnGenFilterVideoListener onGenFilterVideoListener = AnonymousClass2.this.mListener;
@@ -404,7 +404,7 @@ public class ComposeThemeVideoModel {
             @Override // com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor
             public void onProgress(final int i) {
                 if (this.mListener != null) {
-                    bab.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.2.1
+                    qgb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.2.1
                         @Override // java.lang.Runnable
                         public void run() {
                             OnGenFilterVideoListener onGenFilterVideoListener = AnonymousClass2.this.mListener;
@@ -428,10 +428,10 @@ public class ComposeThemeVideoModel {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         buildProcessorAndRenderer(arrayList, arrayList2, multiMediaOutputSurface);
-        if (!o9b.e(arrayList)) {
+        if (!dgb.e(arrayList)) {
             multiMediaOutputSurface.setEffectProcessors(arrayList);
         }
-        if (!o9b.e(arrayList2)) {
+        if (!dgb.e(arrayList2)) {
             multiMediaOutputSurface.setMediaRenderers(arrayList2);
         }
         multiMediaOutputSurface.setPreviewSize(this.mPreviewWidth, this.mPreviewHeight);
@@ -444,7 +444,7 @@ public class ComposeThemeVideoModel {
             @Override // com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor
             public void onInterrupt() {
                 if (this.mListener != null) {
-                    bab.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.4.2
+                    qgb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.4.2
                         @Override // java.lang.Runnable
                         public void run() {
                             OnGenFilterVideoListener onGenFilterVideoListener = AnonymousClass4.this.mListener;
@@ -479,7 +479,7 @@ public class ComposeThemeVideoModel {
             @Override // com.baidu.ugc.editvideo.editvideo.addfilter.InnerMediaProcessor
             public void onProgress(final int i) {
                 if (this.mListener != null) {
-                    bab.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.4.1
+                    qgb.a().post(new Runnable() { // from class: com.baidu.ugc.editvideo.editvideo.addfilter.ComposeThemeVideoModel.4.1
                         @Override // java.lang.Runnable
                         public void run() {
                             OnGenFilterVideoListener onGenFilterVideoListener = AnonymousClass4.this.mListener;
@@ -507,7 +507,7 @@ public class ComposeThemeVideoModel {
                 outputSurfaceWithFilter.setMagicEffectList(videoEffectData.getMagicEffectList());
             }
             if (!TextUtils.isEmpty(this.mWaterMarkBase64)) {
-                outputSurfaceWithFilter.setWaterMarkBitmap(k9b.a(this.mWaterMarkBase64));
+                outputSurfaceWithFilter.setWaterMarkBitmap(zfb.a(this.mWaterMarkBase64));
             }
             outputSurfaceWithFilter.setAddWaterMark(this.mIsAddWaterMark);
             this.mOutputSurface = outputSurfaceWithFilter;
@@ -629,7 +629,7 @@ public class ComposeThemeVideoModel {
         this.mVideoEffectData = videoEffectData;
         if (VideoEffectData.hasRepeatTimeEffect(videoEffectData)) {
             BaseEffect timeEffect = this.mVideoEffectData.getTimeEffect();
-            MediaInfo d = u9b.d(this.mSourcePath);
+            MediaInfo d = jgb.d(this.mSourcePath);
             if (d != null && (duration = (int) d.getDuration()) > 100) {
                 if (timeEffect.startTime < 0) {
                     timeEffect.startTime = 0;
@@ -651,7 +651,7 @@ public class ComposeThemeVideoModel {
 
     public void startMuxVideoAsync() {
         boolean hasAudioTrack;
-        if (TextUtils.isEmpty(this.mSourcePath) && o9b.e(this.mediaDataTracks)) {
+        if (TextUtils.isEmpty(this.mSourcePath) && dgb.e(this.mediaDataTracks)) {
             OnGenFilterVideoListener onGenFilterVideoListener = this.mListener;
             if (onGenFilterVideoListener != null) {
                 onGenFilterVideoListener.onGenFilterVideoFail(-1, "filter job cannot start by no input!");
@@ -675,9 +675,9 @@ public class ComposeThemeVideoModel {
             } catch (Exception e) {
                 OnGenFilterVideoListener onGenFilterVideoListener3 = this.mListener;
                 if (onGenFilterVideoListener3 != null) {
-                    onGenFilterVideoListener3.onGenFilterVideoFail(-1, "filter job start mux error!" + t9b.g(e));
+                    onGenFilterVideoListener3.onGenFilterVideoFail(-1, "filter job start mux error!" + igb.g(e));
                 }
-                j9b.g(e);
+                yfb.g(e);
             }
             try {
                 this.mMuxer = new InnerMuxerWrapper(this.mOutputPath);
@@ -715,7 +715,7 @@ public class ComposeThemeVideoModel {
             } catch (Exception e2) {
                 OnGenFilterVideoListener onGenFilterVideoListener4 = this.mListener;
                 if (onGenFilterVideoListener4 != null) {
-                    onGenFilterVideoListener4.onGenFilterVideoFail(-2, "FilterVideoGenerator muxer video async fail " + t9b.g(e2));
+                    onGenFilterVideoListener4.onGenFilterVideoFail(-2, "FilterVideoGenerator muxer video async fail " + igb.g(e2));
                 }
             }
         }

@@ -3,7 +3,7 @@ package com.kwad.components.ad.c;
 import com.ksad.annotation.invoker.InvokeBy;
 import com.kwad.sdk.core.config.d;
 import com.kwad.sdk.core.config.item.o;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static o aF = new o("kwaiLogoUrl", null);
     public static o aG = new o("attentionTips", "去关注TA");

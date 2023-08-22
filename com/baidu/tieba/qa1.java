@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface qa1 {
-    void a(String str);
+    boolean d1();
 
-    void b();
+    boolean e1();
 
-    void cancel();
+    boolean t0();
 }

@@ -53,7 +53,7 @@ public final class h extends com.kwad.components.ad.e.kwai.a implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.ke = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09141c);
-        this.kf = (TextView) findViewById(R.id.obfuscated_res_0x7f0912c5);
+        this.ke = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091432);
+        this.kf = (TextView) findViewById(R.id.obfuscated_res_0x7f0912db);
     }
 }

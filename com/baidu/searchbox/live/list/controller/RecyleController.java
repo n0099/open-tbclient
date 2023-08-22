@@ -381,15 +381,15 @@ public final class RecyleController implements IListManager {
     public static final class LiveHolder extends RecyclerView.ViewHolder {
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1062view;
+        public final View f1063view;
 
         public LiveHolder(View view2) {
             super(view2);
-            this.f1062view = view2;
+            this.f1063view = view2;
         }
 
         public final View getView() {
-            return this.f1062view;
+            return this.f1063view;
         }
     }
 

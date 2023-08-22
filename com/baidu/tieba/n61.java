@@ -1,27 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import android.view.inputmethod.InputMethodManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes7.dex */
 public class n61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a(Context context, IBinder iBinder) {
+    public static String a(String str, byte[] bArr, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, iBinder) == null) {
-            synchronized (n61.class) {
-                InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService("input_method");
-                if (inputMethodManager != null) {
-                    try {
-                        inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
-                    } catch (Exception unused) {
-                    }
-                }
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, str, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance(str);
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return b(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException e) {
+                throw new RuntimeException(e);
             }
         }
+        return (String) invokeLLZ.objValue;
+    }
+
+    public static String b(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
     }
 }

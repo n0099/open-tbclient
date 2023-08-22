@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.base.log.a;
 import com.huawei.hms.base.log.d;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HMSLog {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;

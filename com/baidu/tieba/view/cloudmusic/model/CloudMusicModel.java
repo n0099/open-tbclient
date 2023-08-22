@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.hqa;
+import com.baidu.tieba.qua;
 import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -24,7 +24,7 @@ import org.json.JSONObject;
 public class CloudMusicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hqa<CloudMusicData> a;
+    public qua<CloudMusicData> a;
     public final HttpMessageListener b;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -140,13 +140,13 @@ public class CloudMusicModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void O(hqa<CloudMusicData> hqaVar) {
+    public void O(qua<CloudMusicData> quaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, hqaVar) != null) || hqaVar == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, quaVar) != null) || quaVar == null) {
             return;
         }
         sendMessage(new HttpMessage(CmdConfigHttp.CMD_VIDEO_CLOUD_MUSIC_WITH_TAGS));
-        this.a = hqaVar;
+        this.a = quaVar;
     }
 
     public final void P() {

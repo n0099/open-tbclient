@@ -1,11 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface il {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("tbadkcore", "ISoProcess");
+public class il {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile hl a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull String str);
+    public static synchronized hl a() {
+        InterceptResult invokeV;
+        hl hlVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (il.class) {
+                if (a == null) {
+                    a = new hl();
+                }
+                hlVar = a;
+            }
+            return hlVar;
+        }
+        return (hl) invokeV.objValue;
+    }
 }

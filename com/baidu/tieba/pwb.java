@@ -1,50 +1,29 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.opengl.EGL14;
-import android.opengl.EGLConfig;
-import android.opengl.EGLContext;
-import android.opengl.EGLDisplay;
-import android.opengl.EGLSurface;
-import android.view.Surface;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-import com.yy.transvod.player.log.TLog;
-import java.util.concurrent.atomic.AtomicBoolean;
-@TargetApi(17)
+import com.baidu.webkit.internal.RC4;
+import com.yy.hiidostatis.inner.util.cipher.Coder;
+import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSocket;
+import org.apache.commons.codec.digest4util.MessageDigestAlgorithms;
 /* loaded from: classes7.dex */
-public final class pwb implements wwb {
+public abstract class pwb {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] g;
-    public static final int[] h;
-    public static final int[] i;
-    public static final int[] j;
+    public static final String[] a;
+    public static final String[] b;
+    public static final String[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicBoolean a;
-    public EGLDisplay b;
-    public EGLContext c;
-    public EGLSurface d;
-    public EGLSurface e;
-    public EGLConfig f;
-
-    public final boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -59,312 +38,160 @@ public final class pwb implements wwb {
                 return;
             }
         }
-        g = new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12321, 8, 12352, 4, 12344};
-        h = new int[]{12440, 2, 12344};
-        i = new int[]{12375, 1, 12374, 1, 12417, 12380, 12416, 12380, 12344};
-        j = new int[]{12344};
+        a = new String[]{"TLS_DHE_DSS_WITH_AES_128_CBC_SHA", "TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_DHE_DSS_WITH_AES_256_CBC_SHA", "TLS_DHE_RSA_WITH_AES_256_CBC_SHA", "TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA", "TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA"};
+        b = new String[]{"TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_DHE_RSA_WITH_AES_128_GCM_SHA256", "TLS_DHE_RSA_WITH_AES_256_GCM_SHA384", "TLS_DHE_DSS_WITH_AES_128_GCM_SHA256", "TLS_DHE_DSS_WITH_AES_256_GCM_SHA384"};
+        c = new String[]{"TLS_RSA", "CBC", "TEA", "SHA0", MessageDigestAlgorithms.MD2, "MD4", "RIPEMD", "NULL", RC4.LOGTAG, Coder.KEY_DES, "DESX", "DES40", "RC2", "MD5", "ANON", "TLS_EMPTY_RENEGOTIATION_INFO_SCSV"};
     }
 
-    @Override // com.baidu.tieba.wwb
-    public void release() {
+    public static boolean a(SSLSocket sSLSocket) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            TLog.g(this, "EglCore.release enter.");
-            b(0, false);
-            EGLDisplay eGLDisplay = this.b;
-            if (eGLDisplay != EGL14.EGL_NO_DISPLAY) {
-                EGLContext eGLContext = this.c;
-                if (eGLContext != EGL14.EGL_NO_CONTEXT) {
-                    EGL14.eglDestroyContext(eGLDisplay, eGLContext);
-                }
-                EGLSurface eGLSurface = this.d;
-                if (eGLSurface != EGL14.EGL_NO_SURFACE) {
-                    EGL14.eglDestroySurface(this.b, eGLSurface);
-                }
-                EGLSurface eGLSurface2 = this.e;
-                if (eGLSurface2 != EGL14.EGL_NO_SURFACE) {
-                    EGL14.eglDestroySurface(this.b, eGLSurface2);
-                    TLog.g(this, "EglCore.release offscreen surface.");
-                }
-                if (i()) {
-                    EGL14.eglReleaseThread();
-                }
-                EGL14.eglTerminate(this.b);
-            }
-            this.f = null;
-            this.b = EGL14.EGL_NO_DISPLAY;
-            this.c = EGL14.EGL_NO_CONTEXT;
-            EGLSurface eGLSurface3 = EGL14.EGL_NO_SURFACE;
-            this.d = eGLSurface3;
-            this.e = eGLSurface3;
-            this.a.set(false);
-            TLog.g(this, "EglCore.release leave.");
-        }
-    }
-
-    public pwb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new AtomicBoolean(false);
-        this.b = EGL14.EGL_NO_DISPLAY;
-        this.c = EGL14.EGL_NO_CONTEXT;
-        EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
-        this.d = eGLSurface;
-        this.e = eGLSurface;
-        this.f = null;
-    }
-
-    @Override // com.baidu.tieba.wwb
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.b != EGL14.EGL_NO_DISPLAY && this.c != EGL14.EGL_NO_CONTEXT) {
-                TLog.g(this, "already created.");
-                return;
-            }
-            TLog.g(this, "EglCore.setup enter.");
-            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            this.b = eglGetDisplay;
-            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
-                TLog.g(this, "EGL14.eglGetDisplay() = " + this.b);
-                int[] iArr = new int[2];
-                if (EGL14.eglInitialize(this.b, iArr, 0, iArr, 1)) {
-                    TLog.g(this, String.format("EGLDisplay.majoy:%d, EGLDisplay.minor:%d", Integer.valueOf(iArr[0]), Integer.valueOf(iArr[1])));
-                    EGLConfig[] eGLConfigArr = new EGLConfig[1];
-                    EGL14.eglChooseConfig(this.b, g, 0, eGLConfigArr, 0, 1, new int[1], 0);
-                    EGLConfig eGLConfig = eGLConfigArr[0];
-                    this.f = eGLConfig;
-                    EGLContext eglCreateContext = EGL14.eglCreateContext(this.b, eGLConfig, EGL14.eglGetCurrentContext(), h, 0);
-                    this.c = eglCreateContext;
-                    if (eglCreateContext != EGL14.EGL_NO_CONTEXT) {
-                        TLog.g(this, "EGL14.eglCreateContext() = " + this.c);
-                        EGL14.eglQueryContext(this.b, this.c, 12440, iArr, 0);
-                        TLog.g(this, String.format("EGLContext.version:%d", Integer.valueOf(iArr[0])));
-                        TLog.g(this, "EglCore.setup leave.");
-                        return;
-                    }
-                    throw new RuntimeException(String.format("EGL14.eglCreateContext() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
-                }
-                this.b = EGL14.EGL_NO_DISPLAY;
-                throw new RuntimeException(String.format("EGL14.eglInitialize() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
-            }
-            throw new RuntimeException(String.format("EGL14.eglGetDisplay() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
-        }
-    }
-
-    @Override // com.baidu.tieba.wwb
-    public boolean available() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wwb
-    public int c() {
-        InterceptResult invokeV;
-        EGLSurface eGLSurface;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int[] iArr = new int[1];
-            EGLDisplay eGLDisplay = this.b;
-            if (eGLDisplay == EGL14.EGL_NO_DISPLAY || (eGLSurface = this.d) == EGL14.EGL_NO_SURFACE || !EGL14.eglQuerySurface(eGLDisplay, eGLSurface, 12374, iArr, 0)) {
-                return 0;
-            }
-            return iArr[0];
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.wwb
-    public int f() {
-        InterceptResult invokeV;
-        EGLSurface eGLSurface;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int[] iArr = new int[1];
-            EGLDisplay eGLDisplay = this.b;
-            if (eGLDisplay == EGL14.EGL_NO_DISPLAY || (eGLSurface = this.d) == EGL14.EGL_NO_SURFACE || !EGL14.eglQuerySurface(eGLDisplay, eGLSurface, 12375, iArr, 0)) {
-                return 0;
-            }
-            return iArr[0];
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.wwb
-    public boolean swapBuffer() {
-        InterceptResult invokeV;
-        EGLSurface eGLSurface;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            EGLDisplay eGLDisplay = this.b;
-            if (eGLDisplay != EGL14.EGL_NO_DISPLAY && (eGLSurface = this.d) != EGL14.EGL_NO_SURFACE) {
-                return EGL14.eglSwapBuffers(eGLDisplay, eGLSurface);
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.wwb
-    public boolean b(int i2, boolean z) {
-        InterceptResult invokeCommon;
-        EGLContext eGLContext;
-        int eglGetError;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (this.b == EGL14.EGL_NO_DISPLAY) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sSLSocket)) == null) {
+            if (sSLSocket == null) {
                 return false;
             }
-            EGLSurface g2 = g(i2);
-            if (z) {
-                eGLContext = this.c;
-            } else {
-                eGLContext = EGL14.EGL_NO_CONTEXT;
-            }
-            if (g2 == EGL14.EGL_NO_SURFACE && eGLContext != EGL14.EGL_NO_CONTEXT) {
-                return true;
-            }
-            boolean eglMakeCurrent = EGL14.eglMakeCurrent(this.b, g2, g2, eGLContext);
-            if (!eglMakeCurrent && (eglGetError = EGL14.eglGetError()) != 12288) {
-                TLog.c(this, String.format("EGL14.eglMakeCurrent() failed. eglGetError() = 0x%04x", Integer.valueOf(eglGetError)) + " bindSurfaceType=" + i2);
-            }
-            return eglMakeCurrent;
+            return b(sSLSocket, c);
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.wwb
-    public void d(boolean z) {
-        EGLSurface eGLSurface;
+    public static void c(SSLSocket sSLSocket) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            TLog.g(this, "EglCore.destroySurface enter, windowSurface: " + z);
-            if (z) {
-                eGLSurface = this.d;
-            } else {
-                eGLSurface = this.e;
-            }
-            if (z) {
-                this.a.set(false);
-            }
-            b(0, true);
-            EGLDisplay eGLDisplay = this.b;
-            if (eGLDisplay != EGL14.EGL_NO_DISPLAY && eGLSurface != EGL14.EGL_NO_SURFACE) {
-                EGL14.eglDestroySurface(eGLDisplay, eGLSurface);
-                if (z) {
-                    this.d = EGL14.EGL_NO_SURFACE;
-                } else {
-                    this.e = EGL14.EGL_NO_SURFACE;
-                }
-            }
-            TLog.g(this, "EglCore.destroySurface  leave.");
+        if ((interceptable == null || interceptable.invokeL(65539, null, sSLSocket) == null) && sSLSocket != null && !g(sSLSocket)) {
+            a(sSLSocket);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x007d, code lost:
-        if (r6.d != android.opengl.EGL14.EGL_NO_SURFACE) goto L17;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x007f, code lost:
-        r1 = true;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x00c4, code lost:
-        if (r6.e != android.opengl.EGL14.EGL_NO_SURFACE) goto L17;
-     */
-    @Override // com.baidu.tieba.wwb
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean e(Object obj) {
+    public static boolean g(SSLSocket sSLSocket) {
         InterceptResult invokeL;
-        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("EglCore.createSurface enter: ");
-            boolean z = false;
-            if (obj != null) {
-                i2 = obj.hashCode();
-            } else {
-                i2 = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, sSLSocket)) == null) {
+            if (sSLSocket == null) {
+                return false;
             }
-            sb.append(i2);
-            TLog.g(this, sb.toString());
-            if (this.b != EGL14.EGL_NO_DISPLAY && this.f != null) {
-                if (obj != null) {
-                    try {
-                        if (h(obj)) {
-                            EGLSurface eglCreateWindowSurface = EGL14.eglCreateWindowSurface(this.b, this.f, obj, j, 0);
-                            this.d = eglCreateWindowSurface;
-                            if (eglCreateWindowSurface == EGL14.EGL_NO_SURFACE) {
-                                TLog.c(this, String.format("EGL14.eglCreateWindowSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
-                            }
-                            TLog.g(this, "EGL14.eglCreateWindowSurface() = " + this.d);
-                            this.a.set(b(1, true));
+            if (Build.VERSION.SDK_INT > 19) {
+                return h(sSLSocket, b);
+            }
+            return h(sSLSocket, a);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(SSLSocket sSLSocket, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, sSLSocket, strArr)) == null) {
+            if (sSLSocket == null) {
+                return false;
+            }
+            String[] enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
+            ArrayList arrayList = new ArrayList();
+            int length = enabledCipherSuites.length;
+            int i = 0;
+            while (true) {
+                boolean z = true;
+                if (i >= length) {
+                    break;
+                }
+                String str = enabledCipherSuites[i];
+                String upperCase = str.toUpperCase(Locale.ENGLISH);
+                int length2 = strArr.length;
+                int i2 = 0;
+                while (true) {
+                    if (i2 < length2) {
+                        if (upperCase.contains(strArr[i2].toUpperCase(Locale.ENGLISH))) {
+                            break;
                         }
-                    } catch (Exception e) {
-                        TLog.g(this, "EGL14.eglCreateWindowSurface() = " + e.toString());
+                        i2++;
+                    } else {
+                        z = false;
+                        break;
                     }
                 }
-                EGLSurface eglCreatePbufferSurface = EGL14.eglCreatePbufferSurface(this.b, this.f, i, 0);
-                this.e = eglCreatePbufferSurface;
-                if (eglCreatePbufferSurface == EGL14.EGL_NO_SURFACE) {
-                    TLog.c(this, String.format("EGL14.eglCreatePbufferSurface() failed. eglGetError() = 0x%04x", Integer.valueOf(EGL14.eglGetError())));
+                if (!z) {
+                    arrayList.add(str);
                 }
-                b(2, true);
-                TLog.g(this, "EGL14.eglCreatePbufferSurface() = " + this.e);
+                i++;
             }
-            TLog.g(this, "EglCore.createSurface leave.");
-            return z;
+            if (arrayList.isEmpty()) {
+                return false;
+            }
+            sSLSocket.setEnabledCipherSuites((String[]) arrayList.toArray(new String[arrayList.size()]));
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public final EGLSurface g(int i2) {
-        InterceptResult invokeI;
+    public static boolean h(SSLSocket sSLSocket, String[] strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i2)) == null) {
-            EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
-            if (i2 == 1) {
-                return this.d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, sSLSocket, strArr)) == null) {
+            if (sSLSocket == null) {
+                return false;
             }
-            if (i2 == 2) {
-                return this.e;
+            String[] enabledCipherSuites = sSLSocket.getEnabledCipherSuites();
+            ArrayList arrayList = new ArrayList();
+            List asList = Arrays.asList(strArr);
+            for (String str : enabledCipherSuites) {
+                if (asList.contains(str.toUpperCase(Locale.ENGLISH))) {
+                    arrayList.add(str);
+                }
             }
-            return eGLSurface;
+            if (arrayList.isEmpty()) {
+                return false;
+            }
+            sSLSocket.setEnabledCipherSuites((String[]) arrayList.toArray(new String[arrayList.size()]));
+            return true;
         }
-        return (EGLSurface) invokeI.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public boolean h(Object obj) {
-        InterceptResult invokeL;
+    public static void d(SSLSocket sSLSocket) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj)) == null) {
-            if (obj instanceof SurfaceHolder) {
-                return ((SurfaceHolder) obj).getSurface().isValid();
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, sSLSocket) != null) || sSLSocket == null) {
+            return;
+        }
+        if (Build.VERSION.SDK_INT >= 29) {
+            sSLSocket.setEnabledProtocols(new String[]{"TLSv1.3", "TLSv1.2"});
+        }
+        int i = Build.VERSION.SDK_INT;
+        if (i >= 16 && i < 29) {
+            sSLSocket.setEnabledProtocols(new String[]{"TLSv1.2"});
+        } else if (Build.VERSION.SDK_INT < 16) {
+            sSLSocket.setEnabledProtocols(new String[]{"TLSv1"});
+        }
+    }
+
+    public static boolean e(SSLSocket sSLSocket, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, sSLSocket, strArr)) == null) {
+            if (sSLSocket != null && strArr != null) {
+                try {
+                    sSLSocket.setEnabledProtocols(strArr);
+                    return true;
+                } catch (Exception e) {
+                    cxb.d("SSLUtil", "setEnabledProtocols: exception : " + e.getMessage());
+                }
             }
-            if (obj instanceof SurfaceView) {
-                return ((SurfaceView) obj).getHolder().getSurface().isValid();
-            }
-            if (obj instanceof Surface) {
-                return ((Surface) obj).isValid();
-            }
-            TLog.c(this, "param surface is invalid.");
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    public static SSLContext f() throws NoSuchAlgorithmException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i >= 29) {
+                return SSLContext.getInstance("TLSv1.3");
+            }
+            if (i >= 16) {
+                return SSLContext.getInstance("TLSv1.2");
+            }
+            return SSLContext.getInstance("TLS");
+        }
+        return (SSLContext) invokeV.objValue;
     }
 }

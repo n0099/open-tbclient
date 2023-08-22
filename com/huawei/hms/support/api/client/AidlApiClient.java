@@ -2,7 +2,7 @@ package com.huawei.hms.support.api.client;
 
 import com.huawei.hms.core.aidl.IAIDLInvoke;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface AidlApiClient extends ApiClient {
     List<String> getApiNameList();
 

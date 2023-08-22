@@ -10,9 +10,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b75;
-import com.baidu.tieba.e75;
-import com.baidu.tieba.ef7;
+import com.baidu.tieba.h75;
+import com.baidu.tieba.k75;
+import com.baidu.tieba.vg7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -28,15 +28,15 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
     public TextView d;
     public TextView e;
     public LocalBannerLayout f;
-    public e75 g;
+    public k75 g;
 
     /* loaded from: classes5.dex */
-    public class a implements e75 {
+    public class a implements k75 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsPublishFineGoodsDialogView a;
 
-        @Override // com.baidu.tieba.e75
+        @Override // com.baidu.tieba.k75
         public void b(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
@@ -61,10 +61,10 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.a = frsPublishFineGoodsDialogView;
         }
 
-        @Override // com.baidu.tieba.e75
-        public void a(int i, b75 b75Var) {
+        @Override // com.baidu.tieba.k75
+        public void a(int i, h75 h75Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, b75Var) == null) {
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, h75Var) == null) {
                 this.a.c(i);
             }
         }
@@ -106,9 +106,9 @@ public class FrsPublishFineGoodsDialogView extends LinearLayout {
             this.e = textView;
             textView.setText(R.string.forum_broadcast_major_history_known);
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new ef7(String.valueOf((int) R.drawable.pic_good_guide1)));
-            arrayList.add(new ef7(String.valueOf((int) R.drawable.pic_good_guide2)));
-            arrayList.add(new ef7(String.valueOf((int) R.drawable.pic_good_guide3)));
+            arrayList.add(new vg7(String.valueOf((int) R.drawable.pic_good_guide1)));
+            arrayList.add(new vg7(String.valueOf((int) R.drawable.pic_good_guide2)));
+            arrayList.add(new vg7(String.valueOf((int) R.drawable.pic_good_guide3)));
             this.f.setData(arrayList);
             this.f.setOnCoverViewCallback(this.g);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);

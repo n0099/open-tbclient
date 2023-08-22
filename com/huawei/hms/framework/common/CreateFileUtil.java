@@ -18,7 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class CreateFileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EXTERNAL_FILE_NAME = "com.huawei.libcore.io.ExternalStorageFile";

@@ -1,81 +1,191 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
 import android.text.TextUtils;
+import android.util.Xml;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes6.dex */
 public class kr4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile kr4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final jr4<String> a;
-    public String b;
 
-    @SuppressLint({"BDThrowableCheck"})
-    public kr4(Context context) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0043 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0045 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0021 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v14 */
+    public static boolean a(InputStream inputStream, File file) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        int read;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, file)) == null) {
+            boolean z = false;
+            if (inputStream == null || file == null) {
+                return false;
             }
+            File parentFile = file.getParentFile();
+            if (!parentFile.exists()) {
+                parentFile.mkdirs();
+            }
+            if (file.exists()) {
+                file.delete();
+            }
+            FileOutputStream fileOutputStream2 = null;
+            FileOutputStream fileOutputStream3 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    fileOutputStream.write(bArr, 0, read);
+                }
+                fileOutputStream.flush();
+                z = true;
+                hr4.d(fileOutputStream);
+                fileOutputStream2 = read;
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream3 = fileOutputStream;
+                e.printStackTrace();
+                hr4.d(fileOutputStream3);
+                fileOutputStream2 = fileOutputStream3;
+                hr4.d(inputStream);
+                return z;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                hr4.d(fileOutputStream2);
+                hr4.d(inputStream);
+                throw th;
+            }
+            hr4.d(inputStream);
+            return z;
         }
-        jr4<String> jr4Var = new jr4<>();
-        this.a = jr4Var;
-        if (context == null) {
-            return;
-        }
-        jr4Var.a(new nr4(context));
-        this.a.a(new pr4(context));
-        this.a.a(new or4(context));
-        this.a.a(new rr4(context));
-        this.a.a(new lr4(context));
-        this.a.a(new qr4(context));
+        return invokeLL.booleanValue;
     }
 
-    public static kr4 b(Context context) {
+    public static String b(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (c == null) {
-                synchronized (kr4.class) {
-                    if (c == null) {
-                        c = new kr4(context);
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            return c(inputStream, Xml.Encoding.UTF_8.toString());
         }
-        return (kr4) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static String c(InputStream inputStream, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                synchronized (this) {
-                    if (TextUtils.isEmpty(this.b)) {
-                        String b = this.a.b();
-                        this.b = b;
-                        this.a.d(b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            try {
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, str), 8192);
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        sb.append(readLine);
+                    }
+                } catch (Throwable th) {
+                    hr4.d(inputStream);
+                    throw th;
+                }
+            } catch (Exception | OutOfMemoryError e) {
+                e.printStackTrace();
+            }
+            hr4.d(inputStream);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean d(InputStream inputStream, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) {
+            boolean z = false;
+            if (inputStream != null && !TextUtils.isEmpty(str)) {
+                File file = new File(str);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                byte[] bArr = new byte[8192];
+                ZipInputStream zipInputStream = new ZipInputStream(inputStream);
+                while (true) {
+                    try {
+                        ZipEntry nextEntry = zipInputStream.getNextEntry();
+                        if (nextEntry != null) {
+                            String str2 = str + "/" + nextEntry.getName();
+                            if (hr4.x(str2)) {
+                                hr4.d(zipInputStream);
+                                return false;
+                            } else if (nextEntry.isDirectory()) {
+                                File file2 = new File(str2);
+                                if (!file2.exists()) {
+                                    file2.mkdirs();
+                                }
+                            } else {
+                                File parentFile = new File(str2).getParentFile();
+                                if (!parentFile.exists()) {
+                                    parentFile.mkdirs();
+                                }
+                                if (!parentFile.isDirectory()) {
+                                    parentFile.delete();
+                                    parentFile.mkdirs();
+                                }
+                                FileOutputStream fileOutputStream = new FileOutputStream(str2);
+                                while (true) {
+                                    try {
+                                        int read = zipInputStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        fileOutputStream.write(bArr, 0, read);
+                                    } finally {
+                                    }
+                                }
+                                hr4.d(fileOutputStream);
+                            }
+                        } else {
+                            z = true;
+                            break;
+                        }
+                    } catch (IOException unused) {
+                    } catch (Throwable th) {
+                        hr4.d(zipInputStream);
+                        throw th;
                     }
                 }
+                hr4.d(zipInputStream);
             }
-            return this.b;
+            return z;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

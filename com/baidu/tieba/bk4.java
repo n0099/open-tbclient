@@ -1,190 +1,92 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.http.request.GetRequest;
-import com.baidu.searchbox.http.request.PostByteRequest;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import java.util.Map;
-import okhttp3.MediaType;
-import org.json.JSONObject;
-@Deprecated
+import java.util.Objects;
 /* loaded from: classes5.dex */
-public class bk4 {
+public class bk4 extends zj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static CookieManager a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String g;
+    public int h;
+    public long i;
+    public String j;
+    public long k;
+    public String l;
+    public String m;
+    public String n;
 
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a(Map<String, String> map, byte[] bArr, String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ fk4 b;
-
-        public a(Map map, fk4 fk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, fk4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = fk4Var;
-        }
-
-        @Override // com.baidu.tieba.bk4.c
-        public void a(Map<String, String> map, byte[] bArr, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
-                PostByteRequest.PostByteRequestBuilder postByteRequest = ci4.g().postByteRequest();
-                ki4.a(postByteRequest, this.a);
-                postByteRequest.url(gk4.j(str, this.a)).content(bArr).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
-                if (map != null) {
-                    postByteRequest.addHeaders(map);
-                }
-                if (!TextUtils.isEmpty(bk4.b)) {
-                    postByteRequest.userAgent(bk4.b);
-                }
-                postByteRequest.cookieManager(bk4.a).enableStat(true).build().executeStat(this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ fk4 b;
-
-        public b(Map map, fk4 fk4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, fk4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = map;
-            this.b = fk4Var;
-        }
-
-        @Override // com.baidu.tieba.bk4.c
-        public void a(Map<String, String> map, byte[] bArr, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
-                GetRequest.GetRequestBuilder requestSubFrom = ci4.g().getRequest().url(gk4.j(str, this.a)).requestSubFrom(10);
-                if (!TextUtils.isEmpty(bk4.b)) {
-                    requestSubFrom.userAgent(bk4.b);
-                }
-                if (map != null) {
-                    requestSubFrom.addHeaders(map);
-                }
-                requestSubFrom.cookieManager(bk4.a).enableStat(true).build().executeStat(this.b);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947647838, "Lcom/baidu/tieba/bk4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947647838, "Lcom/baidu/tieba/bk4;");
-                return;
-            }
-        }
-        a = ji4.b().f();
-        ph4 b2 = qh4.b();
-        if (b2 != null && ci4.g().c()) {
-            b = b2.getUserAgent();
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    @Deprecated
-    public static void a(String str, Map<String, String> map, Map<String, String> map2, fk4<String> fk4Var) {
+    public bk4() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65537, null, str, map, map2, fk4Var) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        if (fk4Var != null) {
-            fk4Var.onStart();
-        }
-        hi4 b2 = ji4.b();
-        if (PMSConstants.a(b2)) {
-            b2.m(gk4.j(str, map), null, new b(map, fk4Var));
-            return;
-        }
-        GetRequest.GetRequestBuilder requestSubFrom = ci4.g().getRequest().url(gk4.j(str, map)).requestSubFrom(10);
-        if (!TextUtils.isEmpty(b)) {
-            requestSubFrom.userAgent(b);
-        }
-        if (map2 != null) {
-            requestSubFrom.addHeaders(map2);
-        }
-        requestSubFrom.cookieManager(a).enableStat(true).build().executeStat(fk4Var);
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    @Deprecated
-    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, fk4<String> fk4Var) {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65538, null, str, map, map2, jSONObject, fk4Var) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!TextUtils.isEmpty(this.g) && this.i > 0 && !TextUtils.isEmpty(this.l) && !TextUtils.isEmpty(this.m) && !TextUtils.isEmpty(this.n)) {
+                return true;
+            }
+            return false;
         }
-        if (fk4Var != null) {
-            fk4Var.onStart();
+        return invokeV.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Objects.hash(this.g, Integer.valueOf(this.h), Long.valueOf(this.i), this.j);
         }
-        hi4 b2 = ji4.b();
-        if (PMSConstants.a(b2)) {
-            b2.m(gk4.j(str, map), jSONObject.toString(), new a(map, fk4Var));
-            return;
+        return invokeV.intValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (super.equals(obj)) {
+                return true;
+            }
+            if (obj == null || !(obj instanceof bk4)) {
+                return false;
+            }
+            bk4 bk4Var = (bk4) obj;
+            if (TextUtils.isEmpty(this.j) && TextUtils.isEmpty(bk4Var.j)) {
+                if (this.g.equals(bk4Var.g) && this.i == bk4Var.i) {
+                    return true;
+                }
+                return false;
+            } else if (TextUtils.equals(this.g, bk4Var.g) && this.i == bk4Var.i && TextUtils.equals(this.j, bk4Var.j)) {
+                return true;
+            } else {
+                return false;
+            }
         }
-        yh4 postStringRequest = ci4.g().postStringRequest();
-        ki4.a(postStringRequest, map);
-        postStringRequest.url(gk4.j(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
-        if (map2 != null) {
-            postStringRequest.addHeaders(map2);
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "bundleId=" + this.g + ", category=" + this.h + ", versionCode=" + this.i + ", versionName=" + this.j + ", size=" + this.k + ", md5=" + this.l + ", sign=" + this.m + ", downloadUrl=" + this.n;
         }
-        if (!TextUtils.isEmpty(b)) {
-            postStringRequest.userAgent(b);
-        }
-        postStringRequest.cookieManager(a).enableStat(true).build().executeStat(fk4Var);
+        return (String) invokeV.objValue;
     }
 }

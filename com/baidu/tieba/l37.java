@@ -1,300 +1,174 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import androidx.annotation.IdRes;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.faceshop.EmotionGroupData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public final class l37 {
+public class l37 implements nh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        e a();
-
-        c b();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(View view2, List<String> list);
-
-        View create(Context context);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface e {
-        void a(View view2, int i);
-
-        void b(View view2, boolean z);
-
-        void c(View view2, d dVar);
-
-        View create(Context context);
-
-        void d(View view2, @IdRes int i);
-
-        void e(View view2, boolean z, float f, float f2);
-
-        void f(View view2, String str);
-
-        void g(View view2, @IdRes int i);
-
-        void h(View view2, ImageView.ScaleType scaleType);
-
-        void i(View view2, String str);
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* loaded from: classes6.dex */
-        public static class a implements a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            /* renamed from: com.baidu.tieba.l37$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class C0378a implements e {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.l37.e
-                public void a(View view2, int i) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-                    }
-                }
-
-                @Override // com.baidu.tieba.l37.e
-                public void b(View view2, boolean z) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) {
-                    }
-                }
-
-                @Override // com.baidu.tieba.l37.e
-                public void c(@NonNull View view2, @NonNull d dVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, dVar) == null) {
-                    }
-                }
-
-                @Override // com.baidu.tieba.l37.e
-                public View create(Context context) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-                        return null;
-                    }
-                    return (View) invokeL.objValue;
-                }
-
-                @Override // com.baidu.tieba.l37.e
-                public void d(@NonNull View view2, int i) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLI(1048580, this, view2, i) == null) {
-                    }
-                }
-
-                @Override // com.baidu.tieba.l37.e
-                public void e(View view2, boolean z, float f, float f2) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{view2, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)}) == null) {
-                    }
-                }
-
-                @Override // com.baidu.tieba.l37.e
-                public void f(@NonNull View view2, String str) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLL(1048582, this, view2, str) == null) {
-                    }
-                }
-
-                @Override // com.baidu.tieba.l37.e
-                public void g(@NonNull View view2, int i) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLI(1048583, this, view2, i) == null) {
-                    }
-                }
-
-                @Override // com.baidu.tieba.l37.e
-                public void h(View view2, ImageView.ScaleType scaleType) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, scaleType) == null) {
-                    }
-                }
-
-                @Override // com.baidu.tieba.l37.e
-                public void i(View view2, String str) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLL(1048585, this, view2, str) == null) {
-                    }
-                }
-
-                public C0378a(a aVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {aVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-            }
-
-            /* renamed from: com.baidu.tieba.l37$b$a$b  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class C0379b implements c {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.l37.c
-                public void a(View view2, List<String> list) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeLL(1048576, this, view2, list) == null) {
-                    }
-                }
-
-                @Override // com.baidu.tieba.l37.c
-                public View create(Context context) {
-                    InterceptResult invokeL;
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                        return null;
-                    }
-                    return (View) invokeL.objValue;
-                }
-
-                public C0379b(a aVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {aVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                        }
-                    }
-                }
-            }
-
-            public a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.l37.a
-            public e a() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return new C0378a(this);
-                }
-                return (e) invokeV.objValue;
-            }
-
-            @Override // com.baidu.tieba.l37.a
-            public c b() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                    return new C0379b(this);
-                }
-                return (c) invokeV.objValue;
-            }
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-681524037, "Lcom/baidu/tieba/l37$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-681524037, "Lcom/baidu/tieba/l37$b;");
-                    return;
-                }
-            }
-            a aVar = (a) ServiceManager.getService(new ServiceReference("feed", "widget.resolver"));
-            if (aVar == null) {
-                aVar = new a();
-            }
-            a = aVar;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = 3;
-        }
-    }
-
-    public static a a() {
-        InterceptResult invokeV;
+    public l37() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return b.a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) && i != 3) {
+            try {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public void onFileDownloadSucceed(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
+            MessageManager.getInstance().runTask(2004603, (Class) null);
+            try {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public void onFileUpdateProgress(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, downloadData) != null) || downloadData == null) {
+            return;
+        }
+        m37.f().i(downloadData);
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public boolean onFileDownloaded(DownloadData downloadData) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            FileInputStream fileInputStream2 = null;
+            try {
+                try {
+                    fileInputStream = new FileInputStream(downloadData.getPath());
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                int g = f37.c().g(downloadData.getId(), fileInputStream);
+                EmotionGroupData n = n37.o().n(downloadData.getId());
+                if (n == null) {
+                    if (g == 0) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException e2) {
+                            BdLog.detailException(e2);
+                        }
+                        return false;
+                    }
+                    n = new EmotionGroupData();
+                    n.setBytesLength((int) downloadData.getSize());
+                    n.setBytesReceived((int) downloadData.getLength());
+                    n.setDownloadUrl(downloadData.getUrl());
+                    n.setGroupId(downloadData.getId());
+                    n.setEmotionsCount(g);
+                    n.setHeight(downloadData.getHeight());
+                    n.setWidth(downloadData.getWidth());
+                    n.setDownloadTime(System.currentTimeMillis());
+                    n.setGroupDesc(downloadData.getDescription());
+                    n.setGroupName(downloadData.getName());
+                    n.setStatus(1);
+                    n37.o().g(n);
+                }
+                n37.o().h(downloadData.getStatusMsg(), n);
+                downloadData.setStatusMsg(null);
+                try {
+                    fileInputStream.close();
+                } catch (IOException e3) {
+                    BdLog.detailException(e3);
+                }
+                return true;
+            } catch (Exception e4) {
+                e = e4;
+                fileInputStream2 = fileInputStream;
+                BdLog.detailException(e);
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e5) {
+                        BdLog.detailException(e5);
+                    }
+                }
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (IOException e6) {
+                        BdLog.detailException(e6);
+                    }
+                }
+                throw th;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nh5
+    public boolean onPreDownload(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+            if (downloadData == null) {
+                return false;
+            }
+            EmotionGroupData n = n37.o().n(downloadData.getId());
+            if (n != null && g37.d(downloadData.getId())) {
+                n37.o().h(downloadData.getStatusMsg(), n);
+                downloadData.setStatusMsg(null);
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

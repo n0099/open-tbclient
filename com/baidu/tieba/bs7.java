@@ -1,29 +1,24 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
 /* loaded from: classes5.dex */
-public class bs7 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public int b;
-    public int c;
+public interface bs7 {
+    void d(int i, @NonNull String str);
 
-    public bs7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void g(boolean z);
+
+    void h(View.OnClickListener onClickListener);
+
+    void i(long j, long j2);
+
+    void j(@Nullable String str, @NonNull String str2);
+
+    void k(@NonNull LogicField logicField, int i);
+
+    void onChangeSkinType(int i);
+
+    void onDestory();
 }

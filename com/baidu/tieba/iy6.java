@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tieba.easteregg.EasterEggAdController;
+import com.baidu.tieba.easteregg.data.EasterEggAdData;
+import com.baidu.tieba.easteregg.data.EasterEggAdDataHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetForumSquare.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
+import kotlin.Unit;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class iy6 {
+public final class iy6 extends x55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<RecommendForumInfo> a;
-    public List<String> b;
-    public Page c;
-    public String d;
 
     public iy6() {
         Interceptable interceptable = $ic;
@@ -31,14 +31,29 @@ public class iy6 {
         }
     }
 
-    public void a(DataRes dataRes) {
+    @Override // com.baidu.tieba.x55
+    public void a(Context context, p55 data) {
+        Unit unit;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if ((context instanceof Activity) && (context instanceof vja)) {
+                EasterEggAdData b = EasterEggAdDataHolder.b.a().b();
+                if (b != null) {
+                    new EasterEggAdController((Activity) context).o(b);
+                    YunDialogManager.markShowingDialogName("easterEgg");
+                    unit = Unit.INSTANCE;
+                } else {
+                    unit = null;
+                }
+                if (unit == null) {
+                    YunDialogManager.unMarkShowingDialogName("easterEgg");
+                    return;
+                }
+                return;
+            }
+            YunDialogManager.unMarkShowingDialogName("easterEgg");
         }
-        this.d = dataRes.class_name;
-        this.c = dataRes.page;
-        this.b = dataRes.page_structure;
-        this.a = dataRes.forum_info;
     }
 }

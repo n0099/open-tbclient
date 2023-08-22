@@ -67,9 +67,9 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
             if (!z) {
-                this.a.h(false);
+                this.a.j(false);
             } else {
-                this.a.f(false);
+                this.a.h(false);
             }
         }
     }
@@ -78,9 +78,9 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             if (z) {
-                this.b.g();
+                this.b.i();
             } else {
-                this.b.e();
+                this.b.g();
             }
         }
     }
@@ -97,11 +97,11 @@ public class PersonalTalkSettingViewSettingView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setOrientation(1);
-            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d075c, this);
-            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f0922f6);
+            LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0762, this);
+            SettingTextSwitchView settingTextSwitchView = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f092324);
             this.a = settingTextSwitchView;
             SkinManager.setBackgroundColor(settingTextSwitchView.getView(), R.color.CAM_X0201);
-            SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f0922f8);
+            SettingTextSwitchView settingTextSwitchView2 = (SettingTextSwitchView) findViewById(R.id.obfuscated_res_0x7f092326);
             this.b = settingTextSwitchView2;
             SkinManager.setBackgroundColor(settingTextSwitchView2.getView(), R.color.CAM_X0201);
         }

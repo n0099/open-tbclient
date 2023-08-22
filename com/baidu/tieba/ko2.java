@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ko2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    public boolean a;
+    public boolean b;
     public String c;
-    public String d;
-    public long e;
-    public int f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
+    public JSONObject d;
 
     public ko2() {
         Interceptable interceptable = $ic;
@@ -36,49 +34,192 @@ public class ko2 {
         }
     }
 
-    @NonNull
-    public static ko2 a(@NonNull vv2 vv2Var) {
-        InterceptResult invokeL;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vv2Var)) == null) {
-            ko2 ko2Var = new ko2();
-            ko2Var.a = vv2Var.H();
-            ko2Var.c = vv2Var.K();
-            ko2Var.d = vv2Var.Q();
-            ko2Var.f = vv2Var.G();
-            ko2Var.i = vv2Var.T();
-            ko2Var.h = vv2Var.p1();
-            ko2Var.e = System.currentTimeMillis();
-            ko2Var.g = String.valueOf(vv2Var.getType());
-            ko2Var.b = vv2Var.I();
-            ko2Var.j = vv2Var.v1();
-            return ko2Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (cb3.K().k() == 0) {
+                return c(this.d, "bbasp_guide_");
+            }
+            return false;
         }
-        return (ko2) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static ko2 b(JSONObject jSONObject) {
+    public final JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String string = rj3.a().getString("swan_guide_toast", "");
+            if (!TextUtils.isEmpty(string)) {
+                try {
+                    return new JSONObject(string);
+                } catch (JSONException unused) {
+                    return null;
+                }
+            }
+            return null;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a) {
+                return "special";
+            }
+            if (this.b) {
+                return "normal";
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (!this.b && !this.a) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONArray optJSONArray = this.d.optJSONArray("custom_guide_list");
+            if (optJSONArray != null && optJSONArray.length() != 0) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                    String optString = optJSONObject.optString("appid", "");
+                    if (db3.g0() == null || TextUtils.equals(db3.g0(), optString)) {
+                        return c(optJSONObject, "");
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        int i;
+        long j;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
+            boolean z2 = false;
+            if (jSONObject == null) {
+                return false;
+            }
+            String optString = jSONObject.optString(str + "count", "3");
+            try {
+                if (!TextUtils.isEmpty(optString)) {
+                    i = Integer.valueOf(optString).intValue();
+                } else {
+                    i = 0;
+                }
+                String optString2 = jSONObject.optString(str + "interval", "72");
+                if (!TextUtils.isEmpty(optString2)) {
+                    j = Long.valueOf(optString2).longValue();
+                } else {
+                    j = 0;
+                }
+                long optLong = jSONObject.optLong(str + "last_time", 0L);
+                int optInt = jSONObject.optInt(str + "shown_count", 0);
+                int optInt2 = jSONObject.optInt(str + "image_index", 0);
+                if (System.currentTimeMillis() - optLong > j * 3600000) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                boolean i2 = i(jSONObject.optJSONArray("scenes"));
+                if (optInt < i && z && i2) {
+                    z2 = true;
+                }
+                if (z2) {
+                    g(jSONObject, optInt2, str + "images");
+                }
+            } catch (NumberFormatException unused) {
+            }
+            return z2;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final int g(JSONObject jSONObject, int i, String str) {
+        InterceptResult invokeLIL;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, jSONObject, i, str)) == null) {
+            if (jSONObject == null || i < 0 || TextUtils.isEmpty(str) || (optJSONArray = jSONObject.optJSONArray(str)) == null || optJSONArray.length() == 0) {
+                return 0;
+            }
+            if (i >= optJSONArray.length()) {
+                i = 0;
+            }
+            this.c = optJSONArray.optString(i);
+            return i;
+        }
+        return invokeLIL.intValue;
+    }
+
+    public ko2 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            this.a = false;
+            this.b = false;
+            this.c = null;
+            JSONObject d = d();
+            this.d = d;
+            if (d != null && d.length() != 0) {
+                boolean b = b();
+                this.a = b;
+                if (b) {
+                    return this;
+                }
+                this.b = a();
+            }
+            return this;
+        }
+        return (ko2) invokeV.objValue;
+    }
+
+    public final boolean i(JSONArray jSONArray) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONArray)) == null) {
+            if (jSONArray == null || jSONArray.length() <= 0) {
+                return true;
             }
-            ko2 ko2Var = new ko2();
-            ko2Var.a = jSONObject.optString("bundle_id");
-            ko2Var.e = jSONObject.optLong("time");
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject != null) {
-                ko2Var.b = optJSONObject.optString("appkey");
-                ko2Var.g = optJSONObject.optString("pkg_type");
-                ko2Var.c = optJSONObject.optString("app_name");
-                ko2Var.d = optJSONObject.optString("app_icon");
-                ko2Var.j = optJSONObject.optString("version_code");
-                ko2Var.f = optJSONObject.optInt("frame_type");
-                ko2Var.h = optJSONObject.optInt("pay_protected");
+            String T2 = cb3.K().q().W().T();
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                if (TextUtils.equals(T2, jSONArray.optString(i))) {
+                    return true;
+                }
             }
-            return ko2Var;
+            return false;
         }
-        return (ko2) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

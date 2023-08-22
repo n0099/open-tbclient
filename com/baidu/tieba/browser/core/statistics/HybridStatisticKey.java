@@ -1,5 +1,6 @@
 package com.baidu.tieba.browser.core.statistics;
 
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -14,6 +15,7 @@ public final class HybridStatisticKey {
     public static final /* synthetic */ HybridStatisticKey[] $VALUES;
     public static /* synthetic */ Interceptable $ic;
     public static final HybridStatisticKey KEY_OFFLINE_PACKAGE;
+    public static final HybridStatisticKey KEY_RD_USE;
     public static final HybridStatisticKey KEY_UPDATE_OFFLINE_PACK;
     public transient /* synthetic */ FieldHolder $fh;
     public final String value;
@@ -32,9 +34,10 @@ public final class HybridStatisticKey {
             }
         }
         KEY_UPDATE_OFFLINE_PACK = new HybridStatisticKey("KEY_UPDATE_OFFLINE_PACK", 0, TbadkCoreStatisticKey.KEY_UPDATE_OFFLINE_PACK);
-        HybridStatisticKey hybridStatisticKey = new HybridStatisticKey("KEY_OFFLINE_PACKAGE", 1, TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL);
-        KEY_OFFLINE_PACKAGE = hybridStatisticKey;
-        $VALUES = new HybridStatisticKey[]{KEY_UPDATE_OFFLINE_PACK, hybridStatisticKey};
+        KEY_OFFLINE_PACKAGE = new HybridStatisticKey("KEY_OFFLINE_PACKAGE", 1, TbadkCoreStatisticKey.KEY_QUICK_WEBVIEW_LOCAL_URL);
+        HybridStatisticKey hybridStatisticKey = new HybridStatisticKey("KEY_RD_USE", 2, CommonStatisticKey.KEY_RD_USE);
+        KEY_RD_USE = hybridStatisticKey;
+        $VALUES = new HybridStatisticKey[]{KEY_UPDATE_OFFLINE_PACK, KEY_OFFLINE_PACKAGE, hybridStatisticKey};
     }
 
     public HybridStatisticKey(String str, int i, String str2) {

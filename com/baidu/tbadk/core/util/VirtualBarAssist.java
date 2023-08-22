@@ -77,7 +77,6 @@ public class VirtualBarAssist {
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
             VirtualBarAssist virtualBarAssist = new VirtualBarAssist(activity);
             virtualBarAssist.addOnGlobalLayoutListener();
-            UtilHelper.setTranslucentVirtualNavigation(activity);
             return virtualBarAssist;
         }
         return (VirtualBarAssist) invokeL.objValue;

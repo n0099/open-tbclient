@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.UUID;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class s1 {
     public static /* synthetic */ Interceptable $ic = null;
     public static String a = "Y29tLmt3YWkud2VhcG9u";
@@ -57,8 +57,8 @@ public final class s1 {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0029 A[Catch: all -> 0x0097, TryCatch #0 {all -> 0x0097, blocks: (B:5:0x0006, B:11:0x0023, B:13:0x0029, B:14:0x0031, B:20:0x004d, B:22:0x0053, B:25:0x005d, B:19:0x0049, B:10:0x001f), top: B:32:0x0006 }] */
-    /* JADX WARN: Removed duplicated region for block: B:22:0x0053 A[Catch: all -> 0x0097, TRY_LEAVE, TryCatch #0 {all -> 0x0097, blocks: (B:5:0x0006, B:11:0x0023, B:13:0x0029, B:14:0x0031, B:20:0x004d, B:22:0x0053, B:25:0x005d, B:19:0x0049, B:10:0x001f), top: B:32:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0029 A[Catch: all -> 0x0096, TryCatch #0 {all -> 0x0096, blocks: (B:5:0x0006, B:11:0x0023, B:13:0x0029, B:14:0x0031, B:20:0x004d, B:22:0x0053, B:25:0x005d, B:19:0x0049, B:10:0x001f), top: B:32:0x0006 }] */
+    /* JADX WARN: Removed duplicated region for block: B:22:0x0053 A[Catch: all -> 0x0096, TRY_LEAVE, TryCatch #0 {all -> 0x0096, blocks: (B:5:0x0006, B:11:0x0023, B:13:0x0029, B:14:0x0031, B:20:0x004d, B:22:0x0053, B:25:0x005d, B:19:0x0049, B:10:0x001f), top: B:32:0x0006 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -139,7 +139,7 @@ public final class s1 {
         return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x001c: INVOKE  (r1v0 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: long : 0x001b: INVOKE  (r1v0 long A[REMOVE]) =  type: STATIC call: java.lang.System.currentTimeMillis():long)] */
     public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, context, str) == null) {

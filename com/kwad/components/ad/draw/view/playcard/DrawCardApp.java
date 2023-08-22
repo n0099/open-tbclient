@@ -24,7 +24,7 @@ import com.kwad.sdk.core.imageloader.KSImageLoader;
 import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     public KsAppDownloadListener br;
     public a cc;
@@ -43,7 +43,7 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     public c mApkDownloadHelper;
     public int mHeight;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void aC();
 
@@ -66,16 +66,16 @@ public class DrawCardApp extends FrameLayout implements View.OnClickListener {
     }
 
     private void E(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d048f, this);
-        this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f09127f);
-        this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f091284);
-        this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f091285);
-        this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091287);
-        this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f091286);
-        this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f091283);
-        this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f091281);
-        this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09128b);
-        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091282);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0496, this);
+        this.cd = (ImageView) findViewById(R.id.obfuscated_res_0x7f091295);
+        this.ce = (ImageView) findViewById(R.id.obfuscated_res_0x7f09129a);
+        this.cf = (TextView) findViewById(R.id.obfuscated_res_0x7f09129b);
+        this.cg = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09129d);
+        this.ch = (AppScoreView) findViewById(R.id.obfuscated_res_0x7f09129c);
+        this.ci = (TextView) findViewById(R.id.obfuscated_res_0x7f091299);
+        this.cj = (TextView) findViewById(R.id.obfuscated_res_0x7f091297);
+        this.ck = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912a1);
+        DrawDownloadProgressBar drawDownloadProgressBar = (DrawDownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f091298);
         this.cl = drawDownloadProgressBar;
         drawDownloadProgressBar.setTextSize(16);
         this.mHeight = com.kwad.sdk.b.kwai.a.a(context, 156.0f);

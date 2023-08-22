@@ -1,233 +1,278 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.MainThread;
+import android.graphics.SurfaceTexture;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTSplashAd;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.FunSplashAd;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class ffb extends sfb<hgb> {
+public class ffb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public float e;
+    public float f;
+    public jfb g;
+    public jfb.f h;
+    public jfb.b i;
+    public jfb.e j;
+    public pfb k;
+    public String l;
+    public int m;
+    public SurfaceTexture n;
+    public int o;
+    public int p;
+    public qfb q;
+    public boolean r;
+    public boolean s;
+    public int t;
+    public int u;
+    public boolean v;
 
-    /* loaded from: classes5.dex */
-    public class a implements TTAdNative.SplashAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ffb a;
-
-        public a(ffb ffbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ffbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ffbVar;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        @MainThread
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJSplashAd onError code: " + i + ", message: " + str, new Object[0]);
-                this.a.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
-        @MainThread
-        public void onSplashAdLoad(TTSplashAd tTSplashAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTSplashAd) == null) {
-                LogPrinter.d();
-                tTSplashAd.getMediaExtraInfo();
-                this.a.onAdLoaded(new hgb(tTSplashAd), new String[0]);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.SplashAdListener
-        @MainThread
-        public void onTimeout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.e();
-                this.a.onError(0, "Load Timeout");
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements TTSplashAd.AdInteractionListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final hgb a;
-        public final String b;
-        public boolean c;
-        public boolean d;
-        public final /* synthetic */ ffb e;
-
-        public b(ffb ffbVar, hgb hgbVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ffbVar, hgbVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = ffbVar;
-            this.a = hgbVar;
-            this.b = str;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdClicked(View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-                LogPrinter.d();
-                this.e.onAdClicked((ffb) this.a, this.d, new String[0]);
-                this.d = true;
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdShow(View view2, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-                LogPrinter.d();
-                this.e.onAdShow((ffb) this.a, this.c, new String[0]);
-                this.c = true;
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdSkip() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClose(this.a);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-        public void onAdTimeOver() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                LogPrinter.d();
-                this.e.onAdClose(this.a);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ffb(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, false, true);
+    public ffb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = RecordConstants.VIDEO_CONSTANT_WIDTH;
+        this.b = RecordConstants.VIDEO_CONSTANT_HEIGHT;
+        this.c = RecordConstants.DEFAULT_BIT_RATE_GTE_API18;
+        this.d = 1;
+        this.e = 1.0f;
+        this.f = 0.0f;
+        this.p = -100;
+        this.s = false;
+        this.t = 10000;
+        this.u = 30;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            hgb hgbVar = (hgb) obj;
-        }
-    }
-
-    @Override // com.baidu.tieba.sfb
-    public void f(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            int expressHeight = (int) ((funAdSlot.getExpressHeight() * context.getResources().getDisplayMetrics().density) + 0.5f);
-            this.e.loadSplashAd(new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setImageAcceptedSize((int) ((funAdSlot.getExpressWidth() * context.getResources().getDisplayMetrics().density) + 0.5f), expressHeight).setExpressViewAcceptedSize(funAdSlot.getExpressWidth(), funAdSlot.getExpressHeight()).build(), new a(this), 5000);
-        }
-    }
-
-    public final boolean m(ViewGroup viewGroup, hgb hgbVar, TTSplashAd.AdInteractionListener adInteractionListener) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, hgbVar, adInteractionListener)) == null) {
-            View splashView = ((TTSplashAd) hgbVar.a).getSplashView();
-            Log.d("feifei", "price:" + hgbVar.a());
-            if (splashView.getParent() != null) {
-                ((ViewGroup) splashView.getParent()).removeView(splashView);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            jfb jfbVar = this.g;
+            if (jfbVar != null) {
+                jfbVar.c();
+                this.g.l(null);
             }
-            viewGroup.removeAllViews();
-            viewGroup.addView(splashView);
-            onShowStart(hgbVar);
-            ((TTSplashAd) hgbVar.a).setSplashInteractionListener(adInteractionListener);
-            return true;
+            return this.l;
         }
-        return invokeLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public void b(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
-            hgb hgbVar = (hgb) obj;
-            m(viewGroup, hgbVar, new b(this, hgbVar, str));
-            return true;
+        if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+            this.f = f;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
-            hgb hgbVar = (hgb) obj;
-            pfb pfbVar = new pfb((TTSplashAd) hgbVar.a);
-            m(viewGroup, hgbVar, new hfb(this, hgbVar, str, pfbVar));
-            return pfbVar;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.o = i;
         }
-        return (FunSplashAd) invokeLLLL.objValue;
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) || i <= 0 || i2 <= 0) {
+            return;
+        }
+        if (this.o <= 0) {
+            this.o = RecordConstants.VIDEO_CONSTANT_WIDTH;
+        }
+        this.a = i;
+        this.b = i2;
+        if (i2 > i) {
+            int i3 = this.o;
+            i2 = ((i2 * i3) / i) - (((i3 * i2) / i) % 16);
+            i = i3;
+        } else if (i2 < i) {
+            int i4 = this.o;
+            i = ((i * i4) / i2) - (((i4 * i) / i2) % 16);
+            i2 = i4;
+        }
+        this.a = i;
+        this.b = i2;
+    }
+
+    public void e(SurfaceTexture surfaceTexture) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, surfaceTexture) == null) {
+            this.n = surfaceTexture;
+        }
+    }
+
+    public void f(jfb.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.i = bVar;
+        }
+    }
+
+    public void g(jfb.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, eVar) == null) {
+            this.j = eVar;
+        }
+    }
+
+    public void h(pfb pfbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, pfbVar) == null) {
+            this.k = pfbVar;
+        }
+    }
+
+    public void i(qfb qfbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qfbVar) == null) {
+            this.q = qfbVar;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.l = str;
+            try {
+                jfb jfbVar = new jfb();
+                this.g = jfbVar;
+                jfbVar.d(this.e);
+                this.g.B(this.p);
+                if (this.f != 0.0f) {
+                    this.g.A(this.f);
+                }
+                this.g.l(this.h);
+                this.g.i(this.i);
+                this.g.k(this.j);
+                this.g.r(this.q);
+                this.g.E(this.r);
+                this.g.I(this.s);
+                this.g.s(this.v);
+            } catch (Throwable th) {
+                yfb.c("VideoRecorder", th.toString());
+            }
+        }
+    }
+
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            this.v = z;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+            this.r = z;
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.m++;
+            try {
+                if (this.g != null && this.g.u(2)) {
+                    File file = new File(this.l);
+                    if (!file.getParentFile().exists()) {
+                        file.getParentFile().mkdirs();
+                    }
+                    if (this.f == 90.0f || this.f == 270.0f) {
+                        int i = this.a;
+                        this.a = this.b;
+                        this.b = i;
+                    }
+                    this.g.j(new jfb.d(file, this.a, this.b, this.c, this.u, null, this.n.getTimestamp(), this.t));
+                }
+                if (this.g == null || this.m % this.d != 0 || this.k == null) {
+                    return;
+                }
+                this.k.a(this.g, this.n);
+            } catch (Throwable th) {
+                yfb.c("VideoRecorder", th.toString());
+            }
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.u = i;
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            this.s = z;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+            this.t = i;
+        }
+    }
+
+    public boolean r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            jfb jfbVar = this.g;
+            if (jfbVar != null) {
+                return jfbVar.u(1);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.p = i;
+        }
+    }
+
+    public void t(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048595, this, f) == null) {
+            this.e = f;
+            if (Math.abs(f - 3.0f) < 0.01f) {
+                this.d = 2;
+                return;
+            }
+            int i = (Math.abs(this.e - 2.0f) > 0.01f ? 1 : (Math.abs(this.e - 2.0f) == 0.01f ? 0 : -1));
+            this.d = 1;
+        }
     }
 }

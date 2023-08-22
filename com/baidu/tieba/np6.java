@@ -1,50 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-@Service
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class np6 implements m97 {
+public final class np6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public np6() {
+    public static final <T> void a(JSONObject jSONObject, String key, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLLL(65536, null, jSONObject, key, t) == null) {
+            Intrinsics.checkNotNullParameter(jSONObject, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            try {
+                jSONObject.put(key, t);
+            } catch (JSONException unused) {
             }
         }
-    }
-
-    @Override // com.baidu.tieba.m97
-    @NonNull
-    public List<u97<?, ?>> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new vo6());
-            arrayList.add(new jp6());
-            arrayList.add(new xo6());
-            arrayList.add(new lp6());
-            arrayList.add(new kp6());
-            arrayList.add(new ap6());
-            arrayList.add(new op6());
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 }

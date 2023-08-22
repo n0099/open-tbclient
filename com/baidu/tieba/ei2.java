@@ -1,100 +1,42 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class ei2 {
     public static /* synthetic */ Interceptable $ic;
+    public static Uri a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public int b;
-    public final ln4 c;
-    public long d;
 
-    public ei2(@NonNull String str, @NonNull ln4 ln4Var) {
+    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, ln4Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
+            try {
+                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
+            } catch (Exception e) {
+                d82.d("SwanLaunchBehaviorTable", "createTable", e);
             }
         }
-        this.b = 0;
-        this.d = 0L;
-        this.a = str;
-        this.c = ln4Var;
     }
 
-    public boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i > this.c.b) {
-                return false;
-            }
-            boolean e = e();
-            if (!e) {
-                this.b++;
-            }
-            return !e;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TextUtils.equals(str, this.a);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b() {
+    @NonNull
+    public static synchronized Uri b() {
         InterceptResult invokeV;
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - this.d >= this.c.c) {
-                this.d = currentTimeMillis;
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (ei2.class) {
+                if (a == null) {
+                    a = ci2.c.buildUpon().appendPath("user_behavior").build();
+                }
+                uri = a;
             }
-            return false;
+            return uri;
         }
-        return invokeV.booleanValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b >= this.c.a) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (Uri) invokeV.objValue;
     }
 }

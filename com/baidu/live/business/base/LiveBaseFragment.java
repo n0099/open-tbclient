@@ -15,7 +15,7 @@ import com.baidu.live.business.model.data.LiveFeedWrapData;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.model.data.LiveTabEntity;
 import com.baidu.live.feedpage.interfaces.ILiveFeedRefresh;
-import com.baidu.tieba.ec0;
+import com.baidu.tieba.hc0;
 /* loaded from: classes3.dex */
 public abstract class LiveBaseFragment extends Fragment {
     public LiveTabEntity a;
@@ -69,12 +69,12 @@ public abstract class LiveBaseFragment extends Fragment {
         void onTabPageShowLog(String str, String str2);
     }
 
-    public abstract RecyclerView J1();
+    public abstract RecyclerView V1();
 
-    public abstract void M1(boolean z);
+    public abstract void Y1(boolean z);
 
-    public int I1() {
-        RecyclerView.LayoutManager layoutManager = J1().getLayoutManager();
+    public int U1() {
+        RecyclerView.LayoutManager layoutManager = V1().getLayoutManager();
         if (layoutManager instanceof LinearLayoutManager) {
             return ((LinearLayoutManager) layoutManager).findLastVisibleItemPosition();
         }
@@ -86,17 +86,17 @@ public abstract class LiveBaseFragment extends Fragment {
     }
 
     public void c() {
-        L1(null);
+        X1(null);
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
         this.b = null;
-        ec0.a().e(this);
+        hc0.a().e(this);
     }
 
-    public boolean K1(String str, String str2, int i) {
+    public boolean W1(String str, String str2, int i) {
         if (str == null) {
             str = "";
         }
@@ -106,7 +106,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return (str + "_" + str2 + "_" + i).equals(this.q);
     }
 
-    public void L1(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
+    public void X1(ILiveFeedRefresh.OnLoadMoreListener onLoadMoreListener) {
         this.s = onLoadMoreListener;
         this.p = 1;
         String str = this.q;
@@ -122,27 +122,27 @@ public abstract class LiveBaseFragment extends Fragment {
         }
     }
 
-    public void N1(boolean z) {
-        M1(z);
+    public void Z1(boolean z) {
+        Y1(z);
     }
 
-    public void R1(String str) {
+    public void d2(String str) {
         this.f = str;
     }
 
-    public void S1(LiveFeedConfig liveFeedConfig) {
+    public void e2(LiveFeedConfig liveFeedConfig) {
         this.c = liveFeedConfig;
     }
 
-    public void T1(LiveFeedReserveWrapData liveFeedReserveWrapData) {
+    public void f2(LiveFeedReserveWrapData liveFeedReserveWrapData) {
         this.d = liveFeedReserveWrapData;
     }
 
-    public void U1(LiveFeedWrapData liveFeedWrapData) {
+    public void g2(LiveFeedWrapData liveFeedWrapData) {
         this.b = liveFeedWrapData;
     }
 
-    public void V1(a aVar) {
+    public void h2(a aVar) {
         this.r = aVar;
     }
 
@@ -151,7 +151,7 @@ public abstract class LiveBaseFragment extends Fragment {
         super.onCreate(bundle);
     }
 
-    public boolean O1() {
+    public boolean a2() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -168,7 +168,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return true;
     }
 
-    public boolean P1() {
+    public boolean b2() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {
@@ -185,7 +185,7 @@ public abstract class LiveBaseFragment extends Fragment {
         return true;
     }
 
-    public boolean Q1() {
+    public boolean c2() {
         this.p = 0;
         String str = this.q;
         if (str.equals(this.m + "_" + this.o + "_" + this.p)) {

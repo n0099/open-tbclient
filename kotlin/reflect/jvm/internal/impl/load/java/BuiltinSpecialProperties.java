@@ -23,7 +23,7 @@ import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.FqNameUnsafe;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BuiltinSpecialProperties {
     public static final Map<Name, List<Name>> GETTER_JVM_NAME_TO_PROPERTIES_SHORT_NAME_MAP;
     public static final BuiltinSpecialProperties INSTANCE = new BuiltinSpecialProperties();

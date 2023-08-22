@@ -1,5 +1,5 @@
 package com.kwad.b.kwai;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
     public static final Boolean CK;
     public static final Boolean CM;

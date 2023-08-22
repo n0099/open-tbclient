@@ -17,11 +17,10 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tbadk.switchs.IdentifyImageSwitch;
-import com.baidu.tieba.k85;
-import com.baidu.tieba.l85;
 import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.zu5;
+import com.baidu.tieba.qv5;
+import com.baidu.tieba.r85;
+import com.baidu.tieba.s85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +58,6 @@ public class ImageViewerConfig extends IntentConfig {
     public static final String IS_DYNAMIC_CARD = "is_dynamic_card";
     public static final String IS_FROM_AI_APP = "is_from_ai_app";
     public static final String IS_GODREPLY_IMAGE = "is_godreply_image";
-    public static final String IS_IDENTIFY_IMAGE = "is_identify_image";
     public static final String IS_LOGIN = "is_login";
     public static final String IS_PV = "is_pv";
     public static final String IS_SHOW_AD = "is_show_ad";
@@ -487,17 +485,16 @@ public class ImageViewerConfig extends IntentConfig {
             intent.putExtra(IS_SHOW_BOTTOM_CONTAINER, false);
             intent.putExtra(IS_SHOW_HOST, false);
         }
-        intent.putExtra(IS_IDENTIFY_IMAGE, IdentifyImageSwitch.isOn());
         intent.putExtra(IS_FROM_AI_APP, builder.isFromAiApp);
         intent.putExtra("from_forum_id", builder.fromFormId);
         intent.putExtra("skin_type", TbadkCoreApplication.getInst().getSkinType());
         intent.putExtra(IS_YOUNGSTER_MODE, false);
-        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, zu5.c());
-        if (k85.a() != null && k85.a().a != null) {
-            intent.putExtra(REMIND_LIVE_DATA, k85.a().a);
+        intent.putExtra(TiebaStatic.Params.WISE_SAMPLE_ID, qv5.c());
+        if (r85.a() != null && r85.a().a != null) {
+            intent.putExtra(REMIND_LIVE_DATA, r85.a().a);
         }
-        if (l85.b() != null) {
-            intent.putExtra(REMIND_LIVE_FREQUENCY, l85.b().a());
+        if (s85.b() != null) {
+            intent.putExtra(REMIND_LIVE_FREQUENCY, s85.b().a());
         }
         intent.putExtra(KEY_IS_BROWSE_MODE, PermissionUtil.isBrowseMode());
     }

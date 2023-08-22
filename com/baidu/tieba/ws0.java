@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ws0 {
+public class ws0 extends rs0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public String a;
-    @Nullable
-    public String b;
-    public boolean c;
+    public final bt0 b;
 
     public ws0() {
         Interceptable interceptable = $ic;
@@ -25,7 +22,29 @@ public class ws0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = b("okhttp");
+    }
+
+    @Override // com.baidu.tieba.dt0
+    public bt0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (bt0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rs0
+    public bt0 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return new ot0();
+        }
+        return (bt0) invokeL.objValue;
     }
 }

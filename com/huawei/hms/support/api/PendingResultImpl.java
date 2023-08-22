@@ -37,7 +37,7 @@ import java.util.HashMap;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class PendingResultImpl<R extends Result, T extends IMessageEntity> extends InnerPendingResult<R> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PendingResultImpl";
@@ -80,7 +80,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
 
     public abstract R onComplete(T t);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements DatagramTransport.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -115,7 +115,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b implements DatagramTransport.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -153,7 +153,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class c implements DatagramTransport.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -194,7 +194,7 @@ public abstract class PendingResultImpl<R extends Result, T extends IMessageEnti
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class d<R extends Result> extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

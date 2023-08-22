@@ -1,119 +1,61 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ewb;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import com.yy.transvod.player.mediafilter.MediaCodecFilter;
-import java.nio.Buffer;
-import java.nio.ByteBuffer;
-@TargetApi(16)
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 /* loaded from: classes8.dex */
-public final class yvb extends MediaCodecFilter {
+public class yvb {
     public static /* synthetic */ Interceptable $ic;
+    public static ewb a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public yvb(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948345028, "Lcom/baidu/tieba/yvb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948345028, "Lcom/baidu/tieba/yvb;");
                 return;
             }
         }
-        this.b = i;
+        a = new ewb();
     }
 
-    @Override // com.yy.transvod.player.mediafilter.MediaCodecFilter
-    public int N(long j) {
-        InterceptResult invokeJ;
-        MediaInfo mediaInfo;
+    public static <TResult> TResult a(vvb<TResult> vvbVar) throws ExecutionException, InterruptedException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            int dequeueOutputBuffer = this.B.dequeueOutputBuffer(this.C, j);
-            if (dequeueOutputBuffer >= 0) {
-                ByteBuffer byteBuffer = this.E[dequeueOutputBuffer];
-                int remaining = byteBuffer.remaining();
-                MediaCodec.BufferInfo bufferInfo = this.C;
-                if (remaining != bufferInfo.size) {
-                    Buffer position = byteBuffer.position(bufferInfo.offset);
-                    MediaCodec.BufferInfo bufferInfo2 = this.C;
-                    position.limit(bufferInfo2.offset + bufferInfo2.size);
-                }
-                MediaSample c = this.r.c();
-                if (c != null && (mediaInfo = c.i) != null) {
-                    mediaInfo.c(this.q);
-                    c.i.k = byteBuffer;
-                    this.u++;
-                    ovb.c(c, 6);
-                    synchronized (this.k) {
-                        if (this.d != null) {
-                            this.d.f(c);
-                        }
-                    }
-                    this.B.releaseOutputBuffer(dequeueOutputBuffer, false);
-                } else {
-                    return -1;
-                }
-            } else if (dequeueOutputBuffer == -3) {
-                this.E = this.B.getOutputBuffers();
-                TLog.g(this, "output buffers have been changed.");
-            } else if (dequeueOutputBuffer == -2) {
-                MediaFormat outputFormat = this.B.getOutputFormat();
-                TLog.g(this, "output format has been changed from " + this.p + " to " + outputFormat);
-                this.p = outputFormat;
-                MediaInfo mediaInfo2 = this.q;
-                mediaInfo2.a = 1;
-                mediaInfo2.j = outputFormat.getInteger("sample-rate");
-                this.q.h = this.p.getInteger("channel-count");
-                MediaInfo mediaInfo3 = this.q;
-                mediaInfo3.f = (mediaInfo3.h << 1) * 2048;
-                synchronized (this.k) {
-                    if (this.d != null) {
-                        this.d.d("setFormat", outputFormat, this.a, false);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vvbVar)) == null) {
+            ewb.c("await must not be called on the UI thread");
+            if (vvbVar.g()) {
+                return (TResult) ewb.b(vvbVar);
             }
-            if (dequeueOutputBuffer < 0) {
-                return 0;
-            }
-            return 1;
+            ewb.b bVar = new ewb.b();
+            vvbVar.c(bVar);
+            vvbVar.b(bVar);
+            bVar.a.await();
+            return (TResult) ewb.b(vvbVar);
         }
-        return invokeJ.intValue;
+        return (TResult) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bwb
-    public void z(MediaFormat mediaFormat, int i) {
+    public static <TResult> vvb<TResult> b(Callable<TResult> callable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaFormat, i) == null) {
-            this.w = false;
-            this.r.e(true);
-            this.p = mediaFormat;
-            if (mediaFormat != null) {
-                MediaCodec mediaCodec = this.B;
-                if (mediaCodec != null) {
-                    mediaCodec.stop();
-                    this.B.release();
-                    this.B = null;
-                }
-                this.a = i;
-                this.B = J(null, mediaFormat);
-            }
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) ? a.a(xvb.a(), callable) : (vvb) invokeL.objValue;
+    }
+
+    public static <TResult> vvb<TResult> call(Callable<TResult> callable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, callable)) == null) ? a.a(xvb.b(), callable) : (vvb) invokeL.objValue;
     }
 }

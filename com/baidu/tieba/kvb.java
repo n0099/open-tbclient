@@ -1,344 +1,106 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.api.entity.auth.AuthCode;
-import com.yy.transvod.player.log.TLog;
-import java.lang.ref.WeakReference;
-import java.util.Locale;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicLong;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class kvb {
+public class kvb extends jvb {
     public static /* synthetic */ Interceptable $ic;
-    public static int u;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer a;
-    public int b;
-    public AtomicInteger c;
-    public WeakReference<gvb> d;
-    public boolean e;
+    public final Map<String, String> c;
+    public final Object d;
+    public gvb e;
     public boolean f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public long m;
-    public long n;
-    public long o;
-    public long p;
-    public AtomicLong q;
-    public AtomicLong r;
-    public AtomicLong s;
-    public AtomicBoolean t;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947927954, "Lcom/baidu/tieba/kvb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947927954, "Lcom/baidu/tieba/kvb;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kvb a;
-
-        public a(kvb kvbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kvbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kvbVar;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!this.a.e) {
-                    kvb.k(this.a);
-                    int i = ((System.currentTimeMillis() - this.a.r.get()) > 600L ? 1 : ((System.currentTimeMillis() - this.a.r.get()) == 600L ? 0 : -1));
-                    if (i <= 0 || this.a.f || this.a.g == -1 || this.a.r.get() == 0) {
-                        if (i < 0 && this.a.f) {
-                            this.a.g = -1;
-                            this.a.f = false;
-                            this.a.v(AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED);
-                        }
-                    } else {
-                        this.a.f = true;
-                        this.a.v(AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED);
-                    }
-                    if (this.a.b % 20 == 0) {
-                        this.a.v(6000);
-                        this.a.k = 0;
-                    }
-                    if (this.a.b % 20 == 0) {
-                        this.a.v(6001);
-                        this.a.l = 0;
-                    }
-                    if (this.a.b % 30 == 0 && this.a.t.get()) {
-                        long currentTimeMillis = System.currentTimeMillis() - this.a.q.get();
-                        if (currentTimeMillis > 2000 && this.a.q.get() >= this.a.r.get() && this.a.r.get() > 0) {
-                            TLog.g(this, "[draw] may block, elapse " + currentTimeMillis + "ms after drawStart");
-                            this.a.t.set(false);
-                        }
-                    }
-                    if (this.a.b % 50 == 0 && this.a.s.get() > 1500) {
-                        TLog.g(this, "[draw] max cost: " + this.a.s.get());
-                        this.a.s.set(0L);
-                    }
-                    if (this.a.b % 50 != 0) {
-                        return;
-                    }
-                    this.a.v(AuthCode.StatusCode.PERMISSION_NOT_EXIST);
-                    this.a.m = 0L;
-                    this.a.n = 0L;
-                    this.a.b = 0;
-                    return;
-                }
-                this.a.e = false;
-                this.a.m = 0L;
-                this.a.n = 0L;
-                this.a.l = 0;
-            }
-        }
-    }
-
-    public kvb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kvb(Context context, String str) {
+        super(context, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = 0;
-        this.c = new AtomicInteger(0);
-        this.d = new WeakReference<>(null);
-        this.e = true;
-        this.f = false;
-        this.g = -1;
-        this.h = 0;
-        this.i = 0;
-        this.j = 0;
-        this.k = 0;
-        this.l = 0;
-        this.m = 0L;
-        this.n = 0L;
-        this.o = 0L;
-        this.p = 0L;
-        this.q = new AtomicLong(0L);
-        this.r = new AtomicLong(0L);
-        this.s = new AtomicLong(0L);
-        this.t = new AtomicBoolean(false);
+        this.c = new HashMap();
+        this.d = new Object();
+        this.f = true;
+        try {
+            String a = a("/AD91D45E3E72DB6989DDCB13287E75061FABCB933D886E6C6ABEF0939B577138");
+            String a2 = a("/B314B3BF013DF5AC4134E880AF3D2B7C9FFBE8F0305EAC1C898145E2BCF1F21C");
+            String a3 = a("/C767BD8FDF53E53D059BE95B09E2A71056F5F180AECC62836B287ACA5793421B");
+            String a4 = a("/DCB3E6D4C2CF80F30D89CDBC412C964DA8381BB84668769391FBCC3E329AD0FD");
+            if (a == null || a2 == null || a3 == null || a4 == null) {
+                this.f = false;
+            } else {
+                this.e = new fvb(a, a2, a3, a4);
+            }
+        } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
+            Log.e("SecurityResourcesReader", "Exception when reading the 'K&I' for 'Config'.");
+            this.e = null;
+        }
     }
 
-    public static /* synthetic */ int k(kvb kvbVar) {
-        int i = kvbVar.b;
-        kvbVar.b = i + 1;
-        return i;
-    }
-
-    public void A(long j) {
+    private String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.r.set(j);
-            long j2 = this.r.get() - this.q.get();
-            if (j2 >= this.s.get()) {
-                this.s.set(j2);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? super.a(str, null) : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.jvb, com.baidu.tieba.dvb
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (!this.f) {
+                String a = a(str);
+                return a != null ? a : str2;
+            } else if (this.e == null) {
+                Log.e("SecurityResourcesReader", "KEY is null return def directly");
+                return str2;
+            } else {
+                synchronized (this.d) {
+                    String str3 = this.c.get(str);
+                    if (str3 != null) {
+                        return str3;
+                    }
+                    String a2 = a(str);
+                    if (a2 == null) {
+                        return str2;
+                    }
+                    String a3 = this.e.a(a2, str2);
+                    this.c.put(str, a3);
+                    return a3;
+                }
             }
         }
+        return (String) invokeLL.objValue;
     }
 
-    public void B(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.q.set(j);
-            this.t.set(true);
-        }
-    }
-
-    public void C(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    public void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.g = i;
-        }
-    }
-
-    public void s(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.n += i;
-        }
-    }
-
-    public void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.m += i;
-        }
-    }
-
-    public void x(gvb gvbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, gvbVar) == null) {
-            this.d = new WeakReference<>(gvbVar);
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.h = i;
-            v(6002);
-        }
-    }
-
-    public void y(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048587, this, i, i2) == null) {
-            this.i = i;
-            this.j = i2;
-            v(AuthCode.StatusCode.CERT_FINGERPRINT_ERROR);
-        }
-    }
-
-    public static int w() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            return u;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SecurityResourcesReader{mKey=, encrypt=" + this.f + '}';
         }
-        return invokeV.intValue;
-    }
-
-    public void F() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (timer = this.a) != null) {
-            timer.cancel();
-            this.a = null;
-            this.e = true;
-            this.p = 0L;
-            this.o = 0L;
-        }
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.l++;
-        }
-    }
-
-    public void E(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c.set(i);
-            TLog.g(this, String.format(Locale.getDefault(), "QualityMonitor playTaskId %d", Integer.valueOf(this.c.get())));
-            TLog.g(this, "QualityMonitor start");
-            if (this.a == null) {
-                Timer timer = new Timer();
-                this.a = timer;
-                timer.schedule(new a(this), 1000L, 100L);
-            }
-            TLog.g(this, "QualityMonitor start");
-        }
-    }
-
-    public final void v(int i) {
-        gvb gvbVar;
-        float currentTimeMillis;
-        float currentTimeMillis2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || (gvbVar = this.d.get()) == null) {
-            return;
-        }
-        Message message = null;
-        switch (i) {
-            case 6000:
-                message = Message.obtain(null, 6000, this.k, 0);
-                break;
-            case 6001:
-                if (this.p == 0) {
-                    currentTimeMillis = 2.0f;
-                } else {
-                    currentTimeMillis = (float) ((System.currentTimeMillis() - this.p) / 1000);
-                }
-                int i2 = (int) (this.l / currentTimeMillis);
-                u = i2;
-                message = Message.obtain(null, 6001, i2, 0);
-                this.p = System.currentTimeMillis();
-                break;
-            case 6002:
-                message = Message.obtain(null, 6002, this.h, 0);
-                break;
-            case AuthCode.StatusCode.CERT_FINGERPRINT_ERROR /* 6003 */:
-                message = Message.obtain(null, AuthCode.StatusCode.CERT_FINGERPRINT_ERROR, this.i, this.j);
-                TLog.g(this, String.format(Locale.getDefault(), "QualityMonitor output size %d * %d  , taskId %d", Integer.valueOf(this.i), Integer.valueOf(this.j), Integer.valueOf(this.c.get())));
-                break;
-            case AuthCode.StatusCode.PERMISSION_NOT_EXIST /* 6004 */:
-                if (this.o == 0) {
-                    currentTimeMillis2 = 5.0f;
-                } else {
-                    currentTimeMillis2 = (float) ((System.currentTimeMillis() - this.o) / 1000);
-                }
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_NOT_EXIST, (int) (((float) (this.m * 8)) / currentTimeMillis2), (int) (((float) (this.n * 8)) / currentTimeMillis2));
-                this.o = System.currentTimeMillis();
-                break;
-            case AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED /* 6005 */:
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_NOT_AUTHORIZED, this.f ? 1 : 0, this.g);
-                break;
-            case AuthCode.StatusCode.PERMISSION_EXPIRED /* 6006 */:
-                message = Message.obtain(null, AuthCode.StatusCode.PERMISSION_EXPIRED, 1, this.g);
-                break;
-        }
-        gvbVar.a(message, this.c.get());
+        return (String) invokeV.objValue;
     }
 }

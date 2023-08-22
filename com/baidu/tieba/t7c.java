@@ -1,81 +1,172 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes8.dex */
-public class t7c implements zac {
+public abstract class t7c<T> implements o7c<T>, u7c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f7c a;
-    public AbsViewEventHandler b;
-    public PayUIKitConfig c;
-    public Activity d;
-    public List<PayWayInfo> e;
-    public IYYPayAmountView.ViewParams f;
-    public IPayCallback<CurrencyChargeMessage> g;
-    public String h;
+    public final fac a;
+    public final t7c<?> b;
+    public p7c c;
+    public long d;
 
-    public t7c(f7c f7cVar, AbsViewEventHandler absViewEventHandler, PayUIKitConfig payUIKitConfig, Activity activity, List<PayWayInfo> list, IYYPayAmountView.ViewParams viewParams, String str, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public t7c() {
+        this(null, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f7cVar, absViewEventHandler, payUIKitConfig, activity, list, viewParams, str, iPayCallback};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((t7c) objArr[0], ((Boolean) objArr[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.info("AmountInputDialogListener", "create AmountInputDialogListener");
-        this.a = f7cVar;
-        this.b = absViewEventHandler;
-        this.c = payUIKitConfig;
-        this.d = activity;
-        this.e = list;
-        this.f = viewParams;
-        this.g = iPayCallback;
-        this.h = str;
     }
 
-    @Override // com.baidu.tieba.zac
-    public void a(CancelType cancelType) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public t7c(t7c<?> t7cVar) {
+        this(t7cVar, true);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("AmountInputDialogListener", "InputDialog notifyCancelType clickArea:" + cancelType);
-            this.a.g(cancelType, this.b);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t7cVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((t7c) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
-    @Override // com.baidu.tieba.zac
-    public void b(int i) {
+    public final void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            x8c a = k9c.a((int) (i * 100.0d), this.c);
-            if (x9c.b(i)) {
-                this.a.a(this.d, a, this.e, this.h, PaySplitOrderViewSource.SOURCE_FROM_INPUAT_DIALOG, this.f, this.g);
-                RLog.info("AmountInputDialogListener", "confirm but ShowSplitOrderDialog");
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (j >= 0) {
+                synchronized (this) {
+                    if (this.c != null) {
+                        this.c.request(j);
+                        return;
+                    }
+                    c(j);
+                    return;
+                }
+            }
+            throw new IllegalArgumentException("number requested cannot be negative: " + j);
+        }
+    }
+
+    public void f(p7c p7cVar) {
+        long j;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, p7cVar) == null) {
+            synchronized (this) {
+                j = this.d;
+                this.c = p7cVar;
+                if (this.b != null && j == Long.MIN_VALUE) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            if (z) {
+                this.b.f(this.c);
+            } else if (j == Long.MIN_VALUE) {
+                this.c.request(Long.MAX_VALUE);
+            } else {
+                this.c.request(j);
+            }
+        }
+    }
+
+    public t7c(t7c<?> t7cVar, boolean z) {
+        fac facVar;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t7cVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
-            RLog.info("AmountInputDialogListener", "showInputDialog: mPayAmountCustom:%s", a);
-            this.a.t(this.d, a, this.e, this.h, this.f, this.g);
+        }
+        this.d = Long.MIN_VALUE;
+        this.b = t7cVar;
+        if (z && t7cVar != null) {
+            facVar = t7cVar.a;
+        } else {
+            facVar = new fac();
+        }
+        this.a = facVar;
+    }
+
+    public final void b(u7c u7cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, u7cVar) == null) {
+            this.a.a(u7cVar);
+        }
+    }
+
+    public final void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            long j2 = this.d;
+            if (j2 == Long.MIN_VALUE) {
+                this.d = j;
+                return;
+            }
+            long j3 = j2 + j;
+            if (j3 < 0) {
+                this.d = Long.MAX_VALUE;
+            } else {
+                this.d = j3;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u7c
+    public final boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.isUnsubscribed();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.u7c
+    public final void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a.unsubscribe();
         }
     }
 }

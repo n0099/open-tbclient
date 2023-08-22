@@ -119,8 +119,8 @@ public class BdBaseViewPager extends ViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            if (a(motionEvent)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (b(motionEvent)) {
                 return true;
             }
             if (motionEvent.getPointerCount() > 1 && this.a) {
@@ -170,10 +170,19 @@ public class BdBaseViewPager extends ViewPager {
         }
     }
 
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
     public int getScrollState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             try {
                 Field declaredField = ViewPager.class.getDeclaredField("mScrollState");
                 declaredField.setAccessible(true);
@@ -186,10 +195,10 @@ public class BdBaseViewPager extends ViewPager {
         return invokeV.intValue;
     }
 
-    public final boolean a(MotionEvent motionEvent) {
+    public final boolean b(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int action = (motionEvent.getAction() & 65280) >> 8;
             if (motionEvent.getPointerId(action) == -1 || action == -1 || action >= motionEvent.getPointerCount()) {
                 return true;
@@ -199,9 +208,9 @@ public class BdBaseViewPager extends ViewPager {
         return invokeL.booleanValue;
     }
 
-    public void b(boolean z) {
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && getParent() != null) {
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && getParent() != null) {
             getParent().requestDisallowInterceptTouchEvent(z);
         }
     }
@@ -209,7 +218,7 @@ public class BdBaseViewPager extends ViewPager {
     public final void onSecondaryPointerUp(MotionEvent motionEvent) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, motionEvent) == null) {
             int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
             if (motionEvent.getPointerId(actionIndex) == this.e) {
                 if (actionIndex == 0) {
@@ -226,7 +235,7 @@ public class BdBaseViewPager extends ViewPager {
     @Override // android.view.ViewGroup, android.view.ViewParent
     public void requestDisallowInterceptTouchEvent(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.a = z;
             super.requestDisallowInterceptTouchEvent(z);
         }
@@ -234,7 +243,7 @@ public class BdBaseViewPager extends ViewPager {
 
     public void setmDisallowSlip(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.b = z;
         }
     }
@@ -244,11 +253,11 @@ public class BdBaseViewPager extends ViewPager {
         InterceptResult invokeL;
         int findPointerIndex;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
             if (this.b) {
                 return false;
             }
-            if (a(motionEvent)) {
+            if (b(motionEvent)) {
                 return true;
             }
             int action = motionEvent.getAction() & 255;
@@ -264,10 +273,10 @@ public class BdBaseViewPager extends ViewPager {
                         float abs = Math.abs(x);
                         float abs2 = Math.abs(motionEvent.getY(findPointerIndex) - this.d);
                         if (x > 0.0f && abs > abs2 && getCurrentItem() == 0 && getScrollState() == 0) {
-                            b(false);
+                            c(false);
                             return false;
                         } else if (abs > 0.0f && abs > abs2 && getCurrentItem() != 0) {
-                            b(true);
+                            c(true);
                         }
                     }
                 }
@@ -276,7 +285,7 @@ public class BdBaseViewPager extends ViewPager {
                 this.d = motionEvent.getY();
                 this.e = motionEvent.getPointerId(0);
                 if (getCurrentItem() != 0) {
-                    b(true);
+                    c(true);
                 }
             }
             return super.onInterceptTouchEvent(motionEvent);
@@ -289,7 +298,7 @@ public class BdBaseViewPager extends ViewPager {
         InterceptResult invokeL;
         int findPointerIndex;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
             if (this.b) {
                 return false;
             }
@@ -316,24 +325,24 @@ public class BdBaseViewPager extends ViewPager {
                             float abs = Math.abs(x);
                             float abs2 = Math.abs(motionEvent.getY(findPointerIndex) - this.d);
                             if (x > 0.0f && abs > abs2 && getCurrentItem() == 0 && getScrollState() == 0) {
-                                b(false);
+                                c(false);
                                 return false;
                             } else if (abs > 0.0f && abs > abs2 && getCurrentItem() != 0) {
-                                b(true);
+                                c(true);
                             }
                         }
                     }
                 }
-                b(false);
+                c(false);
             } else {
                 this.c = motionEvent.getX();
                 this.d = motionEvent.getY();
                 this.e = motionEvent.getPointerId(0);
                 if (getCurrentItem() != 0) {
-                    b(true);
+                    c(true);
                 }
             }
-            if (a(motionEvent)) {
+            if (b(motionEvent)) {
                 return true;
             }
             try {

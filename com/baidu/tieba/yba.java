@@ -1,163 +1,149 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.BdStatsItem;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.IntegerColumn;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.tbadk.core.util.TiebaMainDatabaseHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class yba {
+public final class yba extends l41 {
     public static /* synthetic */ Interceptable $ic;
+    public static final d41 l;
+    public static final d41 m;
+    public static final d41 n;
+    public static final d41 o;
+    public static final d41 p;
+    public static final d41 q;
+    public static final d41 r;
+    public static final d41 s;
+    public static final d41 t;
+    public static final d41 u;
+    public static final d41[] v;
+    public static final d41[][] w;
+    public static final d41[] x;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdStatsItem a;
-    public String b;
-    public boolean c;
+    public final LongColumn a;
+    public final LongColumn b;
+    public final LongColumn c;
+    public final StringColumn d;
+    public final StringColumn e;
+    public final StringColumn f;
+    public final StringColumn g;
+    public final IntegerColumn h;
+    public final StringColumn i;
+    public final StringColumn j;
+    public final Column[] k;
 
-    public yba(String str) {
+    @Override // com.baidu.tieba.l41
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? TiebaMainDatabaseHelper.TABLE_DOWNLOAD_MULTI_INFO : (String) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948325777, "Lcom/baidu/tieba/yba;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948325777, "Lcom/baidu/tieba/yba;");
+                return;
+            }
+        }
+        l = l41.b(3, "id", "                    id", 0, 3);
+        m = l41.a(3, "start_download_time", "   start_download_time", 1);
+        n = l41.a(3, "finished_download_time", "finished_download_time", 2);
+        o = l41.a(4, "download_url", "          download_url", 3);
+        p = l41.a(4, "package_name", "          package_name", 4);
+        q = l41.a(4, "title", "                 title", 5);
+        r = l41.a(4, "detail_info", "           detail_info", 6);
+        s = l41.a(2, "source", "                source", 7);
+        t = l41.a(4, "extra", "                 extra", 8);
+        d41 a = l41.a(4, NetDiskFileMsg.NetDiskFile.JSON_KEY_FILE_TYPE, "             file_type", 9);
+        u = a;
+        d41 d41Var = l;
+        v = new d41[]{d41Var, m, n, o, p, q, r, s, t, a};
+        w = new d41[0];
+        x = new d41[]{d41Var};
+    }
+
+    public yba() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.c = false;
-        e(str, false);
+        this.a = new LongColumn(l);
+        this.b = new LongColumn(m);
+        this.c = new LongColumn(n);
+        this.d = new StringColumn(o);
+        this.e = new StringColumn(p);
+        this.f = new StringColumn(q);
+        this.g = new StringColumn(r);
+        this.h = new IntegerColumn(s);
+        this.i = new StringColumn(t);
+        StringColumn stringColumn = new StringColumn(u);
+        this.j = stringColumn;
+        this.k = new Column[]{this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, stringColumn};
     }
 
-    public void a() {
-        bca c;
+    @Override // com.baidu.tieba.l41
+    public Column[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && (c = c()) != null && c.f != null) {
-            long timeCost = this.a.getTimeCost();
-            if (timeCost > 3000) {
-                aca acaVar = c.f;
-                acaVar.a += timeCost;
-                acaVar.b++;
-                zba.b(c, 10);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.k;
         }
+        return (Column[]) invokeV.objValue;
     }
 
-    public void b(boolean z, boolean z2, int i, String str, long j, long j2, long j3) {
-        bca c;
-        String str2;
+    @Override // com.baidu.tieba.l41
+    public d41[] d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)}) != null) || this.a == null || (c = c()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return v;
         }
-        if (z) {
-            aca acaVar = c.d;
-            if (acaVar == null) {
-                return;
-            }
-            acaVar.b++;
-            if (z2) {
-                acaVar.a += j2;
-                acaVar.d += j;
-            } else {
-                acaVar.c++;
-            }
-        } else {
-            aca acaVar2 = c.e;
-            if (acaVar2 == null) {
-                return;
-            }
-            acaVar2.b++;
-            if (z2) {
-                acaVar2.a += j3;
-                acaVar2.d += j;
-            } else {
-                acaVar2.c++;
-            }
-            j2 = j3;
-        }
-        this.a = null;
-        if (z2) {
-            zba.b(c, 10);
-        }
-        if (this.b == "frsStat") {
-            if (!z2 || j2 > 3000) {
-                BdStatsItem bdStatsItem = new BdStatsItem("dbg");
-                bdStatsItem.append("act", "frs");
-                String str3 = "0";
-                if (z2) {
-                    str2 = "0";
-                } else {
-                    str2 = "1";
-                }
-                bdStatsItem.append("result", str2);
-                if (z) {
-                    str3 = "1";
-                }
-                bdStatsItem.append("isHttp", str3);
-                bdStatsItem.append("timeCost", String.valueOf(j2));
-                bdStatsItem.append(StatConstants.KEY_EXT_ERR_CODE, String.valueOf(i));
-                bdStatsItem.append(StatConstants.KEY_EXT_ERR_MSG, str);
-                bdStatsItem.append("down", String.valueOf(j));
-                BdStatisticsManager.getInstance().debug("frs", bdStatsItem);
-            }
-        }
+        return (d41[]) invokeV.objValue;
     }
 
-    public final bca c() {
+    @Override // com.baidu.tieba.l41
+    public d41[][] e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return zba.e(this.b, d(), this.c);
+            return w;
         }
-        return (bca) invokeV.objValue;
+        return (d41[][]) invokeV.objValue;
     }
 
-    public final String d() {
+    @Override // com.baidu.tieba.l41
+    public d41[] f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int netType = BdNetTypeUtil.netType();
-            if (netType == 0) {
-                return "N";
-            }
-            if (netType == 1) {
-                return "WIFI";
-            }
-            if (netType == 3) {
-                return "3G";
-            }
-            if (netType != 2) {
-                return "N";
-            }
-            return "2G";
+            return x;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a.startTimer();
-        }
-    }
-
-    public void e(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) {
-            this.b = str;
-            this.c = z;
-            this.a = new BdStatsItem("dbg");
-            zba.c(str, d(), z);
-        }
+        return (d41[]) invokeV.objValue;
     }
 }

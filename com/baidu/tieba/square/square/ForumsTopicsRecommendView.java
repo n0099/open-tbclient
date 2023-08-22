@@ -12,7 +12,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ql5;
+import com.baidu.tieba.em5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import kotlinx.coroutines.internal.LockFreeTaskQueueCore;
 /* loaded from: classes8.dex */
-public class ForumsTopicsRecommendView extends ViewGroup implements ql5 {
+public class ForumsTopicsRecommendView extends ViewGroup implements em5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -84,18 +84,18 @@ public class ForumsTopicsRecommendView extends ViewGroup implements ql5 {
         this.b = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5);
         this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b2);
         this.e = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070399);
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d031a, (ViewGroup) this, true);
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090c28));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090c29));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090c2a));
-        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090c2b));
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d031d, (ViewGroup) this, true);
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090c35));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090c36));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090c37));
+        this.f.add((TbImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f090c38));
         int i3 = this.d;
         int i4 = this.b;
         this.g = ((i3 - (i4 * 2)) - this.c) / 2;
         setPadding(i4, 0, i4, 0);
     }
 
-    @Override // com.baidu.tieba.ql5
+    @Override // com.baidu.tieba.em5
     public void a(BdImage bdImage, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048576, this, bdImage, str, z) == null) {

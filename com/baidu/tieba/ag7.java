@@ -1,27 +1,51 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class ag7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
+    public yf7 a;
 
-    public ag7() {
+    public ag7(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        if (bdTypeListView == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new wf7(tbPageContext, fg7.d, tbPageContext.getUniqueId()));
+        yf7 yf7Var = new yf7(tbPageContext, gg7.h, tbPageContext.getUniqueId());
+        this.a = yf7Var;
+        arrayList.add(yf7Var);
+        arrayList.add(new xf7(tbPageContext, fg7.c, tbPageContext.getUniqueId()));
+        arrayList.add(new zf7(tbPageContext, fg7.e, tbPageContext.getUniqueId()));
+        bdTypeListView.addAdapters(arrayList);
+    }
+
+    public void a(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.a.u(onClickListener);
         }
     }
 }

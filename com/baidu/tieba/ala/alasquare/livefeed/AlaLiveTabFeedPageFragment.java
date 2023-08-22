@@ -24,18 +24,18 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bb6;
-import com.baidu.tieba.ng7;
-import com.baidu.tieba.qb0;
-import com.baidu.tieba.tm5;
-import com.baidu.tieba.um5;
+import com.baidu.tieba.dc6;
+import com.baidu.tieba.ei7;
+import com.baidu.tieba.in5;
+import com.baidu.tieba.jn5;
+import com.baidu.tieba.tb0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
+public class AlaLiveTabFeedPageFragment extends BaseFragment implements ei7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ILiveFeedPageView a;
@@ -82,7 +82,7 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
                 if (!this.a.c || !memberBroadcastHelper.isMeetFrequency()) {
                     return;
                 }
-                this.a.L1(memberBroadcastData);
+                this.a.X1(memberBroadcastData);
             }
         }
     }
@@ -103,11 +103,11 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
         this.f = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.ng7
-    public void C() {
+    @Override // com.baidu.tieba.ei7
+    public void D() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            K1("refreshPage");
+            W1("refreshPage");
             ILiveFeedPageView iLiveFeedPageView = this.a;
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.onExternalRefresh();
@@ -115,19 +115,11 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
         }
     }
 
-    @Override // com.baidu.tieba.ng7
-    public void M() {
+    @Override // com.baidu.tieba.ei7
+    public void O() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            K1("onPageStartIn");
-        }
-    }
-
-    @Override // com.baidu.tieba.ng7
-    public void g0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            K1("onPageOutEnd");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            W1("onPageStartIn");
         }
     }
 
@@ -135,33 +127,32 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            K1("getCurrentPageKey");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            W1("getCurrentPageKey");
             return "a083";
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ng7
-    public void k0() {
+    @Override // com.baidu.tieba.ei7
+    public void m0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            K1(CommonTbJsBridge.CHANGE_SKIN_TYPE);
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            W1("onPageOutEnd");
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            K1(MissionEvent.MESSAGE_DESTROY);
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            W1(MissionEvent.MESSAGE_DESTROY);
             super.onDestroy();
             ILiveFeedPageView iLiveFeedPageView = this.a;
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.onViewDestroy();
             }
-            tm5.e().b();
+            in5.e().b();
             MessageManager.getInstance().unRegisterListener(this.f);
         }
     }
@@ -169,8 +160,8 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            K1(MissionEvent.MESSAGE_PAUSE);
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            W1(MissionEvent.MESSAGE_PAUSE);
             super.onPause();
             ILiveFeedPageView iLiveFeedPageView = this.a;
             if (iLiveFeedPageView != null) {
@@ -185,8 +176,8 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            K1("onStart");
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            W1("onStart");
             super.onStart();
             ILiveFeedPageView iLiveFeedPageView = this.a;
             if (iLiveFeedPageView != null) {
@@ -198,8 +189,8 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            K1(MissionEvent.MESSAGE_STOP);
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            W1(MissionEvent.MESSAGE_STOP);
             super.onStop();
             ILiveFeedPageView iLiveFeedPageView = this.a;
             if (iLiveFeedPageView != null) {
@@ -208,22 +199,31 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
         }
     }
 
-    public final void K1(String str) {
+    @Override // com.baidu.tieba.ei7
+    public void q0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            W1(CommonTbJsBridge.CHANGE_SKIN_TYPE);
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public final void W1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             LiveFeedPageSdk.liveLog("TbLiveFeedPage   " + str);
         }
     }
 
-    public final void L1(MemberBroadcastData memberBroadcastData) {
+    public final void X1(MemberBroadcastData memberBroadcastData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, memberBroadcastData) == null) && getView() != null && memberBroadcastData != null) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, memberBroadcastData) == null) && getView() != null && memberBroadcastData != null) {
             if (this.b == null) {
                 this.b = new BottomCommonTipLayout(getFragmentActivity());
                 FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
                 layoutParams.bottomMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004) + TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
                 layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
-                if (um5.e()) {
+                if (jn5.e()) {
                     layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) + UtilHelper.getDimenPixelSize(R.dimen.tbds177);
                 } else {
                     layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X007);
@@ -242,8 +242,8 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
     public void onChangeSkinType(int i) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            K1("onChangeSkinType");
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            W1("onChangeSkinType");
             super.onChangeSkinType(i);
             if (i == 4) {
                 str = "dark";
@@ -265,12 +265,12 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(null);
-            K1("onCreate");
-            bb6.a().c(TbadkCoreApplication.getInst());
-            this.a = new qb0();
+            W1("onCreate");
+            dc6.a().c(TbadkCoreApplication.getInst());
+            this.a = new tb0();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.ALA_LIVE_TAB_ON_CREATE_END_STAMP_KEY);
             registerListener(this.f);
             this.d = new PollingModel(getPageContext(), getUniqueId());
@@ -281,9 +281,9 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5038);
-            K1("onCreateView");
+            W1("onCreateView");
             this.e = new FrameLayout(getContext());
             if (this.isLazyLoaded) {
                 onLazyLoad();
@@ -297,11 +297,11 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            K1("onLazyLoad");
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            W1("onLazyLoad");
             super.onLazyLoad();
             if (this.a == null) {
-                this.a = new qb0();
+                this.a = new tb0();
             }
             View onCreateView = this.a.onCreateView(getFragmentActivity(), this, LiveFeedPageSdk.HOST_LIVE_TAB, "tab", null, null, false);
             if (onCreateView.getParent() instanceof ViewGroup) {
@@ -324,9 +324,9 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
     public void onPrimary() {
         PollingModel pollingModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPrimary();
-            K1("onPrimary " + isPrimary());
+            W1("onPrimary " + isPrimary());
             ILiveFeedPageView iLiveFeedPageView = this.a;
             if (iLiveFeedPageView != null) {
                 iLiveFeedPageView.onUserVisibleHint(isPrimary());
@@ -341,9 +341,9 @@ public class AlaLiveTabFeedPageFragment extends BaseFragment implements ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5040);
-            K1("onResume");
+            W1("onResume");
             super.onResume();
             ILiveFeedPageView iLiveFeedPageView = this.a;
             if (iLiveFeedPageView != null) {

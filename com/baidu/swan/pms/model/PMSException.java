@@ -1,16 +1,16 @@
 package com.baidu.swan.pms.model;
 
-import com.baidu.tieba.sj4;
+import com.baidu.tieba.xj4;
 /* loaded from: classes4.dex */
 public class PMSException extends Exception {
-    public final sj4 mPmsError;
+    public final xj4 mPmsError;
 
-    public PMSException(String str, sj4 sj4Var) {
+    public PMSException(String str, xj4 xj4Var) {
         super(str, null);
-        this.mPmsError = sj4Var;
+        this.mPmsError = xj4Var;
     }
 
-    public sj4 getPmsError() {
+    public xj4 getPmsError() {
         return this.mPmsError;
     }
 }

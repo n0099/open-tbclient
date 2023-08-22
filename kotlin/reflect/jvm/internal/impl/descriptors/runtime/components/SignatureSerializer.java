@@ -6,7 +6,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.runtime.structure.ReflectClassUtilKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class SignatureSerializer {
     public static final SignatureSerializer INSTANCE = new SignatureSerializer();
 

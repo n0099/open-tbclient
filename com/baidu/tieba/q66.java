@@ -1,131 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetAddressList.DataRes;
+import tbclient.GetAddressList.listData;
+import tbclient.GetAddressList.robotsList;
 /* loaded from: classes7.dex */
-public class q66 extends sk1<gj0> {
+public class q66 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public class a implements gj0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.gj0
-        public String[] c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (String[]) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.gj0
-        public boolean d(Context context, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        /* renamed from: com.baidu.tieba.q66$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class C0452a implements jj0 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean[] a;
-            public final /* synthetic */ hj0 b;
-
-            public C0452a(a aVar, boolean[] zArr, hj0 hj0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, zArr, hj0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = zArr;
-                this.b = hj0Var;
-            }
-
-            @Override // com.baidu.tieba.jj0
-            public void onResult(boolean z) {
-                hj0 hj0Var;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    this.a[0] = z;
-                    if (z && (hj0Var = this.b) != null) {
-                        hj0Var.a(true, null);
-                    }
-                }
-            }
-        }
-
-        public a(q66 q66Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q66Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.gj0
-        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable hj0 hj0Var) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, hj0Var)) == null) {
-                Log.e("CMDConfig", "host invoke command = " + str);
-                if (UrlSchemaJumpHelper.isHitBlackList(str)) {
-                    return true;
-                }
-                if (!str.startsWith("http://") && !str.startsWith("https://")) {
-                    lj0.a(context, str, null, new C0452a(this, new boolean[1], hj0Var), false);
-                    return true;
-                }
-                UrlManager.getInstance().dealOneLink(new String[]{str});
-                return true;
-            }
-            return invokeLLLL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.gj0
-        public void b(String str, String str2, jj0 jj0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jj0Var) == null) && jj0Var != null) {
-                jj0Var.onResult(true);
-            }
-        }
-    }
+    public List<u66> a;
+    public List<u66> b;
 
     public q66() {
         Interceptable interceptable = $ic;
@@ -141,15 +33,83 @@ public class q66 extends sk1<gj0> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sk1
-    /* renamed from: a */
-    public gj0 createService() throws ServiceNotFoundException {
+    public List<u66> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+            if (this.a == null) {
+                this.a = new ArrayList();
+            }
+            return this.a;
         }
-        return (gj0) invokeV.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean b(List<u66> list, df5 df5Var) {
+        InterceptResult invokeLL;
+        List<df5> a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, df5Var)) == null) {
+            if (list != null && df5Var != null) {
+                for (u66 u66Var : list) {
+                    if (u66Var != null && (a = u66Var.a()) != null) {
+                        for (df5 df5Var2 : a) {
+                            if (df5Var2 != null && df5Var2.d() == df5Var.d()) {
+                                return true;
+                            }
+                        }
+                        continue;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean c(DataRes dataRes) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes)) == null) {
+            if (dataRes != null && dataRes.robots_list != null) {
+                this.b = new ArrayList();
+                z = false;
+                for (robotsList robotslist : dataRes.robots_list) {
+                    if (TextUtils.isEmpty(robotslist.key)) {
+                        z = true;
+                    } else {
+                        u66 u66Var = new u66();
+                        u66Var.d(robotslist);
+                        this.b.add(u66Var);
+                    }
+                }
+            } else {
+                z = false;
+            }
+            if (dataRes != null && dataRes.address_list != null) {
+                this.a = new ArrayList();
+                for (listData listdata : dataRes.address_list) {
+                    if (TextUtils.isEmpty(listdata.key)) {
+                        z = true;
+                    } else {
+                        u66 u66Var2 = new u66();
+                        u66Var2.c(listdata);
+                        if (u66Var2.a() != null) {
+                            for (df5 df5Var : u66Var2.a()) {
+                                if (b(this.b, df5Var)) {
+                                    df5Var.q(1);
+                                } else {
+                                    df5Var.q(0);
+                                }
+                            }
+                        }
+                        this.a.add(u66Var2);
+                    }
+                }
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

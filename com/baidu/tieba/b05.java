@@ -1,164 +1,72 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.FixedNinePatchLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.FlutterLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalPicDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalVideoThumbLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.MemeLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.NinePatchLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverMemoryLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class b05 {
     public static /* synthetic */ Interceptable $ic;
-    public static b05 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public boolean d;
-    public int e;
 
-    public void j(boolean z) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            BdResourceLoader.getInstance().registerLoaderProc(10, new SimpleLoaderProc(true, true, false, 10));
+            BdResourceLoader.getInstance().registerLoaderProc(11, new SimpleLoaderProc(false, true, false, 10));
+            BdResourceLoader.getInstance().registerLoaderProc(42, new SimpleLoaderProc(true, false, false, 10));
+            BdResourceLoader.getInstance().registerLoaderProc(13, new SimpleLoaderProc(true, true, false, 13));
+            BdResourceLoader.getInstance().registerLoaderProc(14, new SimpleLoaderProc(false, true, false, 13));
+            BdResourceLoader.getInstance().registerLoaderProc(17, new SimpleLoaderProc(true, true, false, 17));
+            BdResourceLoader.getInstance().registerLoaderProc(18, new SimpleLoaderProc(false, true, false, 17));
+            BdResourceLoader.getInstance().registerLoaderProc(39, new SimpleBlurLoaderProc(true, 39));
+            BdResourceLoader.getInstance().registerLoaderProc(12, new PortraitLoaderProc(false, false, 12));
+            BdResourceLoader.getInstance().registerLoaderProc(26, new PortraitLoaderProc(true, false, 26));
+            BdResourceLoader.getInstance().registerLoaderProc(28, new PortraitLoaderProc(false, false, 26));
+            BdResourceLoader.getInstance().registerLoaderProc(40, new PortraitBlurLoaderProc(false, false, 40));
+            BdResourceLoader.getInstance().registerLoaderProc(19, new NinePatchLoaderProc(19));
+            BdResourceLoader.getInstance().registerLoaderProc(59, new FixedNinePatchLoaderProc(59));
+            BdResourceLoader.getInstance().registerLoaderProc(24, new LocalPicDrawableLoaderProc(24));
+            BdResourceLoader.getInstance().registerLoaderProc(25, new PortraitLoaderProc(false, true, 26));
+            BdResourceLoader.getInstance().registerLoaderProc(27, new BigImageLoaderProc(27));
+            BdResourceLoader.getInstance().registerLoaderProc(29, new SimpleForeverLoaderProc(true, 29));
+            BdResourceLoader.getInstance().registerLoaderProc(32, new LocalFileDrawableLoaderProc(32));
+            BdResourceLoader.getInstance().registerLoaderProc(23, new pb5());
+            BdResourceLoader.getInstance().registerLoaderProc(33, new MemeLoaderProc2());
+            BdResourceLoader.getInstance().registerLoaderProc(34, new EmotionShareLoaderProc());
+            BdResourceLoader.getInstance().registerLoaderProc(35, new LocalFileImageLoaderProc(160, 160));
+            BdResourceLoader.getInstance().registerLoaderProc(36, new LocalFileImageLoaderProc());
+            BdResourceLoader.getInstance().registerLoaderProc(43, new LocalFileImageLoaderProc2());
+            BdResourceLoader.getInstance().registerLoaderProc(37, new LocalVideoThumbLoaderProc());
+            BdResourceLoader.getInstance().registerLoaderProc(38, new ImageLoaderProc());
+            BdResourceLoader.getInstance().registerLoaderProc(41, new BigdayImageLoaderProc());
+            BdResourceLoader.getInstance().registerLoaderProc(44, new FlutterLoaderProc(true, 44, false));
+            BdResourceLoader.getInstance().registerLoaderProc(15, new SimpleLoaderProc(false, true, true, 15));
+            BdResourceLoader.getInstance().registerLoaderProc(16, new SimpleLoaderProc(false, true, true, 16));
+            BdResourceLoader.getInstance().registerLoaderProc(21, new SimpleLoaderProc(false, true, true, 21));
+            BdResourceLoader.getInstance().registerLoaderProc(30, new SimpleLoaderProc(true, true, false, 30));
+            BdResourceLoader.getInstance().registerLoaderProc(31, new SimpleLoaderProc(false, true, false, 30));
+            BdResourceLoader.getInstance().registerLoaderProc(45, new SimpleForeverMemoryLoaderProc(true, true, true, 45));
+            BdResourceLoader.getInstance().registerLoaderProc(46, new SimpleLoaderProc(true, true, false, 46));
+            BdResourceLoader.getInstance().registerLoaderProc(47, new SimpleLoaderProc(false, true, false, 46));
         }
-    }
-
-    public b05() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        this.d = true;
-        this.e = 0;
-    }
-
-    public static b05 c() {
-        InterceptResult invokeV;
-        b05 b05Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            b05 b05Var2 = f;
-            if (b05Var2 == null) {
-                synchronized (b05.class) {
-                    if (f == null) {
-                        f = new b05();
-                    }
-                    b05Var = f;
-                }
-                return b05Var;
-            }
-            return b05Var2;
-        }
-        return (b05) invokeV.objValue;
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            int i = sharedPrefHelper.getInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
-            this.b = i;
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = SharedPrefHelper.getInstance().getInt("image_quality", 0);
-            this.a = i;
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = SharedPrefHelper.getInstance().getInt("image_quality", 0);
-            SharedPrefHelper.getInstance().getInt("new_abstract_state", 0);
-            this.e = SharedPrefHelper.getInstance().getInt("view_image_quality", 0);
-            boolean z = SharedPrefHelper.getInstance().getBoolean("show_images", true);
-            this.d = z;
-            if (!z) {
-                this.d = true;
-                SharedPrefHelper.getInstance().remove("show_images");
-                SharedPrefHelper.getInstance().putInt("view_image_quality", 0);
-                this.e = 0;
-            }
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || this.e == i) {
-            return;
-        }
-        this.e = i;
-        SharedPrefHelper.getInstance().putInt("view_image_quality", i);
-        TbImageHelper.getInstance().updateFrsShowBigImage();
-        TbImageHelper.getInstance().updateUrlQuality();
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.b == i) {
-            return;
-        }
-        this.b = i;
-        SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-        sharedPrefHelper.putInt(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
     }
 }

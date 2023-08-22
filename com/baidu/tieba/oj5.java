@@ -1,55 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.SkinManager;
+import android.content.Context;
+import com.baidu.tbadk.editortools.local.view.LocalInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.ThemeColorInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class oj5 {
+public class oj5 extends li5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LocalInputContainer t;
 
-    public static final boolean a() {
-        InterceptResult invokeV;
-        boolean z;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oj5(Context context, fj5 fj5Var) {
+        super(context, (String) null, 36);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (fk5.b.a().a("show_write_tip")) {
-                jg5 a = ek5.b.a().a();
-                if (a != null && a.b == 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    return true;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, fj5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        g(context, fj5Var);
+        this.m = this.t;
+        this.o = false;
+        this.n = 3;
+        this.p = new int[]{24, 3};
     }
 
-    public static final int b(boolean z) {
-        InterceptResult invokeZ;
-        ThemeColorInfo themeColorInfo;
+    public final void g(Context context, fj5 fj5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            if (!z) {
-                return SkinManager.getColor(R.color.CAM_X0110);
-            }
-            jg5 a = ek5.b.a().a();
-            if (a != null) {
-                themeColorInfo = a.f;
-            } else {
-                themeColorInfo = null;
-            }
-            if (a() && themeColorInfo != null) {
-                return SkinManager.getColorFromServerColor(themeColorInfo, R.color.CAM_X0301);
-            }
-            return SkinManager.getColor(R.color.CAM_X0302);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, fj5Var) == null) {
+            LocalInputContainer localInputContainer = new LocalInputContainer(context);
+            this.t = localInputContainer;
+            localInputContainer.e(fj5Var);
         }
-        return invokeZ.intValue;
     }
 }

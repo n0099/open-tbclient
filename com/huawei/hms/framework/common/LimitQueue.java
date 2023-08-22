@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.concurrent.ConcurrentLinkedQueue;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class LimitQueue<E> extends ConcurrentLinkedQueue<E> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "LimitQueue";

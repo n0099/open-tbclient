@@ -5,7 +5,7 @@ import com.baidu.tieba.R;
 import com.kwad.components.ad.draw.view.playend.DrawVideoTailFrame;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends com.kwad.components.ad.draw.kwai.a {
     public DrawVideoTailFrame bQ;
     @Nullable
@@ -44,7 +44,7 @@ public final class a extends com.kwad.components.ad.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bQ = (DrawVideoTailFrame) findViewById(R.id.obfuscated_res_0x7f091438);
+        this.bQ = (DrawVideoTailFrame) findViewById(R.id.obfuscated_res_0x7f09144e);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

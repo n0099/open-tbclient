@@ -7,10 +7,10 @@ import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.bi;
+import com.baidu.tieba.di;
+import com.baidu.tieba.epa;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.vka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.ugc.editvideo.data.MultiMediaDataConstant;
 import org.json.JSONObject;
 import tbclient.ThemeColorInfo;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -35,7 +35,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
     public ThemeColorInfo textColorTheme;
     public String version;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -68,7 +68,7 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -133,8 +133,8 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeV(65537, this) != null) || (themeColorInfo = this.bgUrlTheme) == null) {
             return;
         }
-        String g = vka.g(themeColorInfo);
-        if (!bi.isEmpty(g)) {
+        String g = epa.g(themeColorInfo);
+        if (!di.isEmpty(g)) {
             lg.c(new a(this, g));
         }
     }
@@ -261,8 +261,8 @@ public class SpriteTipHttpResponseMessage extends TbHttpResponsedMessage {
                     this.sendText = optJSONObject.optString("send_text");
                     this.version = optJSONObject.optString("version");
                     this.disappearSeconds = optJSONObject.optInt("disappear_seconds", -1);
-                    this.textColorTheme = vka.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
-                    this.bgUrlTheme = vka.j(optJSONObject.optJSONObject("icon_url"));
+                    this.textColorTheme = epa.j(optJSONObject.optJSONObject(MultiMediaDataConstant.KEY_EXT_TEXT_WORDS_COLOR));
+                    this.bgUrlTheme = epa.j(optJSONObject.optJSONObject("icon_url"));
                     this.buttonInfo = b.a(optJSONObject.optJSONObject("button_info"));
                     preLoadBgUrl();
                 }

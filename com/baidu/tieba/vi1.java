@@ -1,105 +1,141 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class vi1 {
     public static /* synthetic */ Interceptable $ic;
-    public static Toast a;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public List<a> b;
 
-    public static View a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0541, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ccd)).setText(str);
-            return inflate;
-        }
-        return (View) invokeLL.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public Long g;
+        public int h;
+        public String i;
 
-    public static void f(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65541, null, context, str) != null) || context == null) {
-            return;
-        }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
-        }
-        b(context);
-        a.setView(a(context, str));
-        a.show();
-    }
-
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            Toast toast = new Toast(context.getApplicationContext());
-            a = toast;
-            toast.setGravity(17, 0, 0);
-            a.setDuration(0);
-        }
-    }
-
-    public static View c(Context context, int i, String str, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0540, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ccc);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ccd);
-            if (-1 == i) {
-                imageView.setVisibility(8);
-            } else {
-                imageView.setVisibility(0);
-                imageView.setImageResource(i);
-                if (z) {
-                    imageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f0100b4));
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            textView.setText(str);
-            return inflate;
         }
-        return (View) invokeCommon.objValue;
+
+        public a(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            if (jSONObject == null) {
+                return;
+            }
+            this.c = jSONObject.optString("display_name");
+            this.d = jSONObject.optString("pay_text");
+            this.f = jSONObject.optString("icon");
+            this.e = jSONObject.optString("valid_info");
+            this.i = jSONObject.optString("host_marketing_detail");
+            this.g = Long.valueOf(jSONObject.optLong("available_par_money"));
+            this.h = jSONObject.optInt("is_selected");
+            this.b = jSONObject.optInt("style");
+            this.a = jSONObject.optInt("type");
+        }
+
+        public JSONObject a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("display_name", this.c);
+                    jSONObject.put("pay_text", this.d);
+                    jSONObject.put("icon", this.f);
+                    jSONObject.put("valid_info", this.e);
+                    jSONObject.put("host_marketing_detail", this.i);
+                    jSONObject.put("available_par_money", this.g);
+                    jSONObject.put("is_selected", this.h);
+                    jSONObject.put("style", this.b);
+                    jSONObject.put("type", this.a);
+                } catch (JSONException e) {
+                    if (ci1.d) {
+                        e.printStackTrace();
+                    }
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return "CouponItem{type=" + this.a + ", style=" + this.b + ", displayName='" + this.c + "', payText='" + this.d + "', validInfo='" + this.e + "', icon='" + this.f + "', cutMoney=" + this.g + ", isSelected=" + this.h + ", hostMarketingDetail='" + this.i + "'}";
+            }
+            return (String) invokeV.objValue;
+        }
     }
 
-    public static void d(Context context, int i, String str) {
+    public vi1(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(65539, null, context, i, str) != null) || context == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        if (jSONArray == null) {
             return;
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
+        this.b = new ArrayList();
+        int length = jSONArray.length();
+        for (int i3 = 0; i3 < length; i3++) {
+            JSONObject jSONObject = (JSONObject) jSONArray.opt(i3);
+            if (jSONObject != null) {
+                this.b.add(new a(jSONObject));
+            }
         }
-        b(context);
-        a.setView(c(context, i, str, false));
-        a.show();
-    }
-
-    public static void e(Context context, int i, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, str) != null) || context == null) {
-            return;
-        }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
-        }
-        b(context);
-        a.setView(c(context, i, str, true));
-        a.show();
+        this.a = this.b.size() > 1;
     }
 }

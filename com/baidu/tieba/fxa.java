@@ -1,169 +1,172 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.switchs.RepostToDynamicDefaultSwitch;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.ScrollView;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class fxa {
+public class fxa extends PopupWindow {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public a b;
+    public int c;
+    public LinearLayout d;
+    public Context e;
+    public int f;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mh5 mh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, editorTools, mh5Var) == null) {
-            editorTools.d(new zh5(tbPageContext.getPageActivity(), 7));
-            editorTools.setActionListener(16, mh5Var);
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void M0(int i);
     }
 
-    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mh5 mh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, tbPageContext, editorTools, mh5Var) == null) {
-            editorTools.d(new oh5(tbPageContext.getPageActivity(), 10));
-            editorTools.setActionListener(59, mh5Var);
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public a b;
 
-    public static void e(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mh5 mh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, editorTools, mh5Var) == null) {
-            editorTools.d(new fi5(tbPageContext.getPageActivity(), 12));
-            editorTools.setActionListener(69, mh5Var);
-        }
-    }
-
-    public static void f(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mh5 mh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, tbPageContext, editorTools, mh5Var) == null) {
-            editorTools.d(new ki5(tbPageContext.getPageActivity(), 11));
-            editorTools.setActionListener(61, mh5Var);
-        }
-    }
-
-    public static li5 g(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mh5 mh5Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, tbPageContext, editorTools, mh5Var)) == null) {
-            li5 li5Var = new li5(tbPageContext.getPageActivity(), 4);
-            editorTools.d(li5Var);
-            editorTools.setActionListener(21, mh5Var);
-            return li5Var;
-        }
-        return (li5) invokeLLL.objValue;
-    }
-
-    public static void j(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mh5 mh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, tbPageContext, editorTools, mh5Var) == null) {
-            editorTools.d(new ak5(tbPageContext.getPageActivity(), 2));
-            editorTools.setActionListener(60, mh5Var);
-        }
-    }
-
-    public static void l(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mh5 mh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, tbPageContext, editorTools, mh5Var) == null) {
-            editorTools.d(new ck5(tbPageContext.getPageActivity(), 8));
-            editorTools.setActionListener(22, mh5Var);
-        }
-    }
-
-    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mh5 mh5Var) {
-        CustomResponsedMessage runTask;
-        xh5 xh5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, editorTools, mh5Var) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, tbPageContext.getPageActivity()), xh5.class)) != null && (xh5Var = (xh5) runTask.getData()) != null) {
-            xh5Var.o = true;
-            xh5Var.l = 9;
-            editorTools.d(xh5Var);
-            editorTools.setActionListener(25, mh5Var);
-        }
-    }
-
-    public static void d(@NonNull EditorTools editorTools, @NonNull mh5 mh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, editorTools, mh5Var) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            editorTools.h(arrayList);
-            xh5 p = editorTools.p(5);
-            if (p != null) {
-                p.l = 5;
-                p.d(true);
+        public b(int i, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            editorTools.setActionListener(24, mh5Var);
-            editorTools.setActionListener(3, mh5Var);
+            this.a = i;
+            this.b = aVar;
         }
-    }
 
-    public static void i(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
-        CustomResponsedMessage runTask;
-        xh5 xh5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, tbPageContext, editorTools) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, tbPageContext.getPageActivity()), xh5.class)) != null && (xh5Var = (xh5) runTask.getData()) != null) {
-            xh5Var.o = true;
-            xh5Var.l = 10;
-            editorTools.d(xh5Var);
-        }
-    }
-
-    public static void h(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mh5 mh5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, tbPageContext, editorTools, mh5Var) == null) {
-            editorTools.d(new ii5(tbPageContext.getPageActivity(), 1));
-            editorTools.setActionListener(14, mh5Var);
-            editorTools.setActionListener(12, mh5Var);
-            editorTools.setActionListener(13, mh5Var);
-            editorTools.setActionListener(15, mh5Var);
-            editorTools.setActionListener(48, mh5Var);
-            editorTools.setActionListener(46, mh5Var);
-            editorTools.setActionListener(49, mh5Var);
-            editorTools.setActionListener(47, mh5Var);
-        }
-    }
-
-    public static void k(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull mh5 mh5Var) {
-        xh5 xh5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65546, null, tbPageContext, editorTools, mh5Var) == null) && nda.a()) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, tbPageContext.getPageActivity()), xh5.class);
-            if (runTask != null && (xh5Var = (xh5) runTask.getData()) != null) {
-                xh5Var.l = 3;
-                editorTools.d(xh5Var);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            a aVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = this.b) != null) {
+                aVar.M0(this.a);
             }
-            editorTools.setActionListener(10, mh5Var);
-            editorTools.setActionListener(11, mh5Var);
         }
     }
 
-    public static kta m(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, String str, @NonNull mh5 mh5Var) {
-        InterceptResult invokeLLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fxa(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, tbPageContext, editorTools, str, mh5Var)) == null) {
-            kta ktaVar = new kta(tbPageContext.getPageActivity(), str);
-            boolean z = false;
-            ktaVar.k(0);
-            if (SwitchManager.getInstance().findType(RepostToDynamicDefaultSwitch.KEY) == 1) {
-                z = true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ktaVar.l(z);
-            editorTools.d(ktaVar);
-            editorTools.setActionListener(43, mh5Var);
-            editorTools.setActionListener(55, mh5Var);
-            editorTools.setActionListener(66, mh5Var);
-            editorTools.setActionListener(77, mh5Var);
-            return ktaVar;
         }
-        return (kta) invokeLLLL.objValue;
+        this.a = -1;
+        this.e = context;
+        b(context);
+    }
+
+    public void a(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            view2.setOnClickListener(new b(this.c, this.b));
+            this.d.addView(view2);
+            this.c++;
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            int i2 = this.a;
+            if (i2 != -1) {
+                this.d.getChildAt(i2).setSelected(false);
+            }
+            this.a = i;
+            this.d.getChildAt(i).setSelected(true);
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void e(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public final void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            ScrollView scrollView = new ScrollView(context);
+            scrollView.setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
+            LinearLayout linearLayout = new LinearLayout(context);
+            this.d = linearLayout;
+            linearLayout.setOrientation(1);
+            this.d.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
+            scrollView.addView(this.d);
+            scrollView.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            scrollView.setPadding(0, 0, BdUtilHelper.dip2px(context, 1.0f), BdUtilHelper.dip2px(context, 1.0f));
+            scrollView.setFadingEdgeLength(0);
+            scrollView.setScrollbarFadingEnabled(false);
+            try {
+                Method declaredMethod = scrollView.getClass().getDeclaredMethod("setOverScrollMode", Integer.TYPE);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(scrollView, 2);
+            } catch (Exception unused) {
+            }
+            setContentView(scrollView);
+            GreyUtil.grey(this);
+        }
+    }
+
+    @Override // android.widget.PopupWindow
+    public void showAsDropDown(View view2, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, view2, i, i2) == null) {
+            getContentView().measure(View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().widthPixels, Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(this.e.getResources().getDisplayMetrics().heightPixels, Integer.MIN_VALUE));
+            int measuredWidth = getContentView().getMeasuredWidth();
+            if (measuredWidth < view2.getWidth()) {
+                measuredWidth = view2.getWidth();
+            }
+            int measuredHeight = getContentView().getMeasuredHeight();
+            int i3 = this.f;
+            if (measuredHeight > i3) {
+                measuredHeight = i3;
+            }
+            setWidth(measuredWidth);
+            setHeight(measuredHeight);
+            super.showAsDropDown(view2, i, i2);
+        }
     }
 }

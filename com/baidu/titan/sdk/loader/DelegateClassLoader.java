@@ -1,7 +1,7 @@
 package com.baidu.titan.sdk.loader;
 
 import dalvik.system.DexClassLoader;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DelegateClassLoader extends DexClassLoader {
     public final ClassLoader mDelegateClassLoader;
 

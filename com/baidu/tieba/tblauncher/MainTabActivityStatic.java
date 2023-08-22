@@ -35,7 +35,7 @@ import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.so5;
+import com.baidu.tieba.jp5;
 import com.baidu.tieba.write.WriteVideoUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -287,10 +287,10 @@ public class MainTabActivityStatic {
                 return;
             }
             if (!data.booleanValue()) {
-                so5.b().m(so5.b().j());
-                so5.b().c();
-            } else if (!so5.b().i() && so5.b().k()) {
-                so5.b().o();
+                jp5.b().m(jp5.b().j());
+                jp5.b().c();
+            } else if (!jp5.b().i() && jp5.b().k()) {
+                jp5.b().o();
             }
         }
     }
@@ -329,10 +329,10 @@ public class MainTabActivityStatic {
                 return;
             }
             if (data.booleanValue()) {
-                so5.b().m(so5.b().j());
-                so5.b().c();
-            } else if (!so5.b().i() && so5.b().k()) {
-                so5.b().o();
+                jp5.b().m(jp5.b().j());
+                jp5.b().c();
+            } else if (!jp5.b().i() && jp5.b().k()) {
+                jp5.b().o();
             }
         }
     }

@@ -1,134 +1,73 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class n5a {
+public final class n5a implements nb7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public NetWork b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947954831, "Lcom/baidu/tieba/n5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947954831, "Lcom/baidu/tieba/n5a;");
-                return;
-            }
-        }
-        c = TbConfig.SERVER_ADDRESS + "c/c/forum/msign";
+    @Override // com.baidu.tieba.nb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c10709" : (String) invokeV.objValue;
     }
 
     public n5a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = null;
     }
 
-    public void a() {
-        NetWork netWork;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (netWork = this.b) != null) {
-            netWork.cancelNetConnect();
-        }
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            NetWork netWork = this.b;
-            if (netWork != null) {
-                return netWork.getErrorString();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetWork netWork = this.b;
-            if (netWork != null) {
-                return netWork.getNetContext().getResponse().isRequestSuccess();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public String e(String str) {
+    @Override // com.baidu.tieba.nb7
+    public Map<String, String> a(a77 businessInfo) {
         InterceptResult invokeL;
-        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
-            if (currentAccountObj != null) {
-                str2 = currentAccountObj.getID();
-            } else {
-                str2 = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.putAll(d5a.a.a(businessInfo));
+            String str = a.get("has_concerned");
+            String str2 = "0";
+            if (str == null) {
+                str = "0";
             }
-            NetWork netWork = new NetWork(c);
-            this.b = netWork;
-            netWork.addPostData("user_id", str2);
-            this.b.addPostData("forum_ids", str);
-            this.b.addPostData("authsid", this.a);
-            this.b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.b.setNeedSig(true);
-            return this.b.postNetData();
+            hashMap.put(TiebaStatic.Params.AB_TYPE, str);
+            String str3 = a.get("author_is_living");
+            if (str3 == null) {
+                str3 = "1";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM7, str3);
+            String str4 = a.get("live_type");
+            if (str4 == null) {
+                str4 = "5";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM8, str4);
+            String str5 = a.get("is_vertical_video");
+            if (str5 != null) {
+                str2 = str5;
+            }
+            hashMap.put(TiebaStatic.Params.IS_VERTICAL, str2);
+            return hashMap;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            NetWork netWork = new NetWork(c);
-            this.b = netWork;
-            netWork.addPostData("authsid", this.a);
-            this.b.getNetContext().getRequest().mNeedBackgroundLogin = true;
-            this.b.getNetContext().getRequest().mIsNeedTbs = true;
-            this.b.setNeedSig(true);
-            return this.b.postNetData();
-        }
-        return (String) invokeV.objValue;
+        return (Map) invokeL.objValue;
     }
 }

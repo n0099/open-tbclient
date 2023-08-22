@@ -1,106 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-/* loaded from: classes7.dex */
-public final class spb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "SHA";
-    public static final String[] b;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.KsRewardVideoAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
+/* loaded from: classes8.dex */
+public class spb extends qqb<KsRewardVideoAd> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160516, "Lcom/baidu/tieba/spb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948160516, "Lcom/baidu/tieba/spb;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public spb(KsRewardVideoAd ksRewardVideoAd) {
+        super(ksRewardVideoAd);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ksRewardVideoAd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b = new String[]{"SHA-256", "SHA-384", "SHA-512"};
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qqb
+    public double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            for (String str2 : b) {
-                if (str2.equals(str)) {
-                    return true;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            A a = this.a;
+            if (a == 0) {
+                return 0.0d;
             }
-            return false;
+            return ((KsRewardVideoAd) a).getECPM();
         }
-        return invokeL.booleanValue;
+        return invokeV.doubleValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qqb
+    public void b(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return c(str, "SHA-256");
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
+            return;
         }
-        return (String) invokeL.objValue;
+        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
+        adExposureFailedReason.winEcpm = i;
+        ((KsRewardVideoAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        byte[] bArr;
+    @Override // com.baidu.tieba.qqb
+    public void c(long j, long j2) {
+        A a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (!a(str2)) {
-                    zpb.c(a, "algorithm is not safe or legal");
-                    return "";
-                }
-                try {
-                    bArr = str.getBytes("UTF-8");
-                } catch (UnsupportedEncodingException unused) {
-                    bArr = new byte[0];
-                    zpb.c(a, "Error in generate SHA UnsupportedEncodingException");
-                }
-                return wpb.a(d(bArr, str2));
-            }
-            zpb.c(a, "content or algorithm is null.");
-            return "";
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
+            return;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, str)) == null) {
-            if (bArr != null && !TextUtils.isEmpty(str)) {
-                if (!a(str)) {
-                    zpb.c(a, "algorithm is not safe or legal");
-                    return new byte[0];
-                }
-                try {
-                    MessageDigest messageDigest = MessageDigest.getInstance(str);
-                    messageDigest.update(bArr);
-                    return messageDigest.digest();
-                } catch (NoSuchAlgorithmException unused) {
-                    zpb.c(a, "Error in generate SHA NoSuchAlgorithmException");
-                    return new byte[0];
-                }
-            }
-            zpb.c(a, "content or algorithm is null.");
-            return new byte[0];
-        }
-        return (byte[]) invokeLL.objValue;
+        ((KsRewardVideoAd) a).setBidEcpm((int) j);
     }
 }

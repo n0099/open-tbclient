@@ -13,14 +13,14 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.rx;
+import com.baidu.tieba.ux;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
-public class CardItemInfoBriefLayout extends FrameLayout implements rx {
+public class CardItemInfoBriefLayout extends FrameLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiLineEllipsizeTextView a;
@@ -100,11 +100,11 @@ public class CardItemInfoBriefLayout extends FrameLayout implements rx {
                 CardItemInfoBriefLayout cardItemInfoBriefLayout = this.a;
                 cardItemInfoBriefLayout.d = !cardItemInfoBriefLayout.d;
                 if (!this.a.d) {
-                    this.a.b.setText(R.string.obfuscated_res_0x7f0f06e2);
+                    this.a.b.setText(R.string.obfuscated_res_0x7f0f06ea);
                     this.a.a.setMaxLines(3);
                     return;
                 }
-                this.a.b.setText(R.string.obfuscated_res_0x7f0f0755);
+                this.a.b.setText(R.string.obfuscated_res_0x7f0f075d);
                 this.a.a.setMaxLines(Integer.MAX_VALUE);
                 this.a.a.setText(this.a.c);
             }
@@ -154,7 +154,7 @@ public class CardItemInfoBriefLayout extends FrameLayout implements rx {
         f();
     }
 
-    @Override // com.baidu.tieba.rx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
@@ -205,14 +205,14 @@ public class CardItemInfoBriefLayout extends FrameLayout implements rx {
             this.a = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.a;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f06e2))));
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f06ea))));
             EMManager.from(this.a).setTextSize(R.dimen.T_X07).setTextLinePadding(R.dimen.M_T_X002);
             this.a.setPadding(0, 0, 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X005));
             addView(this.a, new FrameLayout.LayoutParams(-1, -2));
             this.a.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f06e2);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f06ea);
             EMManager.from(this.a).setTextSize(R.dimen.T_X07);
             this.b.setPadding(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X005), BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X005), 0, BdUtilHelper.getDimens(getContext(), R.dimen.M_H_X005));
             this.b.setVisibility(8);

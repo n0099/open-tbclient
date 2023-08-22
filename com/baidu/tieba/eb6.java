@@ -6,39 +6,33 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ala.alasquare.livetab.view.LiveTabAlaRecommendViewHolder;
-import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class eb6 extends lm<fb6, LiveTabAlaRecommendViewHolder> {
+public class eb6 extends om<bb6, LiveTabConcernItemViewLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public AlaRecommendLayout b;
-    public int c;
+    public rb6 b;
+    public wb6 c;
     public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eb6(TbPageContext tbPageContext, int i, String str) {
-        super(tbPageContext.getPageActivity(), fb6.b);
+    public eb6(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), bb6.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -46,48 +40,51 @@ public class eb6 extends lm<fb6, LiveTabAlaRecommendViewHolder> {
                 return;
             }
         }
-        this.d = "0";
+        this.d = "";
         this.a = tbPageContext;
-        this.c = i;
         this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
+    @Override // com.baidu.tieba.om
     /* renamed from: s */
-    public LiveTabAlaRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public LiveTabConcernItemViewLineHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AlaRecommendLayout alaRecommendLayout = new AlaRecommendLayout(this.a.getPageActivity());
-            this.b = alaRecommendLayout;
-            alaRecommendLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds34), UtilHelper.getDimenPixelSize(R.dimen.tbds21), UtilHelper.getDimenPixelSize(R.dimen.tbds34), this.b.getPaddingBottom());
-            this.b.setFid(this.d);
-            TiebaStatic.log(fn6.e("c13620", this.c, this.d));
-            return new LiveTabAlaRecommendViewHolder(this.b);
+            rb6 rb6Var = new rb6(this.a, viewGroup, this.d);
+            this.b = rb6Var;
+            wb6 wb6Var = this.c;
+            if (wb6Var != null) {
+                rb6Var.s(wb6Var);
+            }
+            return new LiveTabConcernItemViewLineHolder(this.b);
         }
-        return (LiveTabAlaRecommendViewHolder) invokeL.objValue;
+        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
+    }
+
+    public void u(wb6 wb6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, wb6Var) == null) {
+            this.c = wb6Var;
+            rb6 rb6Var = this.b;
+            if (rb6Var != null) {
+                rb6Var.s(wb6Var);
+            }
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
+    @Override // com.baidu.tieba.om
     /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, fb6 fb6Var, LiveTabAlaRecommendViewHolder liveTabAlaRecommendViewHolder) {
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, bb6 bb6Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
         InterceptResult invokeCommon;
-        AlaRecommendLayout alaRecommendLayout;
+        rb6 rb6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fb6Var, liveTabAlaRecommendViewHolder})) == null) {
-            if (liveTabAlaRecommendViewHolder != null && (alaRecommendLayout = liveTabAlaRecommendViewHolder.a) != null && fb6Var != null) {
-                EMManager.from(alaRecommendLayout.findViewById(R.id.ala_recommend_list_container)).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
-                gn6 gn6Var = fb6Var.a;
-                if (gn6Var != null && !ListUtils.isEmpty(gn6Var.c())) {
-                    liveTabAlaRecommendViewHolder.a.setData(fb6Var.a);
-                    liveTabAlaRecommendViewHolder.a.d(TbadkCoreApplication.getInst().getSkinType());
-                    liveTabAlaRecommendViewHolder.a.setVisibility(0);
-                } else {
-                    liveTabAlaRecommendViewHolder.a.setVisibility(8);
-                }
-                return liveTabAlaRecommendViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, bb6Var, liveTabConcernItemViewLineHolder})) == null) {
+            if (liveTabConcernItemViewLineHolder != null && (rb6Var = liveTabConcernItemViewLineHolder.a) != null) {
+                rb6Var.i(bb6Var);
+                return liveTabConcernItemViewLineHolder.getView();
             }
             return null;
         }

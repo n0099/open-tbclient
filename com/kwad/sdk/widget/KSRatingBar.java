@@ -35,7 +35,7 @@ public class KSRatingBar extends LinearLayout {
         this.y = 1;
         this.aqW = false;
         setOrientation(0);
-        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e78));
+        setDividerDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080e89));
         setShowDividers(2);
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.kwad.sdk.R.styleable.ksad_KSRatingBar);
         this.aqV = obtainStyledAttributes.getDrawable(5);

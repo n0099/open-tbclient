@@ -1,18 +1,47 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Queue;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class bp3 {
+public class bp3 implements go4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Queue<Runnable> a;
-    public Runnable b;
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final bp3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-911599930, "Lcom/baidu/tieba/bp3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-911599930, "Lcom/baidu/tieba/bp3$b;");
+                    return;
+                }
+            }
+            a = new bp3(null);
+        }
+    }
 
     public bp3() {
         Interceptable interceptable = $ic;
@@ -24,49 +53,44 @@ public class bp3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayDeque();
-        this.b = null;
     }
 
-    public synchronized boolean a(Runnable runnable) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
+    public static bp3 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-            synchronized (this) {
-                z = true;
-                if (runnable == null) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (!z2) {
-                    this.a.offer(runnable);
-                }
-                if (this.b == null && !this.a.isEmpty()) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                if (z3) {
-                    while (!this.a.isEmpty()) {
-                        Runnable poll = this.a.poll();
-                        this.b = poll;
-                        if (poll != null) {
-                            poll.run();
-                        }
-                        this.b = null;
-                    }
-                }
-                z = (z2 || !z3) ? false : false;
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return invokeL.booleanValue;
+        return (bp3) invokeV.objValue;
+    }
+
+    public /* synthetic */ bp3(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.go4
+    public boolean a(@NonNull String str, @NonNull int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return false;
+                }
+                File file = new File(lu2.g().b(), str);
+                if (!file.exists() || !file.isDirectory()) {
+                    return false;
+                }
+                return true;
+            }
+            File file2 = new File(zt2.g(), str);
+            if (!file2.exists() || !file2.isDirectory()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLI.booleanValue;
     }
 }

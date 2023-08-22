@@ -11,34 +11,34 @@ import java.util.Map;
 public class hy implements is<hy, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public hw f587a;
+    public hw f588a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f588a;
+    public String f589a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Map<String, String> f590a;
+    public Map<String, String> f591a;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f591b;
+    public String f592b;
 
     /* renamed from: c  reason: collision with other field name */
-    public String f592c;
+    public String f593c;
 
     /* renamed from: d  reason: collision with other field name */
-    public String f593d;
+    public String f594d;
 
     /* renamed from: e  reason: collision with other field name */
-    public String f594e;
+    public String f595e;
 
     /* renamed from: f  reason: collision with other field name */
-    public String f595f;
+    public String f596f;
 
     /* renamed from: g  reason: collision with other field name */
-    public String f596g;
+    public String f597g;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final ji f585a = new ji("XmPushActionAckNotification");
+    public static final ji f586a = new ji("XmPushActionAckNotification");
     public static final ja a = new ja("", Constants.GZIP_CAST_TYPE, 1);
     public static final ja b = new ja("", (byte) 12, 2);
     public static final ja c = new ja("", Constants.GZIP_CAST_TYPE, 3);
@@ -51,10 +51,10 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
     public static final ja j = new ja("", Constants.GZIP_CAST_TYPE, 11);
 
     /* renamed from: a  reason: collision with other field name */
-    public BitSet f589a = new BitSet(1);
+    public BitSet f590a = new BitSet(1);
 
     /* renamed from: a  reason: collision with other field name */
-    public long f586a = 0;
+    public long f587a = 0;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -71,56 +71,56 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
         int a10;
         int a11;
         if (hy.class.equals(hyVar.getClass())) {
-            int compareTo = Boolean.valueOf(m599a()).compareTo(Boolean.valueOf(hyVar.m599a()));
+            int compareTo = Boolean.valueOf(m601a()).compareTo(Boolean.valueOf(hyVar.m601a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m599a() || (a11 = it.a(this.f588a, hyVar.f588a)) == 0) {
-                int compareTo2 = Boolean.valueOf(m601b()).compareTo(Boolean.valueOf(hyVar.m601b()));
+            if (!m601a() || (a11 = it.a(this.f589a, hyVar.f589a)) == 0) {
+                int compareTo2 = Boolean.valueOf(m603b()).compareTo(Boolean.valueOf(hyVar.m603b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
                 }
-                if (!m601b() || (a10 = it.a(this.f587a, hyVar.f587a)) == 0) {
+                if (!m603b() || (a10 = it.a(this.f588a, hyVar.f588a)) == 0) {
                     int compareTo3 = Boolean.valueOf(c()).compareTo(Boolean.valueOf(hyVar.c()));
                     if (compareTo3 != 0) {
                         return compareTo3;
                     }
-                    if (!c() || (a9 = it.a(this.f591b, hyVar.f591b)) == 0) {
+                    if (!c() || (a9 = it.a(this.f592b, hyVar.f592b)) == 0) {
                         int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(hyVar.d()));
                         if (compareTo4 != 0) {
                             return compareTo4;
                         }
-                        if (!d() || (a8 = it.a(this.f592c, hyVar.f592c)) == 0) {
+                        if (!d() || (a8 = it.a(this.f593c, hyVar.f593c)) == 0) {
                             int compareTo5 = Boolean.valueOf(e()).compareTo(Boolean.valueOf(hyVar.e()));
                             if (compareTo5 != 0) {
                                 return compareTo5;
                             }
-                            if (!e() || (a7 = it.a(this.f593d, hyVar.f593d)) == 0) {
+                            if (!e() || (a7 = it.a(this.f594d, hyVar.f594d)) == 0) {
                                 int compareTo6 = Boolean.valueOf(f()).compareTo(Boolean.valueOf(hyVar.f()));
                                 if (compareTo6 != 0) {
                                     return compareTo6;
                                 }
-                                if (!f() || (a6 = it.a(this.f586a, hyVar.f586a)) == 0) {
+                                if (!f() || (a6 = it.a(this.f587a, hyVar.f587a)) == 0) {
                                     int compareTo7 = Boolean.valueOf(g()).compareTo(Boolean.valueOf(hyVar.g()));
                                     if (compareTo7 != 0) {
                                         return compareTo7;
                                     }
-                                    if (!g() || (a5 = it.a(this.f594e, hyVar.f594e)) == 0) {
+                                    if (!g() || (a5 = it.a(this.f595e, hyVar.f595e)) == 0) {
                                         int compareTo8 = Boolean.valueOf(h()).compareTo(Boolean.valueOf(hyVar.h()));
                                         if (compareTo8 != 0) {
                                             return compareTo8;
                                         }
-                                        if (!h() || (a4 = it.a(this.f590a, hyVar.f590a)) == 0) {
+                                        if (!h() || (a4 = it.a(this.f591a, hyVar.f591a)) == 0) {
                                             int compareTo9 = Boolean.valueOf(i()).compareTo(Boolean.valueOf(hyVar.i()));
                                             if (compareTo9 != 0) {
                                                 return compareTo9;
                                             }
-                                            if (!i() || (a3 = it.a(this.f595f, hyVar.f595f)) == 0) {
+                                            if (!i() || (a3 = it.a(this.f596f, hyVar.f596f)) == 0) {
                                                 int compareTo10 = Boolean.valueOf(j()).compareTo(Boolean.valueOf(hyVar.j()));
                                                 if (compareTo10 != 0) {
                                                     return compareTo10;
                                                 }
-                                                if (!j() || (a2 = it.a(this.f596g, hyVar.f596g)) == 0) {
+                                                if (!j() || (a2 = it.a(this.f597g, hyVar.f597g)) == 0) {
                                                     return 0;
                                                 }
                                                 return a2;
@@ -147,33 +147,33 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
     }
 
     public hy a(long j2) {
-        this.f586a = j2;
+        this.f587a = j2;
         a(true);
         return this;
     }
 
     public hy a(hw hwVar) {
-        this.f587a = hwVar;
+        this.f588a = hwVar;
         return this;
     }
 
     public hy a(String str) {
-        this.f591b = str;
+        this.f592b = str;
         return this;
     }
 
     public String a() {
-        return this.f591b;
+        return this.f592b;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, String> m597a() {
-        return this.f590a;
+    public Map<String, String> m599a() {
+        return this.f591a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m598a() {
-        if (this.f591b != null) {
+    public void m600a() {
+        if (this.f592b != null) {
             return;
         }
         throw new je("Required field 'id' was not present! Struct: " + toString());
@@ -181,19 +181,19 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo698a();
+        jdVar.mo700a();
         while (true) {
-            ja mo694a = jdVar.mo694a();
-            byte b2 = mo694a.a;
+            ja mo696a = jdVar.mo696a();
+            byte b2 = mo696a.a;
             if (b2 == 0) {
                 jdVar.f();
-                m598a();
+                m600a();
                 return;
             }
-            switch (mo694a.f813a) {
+            switch (mo696a.f814a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f588a = jdVar.mo699a();
+                        this.f589a = jdVar.mo701a();
                         continue;
                         jdVar.g();
                     }
@@ -201,7 +201,7 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
                 case 2:
                     if (b2 == 12) {
                         hw hwVar = new hw();
-                        this.f587a = hwVar;
+                        this.f588a = hwVar;
                         hwVar.a(jdVar);
                         continue;
                         jdVar.g();
@@ -209,28 +209,28 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f591b = jdVar.mo699a();
+                        this.f592b = jdVar.mo701a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f592c = jdVar.mo699a();
+                        this.f593c = jdVar.mo701a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f593d = jdVar.mo699a();
+                        this.f594d = jdVar.mo701a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 7:
                     if (b2 == 10) {
-                        this.f586a = jdVar.mo693a();
+                        this.f587a = jdVar.mo695a();
                         a(true);
                         continue;
                         jdVar.g();
@@ -238,17 +238,17 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
                     break;
                 case 8:
                     if (b2 == 11) {
-                        this.f594e = jdVar.mo699a();
+                        this.f595e = jdVar.mo701a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 9:
                     if (b2 == 13) {
-                        jc mo696a = jdVar.mo696a();
-                        this.f590a = new HashMap(mo696a.f815a * 2);
-                        for (int i2 = 0; i2 < mo696a.f815a; i2++) {
-                            this.f590a.put(jdVar.mo699a(), jdVar.mo699a());
+                        jc mo698a = jdVar.mo698a();
+                        this.f591a = new HashMap(mo698a.f816a * 2);
+                        for (int i2 = 0; i2 < mo698a.f816a; i2++) {
+                            this.f591a.put(jdVar.mo701a(), jdVar.mo701a());
                         }
                         jdVar.h();
                         continue;
@@ -257,14 +257,14 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
                     break;
                 case 10:
                     if (b2 == 11) {
-                        this.f595f = jdVar.mo699a();
+                        this.f596f = jdVar.mo701a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 11:
                     if (b2 == 11) {
-                        this.f596g = jdVar.mo699a();
+                        this.f597g = jdVar.mo701a();
                         continue;
                         jdVar.g();
                     }
@@ -276,193 +276,193 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
     }
 
     public void a(boolean z) {
-        this.f589a.set(0, z);
+        this.f590a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m599a() {
-        return this.f588a != null;
+    public boolean m601a() {
+        return this.f589a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m600a(hy hyVar) {
+    public boolean m602a(hy hyVar) {
         if (hyVar == null) {
             return false;
         }
-        boolean m599a = m599a();
-        boolean m599a2 = hyVar.m599a();
-        if ((m599a || m599a2) && !(m599a && m599a2 && this.f588a.equals(hyVar.f588a))) {
+        boolean m601a = m601a();
+        boolean m601a2 = hyVar.m601a();
+        if ((m601a || m601a2) && !(m601a && m601a2 && this.f589a.equals(hyVar.f589a))) {
             return false;
         }
-        boolean m601b = m601b();
-        boolean m601b2 = hyVar.m601b();
-        if ((m601b || m601b2) && !(m601b && m601b2 && this.f587a.m594a(hyVar.f587a))) {
+        boolean m603b = m603b();
+        boolean m603b2 = hyVar.m603b();
+        if ((m603b || m603b2) && !(m603b && m603b2 && this.f588a.m596a(hyVar.f588a))) {
             return false;
         }
         boolean c2 = c();
         boolean c3 = hyVar.c();
-        if ((c2 || c3) && !(c2 && c3 && this.f591b.equals(hyVar.f591b))) {
+        if ((c2 || c3) && !(c2 && c3 && this.f592b.equals(hyVar.f592b))) {
             return false;
         }
         boolean d2 = d();
         boolean d3 = hyVar.d();
-        if ((d2 || d3) && !(d2 && d3 && this.f592c.equals(hyVar.f592c))) {
+        if ((d2 || d3) && !(d2 && d3 && this.f593c.equals(hyVar.f593c))) {
             return false;
         }
         boolean e2 = e();
         boolean e3 = hyVar.e();
-        if ((e2 || e3) && !(e2 && e3 && this.f593d.equals(hyVar.f593d))) {
+        if ((e2 || e3) && !(e2 && e3 && this.f594d.equals(hyVar.f594d))) {
             return false;
         }
         boolean f2 = f();
         boolean f3 = hyVar.f();
-        if ((f2 || f3) && !(f2 && f3 && this.f586a == hyVar.f586a)) {
+        if ((f2 || f3) && !(f2 && f3 && this.f587a == hyVar.f587a)) {
             return false;
         }
         boolean g2 = g();
         boolean g3 = hyVar.g();
-        if ((g2 || g3) && !(g2 && g3 && this.f594e.equals(hyVar.f594e))) {
+        if ((g2 || g3) && !(g2 && g3 && this.f595e.equals(hyVar.f595e))) {
             return false;
         }
         boolean h2 = h();
         boolean h3 = hyVar.h();
-        if ((h2 || h3) && !(h2 && h3 && this.f590a.equals(hyVar.f590a))) {
+        if ((h2 || h3) && !(h2 && h3 && this.f591a.equals(hyVar.f591a))) {
             return false;
         }
         boolean i2 = i();
         boolean i3 = hyVar.i();
-        if ((i2 || i3) && !(i2 && i3 && this.f595f.equals(hyVar.f595f))) {
+        if ((i2 || i3) && !(i2 && i3 && this.f596f.equals(hyVar.f596f))) {
             return false;
         }
         boolean j2 = j();
         boolean j3 = hyVar.j();
         if (j2 || j3) {
-            return j2 && j3 && this.f596g.equals(hyVar.f596g);
+            return j2 && j3 && this.f597g.equals(hyVar.f597g);
         }
         return true;
     }
 
     public hy b(String str) {
-        this.f592c = str;
+        this.f593c = str;
         return this;
     }
 
     public String b() {
-        return this.f593d;
+        return this.f594d;
     }
 
     @Override // com.xiaomi.push.is
     public void b(jd jdVar) {
-        m598a();
-        jdVar.a(f585a);
-        if (this.f588a != null && m599a()) {
+        m600a();
+        jdVar.a(f586a);
+        if (this.f589a != null && m601a()) {
             jdVar.a(a);
-            jdVar.a(this.f588a);
+            jdVar.a(this.f589a);
             jdVar.b();
         }
-        if (this.f587a != null && m601b()) {
+        if (this.f588a != null && m603b()) {
             jdVar.a(b);
-            this.f587a.b(jdVar);
+            this.f588a.b(jdVar);
             jdVar.b();
         }
-        if (this.f591b != null) {
+        if (this.f592b != null) {
             jdVar.a(c);
-            jdVar.a(this.f591b);
+            jdVar.a(this.f592b);
             jdVar.b();
         }
-        if (this.f592c != null && d()) {
+        if (this.f593c != null && d()) {
             jdVar.a(d);
-            jdVar.a(this.f592c);
+            jdVar.a(this.f593c);
             jdVar.b();
         }
-        if (this.f593d != null && e()) {
+        if (this.f594d != null && e()) {
             jdVar.a(e);
-            jdVar.a(this.f593d);
+            jdVar.a(this.f594d);
             jdVar.b();
         }
         if (f()) {
             jdVar.a(f);
-            jdVar.a(this.f586a);
+            jdVar.a(this.f587a);
             jdVar.b();
         }
-        if (this.f594e != null && g()) {
+        if (this.f595e != null && g()) {
             jdVar.a(g);
-            jdVar.a(this.f594e);
+            jdVar.a(this.f595e);
             jdVar.b();
         }
-        if (this.f590a != null && h()) {
+        if (this.f591a != null && h()) {
             jdVar.a(h);
-            jdVar.a(new jc(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f590a.size()));
-            for (Map.Entry<String, String> entry : this.f590a.entrySet()) {
+            jdVar.a(new jc(Constants.GZIP_CAST_TYPE, Constants.GZIP_CAST_TYPE, this.f591a.size()));
+            for (Map.Entry<String, String> entry : this.f591a.entrySet()) {
                 jdVar.a(entry.getKey());
                 jdVar.a(entry.getValue());
             }
             jdVar.d();
             jdVar.b();
         }
-        if (this.f595f != null && i()) {
+        if (this.f596f != null && i()) {
             jdVar.a(i);
-            jdVar.a(this.f595f);
+            jdVar.a(this.f596f);
             jdVar.b();
         }
-        if (this.f596g != null && j()) {
+        if (this.f597g != null && j()) {
             jdVar.a(j);
-            jdVar.a(this.f596g);
+            jdVar.a(this.f597g);
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo702a();
+        jdVar.mo704a();
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m601b() {
-        return this.f587a != null;
+    public boolean m603b() {
+        return this.f588a != null;
     }
 
     public hy c(String str) {
-        this.f593d = str;
+        this.f594d = str;
         return this;
     }
 
     public boolean c() {
-        return this.f591b != null;
+        return this.f592b != null;
     }
 
     public hy d(String str) {
-        this.f594e = str;
+        this.f595e = str;
         return this;
     }
 
     public boolean d() {
-        return this.f592c != null;
+        return this.f593c != null;
     }
 
     public hy e(String str) {
-        this.f595f = str;
+        this.f596f = str;
         return this;
     }
 
     public boolean e() {
-        return this.f593d != null;
+        return this.f594d != null;
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hy)) {
-            return m600a((hy) obj);
+            return m602a((hy) obj);
         }
         return false;
     }
 
     public boolean f() {
-        return this.f589a.get(0);
+        return this.f590a.get(0);
     }
 
     public boolean g() {
-        return this.f594e != null;
+        return this.f595e != null;
     }
 
     public boolean h() {
-        return this.f590a != null;
+        return this.f591a != null;
     }
 
     public int hashCode() {
@@ -470,20 +470,20 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
     }
 
     public boolean i() {
-        return this.f595f != null;
+        return this.f596f != null;
     }
 
     public boolean j() {
-        return this.f596g != null;
+        return this.f597g != null;
     }
 
     public String toString() {
         boolean z;
         StringBuilder sb = new StringBuilder("XmPushActionAckNotification(");
         boolean z2 = false;
-        if (m599a()) {
+        if (m601a()) {
             sb.append("debug:");
-            String str = this.f588a;
+            String str = this.f589a;
             if (str == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -493,12 +493,12 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
         } else {
             z = true;
         }
-        if (m601b()) {
+        if (m603b()) {
             if (!z) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }
             sb.append("target:");
-            hw hwVar = this.f587a;
+            hw hwVar = this.f588a;
             if (hwVar == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -511,7 +511,7 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
         }
         sb.append("id:");
-        String str2 = this.f591b;
+        String str2 = this.f592b;
         if (str2 == null) {
             sb.append(StringUtil.NULL_STRING);
         } else {
@@ -520,7 +520,7 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
         if (d()) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("appId:");
-            String str3 = this.f592c;
+            String str3 = this.f593c;
             if (str3 == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -530,7 +530,7 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
         if (e()) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("type:");
-            String str4 = this.f593d;
+            String str4 = this.f594d;
             if (str4 == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -540,12 +540,12 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
         if (f()) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("errorCode:");
-            sb.append(this.f586a);
+            sb.append(this.f587a);
         }
         if (g()) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("reason:");
-            String str5 = this.f594e;
+            String str5 = this.f595e;
             if (str5 == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -555,7 +555,7 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
         if (h()) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("extra:");
-            Map<String, String> map = this.f590a;
+            Map<String, String> map = this.f591a;
             if (map == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -565,7 +565,7 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
         if (i()) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("packageName:");
-            String str6 = this.f595f;
+            String str6 = this.f596f;
             if (str6 == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {
@@ -575,7 +575,7 @@ public class hy implements is<hy, Object>, Serializable, Cloneable {
         if (j()) {
             sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             sb.append("category:");
-            String str7 = this.f596g;
+            String str7 = this.f597g;
             if (str7 == null) {
                 sb.append(StringUtil.NULL_STRING);
             } else {

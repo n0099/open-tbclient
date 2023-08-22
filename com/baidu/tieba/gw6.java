@@ -1,9 +1,40 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public interface gw6 {
-    void a(List<bw6> list, List<bw6> list2, int i);
+    int a();
 
-    void b(int i, String str);
+    float b();
+
+    int c();
+
+    float d();
+
+    float e();
+
+    int getHeight();
+
+    int getWidth();
+
+    void setHeight(int i);
+
+    void setWidth(int i);
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static float a(gw6 gw6Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gw6Var)) == null) {
+                return 1 / (gw6Var.b() - 0.6f);
+            }
+            return invokeL.floatValue;
+        }
+    }
 }

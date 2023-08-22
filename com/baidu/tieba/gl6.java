@@ -1,22 +1,21 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.security.MessageDigest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
 public class gl6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
+    public static final gl6 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, fl6> a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,107 +30,63 @@ public class gl6 {
                 return;
             }
         }
-        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        b = new gl6();
     }
 
-    public static String a(byte[] bArr) {
+    public gl6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap();
+    }
+
+    public static gl6 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return (gl6) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.clear();
+        }
+    }
+
+    public Map<String, fl6> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public void a(String str, fl6 fl6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, fl6Var) == null) {
+            this.a.put(str, fl6Var);
+        }
+    }
+
+    public fl6 d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (byte b : bArr) {
-                sb.append(a[(b & 240) >>> 4]);
-                sb.append(a[b & 15]);
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.a.get(str);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    String c = c(fileInputStream);
-                    jl6.a(fileInputStream);
-                    return c;
-                } catch (Exception unused) {
-                    jl6.a(fileInputStream);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    jl6.a(fileInputStream2);
-                    throw th;
-                }
-            } catch (Exception unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            byte[] bArr = new byte[1024];
-            try {
-                try {
-                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            messageDigest.update(bArr, 0, read);
-                        } else {
-                            String a2 = a(messageDigest.digest());
-                            jl6.a(inputStream);
-                            return a2;
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    jl6.a(inputStream);
-                    return null;
-                }
-            } catch (Throwable th) {
-                jl6.a(inputStream);
-                throw th;
-            }
-        } else {
-            return (String) invokeL.objValue;
-        }
-    }
-
-    public static boolean d(File file, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str)) == null) {
-            try {
-                String b = b(file);
-                if (b != null) {
-                    if (TextUtils.equals(b.toLowerCase(), str.toLowerCase())) {
-                        return true;
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (fl6) invokeL.objValue;
     }
 }

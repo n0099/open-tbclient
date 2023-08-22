@@ -1,52 +1,107 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ou implements ks {
+public final class ou {
     public static /* synthetic */ Interceptable $ic;
+    public static final ou a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cp a;
 
-    public ou(cp cpVar) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448313479, "Lcom/baidu/tieba/ou;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448313479, "Lcom/baidu/tieba/ou;");
+                return;
+            }
+        }
+        a = new ou();
+    }
+
+    public ou() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cpVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = cpVar;
     }
 
-    @Override // com.baidu.tieba.ks
-    public is a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.l();
+    public static /* synthetic */ JSONObject b(ou ouVar, String str, String str2, String str3, int i, Object obj) {
+        if ((i & 4) != 0) {
+            str3 = null;
         }
-        return (is) invokeV.objValue;
+        return ouVar.a(str, str2, str3);
     }
 
-    @Override // com.baidu.tieba.ks
-    public js b() {
-        InterceptResult invokeV;
+    public final JSONObject a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.s();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("taskId", str);
+            jSONObject.put(TaskInfo.keyActTaskId, str2);
+            if (str3 != null) {
+                jSONObject.put("phase", str3);
+            }
+            return jSONObject;
         }
-        return (js) invokeV.objValue;
+        return (JSONObject) invokeLLL.objValue;
+    }
+
+    public final String c(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskStatus)) == null) {
+            if (taskStatus.isFinished()) {
+                return "finish";
+            }
+            if (taskStatus.isRegistered()) {
+                return "guide";
+            }
+            return "doing";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String d(TaskStatus taskStatus) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskStatus)) == null) {
+            if (taskStatus.isUnRegistered()) {
+                return "y_task_unregister";
+            }
+            if (taskStatus.isFinished()) {
+                return "y_task_done";
+            }
+            if (taskStatus.isRegistered()) {
+                return "y_task_active";
+            }
+            if (taskStatus.isRunning() && taskStatus.isLocalCompleted()) {
+                return "y_task_local_done";
+            }
+            return "y_task_start";
+        }
+        return (String) invokeL.objValue;
     }
 }

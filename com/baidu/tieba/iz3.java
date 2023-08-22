@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.swan.game.ad.jsbridge.CommandType;
+import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
 /* loaded from: classes6.dex */
 public interface iz3 {
-    void b(CommandType commandType, Uri uri);
+    void a(DownloadException downloadException);
+
+    void b(DownloadInfo downloadInfo);
 }

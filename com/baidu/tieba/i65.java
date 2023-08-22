@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BrowserHelper;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class i65 implements ck1 {
+public class i65 extends x55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,27 +31,32 @@ public class i65 implements ck1 {
         }
     }
 
-    @Override // com.baidu.tieba.ck1
-    public Object get() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.x55
+    public void a(@NonNull Context context, @NonNull p55 p55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new xw6());
-            arrayList.add(new yq7());
-            arrayList.add(new cr7());
-            arrayList.add(new gr7());
-            arrayList.add(new kr7());
-            arrayList.add(new or7());
-            arrayList.add(new sr7());
-            arrayList.add(new wr7());
-            arrayList.add(new as7());
-            arrayList.add(new lc9());
-            arrayList.add(new qc9());
-            arrayList.add(new vc9());
-            arrayList.add(new l7a());
-            return arrayList;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, p55Var) == null) {
+            String a = p55Var.a("yun_dialogName");
+            String a2 = p55Var.a("yun_dialogUrl");
+            if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2)) {
+                b(context, a2, a);
+            }
         }
-        return invokeV.objValue;
+    }
+
+    public final void b(Context context, String str, String str2) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
+            if (str.indexOf("?") > 0) {
+                str3 = str + "&page_type=" + TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT;
+            } else {
+                str3 = str + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE;
+            }
+            Bundle bundle = new Bundle();
+            bundle.putString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            bundle.putString(WebViewActivityConfig.TAG_WEB_DIALOG_NAME, str2);
+            bundle.putBoolean(WebViewActivityConfig.TAG_TRANSLUCENT_AUTO_CLOSE, true);
+            BrowserHelper.startWebActivity(context, "", str3, false, true, true, bundle);
+        }
     }
 }

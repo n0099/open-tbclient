@@ -5,8 +5,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.di8;
-import com.baidu.tieba.ei8;
+import com.baidu.tieba.cm8;
+import com.baidu.tieba.dm8;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -59,9 +59,9 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     this.groupId = optJSONObject.optLong("mid_group_id", 0L);
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
                     if (optJSONObject2 != null) {
-                        ei8 ei8Var = new ei8();
-                        ei8Var.h(optJSONObject2);
-                        this.mList.add(ei8Var);
+                        dm8 dm8Var = new dm8();
+                        dm8Var.h(optJSONObject2);
+                        this.mList.add(dm8Var);
                     }
                     JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                     if (optJSONArray != null) {
@@ -77,9 +77,9 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     }
                     JSONObject optJSONObject4 = optJSONObject.optJSONObject("footer");
                     if (optJSONObject4 != null) {
-                        di8 di8Var = new di8();
-                        di8Var.c(optJSONObject4);
-                        this.mList.add(di8Var);
+                        cm8 cm8Var = new cm8();
+                        cm8Var.c(optJSONObject4);
+                        this.mList.add(cm8Var);
                         return;
                     }
                     return;

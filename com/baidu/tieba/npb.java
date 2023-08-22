@@ -1,32 +1,44 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsFullScreenVideoAd;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsScene;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class npb<TResult> implements cpb<TResult> {
+public class npb extends ipb<kpb> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fpb<TResult> a;
-    public Executor b;
-    public final Object c;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements KsLoadManager.FullScreenVideoAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gpb a;
-        public final /* synthetic */ npb b;
+        public final /* synthetic */ npb a;
 
-        public a(npb npbVar, gpb gpbVar) {
+        public a(npb npbVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {npbVar, gpbVar};
+                Object[] objArr = {npbVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,60 +48,127 @@ public final class npb<TResult> implements cpb<TResult> {
                     return;
                 }
             }
-            this.b = npbVar;
-            this.a = gpbVar;
+            this.a = npbVar;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r1v4, resolved type: com.baidu.tieba.fpb */
-        /* JADX WARN: Multi-variable type inference failed */
-        @Override // java.lang.Runnable
-        public final void run() {
+        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onSuccess(this.a.e());
-                    }
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+        public void onFullScreenVideoAdLoad(@Nullable List<KsFullScreenVideoAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onNativeAdLoad error: adList is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
+                    return;
                 }
+                KsFullScreenVideoAd ksFullScreenVideoAd = list.get(0);
+                if (ksFullScreenVideoAd != null) {
+                    this.a.onAdLoaded(new kpb(ksFullScreenVideoAd), new String[0]);
+                    return;
+                }
+                LogPrinter.e("onNativeAdLoad error: ad is null or empty", new Object[0]);
+                this.a.onError(0, "NoFill");
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.FullScreenVideoAdListener
+        public void onFullScreenVideoResult(@Nullable List<KsFullScreenVideoAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+                LogPrinter.d();
             }
         }
     }
 
-    public npb(Executor executor, fpb<TResult> fpbVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public npb(Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.FULL_SCREEN), pid, moduleConfigKs);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, fpbVar};
+            Object[] objArr = {pid, moduleConfigKs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], (ModuleConfigKs) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
-        this.a = fpbVar;
-        this.b = executor;
     }
 
-    @Override // com.baidu.tieba.cpb
-    public final void cancel() {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new wpb(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            kpb kpbVar = (kpb) obj;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(1).build();
+            onLoadStart(funAdSlot);
+            KsLoadManager loadManager = KsAdSDK.getLoadManager();
+            if (loadManager == null) {
+                onError(FunAdSdk.PLATFORM_KS);
+            } else {
+                loadManager.loadFullScreenVideoAd(build, new a(this));
             }
         }
     }
 
-    @Override // com.baidu.tieba.cpb
-    public final void onComplete(gpb<TResult> gpbVar) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean isAdAvailable(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gpbVar) == null) && gpbVar.h() && !gpbVar.f()) {
-            this.b.execute(new a(this, gpbVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            A a2 = ((kpb) obj).a;
+            if (a2 != 0 && ((KsFullScreenVideoAd) a2).isAdEnable()) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            kpb kpbVar = (kpb) obj;
+            if (!((KsFullScreenVideoAd) kpbVar.a).isAdEnable()) {
+                LogPrinter.e("Ad isn't ready now.", new Object[0]);
+                return false;
+            }
+            onShowStart(kpbVar);
+            ((KsFullScreenVideoAd) kpbVar.a).setFullScreenVideoAdInteractionListener(new qpb(this, kpbVar));
+            ((KsFullScreenVideoAd) kpbVar.a).showFullScreenVideoAd(activity, e());
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,34 +1,195 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.util.Log;
+import androidx.annotation.AnyThread;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.download.apkcheck.FkApkInfoSearchRequestKt;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.core.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tieba.lh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.net.WebAddress;
-import com.facebook.common.internal.Sets;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.Set;
-import org.apache.http.cookie.ClientCookie;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CopyOnWriteArraySet;
 /* loaded from: classes8.dex */
 public class vj3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final int b;
-    public static final int c;
-    public static final Set<String> d;
-    public static final String[] e;
+    public static Set<String> b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes8.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+
+        public a(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                lh3.b bVar = new lh3.b(10010);
+                bVar.l(String.valueOf(vj3.c));
+                bVar.k(this.a);
+                bVar.j(String.valueOf(this.b));
+                bVar.h(db3.g0());
+                bVar.m();
+                if (this.b == 3) {
+                    int unused = vj3.c = 0;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements mv3<Pair<String, File>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(vj3 vj3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vj3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mv3
+        /* renamed from: a */
+        public void run(@NonNull Pair<String, File> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                if (vj3.b != null && pair.first != null && vj3.b.contains(pair.first)) {
+                    new uj3(ku2.c(), pair.first).clearAll();
+                    return;
+                }
+                File file = pair.second;
+                if (file != null) {
+                    hr4.L(file);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class c implements Callable<SharedPreferences> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uj3 a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ vj3 e;
+
+        public c(vj3 vj3Var, uj3 uj3Var, long j, Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vj3Var, uj3Var, Long.valueOf(j), context, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = vj3Var;
+            this.a = uj3Var;
+            this.b = j;
+            this.c = context;
+            this.d = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Can't rename method to resolve collision */
+        @Override // java.util.concurrent.Callable
+        public SharedPreferences call() throws Exception {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (!this.a.setCustomMeta(this.b | 1)) {
+                    return null;
+                }
+                String l = this.e.l(this.c, this.d);
+                if (vj3.a) {
+                    Log.i("SwanExtensionApiImpl", String.format("customMeta=%d, name=%s, spName=%s", Long.valueOf(this.b), this.d, l));
+                }
+                if (l == null) {
+                    return null;
+                }
+                return this.c.getSharedPreferences(l, 0);
+            }
+            return (SharedPreferences) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final vj3 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-344557974, "Lcom/baidu/tieba/vj3$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-344557974, "Lcom/baidu/tieba/vj3$d;");
+                    return;
+                }
+            }
+            a = new vj3(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -43,415 +204,132 @@ public class vj3 {
                 return;
             }
         }
-        a = ir1.a;
-        b = 6;
-        c = 8;
-        d = Sets.newHashSet("https", "http", "wss");
-        String[] strArr = {"ac", "co", FkApkInfoSearchRequestKt.PARAMS_KEY_COM, Config.EVENT_PATH_MAPPING, "edu", "go", "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
-        e = strArr;
-        Arrays.sort(strArr);
+        a = nr1.a;
+        b = new CopyOnWriteArraySet();
+        c = 0;
     }
 
-    public static boolean a(String str) {
+    public vj3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static vj3 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return d.a;
+        }
+        return (vj3) invokeV.objValue;
+    }
+
+    public /* synthetic */ vj3(a aVar) {
+        this();
+    }
+
+    public final fr4 f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (String str2 : d) {
-                if (str.startsWith(str2)) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new nr4(str);
         }
-        return invokeL.booleanValue;
+        return (fr4) invokeL.objValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    public void g(@NonNull String str, Set<String> set, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            int i = 0;
-            int indexOf = str.indexOf(46);
-            int lastIndexOf = str.lastIndexOf(46);
-            while (indexOf < lastIndexOf) {
-                i = indexOf + 1;
-                indexOf = str.indexOf(46, i);
-            }
-            if (i > 0) {
-                return str.substring(i);
-            }
-            return str;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, set, z) == null) {
+            h(str, set, z);
+            oj2.c(new File(uj3.c()), str, SwanKV.PREFS_SUFFIX, set, z, new b(this));
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(Collection<tj3> collection, String str) {
-        InterceptResult invokeLL;
-        String trim;
+    public void h(@NonNull String str, Set<String> set, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, collection, str)) == null) {
-            if (collection != null && !collection.isEmpty()) {
-                if (str == null) {
-                    trim = "";
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, set, z) == null) {
+            oj2.b(new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), str, ActivityChooserModel.HISTORY_FILE_EXTENSION, set, z);
+        }
+    }
+
+    public final void m(Context context, String str, @NonNull uj3 uj3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, str, uj3Var) == null) {
+            long customMeta = uj3Var.getCustomMeta();
+            if ((customMeta & 1) == 1) {
+                return;
+            }
+            uj3Var.importFromSharedPreferences(new c(this, uj3Var, customMeta, context, str));
+        }
+    }
+
+    @AnyThread
+    public static void i(int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65544, null, i, str) == null) {
+            xn3.f().execute(new a(str, i));
+        }
+    }
+
+    @NonNull
+    @AnyThread
+    public fr4 k(Context context, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048579, this, context, str, z)) == null) {
+            try {
+                if (z) {
+                    i = 2;
                 } else {
-                    trim = str.trim();
+                    i = 1;
                 }
-                int length = trim.length();
-                if (!TextUtils.isEmpty(trim)) {
-                    int i = length - 1;
-                    if (trim.charAt(i) == ';') {
-                        trim = trim.substring(0, i);
-                    }
+                uj3 uj3Var = new uj3(context, str, i);
+                b.add(str);
+                m(context, str, uj3Var);
+                if (c > 0) {
+                    i(3, str);
                 }
-                StringBuilder sb = new StringBuilder(trim);
-                for (tj3 tj3Var : collection) {
-                    if (tj3Var != null) {
-                        if (sb.length() > 0) {
-                            sb.append(WebvttCueParser.CHAR_SEMI_COLON);
-                            sb.append(WebvttCueParser.CHAR_SPACE);
-                        }
-                        sb.append(tj3Var.c);
-                        if (tj3Var.d != null) {
-                            sb.append('=');
-                            sb.append(tj3Var.d);
-                        }
-                    }
+                return uj3Var;
+            } catch (NoClassDefFoundError | UnsatisfiedLinkError e) {
+                if (a) {
+                    Log.e("SwanExtensionApiImpl", "getSharedPrefsImpl", e);
                 }
-                if (!TextUtils.isEmpty(sb)) {
-                    return sb.toString();
+                c++;
+                i(2, str);
+                return f(str);
+            }
+        }
+        return (fr4) invokeLLZ.objValue;
+    }
+
+    @Nullable
+    public final String l(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, context, str)) == null) {
+            if (str == null) {
+                str = context.getPackageName() + "_preferences";
+            }
+            if ("default".equals(str)) {
+                if (nr4.d(context, str).exists()) {
+                    return str;
                 }
+                str = context.getPackageName() + "_preferences";
+            }
+            if (nr4.d(context, str).exists()) {
                 return str;
             }
-            return str;
+            return null;
         }
         return (String) invokeLL.objValue;
-    }
-
-    public static int c(@NonNull String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, str, i, i2)) == null) {
-            int indexOf = str.indexOf(59, i);
-            int indexOf2 = str.indexOf(44, i);
-            if (indexOf != -1 || indexOf2 != -1) {
-                if (indexOf == -1) {
-                    return indexOf2;
-                }
-                if (indexOf2 == -1) {
-                    return indexOf;
-                }
-                return Math.min(indexOf, indexOf2);
-            }
-            return i2;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static String[] e(WebAddress webAddress) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, webAddress)) == null) {
-            if (webAddress == null || TextUtils.isEmpty(webAddress.getHost()) || TextUtils.isEmpty(webAddress.getPath()) || bk3.b(webAddress.getHost())) {
-                return null;
-            }
-            String[] strArr = {webAddress.getHost().toLowerCase(), webAddress.getPath()};
-            int indexOf = strArr[0].indexOf(46);
-            if (indexOf == -1) {
-                return null;
-            }
-            if (indexOf == strArr[0].lastIndexOf(46)) {
-                strArr[0] = IStringUtil.EXTENSION_SEPARATOR + strArr[0];
-            }
-            if (strArr[1].charAt(0) != '/') {
-                return null;
-            }
-            int indexOf2 = strArr[1].indexOf(63);
-            if (indexOf2 != -1) {
-                strArr[1] = strArr[1].substring(0, indexOf2);
-            }
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static int f(tj3 tj3Var, String str, int i, int i2, String str2) {
-        InterceptResult invokeCommon;
-        int indexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{tj3Var, str, Integer.valueOf(i), Integer.valueOf(i2), str2})) == null) {
-            if (tj3Var != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                while (i >= 0 && i < i2) {
-                    if (str.charAt(i) != ' ' && str.charAt(i) != ';') {
-                        if (str.charAt(i) == ',') {
-                            return i + 1;
-                        }
-                        int i3 = i2 - i;
-                        int i4 = b;
-                        if (i3 >= i4 && str.substring(i, i4 + i).equalsIgnoreCase(ClientCookie.SECURE_ATTR)) {
-                            int i5 = b + i;
-                            if (i5 == i2) {
-                                tj3Var.f = true;
-                                return i5;
-                            } else if (str.charAt(i5) == ';' || str.charAt(i5) == '=' || str.charAt(i5) == ',') {
-                                tj3Var.f = true;
-                                i = c(str, i5, i2);
-                            }
-                        }
-                        int i6 = c;
-                        if (i3 >= i6 && str.substring(i, i6 + i).equalsIgnoreCase("httponly")) {
-                            int i7 = c + i;
-                            if (i7 == i2) {
-                                return i7;
-                            }
-                            if (str.charAt(i7) == ';' || str.charAt(i7) == '=' || str.charAt(i7) == ',') {
-                                i = c(str, i7, i2);
-                            }
-                        }
-                        int indexOf2 = str.indexOf(61, i);
-                        if (indexOf2 <= 0) {
-                            return i2;
-                        }
-                        String lowerCase = str.substring(i, indexOf2).toLowerCase();
-                        i = c(str, n(str, lowerCase, i, indexOf2), i2);
-                        if (i >= indexOf2) {
-                            String substring = str.substring(indexOf2 + 1, i);
-                            if (substring.length() > 2 && substring.charAt(0) == '\"' && (indexOf = substring.indexOf(34, 1)) > 0) {
-                                substring = substring.substring(1, indexOf);
-                            }
-                            i(tj3Var, lowerCase, substring, str2);
-                        }
-                    } else {
-                        i++;
-                    }
-                }
-                return i;
-            }
-            return i2;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static ArrayList<tj3> g(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, str2, str3)) == null) {
-            if (a) {
-                Log.d("SwanCookieParser", "parseCookie: host=" + str + "; path=" + str2 + "; cookieString=" + str3);
-            }
-            ArrayList<tj3> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-                int i = 0;
-                int length = str3.length();
-                while (i >= 0 && i < length) {
-                    if (str3.charAt(i) == ' ') {
-                        i++;
-                    } else {
-                        tj3 tj3Var = new tj3(str, str2);
-                        i = f(tj3Var, str3, h(tj3Var, str3, i, length), length, str);
-                        if (!TextUtils.isEmpty(tj3Var.a) && !TextUtils.isEmpty(tj3Var.c) && tj3Var.d != null) {
-                            arrayList.add(tj3Var);
-                            if (a) {
-                                Log.d("SwanCookieParser", "parseCookies result: " + tj3Var.toString());
-                            }
-                        }
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeLLL.objValue;
-    }
-
-    public static void j(@NonNull tj3 tj3Var, @NonNull String str, @NonNull String str2) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65546, null, tj3Var, str, str2) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        int lastIndexOf = str.lastIndexOf(46);
-        if (lastIndexOf <= 0) {
-            tj3Var.a = null;
-            return;
-        }
-        if (str.startsWith(".")) {
-            str3 = str.substring(1);
-        } else {
-            str3 = str;
-        }
-        if (bk3.b(str3)) {
-            tj3Var.a = null;
-            return;
-        }
-        String lowerCase = str.toLowerCase();
-        if (lowerCase.charAt(0) != '.') {
-            lowerCase = IStringUtil.EXTENSION_SEPARATOR + lowerCase;
-            lastIndexOf++;
-        }
-        if (!str2.endsWith(lowerCase.substring(1))) {
-            tj3Var.a = null;
-            return;
-        }
-        int length = lowerCase.length();
-        int length2 = str2.length();
-        if (length2 > length - 1 && str2.charAt(length2 - length) != '.') {
-            tj3Var.a = null;
-            return;
-        }
-        if (length == lastIndexOf + 3 && length >= 6 && length <= 8) {
-            if (Arrays.binarySearch(e, lowerCase.substring(1, lastIndexOf)) >= 0) {
-                tj3Var.a = null;
-                return;
-            }
-        }
-        tj3Var.a = lowerCase;
-    }
-
-    public static int h(tj3 tj3Var, String str, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65544, null, tj3Var, str, i, i2)) == null) {
-            if (tj3Var != null && !TextUtils.isEmpty(str)) {
-                int indexOf = str.indexOf(59, i);
-                int indexOf2 = str.indexOf(61, i);
-                if (indexOf > indexOf2 && indexOf2 != -1) {
-                    tj3Var.c = str.substring(i, indexOf2);
-                    int i3 = indexOf2 + 1;
-                    if (str.charAt(i3) == '\"' && (i = str.indexOf(34, indexOf2 + 2)) == -1) {
-                        tj3Var.a = null;
-                        return i2;
-                    }
-                    int indexOf3 = str.indexOf(59, i);
-                    if (indexOf3 != -1) {
-                        i2 = indexOf3;
-                    }
-                    if (i3 != i2 && i2 >= indexOf2) {
-                        tj3Var.d = str.substring(i3, i2);
-                    } else {
-                        tj3Var.d = "";
-                    }
-                    return i2;
-                }
-                if (indexOf != -1) {
-                    i2 = indexOf;
-                }
-                tj3Var.c = str.substring(i, i2);
-                tj3Var.d = null;
-            }
-            return i2;
-        }
-        return invokeLLII.intValue;
-    }
-
-    public static void i(tj3 tj3Var, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65545, null, tj3Var, str, str2, str3) == null) && tj3Var != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str3)) {
-            char c2 = 65535;
-            switch (str.hashCode()) {
-                case -1326197564:
-                    if (str.equals("domain")) {
-                        c2 = 3;
-                        break;
-                    }
-                    break;
-                case -1309235404:
-                    if (str.equals("expires")) {
-                        c2 = 0;
-                        break;
-                    }
-                    break;
-                case 3433509:
-                    if (str.equals("path")) {
-                        c2 = 2;
-                        break;
-                    }
-                    break;
-                case 842940694:
-                    if (str.equals(ClientCookie.MAX_AGE_ATTR)) {
-                        c2 = 1;
-                        break;
-                    }
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 == 3) {
-                            j(tj3Var, str2, str3);
-                            return;
-                        }
-                        return;
-                    }
-                    m(tj3Var, str2);
-                    return;
-                }
-                l(tj3Var, str2);
-                return;
-            }
-            k(tj3Var, str2);
-        }
-    }
-
-    public static void k(@NonNull tj3 tj3Var, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, tj3Var, str) == null) {
-            if (a) {
-                Log.d("SwanCookieParser", "setExpires value: " + str);
-            }
-            if (tj3Var.e != -1) {
-                return;
-            }
-            long e2 = ak3.e(str);
-            if (a) {
-                Log.d("SwanCookieParser", "setExpires result: " + e2);
-            }
-            if (e2 != -1) {
-                tj3Var.e = e2;
-            }
-        }
-    }
-
-    public static void l(@NonNull tj3 tj3Var, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, tj3Var, str) == null) {
-            try {
-                long currentTimeMillis = System.currentTimeMillis();
-                long parseLong = Long.parseLong(str);
-                Long.signum(parseLong);
-                tj3Var.e = currentTimeMillis + (parseLong * 1000);
-            } catch (NumberFormatException unused) {
-                if (a) {
-                    Log.e("SwanCookieParser", "illegal max-age: " + str);
-                }
-            }
-        }
-    }
-
-    public static void m(@NonNull tj3 tj3Var, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65549, null, tj3Var, str) == null) && !TextUtils.isEmpty(str) && str.charAt(0) == '/') {
-            tj3Var.b = str;
-        }
-    }
-
-    public static int n(@NonNull String str, String str2, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65550, null, str, str2, i, i2)) == null) {
-            if (!TextUtils.equals("expires", str2)) {
-                return i;
-            }
-            int indexOf = str.indexOf(44, i2);
-            if (indexOf != -1 && indexOf - i2 <= 10) {
-                return indexOf + 1;
-            }
-            return i;
-        }
-        return invokeLLII.intValue;
     }
 }

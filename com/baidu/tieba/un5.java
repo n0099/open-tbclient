@@ -1,31 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public interface un5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaSquare", "SecondFloorService");
-
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a(boolean z, boolean z2);
-
-        void b(boolean z);
-    }
-
-    void g();
-
-    void h(@Nullable a aVar);
-
-    void hide();
-
-    void i();
-
-    @NonNull
-    Fragment j(@NonNull String str);
-
-    void show();
+    void onReceiveMessage(int i, int i2, ArrayList<ChatMsg> arrayList);
 }

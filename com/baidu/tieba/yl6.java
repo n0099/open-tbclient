@@ -1,53 +1,116 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.webkit.RenderProcessGoneDetail;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import com.baidu.tieba.browser.TbWebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.exception.JsInterfaceException;
+import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class yl6 extends ul6 {
+public class yl6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, Class<? extends AbsJsInterface>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbWebView b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yl6(TbWebView tbWebView) {
-        super(null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbWebView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((WebViewClient) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final yl6 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-256734168, "Lcom/baidu/tieba/yl6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-256734168, "Lcom/baidu/tieba/yl6$b;");
+                    return;
+                }
+            }
+            a = new yl6(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948334054, "Lcom/baidu/tieba/yl6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948334054, "Lcom/baidu/tieba/yl6;");
                 return;
             }
         }
-        this.b = tbWebView;
+        a = new HashMap();
     }
 
-    @Override // com.baidu.tieba.ul6, android.webkit.WebViewClient
-    public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
-        InterceptResult invokeLL;
+    public yl6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, renderProcessGoneDetail)) == null) {
-            if (Build.VERSION.SDK_INT < 26) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            this.b.V();
-            return true;
         }
-        return invokeLL.booleanValue;
+    }
+
+    public static yl6 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (yl6) invokeV.objValue;
+    }
+
+    public Map<String, Class<? extends AbsJsInterface>> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap hashMap = new HashMap();
+            if (!a.isEmpty()) {
+                hashMap.putAll(a);
+            }
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public /* synthetic */ yl6(a aVar) {
+        this();
+    }
+
+    public void c(String str, Class<? extends AbsJsInterface> cls) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls) == null) {
+            if (!a.containsKey(str)) {
+                a.put(str, cls);
+                return;
+            }
+            throw new JsInterfaceException("注册JsInterface失败！");
+        }
     }
 }

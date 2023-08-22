@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.tbadk.BdToken.BdTokenController;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.growth.ActivityChangeSchemeModel;
-import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,107 +9,112 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes7.dex */
-public class nl5 {
+public class nl5 extends ul5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+    public static final ThreadLocal<byte[]> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948006322, "Lcom/baidu/tieba/nl5;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948006322, "Lcom/baidu/tieba/nl5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948006322, "Lcom/baidu/tieba/nl5;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        b = new ThreadLocal<>();
+    }
+
+    public static byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            byte[] bArr = b.get();
+            if (bArr == null) {
+                byte[] bArr2 = new byte[4];
+                b.set(bArr2);
+                return bArr2;
+            }
+            return bArr;
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    public short f() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            byte[] b2 = b();
+            read(b2, 0, 2);
+            return (short) (((b2[0] & 255) << 8) | (b2[1] & 255));
+        }
+        return invokeV.shortValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nl5(vl5 vl5Var) {
+        super(vl5Var);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948006322, "Lcom/baidu/tieba/nl5;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vl5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((vl5) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class a extends kw5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public boolean c(String str) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str) || str.length() != 4) {
+                return false;
+            }
+            int d = d();
+            for (int i = 0; i < 4; i++) {
+                if (((d >> (i * 8)) & 255) != str.charAt(i)) {
+                    return false;
                 }
             }
+            return true;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.kw5
-        public Boolean doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return Boolean.valueOf(BdTokenController.J().L());
-            }
-            return (Boolean) invokeV.objValue;
-        }
+        return invokeL.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static class b implements pv5<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.pv5
-        /* renamed from: a */
-        public void onReturnDataInUI(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && bool != null && !bool.booleanValue()) {
-                nl5.c();
-            }
-        }
-    }
-
-    public static void c() {
+    public int d() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || !BdNetTypeUtil.isNetWorkAvailable()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] b2 = b();
+            read(b2, 0, 4);
+            return ((b2[3] & 255) << 24) | (b2[0] & 255) | ((b2[1] & 255) << 8) | ((b2[2] & 255) << 16);
         }
-        ActivityChangeSchemeModel activityChangeSchemeModel = new ActivityChangeSchemeModel();
-        ol5.a();
-        activityChangeSchemeModel.request();
+        return invokeV.intValue;
     }
 
-    public static void b() {
+    public int e() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !a) {
-            if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                ow5.b(new a(), new b());
-            } else if (!BdTokenController.J().L()) {
-                c();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            byte[] b2 = b();
+            read(b2, 0, 4);
+            return ((b2[0] & 255) << 24) | (b2[3] & 255) | ((b2[2] & 255) << 8) | ((b2[1] & 255) << 16);
         }
+        return invokeV.intValue;
     }
 }

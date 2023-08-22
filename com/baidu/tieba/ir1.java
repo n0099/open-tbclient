@@ -1,31 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ir1 {
+public class ir1 implements xq1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public hr1 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947863009, "Lcom/baidu/tieba/ir1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947863009, "Lcom/baidu/tieba/ir1;");
-                return;
+    public ir1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = fu2.o().isDebug();
-        b = fu2.o().J();
+    }
+
+    @Override // com.baidu.tieba.xq1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            hr1 hr1Var = this.b;
+            return hr1Var.a(this.a, hr1Var.c);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.xq1
+    public void a(Context context, yq1 yq1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yq1Var) == null) {
+            this.a = context;
+            hr1 hr1Var = new hr1();
+            this.b = hr1Var;
+            hr1Var.c = null;
+            try {
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                hr1Var.b = cls;
+                hr1Var.a = cls.newInstance();
+            } catch (Throwable unused) {
+            }
+            try {
+                hr1Var.c = hr1Var.b.getMethod("getOAID", Context.class);
+            } catch (Throwable unused2) {
+            }
+            try {
+                hr1Var.b.getMethod("getVAID", Context.class);
+            } catch (Throwable unused3) {
+            }
+            try {
+                hr1Var.b.getMethod("getAAID", Context.class);
+            } catch (Throwable unused4) {
+            }
+            if (yq1Var != null) {
+                yq1Var.a();
+            }
+        }
     }
 }

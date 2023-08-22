@@ -131,7 +131,7 @@ public final class c implements x.b {
         this.mAdTemplate = adTemplate;
         this.FH = i;
         this.FS = z;
-        this.zO = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0476, (ViewGroup) null);
+        this.zO = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d047d, (ViewGroup) null);
     }
 
     public static void a(WebView webView) {
@@ -293,14 +293,14 @@ public final class c implements x.b {
     }
 
     private void initTipBarView() {
-        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09144c);
+        LinearLayout linearLayout = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091462);
         this.mWebTipBarLayout = linearLayout;
         if (this.mNormalMode) {
             linearLayout.setVisibility(8);
             return;
         }
-        this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f09144d);
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f09144e);
+        this.mWebTipBarTitle = (TextView) findViewById(R.id.obfuscated_res_0x7f091463);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091464);
         this.mWebTipBarCloseBtn = imageView;
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.c.6
             @Override // android.view.View.OnClickListener
@@ -450,13 +450,13 @@ public final class c implements x.b {
         }
         this.FW = bVar.FD;
         this.mNormalMode = (TextUtils.isEmpty(bVar.FC) || TextUtils.isEmpty(bVar.FD)) ? false : true;
-        this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091443);
-        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912f6);
-        this.FI = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091394);
-        this.FJ = (TextView) findViewById(R.id.obfuscated_res_0x7f091391);
-        this.FK = (TextView) findViewById(R.id.obfuscated_res_0x7f091392);
-        this.FL = (TextView) findViewById(R.id.obfuscated_res_0x7f091390);
-        this.FM = (TextView) findViewById(R.id.obfuscated_res_0x7f091393);
+        this.mAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091459);
+        this.mWebContainer = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09130c);
+        this.FI = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0913aa);
+        this.FJ = (TextView) findViewById(R.id.obfuscated_res_0x7f0913a7);
+        this.FK = (TextView) findViewById(R.id.obfuscated_res_0x7f0913a8);
+        this.FL = (TextView) findViewById(R.id.obfuscated_res_0x7f0913a6);
+        this.FM = (TextView) findViewById(R.id.obfuscated_res_0x7f0913a9);
         initTipBarView();
         c(bVar);
         nA();

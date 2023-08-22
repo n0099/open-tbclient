@@ -4,6 +4,7 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.tieba.mt6;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class InitEmotionsTask extends LaunchTask {
@@ -30,5 +31,6 @@ public class InitEmotionsTask extends LaunchTask {
             BdLog.e(th2);
         }
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004602, new ArrayList()));
+        mt6.f();
     }
 }

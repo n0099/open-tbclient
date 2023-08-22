@@ -1,66 +1,87 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.pm.Signature;
+import android.util.Base64;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes8.dex */
-public class zk {
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+/* loaded from: classes9.dex */
+public final class zk {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, cl> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448323740, "Lcom/baidu/tieba/zk;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static byte[] a(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, signatureArr)) == null) {
+            if (signatureArr != null) {
+                int i = 0;
+                for (Signature signature : signatureArr) {
+                    i += signature.toByteArray().length;
+                }
+                byte[] bArr = new byte[i];
+                int i2 = 0;
+                for (Signature signature2 : signatureArr) {
+                    byte[] byteArray = signature2.toByteArray();
+                    System.arraycopy(byteArray, 0, bArr, i2, byteArray.length);
+                    i2 += byteArray.length;
+                }
+                return bArr;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448323740, "Lcom/baidu/tieba/zk;");
-                return;
+            return null;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static String b(byte[] bArr) {
+        InterceptResult invokeL;
+        NoSuchAlgorithmException e;
+        String str;
+        byte[] digest;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
             }
+            try {
+                digest = MessageDigest.getInstance("MD5").digest(bArr);
+            } catch (NoSuchAlgorithmException e2) {
+                e = e2;
+                str = null;
+            }
+            if (digest == null) {
+                return null;
+            }
+            str = Base64.encodeToString(digest, 0);
+            if (str != null) {
+                try {
+                    str = str.replaceAll("\\s", "").replaceAll("\\\\", "rg").replaceAll("/", "lg");
+                } catch (NoSuchAlgorithmException e3) {
+                    e = e3;
+                    if (BdLog.isDebugMode()) {
+                        e.printStackTrace();
+                    }
+                    return str;
+                }
+            }
+            return str;
         }
-        HashMap hashMap = new HashMap();
-        a = hashMap;
-        hashMap.put("com.baidu.searchbox.livenps", new yk());
+        return (String) invokeL.objValue;
     }
 
-    public static void a(String str, int i) {
-        cl clVar;
+    public static String c(Signature[] signatureArr) {
+        InterceptResult invokeL;
+        byte[] a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) && (clVar = a.get(str)) != null) {
-            clVar.b(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, signatureArr)) == null) {
+            if (signatureArr != null && (a = a(signatureArr)) != null) {
+                return b(a);
+            }
+            return null;
         }
-    }
-
-    public static void b(String str, int i, long j) {
-        cl clVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j)}) == null) && (clVar = a.get(str)) != null) {
-            clVar.c(i, j);
-        }
-    }
-
-    public static void c(String str, int i, int i2) {
-        cl clVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65539, null, str, i, i2) == null) && (clVar = a.get(str)) != null) {
-            clVar.d(i, i2);
-        }
-    }
-
-    public static void d(String str, int i, int i2) {
-        cl clVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) && (clVar = a.get(str)) != null) {
-            clVar.e(i, i2);
-        }
+        return (String) invokeL.objValue;
     }
 }

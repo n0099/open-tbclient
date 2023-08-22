@@ -1,31 +1,110 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class py2 {
+public class py2 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<MediaModel> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public String b;
+    public ArrayList<dz2> c;
+    public int d;
 
-    public static void a() {
-        ArrayList<MediaModel> arrayList;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (arrayList = a) != null) {
-            arrayList.clear();
-            a = null;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SimpleDraweeView a;
+        public TextView b;
+        public TextView c;
+
+        public a(py2 py2Var, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {py2Var, view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09025d);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090260);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09025f);
         }
     }
 
-    public static int d() {
+    public py2(Activity activity, String str, ArrayList<dz2> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, str, arrayList};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = activity;
+        this.b = str;
+        this.c = arrayList;
+        this.d = (int) (uo3.f(activity, 50.0f) / 2.0f);
+    }
+
+    public final String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (TextUtils.equals(this.b, "Image")) {
+                return this.a.getString(R.string.obfuscated_res_0x7f0f1536, new Object[]{Integer.valueOf(i)});
+            }
+            return this.a.getString(R.string.obfuscated_res_0x7f0f1505, new Object[]{Integer.valueOf(i)});
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            ArrayList<MediaModel> arrayList = a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<dz2> arrayList = this.c;
             if (arrayList == null) {
                 return 0;
             }
@@ -34,89 +113,52 @@ public class py2 {
         return invokeV.intValue;
     }
 
-    public static ArrayList<MediaModel> e() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return a;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList != null && arrayList.size() != 0 && a.get(0) != null) {
-                return a.get(0).getType();
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i >= 0 && i <= this.c.size()) {
+                return this.c.get(i);
             }
             return null;
         }
-        return (String) invokeV.objValue;
+        return invokeI.objValue;
     }
 
-    public static int c(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        ArrayList<MediaModel> arrayList;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, mediaModel)) == null) {
-            if (mediaModel == null || (arrayList = a) == null) {
-                return -1;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d092a, (ViewGroup) null);
+                aVar = new a(this, view2);
+                view2.setTag(aVar);
+            } else {
+                aVar = (a) view2.getTag();
             }
-            int size = arrayList.size();
-            for (int i = 0; i < size; i++) {
-                if (mediaModel.equals(a.get(i))) {
-                    return i;
-                }
+            view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08144f));
+            dz2 dz2Var = this.c.get(i);
+            if (dz2Var == null) {
+                return view2;
             }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean f(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, mediaModel)) == null) {
-            ArrayList<MediaModel> arrayList = a;
+            aVar.b.setText(dz2Var.c());
+            ArrayList<MediaModel> arrayList = dz2Var.d;
             if (arrayList == null) {
-                return false;
+                return view2;
             }
-            return arrayList.contains(mediaModel);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(MediaModel mediaModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, mediaModel)) == null) {
-            ArrayList<MediaModel> arrayList = a;
-            if (arrayList != null && arrayList.size() != 0) {
-                return a.contains(mediaModel);
+            aVar.c.setText(a(arrayList.size()));
+            if (dz2Var.d.get(0) != null && !TextUtils.isEmpty(dz2Var.d.get(0).getPath())) {
+                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.fromFile(new File(dz2Var.d.get(0).getPath())));
+                int i2 = this.d;
+                newBuilderWithSource.setResizeOptions(new ResizeOptions(i2, i2));
+                newBuilderWithSource.setLocalThumbnailPreviewsEnabled(true);
+                aVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setImageRequest(newBuilderWithSource.build()).setOldController(aVar.a.getController()).build());
             }
-            return false;
+            return view2;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(MediaModel mediaModel) {
-        ArrayList<MediaModel> arrayList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, mediaModel) == null) && (arrayList = a) != null) {
-            arrayList.remove(mediaModel);
-        }
-    }
-
-    public static void i(MediaModel mediaModel) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, null, mediaModel) != null) || mediaModel == null) {
-            return;
-        }
-        if (a == null) {
-            a = new ArrayList<>();
-        }
-        a.add(mediaModel);
+        return (View) invokeILL.objValue;
     }
 }

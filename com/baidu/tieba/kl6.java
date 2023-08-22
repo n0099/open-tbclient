@@ -1,83 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.webkit.MimeTypeMap;
-import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.content.ContextWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class kl6 {
+public final class kl6 {
     public static /* synthetic */ Interceptable $ic;
+    public static Application a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String a(String str) {
+    public static Activity a(Context context) {
         InterceptResult invokeL;
-        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String c = c(str);
-            if (!TextUtils.isEmpty(c)) {
-                try {
-                    int lastIndexOf2 = c.lastIndexOf(47);
-                    if (lastIndexOf2 >= 0) {
-                        c = c.substring(lastIndexOf2 + 1);
-                    }
-                    if (!TextUtils.isEmpty(c) && (lastIndexOf = c.lastIndexOf(46)) >= 0) {
-                        return c.substring(lastIndexOf + 1);
-                    }
-                    return "";
-                } catch (Exception unused) {
-                    return "";
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context instanceof Activity) {
+                return (Activity) context;
             }
-            return "";
+            while (context instanceof ContextWrapper) {
+                if (context instanceof Activity) {
+                    return (Activity) context;
+                }
+                context = ((ContextWrapper) context).getBaseContext();
+            }
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (Activity) invokeL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String mimeTypeFromExtension;
+    public static void b(Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String str2 = null;
-            try {
-                String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(str);
-                if (!TextUtils.isEmpty(fileExtensionFromUrl) && !TextUtils.equals(fileExtensionFromUrl, StringUtil.NULL_STRING)) {
-                    if (TextUtils.equals(fileExtensionFromUrl, "json")) {
-                        mimeTypeFromExtension = "application/json";
-                    } else {
-                        mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl);
-                    }
-                    str2 = mimeTypeFromExtension;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return "*/*";
-            }
-            return str2;
+        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
+            a = application;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(String str) {
-        InterceptResult invokeL;
+    public static Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("?");
-            if (indexOf > 0) {
-                return str.substring(0, indexOf);
-            }
-            return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return (String) invokeL.objValue;
+        return (Context) invokeV.objValue;
     }
 }

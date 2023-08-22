@@ -1,174 +1,65 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
-import android.media.MediaMetadataRetriever;
-import android.media.ThumbnailUtils;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.annotation.StringRes;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.lib.resourceLoader.BdResourceCallback;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
+import com.baidu.tbadk.core.view.TbCheckBox;
+import com.baidu.tieba.s45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.editvideo.addfilter.BaseOutputSurface;
-import com.baidu.ugc.editvideo.faceunity.encoder.MediaCodecHelper;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes7.dex */
-public class pra {
+public class pra extends s45 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile pra b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<b> a;
+    public ViewGroup a;
+    public ImageView b;
+    public TextView c;
+    public ViewGroup d;
+    public TbCheckBox e;
+    public TextView f;
+    public Button g;
+    public Button h;
+    public ImageView i;
+    public String j;
+    public String k;
+    public String l;
+    public s45.e m;
+    public String n;
+    public s45.e o;
+    public String p;
+    public CompoundButton.OnCheckedChangeListener q;
+    public boolean r;
+    public TbCheckBox.b s;
+    public final BdResourceCallback<BdImage> t;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements TbCheckBox.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ pra a;
 
-    /* loaded from: classes7.dex */
-    public static class b extends MediaMetadataRetriever implements Closeable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public volatile boolean a;
-        public String b;
-        public boolean c;
-        public volatile boolean d;
-
-        /* loaded from: classes7.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ yra a;
-            public final /* synthetic */ xra b;
-            public final /* synthetic */ b c;
-
-            public a(b bVar, yra yraVar, xra xraVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, yraVar, xraVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.c = bVar;
-                this.a = yraVar;
-                this.b = xraVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    ArrayList<sra> arrayList = new ArrayList();
-                    ArrayList<sra> arrayList2 = new ArrayList();
-                    ArrayList arrayList3 = new ArrayList();
-                    for (sra sraVar : this.a.e) {
-                        int i = sraVar.g;
-                        if (i == 0) {
-                            arrayList.add(sraVar);
-                        } else if (i == 1) {
-                            arrayList2.add(sraVar);
-                        }
-                    }
-                    if (!o9b.e(arrayList)) {
-                        for (sra sraVar2 : arrayList) {
-                            Bitmap d = tra.f().d(sraVar2.a);
-                            if (d == null || d.isRecycled()) {
-                                d = k9b.e(sraVar2.b, sraVar2.h, sraVar2.i, sraVar2.c);
-                                tra.f().g().b(sraVar2.a, d);
-                                tra.f().e().c(sraVar2.a, d);
-                            }
-                            sraVar2.e = d;
-                            sraVar2.a();
-                        }
-                    }
-                    if (!o9b.e(arrayList2)) {
-                        for (sra sraVar3 : arrayList2) {
-                            Bitmap d2 = tra.f().d(sraVar3.a);
-                            if (d2 != null && !d2.isRecycled()) {
-                                sraVar3.e = d2;
-                                sraVar3.a();
-                            } else {
-                                arrayList3.add(sraVar3);
-                            }
-                        }
-                    }
-                    if (!o9b.e(arrayList3)) {
-                        this.a.e = arrayList3;
-                        if (!this.c.g()) {
-                            this.c.j(this.a);
-                        } else {
-                            this.c.i(this.a);
-                        }
-                        this.c.k(this.b);
-                        return;
-                    }
-                    this.c.k(this.b);
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.pra$b$b  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0446b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ xra a;
-            public final /* synthetic */ b b;
-
-            public RunnableC0446b(b bVar, xra xraVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, xraVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = bVar;
-                this.a = xraVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                xra xraVar;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (xraVar = this.a) != null) {
-                    xraVar.a(this.b);
-                }
-            }
-        }
-
-        public b() {
+        public a(pra praVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {praVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -178,445 +69,324 @@ public class pra {
                     return;
                 }
             }
-            this.c = true;
+            this.a = praVar;
         }
 
-        @Override // android.media.MediaMetadataRetriever, java.lang.AutoCloseable, java.io.Closeable
-        public void close() {
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.b
+        public void a(TbCheckBox tbCheckBox, boolean z, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                release();
-            }
-        }
-
-        public boolean f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.d;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                if (this.c && !dab.a(this.b)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // android.media.MediaMetadataRetriever
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-                super.release();
-                this.a = true;
-                this.d = false;
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        public final void i(yra yraVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, yraVar) == null) {
-                try {
-                    e(yraVar.a, yraVar.e, yraVar.c, yraVar.d, yraVar.b);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    j(yraVar);
-                }
-            }
-        }
-
-        public final void k(xra xraVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, xraVar) == null) {
-                this.d = false;
-                bab.a().post(new RunnableC0446b(this, xraVar));
-            }
-        }
-
-        public void l(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-                this.d = z;
-            }
-        }
-
-        public void m(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-                this.c = z;
-            }
-        }
-
-        @Override // android.media.MediaMetadataRetriever
-        public void setDataSource(String str) throws IllegalArgumentException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-                try {
-                    super.setDataSource(str);
-                    this.b = str;
-                } catch (Exception e) {
-                    j9b.g(e);
-                }
-            }
-        }
-
-        public void h(yra yraVar, xra xraVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048581, this, yraVar, xraVar) == null) {
-                if (yraVar != null && !o9b.e(yraVar.e)) {
-                    this.d = true;
-                    ThreadPool.b().e(new a(this, yraVar, xraVar));
-                    return;
-                }
-                k(xraVar);
-            }
-        }
-
-        public final void d(MediaExtractor mediaExtractor, int i, MediaCodec mediaCodec, BaseOutputSurface baseOutputSurface, List<sra> list) throws IOException {
-            String str;
-            int i2;
-            long j;
-            int i3;
-            boolean z;
-            boolean z2;
-            int dequeueInputBuffer;
-            long j2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{mediaExtractor, Integer.valueOf(i), mediaCodec, baseOutputSurface, list}) == null) {
-                ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
-                MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                long j3 = 0;
-                int i4 = 0;
-                if (o9b.b(list) == 1) {
-                    sra sraVar = (sra) o9b.c(list, 0);
-                    if (sraVar != null) {
-                        j2 = sraVar.d;
-                    } else {
-                        j2 = 0;
-                    }
-                    if (j2 <= 0) {
-                        j2 = 1;
-                    }
-                    mediaExtractor.getSampleTime();
-                    mediaExtractor.seekTo(j2, 0);
-                    if (mediaExtractor.getSampleTime() > j2) {
-                        mediaExtractor.seekTo(0L, 2);
-                    }
-                }
-                int i5 = 0;
-                boolean z3 = false;
-                boolean z4 = false;
-                while (!z3 && !this.a) {
-                    if (z4 || (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) < 0) {
-                        str = "VideoFrameMetadataRetriever";
-                        i2 = i5;
-                        j = j3;
-                    } else {
-                        int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], i4);
-                        if (readSampleData < 0) {
-                            str = "VideoFrameMetadataRetriever";
-                            i2 = i5;
-                            j = j3;
-                            mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                            z4 = true;
-                        } else {
-                            str = "VideoFrameMetadataRetriever";
-                            i2 = i5;
-                            j = j3;
-                            if (mediaExtractor.getSampleTrackIndex() != i) {
-                                j9b.l(str, "WEIRD: got sample from track " + mediaExtractor.getSampleTrackIndex() + ", expected " + i);
-                            }
-                            mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, mediaExtractor.getSampleTime(), 0);
-                            mediaExtractor.advance();
-                        }
-                    }
-                    if (!z3) {
-                        int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, 10000L);
-                        if (dequeueOutputBuffer != -1 && dequeueOutputBuffer != -3) {
-                            if (dequeueOutputBuffer == -2) {
-                                mediaCodec.getOutputFormat();
-                            } else if (dequeueOutputBuffer < 0) {
-                                j9b.c(str, "unexpected result from decoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-                            } else {
-                                if ((bufferInfo.flags & 4) != 0) {
-                                    z = true;
-                                } else {
-                                    z = z3;
-                                }
-                                if (bufferInfo.size != 0) {
-                                    z2 = true;
-                                } else {
-                                    z2 = false;
-                                }
-                                mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, z2);
-                                if (z2) {
-                                    i3 = i2;
-                                    sra sraVar2 = (sra) o9b.c(list, i3);
-                                    baseOutputSurface.awaitNewImage();
-                                    baseOutputSurface.drawImage((int) (((float) bufferInfo.presentationTimeUs) / 1000.0f));
-                                    if (sraVar2 != null) {
-                                        long j4 = sraVar2.d;
-                                        if (j4 <= j) {
-                                            j4 = 1;
-                                        } else if (i3 == list.size() - 1) {
-                                            j4 -= 800000;
-                                        }
-                                        if (bufferInfo.presentationTimeUs >= j4) {
-                                            sraVar2.e = baseOutputSurface.getFrameBitmap();
-                                            tra.f().g().b(sraVar2.a, sraVar2.e);
-                                            sraVar2.a();
-                                            tra.f().e().c(sraVar2.a, sraVar2.e);
-                                            if (i3 == list.size() - 1) {
-                                                z = true;
-                                            }
-                                            i5 = i3 + 1;
-                                            z3 = z;
-                                            j3 = j;
-                                            i4 = 0;
-                                        }
-                                    }
-                                } else {
-                                    i3 = i2;
-                                }
-                                z3 = z;
-                            }
-                        }
-                        i5 = i2;
-                        j3 = j;
-                        i4 = 0;
-                    } else {
-                        i3 = i2;
-                    }
-                    i5 = i3;
-                    j3 = j;
-                    i4 = 0;
-                }
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:58:0x00df  */
-        /* JADX WARN: Removed duplicated region for block: B:60:0x00e4  */
-        /* JADX WARN: Removed duplicated region for block: B:62:0x00ec  */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final void e(String str, List<sra> list, int i, int i2, float f) throws IOException {
-            MediaExtractor mediaExtractor;
-            MediaCodec mediaCodec;
-            File file;
-            int andSelectVideoTrackIndex;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, list, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) == null) {
-                nra nraVar = null;
-                try {
-                    file = new File(str);
-                } catch (Exception e) {
-                    e = e;
-                    mediaExtractor = null;
-                    mediaCodec = null;
-                } catch (Throwable th) {
-                    th = th;
-                    mediaExtractor = null;
-                    mediaCodec = null;
-                }
-                if (file.canRead()) {
-                    mediaExtractor = new MediaExtractor();
-                    try {
-                        mediaExtractor.setDataSource(file.toString());
-                        andSelectVideoTrackIndex = MediaCodecHelper.getAndSelectVideoTrackIndex(mediaExtractor);
-                    } catch (Exception e2) {
-                        e = e2;
-                        mediaCodec = null;
-                    } catch (Throwable th2) {
-                        th = th2;
-                        mediaCodec = null;
-                    }
-                    if (andSelectVideoTrackIndex >= 0) {
-                        MediaFormat trackFormat = mediaExtractor.getTrackFormat(andSelectVideoTrackIndex);
-                        int integer = trackFormat.getInteger("width");
-                        int integer2 = trackFormat.getInteger("height");
-                        if (i == 0 || i2 == 0) {
-                            float f2 = f % 360.0f;
-                            if (f2 != 90.0f && f2 != 270.0f) {
-                                i = integer;
-                                i2 = integer2;
-                            }
-                            i2 = integer;
-                            i = integer2;
-                        }
-                        nra nraVar2 = new nra(i, i2, true, null);
-                        try {
-                            nraVar2.a(integer, integer2, f);
-                            mediaCodec = MediaCodec.createDecoderByType(trackFormat.getString("mime"));
-                        } catch (Exception e3) {
-                            e = e3;
-                            mediaCodec = null;
-                        } catch (Throwable th3) {
-                            th = th3;
-                            mediaCodec = null;
-                        }
-                        try {
-                            mediaCodec.configure(trackFormat, nraVar2.getSurface(), (MediaCrypto) null, 0);
-                            mediaCodec.start();
-                            d(mediaExtractor, andSelectVideoTrackIndex, mediaCodec, nraVar2, list);
-                            nraVar2.release();
-                            if (mediaCodec != null) {
-                                mediaCodec.stop();
-                                mediaCodec.release();
-                            }
-                        } catch (Exception e4) {
-                            e = e4;
-                            nraVar = nraVar2;
-                            try {
-                                j9b.g(e);
-                                if (nraVar != null) {
-                                    nraVar.release();
-                                }
-                                if (mediaCodec != null) {
-                                    mediaCodec.stop();
-                                    mediaCodec.release();
-                                }
-                                if (mediaExtractor == null) {
-                                    return;
-                                }
-                                mediaExtractor.release();
-                                return;
-                            } catch (Throwable th4) {
-                                th = th4;
-                                if (nraVar != null) {
-                                    nraVar.release();
-                                }
-                                if (mediaCodec != null) {
-                                    mediaCodec.stop();
-                                    mediaCodec.release();
-                                }
-                                if (mediaExtractor != null) {
-                                    mediaExtractor.release();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th5) {
-                            th = th5;
-                            nraVar = nraVar2;
-                            if (nraVar != null) {
-                            }
-                            if (mediaCodec != null) {
-                            }
-                            if (mediaExtractor != null) {
-                            }
-                            throw th;
-                        }
-                        mediaExtractor.release();
-                        return;
-                    }
-                    throw new RuntimeException("No video track found in " + file);
-                }
-                throw new FileNotFoundException("Unable to read " + file);
-            }
-        }
-
-        public final void j(yra yraVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, yraVar) == null) {
-                try {
-                    for (sra sraVar : yraVar.e) {
-                        Bitmap frameAtTime = getFrameAtTime(sraVar.d, 2);
-                        if (frameAtTime != null) {
-                            if (yraVar.c != 0 && yraVar.d != 0) {
-                                sraVar.e = ThumbnailUtils.extractThumbnail(frameAtTime, yraVar.c, yraVar.d, 2);
-                            }
-                            sraVar.a();
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbCheckBox, Boolean.valueOf(z), obj}) == null) && this.a.q != null) {
+                this.a.q.onCheckedChanged(null, z);
             }
         }
     }
 
-    public pra() {
+    /* loaded from: classes7.dex */
+    public class b extends BdResourceCallback<BdImage> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pra a;
+
+        public b(pra praVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {praVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = praVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.resourceLoader.BdResourceCallback
+        public void onLoaded(BdImage bdImage, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, bdImage, str, i) == null) {
+                super.onLoaded((b) bdImage, str, i);
+                if (bdImage != null && bdImage.isValidNow()) {
+                    this.a.b.setBackgroundResource(0);
+                    this.a.b.setImageDrawable(null);
+                    bdImage.drawImageTo(this.a.b);
+                    return;
+                }
+                this.a.b.setImageResource(R.drawable.obfuscated_res_0x7f0806d6);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements TbCheckBox.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+
+        public c(pra praVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {praVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = false;
+        }
+
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+        public void setChecked(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                this.a = z;
+            }
+        }
+
+        @Override // com.baidu.tbadk.core.view.TbCheckBox.c
+        public boolean isChecked() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pra(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add(new b(null));
-        this.a.add(new b(null));
+        this.r = false;
+        this.s = new a(this);
+        this.t = new b(this);
+        c();
+        setContentViewSize(1);
+        setCanceledOnTouchOutside(false);
+        setCancelable(false);
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0020, code lost:
-        r2.l(true);
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:14:0x0024, code lost:
-        r0 = r2;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized b b() {
-        InterceptResult invokeV;
-        b bVar;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                bVar = null;
-                Iterator<b> it = this.a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    b next = it.next();
-                    if (next != null && !next.f()) {
-                        break;
-                    }
-                }
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) != null) || view2 == null) {
+            return;
+        }
+        int id = view2.getId();
+        if (id == R.id.obfuscated_res_0x7f091d10) {
+            s45.e eVar = this.m;
+            if (eVar != null) {
+                eVar.onClick(this);
             }
-            return bVar;
-        }
-        return (b) invokeV.objValue;
-    }
-
-    public static pra a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (pra.class) {
-                    if (b == null) {
-                        b = new pra();
-                    }
-                }
+        } else if (id == R.id.obfuscated_res_0x7f091912) {
+            s45.e eVar2 = this.o;
+            if (eVar2 != null) {
+                eVar2.onClick(this);
             }
-            return b;
+        } else if (id == R.id.obfuscated_res_0x7f090733) {
+            dismiss();
+        } else if (id == R.id.obfuscated_res_0x7f0906f0) {
+            TbCheckBox tbCheckBox = this.e;
+            tbCheckBox.setChecked(!tbCheckBox.d());
         }
-        return (pra) invokeV.objValue;
     }
 
-    public void c(b bVar) {
+    public pra e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && bVar != null) {
-            bVar.l(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.j = str;
+            return this;
         }
+        return (pra) invokeL.objValue;
+    }
+
+    public pra f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            this.k = str;
+            return this;
+        }
+        return (pra) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s45
+    public /* bridge */ /* synthetic */ s45 setMessage(String str) {
+        f(str);
+        return this;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(this.mActivity).inflate(R.layout.obfuscated_res_0x7f0d0283, (ViewGroup) null);
+            this.a = viewGroup;
+            this.b = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908a3);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091757);
+            Button button = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f091912);
+            this.h = button;
+            button.setOnClickListener(this);
+            Button button2 = (Button) this.a.findViewById(R.id.obfuscated_res_0x7f091d10);
+            this.g = button2;
+            button2.setOnClickListener(this);
+            ImageView imageView = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090733);
+            this.i = imageView;
+            imageView.setOnClickListener(this);
+            this.d = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f0906f0);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0906f2);
+            TbCheckBox tbCheckBox = (TbCheckBox) this.a.findViewById(R.id.obfuscated_res_0x7f0906ee);
+            this.e = tbCheckBox;
+            tbCheckBox.setBackgroundDrawableId(R.drawable.obfuscated_res_0x7f0808f1, R.drawable.obfuscated_res_0x7f0808f2);
+            this.e.setStatedChangedListener(this.s);
+            this.e.setTagData(new c(this));
+            this.d.setClickable(true);
+            this.d.setOnClickListener(this);
+            setContentView(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.s45
+    public s45 create(BdPageContext<?> bdPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdPageContext)) == null) {
+            if (this.r) {
+                return this;
+            }
+            this.r = true;
+            super.create(bdPageContext);
+            if (!di.isEmpty(this.k)) {
+                this.c.setText(this.k);
+            }
+            if (!di.isEmpty(this.p)) {
+                this.f.setText(this.p);
+            } else {
+                this.d.setVisibility(4);
+            }
+            if (!di.isEmpty(this.n)) {
+                this.h.setText(this.n);
+            }
+            if (!di.isEmpty(this.l)) {
+                this.g.setText(this.l);
+            }
+            if (!TextUtils.isEmpty(this.j)) {
+                BdResourceLoader.getInstance().loadResource(this.j, 10, this.t, bdPageContext.getUniqueId());
+            } else {
+                this.b.setImageResource(R.drawable.obfuscated_res_0x7f0806d6);
+            }
+            getRealView().setBackgroundDrawable(null);
+            return this;
+        }
+        return (s45) invokeL.objValue;
+    }
+
+    public pra d(@StringRes int i, CompoundButton.OnCheckedChangeListener onCheckedChangeListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, onCheckedChangeListener)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.p = activity.getResources().getString(i);
+                this.q = onCheckedChangeListener;
+            }
+            return this;
+        }
+        return (pra) invokeIL.objValue;
+    }
+
+    public pra g(@StringRes int i, s45.e eVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, eVar)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.n = activity.getResources().getString(i);
+                this.o = eVar;
+            }
+            return this;
+        }
+        return (pra) invokeIL.objValue;
+    }
+
+    public pra h(int i, s45.e eVar) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, eVar)) == null) {
+            Activity activity = this.mActivity;
+            if (activity != null) {
+                this.l = activity.getResources().getString(i);
+                this.m = eVar;
+            }
+            return this;
+        }
+        return (pra) invokeIL.objValue;
+    }
+
+    public pra i(String str, s45.e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, eVar)) == null) {
+            this.l = str;
+            this.m = eVar;
+            return this;
+        }
+        return (pra) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s45
+    public /* bridge */ /* synthetic */ s45 setNegativeButton(@StringRes int i, s45.e eVar) {
+        g(i, eVar);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.s45
+    public /* bridge */ /* synthetic */ s45 setPositiveButton(int i, s45.e eVar) {
+        h(i, eVar);
+        return this;
+    }
+
+    @Override // com.baidu.tieba.s45
+    public s45 setNegativeButton(String str, s45.e eVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, eVar)) == null) {
+            this.n = str;
+            this.o = eVar;
+            return this;
+        }
+        return (s45) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.s45
+    public /* bridge */ /* synthetic */ s45 setPositiveButton(String str, s45.e eVar) {
+        i(str, eVar);
+        return this;
     }
 }

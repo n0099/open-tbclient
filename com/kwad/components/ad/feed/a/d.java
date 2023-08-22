@@ -43,10 +43,10 @@ public final class d extends FrameLayout {
     }
 
     private void E(Context context) {
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04c0, this);
-        this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912cb);
-        this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f091316);
-        this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912c8);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d04c7, this);
+        this.dz = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912e1);
+        this.dA = (ImageView) findViewById(R.id.obfuscated_res_0x7f09132c);
+        this.dB = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912de);
     }
 
     private Animation a(final View view2, float f, int i) {

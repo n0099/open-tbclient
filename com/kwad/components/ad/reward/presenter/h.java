@@ -66,7 +66,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
             if (this.pK == null) {
                 this.pK = new com.kwad.components.ad.reward.k.g(this.nM);
             }
-            this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913de));
+            this.pK.e((AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913f4));
             this.pK.b(u.D(adTemplate));
         }
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(adTemplate);
@@ -84,7 +84,7 @@ public final class h extends a implements com.kwad.components.ad.reward.presente
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09125e);
+        this.pM = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091274);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

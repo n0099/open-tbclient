@@ -11,18 +11,18 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.f1c;
-import com.baidu.tieba.ija;
+import com.baidu.tieba.b8c;
+import com.baidu.tieba.g8c;
+import com.baidu.tieba.h8c;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgTabNotifyFragment;
-import com.baidu.tieba.jja;
-import com.baidu.tieba.m1c;
-import com.baidu.tieba.q1c;
-import com.baidu.tieba.r1c;
-import com.baidu.tieba.rs8;
-import com.baidu.tieba.sr8;
-import com.baidu.tieba.t5c;
-import com.baidu.tieba.y0c;
+import com.baidu.tieba.jcc;
+import com.baidu.tieba.n7c;
+import com.baidu.tieba.pw8;
+import com.baidu.tieba.rna;
+import com.baidu.tieba.sna;
+import com.baidu.tieba.sv8;
+import com.baidu.tieba.u7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,21 +33,21 @@ import kotlin.Pair;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u000e\u001a\u00020\u000fH\u0016J\b\u0010\u0010\u001a\u00020\u000fH\u0016J\b\u0010\u0011\u001a\u00020\u000fH\u0016J\u0012\u0010\u0012\u001a\u00020\u00132\b\u0010\u0014\u001a\u0004\u0018\u00010\u0015H\u0016J$\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\b\u0010\u001a\u001a\u0004\u0018\u00010\u001b2\b\u0010\u0014\u001a\u0004\u0018\u00010\u0015H\u0016J\b\u0010\u001c\u001a\u00020\u0013H\u0016J\b\u0010\u001d\u001a\u00020\u0013H\u0016J\b\u0010\u001e\u001a\u00020\u0013H\u0016J\u001a\u0010\u001f\u001a\u00020\u00132\u0006\u0010 \u001a\u00020\u00172\b\u0010\u0014\u001a\u0004\u0018\u00010\u0015H\u0016R\u0016\u0010\u0004\u001a\n \u0006*\u0004\u0018\u00010\u00050\u0005X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082.¢\u0006\u0002\n\u0000R\u0010\u0010\t\u001a\u0004\u0018\u00010\nX\u0082\u000e¢\u0006\u0002\n\u0000R2\u0010\u000b\u001a&\u0012\f\u0012\n \u0006*\u0004\u0018\u00010\r0\r \u0006*\u0012\u0012\f\u0012\n \u0006*\u0004\u0018\u00010\r0\r\u0018\u00010\f0\fX\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006!"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgTabNotifyFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/tracker/interfaces/ITraceable;", "()V", "mBdUniqueId", "Lcom/baidu/adp/BdUniqueId;", "kotlin.jvm.PlatformType", "mRootView", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgTabNotifyFragView;", "mSubscription", "Lrx/Subscription;", "mVisibleStatusBs", "Lrx/subjects/BehaviorSubject;", "", "getFrom", "", "getScene", "getTraceId", "onCreate", "", "savedInstanceState", "Landroid/os/Bundle;", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", "onDestroyView", MissionEvent.MESSAGE_PAUSE, "onResume", "onViewCreated", "view", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgTabNotifyFragment extends BaseFragment implements jja {
+public final class MsgTabNotifyFragment extends BaseFragment implements sna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sr8 a;
-    public final t5c<Boolean> b;
-    public f1c c;
+    public sv8 a;
+    public final jcc<Boolean> b;
+    public u7c c;
     public final BdUniqueId d;
 
-    public static final Boolean J1(Boolean bool) {
+    public static final Boolean V1(Boolean bool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bool)) == null) ? bool : (Boolean) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.jja
+    @Override // com.baidu.tieba.sna
     public String getScene() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,11 +67,11 @@ public final class MsgTabNotifyFragment extends BaseFragment implements jja {
                 return;
             }
         }
-        this.b = t5c.R(Boolean.FALSE);
+        this.b = jcc.R(Boolean.FALSE);
         this.d = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.jja
+    @Override // com.baidu.tieba.sna
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -85,7 +85,7 @@ public final class MsgTabNotifyFragment extends BaseFragment implements jja {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jja
+    @Override // com.baidu.tieba.sna
     public String getTraceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -99,16 +99,16 @@ public final class MsgTabNotifyFragment extends BaseFragment implements jja {
     public void onDestroyView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            sr8 sr8Var = this.a;
-            if (sr8Var == null) {
+            sv8 sv8Var = this.a;
+            if (sv8Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
-                sr8Var = null;
+                sv8Var = null;
             }
-            sr8Var.i();
+            sv8Var.i();
             super.onDestroyView();
-            f1c f1cVar = this.c;
-            if (f1cVar != null) {
-                f1cVar.unsubscribe();
+            u7c u7cVar = this.c;
+            if (u7cVar != null) {
+                u7cVar.unsubscribe();
             }
             this.c = null;
         }
@@ -133,7 +133,7 @@ public final class MsgTabNotifyFragment extends BaseFragment implements jja {
         }
     }
 
-    public static final Boolean I1(Boolean parentVisible, Boolean visible) {
+    public static final Boolean U1(Boolean parentVisible, Boolean visible) {
         InterceptResult invokeLL;
         boolean z;
         Interceptable interceptable = $ic;
@@ -152,10 +152,10 @@ public final class MsgTabNotifyFragment extends BaseFragment implements jja {
         return (Boolean) invokeLL.objValue;
     }
 
-    public static final void K1(Boolean bool) {
+    public static final void W1(Boolean bool) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, null, bool) == null) {
-            rs8.a.g();
+            pw8.a.g();
         }
     }
 
@@ -164,7 +164,7 @@ public final class MsgTabNotifyFragment extends BaseFragment implements jja {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new sr8(this);
+            this.a = new sv8(this);
         }
     }
 
@@ -174,29 +174,29 @@ public final class MsgTabNotifyFragment extends BaseFragment implements jja {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, inflater, viewGroup, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
-            ija.d(this, new Pair[0]);
-            sr8 sr8Var = this.a;
-            sr8 sr8Var2 = null;
-            if (sr8Var == null) {
+            rna.d(this, new Pair[0]);
+            sv8 sv8Var = this.a;
+            sv8 sv8Var2 = null;
+            if (sv8Var == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
-                sr8Var = null;
+                sv8Var = null;
             }
             FragmentActivity fragmentActivity = getFragmentActivity();
             Intrinsics.checkNotNullExpressionValue(fragmentActivity, "fragmentActivity");
-            sr8Var.J(fragmentActivity, viewGroup, false, false);
-            sr8 sr8Var3 = this.a;
-            if (sr8Var3 == null) {
+            sv8Var.L(fragmentActivity, viewGroup, false, false);
+            sv8 sv8Var3 = this.a;
+            if (sv8Var3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
-                sr8Var3 = null;
+                sv8Var3 = null;
             }
-            sr8Var3.c();
-            sr8 sr8Var4 = this.a;
-            if (sr8Var4 == null) {
+            sv8Var3.c();
+            sv8 sv8Var4 = this.a;
+            if (sv8Var4 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("mRootView");
             } else {
-                sr8Var2 = sr8Var4;
+                sv8Var2 = sv8Var4;
             }
-            return sr8Var2.m();
+            return sv8Var2.m();
         }
         return (View) invokeLLL.objValue;
     }
@@ -210,49 +210,49 @@ public final class MsgTabNotifyFragment extends BaseFragment implements jja {
             super.onViewCreated(view2, bundle);
             this.b.onNext(Boolean.valueOf(isVisible()));
             Fragment parentFragment = getParentFragment();
-            y0c<Boolean> y0cVar = null;
+            n7c<Boolean> n7cVar = null;
             if (parentFragment instanceof MsgCenterContainerFragment) {
                 msgCenterContainerFragment = (MsgCenterContainerFragment) parentFragment;
             } else {
                 msgCenterContainerFragment = null;
             }
             if (msgCenterContainerFragment != null) {
-                y0cVar = msgCenterContainerFragment.K1();
+                n7cVar = msgCenterContainerFragment.W1();
             }
-            this.c = y0c.c(y0cVar, this.b.g(), new r1c() { // from class: com.baidu.tieba.yp8
+            this.c = n7c.c(n7cVar, this.b.g(), new h8c() { // from class: com.baidu.tieba.yt8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.r1c
+                @Override // com.baidu.tieba.h8c
                 public final Object call(Object obj, Object obj2) {
                     InterceptResult invokeLL;
                     Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? MsgTabNotifyFragment.I1((Boolean) obj, (Boolean) obj2) : invokeLL.objValue;
+                    return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? MsgTabNotifyFragment.U1((Boolean) obj, (Boolean) obj2) : invokeLL.objValue;
                 }
-            }).k(new q1c() { // from class: com.baidu.tieba.zp8
+            }).k(new g8c() { // from class: com.baidu.tieba.zt8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.q1c
+                @Override // com.baidu.tieba.g8c
                 public final Object call(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) {
                         Boolean bool = (Boolean) obj;
-                        MsgTabNotifyFragment.J1(bool);
+                        MsgTabNotifyFragment.V1(bool);
                         return bool;
                     }
                     return invokeL.objValue;
                 }
-            }).H(new m1c() { // from class: com.baidu.tieba.wp8
+            }).H(new b8c() { // from class: com.baidu.tieba.wt8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m1c
+                @Override // com.baidu.tieba.b8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        MsgTabNotifyFragment.K1((Boolean) obj);
+                        MsgTabNotifyFragment.W1((Boolean) obj);
                     }
                 }
             });

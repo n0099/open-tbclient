@@ -15,8 +15,8 @@ import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.bg;
-import com.baidu.tieba.fr9;
-import com.baidu.tieba.ir9;
+import com.baidu.tieba.kv9;
+import com.baidu.tieba.nv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public fr9 b;
+    public kv9 b;
     public TextView c;
     public ListViewPager d;
     public View e;
@@ -39,7 +39,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d07dc : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d07e2 : invokeV.intValue;
     }
 
     /* loaded from: classes7.dex */
@@ -185,7 +185,7 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                List<ir9> e = this.a.e(i);
+                List<nv9> e = this.a.e(i);
                 if (!ListUtils.isEmpty(e)) {
                     PersonCommonForumCardView personCommonForumCardView = new PersonCommonForumCardView(this.a.a);
                     personCommonForumCardView.setForumItemViewBdObjectPool(this.a.g);
@@ -228,11 +228,11 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07dc, this);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07e2, this);
             this.e = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09077d);
-            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f09077e);
-            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f090908);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090781);
+            this.d = (ListViewPager) this.e.findViewById(R.id.obfuscated_res_0x7f090782);
+            this.f = this.e.findViewById(R.id.obfuscated_res_0x7f09090d);
             this.d.setOffscreenPageLimit(1);
         }
     }
@@ -285,18 +285,18 @@ public class PersonCenterAttentionBarListView extends LinearLayout {
         f(context);
     }
 
-    public final List<ir9> e(int i) {
+    public final List<nv9> e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            fr9 fr9Var = this.b;
-            if (fr9Var != null && !ListUtils.isEmpty(fr9Var.a)) {
+            kv9 kv9Var = this.b;
+            if (kv9Var != null && !ListUtils.isEmpty(kv9Var.a)) {
                 ArrayList arrayList = new ArrayList();
                 int i2 = i * 4;
                 for (int i3 = i2; i3 < i2 + 4; i3++) {
-                    ir9 ir9Var = (ir9) ListUtils.getItem(this.b.a, i3);
-                    if (ir9Var != null) {
-                        arrayList.add(ir9Var);
+                    nv9 nv9Var = (nv9) ListUtils.getItem(this.b.a, i3);
+                    if (nv9Var != null) {
+                        arrayList.add(nv9Var);
                     }
                 }
                 return arrayList;

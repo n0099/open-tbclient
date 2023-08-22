@@ -1,49 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes5.dex */
-public class br4 {
+public final class br4 extends nr4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile br4 d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(JSONObject jSONObject, String str, String str2) {
-        InterceptResult invokeLLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public br4() {
+        super("aiapp_open_stat");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, jSONObject, str, str2)) == null) {
-            if (jSONObject != null) {
-                return jSONObject.optString(str, str2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return str2;
         }
-        return (String) invokeLLL.objValue;
     }
 
-    public static JSONObject b(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public static br4 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                str = "NA";
-            }
-            if (jSONObject == null) {
-                jSONObject = new JSONObject();
-            }
-            try {
-                if (TextUtils.isEmpty(a(jSONObject, "pre_source", null))) {
-                    jSONObject.put("pre_source", str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (br4.class) {
+                    if (d == null) {
+                        d = new br4();
+                    }
                 }
-                if (TextUtils.isEmpty(a(jSONObject, "pre_appid", null))) {
-                    jSONObject.put("pre_appid", "NA");
-                }
-            } catch (JSONException unused) {
             }
-            return jSONObject;
+            return d;
         }
-        return (JSONObject) invokeLL.objValue;
+        return (br4) invokeV.objValue;
     }
 }

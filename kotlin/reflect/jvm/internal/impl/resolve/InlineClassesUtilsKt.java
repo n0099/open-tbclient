@@ -38,9 +38,9 @@ public final class InlineClassesUtilsKt {
     }
 
     public static final boolean isInlineClassType(KotlinType kotlinType) {
-        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
-        if (mo2102getDeclarationDescriptor != null) {
-            return isInlineClass(mo2102getDeclarationDescriptor);
+        ClassifierDescriptor mo2104getDeclarationDescriptor = kotlinType.getConstructor().mo2104getDeclarationDescriptor();
+        if (mo2104getDeclarationDescriptor != null) {
+            return isInlineClass(mo2104getDeclarationDescriptor);
         }
         return false;
     }
@@ -80,20 +80,20 @@ public final class InlineClassesUtilsKt {
     }
 
     public static final ValueParameterDescriptor underlyingRepresentation(ClassDescriptor classDescriptor) {
-        ClassConstructorDescriptor mo2096getUnsubstitutedPrimaryConstructor;
+        ClassConstructorDescriptor mo2098getUnsubstitutedPrimaryConstructor;
         List<ValueParameterDescriptor> valueParameters;
-        if (!classDescriptor.isInline() || (mo2096getUnsubstitutedPrimaryConstructor = classDescriptor.mo2096getUnsubstitutedPrimaryConstructor()) == null || (valueParameters = mo2096getUnsubstitutedPrimaryConstructor.getValueParameters()) == null) {
+        if (!classDescriptor.isInline() || (mo2098getUnsubstitutedPrimaryConstructor = classDescriptor.mo2098getUnsubstitutedPrimaryConstructor()) == null || (valueParameters = mo2098getUnsubstitutedPrimaryConstructor.getValueParameters()) == null) {
             return null;
         }
         return (ValueParameterDescriptor) CollectionsKt___CollectionsKt.singleOrNull((List<? extends Object>) valueParameters);
     }
 
     public static final ValueParameterDescriptor unsubstitutedUnderlyingParameter(KotlinType kotlinType) {
-        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
-        if (!(mo2102getDeclarationDescriptor instanceof ClassDescriptor)) {
-            mo2102getDeclarationDescriptor = null;
+        ClassifierDescriptor mo2104getDeclarationDescriptor = kotlinType.getConstructor().mo2104getDeclarationDescriptor();
+        if (!(mo2104getDeclarationDescriptor instanceof ClassDescriptor)) {
+            mo2104getDeclarationDescriptor = null;
         }
-        ClassDescriptor classDescriptor = (ClassDescriptor) mo2102getDeclarationDescriptor;
+        ClassDescriptor classDescriptor = (ClassDescriptor) mo2104getDeclarationDescriptor;
         if (classDescriptor == null) {
             return null;
         }

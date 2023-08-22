@@ -4,7 +4,7 @@ import android.os.RemoteException;
 import android.text.TextUtils;
 import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
 import com.baidu.swan.ubc.IRemoteUBCService;
-import com.baidu.tieba.eq4;
+import com.baidu.tieba.jq4;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
@@ -35,12 +35,12 @@ public class OpenStatisticIPCManager {
 
             @Override // com.baidu.swan.ubc.IRemoteUBCService
             public Flow ubcBeginFlow(String str, String str2, int i) throws RemoteException {
-                return eq4.e(str, str2, i);
+                return jq4.e(str, str2, i);
             }
 
             @Override // com.baidu.swan.ubc.IRemoteUBCService
             public void ubcOnEvent(String str, String str2, int i) throws RemoteException {
-                eq4.i(str, str2, i);
+                jq4.i(str, str2, i);
             }
 
             @Override // com.baidu.swan.ubc.IRemoteUBCService

@@ -1,29 +1,116 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes8.dex */
-public class x33 {
+public class x33 extends ra2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Map<String, HybridUbcFlow>> a;
-    public final Map<String, rp3<HybridUbcFlow>> b;
-    public final rp3<HybridUbcFlow> c;
+    public Timer N0;
 
     /* loaded from: classes8.dex */
-    public class a implements rp3<HybridUbcFlow> {
+    public class a extends oc2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x33 c;
+
+        public a(x33 x33Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {x33Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = x33Var;
+        }
+
+        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                d82.k("SwanAppWxPayFragment", "onReceivedSslError:  statusCode = " + i);
+            }
+        }
+
+        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
+        public void d(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                d82.k("SwanAppWxPayFragment", "title: " + str);
+            }
+        }
+
+        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                d82.k("SwanAppWxPayFragment", "url: " + str);
+            }
+        }
+
+        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str != null && str.startsWith("weixin://wap/pay")) {
+                    d82.i("SwanAppWxPayFragment", " weixin  url:   " + str);
+                    wh3.K("wechatH5Action", "intoPayment", 0);
+                    this.c.N0.cancel();
+                    this.c.N0 = null;
+                    ra2.a3();
+                    return false;
+                }
+                return super.a(str);
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
+        public void c(int i, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, str2) == null) {
+                String str3 = "onReceivedError:  failingUrl = " + str2 + " errorCode = " + i + " description = " + str;
+                d82.k("SwanAppWxPayFragment", str3);
+                wh3.H(false, "wechatH5Action", wh3.m(str2, str3));
+            }
+        }
+
+        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
+        public void goBack() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                d82.k("SwanAppWxPayFragment", "goBack: ");
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ x33 a;
 
-        public a(x33 x33Var) {
+        public b(x33 x33Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -41,13 +128,12 @@ public class x33 {
             this.a = x33Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rp3
-        /* renamed from: b */
-        public void a(HybridUbcFlow hybridUbcFlow) {
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-                this.a.g(hybridUbcFlow.p);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                d82.k("SwanAppWxPayFragment", " WeChat H5 pay redirect time out : ");
+                wh3.K("wechatH5Action", "outOfTime", 0);
             }
         }
     }
@@ -62,128 +148,67 @@ public class x33 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new HashMap();
-        this.b = new HashMap();
-        this.c = new a(this);
     }
 
-    public final HybridUbcFlow a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ra2
+    public rc2 b3() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-            hybridUbcFlow.H("callback_on_submit", this.c);
-            rp3<HybridUbcFlow> rp3Var = this.b.get(str);
-            if (rp3Var != null) {
-                rp3Var.a(hybridUbcFlow);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return new a(this);
+        }
+        return (rc2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ra2
+    public mx1 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.N0 == null) {
+                this.N0 = k3();
             }
-            return hybridUbcFlow;
+            return xh2.U().f0().i(getContext());
         }
-        return (HybridUbcFlow) invokeL.objValue;
+        return (mx1) invokeV.objValue;
     }
 
-    public HybridUbcFlow b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ra2, com.baidu.tieba.ja2
+    public void W1(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return c(str, "default");
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            super.W1(view2);
+            this.f0.setTitle(getResources().getString(R.string.obfuscated_res_0x7f0f0219));
+            z2(false);
         }
-        return (HybridUbcFlow) invokeL.objValue;
     }
 
-    public synchronized HybridUbcFlow e(String str) {
-        InterceptResult invokeL;
-        HybridUbcFlow f;
+    @Override // com.baidu.tieba.ra2
+    public void Y2(FrameLayout frameLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this) {
-                f = f(str, "default");
-            }
-            return f;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frameLayout) == null) {
+            frameLayout.addView((RelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00e5, (ViewGroup) null), new RelativeLayout.LayoutParams(-1, -1));
         }
-        return (HybridUbcFlow) invokeL.objValue;
     }
 
-    public x33 g(String str) {
-        InterceptResult invokeL;
+    public Timer k3() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            synchronized (this.a) {
-                this.a.remove(str);
-            }
-            return this;
-        }
-        return (x33) invokeL.objValue;
-    }
-
-    public HybridUbcFlow c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            synchronized (this.a) {
-                Map<String, HybridUbcFlow> map = this.a.get(str);
-                if (map == null) {
-                    return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            d82.k("SwanAppWxPayFragment", " start WeChat H5 redirect timer start : ");
+            Timer timer = new Timer();
+            try {
+                timer.schedule(new b(this), 10000L);
+            } catch (Exception e) {
+                if (ra2.M0) {
+                    e.printStackTrace();
                 }
-                return map.get(str2);
+                d82.k("SwanAppWxPayFragment", e.getMessage());
             }
+            return timer;
         }
-        return (HybridUbcFlow) invokeLL.objValue;
-    }
-
-    public x33 d(String str, rp3<HybridUbcFlow> rp3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, rp3Var)) == null) {
-            synchronized (this.b) {
-                this.b.put(str, rp3Var);
-            }
-            return this;
-        }
-        return (x33) invokeLL.objValue;
-    }
-
-    public x33 h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            synchronized (this.a) {
-                Map<String, HybridUbcFlow> map = this.a.get(str);
-                if (map != null) {
-                    map.remove(str2);
-                }
-            }
-            return this;
-        }
-        return (x33) invokeLL.objValue;
-    }
-
-    public synchronized HybridUbcFlow f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            synchronized (this) {
-                synchronized (this.a) {
-                    Map<String, HybridUbcFlow> map = this.a.get(str);
-                    if (map == null) {
-                        HashMap hashMap = new HashMap();
-                        HybridUbcFlow a2 = a(str);
-                        hashMap.put(str2, a2);
-                        this.a.put(str, hashMap);
-                        return a2;
-                    }
-                    HybridUbcFlow hybridUbcFlow = map.get(str2);
-                    if (hybridUbcFlow == null) {
-                        hybridUbcFlow = a(str);
-                        map.put(str2, hybridUbcFlow);
-                    }
-                    return hybridUbcFlow;
-                }
-            }
-        }
-        return (HybridUbcFlow) invokeLL.objValue;
+        return (Timer) invokeV.objValue;
     }
 }

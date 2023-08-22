@@ -1,134 +1,348 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.q7c;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagTagInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import java.util.ArrayList;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.internal.util.RxThreadFactory;
 /* loaded from: classes7.dex */
-public class p9c {
+public final class p9c extends q7c implements v9c {
     public static /* synthetic */ Interceptable $ic;
+    public static final int c;
+    public static final c d;
+    public static final b e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ThreadFactory a;
+    public final AtomicReference<b> b;
 
-    public static int a(double d, double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "countPayAmountMargin targetAmount:" + d + " accountAmount:" + d2);
-            double d3 = (d - d2) / 100.0d;
-            double d4 = 1.0d;
-            if (d3 > 1.0d) {
-                if (d3 > 1.0d && d3 <= 10.0d) {
-                    d4 = Math.ceil(d3);
-                } else {
-                    if (d3 % 10.0d > 0.0d) {
-                        d3 = (((int) (d3 / 10.0d)) + 1) * 10;
+    /* loaded from: classes7.dex */
+    public static final class a extends q7c.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final fac a;
+        public final occ b;
+        public final fac c;
+        public final c d;
+
+        /* renamed from: com.baidu.tieba.p9c$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0434a implements a8c {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a8c a;
+            public final /* synthetic */ a b;
+
+            public C0434a(a aVar, a8c a8cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, a8cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
-                    d4 = d3;
+                }
+                this.b = aVar;
+                this.a = a8cVar;
+            }
+
+            @Override // com.baidu.tieba.a8c
+            public void call() {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
+                    return;
+                }
+                this.a.call();
+            }
+        }
+
+        /* loaded from: classes7.dex */
+        public class b implements a8c {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a8c a;
+            public final /* synthetic */ a b;
+
+            public b(a aVar, a8c a8cVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, a8cVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = a8cVar;
+            }
+
+            @Override // com.baidu.tieba.a8c
+            public void call() {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
+                    return;
+                }
+                this.a.call();
+            }
+        }
+
+        public a(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            RLog.info("PayAmountHelper", "countPayAmountMargin amountMarginCount:" + d4);
-            return (int) d4;
+            this.a = new fac();
+            occ occVar = new occ();
+            this.b = occVar;
+            this.c = new fac(this.a, occVar);
+            this.d = cVar;
         }
-        return invokeCommon.intValue;
+
+        @Override // com.baidu.tieba.q7c.a
+        public u7c b(a8c a8cVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a8cVar)) == null) {
+                if (isUnsubscribed()) {
+                    return rcc.c();
+                }
+                return this.d.i(new C0434a(this, a8cVar), 0L, null, this.a);
+            }
+            return (u7c) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.q7c.a
+        public u7c c(a8c a8cVar, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{a8cVar, Long.valueOf(j), timeUnit})) == null) {
+                if (isUnsubscribed()) {
+                    return rcc.c();
+                }
+                return this.d.j(new b(this, a8cVar), j, timeUnit, this.b);
+            }
+            return (u7c) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.u7c
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c.isUnsubscribed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.u7c
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.c.unsubscribe();
+            }
+        }
     }
 
-    public static int b(List<x8c> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if (list.get(i2).c() == i) {
-                    return i2;
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final c[] b;
+        public long c;
+
+        public b(ThreadFactory threadFactory, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadFactory, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return -1;
+            this.a = i;
+            this.b = new c[i];
+            for (int i4 = 0; i4 < i; i4++) {
+                this.b[i4] = new c(threadFactory);
+            }
         }
-        return invokeLI.intValue;
-    }
 
-    public static x8c c(List<x8c> list, PayUIKitConfig payUIKitConfig, double d, double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, payUIKitConfig, Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "createPayAmount targetAmount:" + d + " accountAmount:" + d2);
-            if (list != null && !list.isEmpty()) {
-                int a = a(d, d2);
-                RLog.info("PayAmountHelper", "countPayAmountMargin amountMargin:" + a);
-                int b = b(list, a);
-                RLog.info("PayAmountHelper", "findPayAmountPositionFromConfigList position:" + b);
-                if (b >= 0) {
-                    d(list, b);
-                } else {
-                    f(list, payUIKitConfig, a);
+        public c a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i = this.a;
+                if (i == 0) {
+                    return p9c.d;
                 }
-                return list.get(0);
+                c[] cVarArr = this.b;
+                long j = this.c;
+                this.c = 1 + j;
+                return cVarArr[(int) (j % i)];
             }
-            return null;
+            return (c) invokeV.objValue;
         }
-        return (x8c) invokeCommon.objValue;
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                for (c cVar : this.b) {
+                    cVar.unsubscribe();
+                }
+            }
+        }
     }
 
-    public static void d(List<x8c> list, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, list, i) == null) {
-            RLog.info("PayAmountHelper", "movePayAmountList position:" + i);
-            RLog.debug("PayAmountHelper", "movePayAmountList configAmountList:" + list);
-            if (i != 0) {
-                list.add(0, list.remove(i));
+    /* loaded from: classes7.dex */
+    public static final class c extends u9c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(ThreadFactory threadFactory) {
+            super(threadFactory);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadFactory};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((ThreadFactory) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if (list.get(0).a.giftBagTagInfos != null && !list.get(0).a.giftBagTagInfos.isEmpty()) {
-                list.get(0).a.giftBagTagInfos.get(0).tag = "推荐";
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948018319, "Lcom/baidu/tieba/p9c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948018319, "Lcom/baidu/tieba/p9c;");
                 return;
             }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            list.get(0).a.giftBagTagInfos = new ArrayList();
-            list.get(0).a.giftBagTagInfos.add(giftBagTagInfo);
         }
+        int intValue = Integer.getInteger("rx.scheduler.max-computation-threads", 0).intValue();
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        if (intValue <= 0 || intValue > availableProcessors) {
+            intValue = availableProcessors;
+        }
+        c = intValue;
+        c cVar = new c(RxThreadFactory.NONE);
+        d = cVar;
+        cVar.unsubscribe();
+        e = new b(null, 0);
     }
 
-    public static boolean e(x8c x8cVar) {
+    public p9c(ThreadFactory threadFactory) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {threadFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = threadFactory;
+        this.b = new AtomicReference<>(e);
+        start();
+    }
+
+    public u7c a(a8c a8cVar) {
         InterceptResult invokeL;
-        ProductInfo productInfo;
-        List<GiftBagsInfo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x8cVar)) == null) {
-            if (x8cVar != null && (productInfo = x8cVar.a) != null && (list = productInfo.giftbags) != null && !list.isEmpty()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a8cVar)) == null) {
+            return this.b.get().a().h(a8cVar, -1L, TimeUnit.NANOSECONDS);
         }
-        return invokeL.booleanValue;
+        return (u7c) invokeL.objValue;
     }
 
-    public static void f(List<x8c> list, PayUIKitConfig payUIKitConfig, int i) {
+    @Override // com.baidu.tieba.q7c
+    public q7c.a createWorker() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, list, payUIKitConfig, i) == null) {
-            RLog.debug("PayAmountHelper", "replacePayAmountList configAmountList:" + list);
-            if (i > 500000) {
-                i = 500000;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new a(this.b.get().a());
+        }
+        return (q7c.a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.v9c
+    public void shutdown() {
+        b bVar;
+        b bVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            do {
+                bVar = this.b.get();
+                bVar2 = e;
+                if (bVar == bVar2) {
+                    return;
+                }
+            } while (!this.b.compareAndSet(bVar, bVar2));
+            bVar.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.v9c
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b bVar = new b(this.a, c);
+            if (!this.b.compareAndSet(e, bVar)) {
+                bVar.b();
             }
-            x8c a = k9c.a(i * 100, payUIKitConfig);
-            RLog.info("PayAmountHelper", "createPayAmount customPayAmount:" + a);
-            if (e(list.get(0))) {
-                list.remove(list.size() - 1);
-            } else if (e(list.get(list.size() - 1))) {
-                list.remove(0);
-            } else {
-                list.remove(0);
-            }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            a.a.giftBagTagInfos = new ArrayList();
-            a.a.giftBagTagInfos.add(giftBagTagInfo);
-            list.add(0, a);
         }
     }
 }

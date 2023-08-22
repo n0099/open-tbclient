@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class WeChatShareSmallAppToH5Switch extends ue {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SMALL_APP_TO_H5 = "switch_share_wechat_smallapp_to_h5";

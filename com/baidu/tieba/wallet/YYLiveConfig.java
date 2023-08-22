@@ -2,7 +2,7 @@ package com.baidu.tieba.wallet;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.bi;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +75,7 @@ public class YYLiveConfig {
                 return;
             }
             String string = SharedPrefHelper.getInstance().getString("key_extra_yy_config", "");
-            if (!bi.isEmpty(string)) {
+            if (!di.isEmpty(string)) {
                 try {
                     parse(new JSONObject(string));
                 } catch (Exception e) {

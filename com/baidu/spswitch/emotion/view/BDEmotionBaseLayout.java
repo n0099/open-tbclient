@@ -374,8 +374,8 @@ public abstract class BDEmotionBaseLayout extends FrameLayout {
     private void updateUI() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65556, this) == null) {
-            setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060213));
-            this.mEmptyView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060213));
+            setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060219));
+            this.mEmptyView.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f060219));
         }
     }
 
@@ -712,7 +712,7 @@ public abstract class BDEmotionBaseLayout extends FrameLayout {
             this.mEmptyView.setTitle(getResources().getString(R.string.bdemotion_panel_net_error));
             this.mEmptyView.setButtonText(getResources().getString(R.string.bdemotion_panel_net_reload));
             this.mEmptyView.setButtonStyle(CommonEmptyView.ButtonStyle.WHITE);
-            this.mEmptyView.setIcon(R.drawable.obfuscated_res_0x7f0805fa);
+            this.mEmptyView.setIcon(R.drawable.obfuscated_res_0x7f0805ff);
             this.mEmptyView.setTextButtonClickListener(new View.OnClickListener(this) { // from class: com.baidu.spswitch.emotion.view.BDEmotionBaseLayout.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;

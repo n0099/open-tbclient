@@ -1,25 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public abstract class zs6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.core.edit.TbMediaTrackConfig;
+/* loaded from: classes9.dex */
+public interface zs6 {
 
-    public zs6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes9.dex */
+    public interface a {
+        void a();
+
+        void b();
+
+        void c();
     }
+
+    boolean a(QmFilterItem qmFilterItem);
+
+    void b(a aVar);
+
+    void c(TbMultiMediaData tbMultiMediaData);
+
+    long d();
+
+    void e();
+
+    void f(int i, int i2);
+
+    void g(float f);
+
+    long getCurrentPlayTime();
+
+    long getFrom();
+
+    TbMediaTrackConfig getMediaTrackConfig();
+
+    float getRatio();
+
+    void h();
+
+    boolean i();
+
+    boolean isPlaying();
+
+    void j(boolean z);
+
+    void onDestroy();
+
+    void onPause();
+
+    void onResume();
+
+    void pause();
+
+    void start();
 }

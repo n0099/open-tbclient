@@ -1,23 +1,12 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.graphics.Color;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.widget.SlideHelper;
-import com.baidu.searchbox.widget.SlideInterceptor;
-import com.baidu.searchbox.widget.SlidingPaneLayout;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.pushdialog.PushDialogActivity;
-import com.baidu.tieba.vv2;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.tieba.fn3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,77 +14,44 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.io.File;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gn3 implements SlideInterceptor {
+public class gn3 extends gz1 implements fn3.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public SlideHelper a;
-    public WeakReference<SwanAppActivity> b;
-    public ng3 c;
-    public BroadcastReceiver d;
+    public String f;
+    public String g;
 
-    /* loaded from: classes6.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gn3 this$0;
+    @Override // com.baidu.tieba.gz1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "PrivateFile" : (String) invokeV.objValue;
+    }
 
-        public a(gn3 gn3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gn3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = gn3Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && "android.intent.action.CLOSE_SYSTEM_DIALOGS".equals(intent.getAction())) {
-                String stringExtra = intent.getStringExtra("reason");
-                if (TextUtils.isEmpty(stringExtra)) {
-                    return;
-                }
-                if ((PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_HOME_KEY.equals(stringExtra) || stringExtra.equals(PushDialogActivity.HomeWatcherReceiver.SYSTEM_DIALOG_REASON_RECENT_APPS)) && this.this$0.a != null) {
-                    this.this$0.a.closePane();
-                    this.this$0.a.setCanSlide(false);
-                }
-            }
-        }
+    @Override // com.baidu.tieba.gz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "UploadBosApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public class b implements SlidingPaneLayout.PanelSlideListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
+        public final /* synthetic */ x03 a;
         public final /* synthetic */ gn3 b;
 
-        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
-        public void onPanelClosed(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
-        }
-
-        public b(gn3 gn3Var, SwanAppActivity swanAppActivity) {
+        public a(gn3 gn3Var, x03 x03Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gn3Var, swanAppActivity};
+                Object[] objArr = {gn3Var, x03Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -106,35 +62,19 @@ public class gn3 implements SlideInterceptor {
                 }
             }
             this.b = gn3Var;
-            this.a = swanAppActivity;
+            this.a = x03Var;
         }
 
-        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
-        public void onPanelOpened(View view2) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                this.a.q0(3);
-                this.b.k();
-                this.a.overridePendingTransition(0, 0);
-                m13.e().g();
-            }
-        }
-
-        @Override // com.baidu.searchbox.widget.SlidingPaneLayout.PanelSlideListener
-        public void onPanelSlide(View view2, float f) {
-            View maskView;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLF(Constants.METHOD_SEND_USER_MSG, this, view2, f) == null) && (maskView = this.b.a.getMaskView()) != null) {
-                maskView.setAlpha(1.0f - f);
-                if (this.a.a0()) {
-                    this.a.R().t0();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!ku2.h().a(this.b.f, this.a)) {
+                    gn3 gn3Var = this.b;
+                    gn3Var.d(gn3Var.g, new d32(2003, "upload fail"));
+                    return;
                 }
-                if (f == 0.0f) {
-                    maskView.setBackgroundColor(Color.parseColor("#40000000"));
-                }
-                if (f == 1.0f) {
-                    maskView.setBackgroundColor(0);
-                }
+                this.b.A(this.a);
             }
         }
     }
@@ -152,218 +92,127 @@ public class gn3 implements SlideInterceptor {
                 return;
             }
         }
-        e = ir1.a;
+        h = nr1.a;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            SwanAppActivity swanAppActivity = this.b.get();
-            if (swanAppActivity == null || swanAppActivity.getResources().getConfiguration().orientation == 2 || Build.VERSION.SDK_INT == 26) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.closePane();
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && fu2.M().a()) {
-            this.c.c(8);
-        }
-    }
-
-    public void o() {
-        SwanAppActivity swanAppActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (swanAppActivity = this.b.get()) == null) {
-            return;
-        }
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("android.intent.action.CLOSE_SYSTEM_DIALOGS");
-        swanAppActivity.registerReceiver(this.d, intentFilter);
-    }
-
-    public void p() {
-        WeakReference<SwanAppActivity> weakReference;
-        SwanAppActivity swanAppActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (weakReference = this.b) == null || (swanAppActivity = weakReference.get()) == null) {
-            return;
-        }
-        swanAppActivity.unregisterReceiver(this.d);
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || this.b.get() == null) {
-            return;
-        }
-        this.a.setCanSlide(d());
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && qv2.c(true).booleanValue()) {
-            this.c.c(0);
-        }
-    }
-
-    public gn3(SwanAppActivity swanAppActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gn3(@NonNull ez1 ez1Var) {
+        super(ez1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {swanAppActivity};
+            Object[] objArr = {ez1Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ez1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = new a(this);
-        this.b = new WeakReference<>(swanAppActivity);
-        this.a = new SlideHelper();
     }
 
-    public void v(boolean z) {
+    public final void A(x03 x03Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.a.setCanSlide(z);
-        }
-    }
-
-    public void f() {
-        SwanAppActivity swanAppActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (swanAppActivity = this.b.get()) != null && !swanAppActivity.isDestroyed()) {
-            this.a.attachSlideView(swanAppActivity, swanAppActivity.findViewById(16908290), new SlidingPaneLayout.LayoutParams(-1, -1));
-            this.a.attachActivity(swanAppActivity);
-            this.a.setEnableReleaseWhenNoTranslucent(false);
-            this.a.setFadeColor(0);
-            this.a.setSlideInterceptor(this);
-            this.a.setSlideListener(new b(this, swanAppActivity));
-            ex1 h = h();
-            if (h != null) {
-                this.a.setRegionFactor(h.z());
+        if (interceptable == null || interceptable.invokeL(1048576, this, x03Var) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("bosUrl", x03Var.e);
+                d(this.g, new d32(0, jSONObject));
+            } catch (JSONException e) {
+                if (h) {
+                    e.printStackTrace();
+                }
+                d(this.g, new d32(2003, "upload fail"));
             }
         }
     }
 
-    public final ex1 h() {
-        InterceptResult invokeV;
-        ha2 Y;
-        ea2 m;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            SwanAppActivity swanAppActivity = this.b.get();
-            if (swanAppActivity == null || (Y = swanAppActivity.Y()) == null || (m = Y.m()) == null || !(m instanceof ga2)) {
-                return null;
-            }
-            return ((ga2) m).q3();
-        }
-        return (ex1) invokeV.objValue;
-    }
-
-    public void n() {
-        SwanAppActivity swanAppActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (swanAppActivity = this.b.get()) == null) {
-            return;
-        }
-        ng3 x = swanAppActivity.x();
-        this.c = x;
-        if (x == null) {
-            return;
-        }
-        if (qv2.c(false).booleanValue()) {
-            this.c.c(0);
-        }
-        f();
-    }
-
-    public void s() {
-        SwanAppActivity swanAppActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || (swanAppActivity = this.b.get()) == null) {
-            return;
-        }
-        vv2.a T2 = swanAppActivity.T();
-        if ((T2 != null && "1230000000000000".equals(T2.T())) || swanAppActivity.S() == 1) {
-            this.a.setCanSlide(false);
-        } else {
-            this.a.setCanSlide(d());
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r3v3, types: [com.baidu.tieba.fx1] */
-    @Override // com.baidu.searchbox.widget.SlideInterceptor
-    public boolean isSlidable(MotionEvent motionEvent) {
+    public final boolean B(File file) {
         InterceptResult invokeL;
-        ha2 Y;
-        ex1 h;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
-            SwanAppActivity swanAppActivity = this.b.get();
-            if (swanAppActivity == null || !swanAppActivity.a0() || (Y = swanAppActivity.Y()) == null || (h = h()) == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
+            if (file.length() > 52428800) {
+                return true;
             }
-            hx1 j = h.j();
-            if (j != null && j.r() != 0 && j.r().canGoBack()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (Y.k() > 1 || !h.isSlidable(motionEvent) || z || !m()) {
-                return false;
-            }
-            return true;
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public final boolean m() {
-        InterceptResult invokeV;
+    public d32 C(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            SwanAppActivity swanAppActivity = this.b.get();
-            if (swanAppActivity != null && !swanAppActivity.isDestroyed() && swanAppActivity.a0()) {
-                ga2 o = swanAppActivity.Y().o();
-                if (o != null) {
-                    nb3 I1 = o.I1();
-                    if (I1 == null) {
-                        return true;
-                    }
-                    if (I1.l || I1.m) {
-                        yf3 yf3Var = w23.g(true).get("scope_disable_swipe_back");
-                        if (yf3Var == null || yf3Var.d) {
-                            return false;
-                        }
-                        SlideHelper slideHelper = this.a;
-                        if (slideHelper != null) {
-                            slideHelper.setRegionFactor(0.1d);
-                        }
-                    }
-                    return true;
-                } else if (e) {
-                    Log.d("SwanActivitySlideHelper", "topFragment = null; return false");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#uploadBosFile", false);
+            if (h) {
+                Log.d("UploadBosApi", "#uploadBosFile params=" + str);
+            }
+            Pair<d32, JSONObject> s = s(str);
+            d32 d32Var = (d32) s.first;
+            if (!d32Var.isSuccess()) {
+                return d32Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            this.g = optString;
+            if (TextUtils.isEmpty(optString)) {
+                return new d32(202);
+            }
+            String optString2 = jSONObject.optString("filePath");
+            if (TextUtils.isEmpty(optString2)) {
+                return new d32(202);
+            }
+            qw2 T2 = qw2.T();
+            String i = T2.G().i(optString2);
+            this.f = i;
+            if (TextUtils.isEmpty(i)) {
+                return new d32(2001, "file not found");
+            }
+            File file = new File(this.f);
+            if (file.exists() && file.isFile()) {
+                if (B(file)) {
+                    return new d32(2002, "file over size");
+                }
+                if (!cb3.K().q().N().e(T2.getActivity())) {
+                    return new d32(10004, "user not logged in");
+                }
+                ku2.h().b(T2.getActivity(), this.f, this);
+                return d32.f();
+            }
+            return new d32(2001, "file not found");
+        }
+        return (d32) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.fn3.a
+    public void c(JSONObject jSONObject, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, str) == null) {
+            if (jSONObject == null) {
+                d(this.g, new d32(2003, "upload fail"));
+                return;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                d(this.g, new d32(2003, "upload fail"));
+                return;
+            }
+            String optString = jSONObject.optString("errno");
+            if (!TextUtils.isEmpty(optString) && TextUtils.equals(optString, "0")) {
+                x03 a2 = x03.a(optJSONObject, str);
+                if (TextUtils.isEmpty(a2.e)) {
+                    d(this.g, new d32(2003, "upload fail"));
+                    return;
+                } else {
+                    ExecutorUtilsExt.postOnElastic(new a(this, a2), "doBosUpload", 2);
+                    return;
                 }
             }
-            return false;
+            d(this.g, new d32(2003, "upload fail"));
         }
-        return invokeV.booleanValue;
     }
 }

@@ -1,119 +1,93 @@
 package com.baidu.tieba;
 
-import android.app.TimePickerDialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Application;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class fpa extends TimePickerDialog {
+public final class fpa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fpa(Context context, TimePickerDialog.OnTimeSetListener onTimeSetListener, int i, int i2, boolean z) {
-        super(context, onTimeSetListener, i, i2, z);
+    public static final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, onTimeSetListener, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (TimePickerDialog.OnTimeSetListener) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Boolean) objArr2[4]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            voa.b();
+        }
+    }
+
+    public static final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                d().deleteSharedPreferences(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS);
             }
-        }
-        this.a = -1;
-        this.b = -1;
-        this.c = false;
-        this.a = i;
-        this.b = i2;
-    }
-
-    @Override // android.app.TimePickerDialog, android.content.DialogInterface.OnClickListener
-    public void onClick(DialogInterface dialogInterface, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-            if (i == -1) {
-                this.c = true;
-            } else {
-                int i3 = this.a;
-                if (i3 >= 0 && (i2 = this.b) >= 0) {
-                    updateTime(i3, i2);
-                }
-            }
-            super.onClick(dialogInterface, i);
+            SharedPrefHelper.getInstance().clear();
         }
     }
 
-    @Override // android.app.TimePickerDialog
-    public void updateTime(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
-            super.updateTime(i, i2);
-            this.a = i;
-            this.b = i2;
-            this.c = false;
-        }
-    }
-
-    @Override // android.app.TimePickerDialog, android.app.Dialog
-    public void onRestoreInstanceState(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onRestoreInstanceState(bundle);
-            updateTime(0, 0);
-            this.a = bundle.getInt("hour_key");
-            int i = bundle.getInt("min_key");
-            this.b = i;
-            updateTime(this.a, i);
-        }
-    }
-
-    @Override // android.app.TimePickerDialog, android.app.Dialog
-    public Bundle onSaveInstanceState() {
-        Bundle bundle;
+    public static final Application d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                bundle = super.onSaveInstanceState();
-            } catch (Exception unused) {
-                bundle = null;
-            }
-            if (bundle == null) {
-                bundle = new Bundle();
-            }
-            bundle.putInt("hour_key", this.a);
-            bundle.putInt("min_key", this.b);
-            return bundle;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return gpa.a();
         }
-        return (Bundle) invokeV.objValue;
+        return (Application) invokeV.objValue;
     }
 
-    @Override // android.app.Dialog
-    public void onStop() {
+    public static final String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (!this.c) {
-                updateTime(this.a, this.b);
-            }
-            super.onStop();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return toa.a();
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String cacheDir = FileHelper.getCacheDir();
+            Intrinsics.checkNotNullExpressionValue(cacheDir, "getCacheDir()");
+            return cacheDir;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return bpa.a();
+        }
+        return invokeV.intValue;
+    }
+
+    public static final boolean c(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            return FileHelper.deleteFileOrDir(file);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final File g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            File GetFileByAbsolutePath = FileHelper.GetFileByAbsolutePath(str);
+            Intrinsics.checkNotNullExpressionValue(GetFileByAbsolutePath, "GetFileByAbsolutePath(filePath)");
+            return GetFileByAbsolutePath;
+        }
+        return (File) invokeL.objValue;
     }
 }

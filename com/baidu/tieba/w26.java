@@ -1,23 +1,130 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.newdetail.HotTopicDetailModel;
+import com.baidu.tieba.qo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes8.dex */
-public class w26 {
+public class w26 implements yk1<qo5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static q26 a(r26 r26Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, r26Var)) == null) {
-            if (r26Var != null && (r26Var.a() instanceof TbPageContext) && (((TbPageContext) r26Var.a()).getPageActivity() instanceof q26)) {
-                return (q26) ((TbPageContext) r26Var.a()).getPageActivity();
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b implements qo5, HotTopicDetailModel.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HotTopicDetailModel b;
+        @Nullable
+        public qo5.a c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return null;
         }
-        return (q26) invokeL.objValue;
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.qo5
+        public void c(@Nullable qo5.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+                this.c = aVar;
+            }
+        }
+
+        @Override // com.baidu.tieba.qo5
+        public qo5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), str})) == null) {
+                HotTopicDetailModel hotTopicDetailModel = new HotTopicDetailModel(tbPageContext);
+                this.b = hotTopicDetailModel;
+                hotTopicDetailModel.c0(j, str);
+                this.b.b0(this);
+                return this;
+            }
+            return (qo5) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.qo5
+        public void b(int i, z25 z25Var, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), z25Var, Long.valueOf(j)}) == null) {
+                this.b.P(i, z25Var, j);
+            }
+        }
+
+        @Override // com.baidu.tieba.newdetail.HotTopicDetailModel.d
+        public void o(int i, @Nullable na8 na8Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeIL(1048579, this, i, na8Var) == null) && this.c != null) {
+                if (na8Var != null) {
+                    ArrayList arrayList = new ArrayList();
+                    for (ro6 ro6Var : na8Var.a) {
+                        if (ro6Var instanceof ro6) {
+                            ThreadData threadData = ro6Var.getThreadData();
+                            if (!TextUtils.equals(threadData.getTid(), "0")) {
+                                arrayList.add(threadData);
+                            }
+                        }
+                    }
+                    this.c.b(arrayList, na8Var.e());
+                }
+                this.c.a();
+            }
+        }
+    }
+
+    public w26() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yk1
+    /* renamed from: a */
+    public qo5 getService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(null);
+        }
+        return (qo5) invokeV.objValue;
     }
 }

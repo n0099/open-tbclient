@@ -1,58 +1,63 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.frs.FrsTabInfoData;
+import com.baidu.tieba.frs.FrsTabItemData;
+import com.baidu.tieba.write.view.ForumTabSelectedView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class y1b {
+public class y1b extends k2b<z2b> implements m2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public boolean c;
-    public int d;
-    public boolean e;
-    public int f;
-    public boolean g;
-    public int h;
+    @Nullable
+    public ForumTabSelectedView g;
+    @Nullable
+    public View h;
     public String i;
-    public int j;
-    public int k;
-    public int l;
-    public boolean m;
-    public String n;
-    public boolean o;
-    public int p;
-    public int q;
-    public int r;
-    public boolean s;
+    public final ForumTabSelectedView.d j;
+
+    @Override // com.baidu.tieba.p2b
+    public void c(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.p2b
+    public void d(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) {
+        }
+    }
 
     /* loaded from: classes8.dex */
-    public static final class a {
+    public class a implements ForumTabSelectedView.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public boolean c;
-        public int d;
-        public int e;
-        public boolean f;
-        public boolean g;
-        public String h;
-        public boolean i;
-        public int j;
-        public int k;
-        public boolean l;
+        public final /* synthetic */ y1b a;
 
-        public a() {
+        public a(y1b y1bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y1bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,437 +67,168 @@ public class y1b {
                     return;
                 }
             }
-            this.a = "1";
-            this.b = true;
-            this.c = false;
-            this.d = 720;
-            this.e = 0;
-            this.f = false;
-            this.g = false;
-            this.i = false;
-            this.h = "0";
-            this.j = 0;
-            this.k = 1;
-            this.l = true;
+            this.a = y1bVar;
         }
 
-        public y1b a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.write.view.ForumTabSelectedView.d
+        public void a(FrsTabItemData frsTabItemData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new y1b(this);
+            if (interceptable == null || interceptable.invokeL(1048576, this, frsTabItemData) == null) {
+                ((z2b) this.a.d).b = frsTabItemData;
+                y1b y1bVar = this.a;
+                y1bVar.y(y1bVar.d);
             }
-            return (y1b) invokeV.objValue;
-        }
-
-        public a b(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.g = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.a = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a d(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-                this.l = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a e(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-                this.c = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a f(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-                this.b = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a g(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                this.d = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
         }
     }
 
-    public y1b(a aVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y1b(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, z2b.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.q = -1;
-        this.r = 2;
-        this.s = true;
-        this.a = aVar.a;
-        this.b = aVar.b;
-        this.c = aVar.c;
-        this.d = aVar.d;
-        this.f = aVar.e;
-        this.g = aVar.f;
-        this.m = aVar.g;
-        this.o = aVar.i;
-        this.n = aVar.h;
-        this.p = aVar.j;
-        this.q = aVar.k;
-        this.s = aVar.l;
+        this.j = new a(this);
+        this.i = this.a.getString(R.string.obfuscated_res_0x7f0f07e6);
     }
 
-    public y1b(String str, boolean z, boolean z2, int i, int i2, boolean z3) {
+    public final void C(FrsTabInfoData frsTabInfoData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z3)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, frsTabInfoData) == null) && frsTabInfoData != null && !ListUtils.isEmpty(frsTabInfoData.tabList)) {
+            ArrayList arrayList = new ArrayList();
+            for (FrsTabItemData frsTabItemData : frsTabInfoData.tabList) {
+                String str = this.i;
+                if ((str != null && frsTabItemData != null && str.equals(frsTabItemData.name)) || frsTabItemData.isNoShowInPublisher) {
+                    arrayList.add(frsTabItemData);
+                }
+            }
+            frsTabInfoData.tabList.removeAll(arrayList);
+        }
+    }
+
+    @Override // com.baidu.tieba.p2b
+    public void a(WriteData writeData) {
+        ForumTabSelectedView forumTabSelectedView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) != null) || (forumTabSelectedView = this.g) == null || forumTabSelectedView.getVisibility() != 0 || writeData == null) {
+            return;
+        }
+        D d = this.d;
+        if (((z2b) d).a != null) {
+            writeData.setIsForumBusinessAccount(((z2b) d).a.isForumBusinessAccount);
+        }
+        FrsTabItemData selectedTabItemData = this.g.getSelectedTabItemData();
+        if (selectedTabItemData == null) {
+            return;
+        }
+        writeData.setTabId(selectedTabItemData.tabId);
+        writeData.setTabName(selectedTabItemData.name);
+        writeData.setIsGeneralTab(selectedTabItemData.isGeneralTab);
+    }
+
+    @Override // com.baidu.tieba.p2b
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            ForumTabSelectedView forumTabSelectedView = this.g;
+            if (forumTabSelectedView != null) {
+                forumTabSelectedView.o(i);
+            }
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0210);
+        }
+    }
+
+    @Override // com.baidu.tieba.k2b, com.baidu.tieba.p2b
+    public void q(@NonNull List<p2b<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            super.q(list);
+            for (p2b<?> p2bVar : list) {
+                if (p2bVar instanceof t1b) {
+                    w((t1b) p2bVar);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.m2b
+    public void onUpdate(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, obj) != null) || !(obj instanceof SelectForumData) || this.c == null) {
+            return;
+        }
+        SelectForumData selectForumData = (SelectForumData) obj;
+        if (!ListUtils.isEmpty(selectForumData.tabInfoList)) {
+            FrsTabInfoData frsTabInfoData = new FrsTabInfoData();
+            frsTabInfoData.selectedTabId = -1;
+            List<FrsTabItemData> list = selectForumData.tabInfoList;
+            frsTabInfoData.tabList = list;
+            if (selectForumData.isForumBusinessAccount && list != null) {
+                FrsTabItemData frsTabItemData = new FrsTabItemData();
+                frsTabItemData.tabId = 505;
+                frsTabItemData.name = "官方";
+                frsTabInfoData.tabList.add(0, frsTabItemData);
+            }
+            frsTabInfoData.isForumBusinessAccount = selectForumData.isForumBusinessAccount;
+            if (this.g != null) {
+                C(frsTabInfoData);
+                this.g.setData(frsTabInfoData);
+                if (this.g.getVisibility() == 0) {
+                    this.c.setVisibility(0);
+                } else {
+                    this.c.setVisibility(8);
+                }
+            }
+            ((z2b) this.d).a = frsTabInfoData;
+            WriteData writeData = this.e;
+            if (writeData != null) {
+                writeData.setFrsTabInfoData(frsTabInfoData);
                 return;
             }
+            return;
         }
-        this.q = -1;
-        this.r = 2;
-        this.s = true;
-        this.a = str;
-        this.b = z;
-        this.c = z2;
-        this.d = i;
-        this.f = i2;
-        this.g = z3;
+        this.c.setVisibility(8);
     }
 
-    public void A(int i) {
+    @Override // com.baidu.tieba.p2b
+    public View s(@NonNull ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void B(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.r = i;
-        }
-    }
-
-    public void C(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void D(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.h = i;
-        }
-    }
-
-    public void E(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.o = z;
-        }
-    }
-
-    public void F(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.q = i;
-        }
-    }
-
-    public void G(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    public void u(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
-            this.i = str;
-        }
-    }
-
-    public void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
-            this.p = i;
-        }
-    }
-
-    public void w(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048606, this, i) == null) {
-            this.l = i;
-        }
-    }
-
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
-            this.m = z;
-        }
-    }
-
-    public void y(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            this.s = z;
-        }
-    }
-
-    public void z(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048609, this, i) == null) {
-            this.k = i;
-        }
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.p;
-        }
-        return invokeV.intValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.r;
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.q;
-        }
-        return invokeV.intValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (TextUtils.isEmpty(this.n)) {
-                return "0";
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0526, viewGroup, false);
+            this.c = inflate;
+            this.g = (ForumTabSelectedView) inflate.findViewById(R.id.obfuscated_res_0x7f090d89);
+            this.h = this.c.findViewById(R.id.obfuscated_res_0x7f090d86);
+            ForumTabSelectedView forumTabSelectedView = this.g;
+            if (forumTabSelectedView != null) {
+                forumTabSelectedView.setBgColor(R.color.CAM_X0205);
+                WriteData writeData = this.e;
+                if (writeData != null) {
+                    C(writeData.getFrsTabInfoData());
+                    this.g.setData(this.e.getFrsTabInfoData());
+                    if (this.g.getVisibility() == 0) {
+                        this.c.setVisibility(0);
+                    } else {
+                        this.c.setVisibility(8);
+                    }
+                }
+                this.g.setActivity(this.a);
+                this.g.setTabSelectedListener(this.j);
             }
-            return this.n;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return this.m;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (this.l == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.c;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return this.o;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return this.s;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            if (this.p != 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            if (this.q == -1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (View) invokeL.objValue;
     }
 }

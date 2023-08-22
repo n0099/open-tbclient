@@ -22,7 +22,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HianalyticsHelper {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String DEAULT_HA_SERVICE_TAG = "_default_config_tag";
@@ -42,7 +42,7 @@ public class HianalyticsHelper {
     public boolean isEnablePrivacyPolicy;
     public ExecutorService reportExecutor;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class HianalyticsRunnable implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

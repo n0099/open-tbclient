@@ -7,13 +7,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.h6a;
-import com.baidu.tieba.n6a;
-import com.baidu.tieba.o6a;
-import com.baidu.tieba.p9a;
-import com.baidu.tieba.q7a;
-import com.baidu.tieba.r9a;
+import com.baidu.tieba.maa;
+import com.baidu.tieba.saa;
 import com.baidu.tieba.sprite.view.NormalSpriteView;
+import com.baidu.tieba.taa;
+import com.baidu.tieba.vba;
+import com.baidu.tieba.wda;
+import com.baidu.tieba.yda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,16 +28,16 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000v\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\u0018\u00002\u00020\u0001BC\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007\u0012\u0006\u0010\b\u001a\u00020\u0007\u0012\u0006\u0010\t\u001a\u00020\u0007\u0012\u0006\u0010\n\u001a\u00020\u000b\u0012\f\u0010\f\u001a\b\u0012\u0004\u0012\u00020\u000e0\r¢\u0006\u0002\u0010\u000fJ\u0006\u0010 \u001a\u00020!J\u0006\u0010\"\u001a\u00020\u001cJ\u0006\u0010#\u001a\u00020$J\u0006\u0010%\u001a\u00020\u000bJ\u0006\u0010&\u001a\u00020$J\u000e\u0010'\u001a\u00020$2\u0006\u0010(\u001a\u00020)J\u000e\u0010*\u001a\u00020$2\u0006\u0010+\u001a\u00020,J\u0016\u0010-\u001a\u00020$2\u000e\u0010+\u001a\n\u0012\u0004\u0012\u00020$\u0018\u00010.J\u0006\u0010/\u001a\u00020$J\u000e\u00100\u001a\u00020$2\u0006\u00101\u001a\u000202J\u0006\u00103\u001a\u00020$R\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013R\u001b\u0010\u0016\u001a\u00020\u00178BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001a\u0010\u0015\u001a\u0004\b\u0018\u0010\u0019R\u001b\u0010\u001b\u001a\u00020\u001c8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001f\u0010\u0015\u001a\u0004\b\u001d\u0010\u001eR\u000e\u0010\u0004\u001a\u00020\u0005X\u0082\u0004¢\u0006\u0002\n\u0000¨\u00064"}, d2 = {"Lcom/baidu/tieba/sprite/edgefloat/SpriteEdgeFloat;", "", "activity", "Landroid/app/Activity;", "spriteStateMap", "Lcom/baidu/tieba/sprite/funnysprite/StateMap;", NotificationCompat.WearableExtender.KEY_GRAVITY, "", "startX", "startY", "canDrag", "", "pageSupportList", "", "", "(Landroid/app/Activity;Lcom/baidu/tieba/sprite/funnysprite/StateMap;IIIZLjava/util/List;)V", "edgeFloat", "Lcom/baidu/tieba/edgefloat/EdgeFloat;", "getEdgeFloat", "()Lcom/baidu/tieba/edgefloat/EdgeFloat;", "edgeFloat$delegate", "Lkotlin/Lazy;", "normalSpriteView", "Lcom/baidu/tieba/sprite/view/NormalSpriteView;", "getNormalSpriteView", "()Lcom/baidu/tieba/sprite/view/NormalSpriteView;", "normalSpriteView$delegate", "spriteStateMachine", "Lcom/baidu/tieba/sprite/funnysprite/StateMachine;", "getSpriteStateMachine", "()Lcom/baidu/tieba/sprite/funnysprite/StateMachine;", "spriteStateMachine$delegate", "currentState", "Lcom/baidu/tieba/statemachine/base/State;", "getMachine", "hide", "", "isShowing", "release", "sendEvent", "event", "Lcom/baidu/tieba/statemachine/base/Event;", "setOnSpriteAnimClickListener", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "Landroid/view/View$OnClickListener;", "setOnSpriteAnimEndListener", "Lkotlin/Function0;", "show", "updateData", "data", "Lcom/baidu/tieba/sprite/view/NormalSpriteData;", "webpStopAndDelay", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class SpriteEdgeFloat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o6a a;
+    public final taa a;
     public final Lazy b;
     public final Lazy c;
     public final Lazy d;
 
-    public SpriteEdgeFloat(final Activity activity, o6a spriteStateMap, final int i, final int i2, final int i3, final boolean z, final List<String> pageSupportList) {
+    public SpriteEdgeFloat(final Activity activity, taa spriteStateMap, final int i, final int i2, final int i3, final boolean z, final List<String> pageSupportList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -56,7 +56,7 @@ public final class SpriteEdgeFloat {
         Intrinsics.checkNotNullParameter(spriteStateMap, "spriteStateMap");
         Intrinsics.checkNotNullParameter(pageSupportList, "pageSupportList");
         this.a = spriteStateMap;
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<n6a>(this) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$spriteStateMachine$2
+        this.b = LazyKt__LazyJVMKt.lazy(new Function0<saa>(this) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$spriteStateMachine$2
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ SpriteEdgeFloat this$0;
@@ -85,15 +85,15 @@ public final class SpriteEdgeFloat {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final n6a invoke() {
+            public final saa invoke() {
                 InterceptResult invokeV;
-                o6a o6aVar;
+                taa taaVar;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                    return (n6a) invokeV.objValue;
+                    return (saa) invokeV.objValue;
                 }
-                o6aVar = this.this$0.a;
-                return new n6a(o6aVar);
+                taaVar = this.this$0.a;
+                return new saa(taaVar);
             }
         });
         this.c = LazyKt__LazyJVMKt.lazy(new Function0<NormalSpriteView>(activity) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$normalSpriteView$2
@@ -134,9 +134,8 @@ public final class SpriteEdgeFloat {
                 return (NormalSpriteView) invokeV.objValue;
             }
         });
-        this.d = LazyKt__LazyJVMKt.lazy(new Function0<EdgeFloat>(activity, this, i, i2, i3, z, pageSupportList) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$edgeFloat$2
+        this.d = LazyKt__LazyJVMKt.lazy(new Function0<EdgeFloat>(this, i, i2, i3, z, pageSupportList) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteEdgeFloat$edgeFloat$2
             public static /* synthetic */ Interceptable $ic;
-            public final /* synthetic */ Activity $activity;
             public final /* synthetic */ boolean $canDrag;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int $gravity;
@@ -152,7 +151,7 @@ public final class SpriteEdgeFloat {
                 if (interceptable2 != null) {
                     InitContext newInitContext2 = TitanRuntime.newInitContext();
                     newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {activity, this, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), pageSupportList};
+                    Object[] objArr2 = {this, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), pageSupportList};
                     interceptable2.invokeUnInit(65536, newInitContext2);
                     int i6 = newInitContext2.flag;
                     if ((i6 & 1) != 0) {
@@ -163,7 +162,6 @@ public final class SpriteEdgeFloat {
                         return;
                     }
                 }
-                this.$activity = activity;
                 this.this$0 = this;
                 this.$gravity = i;
                 this.$startX = i2;
@@ -179,23 +177,22 @@ public final class SpriteEdgeFloat {
                 InterceptResult invokeV;
                 NormalSpriteView f;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    h6a h6aVar = new h6a(this.$activity);
-                    f = this.this$0.f();
-                    h6aVar.M(f);
-                    h6aVar.y(this.$gravity);
-                    h6aVar.I(this.$startX);
-                    h6aVar.J(this.$startY);
-                    h6aVar.d(this.$canDrag);
-                    h6aVar.D(this.$pageSupportList);
-                    return h6aVar.c();
+                if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
+                    return (EdgeFloat) invokeV.objValue;
                 }
-                return (EdgeFloat) invokeV.objValue;
+                f = this.this$0.f();
+                maa maaVar = new maa(f);
+                maaVar.x(this.$gravity);
+                maaVar.H(this.$startX);
+                maaVar.I(this.$startY);
+                maaVar.d(this.$canDrag);
+                maaVar.C(this.$pageSupportList);
+                return maaVar.c();
             }
         });
     }
 
-    public final void k(p9a event) {
+    public final void k(wda event) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, event) == null) {
             Intrinsics.checkNotNullParameter(event, "event");
@@ -218,7 +215,7 @@ public final class SpriteEdgeFloat {
         }
     }
 
-    public final void o(q7a data) {
+    public final void o(vba data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048588, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -226,13 +223,13 @@ public final class SpriteEdgeFloat {
         }
     }
 
-    public final r9a c() {
+    public final yda c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return g().c();
         }
-        return (r9a) invokeV.objValue;
+        return (yda) invokeV.objValue;
     }
 
     public final EdgeFloat d() {
@@ -244,13 +241,13 @@ public final class SpriteEdgeFloat {
         return (EdgeFloat) invokeV.objValue;
     }
 
-    public final n6a e() {
+    public final saa e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return g();
         }
-        return (n6a) invokeV.objValue;
+        return (saa) invokeV.objValue;
     }
 
     public final NormalSpriteView f() {
@@ -262,19 +259,19 @@ public final class SpriteEdgeFloat {
         return (NormalSpriteView) invokeV.objValue;
     }
 
-    public final n6a g() {
+    public final saa g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return (n6a) this.b.getValue();
+            return (saa) this.b.getValue();
         }
-        return (n6a) invokeV.objValue;
+        return (saa) invokeV.objValue;
     }
 
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            d().k();
+            d().j();
         }
     }
 
@@ -282,7 +279,7 @@ public final class SpriteEdgeFloat {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return d().o();
+            return d().n();
         }
         return invokeV.booleanValue;
     }
@@ -297,7 +294,7 @@ public final class SpriteEdgeFloat {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            d().D();
+            d().C();
             if (Intrinsics.areEqual(c(), this.a.a())) {
                 g().g();
             }

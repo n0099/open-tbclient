@@ -1,7 +1,7 @@
 package com.huawei.hms.framework.network.grs;
 
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IQueryUrlsCallBack {
     void onCallBackFail(int i);
 

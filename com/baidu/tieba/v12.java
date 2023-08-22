@@ -1,74 +1,100 @@
 package com.baidu.tieba;
 
-import android.app.Application;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class v12 extends s12 {
+public class v12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final boolean c;
 
-    public v12() {
+    public v12(@NonNull String str, @NonNull JSONObject jSONObject, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jSONObject, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = str2;
+        this.c = jSONObject.optBoolean("useEvent");
+    }
+
+    public void c(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, callbackHandler, jSONObject) == null) {
+            if (this.c) {
+                qw2.T().u(new il2(this.a, new d32(0, jSONObject)));
+                return;
+            }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.b);
+        }
+    }
+
+    public void e(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, unitedSchemeEntity, callbackHandler, str) == null) {
+            if (this.c) {
+                qw2.T().u(new il2(this.a, new d32(1001, str)));
+                return;
+            }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.b);
+        }
+    }
+
+    public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, unitedSchemeEntity, callbackHandler) == null) && this.c) {
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.b);
+        }
+    }
+
+    public void d(gz1 gz1Var, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, gz1Var, jSONObject) == null) {
+            d32 d32Var = new d32(0, jSONObject);
+            if (this.c) {
+                qw2.T().u(new il2(this.a, d32Var));
+            } else {
+                gz1Var.d(this.b, d32Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.s12
-    public y22 c(@NonNull ea2 ea2Var) {
-        InterceptResult invokeL;
+    public void f(gz1 gz1Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ea2Var)) == null) {
-            return e();
-        }
-        return (y22) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.s12
-    public y22 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return e();
-        }
-        return (y22) invokeI.objValue;
-    }
-
-    public y22 e() {
-        InterceptResult invokeV;
-        y22 y22Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Application c = fu2.c();
-            int i = (int) 28.4d;
-            int P = (int) po3.P(po3.o(c) - c.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f6));
-            int i2 = P - ((int) 75.53d);
-            int P2 = ((int) (po3.P(po3.t()) + 0.5f)) + ((38 - i) / 2);
-            try {
-                y22Var = new y22(0, b(i2, P2, P, i + P2));
-            } catch (JSONException e) {
-                if (s12.a) {
-                    e.printStackTrace();
-                }
-                y22Var = new y22(1001, "result JSONException");
+        if (interceptable == null || interceptable.invokeLL(1048581, this, gz1Var, str) == null) {
+            d32 d32Var = new d32(1001, str);
+            if (this.c) {
+                qw2.T().u(new il2(this.a, d32Var));
+            } else {
+                gz1Var.d(this.b, d32Var);
             }
-            y72.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param abnormally, result = " + y22Var);
-            return y22Var;
         }
-        return (y22) invokeV.objValue;
+    }
+
+    public void b(gz1 gz1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gz1Var) == null) && this.c) {
+            gz1Var.d(this.b, new d32(0));
+        }
     }
 }

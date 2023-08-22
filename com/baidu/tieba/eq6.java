@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.compact.AlaLiveAttentionCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import tbclient.Personalized.LiveAnswer;
 /* loaded from: classes5.dex */
-public class eq6 implements l77<Message> {
+public class eq6 extends sa7<AlaLiveAttentionCardView, x47> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public eq6() {
+        super("ala_live_attention");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -20,28 +25,40 @@ public class eq6 implements l77<Message> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.l77
-    /* renamed from: a */
-    public v97<?> b(Message message) {
+    @Override // com.baidu.tieba.sa7, com.baidu.tieba.ib7
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            if (!(message instanceof LiveAnswer)) {
-                return null;
-            }
-            b48 b48Var = new b48();
-            b48Var.c((LiveAnswer) message);
-            w67 w67Var = new w67();
-            w67Var.a = b48Var;
-            return new w97(new j37(w67Var), "recommend_banner");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            AlaLiveAttentionCardView alaLiveAttentionCardView = new AlaLiveAttentionCardView(viewGroup.getContext());
+            wc7.i(alaLiveAttentionCardView, Integer.valueOf(wc7.e() * 2));
+            return alaLiveAttentionCardView;
         }
-        return (v97) invokeL.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ib7
+    /* renamed from: e */
+    public void b(@NonNull AlaLiveAttentionCardView alaLiveAttentionCardView, @NonNull x47 x47Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, alaLiveAttentionCardView, x47Var) == null) {
+            Object obj = x47Var.a().a;
+            if (obj instanceof no6) {
+                alaLiveAttentionCardView.setVisibility(0);
+                alaLiveAttentionCardView.update((no6) obj);
+                return;
+            }
+            alaLiveAttentionCardView.setVisibility(8);
+        }
     }
 }

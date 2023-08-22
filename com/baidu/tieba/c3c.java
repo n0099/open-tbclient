@@ -1,124 +1,94 @@
 package com.baidu.tieba;
 
+import android.media.MediaFormat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b1c;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import com.google.android.exoplayer2.util.MimeTypes;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.NativeIttiam;
+import java.lang.ref.WeakReference;
+import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
-public final class c3c extends b1c {
+public class c3c extends w2c implements NativeIttiam.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final c3c a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public final class a extends b1c.a implements f1c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final x5c a;
-        public final /* synthetic */ c3c b;
-
-        public a(c3c c3cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c3cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = c3cVar;
-            this.a = new x5c();
-        }
-
-        @Override // com.baidu.tieba.b1c.a
-        public f1c b(l1c l1cVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l1cVar)) == null) {
-                l1cVar.call();
-                return b6c.c();
-            }
-            return (f1c) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.b1c.a
-        public f1c c(l1c l1cVar, long j, TimeUnit timeUnit) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{l1cVar, Long.valueOf(j), timeUnit})) == null) {
-                return b(new g3c(l1cVar, this, this.b.now() + timeUnit.toMillis(j)));
-            }
-            return (f1c) invokeCommon.objValue;
-        }
-
-        @Override // com.baidu.tieba.f1c
-        public boolean isUnsubscribed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.isUnsubscribed();
-            }
-            return invokeV.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.f1c
-        public void unsubscribe() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.a.unsubscribe();
-            }
+    @Override // com.baidu.tieba.q2c
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625270, "Lcom/baidu/tieba/c3c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947625270, "Lcom/baidu/tieba/c3c;");
-                return;
-            }
-        }
-        a = new c3c();
-    }
-
-    public c3c() {
+    public c3c(z1c z1cVar, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {z1cVar, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.l.d(-16);
+        this.G = new WeakReference<>(z1cVar);
+        this.w = true;
+        this.b = i;
+        this.A.i(i);
+        this.o = 2;
+    }
+
+    public void M(MediaInfo mediaInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaInfo) == null) {
+            TLog.g(this, mediaInfo.toString());
+            synchronized (this) {
+                if (this.q.e(mediaInfo)) {
+                    this.q.c(mediaInfo);
+                }
+                if (this.B == null || this.B.capacity() < this.q.i) {
+                    this.B = ByteBuffer.allocateDirect(this.q.i);
+                }
+                int j = ((((int) m2c.j(this.q.d, 16L)) * ((int) m2c.j(this.q.e, 16L))) * 3) >> 1;
+                if (j > this.D) {
+                    this.D = j;
+                    this.C = ByteBuffer.allocateDirect(j);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.b1c
-    public b1c.a createWorker() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.q2c
+    public void z(MediaFormat mediaFormat, int i) {
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, mediaFormat, i) == null) {
+            this.x = System.currentTimeMillis();
+            this.a = i;
+            this.A.m(this);
+            this.A.h(i);
+            String string = mediaFormat.getString("mime");
+            if (string.compareTo(MimeTypes.VIDEO_H265) == 0) {
+                i2 = 7;
+            } else {
+                i2 = 0;
+            }
+            if (this.A.j(i2, mediaFormat) != 0) {
+                m(50);
+                TLog.g(this, "createDecoder failed mine: " + string);
+            }
+            M(MediaInfo.b(2, mediaFormat.getInteger("width"), mediaFormat.getInteger("height")));
+            this.y = System.currentTimeMillis();
+            TLog.g(this, "ittiamDecoder handleCreateDecoder: taskId " + i + ", spent: " + (this.y - this.x));
         }
-        return (b1c.a) invokeV.objValue;
     }
 }

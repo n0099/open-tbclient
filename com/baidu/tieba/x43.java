@@ -1,99 +1,105 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.ContentValues;
-import androidx.annotation.AnyThread;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.Sets;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class x43 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+public class x43 implements z43 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
+    public Set<String> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948250354, "Lcom/baidu/tieba/x43;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public x43() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948250354, "Lcom/baidu/tieba/x43;");
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            ya3 b0;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (b0 = ya3.b0()) == null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("appKey", b0.getAppId());
-            contentValues.put("launch_type", Integer.valueOf(qh3.c()));
-            contentValues.put("source", b0.W().T());
-            contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
-            ContentResolver contentResolver = fu2.c().getContentResolver();
-            if (contentResolver != null) {
-                contentResolver.insert(zh2.b(), contentValues);
-            }
         }
+        this.b = "boxjs.";
+        this.c = Sets.newHashSet("getAppInfoSync", "performpanel", "statisticEvent", "ubcReport", "getSlaveIdSync", "ubcFlowJar");
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.z43
+    public List<l43> a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int i = a;
-            if (i != -1) {
-                return i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            ArrayList arrayList = new ArrayList();
+            String optString = jSONObject.optString("apiName");
+            c("api-name " + optString);
+            if (TextUtils.isEmpty(optString)) {
+                return arrayList;
             }
-            fu2.g0().getSwitch("swan_backstage_policy", 0);
-            a = 300;
-            if (300 < 60) {
-                a = 60;
-            } else if (300 > 3600) {
-                a = 3600;
+            int optInt = jSONObject.optInt("count");
+            c("api-count " + optInt);
+            if (optInt <= 0) {
+                return arrayList;
             }
-            return a;
+            JSONArray optJSONArray = jSONObject.optJSONArray("startTime");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("endTime");
+            if (optJSONArray != null && optJSONArray2 != null) {
+                int min = Math.min(optJSONArray.length(), optJSONArray2.length());
+                if (min <= 0) {
+                    return arrayList;
+                }
+                for (int i = 0; i < min; i++) {
+                    l43 l43Var = new l43();
+                    l43Var.f(optString);
+                    l43Var.g(b(l43Var));
+                    l43Var.i(optJSONArray.optLong(i));
+                    l43Var.h(optJSONArray2.optLong(i));
+                    arrayList.add(l43Var);
+                    if (z43.a) {
+                        c(l43Var.toString());
+                    }
+                }
+                return arrayList;
+            }
+            c("startTimes or endTimes is empty");
+            return arrayList;
         }
-        return invokeV.intValue;
+        return (List) invokeL.objValue;
     }
 
-    @AnyThread
-    public static void b() {
+    public final int b(l43 l43Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            sn3.k(new a(), "SwanLaunchBehavior");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l43Var)) == null) {
+            String a = l43Var.a();
+            if (TextUtils.isEmpty(a)) {
+                return 0;
+            }
+            if (!a.startsWith(this.b) && !this.c.contains(a)) {
+                return 0;
+            }
+            return 1;
+        }
+        return invokeL.intValue;
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && z43.a) {
+            Log.d("Api-Parser", str);
         }
     }
 }

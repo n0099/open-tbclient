@@ -43,11 +43,11 @@ public class he {
             a(context, hgVar, a);
             return;
         }
-        com.xiaomi.channel.commonutils.logger.b.m178a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
+        com.xiaomi.channel.commonutils.logger.b.m180a("TinyData TinyDataCacheUploader.uploadTinyData itemsUploading == null || itemsUploading.size() == 0  ts:" + System.currentTimeMillis());
     }
 
     public static void a(Context context, hl hlVar) {
-        if (hlVar.f483a) {
+        if (hlVar.f484a) {
             hlVar.a("push_sdk_channel");
         }
         if (TextUtils.isEmpty(hlVar.d())) {

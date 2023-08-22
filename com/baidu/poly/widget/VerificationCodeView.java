@@ -17,7 +17,7 @@ import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eg1;
+import com.baidu.tieba.jg1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -83,13 +83,13 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
             }
         }
         this.a = context;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, eg1.PolyVerificationCodeView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, jg1.PolyVerificationCodeView);
         this.c = obtainStyledAttributes.getInteger(3, 4);
         this.d = obtainStyledAttributes.getDimensionPixelSize(7, 105);
         this.e = obtainStyledAttributes.getColor(5, -16777216);
         this.f = obtainStyledAttributes.getDimensionPixelSize(6, 16);
-        this.g = obtainStyledAttributes.getResourceId(0, R.drawable.obfuscated_res_0x7f081247);
-        this.l = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f081246);
+        this.g = obtainStyledAttributes.getResourceId(0, R.drawable.obfuscated_res_0x7f08125c);
+        this.l = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f08125b);
         this.k = obtainStyledAttributes.getBoolean(2, true);
         boolean hasValue = obtainStyledAttributes.hasValue(4);
         this.j = hasValue;
@@ -132,7 +132,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             for (int i = 0; i < getChildCount(); i++) {
-                ((EditText) getChildAt(i)).setBackgroundResource(R.drawable.obfuscated_res_0x7f081248);
+                ((EditText) getChildAt(i)).setBackgroundResource(R.drawable.obfuscated_res_0x7f08125d);
             }
         }
     }
@@ -257,7 +257,7 @@ public class VerificationCodeView extends LinearLayout implements TextWatcher, V
             for (int i = 0; i < getChildCount(); i++) {
                 EditText editText = (EditText) getChildAt(i);
                 editText.setText("");
-                editText.setBackgroundResource(R.drawable.obfuscated_res_0x7f081247);
+                editText.setBackgroundResource(R.drawable.obfuscated_res_0x7f08125c);
             }
             EditText editText2 = (EditText) getChildAt(0);
             editText2.setCursorVisible(true);

@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f01 {
+public class f01 extends qz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
     public f01() {
         Interceptable interceptable = $ic;
@@ -21,6 +21,32 @@ public class f01 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        getContentView().setClickable(false);
+    }
+
+    @Override // com.baidu.tieba.qz0
+    public void O() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.O();
+            LinearLayout linearLayout = this.i;
+            if (linearLayout != null) {
+                linearLayout.setClickable(false);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.qz0
+    public void P() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.P();
+            LinearLayout linearLayout = this.f;
+            if (linearLayout != null) {
+                linearLayout.setClickable(false);
             }
         }
     }

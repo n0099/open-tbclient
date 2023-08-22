@@ -18,18 +18,18 @@ public class fh extends tg {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fh(oh ohVar) {
-        super(ohVar);
+    public fh(ph phVar) {
+        super(phVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ohVar};
+            Object[] objArr = {phVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((oh) newInitContext.callArgs[0]);
+                super((ph) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

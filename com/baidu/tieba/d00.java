@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class d00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public f00 a;
+    public c00 a;
 
     public d00() {
         Interceptable interceptable = $ic;
@@ -22,39 +22,21 @@ public class d00 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new c00(32);
     }
 
-    public static d00 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            d00 d00Var = new d00();
-            f00 f00Var = new f00();
-            d00Var.a = f00Var;
-            f00Var.e("PKCS1Padding");
-            return d00Var;
-        }
-        return (d00) invokeV.objValue;
-    }
-
-    public void b(int i, g00 g00Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, g00Var) == null) {
-            this.a.a(i, g00Var, e00.a);
-        }
-    }
-
-    public final byte[] c(byte[] bArr) {
+    public byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-            if (bArr != null) {
-                return this.a.d(bArr, 0, bArr.length);
-            }
-            throw new IllegalArgumentException("Null input buffer");
-        }
-        return (byte[]) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.a.j(bArr) : (byte[]) invokeL.objValue;
+    }
+
+    public byte[] b(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? this.a.m(bArr) : (byte[]) invokeL.objValue;
     }
 }

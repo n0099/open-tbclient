@@ -1,19 +1,32 @@
 package com.baidu.tieba;
 
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class d1c<T> implements f1c {
+public class d1c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p3c a;
-
-    public abstract void b(Throwable th);
-
-    public abstract void c(T t);
+    public String a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
+    public transient h3c j;
+    public transient g3c k;
+    public int l;
+    public boolean m;
+    public int n;
+    public int o;
 
     public d1c() {
         Interceptable interceptable = $ic;
@@ -28,31 +41,86 @@ public abstract class d1c<T> implements f1c {
                 return;
             }
         }
-        this.a = new p3c();
+        this.a = null;
+        this.b = 1;
+        this.c = 1;
+        this.d = 0;
+        this.e = 1;
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.i = false;
+        this.k = null;
+        this.l = 0;
+        this.m = false;
+        this.n = 1;
+        this.o = 4000;
     }
 
-    @Override // com.baidu.tieba.f1c
-    public final boolean isUnsubscribed() {
+    public static d1c a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            d1c d1cVar = new d1c();
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                d1cVar.a = jSONObject.optString("cacheDirectory");
+                d1cVar.b = jSONObject.optInt("avcCodec");
+                d1cVar.c = jSONObject.optInt("hevcCodec");
+                d1cVar.d = jSONObject.optInt("audioCodec");
+                d1cVar.e = jSONObject.optInt("videoSeekMode");
+                d1cVar.f = jSONObject.optBoolean("clearRender");
+                d1cVar.g = jSONObject.optBoolean("usingSurfaceView");
+                d1cVar.h = jSONObject.optBoolean("hardDecodeOutputToBuffer");
+                d1cVar.i = jSONObject.optBoolean("forceNotCrop");
+                d1cVar.l = jSONObject.optInt("samplerFilter");
+                d1cVar.m = jSONObject.optBoolean("isSubProcess");
+                d1cVar.n = jSONObject.optInt("pcdnCatonTime");
+                d1cVar.o = jSONObject.optInt("pcdnCatonCount");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return d1cVar;
+        }
+        return (d1c) invokeL.objValue;
+    }
+
+    public static String b(d1c d1cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, d1cVar)) == null) {
+            if (d1cVar == null) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cacheDirectory", d1cVar.a);
+                jSONObject.put("avcCodec", d1cVar.b);
+                jSONObject.put("hevcCodec", d1cVar.c);
+                jSONObject.put("audioCodec", d1cVar.d);
+                jSONObject.put("videoSeekMode", d1cVar.e);
+                jSONObject.put("clearRender", d1cVar.f);
+                jSONObject.put("usingSurfaceView", d1cVar.g);
+                jSONObject.put("hardDecodeOutputToBuffer", d1cVar.h);
+                jSONObject.put("forceNotCrop", d1cVar.i);
+                jSONObject.put("samplerFilter", d1cVar.l);
+                jSONObject.put("isSubProcess", d1cVar.m);
+                jSONObject.put("pcdnCatonTime", d1cVar.n);
+                jSONObject.put("pcdnCatonCount", d1cVar.o);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.isUnsubscribed();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "PlayerOptions [cacheDirectory=" + this.a + ", avcCodec=" + this.b + ", hevcCodec=" + this.c + ", audioCodec=" + this.d + ", videoSeekMode=" + this.e + ", clearRender=" + this.f + ", usingSurfaceView=" + this.g + ", hardDecodeOutputToBuffer=" + this.h + ", forceNotCrop=" + this.i + ", samplerFilter=" + this.l + ", isSubProcess=" + this.m + ", pcdnCatonTime=" + this.n + ", pcdnCatonCount=" + this.o + PreferencesUtil.RIGHT_MOUNT;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.f1c
-    public final void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.unsubscribe();
-        }
-    }
-
-    public final void a(f1c f1cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f1cVar) == null) {
-            this.a.a(f1cVar);
-        }
+        return (String) invokeV.objValue;
     }
 }

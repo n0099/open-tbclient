@@ -1,51 +1,48 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.content.Context;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.RequestSearchData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class ib0 extends Handler {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<a> a;
+public interface ib0 {
+    void a(Context context, String str);
+
+    void b(Context context);
+
+    void c();
+
+    void d();
+
+    void e(Context context);
+
+    void f(Context context, int i);
+
+    void g(String str, String str2, RequestSearchData requestSearchData);
+
+    void h();
+
+    void i(String str);
+
+    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
+
+    void onDetach();
 
     /* loaded from: classes6.dex */
-    public interface a {
-        void a(Message message);
-    }
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public ib0(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        public static /* synthetic */ void a(ib0 ib0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
+            if (obj == null) {
+                if ((i & 4) != 0) {
+                    requestSearchData = new RequestSearchData();
+                }
+                ib0Var.g(str, str2, requestSearchData);
                 return;
             }
-        }
-        this.a = new WeakReference<>(aVar);
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            if (this.a == null || (aVar = this.a.get()) == null) {
-                return;
-            }
-            aVar.a(message);
-            super.handleMessage(message);
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
         }
     }
 }

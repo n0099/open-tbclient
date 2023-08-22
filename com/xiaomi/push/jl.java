@@ -4,20 +4,20 @@ public class jl extends jn {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public iv f818a;
+    public iv f819a;
 
     public jl(int i) {
-        this.f818a = new iv(i);
+        this.f819a = new iv(i);
     }
 
     @Override // com.xiaomi.push.jn
     public int a(byte[] bArr, int i, int i2) {
-        byte[] m690a = this.f818a.m690a();
-        if (i2 > this.f818a.a() - this.a) {
-            i2 = this.f818a.a() - this.a;
+        byte[] m692a = this.f819a.m692a();
+        if (i2 > this.f819a.a() - this.a) {
+            i2 = this.f819a.a() - this.a;
         }
         if (i2 > 0) {
-            System.arraycopy(m690a, this.a, bArr, i, i2);
+            System.arraycopy(m692a, this.a, bArr, i, i2);
             this.a += i2;
         }
         return i2;
@@ -25,11 +25,11 @@ public class jl extends jn {
 
     @Override // com.xiaomi.push.jn
     /* renamed from: a */
-    public void mo716a(byte[] bArr, int i, int i2) {
-        this.f818a.write(bArr, i, i2);
+    public void mo718a(byte[] bArr, int i, int i2) {
+        this.f819a.write(bArr, i, i2);
     }
 
     public int a_() {
-        return this.f818a.size();
+        return this.f819a.size();
     }
 }

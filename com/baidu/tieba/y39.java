@@ -1,151 +1,283 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
+import android.content.Context;
+import android.location.Address;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.lbs.BdLocationMananger;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.memberCenter.bubble.BubbleChooseActivity;
-import com.baidu.tieba.memberCenter.bubble.BubbleListData;
-import com.baidu.tieba.memberCenter.bubble.BubbleView;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.permissionhelper.ApiUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.recapp.localads.LocationCacheData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Locale;
 /* loaded from: classes8.dex */
-public class y39 extends BaseAdapter {
+public class y39 implements hf {
     public static /* synthetic */ Interceptable $ic;
+    public static y39 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<BubbleListData.BubbleData> a;
-    public TbPageContext<BubbleChooseActivity> b;
-    public int c;
-    public int d;
-    public boolean e;
+    public Context a;
+    public boolean b;
+    public String c;
+    public BdLocationMananger.c d;
+    public b e;
+    public LocationClient f;
+    public LocationClientOption g;
+    public Address h;
+    public long i;
+    public boolean j;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+    /* loaded from: classes8.dex */
+    public static class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
+                if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || !(customResponsedMessage.getData() instanceof Boolean)) {
+                    return;
+                }
+                if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                    BdLocationMananger.getInstance().registerProvider(y39.j());
+                } else {
+                    BdLocationMananger.getInstance().unRegiserProvider(y39.j());
+                }
+            }
+        }
     }
 
-    public y39(TbPageContext<BubbleChooseActivity> tbPageContext) {
+    /* loaded from: classes8.dex */
+    public class b implements BDLocationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y39 a;
+
+        public b(y39 y39Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y39Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y39Var;
+        }
+
+        public /* synthetic */ b(y39 y39Var, a aVar) {
+            this(y39Var);
+        }
+
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 67 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
+                    this.a.c();
+                    this.a.h = new Address(Locale.getDefault());
+                    this.a.h.setLatitude(bDLocation.getLatitude());
+                    this.a.h.setLongitude(bDLocation.getLongitude());
+                    SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
+                    sharedPrefHelper.putString("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
+                    this.a.h.setLocality(bDLocation.getCity());
+                    Bundle bundle = new Bundle();
+                    bundle.putFloat("radius", bDLocation.getRadius());
+                    bundle.putDouble("altitude", bDLocation.getAltitude());
+                    bundle.putFloat("speed", bDLocation.getSpeed());
+                    bundle.putString("cityCode", bDLocation.getCityCode());
+                    bundle.putString("street", bDLocation.getStreet());
+                    bundle.putString("streetNumber", bDLocation.getStreetNumber());
+                    bundle.putString("province", bDLocation.getProvince());
+                    this.a.h.setExtras(bundle);
+                    this.a.i = System.currentTimeMillis();
+                    StringBuffer stringBuffer = new StringBuffer();
+                    if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
+                        stringBuffer.append(bDLocation.getCity());
+                    }
+                    stringBuffer.append(bDLocation.getDistrict());
+                    stringBuffer.append(bDLocation.getStreet());
+                    if (bDLocation.getAddrStr() != null) {
+                        this.a.h.setAddressLine(0, stringBuffer.toString());
+                    }
+                    if (this.a.d != null) {
+                        this.a.d.a(0, "", this.a.h, this.a.i, this.a.j);
+                        LocationCacheData.getInstance().setLatitude(String.valueOf(this.a.h.getLatitude()));
+                        LocationCacheData.getInstance().setLongitude(String.valueOf(this.a.h.getLongitude()));
+                        LocationCacheData.getInstance().setSaveTime(System.currentTimeMillis());
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948279370, "Lcom/baidu/tieba/y39;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948279370, "Lcom/baidu/tieba/y39;");
+                return;
+            }
+        }
+        MessageManager.getInstance().registerListener(new a(2001330));
+    }
+
+    public static y39 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (k == null) {
+                synchronized (y39.class) {
+                    if (k == null) {
+                        k = new y39();
+                    }
+                }
+            }
+            return k;
+        }
+        return (y39) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hf
+    public void c() {
+        LocationClient locationClient;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f) != null && locationClient.isStarted()) {
+            try {
+                this.f.stop();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hf
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c();
+        }
+    }
+
+    public y39() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = tbPageContext;
-        this.c = (int) tbPageContext.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201);
-        this.d = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f070201);
+        this.b = true;
+        this.c = "";
+        this.d = null;
+        this.i = 0L;
+        this.j = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public BubbleListData.BubbleData getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.hf
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<BubbleListData.BubbleData> list = this.a;
-            if (list != null) {
-                if (i >= 0 || i < list.size()) {
-                    return this.a.get(i);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.b && this.f != null) {
+                try {
+                    this.j = z;
+                    if (z) {
+                        this.g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                    }
+                    this.f.setLocOption(this.g);
+                    if (!this.f.isStarted()) {
+                        this.f.start();
+                    }
+                    this.f.requestLocation();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    c();
+                    BdLocationMananger.c cVar = this.d;
+                    if (cVar != null) {
+                        cVar.a(5, "", this.h, this.i, this.j);
+                    }
                 }
-                return null;
             }
-            return null;
-        }
-        return (BubbleListData.BubbleData) invokeI.objValue;
-    }
-
-    public void c(List<BubbleListData.BubbleData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a.clear();
-            BubbleListData.BubbleData bubbleData = new BubbleListData.BubbleData();
-            bubbleData.setBcode(0);
-            this.a.add(bubbleData);
-            this.a.addAll(list);
-            notifyDataSetChanged();
         }
     }
 
-    public void d(boolean z) {
+    @Override // com.baidu.tieba.hf
+    public void b(BdLocationMananger.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public List<BubbleListData.BubbleData> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            List<BubbleListData.BubbleData> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        BubbleView bubbleView;
-        BubbleView bubbleView2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                bubbleView2 = new BubbleView(this.b.getPageActivity());
-                bubbleView = bubbleView2;
-            } else {
-                bubbleView = view2;
-                bubbleView2 = (BubbleView) view2;
-            }
-            if (i == 0 || i == 1) {
-                bubbleView2.setPadding(0, this.d, 0, 0);
-            }
-            if (getCount() % 2 == 0) {
-                if (i == getCount() - 1 || i == getCount() - 2) {
-                    bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.c);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            this.a = TbadkCoreApplication.getInst().getContext();
+            this.d = cVar;
+            this.c = "baidu";
+            if (this.b) {
+                try {
+                    this.f = new LocationClient(this.a);
+                    LocationClientOption locationClientOption = new LocationClientOption();
+                    this.g = locationClientOption;
+                    locationClientOption.setOpenGps(true);
+                    this.g.setIgnoreKillProcess(true);
+                    this.g.setProdName(this.c);
+                    this.g.setAddrType("all");
+                    this.g.setCoorType("bd09ll");
+                    b bVar = new b(this, null);
+                    this.e = bVar;
+                    this.f.registerLocationListener(bVar);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
-            } else if (i == getCount() - 1) {
-                bubbleView2.setPadding(0, bubbleView2.getPaddingTop(), 0, this.c);
             }
-            BubbleListData.BubbleData item = getItem(i);
-            if (item != null) {
-                bubbleView2.setShowName(true);
-                bubbleView2.setData(item, this.e);
-            }
-            bubbleView2.a(this.b);
-            return bubbleView;
         }
-        return (View) invokeILL.objValue;
     }
 }

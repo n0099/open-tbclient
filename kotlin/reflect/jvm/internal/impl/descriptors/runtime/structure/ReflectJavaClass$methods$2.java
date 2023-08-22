@@ -5,7 +5,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.FunctionReference;
 import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KDeclarationContainer;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final /* synthetic */ class ReflectJavaClass$methods$2 extends FunctionReference implements Function1<Method, ReflectJavaMethod> {
     public static final ReflectJavaClass$methods$2 INSTANCE = new ReflectJavaClass$methods$2();
 

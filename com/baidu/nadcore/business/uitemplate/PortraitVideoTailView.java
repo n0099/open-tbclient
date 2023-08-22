@@ -23,16 +23,16 @@ import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.el0;
-import com.baidu.tieba.gr0;
-import com.baidu.tieba.h61;
-import com.baidu.tieba.pr0;
-import com.baidu.tieba.q31;
-import com.baidu.tieba.rl0;
-import com.baidu.tieba.rr0;
-import com.baidu.tieba.tr0;
-import com.baidu.tieba.yi0;
-import com.baidu.tieba.yq0;
+import com.baidu.tieba.bj0;
+import com.baidu.tieba.br0;
+import com.baidu.tieba.hl0;
+import com.baidu.tieba.jr0;
+import com.baidu.tieba.m61;
+import com.baidu.tieba.sr0;
+import com.baidu.tieba.t31;
+import com.baidu.tieba.ul0;
+import com.baidu.tieba.ur0;
+import com.baidu.tieba.wr0;
 /* loaded from: classes3.dex */
 public class PortraitVideoTailView extends FrameLayout implements View.OnClickListener {
     public AdImageView a;
@@ -43,7 +43,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
     public TextView f;
     public TextView g;
     public NadMiniVideoDownloadView h;
-    public rl0 i;
+    public ul0 i;
     public View.OnClickListener j;
     public View.OnClickListener k;
     public c l;
@@ -53,7 +53,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
     public View p;
     public AdImageView q;
     public AdImageView r;
-    public tr0 s;
+    public wr0 s;
     public SimpleAdInfoView t;
     public LinearLayout u;
     public AdImageView v;
@@ -83,18 +83,18 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
 
     /* loaded from: classes3.dex */
     public class b implements View.OnClickListener {
-        public final /* synthetic */ rr0 a;
+        public final /* synthetic */ ur0 a;
         public final /* synthetic */ AdBaseModel b;
 
-        public b(rr0 rr0Var, AdBaseModel adBaseModel) {
-            this.a = rr0Var;
+        public b(ur0 ur0Var, AdBaseModel adBaseModel) {
+            this.a = ur0Var;
             this.b = adBaseModel;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            yi0.d(this.a.y, PortraitVideoTailView.this.getContext(), null);
-            q31.e(new ClogBuilder().y(ClogBuilder.LogType.FREE_CLICK).p(this.b.f.d).j("morebtn"));
+            bj0.d(this.a.y, PortraitVideoTailView.this.getContext(), null);
+            t31.e(new ClogBuilder().y(ClogBuilder.LogType.FREE_CLICK).p(this.b.f.d).j("morebtn"));
         }
     }
 
@@ -102,39 +102,39 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         super(context);
     }
 
-    public static boolean b(tr0 tr0Var) {
-        tr0.b bVar;
-        tr0.a aVar;
-        if (tr0Var == null) {
+    public static boolean b(wr0 wr0Var) {
+        wr0.c cVar;
+        wr0.b bVar;
+        if (wr0Var == null) {
             return false;
         }
-        if (TextUtils.isEmpty(tr0Var.f) && TextUtils.isEmpty(tr0Var.d) && (((bVar = tr0Var.g) == null || TextUtils.isEmpty(bVar.a)) && ((aVar = tr0Var.h) == null || TextUtils.isEmpty(aVar.a)))) {
+        if (TextUtils.isEmpty(wr0Var.f) && TextUtils.isEmpty(wr0Var.d) && (((cVar = wr0Var.g) == null || TextUtils.isEmpty(cVar.a)) && ((bVar = wr0Var.h) == null || TextUtils.isEmpty(bVar.a)))) {
             return false;
         }
         return true;
     }
 
     public final boolean g(AdBaseModel adBaseModel) {
-        pr0 pr0Var;
-        if (adBaseModel != null && adBaseModel.f != null && (pr0Var = adBaseModel.j) != null && pr0Var.i != null) {
+        sr0 sr0Var;
+        if (adBaseModel != null && adBaseModel.f != null && (sr0Var = adBaseModel.j) != null && sr0Var.i != null) {
             return true;
         }
         return false;
     }
 
     public final void h(AdBaseModel adBaseModel) {
-        gr0 gr0Var;
-        if (adBaseModel != null && (gr0Var = adBaseModel.f) != null && !TextUtils.isEmpty(gr0Var.d)) {
+        jr0 jr0Var;
+        if (adBaseModel != null && (jr0Var = adBaseModel.f) != null && !TextUtils.isEmpty(jr0Var.d)) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.VIDEO_LP_PV);
             clogBuilder.u(ClogBuilder.Page.PAGE_VIDEO_LANDING);
             clogBuilder.p(adBaseModel.f.d);
-            q31.e(clogBuilder);
+            t31.e(clogBuilder);
         }
     }
 
-    public void setAdInfo(tr0 tr0Var) {
-        this.s = tr0Var;
+    public void setAdInfo(wr0 wr0Var) {
+        this.s = wr0Var;
     }
 
     public void setOnAdClickListener(View.OnClickListener onClickListener) {
@@ -158,31 +158,31 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
     }
 
     public final void i(ClogBuilder.LogType logType, String str, AdBaseModel adBaseModel) {
-        gr0 gr0Var;
-        if (adBaseModel != null && (gr0Var = adBaseModel.f) != null && !TextUtils.isEmpty(gr0Var.d)) {
+        jr0 jr0Var;
+        if (adBaseModel != null && (jr0Var = adBaseModel.f) != null && !TextUtils.isEmpty(jr0Var.d)) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(logType);
             clogBuilder.j(str);
             clogBuilder.p(adBaseModel.f.d);
-            q31.e(clogBuilder);
+            t31.e(clogBuilder);
         }
     }
 
     private void setMoreButton(AdBaseModel adBaseModel) {
-        rr0 rr0Var = adBaseModel.j.i;
-        if (rr0Var != null && !TextUtils.isEmpty(rr0Var.w) && !TextUtils.isEmpty(rr0Var.x)) {
+        ur0 ur0Var = adBaseModel.j.i;
+        if (ur0Var != null && !TextUtils.isEmpty(ur0Var.w) && !TextUtils.isEmpty(ur0Var.x)) {
             this.u.setVisibility(0);
             GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setCornerRadius(h61.c.a(getContext(), 17.0f));
+            gradientDrawable.setCornerRadius(m61.c.a(getContext(), 17.0f));
             gradientDrawable.setStroke(2, ContextCompat.getColor(getContext(), R.color.nad_portrait_tail_frame_more_btn_border));
             this.u.setBackground(gradientDrawable);
-            this.u.setOnClickListener(new b(rr0Var, adBaseModel));
-            if (!TextUtils.isEmpty(rr0Var.w)) {
-                this.v.b(rr0Var.w);
+            this.u.setOnClickListener(new b(ur0Var, adBaseModel));
+            if (!TextUtils.isEmpty(ur0Var.w)) {
+                this.v.b(ur0Var.w);
                 this.v.setVisibility(0);
             }
-            if (!TextUtils.isEmpty(rr0Var.x)) {
-                this.w.setText(rr0Var.x);
+            if (!TextUtils.isEmpty(ur0Var.x)) {
+                this.w.setText(ur0Var.x);
                 this.w.setVisibility(0);
                 return;
             }
@@ -228,7 +228,7 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
         if (z) {
             str3 = str2;
         }
-        yi0.c(str3, getContext());
+        bj0.c(str3, getContext());
         i(ClogBuilder.LogType.CLICK, str, adBaseModel);
         c cVar = this.l;
         if (cVar != null) {
@@ -299,39 +299,39 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
             setVisibility(8);
             return;
         }
-        rr0 rr0Var = adBaseModel.j.i;
-        if (rr0Var != null) {
+        ur0 ur0Var = adBaseModel.j.i;
+        if (ur0Var != null) {
             f(getContext());
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setColor(getResources().getColor(R.color.nad_enhancement_btn_bg_color));
-            int a2 = h61.c.a(getContext(), 8.0f);
+            int a2 = m61.c.a(getContext(), 8.0f);
             gradientDrawable.setCornerRadius(a2);
             this.p.setBackground(gradientDrawable);
             this.h.setCornerRadius(a2);
             this.h.setBackground(gradientDrawable);
             this.h.setProgressColor(getResources().getColor(R.color.nad_mini_video_ad_download_progress_color));
             setVisibility(0);
-            if (!TextUtils.isEmpty(rr0Var.d)) {
-                this.a.b(rr0Var.d);
+            if (!TextUtils.isEmpty(ur0Var.d)) {
+                this.a.b(ur0Var.d);
                 this.a.setVisibility(0);
             } else {
                 this.a.setVisibility(8);
             }
-            if (TextUtils.isEmpty(rr0Var.c)) {
+            if (TextUtils.isEmpty(ur0Var.c)) {
                 this.b.setVisibility(8);
             } else {
-                this.b.setText(rr0Var.c, TextView.BufferType.NORMAL);
+                this.b.setText(ur0Var.c, TextView.BufferType.NORMAL);
                 this.b.setVisibility(0);
             }
-            if (TextUtils.isEmpty(rr0Var.k)) {
+            if (TextUtils.isEmpty(ur0Var.k)) {
                 this.c.setVisibility(8);
             } else {
                 this.c.setVisibility(0);
-                this.c.setText(rr0Var.k);
+                this.c.setText(ur0Var.k);
             }
-            tr0 tr0Var = this.s;
-            if (tr0Var != null) {
-                float f = (float) tr0Var.e;
+            wr0 wr0Var = this.s;
+            if (wr0Var != null) {
+                float f = (float) wr0Var.e;
                 if (f <= 0.0f) {
                     this.e.setVisibility(8);
                 } else {
@@ -342,32 +342,32 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
             } else {
                 this.e.setVisibility(8);
             }
-            if (TextUtils.isEmpty(rr0Var.n)) {
+            if (TextUtils.isEmpty(ur0Var.n)) {
                 this.n.setVisibility(8);
             } else {
                 this.n.setVisibility(0);
-                this.n.setText(rr0Var.n);
+                this.n.setText(ur0Var.n);
             }
-            if (TextUtils.isEmpty(rr0Var.l)) {
+            if (TextUtils.isEmpty(ur0Var.l)) {
                 this.f.setVisibility(8);
             } else {
                 this.f.setVisibility(0);
-                this.f.setText(rr0Var.l, TextView.BufferType.NORMAL);
+                this.f.setText(ur0Var.l, TextView.BufferType.NORMAL);
             }
             if (adBaseModel.d && adBaseModel.h.a == AdOperator.TYPE.DOWNLOAD) {
                 this.p.setVisibility(8);
-                yq0 yq0Var = adBaseModel.l;
-                if (yq0Var != null && yq0Var.e) {
+                br0 br0Var = adBaseModel.l;
+                if (br0Var != null && br0Var.e) {
                     this.h.setVisibility(0);
-                    this.i = new rl0(el0.c(adBaseModel), this.h);
+                    this.i = new ul0(hl0.c(adBaseModel), this.h);
                 } else {
                     this.h.setVisibility(8);
                     this.i = null;
                 }
             } else {
                 this.p.setVisibility(0);
-                if (TextUtils.isEmpty(rr0Var.g)) {
-                    this.g.setText(rr0Var.g);
+                if (TextUtils.isEmpty(ur0Var.g)) {
+                    this.g.setText(ur0Var.g);
                 } else {
                     this.g.setText(getResources().getText(R.string.nad_command_btn_text));
                 }
@@ -407,9 +407,9 @@ public class PortraitVideoTailView extends FrameLayout implements View.OnClickLi
                 onClickListener.onClick(view2);
             }
         } else if (view2.getId() == R.id.tail_frame_download_btn_txt) {
-            rl0 rl0Var = this.i;
-            if (rl0Var != null) {
-                rl0Var.l();
+            ul0 ul0Var = this.i;
+            if (ul0Var != null) {
+                ul0Var.l();
             }
         } else {
             c(adBaseModel, view2);

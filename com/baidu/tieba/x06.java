@@ -1,56 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.util.TiePlusHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import tbclient.ApkDetail;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes8.dex */
-public class x06<T> implements n16 {
+public class x06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<T> a;
 
-    public x06(List<T> list) {
+    public static boolean a(Context context, bfa bfaVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, bfaVar)) == null) {
+            boolean z = false;
+            if (context != null && bfaVar != null && bfaVar.b()) {
+                TiePlusHelper tiePlusHelper = new TiePlusHelper(context);
+                TiebaPlusInfo a = bfaVar.a();
+                if (a == null) {
+                    return false;
+                }
+                tiePlusHelper.Q(a.app_id);
+                tiePlusHelper.R(a.title);
+                z = true;
+                tiePlusHelper.Y(true);
+                tiePlusHelper.X(a.download_url);
+                tiePlusHelper.a0(a.app_package);
+                tiePlusHelper.b0(a.app_power);
+                tiePlusHelper.c0(a.app_privacy);
+                n16 n16Var = new n16(context, tiePlusHelper, true);
+                tiePlusHelper.U(n16Var);
+                ItemData itemData = new ItemData();
+                itemData.parseProto(a);
+                itemData.fileType = "app";
+                StringBuilder sb = new StringBuilder();
+                sb.append(itemData.pkgName);
+                sb.append(".v");
+                ApkDetail apkDetail = itemData.apkDetail;
+                if (apkDetail != null) {
+                    sb.append(apkDetail.version);
+                }
+                DownloadData downloadData = new DownloadData(sb.toString());
+                downloadData.setUrl(itemData.buttonLink);
+                downloadData.setName(itemData.mTitle);
+                downloadData.setSource(2);
+                downloadData.setType(12);
+                downloadData.setItemData(itemData);
+                tiePlusHelper.Z(itemData);
+                tiePlusHelper.W(downloadData);
+                n16Var.f(a.app_company);
+                n16Var.g(a.app_icon);
+                n16Var.h(a.title);
+                n16Var.i(a.app_version);
+                n16Var.show();
             }
+            return z;
         }
-        this.a = list;
-    }
-
-    @Override // com.baidu.tieba.n16
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return "";
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.n16
-    public int getItemsCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.size();
-        }
-        return invokeV.intValue;
+        return invokeLL.booleanValue;
     }
 }

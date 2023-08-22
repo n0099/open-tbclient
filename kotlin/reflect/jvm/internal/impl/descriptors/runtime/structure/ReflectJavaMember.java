@@ -18,7 +18,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaValueParameter;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.name.SpecialNames;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class ReflectJavaMember extends ReflectJavaElement implements ReflectJavaAnnotationOwner, ReflectJavaModifierListOwner, JavaMember {
     public abstract Member getMember();
 

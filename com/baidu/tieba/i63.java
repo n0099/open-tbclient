@@ -1,100 +1,127 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class i63 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public JSONObject g;
-    public String h;
-    public y22 i;
 
-    public i63() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805411, "Lcom/baidu/tieba/i63;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947805411, "Lcom/baidu/tieba/i63;");
+                return;
+            }
+        }
+        a = nr1.a;
+    }
+
+    public static void a(SwanAppConfigData swanAppConfigData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable != null && interceptable.invokeL(65537, null, swanAppConfigData) != null) || swanAppConfigData == null) {
+            return;
+        }
+        List<x63> e = swanAppConfigData.e();
+        if (e != null && !e.isEmpty()) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            b(e, jSONObject, jSONObject2);
+            if (sl2.k()) {
+                boolean z = false;
+                for (x63 x63Var : e) {
+                    String h = sl2.h(x63Var.a);
+                    if (!TextUtils.isEmpty(h) && new File(h).exists()) {
+                        x63Var.e = h;
+                        c(jSONObject, jSONObject2, x63Var);
+                        z = true;
+                        d82.i("Module-Plugin", "use debug dependencies，name=" + x63Var.a + " path=" + x63Var.e);
+                    } else {
+                        d82.o("Module-Plugin", "debug dependencies not exist，name=" + x63Var.a + " path=" + x63Var.e);
+                    }
+                }
+                if (!z) {
+                    va3.g(AppRuntime.getAppContext(), "no debug dependency").G();
+                    d82.c("Module-Plugin", "no debug dependency");
+                }
+            }
+            String jSONObject3 = jSONObject.toString();
+            String jSONObject4 = jSONObject2.toString();
+            b73.c("dependenciesPath", jSONObject3);
+            b73.c("dependenciesConfig", jSONObject4);
+            return;
+        }
+        b73.c("dependenciesPath", null);
+        b73.c("dependenciesConfig", null);
+        if (a) {
+            v63.b("this swan app not apply on someone dynamic lib");
+        }
+    }
+
+    public static void b(@NonNull List<x63> list, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, list, jSONObject, jSONObject2) != null) || list.isEmpty()) {
+            return;
+        }
+        for (x63 x63Var : list) {
+            if (x63Var != null) {
+                if (x63Var.g) {
+                    c(jSONObject, jSONObject2, x63Var);
+                } else {
+                    ek4 q = aj4.i().q(x63Var.a, x63Var.h, x63Var.i);
+                    if (q == null) {
+                        v63.a(Log.getStackTraceString(new Throwable(x63Var.a + " query db fail")));
+                    } else {
+                        File t = zt2.t(x63Var.a, String.valueOf(q.i));
+                        if (t != null && t.exists()) {
+                            x63Var.e = t.getAbsolutePath();
+                            c(jSONObject, jSONObject2, x63Var);
+                        } else {
+                            v63.a(Log.getStackTraceString(new Throwable(x63Var.a + " local file not exist")));
+                        }
+                    }
+                }
             }
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void c(@NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull x63 x63Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            y22 y22Var = this.i;
-            if (y22Var != null && !y22Var.isSuccess()) {
-                return true;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, jSONObject, jSONObject2, x63Var) == null) {
+            String str = x63Var.e;
+            String str2 = x63Var.f;
+            if (a) {
+                v63.b("apply dep path, name = " + x63Var.a + "; inline = " + x63Var.g + "; path = " + str + "; config = " + str2);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.e)) {
-                return true;
+            if (TextUtils.isEmpty(str)) {
+                v63.b(Log.getStackTraceString(new Throwable(x63Var.a + " path is empty")));
+                return;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        String a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("SwanPluginFunPageModel{providerAppKey='");
-            sb.append(this.a);
-            sb.append('\'');
-            sb.append(", providerRootPath='");
-            sb.append(this.c);
-            sb.append('\'');
-            sb.append(", providerVersion='");
-            sb.append(this.d);
-            sb.append('\'');
-            sb.append(", componentId='");
-            sb.append(this.f);
-            sb.append('\'');
-            sb.append(", cb='");
-            sb.append(this.h);
-            sb.append('\'');
-            sb.append(", pageParams=");
-            sb.append(this.g);
-            sb.append(", swanApiResult=");
-            y22 y22Var = this.i;
-            if (y22Var == null) {
-                a = null;
-            } else {
-                a = y22Var.a();
+            do3.f(jSONObject, x63Var.a, str);
+            if (!TextUtils.isEmpty(x63Var.f)) {
+                File file = new File(str, str2);
+                if (file.exists() && file.isFile()) {
+                    do3.f(jSONObject2, x63Var.a, do3.d(hr4.E(file)));
+                }
             }
-            sb.append(a);
-            sb.append('}');
-            return sb.toString();
         }
-        return (String) invokeV.objValue;
     }
 }

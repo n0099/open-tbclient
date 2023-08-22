@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class lv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public String b;
-    public boolean c;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
 
     public lv4() {
         Interceptable interceptable = $ic;
@@ -23,7 +25,11 @@ public class lv4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = -1;
+        this.f = -1;
     }
 }

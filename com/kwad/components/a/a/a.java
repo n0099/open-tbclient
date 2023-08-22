@@ -4,11 +4,11 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.kwai.filedownloader.m;
 import com.kwai.filedownloader.r;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a {
 
     /* renamed from: com.kwad.components.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface InterfaceC0597a {
         void c(com.kwad.sdk.e.kwai.b bVar);
 

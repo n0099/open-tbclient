@@ -1,14 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
 public interface wn0 {
-    public static final wn0 a = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "exp_config");
+    public static final wn0 b = new a();
 
-    void a(boolean z);
+    @NonNull
+    String[] a();
 
     /* loaded from: classes8.dex */
     public class a implements wn0 {
@@ -16,10 +21,11 @@ public interface wn0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.wn0
-        public void a(boolean z) {
+        @NonNull
+        public String[] a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
         }
 
         public a() {

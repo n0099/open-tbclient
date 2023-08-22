@@ -1,30 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.SwanAppActivity;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
-public class zn2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
+public final class zn2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public String a;
+    @NonNull
+    public String b;
 
-    public static xn2 a(SwanAppActivity swanAppActivity, ya3 ya3Var) {
-        InterceptResult invokeLL;
+    public zn2(@NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, swanAppActivity, ya3Var)) == null) {
-            if (ya3Var == null || !ya3Var.I()) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            int k = ya3Var.k();
-            if (k != 0) {
-                if (k != 1) {
-                    return null;
-                }
-                return gu2.i().n(swanAppActivity, ya3Var.b);
-            }
-            return new ao2(swanAppActivity, ya3Var.b);
         }
-        return (xn2) invokeLL.objValue;
+        this.a = str;
+        this.b = str2;
     }
 }

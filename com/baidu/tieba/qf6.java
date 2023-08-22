@@ -1,141 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.RelativeLayout;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.ala.AlaCmdConfigCustom;
-import com.baidu.ala.gift.AlaDynamicGift;
-import com.baidu.ala.gift.AlaDynamicGiftAndNativeData;
-import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
-import com.baidu.ala.gift.AlaDynamicGiftLocalInfoConfig;
-import com.baidu.ala.gift.IFrameCallback;
-import com.baidu.ala.gift.IImageFramePlayerViewController;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.ala.data.AlaLiveInfoData;
+import com.baidu.ala.data.AlaUserInfoData;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaEffectPreviewView;
-import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
+import com.baidu.searchbox.download.unified.SourceConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class qf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public RelativeLayout b;
-    public IImageFramePlayerViewController c;
-    public AlaEffectPreviewView d;
-    public AlaEnterEffectData e;
-    public int f;
-    public IFrameCallback g;
-    public c h;
+    public AlaUserInfoData a;
+    public wf6 b;
+    public eg6 c;
+    public List<AlaLiveInfoData> d;
+    public List<dg6> e;
+    public boolean f;
+    public final of6 g;
+    public fg6 h;
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements IFrameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qf6 a;
-
-        @Override // com.baidu.ala.gift.IFrameCallback
-        public void onFrameStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.ala.gift.IFrameCallback
-        public void onFrameUpdate(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            }
-        }
-
-        public a(qf6 qf6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qf6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qf6Var;
-        }
-
-        @Override // com.baidu.ala.gift.IFrameCallback
-        public void onFrameEnd() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qf6.b(this.a);
-                if (this.a.f <= 0 && this.a.e != null) {
-                    qf6 qf6Var = this.a;
-                    qf6Var.g(qf6Var.e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qf6 a;
-
-        public b(qf6 qf6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qf6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = qf6Var;
-        }
-
-        @Override // com.baidu.tieba.qf6.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                qf6.b(this.a);
-                if (this.a.e != null) {
-                    if (this.a.e.type == 1 && this.a.f <= 0) {
-                        qf6 qf6Var = this.a;
-                        qf6Var.g(qf6Var.e);
-                    } else if (this.a.e.type == 0) {
-                        qf6 qf6Var2 = this.a;
-                        qf6Var2.g(qf6Var2.e);
-                    }
-                }
-            }
-        }
-    }
-
-    public qf6(Context context, RelativeLayout relativeLayout) {
+    public qf6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, relativeLayout};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -145,94 +40,83 @@ public class qf6 {
                 return;
             }
         }
-        this.f = 2;
-        this.g = new a(this);
-        this.h = new b(this);
-        this.a = context;
-        this.b = relativeLayout;
+        this.f = false;
+        this.a = new AlaUserInfoData();
+        this.b = new wf6();
+        this.c = new eg6();
+        this.g = new of6();
+        this.d = new ArrayList();
+        this.e = new ArrayList();
     }
 
-    public static /* synthetic */ int b(qf6 qf6Var) {
-        int i = qf6Var.f;
-        qf6Var.f = i - 1;
-        return i;
-    }
-
-    public void g(AlaEnterEffectData alaEnterEffectData) {
+    public of6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, alaEnterEffectData) != null) || alaEnterEffectData == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (of6) invokeV.objValue;
+    }
+
+    public AlaUserInfoData b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (AlaUserInfoData) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.e = alaEnterEffectData;
-        int i = alaEnterEffectData.type;
-        if (i == 1) {
-            this.f = 2;
-            e(alaEnterEffectData);
-            f(alaEnterEffectData);
-        } else if (i == 0) {
-            f(alaEnterEffectData);
+        try {
+            JSONObject jSONObject2 = jSONObject.getJSONObject("data");
+            JSONObject optJSONObject = jSONObject2.optJSONObject(SourceConstant.SOURCE_USER_INFO);
+            if (optJSONObject != null) {
+                this.a = (AlaUserInfoData) OrmObject.objectWithJson(optJSONObject, AlaUserInfoData.class);
+            }
+            JSONArray optJSONArray = jSONObject2.optJSONArray("watch_list");
+            for (int i = 0; optJSONArray != null && i < optJSONArray.length(); i++) {
+                dg6 dg6Var = new dg6();
+                dg6Var.a(optJSONArray.getJSONObject(i));
+                this.e.add(dg6Var);
+            }
+            JSONArray optJSONArray2 = jSONObject2.optJSONArray("live_list");
+            for (int i2 = 0; optJSONArray2 != null && optJSONArray2.length() < i2; i2++) {
+                AlaLiveInfoData alaLiveInfoData = new AlaLiveInfoData();
+                alaLiveInfoData.parserJson(optJSONArray2.getJSONObject(i2));
+                this.d.add(alaLiveInfoData);
+            }
+            this.b.a(jSONObject2.optJSONObject("media"));
+            this.c.parserJson(jSONObject2.optJSONObject("privacy_set"));
+            this.g.parserJson(jSONObject2.optJSONObject("authority_info"));
+            JSONObject optJSONObject2 = jSONObject2.optJSONObject("dating_room");
+            if (optJSONObject2 != null) {
+                fg6 fg6Var = new fg6();
+                this.h = fg6Var;
+                fg6Var.a(optJSONObject2);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public void d() {
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            IImageFramePlayerViewController iImageFramePlayerViewController = this.c;
-            if (iImageFramePlayerViewController != null) {
-                iImageFramePlayerViewController.onDestroy();
-            }
-            AlaEffectPreviewView alaEffectPreviewView = this.d;
-            if (alaEffectPreviewView != null) {
-                alaEffectPreviewView.f();
-            }
-        }
-    }
-
-    public final void e(AlaEnterEffectData alaEnterEffectData) {
-        AlaDynamicGiftConfigInfo alaDynamicGiftConfigInfo;
-        CustomResponsedMessage runTask;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) == null) {
-            if (this.c == null && (runTask = MessageManager.getInstance().runTask(AlaCmdConfigCustom.CMD_ALA_IMAGE_FRAME_PLAYER_CONTROLLER, IImageFramePlayerViewController.class, this.a)) != null && runTask.getData() != null) {
-                IImageFramePlayerViewController iImageFramePlayerViewController = (IImageFramePlayerViewController) runTask.getData();
-                this.c = iImageFramePlayerViewController;
-                iImageFramePlayerViewController.setFrameCallback(this.g);
-            }
-            IImageFramePlayerViewController iImageFramePlayerViewController2 = this.c;
-            if (iImageFramePlayerViewController2 != null) {
-                if (iImageFramePlayerViewController2.getAnimView().getParent() == null) {
-                    this.b.addView(this.c.getAnimView(), new RelativeLayout.LayoutParams(-1, BdUtilHelper.getEquipmentHeight(this.a)));
-                }
-                AlaDynamicGiftAndNativeData alaDynamicGiftAndNativeData = new AlaDynamicGiftAndNativeData();
-                AlaDynamicGift alaDynamicGift = alaEnterEffectData.gift;
-                alaDynamicGiftAndNativeData.mAlaDynamicGift = alaDynamicGift;
-                if (alaDynamicGift != null && (alaDynamicGiftConfigInfo = alaDynamicGift.configInfo) != null) {
-                    alaDynamicGiftConfigInfo.isBottomMargin = 1;
-                    alaDynamicGiftConfigInfo.oppositeY = 0.6499999761581421d;
-                }
-                alaDynamicGiftAndNativeData.upZipDirPath = AlaDynamicGiftLocalInfoConfig.DIR_PATH + alaEnterEffectData.gift.giftZip.zipName;
-                this.c.setData(alaDynamicGiftAndNativeData);
-                this.c.startAnim();
-            }
-        }
-    }
-
-    public final void f(AlaEnterEffectData alaEnterEffectData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, alaEnterEffectData) == null) {
-            if (this.d == null) {
-                AlaEffectPreviewView alaEffectPreviewView = new AlaEffectPreviewView(this.a);
-                this.d = alaEffectPreviewView;
-                alaEffectPreviewView.setAnimCompleteCallback(this.h);
-            }
-            if (this.d.getParent() == null) {
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-                layoutParams.addRule(2, R.id.obfuscated_res_0x7f090992);
-                layoutParams.bottomMargin = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703ef);
-                this.b.addView(this.d, layoutParams);
-            }
-            this.d.setData(alaEnterEffectData);
-            this.d.g();
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.f = z;
         }
     }
 }

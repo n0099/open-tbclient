@@ -1,7 +1,11 @@
 package com.baidu.tieba;
+/* loaded from: classes8.dex */
+public interface seb {
+    void onCancel();
 
-import java.io.ObjectInput;
-/* loaded from: classes7.dex */
-public interface seb<T> {
-    T a(ObjectInput objectInput);
+    void onExceptionThrown(String str);
+
+    void onProgressChanged(int i, double d, long j);
+
+    void onTrackEnd(int i);
 }

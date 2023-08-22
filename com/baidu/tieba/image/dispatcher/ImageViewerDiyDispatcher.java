@@ -2,14 +2,14 @@ package com.baidu.tieba.image.dispatcher;
 
 import android.util.TypedValue;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
-import com.baidu.tieba.t1a;
+import com.baidu.tieba.y5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ImageViewerDiyDispatcher implements t1a {
+public class ImageViewerDiyDispatcher implements y5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,7 +42,7 @@ public class ImageViewerDiyDispatcher implements t1a {
         	at jadx.core.dex.visitors.blocks.BlockProcessor.processBlocksTree(BlockProcessor.java:47)
         	at jadx.core.dex.visitors.blocks.BlockProcessor.visit(BlockProcessor.java:39)
         */
-    @Override // com.baidu.tieba.t1a
+    @Override // com.baidu.tieba.y5a
     public void dispatch(org.json.JSONObject r23, android.content.Context r24) {
         /*
             r22 = this;

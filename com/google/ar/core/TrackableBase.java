@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.jlb;
+import com.baidu.tieba.yrb;
 /* loaded from: classes9.dex */
-public class TrackableBase implements jlb {
+public class TrackableBase implements yrb {
     public final long a;
     public final Session b;
 

@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,20 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class fd5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<ShareDialogConfig.From, Integer> e;
+    public static final fd5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public List<Integer> d;
+    public HashMap<String, gd5> a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,17 +32,7 @@ public class fd5 {
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        e = hashMap;
-        hashMap.put(ShareDialogConfig.From.Recommend, 1);
-        e.put(ShareDialogConfig.From.Concern, 2);
-        e.put(ShareDialogConfig.From.PB, 3);
-        e.put(ShareDialogConfig.From.FRS, 4);
-        e.put(ShareDialogConfig.From.PersonPolymeric, 5);
-        e.put(ShareDialogConfig.From.VideoMiddlePageHorizontal, 6);
-        e.put(ShareDialogConfig.From.VideoMiddlePageVertical, 7);
-        e.put(ShareDialogConfig.From.HomeVideoTab, 8);
-        e.put(ShareDialogConfig.From.HomeGameTab, 9);
+        b = new fd5();
     }
 
     public fd5() {
@@ -66,64 +49,55 @@ public class fd5 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (System.currentTimeMillis() / 1000 >= this.a && System.currentTimeMillis() / 1000 <= this.b) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c(ShareDialogConfig.From from) {
+    public static fd5 c(JSONObject jSONObject) {
         InterceptResult invokeL;
-        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, from)) == null) {
-            if (this.d == null || (num = e.get(from)) == null || !this.d.contains(num)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return b;
             }
-            return true;
+            JSONObject optJSONObject = jSONObject.optJSONObject("maintab_strategy");
+            fd5 fd5Var = new fd5();
+            fd5Var.a(optJSONObject);
+            return fd5Var;
         }
-        return invokeL.booleanValue;
+        return (fd5) invokeL.objValue;
     }
 
-    public void d(JSONObject jSONObject) {
+    public gd5 b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.a != null && !StringUtils.isNull(str)) {
+                return this.a.get(str);
+            }
+            return null;
         }
-        this.a = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
-        this.b = jSONObject.optInt("end_time");
-        this.c = jSONObject.optString("text");
-        e(jSONObject.optString("page_list"));
+        return (gd5) invokeL.objValue;
     }
 
-    public final void e(String str) {
-        String[] split;
+    public final void a(JSONObject jSONObject) {
+        int length;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || bi.isEmpty(str) || (split = str.split(",")) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        for (String str2 : split) {
-            int i = JavaTypesHelper.toInt(str2, -1);
-            if (i != -1) {
-                if (this.d == null) {
-                    this.d = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        if (optJSONArray != null) {
+            this.a = new HashMap<>();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    gd5 g = gd5.g(optJSONObject);
+                    if (!StringUtils.isNull(g.f())) {
+                        this.a.put(g.f(), g);
+                    }
                 }
-                this.d.add(Integer.valueOf(i));
             }
         }
     }

@@ -12,7 +12,7 @@ public abstract class xa<T extends ResponsedMessage<?>> extends ya<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract T a(T t);
+    public abstract T g(T t);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xa(int i) {
@@ -34,13 +34,13 @@ public abstract class xa<T extends ResponsedMessage<?>> extends ya<T> {
         }
     }
 
-    public T b(T t) {
+    public T h(T t) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
             if (t != null) {
                 if (getCmd() == 0 || getCmd() == t.getCmd()) {
-                    return a(t);
+                    return g(t);
                 }
                 return t;
             }

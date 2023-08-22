@@ -1,115 +1,81 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class r03 extends e12 {
+public class r03 extends q03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "UpdateMenuStyleApi" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948067764, "Lcom/baidu/tieba/r03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948067764, "Lcom/baidu/tieba/r03;");
+                return;
+            }
+        }
+        boolean z = nr1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r03(@NonNull zy1 zy1Var) {
-        super(zy1Var);
+    public r03(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zy1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zy1) newInitContext.callArgs[0]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public final int y(String str) {
-        InterceptResult invokeL;
-        char c;
+    @Override // com.baidu.tieba.q03
+    public boolean a(l03 l03Var, n03 n03Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != -1866956286) {
-                if (hashCode == -838846263 && str.equals(StickerDataChangeType.UPDATE)) {
-                    c = 0;
-                }
-                c = 65535;
-            } else {
-                if (str.equals("webDegrade")) {
-                    c = 1;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return 12;
-                }
-                return 20;
-            }
-            return 19;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{l03Var, n03Var, context, unitedSchemeEntity, callbackHandler, db3Var})) == null) {
+            d82.i("vrvideo", "remove, video id:" + n03Var.j + " slave id: " + n03Var.c);
+            d(l03Var, n03Var, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return invokeL.intValue;
+        return invokeCommon.booleanValue;
     }
 
-    public y22 x(String str) {
-        InterceptResult invokeL;
+    public final void d(l03 l03Var, n03 n03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#changeMenuStyle", false);
-            Pair<y22, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (((y22) s.first).isSuccess() && jSONObject != null) {
-                String optString = jSONObject.optString("type");
-                if (TextUtils.isEmpty(optString)) {
-                    return new y22(202);
-                }
-                int y = y(optString);
-                lw2 T2 = lw2.T();
-                if (T2 == null) {
-                    return new y22(1001);
-                }
-                ha2 U = T2.U();
-                if (U == null) {
-                    return new y22(1001);
-                }
-                ea2 m = U.m();
-                if (m == null) {
-                    return new y22(1001);
-                }
-                fh4 Q1 = m.Q1();
-                if (Q1 == null) {
-                    if (m instanceof la2) {
-                        ((la2) m).l3(y);
-                        return y22.f();
-                    }
-                    return new y22(1001);
-                }
-                Q1.e(y);
-                Q1.y();
-                return y22.f();
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l03Var, n03Var, unitedSchemeEntity, callbackHandler) == null) {
+            s62 a = q72.a(n03Var);
+            if (a != null) {
+                a.B();
+            } else {
+                w72.a("VrVideoRemoveAction", "remove with a null component");
             }
-            return new y22(202);
+            l03Var.onDestroy();
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        return (y22) invokeL.objValue;
     }
 }

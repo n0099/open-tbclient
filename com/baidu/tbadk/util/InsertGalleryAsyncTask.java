@@ -17,7 +17,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.jb;
-import com.baidu.tieba.xh;
+import com.baidu.tieba.zh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -313,7 +313,7 @@ public class InsertGalleryAsyncTask extends BdAsyncTask<String, String, a> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, str)) == null) {
-            xh.k(str);
+            zh.k(str);
             return new File(str);
         }
         return (File) invokeL.objValue;

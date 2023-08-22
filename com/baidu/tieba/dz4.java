@@ -1,45 +1,243 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.browser.CommonTbJsBridge;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class dz4 {
+public final class dz4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile gc7 a;
+    public static final a b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, List<c>> a;
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(String str);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d extends c {
+        String getKey();
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e extends d {
+        TbWebView b();
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947721835, "Lcom/baidu/tieba/dz4;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947721835, "Lcom/baidu/tieba/dz4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947721835, "Lcom/baidu/tieba/dz4;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+        b = new a(null);
+    }
+
+    public /* synthetic */ dz4(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    @JvmStatic
+    public static final dz4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? b.a() : (dz4) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947721835, "Lcom/baidu/tieba/dz4;");
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final dz4 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b.a.a();
+            }
+            return (dz4) invokeV.objValue;
         }
     }
 
-    public static gc7 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (CommonTbJsBridge.class) {
-                    if (a == null) {
-                        a = new gc7();
-                    }
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public static final dz4 b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-845076627, "Lcom/baidu/tieba/dz4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-845076627, "Lcom/baidu/tieba/dz4$b;");
+                    return;
                 }
             }
-            return a;
+            a = new b();
+            b = new dz4(null);
         }
-        return (gc7) invokeV.objValue;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        public final dz4 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return b;
+            }
+            return (dz4) invokeV.objValue;
+        }
+    }
+
+    public dz4() {
+        List<d> list;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap();
+        cz4 cz4Var = new cz4();
+        lk1<d> lk1Var = cz4Var.a;
+        if (lk1Var != null) {
+            list = lk1Var.getList();
+        } else {
+            list = null;
+        }
+        if (!ListUtils.isEmpty(list)) {
+            for (d inject : cz4Var.a.getList()) {
+                Intrinsics.checkNotNullExpressionValue(inject, "inject");
+                c(inject);
+            }
+        }
+    }
+
+    public final void b(WebView webView, String key, String data) {
+        List<c> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, webView, key, data) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (!TextUtils.isEmpty(key) && (list = this.a.get(key)) != null) {
+                for (c cVar : list) {
+                    if (cVar instanceof e) {
+                        TbWebView b2 = ((e) cVar).b();
+                        boolean z = true;
+                        if ((b2 == null || !b2.v(webView)) ? false : false) {
+                        }
+                    }
+                    cVar.a(data);
+                }
+            }
+        }
+    }
+
+    public final void c(d listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            d(listener.getKey(), listener, false);
+        }
+    }
+
+    public final void e(d listener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, listener) == null) {
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            f(listener.getKey(), listener);
+        }
+    }
+
+    public final void d(String str, c cVar, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, str, cVar, z) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        List<c> list = this.a.get(str);
+        if (list == null) {
+            list = new ArrayList<>();
+            this.a.put(str, list);
+        }
+        list.add(cVar);
+    }
+
+    public final void f(String notifyKey, c listener) {
+        List<c> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, notifyKey, listener) == null) {
+            Intrinsics.checkNotNullParameter(notifyKey, "notifyKey");
+            Intrinsics.checkNotNullParameter(listener, "listener");
+            if (!TextUtils.isEmpty(notifyKey) && (list = this.a.get(notifyKey)) != null) {
+                list.remove(listener);
+            }
+        }
     }
 }

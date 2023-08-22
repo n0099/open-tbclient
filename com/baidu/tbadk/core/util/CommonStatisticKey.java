@@ -77,6 +77,8 @@ public class CommonStatisticKey {
     public static final String KEY_FRS_ADVANCED_AD_AUTO_JUMP_H5 = "c14197";
     public static final String KEY_FRS_ADVANCED_AD_CLICK_JUMP_H5 = "c14196";
     public static final String KEY_FRS_ADVANCED_AD_COMPLETE_SHOW = "c14195";
+    public static final String KEY_FRS_BANNER_FORUM_MOUNT_CLICK = "c15436";
+    public static final String KEY_FRS_BANNER_FORUM_MOUNT_SHOW = "c15435";
     public static final String KEY_FRS_CONTENT_COLLECTION_TAB_LOG = "c15138";
     public static final String KEY_FRS_FORUM_FLOAT_CLICK = "c13881";
     public static final String KEY_FRS_ITEM_ACCELERATOR_START_BTN_DESC_CLICK = "c14541";
@@ -136,6 +138,10 @@ public class CommonStatisticKey {
     public static final String KEY_HOT_TOPIC_BANNER_CLICK = "c14902";
     public static final String KEY_HOT_TOPIC_NEXT_ONE = "c14903";
     public static final String KEY_IMMERSION_VIDEO_SHARE_DIALOG_MUSK_CLiCK = "c14339";
+    public static final String KEY_INSTALL_EXIT_DIALOG_REMIND_CLICK = "c15434";
+    public static final String KEY_INSTALL_EXIT_DIALOG_REMIND_SHOW = "c15433";
+    public static final String KEY_INSTALL_NOTIFICATION_REMIND_CLICK = "c15432";
+    public static final String KEY_INSTALL_NOTIFICATION_REMIND_SHOW = "c15431";
     public static final String KEY_INTEREST_GUIDE_CLICK = "c14096";
     public static final String KEY_INTEREST_GUIDE_SEE_MORE_CLICK = "c14350";
     public static final String KEY_INTEREST_GUIDE_SHOW = "c14095";
@@ -188,6 +194,7 @@ public class CommonStatisticKey {
     public static final String KEY_PB_RECOMMEND_GUIDE_VIEW_JUMP = "c14875";
     public static final String KEY_PB_RECOMMEND_GUIDE_VIEW_SHOW = "c14874";
     public static final String KEY_PERSON_LIVE_TAB_CLICK = "c14123";
+    public static final String KEY_POST_SUCCESS = "c15308";
     public static final String KEY_POST_THREAD_AT_USE_CONDITION = "c14380";
     public static final String KEY_PUSH_PERMISSIION_DIALOG_SHOW = "c13674";
     public static final String KEY_PUSH_PERMISSION_DIALOG_click = "c13673";
@@ -203,6 +210,7 @@ public class CommonStatisticKey {
     public static final String KEY_RECOMMEND_TIP_ITEM_CLICK = "c12049";
     public static final String KEY_RED_PACKET_POP_WINDOW_SHOW = "c13083";
     public static final String KEY_REPORT_PRIVATE_MSG_CHANGE = "c14577";
+    public static final String KEY_ROBOT_MALL_ENTRANCE_EXPLORE_CLICK = "c15410";
     public static final String KEY_SCREEN_SHOT = "c13848";
     public static final String KEY_SEND_EASTER_EGG_EMOJI = "c14659";
     public static final String KEY_SERVICE_CENTER_CLICK = "c14968";

@@ -1,75 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.NewFloorInfo;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class lp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final RoundTbImageView b;
+    public final RoundTbImageView c;
+    public final String d;
 
-    public static void a(wo8 wo8Var, int i) {
+    public lp8(@NonNull String str, @NonNull RoundTbImageView roundTbImageView, @NonNull RoundTbImageView roundTbImageView2, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, wo8Var, i) == null) && wo8Var != null && wo8Var.u() != null && !ListUtils.isEmpty(wo8Var.i()) && wo8Var.i().size() >= 2) {
-            List<NewFloorInfo> i2 = wo8Var.i();
-            if (i2.size() > 2) {
-                if (StringHelper.equals(wo8Var.u().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                    if (i2.get(1) != null) {
-                        if (i2.get(1).is_floor.intValue() == 0) {
-                            b(wo8Var, 12, i);
-                            return;
-                        } else if (i2.get(1).is_floor.intValue() == 1) {
-                            b(wo8Var, 13, i);
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                    return;
-                } else if (i2.get(1) != null) {
-                    if (i2.get(1).is_floor.intValue() == 0) {
-                        if (wo8Var.q() != null) {
-                            if (StringHelper.equals(wo8Var.q().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
-                                b(wo8Var, 14, i);
-                                return;
-                            } else {
-                                b(wo8Var, 15, i);
-                                return;
-                            }
-                        }
-                        return;
-                    } else if (i2.get(1).is_floor.intValue() == 1) {
-                        b(wo8Var, 16, i);
-                        return;
-                    } else {
-                        return;
-                    }
-                } else {
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, roundTbImageView, roundTbImageView2, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            b(wo8Var, 11, i);
         }
+        this.a = str;
+        this.b = roundTbImageView;
+        this.c = roundTbImageView2;
+        this.d = str2;
     }
 
-    public static void b(wo8 wo8Var, int i, int i2) {
+    @NonNull
+    public RoundTbImageView a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65537, null, wo8Var, i, i2) == null) && wo8Var != null && wo8Var.r() != null && wo8Var.l() != null) {
-            StatisticItem statisticItem = new StatisticItem("c12928");
-            statisticItem.param("tid", wo8Var.l().f);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            statisticItem.param("fid", wo8Var.l().e);
-            statisticItem.param("fname", wo8Var.l().d);
-            statisticItem.param("pid", wo8Var.n());
-            statisticItem.param("obj_type", i);
-            statisticItem.param("obj_locate", i2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (RoundTbImageView) invokeV.objValue;
+    }
+
+    @NonNull
+    public RoundTbImageView b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (RoundTbImageView) invokeV.objValue;
+    }
+
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

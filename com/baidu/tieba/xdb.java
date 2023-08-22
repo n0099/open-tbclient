@@ -1,136 +1,135 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import java.io.ObjectInput;
-import java.io.ObjectOutput;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import com.baidu.ugc.download.exception.DownloadException;
 /* loaded from: classes8.dex */
-public class xdb extends ueb {
+public class xdb implements qdb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<Ssp> a;
-    public final Set<keb> b;
-    public final Set<ieb> c;
+    public sdb a;
+    public rdb b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xdb(int i, ObjectInput objectInput) {
-        super(i);
-        HashSet hashSet;
+    public xdb(sdb sdbVar, pdb pdbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), objectInput};
+            Object[] objArr = {sdbVar, pdbVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int readInt = objectInput.readInt();
-        HashSet hashSet2 = new HashSet(readInt);
-        HashMap hashMap = new HashMap();
-        for (int i4 = 0; i4 < readInt; i4++) {
-            Ssp ssp = new Ssp(objectInput.readInt(), objectInput);
-            hashSet2.add(ssp);
-            for (Ssp.Pid pid : ssp.pids) {
-                hashMap.put(Long.valueOf(pid.id), pid);
-            }
-        }
-        int readInt2 = objectInput.readInt();
-        HashSet hashSet3 = new HashSet(readInt2);
-        for (int i5 = 0; i5 < readInt2; i5++) {
-            hashSet3.add(new keb(objectInput.readInt(), objectInput, hashMap));
-        }
-        this.a = Collections.unmodifiableSet(hashSet2);
-        this.b = Collections.unmodifiableSet(hashSet3);
-        if (i == 1) {
-            int readInt3 = objectInput.readInt();
-            hashSet = new HashSet(readInt3);
-            for (int i6 = 0; i6 < readInt3; i6++) {
-                hashSet.add(new ieb(objectInput.readInt(), objectInput, hashMap));
-            }
-        } else {
-            hashSet = new HashSet();
-        }
-        this.c = Collections.unmodifiableSet(hashSet);
+        this.a = sdbVar;
+        rdb rdbVar = new rdb();
+        this.b = rdbVar;
+        rdbVar.k(pdbVar);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xdb(Set<Ssp> set, Set<keb> set2, Set<ieb> set3) {
-        super(1);
+    @Override // com.baidu.tieba.qdb
+    public void a(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {set, set2, set3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
+            this.b.m(downloadException);
+            this.b.r(108);
+            this.a.a(this.b);
         }
-        this.a = set;
-        this.b = set2;
-        this.c = set3;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qdb
+    public void b(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || xdb.class != obj.getClass()) {
-                return false;
-            }
-            xdb xdbVar = (xdb) obj;
-            return Objects.equals(this.a, xdbVar.a) && Objects.equals(this.b, xdbVar.b) && Objects.equals(this.c, xdbVar.c);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
+            this.b.m(downloadException);
+            this.b.r(108);
+            this.a.a(this.b);
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qdb
+    public void onDownloadCompleted(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b, this.c) : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.b.r(105);
+            this.b.q(str);
+            this.a.a(this.b);
+        }
     }
 
-    @Override // com.baidu.tieba.ueb
-    public void srzableInternal(ObjectOutput objectOutput) {
+    @Override // com.baidu.tieba.qdb
+    public void onConnectCanceled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
-            objectOutput.writeInt(this.a.size());
-            for (Ssp ssp : this.a) {
-                ssp.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.b.size());
-            for (keb kebVar : this.b) {
-                kebVar.srzable(objectOutput);
-            }
-            objectOutput.writeInt(this.c.size());
-            for (ieb iebVar : this.c) {
-                iebVar.srzable(objectOutput);
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.r(107);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.qdb
+    public void onConnecting() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.r(102);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.qdb
+    public void onDownloadCanceled() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b.r(107);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.qdb
+    public void onDownloadPaused() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.r(106);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.qdb
+    public void onStarted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.b.r(101);
+            this.b.a().h();
+        }
+    }
+
+    @Override // com.baidu.tieba.qdb
+    public void onConnected(long j, long j2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
+            this.b.s(j);
+            this.b.j(z);
+            this.b.r(103);
+            this.a.a(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.qdb
+    public void onDownloadProgress(long j, long j2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+            this.b.n(j);
+            this.b.o(j2);
+            this.b.p(i);
+            this.b.r(104);
+            this.a.a(this.b);
         }
     }
 }

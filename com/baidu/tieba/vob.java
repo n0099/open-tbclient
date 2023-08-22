@@ -1,106 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.HashMap;
+import com.qq.e.ads.rewardvideo.RewardVideoAD;
 import java.util.Map;
 /* loaded from: classes8.dex */
-public class vob extends uob {
+public class vob extends qob<RewardVideoAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> c;
-    public final Object d;
-    public rob e;
-    public boolean f;
+    public String b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vob(Context context, String str) {
-        super(context, str);
+    public vob(RewardVideoAD rewardVideoAD) {
+        super(rewardVideoAD);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {rewardVideoAD};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1]);
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new HashMap();
-        this.d = new Object();
-        this.f = true;
-        try {
-            String a = a("/AD91D45E3E72DB6989DDCB13287E75061FABCB933D886E6C6ABEF0939B577138");
-            String a2 = a("/B314B3BF013DF5AC4134E880AF3D2B7C9FFBE8F0305EAC1C898145E2BCF1F21C");
-            String a3 = a("/C767BD8FDF53E53D059BE95B09E2A71056F5F180AECC62836B287ACA5793421B");
-            String a4 = a("/DCB3E6D4C2CF80F30D89CDBC412C964DA8381BB84668769391FBCC3E329AD0FD");
-            if (a == null || a2 == null || a3 == null || a4 == null) {
-                this.f = false;
-            } else {
-                this.e = new qob(a, a2, a3, a4);
-            }
-        } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-            Log.e("SecurityResourcesReader", "Exception when reading the 'K&I' for 'Config'.");
-            this.e = null;
+        this.b = "";
+    }
+
+    @Override // com.baidu.tieba.qob
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (String) ((RewardVideoAD) this.a).getExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID) : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qob
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.b : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qob
+    public void b(Map<String, Object> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            ((RewardVideoAD) this.a).sendLossNotification(map);
         }
     }
 
-    private String a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qob
+    public void d(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? super.a(str, null) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.uob, com.baidu.tieba.oob
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!this.f) {
-                String a = a(str);
-                return a != null ? a : str2;
-            } else if (this.e == null) {
-                Log.e("SecurityResourcesReader", "KEY is null return def directly");
-                return str2;
-            } else {
-                synchronized (this.d) {
-                    String str3 = this.c.get(str);
-                    if (str3 != null) {
-                        return str3;
-                    }
-                    String a2 = a(str);
-                    if (a2 == null) {
-                        return str2;
-                    }
-                    String a3 = this.e.a(a2, str2);
-                    this.c.put(str, a3);
-                    return a3;
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map) == null) {
+            ((RewardVideoAD) this.a).sendWinNotification(map);
         }
-        return (String) invokeLL.objValue;
     }
 
-    public String toString() {
+    @Override // com.baidu.tieba.qob
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SecurityResourcesReader{mKey=, encrypt=" + this.f + '}';
+            return ((RewardVideoAD) this.a).getECPM();
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 }

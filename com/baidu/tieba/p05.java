@@ -1,58 +1,25 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.RomTypeUtil;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetBigday.BigdayInfo;
 /* loaded from: classes7.dex */
 public class p05 {
     public static /* synthetic */ Interceptable $ic;
-    public static p05 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Runnable a;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p05 a;
-
-        public a(p05 p05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p05Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d(0);
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public int c;
+    public long d;
+    public int e;
+    public long f;
+    public long g;
 
     public p05() {
         Interceptable interceptable = $ic;
@@ -64,62 +31,62 @@ public class p05 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new a(this);
-    }
-
-    public static p05 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (p05.class) {
-                    if (b == null) {
-                        b = new p05();
-                    }
-                }
-            }
-            return b;
-        }
-        return (p05) invokeV.objValue;
     }
 
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (RomTypeUtil.check("EMUI")) {
-                return true;
+            if (!StringUtils.isNULL(this.a) && this.d > 0) {
+                int i = this.e;
+                if (i == 1 || i == 3) {
+                    long j = this.f;
+                    if (j > 0) {
+                        long j2 = this.g;
+                        if (j2 > 0 && j2 > j) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return false;
+                }
+                return false;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void b() {
+    public void b(BigdayInfo bigdayInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (a() || DeviceInfoUtil.isHonor()) {
-                d(1);
-                SafeHandler.getInst().postDelayed(this.a, 500L);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigdayInfo) == null) && bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
+            if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
+                this.a = bigdayInfo.img_url;
+                this.b = bigdayInfo.jump_url;
+                this.c = bigdayInfo.img_colour.intValue();
+                this.d = bigdayInfo.id.longValue();
+                this.e = bigdayInfo.position.intValue();
+                this.f = bigdayInfo.start_time.longValue();
+                this.g = bigdayInfo.end_time.longValue();
             }
         }
     }
 
-    public void d(int i) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            try {
-                Bundle bundle = new Bundle();
-                bundle.putString("package", "com.baidu.tieba");
-                bundle.putString("class", SpeedRuntimeProvider.MAIN_ACTIVITY_NAME);
-                bundle.putInt("badgenumber", i);
-                TbadkApplication.getInst().getContentResolver().call(Uri.parse("content://com.huawei.android.launcher.settings/badge/"), "change_badge", (String) null, bundle);
-            } catch (Throwable th) {
-                Log.i("huawei_corner", th.getMessage());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (!(obj instanceof p05)) {
+                return false;
             }
+            p05 p05Var = (p05) obj;
+            if (!p05Var.a() || !a() || this.d != p05Var.d || !StringHelper.equals(this.a, p05Var.a) || (((this.b != null || p05Var.b != null) && !StringHelper.equals(this.b, p05Var.b)) || this.c != p05Var.c || this.e != p05Var.e || this.f != p05Var.f || this.g != p05Var.g)) {
+                return false;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

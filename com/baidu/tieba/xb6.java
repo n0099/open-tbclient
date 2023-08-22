@@ -1,136 +1,189 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.mainentrance.MainEntrance;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListLiveDoubleViewHolder;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class xb6 extends lm<zb6, AlaSubListLiveDoubleViewHolder> {
+public class xb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public hc6 b;
-    public boolean c;
-    public fc6 d;
-    public int e;
-    public int f;
+    public boolean a;
+    public List<String> b;
+    public List<SdkLiveInfoData> c;
+    public hc6 d;
+    public List<bn> e;
+    public boolean f;
+    public String g;
+    public String h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xb6(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), zb6.c);
+    public xb6(ab6 ab6Var, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {ab6Var, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
-        this.a = tbPageContext;
+        this.a = false;
+        this.f = false;
+        this.b = new ArrayList();
+        this.c = new ArrayList();
+        this.e = new ArrayList();
+        if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+            this.f = true;
+        }
+        this.g = str;
+        this.h = str2;
+        a(ab6Var);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: t */
-    public AlaSubListLiveDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public boolean a(ab6 ab6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.d = new fc6(this.a, this.c);
-            return new AlaSubListLiveDoubleViewHolder(this.d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ab6Var)) == null) {
+            if (ab6Var == null) {
+                return false;
+            }
+            boolean e = e(ab6Var.b);
+            this.a = ab6Var.a;
+            return e;
         }
-        return (AlaSubListLiveDoubleViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void x(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void y(hc6 hc6Var) {
+    public void g(hc6 hc6Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, hc6Var) == null) {
-            this.b = hc6Var;
+            this.d = hc6Var;
         }
     }
 
-    public void z(boolean z) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public final void s(zb6 zb6Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zb6Var) != null) || zb6Var == null) {
-            return;
-        }
-        int i = this.f;
-        if (i == 1) {
-            if (zb6Var.a != null) {
-                hb6 b = hb6.b();
-                hb6 b2 = hb6.b();
-                int i2 = this.e;
-                i96 i96Var = zb6Var.a;
-                b.a(b2.d(i2, "c12117", i96Var.a, i96Var.b, i96Var.getThreadData()));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = false;
+            List<String> list = this.b;
+            if (list != null) {
+                list.clear();
             }
-            if (zb6Var.b != null) {
-                hb6 b3 = hb6.b();
-                hb6 b4 = hb6.b();
-                int i3 = this.e;
-                i96 i96Var2 = zb6Var.b;
-                b3.a(b4.d(i3, "c12117", i96Var2.a, i96Var2.b, i96Var2.getThreadData()));
+            List<SdkLiveInfoData> list2 = this.c;
+            if (list2 != null) {
+                list2.clear();
             }
-        } else if (i == 2) {
-            i96 i96Var3 = zb6Var.a;
-            if (i96Var3 != null && i96Var3.getThreadData() != null && zb6Var.a.getThreadData().getThreadAlaInfo() != null) {
-                ThreadData threadData = zb6Var.a.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.getThreadAlaInfo().appId).param(MainEntrance.GOTO_TYPE, zb6Var.a.b));
-            }
-            i96 i96Var4 = zb6Var.b;
-            if (i96Var4 != null && i96Var4.getThreadData() != null && zb6Var.b.getThreadData().getThreadAlaInfo() != null) {
-                ThreadData threadData2 = zb6Var.b.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.getThreadAlaInfo().appId).param(MainEntrance.GOTO_TYPE, zb6Var.b.b));
+            List<bn> list3 = this.e;
+            if (list3 != null) {
+                list3.clear();
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, zb6 zb6Var, AlaSubListLiveDoubleViewHolder alaSubListLiveDoubleViewHolder) {
-        InterceptResult invokeCommon;
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, zb6Var, alaSubListLiveDoubleViewHolder})) == null) {
-            s(zb6Var);
-            alaSubListLiveDoubleViewHolder.a.i(zb6Var);
-            alaSubListLiveDoubleViewHolder.a.s(this.b);
-            return alaSubListLiveDoubleViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final ArrayList<bn> c(List<SdkLiveInfoData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list)) == null) {
+            ArrayList<bn> arrayList = new ArrayList<>();
+            int size = list.size();
+            for (int i = 0; i < size; i += 2) {
+                wa6 wa6Var = new wa6();
+                ja6 ja6Var = new ja6();
+                ja6Var.a = list.get(i);
+                ja6Var.f = true;
+                ja6Var.b = this.f;
+                ja6Var.c = this.g;
+                ja6Var.d = this.h;
+                int i2 = i + 1;
+                ja6Var.e = i2;
+                wa6Var.a = ja6Var;
+                if (i2 < size) {
+                    ja6 ja6Var2 = new ja6();
+                    ja6Var2.a = list.get(i2);
+                    ja6Var2.b = this.f;
+                    ja6Var2.c = this.g;
+                    ja6Var2.d = this.h;
+                    ja6Var2.e = i + 2;
+                    wa6Var.b = ja6Var2;
+                    ja6Var2.g = true;
+                } else {
+                    ja6Var.f = false;
+                    ja6Var.h = true;
+                }
+                arrayList.add(wa6Var);
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public List<bn> d() {
+        InterceptResult invokeV;
+        no6 no6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(this.e)) {
+                arrayList.addAll(this.e);
+            }
+            hc6 hc6Var = this.d;
+            if (hc6Var != null && (no6Var = hc6Var.a) != null && !ListUtils.isEmpty(no6Var.c())) {
+                arrayList.add(0, this.d);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean e(List<SdkLiveInfoData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return false;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (SdkLiveInfoData sdkLiveInfoData : list) {
+                if (sdkLiveInfoData != null) {
+                    String str = sdkLiveInfoData.liveId;
+                    if (!this.b.contains(str)) {
+                        arrayList.add(sdkLiveInfoData);
+                        this.b.add(str);
+                    }
+                }
+            }
+            if (ListUtils.isEmpty(arrayList)) {
+                return false;
+            }
+            this.c.addAll(arrayList);
+            ArrayList<bn> c = c(this.c);
+            this.e = c;
+            if (ListUtils.isEmpty(c)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

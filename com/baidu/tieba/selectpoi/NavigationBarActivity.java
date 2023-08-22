@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -28,16 +28,16 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     public RelativeLayout d;
     public RelativeLayout e;
 
-    public boolean u1() {
+    public boolean s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return true;
         }
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -119,7 +119,7 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
             this.a = (NavigationBar) findViewById(R.id.navigation_bar);
             this.d = (RelativeLayout) findViewById(R.id.navigation_bar_root);
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            if (u1()) {
+            if (s1()) {
                 this.b = (NoNetworkView) ((ViewStub) findViewById(R.id.no_network_viewstub)).inflate();
             }
         }
@@ -128,9 +128,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     @Override // com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void setContentView(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            if (u1()) {
+            if (s1()) {
                 layoutParams.addRule(3, R.id.no_network_view);
             } else {
                 layoutParams.addRule(3, R.id.no_network_viewstub);
@@ -145,9 +145,9 @@ public class NavigationBarActivity extends BaseActivity<NavigationBarActivity> {
     @Override // android.app.Activity
     public void setContentView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
-            u1();
+            s1();
             RelativeLayout relativeLayout = new RelativeLayout(getPageContext().getContext());
             this.e = relativeLayout;
             relativeLayout.addView(view2, new ViewGroup.LayoutParams(-1, -1));

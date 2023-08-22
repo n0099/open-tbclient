@@ -1,12 +1,20 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import android.webkit.ValueCallback;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ut2;
-import com.baidu.tieba.vv2;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.tieba.av1;
+import com.baidu.tieba.bw2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,37 +23,42 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.HashMap;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import okhttp3.Response;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class j82 {
+public class j82 extends ad3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static volatile j82 g;
+    public static Set<String> f;
+    public static final Set<String> g;
     public transient /* synthetic */ FieldHolder $fh;
-    public tc2 a;
-    public volatile boolean b;
-    public volatile boolean c;
-    public volatile boolean d;
-    public volatile boolean e;
+    public ExecutorService c;
+    public int d;
+    public l82 e;
 
     /* loaded from: classes6.dex */
-    public class a implements qi2 {
+    public class a implements av1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vv2 a;
-        public final /* synthetic */ uc2 b;
-        public final /* synthetic */ ex1 c;
-        public final /* synthetic */ ut2.g d;
-        public final /* synthetic */ j82 e;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ UnitedSchemeEntity b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ j82 d;
 
-        public a(j82 j82Var, vv2 vv2Var, uc2 uc2Var, ex1 ex1Var, ut2.g gVar) {
+        public a(j82 j82Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j82Var, vv2Var, uc2Var, ex1Var, gVar};
+                Object[] objArr = {j82Var, context, unitedSchemeEntity, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -55,92 +68,54 @@ public class j82 {
                     return;
                 }
             }
-            this.e = j82Var;
-            this.a = vv2Var;
-            this.b = uc2Var;
-            this.c = ex1Var;
-            this.d = gVar;
+            this.d = j82Var;
+            this.a = context;
+            this.b = unitedSchemeEntity;
+            this.c = callbackHandler;
         }
 
-        @Override // com.baidu.tieba.qi2
-        public void a(gi2 gi2Var) {
+        @Override // com.baidu.tieba.av1.b
+        public void a(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, gi2Var) == null) {
-                this.e.d = true;
-                h82.e().f("loaddebug");
-                y72.k("LocalDebugger", "prepareDaemon finish.");
-                zk2 j = this.e.j(this.a);
-                this.e.t(j);
-                if (j82.f) {
-                    Log.d("LocalDebugger", "debugInitMsg - " + j.s().toString());
-                }
-                this.e.n(this.b, this.c, this.a, this.d);
-                this.e.p(this.b, this.c, this.a, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements ValueCallback<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc2 a;
-        public final /* synthetic */ ex1 b;
-        public final /* synthetic */ vv2 c;
-        public final /* synthetic */ ut2.g d;
-        public final /* synthetic */ j82 e;
-
-        public b(j82 j82Var, uc2 uc2Var, ex1 ex1Var, vv2 vv2Var, ut2.g gVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j82Var, uc2Var, ex1Var, vv2Var, gVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z) {
+                    d82.c("LocalDebugAction", "Authentication Success");
+                    j82.g.add(this.d.o(this.a));
+                    this.d.p(this.a, this.b, this.c);
                     return;
                 }
+                d82.c("LocalDebugAction", "Authentication Fail : Not developer");
+                this.d.w(this.a, this.b, 401);
             }
-            this.e = j82Var;
-            this.a = uc2Var;
-            this.b = ex1Var;
-            this.c = vv2Var;
-            this.d = gVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.webkit.ValueCallback
-        /* renamed from: a */
-        public void onReceiveValue(String str) {
+        @Override // com.baidu.tieba.av1.b
+        public void b(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (j82.f) {
-                    Log.d("LocalDebugger", "master onReceiveValue: " + str);
-                }
-                this.e.b = true;
-                this.e.u(this.a, this.b, this.c, this.d);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                d82.d("LocalDebugAction", "onFail : Authentication exception :", exc);
+                this.d.w(this.a, this.b, 401);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements Runnable {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc2 a;
+        public final /* synthetic */ Context a;
         public final /* synthetic */ String b;
-        public final /* synthetic */ ValueCallback c;
+        public final /* synthetic */ File c;
+        public final /* synthetic */ UnitedSchemeEntity d;
+        public final /* synthetic */ CallbackHandler e;
+        public final /* synthetic */ j82 f;
 
-        public c(j82 j82Var, uc2 uc2Var, String str, ValueCallback valueCallback) {
+        public b(j82 j82Var, Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j82Var, uc2Var, str, valueCallback};
+                Object[] objArr = {j82Var, context, str, file, unitedSchemeEntity, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -150,173 +125,21 @@ public class j82 {
                     return;
                 }
             }
-            this.a = uc2Var;
+            this.f = j82Var;
+            this.a = context;
             this.b = str;
-            this.c = valueCallback;
+            this.c = file;
+            this.d = unitedSchemeEntity;
+            this.e = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d().evaluateJavascript(this.b, this.c);
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements ValueCallback<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(j82 j82Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j82Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.webkit.ValueCallback
-        /* renamed from: a */
-        public void onReceiveValue(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && j82.f) {
-                Log.d("LocalDebugger", "slave onReceiveValue: " + str);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ex1 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ ValueCallback c;
-
-        public e(j82 j82Var, ex1 ex1Var, String str, ValueCallback valueCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j82Var, ex1Var, str, valueCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ex1Var;
-            this.b = str;
-            this.c = valueCallback;
-        }
-
-        /* JADX WARN: Type inference failed for: r0v3, types: [com.baidu.tieba.fx1] */
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.r().evaluateJavascript(this.b, this.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements ValueCallback<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc2 a;
-        public final /* synthetic */ ex1 b;
-        public final /* synthetic */ vv2 c;
-        public final /* synthetic */ ut2.g d;
-        public final /* synthetic */ j82 e;
-
-        public f(j82 j82Var, uc2 uc2Var, ex1 ex1Var, vv2 vv2Var, ut2.g gVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j82Var, uc2Var, ex1Var, vv2Var, gVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = j82Var;
-            this.a = uc2Var;
-            this.b = ex1Var;
-            this.c = vv2Var;
-            this.d = gVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.webkit.ValueCallback
-        /* renamed from: a */
-        public void onReceiveValue(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (j82.f) {
-                    Log.d("LocalDebugger", "slave onReceiveValue: " + str);
-                }
-                this.e.c = true;
-                this.e.u(this.a, this.b, this.c, this.d);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uc2 a;
-        public final /* synthetic */ ex1 b;
-        public final /* synthetic */ vv2 c;
-        public final /* synthetic */ ut2.g d;
-
-        public g(j82 j82Var, uc2 uc2Var, ex1 ex1Var, vv2 vv2Var, ut2.g gVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j82Var, uc2Var, ex1Var, vv2Var, gVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uc2Var;
-            this.b = ex1Var;
-            this.c = vv2Var;
-            this.d = gVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                je3.a(this.a, this.b, this.c, this.d);
-            }
+            this.f.x(this.a, this.b, this.c, this.d, this.e);
         }
     }
 
@@ -333,174 +156,273 @@ public class j82 {
                 return;
             }
         }
-        f = ir1.a;
+        g = new HashSet();
     }
 
-    public j82() {
+    public final void q() {
+        db3 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (b0 = db3.b0()) == null) {
+            return;
+        }
+        mn3.j(b0.w());
+        System.exit(0);
+    }
+
+    public final boolean t() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            mi4 b2 = oi4.b();
+            if (b2 == null) {
+                str = "1";
+            } else {
+                str = b2.i().getString("enable_local_debug_switch", "1");
+            }
+            return TextUtils.equals(str, "1");
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j82(ac3 ac3Var) {
+        super(ac3Var, "/swanAPI/localdebuglaunch");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ac3Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.e = false;
     }
 
-    public static j82 k() {
+    @Override // com.baidu.tieba.ad3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
+            if (!t()) {
+                d82.c("LocalDebugAction", "switch is off");
+                w(context, unitedSchemeEntity, 1003);
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
+                this.e = l82.c(optParamsAsJo);
+                if (ik3.e(0).swanCoreVersionCode < this.e.h) {
+                    d82.c("LocalDebugAction", "swan js version is low");
+                    w(context, unitedSchemeEntity, 1002);
+                    return false;
+                } else if (!u()) {
+                    d82.c("LocalDebugAction", "debug model invalid");
+                    w(context, unitedSchemeEntity, 202);
+                    return false;
+                } else if (!SwanAppAllianceLoginHelper.d.f() && !s().contains(ku2.h0().h(context)) && !g.contains(o(context))) {
+                    qr1.b(this.e.b, new a(this, context, unitedSchemeEntity, callbackHandler));
+                    return true;
+                } else {
+                    p(context, unitedSchemeEntity, callbackHandler);
+                    return true;
+                }
+            }
+            d82.c("LocalDebugAction", "param is null");
+            w(context, unitedSchemeEntity, 202);
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final String o(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return ku2.h0().h(context) + this.e.b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                return URLEncoder.encode(str, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                if (ad3.b) {
+                    Log.e("LocalDebugAction", "url encode fail", e);
+                    return str;
+                }
+                return str;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler) == null) {
+            File b2 = k82.b();
+            if (b2.exists()) {
+                boolean L = hr4.L(b2);
+                d82.i("LocalDebugAction", "debug bundle delete: " + L);
+            }
+            if (k82.g()) {
+                boolean L2 = hr4.L(k82.d());
+                d82.i("LocalDebugAction", "unzip folder delete: " + L2);
+            }
+            this.c = Executors.newFixedThreadPool(4);
+            this.d = 0;
+            m82.e().f("downloadstart");
+            for (int i = 0; i < this.e.c.length(); i++) {
+                String a2 = this.e.a(i);
+                if (TextUtils.isEmpty(a2)) {
+                    int i2 = this.d + 1;
+                    this.d = i2;
+                    if (i2 >= this.e.c.length()) {
+                        d82.c("LocalDebugAction", "IPs are invalid");
+                        w(context, unitedSchemeEntity, 202);
+                        m82.e().f("downloadfail");
+                    }
+                } else {
+                    this.c.execute(new b(this, context, a2, b2, unitedSchemeEntity, callbackHandler));
+                }
+            }
+        }
+    }
+
+    public final Set<String> s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (g == null) {
-                synchronized (j82.class) {
-                    if (g == null) {
-                        g = new j82();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (f == null) {
+                f = new HashSet();
+                mi4 b2 = oi4.b();
+                String str = "";
+                if (b2 != null) {
+                    str = b2.i().getString("auth_white_list", "");
+                }
+                JSONArray jSONArray = null;
+                try {
+                    jSONArray = new JSONArray(str);
+                } catch (JSONException unused) {
+                    if (ad3.b) {
+                        Log.d("LocalDebugAction", "JSONException: parse cloud white list");
+                    }
+                }
+                if (jSONArray != null) {
+                    for (int i = 0; i < jSONArray.length(); i++) {
+                        f.add(jSONArray.optString(i));
                     }
                 }
             }
-            return g;
+            return f;
         }
-        return (j82) invokeV.objValue;
+        return (Set) invokeV.objValue;
     }
 
-    public gi2 l() {
+    public final boolean u() {
         InterceptResult invokeV;
+        JSONArray jSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            tc2 tc2Var = this.a;
-            if (tc2Var != null) {
-                return tc2Var.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (!TextUtils.isEmpty(this.e.a) && !TextUtils.isEmpty(this.e.b) && (jSONArray = this.e.c) != null && jSONArray.length() > 0 && !TextUtils.isEmpty(this.e.d)) {
+                return true;
             }
-            return null;
-        }
-        return (gi2) invokeV.objValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            y72.k("LocalDebugger", "releaseLocalDebugger");
-            tc2 tc2Var = this.a;
-            if (tc2Var != null) {
-                tc2Var.b();
-                this.a = null;
-            }
-            g = null;
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            y72.k("LocalDebugger", "resetMasterAndSlaveStatus");
-            this.e = true;
-            this.b = false;
-            this.c = false;
-        }
-    }
-
-    public final zk2 j(@NonNull vv2<vv2.a> vv2Var) {
+    public final bw2.a v(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vv2Var)) == null) {
-            HashMap hashMap = new HashMap();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "debugInit");
-                jSONObject.put("host", vv2Var.X());
-                jSONObject.put("wsServerPort", vv2Var.Y());
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            hashMap.put("message", jSONObject.toString());
-            return new zk2("message", hashMap);
-        }
-        return (zk2) invokeL.objValue;
-    }
-
-    public final void n(uc2 uc2Var, ex1<?> ex1Var, vv2<vv2.a> vv2Var, ut2.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, uc2Var, ex1Var, vv2Var, gVar) == null) {
-            if (uc2Var != null && uc2Var.d() != null) {
-                so3.a0(new c(this, uc2Var, cr4.E(new File(f82.e())), new b(this, uc2Var, ex1Var, vv2Var, gVar)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity != null && unitedSchemeEntity.getUri() != null) {
+                str = unitedSchemeEntity.getUri().toString();
             } else {
-                y72.k("LocalDebugger", "loadMasterDebugJs - master or js container is null");
+                str = "";
             }
+            d82.i("LocalDebugAction", "local debug scheme = " + str);
+            return (bw2.a) ((bw2.a) ((bw2.a) ((bw2.a) ((bw2.a) ((bw2.a) ((bw2.a) new bw2.a().v0(this.e.b)).A0(false)).L0(true)).M0(this.e.e)).N0(this.e.f)).K0(str)).P0(this.e.g);
         }
+        return (bw2.a) invokeL.objValue;
     }
 
-    public void o(ex1<?> ex1Var, ValueCallback<String> valueCallback) {
+    public final void w(Context context, UnitedSchemeEntity unitedSchemeEntity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, ex1Var, valueCallback) == null) {
-            if (ex1Var != null && ex1Var.r() != null) {
-                String E = cr4.E(new File(f82.f()));
-                if (valueCallback == null) {
-                    valueCallback = new d(this);
-                }
-                so3.a0(new e(this, ex1Var, E, valueCallback));
+        if (interceptable == null || interceptable.invokeLLI(1048585, this, context, unitedSchemeEntity, i) == null) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
+            mi4 b2 = oi4.b();
+            String str = "";
+            if (b2 != null) {
+                str = b2.i().getString("error_url", "");
+            }
+            if (TextUtils.isEmpty(str)) {
+                va3.g(context, "IPs are invalid ：" + i).G();
                 return;
             }
-            y72.k("LocalDebugger", "loadSlaveDebugJs - slave or WebView is null");
+            StringBuilder sb = new StringBuilder();
+            sb.append(SchemeConfig.getSchemeHead());
+            sb.append("://v1/easybrowse/open?url=");
+            sb.append(r(str + "?" + i));
+            SchemeRouter.invoke(context, sb.toString());
         }
     }
 
-    public final void p(uc2 uc2Var, ex1<?> ex1Var, vv2<vv2.a> vv2Var, ut2.g gVar) {
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00c4, code lost:
+        if (r6 >= r4.e.c.length()) goto L37;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void x(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048581, this, uc2Var, ex1Var, vv2Var, gVar) == null) {
-            o(ex1Var, new f(this, uc2Var, ex1Var, vv2Var, gVar));
-        }
-    }
-
-    public final synchronized void u(uc2 uc2Var, ex1<?> ex1Var, vv2<vv2.a> vv2Var, ut2.g gVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048586, this, uc2Var, ex1Var, vv2Var, gVar) == null) {
-            synchronized (this) {
-                if (this.b && this.c) {
-                    y72.k("LocalDebugger", "startFirstPage");
-                    so3.a0(new g(this, uc2Var, ex1Var, vv2Var, gVar));
+        if (interceptable == null || interceptable.invokeLLLLL(1048586, this, context, str, file, unitedSchemeEntity, callbackHandler) == null) {
+            try {
+                Response executeSync = hi4.g().getRequest().url(this.e.b(str)).connectionTimeout(3000).build().executeSync();
+                if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
+                    boolean a2 = kr4.a(executeSync.body().byteStream(), file);
+                    d82.i("LocalDebugAction", "save debug bundle: " + a2);
+                    m82.e().f("downloadsuccess");
+                    this.e.e = str;
+                    context.startActivity(bw2.g1(context, v(unitedSchemeEntity)));
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    if (this.c != null) {
+                        this.c.shutdownNow();
+                        this.c = null;
+                    }
+                    if (!ProcessUtils.isMainProcess()) {
+                        if (ad3.b) {
+                            Log.d("LocalDebugAction", "Suicide for reload.");
+                        }
+                        q();
+                    }
+                }
+                if (executeSync != null) {
+                    executeSync.close();
+                }
+            } catch (IOException unused) {
+                synchronized (this) {
+                    if (this.e.c != null) {
+                        int i = this.d + 1;
+                        this.d = i;
+                    }
+                    d82.c("LocalDebugAction", "Host IPs are invalid");
+                    w(context, unitedSchemeEntity, 1001);
+                    m82.e().f("downloadfail");
                 }
             }
-        }
-    }
-
-    public void q(uc2 uc2Var, ex1<?> ex1Var, vv2<vv2.a> vv2Var, ut2.g gVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(1048582, this, uc2Var, ex1Var, vv2Var, gVar) != null) || !sh2.U().q0()) {
-            return;
-        }
-        y72.k("LocalDebugger", "prepareDaemon start.");
-        if (this.e && this.d && this.a != null) {
-            n(uc2Var, ex1Var, vv2Var, gVar);
-            p(uc2Var, ex1Var, vv2Var, gVar);
-            return;
-        }
-        tc2 d2 = sh2.U().f0().d();
-        this.a = d2;
-        d2.c(new a(this, vv2Var, uc2Var, ex1Var, gVar));
-    }
-
-    public final void t(yk2 yk2Var) {
-        tc2 tc2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, yk2Var) == null) && (tc2Var = this.a) != null) {
-            uk2.a(tc2Var.a(), yk2Var);
         }
     }
 }

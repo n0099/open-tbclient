@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public final class r0a extends t0a {
+public class r0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.z97
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CommonStatisticKey.KEY_HOME_PAGE_YY_LIVE_AVATER_CLICK : (String) invokeV.objValue;
-    }
+    public ArrayList<String> a;
+    public String b;
+    public String c;
+    public ArrayList<String> d;
+    public boolean e;
+    public boolean f;
 
     public r0a() {
         Interceptable interceptable = $ic;

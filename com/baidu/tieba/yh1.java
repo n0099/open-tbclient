@@ -1,75 +1,83 @@
 package com.baidu.tieba;
 
-import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.ArrayMap;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class yh1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bundle a(Map<String, String> map) {
-        InterceptResult invokeL;
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
-            Bundle bundle = new Bundle();
-            for (String str : map.keySet()) {
-                bundle.putString(str, map.get(str));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            JSONObject b = b(str3);
+            try {
+                b.put("orderId", str);
+                b.put("payInfo", str2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return bundle;
+            return b.toString();
         }
-        return (Bundle) invokeL.objValue;
+        return (String) invokeLLL.objValue;
     }
 
-    public static JSONObject b(Map<String, String> map) {
+    public static String d(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            JSONObject b = b(str3);
+            try {
+                b.put("orderId", str);
+                b.put("payUrl", str2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return b.toString();
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static JSONObject b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             JSONObject jSONObject = new JSONObject();
-            for (String str : map.keySet()) {
-                jSONObject.put(str, map.get(str));
+            try {
+                jSONObject.put("returnData", a);
+                jSONObject.put("msg", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
             return jSONObject;
         }
         return (JSONObject) invokeL.objValue;
     }
 
-    public static Map<String, String> d(JSONObject jSONObject) {
+    public static String c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            Map<String, String> c = c();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (!TextUtils.isEmpty(next)) {
-                        c.put(next, jSONObject.optString(next));
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return b(str).toString();
         }
-        return (Map) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static <K, V> Map<K, V> c() {
-        InterceptResult invokeV;
+    public static void e(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return new ArrayMap();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
+            if (bundle != null) {
+                a = bundle.getString("returnData");
+            } else {
+                a = "";
             }
-            return new HashMap();
         }
-        return (Map) invokeV.objValue;
     }
 }

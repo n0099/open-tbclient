@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.facebook.imagepipeline.listener.RequestListener;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface kf2 {
-    RequestListener a(lf2 lf2Var);
+    String a(@NonNull String str);
 }

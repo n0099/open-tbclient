@@ -30,11 +30,13 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public boolean isAlaForum;
     public boolean isForumBusinessAccount;
     public String mBlockInfo;
+    public int mDayThreadNum;
     public int mFollowNumber;
     public String mForumId;
     public String mForumImageUrl;
     public String mForumName;
     public boolean mIsCanPost;
+    public boolean mIsLike;
     public boolean mIsPost;
     public int mLevel;
     public boolean mNeedTrans;
@@ -109,10 +111,19 @@ public class VisitedForumData extends OrmObject implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public int getFollowNumber() {
+    public int getDayThreadNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mDayThreadNum;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getFollowNumber() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mFollowNumber;
         }
         return invokeV.intValue;
@@ -121,7 +132,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public String getForumId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mForumId;
         }
         return (String) invokeV.objValue;
@@ -130,7 +141,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public String getForumImageUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mForumImageUrl;
         }
         return (String) invokeV.objValue;
@@ -139,7 +150,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public String getForumName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mForumName;
         }
         return (String) invokeV.objValue;
@@ -148,7 +159,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public int getLevel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mLevel;
         }
         return invokeV.intValue;
@@ -157,7 +168,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public boolean getNeedTrans() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.mNeedTrans;
         }
         return invokeV.booleanValue;
@@ -166,7 +177,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public int getPostNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mPostNum;
         }
         return invokeV.intValue;
@@ -175,7 +186,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public PostPrefixData getPostPrefix() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.mPostPrefix;
         }
         return (PostPrefixData) invokeV.objValue;
@@ -184,7 +195,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public int getRedCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mRedCount;
         }
         return invokeV.intValue;
@@ -193,7 +204,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public List<FrsTabItemData> getTabInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.mTabInfoList;
         }
         return (List) invokeV.objValue;
@@ -202,7 +213,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public ThemeColorInfo getThemeColorInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.mThemeColorInfo;
         }
         return (ThemeColorInfo) invokeV.objValue;
@@ -211,7 +222,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public String getVisitedTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.mVisitedTime;
         }
         return (String) invokeV.objValue;
@@ -220,7 +231,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public boolean isAlaForum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.isAlaForum;
         }
         return invokeV.booleanValue;
@@ -229,8 +240,17 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public boolean isCanPost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.mIsCanPost;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isIsLike() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return this.mIsLike;
         }
         return invokeV.booleanValue;
     }
@@ -238,7 +258,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public boolean isPost() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.mIsPost;
         }
         return invokeV.booleanValue;
@@ -247,7 +267,7 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public ArrayList<Integer> getThemeColorArrayList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             ThemeColorInfo themeColorInfo = this.mThemeColorInfo;
             if (themeColorInfo != null && themeColorInfo.day != null && themeColorInfo.night != null && themeColorInfo.dark != null) {
                 ArrayList<Integer> arrayList = new ArrayList<>();
@@ -267,14 +287,15 @@ public class VisitedForumData extends OrmObject implements Serializable {
     public void parseHistoryForum(HistoryForumInfo historyForumInfo) {
         boolean z;
         boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048593, this, historyForumInfo) != null) || historyForumInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048595, this, historyForumInfo) != null) || historyForumInfo == null) {
             return;
         }
         this.mForumImageUrl = historyForumInfo.avatar;
         this.mForumId = String.valueOf(historyForumInfo.forum_id);
         this.mForumName = historyForumInfo.forum_name;
-        boolean z3 = false;
+        boolean z4 = false;
         if (historyForumInfo.is_liveforum.intValue() == 1) {
             z = true;
         } else {
@@ -290,11 +311,11 @@ public class VisitedForumData extends OrmObject implements Serializable {
         BlockPopInfo blockPopInfo = historyForumInfo.block_pop_info;
         if (blockPopInfo != null) {
             if (blockPopInfo.can_post.intValue() == 1) {
-                z2 = true;
+                z3 = true;
             } else {
-                z2 = false;
+                z3 = false;
             }
-            this.mIsCanPost = z2;
+            this.mIsCanPost = z3;
             this.mBlockInfo = historyForumInfo.block_pop_info.block_info;
         }
         if (!ListUtils.isEmpty(historyForumInfo.tab_info)) {
@@ -311,9 +332,11 @@ public class VisitedForumData extends OrmObject implements Serializable {
             postPrefixData.parserProtobuf(historyForumInfo.post_prefix);
         }
         if (historyForumInfo.is_forum_business_account.intValue() == 1) {
-            z3 = true;
+            z2 = true;
+        } else {
+            z2 = false;
         }
-        this.isForumBusinessAccount = z3;
+        this.isForumBusinessAccount = z2;
         if (historyForumInfo.tag_info != null) {
             ForumTagInfo forumTagInfo = new ForumTagInfo();
             this.forumTagInfo = forumTagInfo;
@@ -324,32 +347,51 @@ public class VisitedForumData extends OrmObject implements Serializable {
             forumTagInfo2.pic = recomTagInfo.pic;
         }
         this.firstCategory = historyForumInfo.first_category;
+        if (historyForumInfo.is_like.intValue() == 1) {
+            z4 = true;
+        }
+        this.mIsLike = z4;
+        this.mDayThreadNum = historyForumInfo.day_thread_num.intValue();
+    }
+
+    public void setDayThreadNum(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.mDayThreadNum = i;
+        }
     }
 
     public void setForumId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
             this.mForumId = str;
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, str) == null) {
             this.mForumName = str;
+        }
+    }
+
+    public void setIsLike(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+            this.mIsLike = z;
         }
     }
 
     public void setIsPost(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             this.mIsPost = z;
         }
     }
 
     public void setPostNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
             this.mPostNum = i;
         }
     }

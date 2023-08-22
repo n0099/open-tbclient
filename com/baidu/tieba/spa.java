@@ -1,35 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.TimeUnit;
-/* loaded from: classes7.dex */
-public class spa {
-    public static /* synthetic */ Interceptable $ic;
-    public static final long a;
-    public static final yka b;
-    public static boolean c;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.graphics.Bitmap;
+import com.baidu.tieba.video.editvideo.data.PendantData;
+import java.util.List;
+/* loaded from: classes8.dex */
+public interface spa {
+    void P();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160485, "Lcom/baidu/tieba/spa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948160485, "Lcom/baidu/tieba/spa;");
-                return;
-            }
-        }
-        a = TimeUnit.DAYS.toMillis(5L);
-        b = new yka("camera_last_api", 0, "camera_last_api_stamp");
-        c = "Lenovo K520".equals(DeviceInfoHelper.getModel());
-    }
+    void W(String str);
+
+    void g();
+
+    void h0(String str);
+
+    void h1(Bitmap bitmap);
+
+    void l();
+
+    void onNext();
+
+    void r(List<PendantData> list);
+
+    void x();
 }

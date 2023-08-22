@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.f65;
+import com.baidu.tieba.l65;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.s65;
+import com.baidu.tieba.y65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class FrequenceDialogStrategy implements f65 {
+public class FrequenceDialogStrategy implements l65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -68,7 +68,7 @@ public class FrequenceDialogStrategy implements f65 {
         }
     }
 
-    @Override // com.baidu.tieba.f65
+    @Override // com.baidu.tieba.l65
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -81,7 +81,7 @@ public class FrequenceDialogStrategy implements f65 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.f65
+    @Override // com.baidu.tieba.l65
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -94,7 +94,7 @@ public class FrequenceDialogStrategy implements f65 {
                     if (data.frequence == 0) {
                         return true;
                     }
-                    int i = s65.b.getInt(s65.a.a(data.dialogName), 0);
+                    int i = y65.b.getInt(y65.a.a(data.dialogName), 0);
                     if (i < data.frequence) {
                         z = true;
                     }

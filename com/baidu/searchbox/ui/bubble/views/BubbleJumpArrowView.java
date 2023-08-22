@@ -13,7 +13,7 @@ public class BubbleJumpArrowView extends BubbleTextView {
 
     @Override // com.baidu.searchbox.ui.bubble.views.BubbleTextView, com.baidu.searchbox.ui.bubble.views.BubbleBaseView
     public int getBubbleViewResId() {
-        return R.layout.obfuscated_res_0x7f0d018d;
+        return R.layout.obfuscated_res_0x7f0d0190;
     }
 
     public ImageView getJumpArrowImageView() {
@@ -25,8 +25,8 @@ public class BubbleJumpArrowView extends BubbleTextView {
         if (!super.initViewIfNeed()) {
             return false;
         }
-        this.mJumpArrow = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090510);
-        this.mStartIcon = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090518);
+        this.mJumpArrow = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f090513);
+        this.mStartIcon = (ImageView) this.mBubbleView.findViewById(R.id.obfuscated_res_0x7f09051b);
         FontSizeViewExtKt.setScaledSizeRes(this.mJumpArrow, 0, R.dimen.obfuscated_res_0x7f0701ec, R.dimen.obfuscated_res_0x7f0701ec);
         return true;
     }
@@ -36,7 +36,7 @@ public class BubbleJumpArrowView extends BubbleTextView {
         if (imageView == null) {
             return;
         }
-        imageView.setBackground(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080494));
+        imageView.setBackground(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f080495));
         this.mJumpArrow.setVisibility(0);
     }
 

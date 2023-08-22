@@ -48,13 +48,13 @@ public class SizeLimitActivity extends BaseActivity implements DialogInterface.O
 
     private void showDialog(Cursor cursor) {
         String formatFileSize = Formatter.formatFileSize(this, cursor.getInt(cursor.getColumnIndexOrThrow("total_bytes")));
-        String string = getString(R.string.download_button_queue_for_wifi);
+        String string = getString(R.string.obfuscated_res_0x7f0f05ba);
         boolean z = this.mCurrentIntent.getExtras().getBoolean(DownloadInfo.EXTRA_IS_WIFI_REQUIRED);
         BoxAlertDialog.Builder builder = new BoxAlertDialog.Builder(this);
         if (z) {
-            builder.setTitle(R.string.download_wifi_required_title).setMessage(getString(R.string.download_wifi_required_body, new Object[]{formatFileSize, string})).setPositiveButton(R.string.download_button_queue_for_wifi, this).setNegativeButton(R.string.download_button_cancel_download, this);
+            builder.setTitle(R.string.obfuscated_res_0x7f0f05f8).setMessage(getString(R.string.obfuscated_res_0x7f0f05f7, new Object[]{formatFileSize, string})).setPositiveButton(R.string.obfuscated_res_0x7f0f05ba, this).setNegativeButton(R.string.obfuscated_res_0x7f0f05b9, this);
         } else {
-            builder.setTitle(R.string.download_wifi_recommended_title).setMessage(getString(R.string.download_wifi_recommended_body, new Object[]{formatFileSize, string})).setPositiveButton(R.string.download_button_start_now, this).setNegativeButton(R.string.download_button_queue_for_wifi, this);
+            builder.setTitle(R.string.obfuscated_res_0x7f0f05f6).setMessage(getString(R.string.obfuscated_res_0x7f0f05f5, new Object[]{formatFileSize, string})).setPositiveButton(R.string.obfuscated_res_0x7f0f05bb, this).setNegativeButton(R.string.obfuscated_res_0x7f0f05ba, this);
         }
         this.mDialog = builder.setOnCancelListener(this).show(true);
     }

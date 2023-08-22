@@ -6,9 +6,9 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTextureData;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.dab;
-import com.baidu.tieba.o9b;
-import com.baidu.tieba.v6b;
+import com.baidu.tieba.dgb;
+import com.baidu.tieba.kdb;
+import com.baidu.tieba.sgb;
 import com.baidu.ugc.editvideo.data.TextWordsEntity;
 import com.baidu.ugc.editvideo.record.entity.EffectInfo;
 import com.baidu.ugc.utils.FileUtils;
@@ -45,7 +45,7 @@ public class TemplateInfo implements Serializable {
     }
 
     public static TemplateInfo getTemplateInfo(String str) {
-        if (dab.a(str)) {
+        if (sgb.a(str)) {
             return null;
         }
         String str2 = str + File.separator + TEMPLATE_FILE_NAME;
@@ -74,13 +74,13 @@ public class TemplateInfo implements Serializable {
     }
 
     public static void packageEffectConfigMap(MediaTrackConfig mediaTrackConfig, String str) {
-        if (!TextUtils.isEmpty(str) && mediaTrackConfig != null && !o9b.f(mediaTrackConfig.effectResourceMap)) {
+        if (!TextUtils.isEmpty(str) && mediaTrackConfig != null && !dgb.f(mediaTrackConfig.effectResourceMap)) {
             if (mediaTrackConfig.effectConfigMap == null) {
                 mediaTrackConfig.effectConfigMap = new LinkedHashMap();
             }
-            v6b v6bVar = new v6b();
+            kdb kdbVar = new kdb();
             for (Map.Entry<String, String> entry : mediaTrackConfig.effectResourceMap.entrySet()) {
-                mediaTrackConfig.effectConfigMap.put(entry.getKey(), (MediaAEffect) v6bVar.b(FileUtils.readText(new File(str + File.separator + entry.getValue())), MediaAEffect.class));
+                mediaTrackConfig.effectConfigMap.put(entry.getKey(), (MediaAEffect) kdbVar.b(FileUtils.readText(new File(str + File.separator + entry.getValue())), MediaAEffect.class));
             }
             mediaTrackConfig.effectResourceMap = null;
         }
@@ -89,12 +89,12 @@ public class TemplateInfo implements Serializable {
     public static void packageShaderConfigMap(MediaTrackConfig mediaTrackConfig, String str) {
         HashMap hashMap = new HashMap();
         if (!TextUtils.isEmpty(str) && mediaTrackConfig != null) {
-            v6b v6bVar = new v6b();
+            kdb kdbVar = new kdb();
             Map<String, String> map = mediaTrackConfig.shaderResourceMap;
             if (map != null) {
                 for (Map.Entry<String, String> entry : map.entrySet()) {
                     String str2 = str + File.separator + entry.getValue();
-                    ShaderConfig shaderConfig = (ShaderConfig) v6bVar.b(FileUtils.readText(new File(str2)), ShaderConfig.class);
+                    ShaderConfig shaderConfig = (ShaderConfig) kdbVar.b(FileUtils.readText(new File(str2)), ShaderConfig.class);
                     shaderConfig.resourcePath = new File(str2).getParent();
                     hashMap.put(entry.getKey(), shaderConfig);
                     List<MediaTextureData> list = shaderConfig.textures;
@@ -119,7 +119,7 @@ public class TemplateInfo implements Serializable {
                     ShaderConfig value = entry2.getValue();
                     if (value != null) {
                         List<MediaTextureData> list2 = value.textures;
-                        if (!o9b.e(list2)) {
+                        if (!dgb.e(list2)) {
                             for (MediaTextureData mediaTextureData2 : list2) {
                                 if (!TextUtils.isEmpty(mediaTextureData2.path) && mediaTextureData2.path.contains(File.separator)) {
                                     mediaTextureData2.path = str + mediaTextureData2.path;
@@ -135,12 +135,12 @@ public class TemplateInfo implements Serializable {
     }
 
     public static void packageTransitionList(MediaTrackConfig mediaTrackConfig, String str) {
-        if (!TextUtils.isEmpty(str) && mediaTrackConfig != null && !o9b.e(mediaTrackConfig.transitionResourceList)) {
+        if (!TextUtils.isEmpty(str) && mediaTrackConfig != null && !dgb.e(mediaTrackConfig.transitionResourceList)) {
             ArrayList arrayList = new ArrayList();
-            v6b v6bVar = new v6b();
-            int b = o9b.b(mediaTrackConfig.transitionResourceList);
+            kdb kdbVar = new kdb();
+            int b = dgb.b(mediaTrackConfig.transitionResourceList);
             for (int i = 0; i < b; i++) {
-                arrayList.add((MediaTransition) v6bVar.b(FileUtils.readText(new File(str + File.separator + ((String) o9b.c(mediaTrackConfig.transitionResourceList, i)))), MediaTransition.class));
+                arrayList.add((MediaTransition) kdbVar.b(FileUtils.readText(new File(str + File.separator + ((String) dgb.c(mediaTrackConfig.transitionResourceList, i)))), MediaTransition.class));
             }
             mediaTrackConfig.transitionConfigs = arrayList;
             mediaTrackConfig.transitionResourceList = null;
@@ -153,7 +153,7 @@ public class TemplateInfo implements Serializable {
         if (str == null || "".equals(str) || (readText = FileUtils.readText((file = new File(str)))) == null || "".equals(readText)) {
             return null;
         }
-        TemplateInfo templateInfo = (TemplateInfo) new v6b().b(readText, TemplateInfo.class);
+        TemplateInfo templateInfo = (TemplateInfo) new kdb().b(readText, TemplateInfo.class);
         if (templateInfo != null) {
             templateInfo.resourcePath = file.getParent();
         }
@@ -165,7 +165,7 @@ public class TemplateInfo implements Serializable {
             return null;
         }
         try {
-            return new v6b().a(templateInfo);
+            return new kdb().a(templateInfo);
         } catch (Exception e) {
             e.printStackTrace();
             return null;

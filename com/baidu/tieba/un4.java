@@ -5,9 +5,9 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class un4 extends gm4 {
+public class un4 extends lm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,11 +25,14 @@ public class un4 extends gm4 {
         }
     }
 
-    @Override // com.baidu.tieba.gm4, com.baidu.tieba.jm4
-    public void a(JSONArray jSONArray, ti4 ti4Var, @Nullable ti4 ti4Var2, @Nullable ti4 ti4Var3) {
+    @Override // com.baidu.tieba.lm4, com.baidu.tieba.om4
+    public void b(JSONObject jSONObject, yi4 yi4Var, @Nullable yi4 yi4Var2, @Nullable yi4 yi4Var3) {
+        JSONObject optJSONObject;
+        rn4 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, ti4Var, ti4Var2, ti4Var3) == null) {
-            rn4.a().c(jSONArray, ti4Var, ti4Var2, ti4Var3);
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, yi4Var, yi4Var2, yi4Var3) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (a = rn4.a(optJSONObject)) != null) {
+            sn4.e().i(a);
+            sn4.e().j(a.k);
         }
     }
 }

@@ -1,160 +1,118 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.ui.TaskUIBtn;
+import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.bdtask.model.ui.TaskUIProgress;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-/* loaded from: classes8.dex */
-public final class zt extends dr implements bu {
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public final class zt extends pt<TaskUIData> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bs d;
-    public final ds e;
-    public final hs f;
-    public final ks g;
-    public final fs h;
-    public final as i;
-    public final gs j;
-    public final cu k;
-    public final ku l;
 
-    public zt(bs bsVar, ds dsVar, hs hsVar, ks ksVar, fs fsVar, as asVar, gs gsVar, cu cuVar, ku kuVar) {
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskUIData.key : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zt(rt rtVar) {
+        super(rtVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bsVar, dsVar, hsVar, ksVar, fsVar, asVar, gsVar, cuVar, kuVar};
+            Object[] objArr = {rtVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((rt) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = bsVar;
-        this.e = dsVar;
-        this.f = hsVar;
-        this.g = ksVar;
-        this.h = fsVar;
-        this.i = asVar;
-        this.j = gsVar;
-        this.k = cuVar;
-        this.l = kuVar;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ zt(bs bsVar, ds dsVar, hs hsVar, ks ksVar, fs fsVar, as asVar, gs gsVar, cu cuVar, ku kuVar, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(bsVar, dsVar, hsVar, ksVar, fsVar, asVar, gsVar, r10, r11);
-        du duVar;
-        mu muVar;
-        if ((i & 128) != 0) {
-            duVar = new du();
-        } else {
-            duVar = cuVar;
-        }
-        if ((i & 256) != 0) {
-            muVar = new mu();
-        } else {
-            muVar = kuVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.cr
-    public gs a() {
-        InterceptResult invokeV;
+    public final TaskUIProgress b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new TaskUIProgress(null, null, 3, null);
+            }
+            String optString = jSONObject.optString(TaskUIData.keyForeColor);
+            Intrinsics.checkExpressionValueIsNotNull(optString, "raw.optString(keyForeColor)");
+            String optString2 = jSONObject.optString(TaskUIData.keyBackColor);
+            Intrinsics.checkExpressionValueIsNotNull(optString2, "raw.optString(keyBackColor)");
+            return new TaskUIProgress(optString, optString2);
         }
-        return (gs) invokeV.objValue;
+        return (TaskUIProgress) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cr
-    public hs b() {
-        InterceptResult invokeV;
+    public final TaskUIBtn d(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return new TaskUIBtn(null, null, null, null, null, 31, null);
+            }
+            String optString = jSONObject.optString("txt");
+            Intrinsics.checkExpressionValueIsNotNull(optString, "raw.optString(keyTxt)");
+            String optString2 = jSONObject.optString("color");
+            Intrinsics.checkExpressionValueIsNotNull(optString2, "raw.optString(keyColor)");
+            String optString3 = jSONObject.optString(TaskUIData.keyBgUrl);
+            Intrinsics.checkExpressionValueIsNotNull(optString3, "raw.optString(keyBgUrl)");
+            String optString4 = jSONObject.optString(TaskUIData.keyTxtColor);
+            Intrinsics.checkExpressionValueIsNotNull(optString4, "raw.optString(keyTxtColor)");
+            String optString5 = jSONObject.optString("schema");
+            Intrinsics.checkExpressionValueIsNotNull(optString5, "raw.optString(keySchema)");
+            return new TaskUIBtn(optString, optString2, optString3, optString4, optString5);
         }
-        return (hs) invokeV.objValue;
+        return (TaskUIBtn) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cr
-    public as c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pt
+    /* renamed from: e */
+    public TaskUIData a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String uiBackColor = jSONObject.optString(TaskUIData.keyBackColor);
+                String uiMessage = jSONObject.optString("message");
+                int optInt = jSONObject.optInt("duration");
+                String uiForeColor = jSONObject.optString(TaskUIData.keyForeColor);
+                String uiBgUrl = jSONObject.optString(TaskUIData.keyBgUrl);
+                String closeBg = jSONObject.optString(TaskUIData.keyCloseBg);
+                String uiTxtColor = jSONObject.optString(TaskUIData.keyTxtColor);
+                String extra = jSONObject.optString("extra");
+                TaskUIProgress b = b(jSONObject.optJSONObject("progress"));
+                TaskUIBtn d = d(jSONObject.optJSONObject(TaskUIData.keyBackBtn));
+                TaskUIBtn d2 = d(jSONObject.optJSONObject(TaskUIData.keyCancelBtn));
+                int optInt2 = jSONObject.optInt(TaskUIData.keyModalType);
+                Intrinsics.checkExpressionValueIsNotNull(uiBackColor, "uiBackColor");
+                Intrinsics.checkExpressionValueIsNotNull(uiMessage, "uiMessage");
+                Intrinsics.checkExpressionValueIsNotNull(uiForeColor, "uiForeColor");
+                Intrinsics.checkExpressionValueIsNotNull(uiBgUrl, "uiBgUrl");
+                Intrinsics.checkExpressionValueIsNotNull(uiTxtColor, "uiTxtColor");
+                Intrinsics.checkExpressionValueIsNotNull(closeBg, "closeBg");
+                Intrinsics.checkExpressionValueIsNotNull(extra, "extra");
+                return new TaskUIData(uiBackColor, uiMessage, optInt, uiForeColor, uiBgUrl, uiTxtColor, b, d, d2, optInt2, closeBg, extra);
+            } catch (Exception unused) {
+                return new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
+            }
         }
-        return (as) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bu
-    public cu d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.k;
-        }
-        return (cu) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cr
-    public ks e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (ks) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bu
-    public ku f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.l;
-        }
-        return (ku) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cr
-    public ds g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (ds) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cr
-    public bs h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return (bs) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cr
-    public fs i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return (fs) invokeV.objValue;
+        return (TaskUIData) invokeL.objValue;
     }
 }

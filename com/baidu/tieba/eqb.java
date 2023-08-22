@@ -1,183 +1,80 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.zpb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.security.cert.X509Certificate;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.TrustManagerFactory;
-import javax.net.ssl.X509TrustManager;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
 /* loaded from: classes5.dex */
-public class eqb implements X509TrustManager {
+public class eqb extends FunNativeAd2Bridger<opb, com.fun.module.ks.y> {
     public static /* synthetic */ Interceptable $ic;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<X509TrustManager> a;
+    public final zpb.b b;
+    public final /* synthetic */ Context c;
+    public final /* synthetic */ zpb d;
 
-    public void b(X509Certificate[] x509CertificateArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x509CertificateArr) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947744403, "Lcom/baidu/tieba/eqb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947744403, "Lcom/baidu/tieba/eqb;");
-                return;
-            }
-        }
-        b = eqb.class.getSimpleName();
-    }
-
-    public eqb(InputStream inputStream, String str) throws IllegalArgumentException {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eqb(zpb zpbVar, ReporterPidLoader reporterPidLoader, opb opbVar, Context context) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {zpbVar, reporterPidLoader, opbVar, context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        a(inputStream, str);
+        this.d = zpbVar;
+        this.c = context;
+        this.b = new zpb.b(zpbVar, opbVar);
     }
 
-    public final void a(InputStream inputStream, String str) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [android.view.View, com.fun.module.ks.y] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.ks.y createExpressView(opb opbVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, inputStream, str) == null) {
-            if (inputStream != null && str != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                try {
-                    try {
-                        TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance("X509");
-                        KeyStore keyStore = KeyStore.getInstance("bks");
-                        keyStore.load(inputStream, str.toCharArray());
-                        trustManagerFactory.init(keyStore);
-                        TrustManager[] trustManagers = trustManagerFactory.getTrustManagers();
-                        for (int i = 0; i < trustManagers.length; i++) {
-                            if (trustManagers[i] instanceof X509TrustManager) {
-                                this.a.add((X509TrustManager) trustManagers[i]);
-                            }
-                        }
-                        mqb.b(inputStream);
-                    } finally {
-                        mqb.b(inputStream);
-                    }
-                } catch (IOException | KeyStoreException | NoSuchAlgorithmException | CertificateException e) {
-                    String str2 = b;
-                    nqb.d(str2, "loadInputStream: exception : " + e.getMessage());
-                }
-                String str3 = b;
-                nqb.b(str3, "loadInputStream: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-                return;
-            }
-            throw new IllegalArgumentException("inputstream or trustPwd is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, opbVar)) == null) {
+            return this.d.f(this.c, opbVar);
+        }
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, opb opbVar, BaseNativeAd2<opb, com.fun.module.ks.y> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, opbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.d.g(opbVar, str, customInflater.inflate(), customInflater.getClickViews(), this.b, funAdInteractionListener);
         }
     }
 
-    @Override // javax.net.ssl.X509TrustManager
-    public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, opb opbVar, BaseNativeAd2<opb, com.fun.module.ks.y> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, x509CertificateArr, str) == null) {
-            nqb.e(b, "checkClientTrusted: ");
-            for (X509TrustManager x509TrustManager : this.a) {
-                try {
-                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
-                    return;
-                } catch (CertificateException e) {
-                    String str2 = b;
-                    nqb.d(str2, "checkServerTrusted CertificateException" + e.getMessage());
-                }
-            }
-            throw new CertificateException("checkServerTrusted CertificateException");
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, opbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.d.g(opbVar, str, expressInflater.inflate(), baseNativeAd2.getExpressView().getClickViews(), this.b, funAdInteractionListener);
         }
-    }
-
-    @Override // javax.net.ssl.X509TrustManager
-    public void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, x509CertificateArr, str) == null) {
-            b(x509CertificateArr);
-            nqb.e(b, "checkServerTrusted begin ,server ca chain size is : " + x509CertificateArr.length + " ,auth type is : " + str);
-            long currentTimeMillis = System.currentTimeMillis();
-            for (X509Certificate x509Certificate : x509CertificateArr) {
-                nqb.b(b, "server ca chain: getSubjectDN is :" + x509Certificate.getSubjectDN());
-                nqb.b(b, "IssuerDN :" + x509Certificate.getIssuerDN());
-                nqb.b(b, "SerialNumber : " + x509Certificate.getSerialNumber());
-            }
-            int size = this.a.size();
-            for (int i = 0; i < size; i++) {
-                try {
-                    nqb.e(b, "check server i : " + i);
-                    X509TrustManager x509TrustManager = this.a.get(i);
-                    X509Certificate[] acceptedIssuers = x509TrustManager.getAcceptedIssuers();
-                    if (acceptedIssuers != null) {
-                        nqb.e(b, "client root ca size is : " + acceptedIssuers.length);
-                        for (int i2 = 0; i2 < acceptedIssuers.length; i2++) {
-                            nqb.b(b, "client root ca getIssuerDN :" + acceptedIssuers[i2].getIssuerDN());
-                        }
-                    }
-                    x509TrustManager.checkServerTrusted(x509CertificateArr, str);
-                    nqb.e(b, "checkServerTrusted succeed ,root ca issuer is : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
-                    return;
-                } catch (CertificateException e) {
-                    nqb.d(b, "checkServerTrusted error :" + e.getMessage() + " , time : " + i);
-                    if (i == size - 1) {
-                        if (x509CertificateArr != null && x509CertificateArr.length > 0) {
-                            nqb.d(b, "root ca issuer : " + x509CertificateArr[x509CertificateArr.length - 1].getIssuerDN());
-                        }
-                        throw e;
-                    }
-                }
-            }
-            nqb.b(b, "checkServerTrusted: cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-        }
-    }
-
-    @Override // javax.net.ssl.X509TrustManager
-    public X509Certificate[] getAcceptedIssuers() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                ArrayList arrayList = new ArrayList();
-                for (X509TrustManager x509TrustManager : this.a) {
-                    arrayList.addAll(Arrays.asList(x509TrustManager.getAcceptedIssuers()));
-                }
-                return (X509Certificate[]) arrayList.toArray(new X509Certificate[arrayList.size()]);
-            } catch (Exception e) {
-                String str = b;
-                nqb.d(str, "getAcceptedIssuers exception : " + e.getMessage());
-                return new X509Certificate[0];
-            }
-        }
-        return (X509Certificate[]) invokeV.objValue;
     }
 }

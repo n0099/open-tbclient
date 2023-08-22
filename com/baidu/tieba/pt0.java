@@ -1,128 +1,182 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.request.Headers;
+import com.baidu.nadcore.net.request.BodyStyle;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.channels.Channels;
-import java.nio.channels.FileChannel;
-import java.nio.channels.ReadableByteChannel;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public final class pt0 {
+public class pt0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] g;
+    public static final pt0 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public BodyStyle a;
+    public String b;
+    public String c;
+    public byte[] d;
+    public File e;
+    public Map<String, String> f;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(String str, int i);
-
-        void b();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements et0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ b b;
-
-        public a(File file, b bVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948073437, "Lcom/baidu/tieba/pt0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {file, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = file;
-            this.b = bVar;
-        }
-
-        @Override // com.baidu.tieba.et0
-        public void a(Exception exc, int i) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && (bVar = this.b) != null) {
-                bVar.a(exc.getMessage(), i);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948073437, "Lcom/baidu/tieba/pt0;");
+                return;
             }
         }
+        byte[] bArr = new byte[0];
+        g = bArr;
+        h = d(null, bArr);
+        b(null, "");
+        c(null, new HashMap());
+    }
 
-        @Override // com.baidu.tieba.et0
-        public void c(Headers headers, InputStream inputStream, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, headers, inputStream, i) == null) {
-                if (i == 200) {
-                    try {
-                        pt0.b(inputStream, this.a);
-                        if (this.b != null) {
-                            this.b.b();
-                            return;
-                        }
-                        return;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        b bVar = this.b;
-                        if (bVar != null) {
-                            bVar.a(e.getMessage(), -1);
-                            return;
-                        }
-                        return;
-                    }
-                }
-                b bVar2 = this.b;
-                if (bVar2 != null) {
-                    bVar2.a("", i);
-                }
+    public pt0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void a(@NonNull File file, @NonNull String str, @Nullable b bVar, @Nullable String str2) {
+    public static pt0 b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, file, str, bVar, str2) == null) {
-            ys0 a2 = us0.b().a();
-            nt0 nt0Var = new nt0();
-            nt0Var.l(str);
-            nt0Var.c();
-            if (!TextUtils.isEmpty(str2)) {
-                nt0Var.d("User-Agent", str2);
-            }
-            a2.b(nt0Var, new a(file, bVar));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            pt0 pt0Var = new pt0();
+            pt0Var.k(BodyStyle.STRING);
+            pt0Var.i(str);
+            pt0Var.h(str2);
+            return pt0Var;
         }
+        return (pt0) invokeLL.objValue;
     }
 
-    public static void b(@NonNull InputStream inputStream, @NonNull File file) throws IOException {
+    public static pt0 c(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, inputStream, file) == null) {
-            FileOutputStream fileOutputStream = new FileOutputStream(file);
-            ReadableByteChannel newChannel = Channels.newChannel(inputStream);
-            FileChannel channel = fileOutputStream.getChannel();
-            long j = 4096;
-            long j2 = 0;
-            while (j > 0) {
-                try {
-                    j = channel.transferFrom(newChannel, j2, 4096L);
-                    j2 += j;
-                } finally {
-                    sj0.a(fileOutputStream);
-                }
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            pt0 pt0Var = new pt0();
+            pt0Var.k(BodyStyle.FORM);
+            pt0Var.i(str);
+            pt0Var.j(map);
+            return pt0Var;
         }
+        return (pt0) invokeLL.objValue;
+    }
+
+    public static pt0 d(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr)) == null) {
+            pt0 pt0Var = new pt0();
+            pt0Var.k(BodyStyle.BYTE);
+            pt0Var.i(str);
+            pt0Var.g(bArr);
+            return pt0Var;
+        }
+        return (pt0) invokeLL.objValue;
+    }
+
+    public pt0 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (this.f == null) {
+                this.f = new HashMap();
+            }
+            this.f.put(str, str2);
+            return this;
+        }
+        return (pt0) invokeLL.objValue;
+    }
+
+    public static pt0 e(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
+            return c("application/x-www-form-urlencoded", map);
+        }
+        return (pt0) invokeL.objValue;
+    }
+
+    public static pt0 f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            return d("application/octet-stream", bArr);
+        }
+        return (pt0) invokeL.objValue;
+    }
+
+    public pt0 g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            this.d = bArr;
+            return this;
+        }
+        return (pt0) invokeL.objValue;
+    }
+
+    public pt0 h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (pt0) invokeL.objValue;
+    }
+
+    public pt0 i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.b = str;
+            return this;
+        }
+        return (pt0) invokeL.objValue;
+    }
+
+    public pt0 j(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
+            this.f = map;
+            return this;
+        }
+        return (pt0) invokeL.objValue;
+    }
+
+    public pt0 k(BodyStyle bodyStyle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bodyStyle)) == null) {
+            this.a = bodyStyle;
+            return this;
+        }
+        return (pt0) invokeL.objValue;
     }
 }

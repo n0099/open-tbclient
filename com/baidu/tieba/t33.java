@@ -1,68 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class t33 {
+public class t33 extends ra2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, callbackHandler, unitedSchemeEntity)) == null) {
-            String b = b(unitedSchemeEntity);
-            if (TextUtils.isEmpty(b)) {
-                y72.i("WxWebViewPayment", "wxPay: url is empty");
-                y72.k("WxWebViewPayment", "param check error - src" + b);
-                rh3.H(false, "wechatH5Action", rh3.m(b, "param check error - src"));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else if (!of1.a().b(context)) {
-                qa3.g(context, context.getText(R.string.obfuscated_res_0x7f0f0216)).G();
-                y72.k("WxWebViewPayment", "Error: wechat not install. " + b);
-                rh3.H(false, "wechatH5Action", rh3.m(b, "Error: wechat not install. "));
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
-                return false;
-            } else {
-                y03 d = y03.d(b, b);
-                y72.k("WxWebViewPayment", "Info: open wechat pay webview, pageParam =" + d);
-                if (!ma2.f3("wxPay", d)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    y72.k("WxWebViewPayment", "Error: webview fragment not opened.");
-                    return false;
+    /* loaded from: classes8.dex */
+    public class a extends oc2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t33 c;
+
+        public a(t33 t33Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t33Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                y72.k("WxWebViewPayment", "Success:open wxPay page success");
-                y72.k("WxWebViewPayment", "Info: end WeChat H5 redirect " + b);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(m33.c(b), 0));
-                return true;
             }
+            this.c = t33Var;
         }
-        return invokeLLL.booleanValue;
+
+        @Override // com.baidu.tieba.oc2, com.baidu.tieba.rc2
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
+                    Map<String, String> t = vo3.t(vo3.o(str));
+                    if (t != null && t.get("statusCode") != null) {
+                        try {
+                            v33.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), URLDecoder.decode(t.get("result"), "UTF-8"));
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                            v33.a().onPayResult(Integer.valueOf(t.get("statusCode")).intValue(), null);
+                        }
+                    } else {
+                        v33.a().onPayResult(6, null);
+                    }
+                    ra2.a3();
+                    return true;
+                }
+                return super.a(str);
+            }
+            return invokeL.booleanValue;
+        }
     }
 
-    public static String b(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public t33() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                return new JSONObject(str).optString("src");
-            } catch (JSONException unused) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ra2
+    public rc2 b3() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (rc2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ra2
+    public mx1 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return xh2.U().f0().i(getContext());
+        }
+        return (mx1) invokeV.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r6v5, types: [com.baidu.tieba.kx1] */
+    @Override // com.baidu.tieba.ra2, com.baidu.swan.support.v4.app.Fragment
+    public View y0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00e4, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f090193).setVisibility(8);
+            mx1 j = j();
+            this.G0 = j;
+            j.X(b3());
+            this.H0 = this.G0.r();
+            this.G0.loadUrl(this.I0);
+            this.G0.i((FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901bf), this.H0.covertToView());
+            if (V1()) {
+                inflate = Y1(inflate);
+            }
+            return E1(inflate, this);
+        }
+        return (View) invokeLLL.objValue;
     }
 }

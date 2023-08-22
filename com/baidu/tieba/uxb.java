@@ -1,206 +1,200 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Path;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.ui.animview.praise.element.eruption.strategy.IEruptionStrategyGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
-import com.yy.transvod.player.core.TransVodProxy;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.preference.Preference;
-import java.util.HashMap;
-import org.json.JSONObject;
+import java.util.Set;
+import java.util.StringTokenizer;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
+import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes8.dex */
-public class uxb extends ssb implements sxb, nxb, mxb {
+public final class uxb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Gson b;
+    public final String a;
+    public Path b;
 
-    @Override // com.baidu.tieba.ssb
-    public void f(Bundle bundle) {
+    public uxb(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ssb
-    public boolean g(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bundle)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ssb
-    public String h(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) ? "" : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ssb
-    public boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ssb
-    public String k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? "" : (String) invokeL.objValue;
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends TypeToken<HashMap<String, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(uxb uxbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uxbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.nxb
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            vsb.d(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.nxb
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            vsb.c(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.nxb
-    public void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            vsb.f(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.nxb
-    public void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            vsb.e(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.mxb
-    public lxb e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            otb otbVar = new otb();
-            otbVar.a = "onDnsHostResolve";
-            otbVar.b.put("hostName", str);
-            tsb<String> m = m(new Gson().toJson(otbVar));
-            lxb lxbVar = new lxb();
-            if (m.a) {
-                String str2 = m.b;
-                if (str2 != null && !str2.isEmpty()) {
-                    lxb a2 = lxb.a(str2);
-                    TLog.h("[PreferenceServer]", "onDnsHostResolve get result from mainProcess，success:" + a2.e + ",dnsResolveType:" + a2.c + ",ipsV4 size:" + a2.a.length + ",ipsV6 size:" + a2.b.length);
-                    return a2;
-                }
-                return lxbVar;
-            }
-            TLog.d("[PreferenceServer]", "onDnsHostResolve send failed!");
-            return lxbVar;
-        }
-        return (lxb) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ssb
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            try {
-                n(str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                TLog.d("[PreferenceServer]", "(onDataFromClient) ex" + e.getMessage());
-            }
-        }
-    }
-
-    public final void n(String str) throws Exception {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            String optString = jSONObject.optString("cmd");
-            int hashCode = optString.hashCode();
-            if (hashCode != -544151029) {
-                if (hashCode != 1082990212) {
-                    if (hashCode == 1360518598 && optString.equals("testSubprocessCrash")) {
-                        c = 2;
-                    }
-                    c = 65535;
-                } else {
-                    if (optString.equals("setMediaConfig")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (optString.equals("initPreference")) {
-                    c = 0;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        TLog.h("[PreferenceServer]", "testSubprocessCrash, crash immediately!!!");
-                        TransVodProxy.e();
-                        return;
-                    }
-                    return;
-                }
-                HashMap hashMap = (HashMap) this.b.fromJson(jSONObject.getJSONObject("data").optString("configs"), new a(this).getType());
-                if (hashMap != null) {
-                    TLog.h("[PreferenceServer]", "setMediaConfig");
-                    Preference.k(hashMap);
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ixb.c(true);
-            Preference.l(this);
-            Preference.j(this);
-            Preference.i(this);
-            TLog.h("[PreferenceServer]", "initPreference");
+        }
+        this.a = StringsKt__StringsKt.contains$default((CharSequence) str, (CharSequence) ",", false, 2, (Object) null) ? StringsKt__StringsJVMKt.replace$default(str, ",", " ", false, 4, (Object) null) : str;
+    }
+
+    public final void a(Path path) {
+        boolean z;
+        Set set;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, path) == null) {
+            Path path2 = this.b;
+            if (path2 != null) {
+                path.set(path2);
+                return;
+            }
+            Path path3 = new Path();
+            StringTokenizer stringTokenizer = new StringTokenizer(this.a, "MLHVCSQRAZmlhvcsqraz", true);
+            String str = "";
+            while (stringTokenizer.hasMoreTokens()) {
+                String segment = stringTokenizer.nextToken();
+                Intrinsics.checkExpressionValueIsNotNull(segment, "segment");
+                if (segment.length() == 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    set = vxb.a;
+                    if (set.contains(segment)) {
+                        if (Intrinsics.areEqual(segment, "Z") || Intrinsics.areEqual(segment, "z")) {
+                            b(path3, segment, new StringTokenizer("", ""));
+                        }
+                        str = segment;
+                    } else {
+                        b(path3, str, new StringTokenizer(segment, " "));
+                    }
+                }
+            }
+            this.b = path3;
+            path.set(path3);
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0097  */
+    /* JADX WARN: Removed duplicated region for block: B:40:0x009b  */
+    /* JADX WARN: Removed duplicated region for block: B:45:0x00ae  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00b8  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x00d1  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x00d5  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x00e8  */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x00f0  */
+    /* JADX WARN: Removed duplicated region for block: B:63:0x0103  */
+    /* JADX WARN: Removed duplicated region for block: B:64:0x010b  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x011e  */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0122  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void b(Path path, String str, StringTokenizer stringTokenizer) {
+        ayb aybVar;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, path, str, stringTokenizer) == null) {
+            float f = 0.0f;
+            float f2 = 0.0f;
+            float f3 = 0.0f;
+            float f4 = 0.0f;
+            float f5 = 0.0f;
+            float f6 = 0.0f;
+            int i = 0;
+            while (stringTokenizer.hasMoreTokens()) {
+                try {
+                    String s = stringTokenizer.nextToken();
+                    Intrinsics.checkExpressionValueIsNotNull(s, "s");
+                    if (s.length() == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (!z) {
+                        if (i == 0) {
+                            f = Float.parseFloat(s);
+                        }
+                        if (i == 1) {
+                            f2 = Float.parseFloat(s);
+                        }
+                        if (i == 2) {
+                            f3 = Float.parseFloat(s);
+                        }
+                        if (i == 3) {
+                            f4 = Float.parseFloat(s);
+                        }
+                        if (i == 4) {
+                            f5 = Float.parseFloat(s);
+                        }
+                        if (i == 5) {
+                            f6 = Float.parseFloat(s);
+                        }
+                        i++;
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            float f7 = f;
+            float f8 = f2;
+            float f9 = f3;
+            float f10 = f4;
+            ayb aybVar2 = new ayb(0.0f, 0.0f, 0.0f);
+            if (Intrinsics.areEqual(str, "M")) {
+                path.moveTo(f7, f8);
+                aybVar2 = new ayb(f7, f8, 0.0f);
+            } else if (Intrinsics.areEqual(str, "m")) {
+                path.rMoveTo(f7, f8);
+                aybVar = new ayb(aybVar2.a() + f7, aybVar2.b() + f8, 0.0f);
+                if (!Intrinsics.areEqual(str, "L")) {
+                    path.lineTo(f7, f8);
+                } else if (Intrinsics.areEqual(str, "l")) {
+                    path.rLineTo(f7, f8);
+                }
+                if (!Intrinsics.areEqual(str, "C")) {
+                    path.cubicTo(f7, f8, f9, f10, f5, f6);
+                } else if (Intrinsics.areEqual(str, "c")) {
+                    path.rCubicTo(f7, f8, f9, f10, f5, f6);
+                }
+                if (!Intrinsics.areEqual(str, "Q")) {
+                    path.quadTo(f7, f8, f9, f10);
+                } else if (Intrinsics.areEqual(str, "q")) {
+                    path.rQuadTo(f7, f8, f9, f10);
+                }
+                if (!Intrinsics.areEqual(str, IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
+                    path.lineTo(f7, aybVar.b());
+                } else if (Intrinsics.areEqual(str, "h")) {
+                    path.rLineTo(f7, 0.0f);
+                }
+                if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
+                    path.lineTo(aybVar.a(), f7);
+                } else if (Intrinsics.areEqual(str, "v")) {
+                    path.rLineTo(0.0f, f7);
+                }
+                if (!Intrinsics.areEqual(str, "Z")) {
+                    path.close();
+                    return;
+                } else if (Intrinsics.areEqual(str, "z")) {
+                    path.close();
+                    return;
+                } else {
+                    return;
+                }
+            }
+            aybVar = aybVar2;
+            if (!Intrinsics.areEqual(str, "L")) {
+            }
+            if (!Intrinsics.areEqual(str, "C")) {
+            }
+            if (!Intrinsics.areEqual(str, "Q")) {
+            }
+            if (!Intrinsics.areEqual(str, IEruptionStrategyGroup.STRATEGY_MODIFIER_H)) {
+            }
+            if (!Intrinsics.areEqual(str, ExifInterface.GPS_MEASUREMENT_INTERRUPTED)) {
+            }
+            if (!Intrinsics.areEqual(str, "Z")) {
+            }
         }
     }
 }

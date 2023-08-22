@@ -1,19 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import android.content.res.Resources;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes7.dex */
 public class ne4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendItemModel a;
-    public List<RecommendItemModel> b;
+    @V8JavascriptField
+    public volatile float height;
+    @V8JavascriptField
+    public volatile float left;
+    @V8JavascriptField
+    public volatile float top;
+    @V8JavascriptField
+    public volatile float width;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+    }
+
+    public void b(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+        }
+    }
 
     public ne4() {
+        Resources resources;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,26 +42,38 @@ public class ne4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public ne4(RecommendItemModel recommendItemModel, List<RecommendItemModel> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recommendItemModel, list};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = recommendItemModel;
-        this.b = list;
+        if (ku2.c() != null) {
+            resources = ku2.c().getResources();
+        } else {
+            resources = null;
+        }
+        this.left = a(resources, R.dimen.obfuscated_res_0x7f070897);
+        this.top = a(resources, R.dimen.obfuscated_res_0x7f070898);
+        this.width = a(resources, R.dimen.obfuscated_res_0x7f070899);
+        this.height = a(resources, R.dimen.obfuscated_res_0x7f070896);
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "{left=" + this.left + ", top=" + this.top + ", width=" + this.width + ", height=" + this.height + "}";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final float a(Resources resources, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, resources, i)) == null) {
+            if (resources != null && i != 0) {
+                return td4.b(resources.getDimension(i));
+            }
+            return 0.0f;
+        }
+        return invokeLI.floatValue;
     }
 }

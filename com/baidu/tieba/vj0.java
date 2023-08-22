@@ -1,11 +1,21 @@
 package com.baidu.tieba;
 
 import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
 /* loaded from: classes8.dex */
-public interface vj0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "alsExternalParam");
+public class vj0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    String a(@Nullable String str);
+    public static void a(@Nullable Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable unused) {
+            }
+        }
+    }
 }

@@ -10,13 +10,13 @@ public class dk implements Application.ActivityLifecycleCallbacks {
     public Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f230a;
+    public String f231a;
     public String b;
 
     public dk(Context context, String str) {
-        this.f230a = "";
+        this.f231a = "";
         this.a = context;
-        this.f230a = str;
+        this.f231a = str;
     }
 
     private void a(String str) {
@@ -38,16 +38,16 @@ public class dk implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityPaused(Activity activity) {
         String localClassName = activity.getLocalClassName();
-        if (TextUtils.isEmpty(this.f230a) || TextUtils.isEmpty(localClassName)) {
+        if (TextUtils.isEmpty(this.f231a) || TextUtils.isEmpty(localClassName)) {
             return;
         }
         this.b = "";
         if (!TextUtils.isEmpty("") && !TextUtils.equals(this.b, localClassName)) {
-            this.f230a = "";
+            this.f231a = "";
             return;
         }
-        a(this.a.getPackageName() + "|" + localClassName + ":" + this.f230a + "," + String.valueOf(System.currentTimeMillis() / 1000));
-        this.f230a = "";
+        a(this.a.getPackageName() + "|" + localClassName + ":" + this.f231a + "," + String.valueOf(System.currentTimeMillis() / 1000));
+        this.f231a = "";
         this.b = "";
     }
 
@@ -56,7 +56,7 @@ public class dk implements Application.ActivityLifecycleCallbacks {
         if (TextUtils.isEmpty(this.b)) {
             this.b = activity.getLocalClassName();
         }
-        this.f230a = String.valueOf(System.currentTimeMillis() / 1000);
+        this.f231a = String.valueOf(System.currentTimeMillis() / 1000);
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks

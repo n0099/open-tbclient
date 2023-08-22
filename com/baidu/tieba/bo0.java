@@ -1,32 +1,34 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes5.dex */
-public interface bo0 {
-    float getLaunchSpeedScore();
+public final class bo0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    float getStaticDeviceScore();
-
-    @Autowired
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Singleton
-        @Inject(force = false)
-        public static bo0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return jy0.a();
-            }
-            return (bo0) invokeV.objValue;
+    @NonNull
+    @Inject(force = false)
+    public static ao0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new dy0();
         }
+        return (ao0) invokeV.objValue;
+    }
+
+    public static z01 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a().create();
+        }
+        return (z01) invokeV.objValue;
     }
 }

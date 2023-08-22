@@ -18,7 +18,7 @@ import com.kwad.sdk.core.response.a.d;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.j;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public KsLogoView bq;
     public ValueAnimator cm;
@@ -30,7 +30,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     public Context mContext;
     public int mHeight;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public interface a {
         void aC();
 
@@ -54,11 +54,11 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
 
     private void E(Context context) {
         this.mContext = context;
-        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0490, this);
-        this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f091288);
-        this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f09127e);
-        this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f09128a);
-        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912b3);
+        FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0497, this);
+        this.cp = (ImageView) findViewById(R.id.obfuscated_res_0x7f09129e);
+        this.cq = (TextView) findViewById(R.id.obfuscated_res_0x7f091294);
+        this.cr = (TextView) findViewById(R.id.obfuscated_res_0x7f0912a0);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912c9);
     }
 
     private void aL() {

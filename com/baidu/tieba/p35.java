@@ -1,95 +1,100 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RewardMaterial;
+import java.util.ArrayList;
+import tbclient.RecommendInfo;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes7.dex */
-public class p35 {
+public class p35 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public boolean c;
-    public boolean d;
+    public ArrayList<q35> b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948011127, "Lcom/baidu/tieba/p35;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948011127, "Lcom/baidu/tieba/p35;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+    }
 
     public p35() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = new ArrayList<>();
     }
 
-    public String a() {
+    public ArrayList<q35> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.data.ThreadData
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
+    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
+            return c;
         }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public static p35 e(RewardMaterial rewardMaterial) {
-        InterceptResult invokeL;
-        boolean z;
+    public void d(RecommendInfo recommendInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rewardMaterial)) == null) {
-            if (rewardMaterial == null) {
-                return null;
-            }
-            p35 p35Var = new p35();
-            p35Var.a = rewardMaterial.icon;
-            p35Var.b = rewardMaterial.unlock_level;
-            boolean z2 = false;
-            if (rewardMaterial.is_matched.intValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            p35Var.c = z;
-            if (rewardMaterial.is_newest_matched_level.intValue() == 1) {
-                z2 = true;
-            }
-            p35Var.d = z2;
-            return p35Var;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendInfo) != null) || recommendInfo == null) {
+            return;
         }
-        return (p35) invokeL.objValue;
+        this.a = recommendInfo.title;
+        for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
+            if (schoolRecomUserInfo != null) {
+                q35 q35Var = new q35();
+                q35Var.f(schoolRecomUserInfo);
+                this.b.add(q35Var);
+            }
+        }
     }
 }

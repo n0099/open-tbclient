@@ -57,7 +57,7 @@ public class KsAppTagsView extends LinearLayout {
     }
 
     public void setAppTags(List<String> list) {
-        c(list, R.layout.obfuscated_res_0x7f0d04ca);
+        c(list, R.layout.obfuscated_res_0x7f0d04d1);
     }
 
     public void setMaxCount(int i) {

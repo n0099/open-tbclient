@@ -24,28 +24,28 @@ public final class i extends d implements View.OnClickListener {
     public View vh;
 
     /* renamed from: vi  reason: collision with root package name */
-    public View f1215vi;
+    public View f1218vi;
     public View vj;
 
     public i(DialogFragment dialogFragment, AdTemplate adTemplate, LayoutInflater layoutInflater, ViewGroup viewGroup, l.a aVar) {
         this.vf = dialogFragment;
         this.adTemplate = adTemplate;
         this.nf = aVar;
-        this.pV = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04cf, viewGroup, false);
+        this.pV = (ViewGroup) layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d04d6, viewGroup, false);
         initView();
     }
 
     private void initView() {
-        this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f09137d);
-        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09137f);
-        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09137b);
-        this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f09137e);
-        this.vh = this.pV.findViewById(R.id.obfuscated_res_0x7f09137c);
-        this.kP = this.pV.findViewById(R.id.obfuscated_res_0x7f091378);
-        this.f1215vi = this.pV.findViewById(R.id.obfuscated_res_0x7f09137a);
-        this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f091379);
+        this.it = (KSCornerImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091393);
+        this.eQ = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091395);
+        this.iu = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091391);
+        this.vg = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091394);
+        this.vh = this.pV.findViewById(R.id.obfuscated_res_0x7f091392);
+        this.kP = this.pV.findViewById(R.id.obfuscated_res_0x7f09138e);
+        this.f1218vi = this.pV.findViewById(R.id.obfuscated_res_0x7f091390);
+        this.vj = this.pV.findViewById(R.id.obfuscated_res_0x7f09138f);
         this.kP.setOnClickListener(this);
-        this.f1215vi.setOnClickListener(this);
+        this.f1218vi.setOnClickListener(this);
         this.vj.setOnClickListener(this);
         this.it.setOnClickListener(this);
         this.eQ.setOnClickListener(this);
@@ -74,7 +74,7 @@ public final class i extends d implements View.OnClickListener {
             if (aVar2 != null) {
                 aVar2.fI();
             }
-        } else if (view2.equals(this.f1215vi)) {
+        } else if (view2.equals(this.f1218vi)) {
             this.vf.dismiss();
             l.a aVar3 = this.nf;
             if (aVar3 != null) {

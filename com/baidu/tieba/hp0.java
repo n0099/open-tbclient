@@ -1,14 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface hp0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "rewardRequest");
+    public static final ServiceReference a = new ServiceReference("nad.core", "getPublicParamsUrl");
 
-    /* loaded from: classes6.dex */
-    public interface a {
-    }
-
-    void a(JSONObject jSONObject, a aVar);
+    String a(String str);
 }

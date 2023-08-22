@@ -1,135 +1,105 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes7.dex */
 public class mp0 {
     public static /* synthetic */ Interceptable $ic;
+    public static jp0 a;
+    public static lp0 b;
+    public static ip0 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
 
-    /* loaded from: classes7.dex */
-    public class a implements NadRequester.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vb1 a;
-        public final /* synthetic */ mp0 b;
-
-        public a(mp0 mp0Var, vb1 vb1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mp0Var, vb1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mp0Var;
-            this.a = vb1Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947980220, "Lcom/baidu/tieba/mp0;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void a(@NonNull NadRequester.Error error) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
-                try {
-                    this.a.dismiss();
-                } catch (Exception unused) {
-                }
-                this.b.f();
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void b(@NonNull List<AdBaseModel> list) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                try {
-                    this.a.dismiss();
-                } catch (Exception unused) {
-                }
-                this.b.d(list);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947980220, "Lcom/baidu/tieba/mp0;");
         }
     }
 
-    public mp0(@NonNull Map<String, String> map) {
+    public mp0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {map};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = map;
-    }
-
-    public final boolean c(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adBaseModel)) == null) {
-            if (adBaseModel != null && !TextUtils.isEmpty(adBaseModel.f.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(@NonNull vb1 vb1Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vb1Var, str) == null) {
-            RequestParameters.b bVar = new RequestParameters.b();
-            bVar.q(str);
-            bVar.n(this.a);
-            NadRequester.a(bVar.o(), new a(this, vb1Var));
-        }
-    }
-
-    public final void d(@NonNull List<AdBaseModel> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            if (a31.g(list)) {
-                f();
-                return;
-            }
-            AdBaseModel adBaseModel = (AdBaseModel) a31.d(list, 0);
-            if (!c(adBaseModel)) {
-                f();
-            } else {
-                yi0.d(adBaseModel.f.c, pj0.b(), null);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final void f() {
+    public static ip0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            j51.a().showToast(pj0.b(), pj0.b().getString(R.string.nad_reward_video_lp_empty));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (mp0.class) {
+                    if (c == null) {
+                        c = (ip0) ServiceManager.getService(ip0.a);
+                    }
+                    if (c == null) {
+                        c = ip0.b;
+                    }
+                }
+            }
+            return c;
         }
+        return (ip0) invokeV.objValue;
+    }
+
+    public static jp0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (mp0.class) {
+                    if (a == null) {
+                        a = (jp0) ServiceManager.getService(jp0.a);
+                    }
+                    if (a == null) {
+                        a = jp0.b;
+                    }
+                }
+            }
+            return a;
+        }
+        return (jp0) invokeV.objValue;
+    }
+
+    public static lp0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (b == null) {
+                synchronized (mp0.class) {
+                    if (b == null) {
+                        b = (lp0) ServiceManager.getService(lp0.a);
+                    }
+                    if (b == null) {
+                        b = lp0.b;
+                    }
+                }
+            }
+            return b;
+        }
+        return (lp0) invokeV.objValue;
     }
 }

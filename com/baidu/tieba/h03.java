@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +12,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.imageutils.JfifUtil;
-import com.qq.e.comm.adevent.AdEventType;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class h03 {
+public class h03 extends f03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> a;
-    public static final HashMap<String, Integer> b;
-    public static final HashMap<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,77 +30,46 @@ public class h03 {
                 return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>(16);
-        a = hashMap;
-        hashMap.put("VRModeProjectionSphere", 201);
-        a.put("VRModeProjectionDome180", 202);
-        a.put("VRModeProjectionDome230", 203);
-        a.put("VRModeProjectionDome180Upper", 204);
-        a.put("VRModeProjectionDome230Upper", 205);
-        a.put("VRModeProjectionPlaneFit", 207);
-        a.put("VRModeProjectionPlaneCrop", 208);
-        a.put("VRModeProjectionPlaneFull", 209);
-        a.put("VRModeProjectionMultiFishEyeHorizontal", 210);
-        a.put("VRModeProjectionMultiFishEyeVertical", Integer.valueOf((int) AdEventType.VIDEO_LOADING));
-        a.put("VRModeProjectionStereoSphereHorizontal", 212);
-        a.put("VRModeProjectionStereoSphereVertical", 213);
-        a.put("VRModeProjectionStereoPlaneFitHorizontal", Integer.valueOf((int) Constants.METHOD_IM_EMOJI));
-        a.put("VRModeProjectionStereoPlaneFitVertical", 215);
-        a.put("VRModeProjectionPlaneFullHorizontal", Integer.valueOf((int) JfifUtil.MARKER_SOI));
-        a.put("VRModeProjectionPlaneFullVertical", 217);
-        HashMap<String, Integer> hashMap2 = new HashMap<>(2);
-        b = hashMap2;
-        hashMap2.put("VRModeDisplayNormal", 101);
-        b.put("VRModeDisplayGlass", 102);
-        HashMap<String, Integer> hashMap3 = new HashMap<>(5);
-        c = hashMap3;
-        hashMap3.put("VRModeInteractiveMotion", 1);
-        c.put("VRModeInteractiveTouch", 2);
-        c.put("VRModeInteractiveMotionWithTouch", 3);
-        c.put("VRModeInteractiveGVRMotion", 4);
-        c.put("VRModeInteractiveGVRMotionWithTouch", 5);
+        boolean z = nr1.a;
     }
 
-    public h03() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h03(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public h03 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.f03
+    public boolean a(vz2 vz2Var, xz2 xz2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            h03 h03Var = new h03();
-            if (jSONObject == null) {
-                return h03Var;
-            }
-            String optString = jSONObject.optString("projectionMode");
-            if (!TextUtils.isEmpty(optString) && a.containsKey(optString)) {
-                a.get(optString).intValue();
-            }
-            String optString2 = jSONObject.optString("displayMode");
-            if (!TextUtils.isEmpty(optString2) && b.containsKey(optString2)) {
-                b.get(optString2).intValue();
-            }
-            String optString3 = jSONObject.optString("interactiveMode");
-            if (!TextUtils.isEmpty(optString3) && c.containsKey(optString3)) {
-                c.get(optString3).intValue();
-            }
-            jSONObject.optInt("fov", -1);
-            jSONObject.optInt("minFov", -1);
-            jSONObject.optInt("maxFov", -1);
-            jSONObject.optBoolean("pinchEnable", true);
-            return h03Var;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{vz2Var, xz2Var, context, unitedSchemeEntity, callbackHandler, db3Var})) == null) {
+            d82.i("video", "seek, video id:" + xz2Var.j + " slave id: " + xz2Var.c);
+            d(vz2Var, xz2Var.r, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (h03) invokeL.objValue;
+        return invokeCommon.booleanValue;
+    }
+
+    public final void d(vz2 vz2Var, int i, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vz2Var, i, unitedSchemeEntity, callbackHandler) == null) {
+            vz2Var.t(i * 1000);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
     }
 }

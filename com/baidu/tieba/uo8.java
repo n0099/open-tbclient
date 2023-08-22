@@ -1,19 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener;
+import com.baidu.android.imsdk.chatmessage.ISendMessageListener;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.group.BIMValueCallBack;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.immessagecenter.mention.agree.message.AgreeMeHTTPResponseMessage;
-import com.baidu.tieba.immessagecenter.mention.agree.message.AgreeMeRequestMessage;
-import com.baidu.tieba.immessagecenter.mention.agree.message.AgreeMeSocketResponseMessage;
+import com.baidu.android.imsdk.upload.AsyncChatTask;
+import com.baidu.android.imsdk.upload.AsyncUploadTask;
+import com.baidu.android.imsdk.upload.IUploadTransferListener;
+import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,190 +20,54 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.util.ArrayList;
-import tbclient.AgreeList;
-import tbclient.AgreeMe.AgreeMeResIdl;
+import com.yy.hiidostatis.inner.util.cipher.Base64Util;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Map;
 /* loaded from: classes8.dex */
-public class uo8 {
-    public static /* synthetic */ Interceptable $ic;
+public class uo8 implements IGenBosObjectUrlListener, IUploadTransferListener, BIMValueCallBack<String>, ISendMessageListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String d = "uo8";
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public BdUniqueId b;
-    public long c;
-    public c d;
-    public ArrayList<ym> e;
-    public boolean f;
-    public NetMessageListener g;
-    @Nullable
-    public BdAsyncTask<Void, Void, ArrayList<wo8>> h;
-
-    /* loaded from: classes8.dex */
-    public interface c {
-        void l(ArrayList<ym> arrayList);
-
-        void onFailed(String str);
-    }
-
-    /* loaded from: classes8.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uo8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(uo8 uo8Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uo8Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uo8Var;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.hasError()) {
-                if (this.a.d != null) {
-                    this.a.d.onFailed(responsedMessage.getErrorString());
-                    return;
-                }
-                return;
-            }
-            boolean z = false;
-            if (responsedMessage.getOrginalMessage() != null && (responsedMessage.getOrginalMessage().getExtra() instanceof AgreeMeRequestMessage) && ((AgreeMeRequestMessage) responsedMessage.getOrginalMessage().getExtra()).id == 0) {
-                z = true;
-            }
-            if (responsedMessage instanceof AgreeMeHTTPResponseMessage) {
-                AgreeMeHTTPResponseMessage agreeMeHTTPResponseMessage = (AgreeMeHTTPResponseMessage) responsedMessage;
-                this.a.j(agreeMeHTTPResponseMessage.datas, z);
-                this.a.f = agreeMeHTTPResponseMessage.hasMore;
-            } else if (responsedMessage instanceof AgreeMeSocketResponseMessage) {
-                AgreeMeSocketResponseMessage agreeMeSocketResponseMessage = (AgreeMeSocketResponseMessage) responsedMessage;
-                this.a.j(agreeMeSocketResponseMessage.datas, z);
-                this.a.f = agreeMeSocketResponseMessage.hasMore;
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b extends BdAsyncTask<Void, Void, ArrayList<wo8>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uo8 a;
-
-        public b(uo8 uo8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uo8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = uo8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ArrayList<wo8> arrayList) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
-                super.onPostExecute(arrayList);
-                if (arrayList == null) {
-                    return;
-                }
-                this.a.i(arrayList);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ArrayList<wo8> doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            byte[] bArr;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                ArrayList<wo8> arrayList = new ArrayList<>();
-                l45.e();
-                ne<byte[]> d = l45.d("tb_user_agreeme", TbadkCoreApplication.getCurrentAccountName());
-                if (d != null && (bArr = d.get("agree_me_cache_key")) != null) {
-                    try {
-                        boolean z = false;
-                        AgreeMeResIdl agreeMeResIdl = (AgreeMeResIdl) new Wire(new Class[0]).parseFrom(bArr, AgreeMeResIdl.class);
-                        if (agreeMeResIdl.data != null) {
-                            uo8 uo8Var = this.a;
-                            if (agreeMeResIdl.data.has_more.intValue() == 1) {
-                                z = true;
-                            }
-                            uo8Var.f = z;
-                            for (AgreeList agreeList : agreeMeResIdl.data.agree_list) {
-                                if (agreeList != null) {
-                                    wo8 wo8Var = new wo8();
-                                    wo8Var.D(agreeList);
-                                    arrayList.add(wo8Var);
-                                }
-                            }
-                            return arrayList;
-                        }
-                        return arrayList;
-                    } catch (Exception unused) {
-                        return null;
-                    }
-                }
-                return arrayList;
-            }
-            return (ArrayList) invokeL.objValue;
-        }
-    }
+    public Context a;
+    public String b;
+    public to8 c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948217835, "Lcom/baidu/tieba/uo8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948217835, "Lcom/baidu/tieba/uo8;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948217835, "Lcom/baidu/tieba/uo8;")) == null) {
+            return;
         }
-        aba.h(309593, AgreeMeSocketResponseMessage.class, false, false);
-        aba.c(309593, CmdConfigHttp.AGREE_ME_HTTP_CMD, "c/u/feed/agreeme", AgreeMeHTTPResponseMessage.class, false, false, false, false);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948217835, "Lcom/baidu/tieba/uo8;");
+        }
     }
 
-    public uo8(TbPageContext tbPageContext, c cVar) {
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onProgress(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.ISendMessageListener
+    public void onSendMessageResult(int i, ChatMsg chatMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, chatMsg) == null) {
+        }
+    }
+
+    public uo8(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, cVar};
+            Object[] objArr = {context, str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -214,107 +77,125 @@ public class uo8 {
                 return;
             }
         }
-        this.a = false;
-        this.c = 0L;
-        this.g = new a(this, CmdConfigHttp.AGREE_ME_HTTP_CMD, 309593);
-        if (tbPageContext != null) {
-            this.b = tbPageContext.getUniqueId();
-            tbPageContext.registerListener(this.g);
-            this.d = cVar;
-        }
+        this.a = context;
+        this.b = str;
     }
 
-    public final void j(ArrayList<wo8> arrayList, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x0079 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+    /* renamed from: a */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onResult(int i, String str, String str2) {
+        FileOutputStream fileOutputStream;
+        Throwable th;
+        Exception e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048582, this, arrayList, z) == null) {
-            this.a = true;
-            if (ListUtils.isEmpty(this.e)) {
-                this.e = new ArrayList<>();
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, str2) == null) {
+            if (i == 0 && !TextUtils.isEmpty(str2)) {
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    try {
+                        byte[] decode = Base64Util.decode(str2);
+                        File file = new File(this.b);
+                        if (file.exists()) {
+                            fileOutputStream = new FileOutputStream(file);
+                            try {
+                                try {
+                                    fileOutputStream.write(decode);
+                                    fileOutputStream.flush();
+                                    fileOutputStream2 = fileOutputStream;
+                                } catch (Exception e2) {
+                                    e = e2;
+                                    if (this.c != null) {
+                                        this.c.isFailed();
+                                    }
+                                    LogUtils.e(d, e.getMessage());
+                                    if (fileOutputStream != null) {
+                                        fileOutputStream.close();
+                                    }
+                                    BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                                    return;
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                if (fileOutputStream != null) {
+                                    try {
+                                        fileOutputStream.close();
+                                    } catch (Exception e3) {
+                                        LogUtils.e(d, e3.getMessage());
+                                    }
+                                }
+                                throw th;
+                            }
+                        } else if (this.c != null) {
+                            this.c.isFailed();
+                        }
+                    } catch (Exception e4) {
+                        LogUtils.e(d, e4.getMessage());
+                    }
+                } catch (Exception e5) {
+                    fileOutputStream = null;
+                    e = e5;
+                } catch (Throwable th3) {
+                    fileOutputStream = null;
+                    th = th3;
+                    if (fileOutputStream != null) {
+                    }
+                    throw th;
+                }
+                if (fileOutputStream2 != null) {
+                    fileOutputStream2.close();
+                }
+                BIMManager.genBosObjectUrl(this.a, this.b, "mp3", "mp3", 12, 0, 0, this);
+                return;
             }
-            if (!z) {
-                this.e.addAll(arrayList);
-            } else {
-                this.e.clear();
-                this.e.addAll(0, arrayList);
-            }
-            ArrayList<ym> arrayList2 = this.e;
-            ym ymVar = (ym) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
-            if (ymVar instanceof wo8) {
-                this.c = ((wo8) ymVar).h();
-            }
-            c cVar = this.d;
-            if (cVar != null) {
-                cVar.l(this.e);
+            to8 to8Var = this.c;
+            if (to8Var != null) {
+                to8Var.isFailed();
             }
         }
     }
 
-    public void d() {
-        BdAsyncTask<Void, Void, ArrayList<wo8>> bdAsyncTask;
+    public void b(@NonNull to8 to8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bdAsyncTask = this.h) != null) {
-            bdAsyncTask.cancel();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, to8Var) == null) {
+            this.c = to8Var;
         }
     }
 
-    public void e() {
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onFailed(int i, int i2, String str) {
+        to8 to8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f();
-            g();
+        if ((interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, str) == null) && (to8Var = this.c) != null) {
+            to8Var.isFailed();
         }
     }
 
-    public final void f() {
+    @Override // com.baidu.android.imsdk.upload.IUploadTransferListener
+    public void onFinished(int i, String str) {
+        to8 to8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.h = new b(this).execute(new Void[0]);
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (to8Var = this.c) != null) {
+            to8Var.a(str);
         }
     }
 
-    public final void g() {
+    @Override // com.baidu.android.imsdk.chatmessage.IGenBosObjectUrlListener
+    public void onGenBosObjectUrlListener(int i, String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            AgreeMeRequestMessage agreeMeRequestMessage = new AgreeMeRequestMessage();
-            agreeMeRequestMessage.id = this.c;
-            agreeMeRequestMessage.setTag(this.b);
-            MessageManager.getInstance().sendMessage(agreeMeRequestMessage);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            g();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c = 0L;
-            g();
-        }
-    }
-
-    public final void i(ArrayList<wo8> arrayList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, arrayList) != null) || this.a) {
-            return;
-        }
-        if (ListUtils.isEmpty(this.e)) {
-            this.e = new ArrayList<>();
-        } else {
-            this.e.clear();
-        }
-        this.e.addAll(arrayList);
-        ArrayList<ym> arrayList2 = this.e;
-        ym ymVar = (ym) ListUtils.getItem(arrayList2, arrayList2.size() - 1);
-        if (ymVar instanceof wo8) {
-            this.c = ((wo8) ymVar).h();
-        }
-        if (this.d != null && !ListUtils.isEmpty(this.e)) {
-            this.d.l(this.e);
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, str2, str3, map}) == null) {
+            if (i == 0) {
+                new AsyncUploadTask(this.a, 2, map.get(AsyncChatTask.PUT_URL), map.get(AsyncChatTask.GET_URL), this.b, "mp3", str2, str3, this).execute(new Void[0]);
+                return;
+            }
+            to8 to8Var = this.c;
+            if (to8Var != null) {
+                to8Var.isFailed();
+            }
         }
     }
 }

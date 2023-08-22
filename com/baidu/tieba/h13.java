@@ -1,24 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
-import android.view.View;
-import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.res.widget.loadingview.LoadingView;
-import com.baidu.swan.apps.view.SwanAppActionBar;
-import com.baidu.tieba.mv1;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,11 +11,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.Arrays;
-import org.json.JSONException;
+import java.io.FileFilter;
+import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class h13 {
@@ -39,45 +22,9 @@ public class h13 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public static class a implements FileFilter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.h13$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0319a implements mv1.a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ File[] a;
-
-            public C0319a(a aVar, File[] fileArr) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, fileArr};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = fileArr;
-            }
-
-            @Override // com.baidu.tieba.mv1.a
-            public void onResult(String str) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && str.contains("success")) {
-                    for (File file : this.a) {
-                        cr4.L(file);
-                    }
-                }
-            }
-        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -93,27 +40,17 @@ public class h13 {
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            File[] fileArr;
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bitmap p = po3.p();
-                mv1 u = fu2.u();
-                yg3.d().b();
-                File[] c = yg3.d().f().c();
-                File b = fu2.i().b(AppRuntime.getAppContext(), ya3.g0());
-                if (c != null) {
-                    int length = c.length;
-                    fileArr = (File[]) Arrays.copyOf(c, length + 1);
-                    fileArr[length] = b;
-                } else {
-                    fileArr = new File[]{b};
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                if (file.isDirectory() && TextUtils.isDigitsOnly(file.getName())) {
+                    return true;
                 }
-                if (u != null) {
-                    u.d(p, null, fileArr, new C0319a(this, fileArr));
-                }
+                return false;
             }
+            return invokeL.booleanValue;
         }
     }
 
@@ -130,179 +67,131 @@ public class h13 {
                 return;
             }
         }
-        a = ir1.a;
+        a = nr1.a;
     }
 
-    public static void a() {
-        ha2 U;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (U = lw2.T().U()) != null && U.m() != null) {
-            sn3.k(new a(), "feedback error page");
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File file = new File(zt2.g(), str);
+        if (!file.exists()) {
+            return;
+        }
+        if (a) {
+            Log.d("PkgInfoExt", "clear all pkg info's ext ,appId - " + str);
+        }
+        File[] listFiles = file.listFiles(new a());
+        if (listFiles != null && listFiles.length > 0) {
+            for (File file2 : listFiles) {
+                b(str, file2.getName());
+            }
         }
     }
 
-    public static ga2 f() {
-        InterceptResult invokeV;
-        ha2 Y;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            SwanAppActivity activity = lw2.T().getActivity();
-            if (activity != null && (Y = activity.Y()) != null) {
-                ea2 m = Y.m();
-                if (m instanceof ga2) {
-                    return (ga2) m;
-                }
-                return null;
-            }
-            return null;
-        }
-        return (ga2) invokeV.objValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return lw2.T().getActivity().getFloatLayer().f();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static Rect b(Bitmap bitmap, ga2 ga2Var, View view2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bitmap, ga2Var, view2)) == null) {
-            if (bitmap == null || ga2Var == null || view2 == null) {
-                return null;
-            }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int min = Math.min(iArr[0] + view2.getMeasuredWidth(), bitmap.getWidth());
-            int min2 = Math.min(iArr[1] + view2.getMeasuredHeight(), bitmap.getHeight());
-            SwanAppActionBar M1 = ga2Var.M1();
-            if (M1 == null) {
-                return null;
-            }
-            int[] iArr2 = new int[2];
-            M1.getLocationOnScreen(iArr2);
-            iArr[1] = Math.max(iArr[1], iArr2[1] + M1.getHeight() + 1);
-            ex1 q3 = ga2Var.q3();
-            if (q3 != null) {
-                hx1 j = q3.j();
-                if (j instanceof SwanAppWebViewWidget) {
-                    if (a) {
-                        Log.d("MonitorUtils", "getCheckRect: hit webview widget");
-                    }
-                    int K1 = ((SwanAppWebViewWidget) j).K1();
-                    if (a) {
-                        Log.d("MonitorUtils", "getCheckRect: webview widget originY=" + iArr[1] + " , progressBarHeight=" + K1);
-                    }
-                    if (K1 > 0) {
-                        iArr[1] = iArr[1] + K1 + 1;
-                    }
-                    if (a) {
-                        Log.d("MonitorUtils", "getCheckRect: webview widget newY=" + iArr[1]);
-                    }
-                }
-            }
-            return new Rect(iArr[0], iArr[1], min, min2);
-        }
-        return (Rect) invokeLLL.objValue;
-    }
-
-    public static String c(Bitmap bitmap) {
+    public static String f(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bitmap)) == null) {
-            if (bitmap == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
                 return "";
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            bitmap.compress(Bitmap.CompressFormat.WEBP, 0, byteArrayOutputStream);
-            return Base64.encodeToString(byteArrayOutputStream.toByteArray(), 0);
+            String c = c(pMSAppInfo);
+            if (TextUtils.isEmpty(c)) {
+                return "";
+            }
+            String string = rj3.a().getString(c, "");
+            if (a) {
+                Log.d("PkgInfoExt", "appId - " + pMSAppInfo.appId + ", get pkg info' ext - " + string);
+            }
+            return string;
         }
         return (String) invokeL.objValue;
     }
 
-    public static int d(ga2 ga2Var) {
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            String e = e(str, str2);
+            if (TextUtils.isEmpty(e)) {
+                return;
+            }
+            rj3.a().edit().remove(e).apply();
+            if (a) {
+                Log.d("PkgInfoExt", "clear pkg info's ext , appId - " + str + ", version code - " + str2);
+            }
+        }
+    }
+
+    public static String c(PMSAppInfo pMSAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ga2Var)) == null) {
-            if (ga2Var != null) {
-                nb3 I1 = ga2Var.I1();
-                if (I1 != null) {
-                    return I1.e;
-                }
-                FrameLayout z3 = ga2Var.z3();
-                if (z3 != null) {
-                    Drawable background = z3.getBackground();
-                    if (background instanceof ColorDrawable) {
-                        return ((ColorDrawable) background).getColor();
-                    }
-                    return -1;
-                }
-                return -1;
-            }
-            return -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, pMSAppInfo)) == null) {
+            return d(pMSAppInfo.appId, pMSAppInfo.versionCode);
         }
-        return invokeL.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public static JSONObject e() {
-        InterceptResult invokeV;
+    public static String d(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (ya3.M() != null) {
-                    jSONObject.put("name", ya3.M().Z());
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
+            return e(str, String.valueOf(j));
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                return str + "_" + str2 + "_pkg_info_ext";
+            } else if (a) {
+                Log.e("PkgInfoExt", "#getExtKey appId or version code is empty");
+                Log.d("PkgInfoExt", "#getExtKey appId=" + str + " version=" + str2);
+                return null;
+            } else {
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void g(String str, JSONObject jSONObject, ck4 ck4Var, List<dk4> list) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65543, null, str, jSONObject, ck4Var, list) == null) {
+            if (jSONObject == null) {
+                if (a) {
+                    Log.d("PkgInfoExt", "pkgObject from pms is null");
+                }
+            } else if (ck4Var == null && list == null) {
+                if (a) {
+                    Log.d("PkgInfoExt", "pkg info's ext must has at lest one main or sub pkg");
+                }
+            } else {
+                String str2 = null;
+                if (ck4Var != null) {
+                    str = ck4Var.g;
+                    j = ck4Var.i;
+                    str2 = ck4Var.p;
+                } else if (list.size() > 0) {
+                    dk4 dk4Var = list.get(0);
+                    j = dk4Var.i;
+                    str2 = dk4Var.s;
                 } else {
-                    jSONObject.put("name", "UNKNOWN");
+                    j = -1;
                 }
-                jSONObject.put(ZeusWebViewPreloadClass.ZEUS_FILE_DIR, fu2.o().z(AppRuntime.getAppContext()));
-                jSONObject.put("net", SwanAppNetworkUtils.e());
-                jSONObject.put("swaninfo", dk3.e(xa3.K().k()).toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        fa3 floatLayer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            SwanAppActivity activity = lw2.T().getActivity();
-            if (activity == null || (floatLayer = activity.getFloatLayer()) == null || !(floatLayer.d() instanceof FrameLayout)) {
-                return false;
-            }
-            return ((FrameLayout) floatLayer.d()).getChildAt(0) instanceof LoadingView;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void i(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(65545, null, z, str) == null) {
-            String g0 = ya3.g0();
-            Context activity = lw2.T().getActivity();
-            if (activity == null) {
-                activity = AppRuntime.getAppContext();
-            }
-            if (!TextUtils.isEmpty(g0)) {
-                if (g0.lastIndexOf("_dev") > 0 || g0.lastIndexOf("_trial") > 0) {
-                    qa3 f = qa3.f(activity, R.string.obfuscated_res_0x7f0f0206);
-                    f.l(5);
-                    f.q(3);
-                    f.G();
-                }
-                if (z) {
-                    yb2 yb2Var = new yb2();
-                    yb2Var.e(SceneType.SCENE_WHITE_SCREEN_L1);
-                    yb2Var.d(str);
+                if (str2 == null) {
+                    if (a) {
+                        Log.e("PkgInfoExt", "can not get ext from pkg ");
+                    }
+                } else if (!TextUtils.isEmpty(str) && j != -1) {
+                    rj3.a().edit().putString(d(str, j), str2).apply();
+                } else if (a) {
+                    Log.e("PkgInfoExt", "can not get appId and version code from pkg ");
                 }
             }
         }

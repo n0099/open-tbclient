@@ -1,71 +1,72 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.searchbox.pms.bean.PackageInfo;
+import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class rl {
+public class rl extends BdAsyncTask<List<PackageInfo>, Integer, Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String str2;
-        String str3;
+    public rl() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (str.contains(".so")) {
-                String[] split = str.split("\\.");
-                StringBuilder sb = new StringBuilder();
-                if (sh.a()) {
-                    str3 = "so_64_cache";
-                } else {
-                    str3 = "so_cache";
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    @SafeVarargs
+    /* renamed from: b */
+    public final Boolean doInBackground(List<PackageInfo>... listArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, listArr)) == null) {
+            if (listArr != null && listArr.length != 0) {
+                List<PackageInfo> list = listArr[0];
+                if (list != null && !list.isEmpty()) {
+                    boolean z = true;
+                    for (PackageInfo packageInfo : list) {
+                        if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
+                            BdBaseApplication.getInst().getResHashMap().remove(packageInfo.name);
+                            File file = new File(ul.b(packageInfo.name));
+                            if (file.exists()) {
+                                TbLog defaultLog = DefaultLog.getInstance();
+                                defaultLog.i("PMS", "待删除文件:" + file);
+                                if (!file.delete()) {
+                                    z = false;
+                                }
+                                TbLog defaultLog2 = DefaultLog.getInstance();
+                                defaultLog2.i("PMS", "文件删除状态:" + z);
+                            }
+                        }
+                    }
+                    TbLog defaultLog3 = DefaultLog.getInstance();
+                    defaultLog3.i("PMS", "删除文件后的 Map: " + BdBaseApplication.getInst().getResHashMap().toString());
+                    return Boolean.valueOf(z);
                 }
-                sb.append(str3);
-                sb.append(File.separator);
-                sb.append(split[0]);
-                str2 = sb.toString();
-            } else if (str.contains(".mp3")) {
-                str2 = "mp3_cache";
-            } else if (str.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION)) {
-                str2 = "mp4_cache";
-            } else {
-                str2 = "res_cache";
+                return Boolean.TRUE;
             }
-            return BdBaseApplication.getInst().getFilesDir() + File.separator + str2;
+            return Boolean.TRUE;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return "";
-            }
-            return a(str) + File.separator + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str != null && str.endsWith("libturbonet.so")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (Boolean) invokeL.objValue;
     }
 }

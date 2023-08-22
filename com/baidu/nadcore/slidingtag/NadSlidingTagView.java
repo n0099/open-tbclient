@@ -10,11 +10,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e31;
-import com.baidu.tieba.es0;
-import com.baidu.tieba.f31;
-import com.baidu.tieba.h61;
+import com.baidu.tieba.h31;
+import com.baidu.tieba.hs0;
 import com.baidu.tieba.i31;
+import com.baidu.tieba.l31;
+import com.baidu.tieba.m61;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import com.yy.gslbsdk.db.DelayTB;
 import kotlin.Metadata;
@@ -47,10 +47,10 @@ public final class NadSlidingTagView extends NadSlidingTagBaseView {
 
     /* loaded from: classes3.dex */
     public static final class b implements a {
-        public final /* synthetic */ f31 a;
+        public final /* synthetic */ i31 a;
 
-        public b(f31 f31Var) {
-            this.a = f31Var;
+        public b(i31 i31Var) {
+            this.a = i31Var;
         }
 
         @Override // com.baidu.nadcore.slidingtag.NadSlidingTagView.a
@@ -58,9 +58,9 @@ public final class NadSlidingTagView extends NadSlidingTagBaseView {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(text, "text");
             Intrinsics.checkNotNullParameter(cmd, "cmd");
-            f31 f31Var = this.a;
-            if (f31Var != null) {
-                f31Var.a(new e31(context, text, i, cmd));
+            i31 i31Var = this.a;
+            if (i31Var != null) {
+                i31Var.a(new h31(context, text, i, cmd));
             }
         }
     }
@@ -69,12 +69,12 @@ public final class NadSlidingTagView extends NadSlidingTagBaseView {
     public static final class c implements View.OnClickListener {
         public final /* synthetic */ LinearLayout a;
         public final /* synthetic */ NadSlidingTagView b;
-        public final /* synthetic */ es0 c;
+        public final /* synthetic */ hs0 c;
 
-        public c(LinearLayout linearLayout, NadSlidingTagView nadSlidingTagView, es0 es0Var) {
+        public c(LinearLayout linearLayout, NadSlidingTagView nadSlidingTagView, hs0 hs0Var) {
             this.a = linearLayout;
             this.b = nadSlidingTagView;
-            this.c = es0Var;
+            this.c = hs0Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -102,14 +102,14 @@ public final class NadSlidingTagView extends NadSlidingTagBaseView {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    private final void setLinear(es0 es0Var) {
+    private final void setLinear(hs0 hs0Var) {
         LinearLayout linear = getLinear();
         int i = 0;
         if (!getTvList().isEmpty()) {
             if (getLinear().getChildAt(0) instanceof AdImageView) {
-                linear.setPadding(h61.c.a(linear.getContext(), 5.0f), h61.c.a(linear.getContext(), 5.0f), h61.c.a(linear.getContext(), 7.0f), h61.c.a(linear.getContext(), 5.0f));
+                linear.setPadding(m61.c.a(linear.getContext(), 5.0f), m61.c.a(linear.getContext(), 5.0f), m61.c.a(linear.getContext(), 7.0f), m61.c.a(linear.getContext(), 5.0f));
             } else {
-                linear.setPadding(h61.c.a(linear.getContext(), 7.0f), h61.c.a(linear.getContext(), 8.0f), h61.c.a(linear.getContext(), 7.0f), h61.c.a(linear.getContext(), 8.0f));
+                linear.setPadding(m61.c.a(linear.getContext(), 7.0f), m61.c.a(linear.getContext(), 8.0f), m61.c.a(linear.getContext(), 7.0f), m61.c.a(linear.getContext(), 8.0f));
             }
             linear.setGravity(16);
             TextView textView = (TextView) CollectionsKt___CollectionsKt.getOrNull(getTvList(), 0);
@@ -119,16 +119,16 @@ public final class NadSlidingTagView extends NadSlidingTagBaseView {
                 setTextHeight(n(textView));
                 Unit unit = Unit.INSTANCE;
             }
-            linear.setOnClickListener(new c(linear, this, es0Var));
+            linear.setOnClickListener(new c(linear, this, hs0Var));
         } else {
             i = 8;
         }
         linear.setVisibility(i);
     }
 
-    private final void setTextViewList(es0 es0Var) {
-        for (es0.c cVar : es0Var.a) {
-            TextView a2 = i31.a(getContext(), cVar);
+    private final void setTextViewList(hs0 hs0Var) {
+        for (hs0.c cVar : hs0Var.a) {
+            TextView a2 = l31.a(getContext(), cVar);
             if (a2 != null) {
                 a2.setTextSize(0, getTextSizePx());
                 a2.setLayoutParams(q());
@@ -169,11 +169,11 @@ public final class NadSlidingTagView extends NadSlidingTagBaseView {
             textView.setLayoutParams(q());
         }
         if (getLinear().getChildAt(0) instanceof AdImageView) {
-            a2 = h61.c.a(getContext(), 5.0f) + getIconSizePx() + h61.c.a(getContext(), 5.0f) + o(textView);
-            a3 = h61.c.a(getContext(), 7.0f);
+            a2 = m61.c.a(getContext(), 5.0f) + getIconSizePx() + m61.c.a(getContext(), 5.0f) + o(textView);
+            a3 = m61.c.a(getContext(), 7.0f);
         } else {
-            a2 = h61.c.a(getContext(), 7.0f) + o(textView);
-            a3 = h61.c.a(getContext(), 7.0f);
+            a2 = m61.c.a(getContext(), 7.0f) + o(textView);
+            a3 = m61.c.a(getContext(), 7.0f);
         }
         int i = a2 + a3;
         int i2 = this.r;
@@ -198,11 +198,11 @@ public final class NadSlidingTagView extends NadSlidingTagBaseView {
             textView.setLayoutParams(q());
         }
         if (getLinear().getChildAt(0) instanceof AdImageView) {
-            a2 = h61.c.a(getContext(), 5.0f) + getIconSizePx() + h61.c.a(getContext(), 5.0f) + o(textView);
-            a3 = h61.c.a(getContext(), 7.0f);
+            a2 = m61.c.a(getContext(), 5.0f) + getIconSizePx() + m61.c.a(getContext(), 5.0f) + o(textView);
+            a3 = m61.c.a(getContext(), 7.0f);
         } else {
-            a2 = h61.c.a(getContext(), 7.0f) + o(textView);
-            a3 = h61.c.a(getContext(), 7.0f);
+            a2 = m61.c.a(getContext(), 7.0f) + o(textView);
+            a3 = m61.c.a(getContext(), 7.0f);
         }
         int i = a2 + a3;
         int i2 = this.r;
@@ -214,7 +214,7 @@ public final class NadSlidingTagView extends NadSlidingTagBaseView {
     }
 
     @Override // com.baidu.nadcore.slidingtag.NadSlidingTagBaseView
-    public void setActionListener(f31 f31Var) {
-        setActionListener(new b(f31Var));
+    public void setActionListener(i31 i31Var) {
+        setActionListener(new b(i31Var));
     }
 }

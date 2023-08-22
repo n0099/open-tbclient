@@ -1,54 +1,30 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bo0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bx0 {
+public class bx0 implements yw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
-    public final float b;
+    public int a;
+    @NonNull
+    public zt0 b;
+    public ViewGroup c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final bx0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-904301135, "Lcom/baidu/tieba/bx0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-904301135, "Lcom/baidu/tieba/bx0$b;");
-                    return;
-                }
-            }
-            a = new bx0(null);
-        }
-    }
-
-    public bx0() {
+    public bx0(@NonNull zt0 zt0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {zt0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,38 +34,63 @@ public class bx0 {
                 return;
             }
         }
-        this.a = bo0.a.a().getLaunchSpeedScore();
-        this.b = bo0.a.a().getStaticDeviceScore();
+        this.a = -1;
+        this.b = zt0Var;
     }
 
-    public /* synthetic */ bx0(a aVar) {
-        this();
-    }
-
-    public static bx0 a() {
-        InterceptResult invokeV;
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public void b(@Nullable Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
+            b21.b("NormalSwitchHelper", "SCREEN_ORIENTATION_PORTRAIT ");
+            activity.setRequestedOrientation(1);
+            activity.getWindow().clearFlags(1024);
+            d21.l(activity);
         }
-        return (bx0) invokeV.objValue;
     }
 
-    public float b() {
-        InterceptResult invokeV;
+    public void a(boolean z, @Nullable Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) {
+            if (z) {
+                int i = this.a;
+                if (i != -1) {
+                    b71.d(activity, i);
+                    return;
+                }
+                return;
+            }
+            b71.f(activity);
         }
-        return invokeV.floatValue;
     }
 
-    public float c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yw0
+    public void switchToFullStyle() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = this.b.n();
+            this.b.Y0(true);
+            Activity activity = this.b.getActivity();
+            a(true, activity);
+            c21.b(activity, this.b.X0());
+            c21.c(activity, true);
+            d21.b(activity, this.b.v());
         }
-        return invokeV.floatValue;
+    }
+
+    @Override // com.baidu.tieba.yw0
+    public void switchToNormalStyle() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.c == null) {
+            return;
+        }
+        this.c = this.b.n();
+        this.b.Y0(false);
+        Activity activity = this.b.getActivity();
+        a(false, activity);
+        b(activity);
+        d21.k(this.b.v());
+        d21.j(this.b.n());
+        d21.c(this.b.v(), this.c);
     }
 }

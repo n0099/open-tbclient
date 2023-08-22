@@ -17,7 +17,7 @@ import com.baidu.searchbox.ui.CoolPraiseView;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -38,7 +38,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 /* loaded from: classes4.dex */
-public class StringHelper extends bi {
+public class StringHelper extends di {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ALA_CARD_DAY_BEFORE;
     public static final String ALA_CARD_HOUR_BEFORE;
@@ -95,11 +95,11 @@ public class StringHelper extends bi {
         HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour_before);
         MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_min_before);
         SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_sec_before);
-        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0523);
+        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0525);
         TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
         TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
         TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
-        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c85);
+        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0c8d);
         TIME_MINUTE_SINGLE = string;
         TIME_STR = new String[]{TIME_DAY, TIME_HOUR, string, TIME_SECOND};
         ALA_CARD_DAY_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
@@ -118,16 +118,16 @@ public class StringHelper extends bi {
         date = new Date();
         TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
         if (timeZone != null) {
-            bi.FORMATE_DATE_ALL.setTimeZone(timeZone);
-            bi.FORMATE_DATE_YEAR.setTimeZone(timeZone);
-            bi.FORMATE_DATE_TIME.setTimeZone(timeZone);
-            bi.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
-            bi.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
-            bi.FORMATE_DATE_DAY.setTimeZone(timeZone);
-            bi.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
-            bi.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
-            bi.FORMATE_DATE_MS.setTimeZone(timeZone);
-            bi.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
+            di.FORMATE_DATE_ALL.setTimeZone(timeZone);
+            di.FORMATE_DATE_YEAR.setTimeZone(timeZone);
+            di.FORMATE_DATE_TIME.setTimeZone(timeZone);
+            di.FORMATE_DATE_MOUTH.setTimeZone(timeZone);
+            di.FORMATE_DATE_MOUTH_TIME.setTimeZone(timeZone);
+            di.FORMATE_DATE_DAY.setTimeZone(timeZone);
+            di.FORMATE_DATE_DAY_WEEK.setTimeZone(timeZone);
+            di.FORMATE_DATE_DAY_1.setTimeZone(timeZone);
+            di.FORMATE_DATE_MS.setTimeZone(timeZone);
+            di.FORMATE_DATE_DAY_NO_YEAR.setTimeZone(timeZone);
         }
     }
 
@@ -151,8 +151,8 @@ public class StringHelper extends bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65574, null)) == null) {
             Date date2 = new Date();
-            synchronized (bi.FORMATE_DATE_MS) {
-                format = bi.FORMATE_DATE_MS.format(date2);
+            synchronized (di.FORMATE_DATE_MS) {
+                format = di.FORMATE_DATE_MS.format(date2);
             }
             return format;
         }
@@ -165,8 +165,8 @@ public class StringHelper extends bi {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65575, null)) == null) {
             Date date2 = new Date();
-            synchronized (bi.FORMATE_DATE_DAY) {
-                format = bi.FORMATE_DATE_DAY.format(date2);
+            synchronized (di.FORMATE_DATE_DAY) {
+                format = di.FORMATE_DATE_DAY.format(date2);
             }
             return format;
         }
@@ -300,7 +300,7 @@ public class StringHelper extends bi {
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (bi.isChinese(str.charAt(i2))) {
+                if (di.isChinese(str.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -374,22 +374,6 @@ public class StringHelper extends bi {
         return (String) invokeI.objValue;
     }
 
-    public static long[] parseVersion(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65660, null, str)) == null) {
-            long[] jArr = new long[3];
-            if (str != null) {
-                String[] split = str.replace(".", "#").split("#");
-                jArr[0] = Long.parseLong(split[0]);
-                jArr[1] = Long.parseLong(split[1]);
-                jArr[2] = Long.parseLong(split[2]);
-            }
-            return jArr;
-        }
-        return (long[]) invokeL.objValue;
-    }
-
     public static int compareVersion(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
@@ -404,11 +388,11 @@ public class StringHelper extends bi {
             long[] parseVersion2 = parseVersion(str2);
             long j = 0;
             long j2 = 0;
-            for (int i = 0; i < 3; i++) {
-                j2 += parseVersion[i] << (24 - (i * 8));
+            for (int i = 0; i < 4; i++) {
+                j2 += parseVersion[i] << (32 - (i * 8));
             }
-            for (int i2 = 0; i2 < 3; i2++) {
-                j += parseVersion2[i2] << (24 - (i2 * 8));
+            for (int i2 = 0; i2 < 4; i2++) {
+                j += parseVersion2[i2] << (32 - (i2 * 8));
             }
             int i3 = (j2 > j ? 1 : (j2 == j ? 0 : -1));
             if (i3 > 0) {
@@ -478,7 +462,7 @@ public class StringHelper extends bi {
                 int i2 = 0;
                 for (int i3 = 0; i3 < length; i3++) {
                     char charAt = str.charAt(i3);
-                    if (bi.isChinese(charAt)) {
+                    if (di.isChinese(charAt)) {
                         i2 += 2;
                     } else {
                         i2++;
@@ -506,7 +490,7 @@ public class StringHelper extends bi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (bi.isChinese(str.charAt(i2))) {
+                if (di.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -543,7 +527,7 @@ public class StringHelper extends bi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (bi.isChinese(str.charAt(i2))) {
+                if (di.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -581,7 +565,7 @@ public class StringHelper extends bi {
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < length) {
-                    if (bi.isChinese(replaceAll.charAt(i2))) {
+                    if (di.isChinese(replaceAll.charAt(i2))) {
                         i3 += 2;
                     } else {
                         i3++;
@@ -659,7 +643,7 @@ public class StringHelper extends bi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (bi.isChinese(charSequence.charAt(i2))) {
+                if (di.isChinese(charSequence.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -692,7 +676,7 @@ public class StringHelper extends bi {
             int i2 = 0;
             int i3 = 0;
             while (i2 < length) {
-                if (bi.isChinese(str.charAt(i2))) {
+                if (di.isChinese(str.charAt(i2))) {
                     i3 += 2;
                 } else {
                     i3++;
@@ -773,7 +757,7 @@ public class StringHelper extends bi {
                 int i2 = 0;
                 int i3 = 0;
                 while (i2 < length) {
-                    if (bi.isChinese(str.charAt(i2))) {
+                    if (di.isChinese(str.charAt(i2))) {
                         i3 += 2;
                     } else {
                         i3++;
@@ -815,7 +799,7 @@ public class StringHelper extends bi {
             } else if (z) {
                 return getDateStringDayNoYear(date2);
             } else {
-                return bi.getDateStringDay(date2);
+                return di.getDateStringDay(date2);
             }
         }
         return (String) invokeLZ.objValue;
@@ -1277,7 +1261,7 @@ public class StringHelper extends bi {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
-            if (bi.isEmpty(str)) {
+            if (di.isEmpty(str)) {
                 return "";
             }
             return "\u202d" + str + "\u202c";
@@ -1342,11 +1326,11 @@ public class StringHelper extends bi {
         if (interceptable == null || (invokeI = interceptable.invokeI(65617, null, i)) == null) {
             if (i != 1) {
                 if (i != 2) {
-                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f09ab);
+                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f09b3);
                 }
-                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f13c9);
+                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f13d6);
             }
-            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f09ab);
+            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f09b3);
         }
         return (String) invokeI.objValue;
     }
@@ -1534,6 +1518,27 @@ public class StringHelper extends bi {
         return (String) invokeF.objValue;
     }
 
+    public static long[] parseVersion(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65660, null, str)) == null) {
+            long[] jArr = new long[4];
+            if (str != null) {
+                String[] split = str.replace(".", "#").split("#");
+                jArr[0] = JavaTypesHelper.toLong(split[0], 0L);
+                jArr[1] = JavaTypesHelper.toLong(split[1], 0L);
+                jArr[2] = JavaTypesHelper.toLong(split[2], 0L);
+                if (split.length < 4) {
+                    jArr[3] = 0;
+                } else {
+                    jArr[3] = JavaTypesHelper.toLong(split[3], 0L);
+                }
+            }
+            return jArr;
+        }
+        return (long[]) invokeL.objValue;
+    }
+
     public static String formatDayTime(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
@@ -1571,7 +1576,7 @@ public class StringHelper extends bi {
             int length = charSequence.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (bi.isChinese(charSequence.charAt(i2))) {
+                if (di.isChinese(charSequence.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -1623,8 +1628,8 @@ public class StringHelper extends bi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, date2)) == null) {
-            synchronized (bi.FORMATE_DATE_DAY_1) {
-                format = bi.FORMATE_DATE_DAY_1.format(date2);
+            synchronized (di.FORMATE_DATE_DAY_1) {
+                format = di.FORMATE_DATE_DAY_1.format(date2);
             }
             return format;
         }
@@ -1636,8 +1641,8 @@ public class StringHelper extends bi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65580, null, date2)) == null) {
-            synchronized (bi.FORMATE_DATE_DAY_NO_YEAR) {
-                format = bi.FORMATE_DATE_DAY_NO_YEAR.format(date2);
+            synchronized (di.FORMATE_DATE_DAY_NO_YEAR) {
+                format = di.FORMATE_DATE_DAY_NO_YEAR.format(date2);
             }
             return format;
         }
@@ -1760,8 +1765,8 @@ public class StringHelper extends bi {
         String format;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65589, null, date2)) == null) {
-            synchronized (bi.FORMATE_DATE_DAY_WEEK) {
-                format = bi.FORMATE_DATE_DAY_WEEK.format(date2);
+            synchronized (di.FORMATE_DATE_DAY_WEEK) {
+                format = di.FORMATE_DATE_DAY_WEEK.format(date2);
             }
             return format;
         }
@@ -1916,7 +1921,7 @@ public class StringHelper extends bi {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65626, null, str)) == null) {
-            if (!bi.isEmpty(str)) {
+            if (!di.isEmpty(str)) {
                 String trim = str.trim();
                 if (trim.startsWith(PreferencesUtil.LEFT_MOUNT) && trim.endsWith(PreferencesUtil.RIGHT_MOUNT)) {
                     return true;
@@ -1931,7 +1936,7 @@ public class StringHelper extends bi {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65627, null, str)) == null) {
-            if (bi.isEmpty(str)) {
+            if (di.isEmpty(str)) {
                 return false;
             }
             try {
@@ -2207,7 +2212,7 @@ public class StringHelper extends bi {
             int length = str.length();
             int i = 0;
             for (int i2 = 0; i2 < length; i2++) {
-                if (bi.isChinese(str.charAt(i2))) {
+                if (di.isChinese(str.charAt(i2))) {
                     i += 2;
                 } else {
                     i++;
@@ -2621,7 +2626,7 @@ public class StringHelper extends bi {
                 if (time > -120000) {
                     return "刚刚";
                 }
-                return bi.getDateStringDay(date3);
+                return di.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2632,7 +2637,7 @@ public class StringHelper extends bi {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
                     if (day == 0) {
-                        return bi.getDateStringHm(date3);
+                        return di.getDateStringHm(date3);
                     }
                     return "1天前";
                 } else if (time < 2678400000L) {
@@ -2641,13 +2646,13 @@ public class StringHelper extends bi {
                     return "1个月前";
                 } else {
                     if (date2.getYear() == date3.getYear()) {
-                        synchronized (bi.FORMATE_DATE_DAY_NO_YEAR) {
-                            format2 = bi.FORMATE_DATE_DAY_NO_YEAR.format(date3);
+                        synchronized (di.FORMATE_DATE_DAY_NO_YEAR) {
+                            format2 = di.FORMATE_DATE_DAY_NO_YEAR.format(date3);
                         }
                         return format2;
                     }
-                    synchronized (bi.FORMATE_DATE_DAY) {
-                        format = bi.FORMATE_DATE_DAY.format(date3);
+                    synchronized (di.FORMATE_DATE_DAY) {
+                        format = di.FORMATE_DATE_DAY.format(date3);
                     }
                     return format;
                 }
@@ -2679,7 +2684,7 @@ public class StringHelper extends bi {
             } else if (z) {
                 return getDateStringDayNoYear(date2);
             } else {
-                return bi.getDateStringDay(date2);
+                return di.getDateStringDay(date2);
             }
         }
         return (String) invokeLZ.objValue;
@@ -2698,7 +2703,7 @@ public class StringHelper extends bi {
                 if (time > -120000) {
                     return "刚刚";
                 }
-                return bi.getDateStringDay(date3);
+                return di.getDateStringDay(date3);
             } else if (time < 30000) {
                 return "刚刚";
             } else {
@@ -2709,7 +2714,7 @@ public class StringHelper extends bi {
                     return String.valueOf((time * 60) / 3600000) + "分钟前";
                 } else if (time < 86400000) {
                     if (day == 0) {
-                        return bi.getDateStringHm(date3);
+                        return di.getDateStringHm(date3);
                     }
                     return "1天前";
                 } else if (time < 2678400000L) {
@@ -2717,7 +2722,7 @@ public class StringHelper extends bi {
                 } else if (time < 2764800000L) {
                     return "1个月前";
                 } else {
-                    return bi.getDateStringDay(date3);
+                    return di.getDateStringDay(date3);
                 }
             }
         }

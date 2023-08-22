@@ -12,8 +12,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
-import com.baidu.tieba.jj8;
-import com.baidu.tieba.pj8;
+import com.baidu.tieba.in8;
+import com.baidu.tieba.on8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collections;
 import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class BaseSysAdapter<ChildItemData extends BaseSysMsg, ChildViewHolder extends BaseViewHolder> extends jj8<ChildItemData, Holder<ChildViewHolder>> {
+public abstract class BaseSysAdapter<ChildItemData extends BaseSysMsg, ChildViewHolder extends BaseViewHolder> extends in8<ChildItemData, Holder<ChildViewHolder>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,7 +30,7 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseSysMsg, ChildView
     public abstract ChildViewHolder J(@NonNull ViewGroup viewGroup);
 
     @NonNull
-    public abstract View M(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull ChildViewHolder childviewholder, @NonNull List<Object> list, int i2);
+    public abstract View L(int i, @NonNull ViewGroup viewGroup, @NonNull ChildItemData childitemdata, @NonNull ChildViewHolder childviewholder, @NonNull List<Object> list, int i2);
 
     /* loaded from: classes6.dex */
     public static class Holder<ChildViewHolder extends BaseViewHolder> extends BaseViewHolder {
@@ -80,11 +80,11 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseSysMsg, ChildView
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
-        public void e(@NonNull pj8 pj8Var) {
+        public void e(@NonNull on8 on8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pj8Var) == null) {
-                super.e(pj8Var);
-                this.a.e(pj8Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, on8Var) == null) {
+                super.e(on8Var);
+                this.a.e(on8Var);
             }
         }
     }
@@ -112,14 +112,14 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseSysMsg, ChildView
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter<ChildItemData extends com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg, ChildViewHolder extends com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.lm
+    @Override // com.baidu.tieba.om
     public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        N(i, view2, viewGroup, (BaseSysMsg) obj, (Holder) viewHolder);
+        M(i, view2, viewGroup, (BaseSysMsg) obj, (Holder) viewHolder);
         return view2;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
+    @Override // com.baidu.tieba.om
     /* renamed from: K */
     public final Holder<ChildViewHolder> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
@@ -134,7 +134,7 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseSysMsg, ChildView
         return (Holder) invokeL.objValue;
     }
 
-    public final View N(int i, View view2, ViewGroup viewGroup, ChildItemData childitemdata, Holder<ChildViewHolder> holder) {
+    public final View M(int i, View view2, ViewGroup viewGroup, ChildItemData childitemdata, Holder<ChildViewHolder> holder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, childitemdata, holder})) == null) {
@@ -145,15 +145,15 @@ public abstract class BaseSysAdapter<ChildItemData extends BaseSysMsg, ChildView
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jj8, com.baidu.tieba.lm
-    /* renamed from: O */
+    @Override // com.baidu.tieba.in8, com.baidu.tieba.om
+    /* renamed from: N */
     public void onFillViewHolder(int i, ViewGroup viewGroup, Holder<ChildViewHolder> holder, ChildItemData childitemdata, @NonNull List<Object> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), viewGroup, holder, childitemdata, list}) == null) {
             super.onFillViewHolder(i, viewGroup, holder, childitemdata, list);
-            View M = M(i, viewGroup, childitemdata, holder.a, list, TbadkCoreApplication.getInst().getSkinType());
-            if (M.getParent() == null) {
-                ((ViewGroup) holder.getView()).addView(M);
+            View L = L(i, viewGroup, childitemdata, holder.a, list, TbadkCoreApplication.getInst().getSkinType());
+            if (L.getParent() == null) {
+                ((ViewGroup) holder.getView()).addView(L);
             }
         }
     }

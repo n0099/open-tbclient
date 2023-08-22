@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.ubc.UBCManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class sg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -68,9 +68,9 @@ public class sg {
     public static void e(tg tgVar, BdStatsItem bdStatsItem) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tgVar, bdStatsItem) == null) {
-            if (tgVar instanceof hh) {
+            if (tgVar instanceof ih) {
                 c(bdStatsItem);
-            } else if (tgVar instanceof gh) {
+            } else if (tgVar instanceof hh) {
                 b(bdStatsItem);
             } else if (tgVar instanceof fh) {
                 a(bdStatsItem);

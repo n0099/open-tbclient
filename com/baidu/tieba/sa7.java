@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class sa7 extends e97<CardTitleView, u47> {
+import java.lang.reflect.ParameterizedType;
+/* loaded from: classes8.dex */
+public abstract class sa7<V extends View, M> implements ib7<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public sa7(String str) {
-        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -28,34 +27,53 @@ public class sa7 extends e97<CardTitleView, u47> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = str;
     }
 
-    @Override // com.baidu.tieba.e97, com.baidu.tieba.u97
+    @Override // com.baidu.tieba.ib7
     @NonNull
     public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            ib7.l(a, null, Integer.valueOf(BdUtilHelper.getDimens(i37.a, R.dimen.M_H_X001)));
-            return a;
+            try {
+                Context context = viewGroup.getContext();
+                if (context instanceof wt6) {
+                    context = ((wt6) context).getPageContext().getPageActivity();
+                }
+                if (context == null) {
+                    context = viewGroup.getContext();
+                }
+                return d().getConstructor(Context.class).newInstance(context);
+            } catch (Exception e) {
+                throw new IllegalStateException(e);
+            }
         }
         return (View) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u97
-    /* renamed from: e */
-    public void b(@NonNull CardTitleView cardTitleView, @NonNull u47 u47Var) {
+    @Override // com.baidu.tieba.ib7
+    @NonNull
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardTitleView, u47Var) == null) {
-            cardTitleView.f(u47Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public final Class<V> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (Class) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
+        }
+        return (Class) invokeV.objValue;
     }
 }

@@ -26,12 +26,12 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b05;
-import com.baidu.tieba.bi;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.dg;
+import com.baidu.tieba.di;
 import com.baidu.tieba.eg;
-import com.baidu.tieba.tv5;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.kw5;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.yb;
 import com.baidu.tieba.yf;
@@ -111,7 +111,7 @@ public abstract class AbstractImageLoaderProc implements eg<BdImage> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return b05.c().g();
+            return h05.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -383,8 +383,8 @@ public abstract class AbstractImageLoaderProc implements eg<BdImage> {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i9, i10);
             }
-            tv5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = tv5.d(urlbyClientServerAddr);
+            kw5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = kw5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -497,7 +497,7 @@ public abstract class AbstractImageLoaderProc implements eg<BdImage> {
                 rawBitmap = decodeToResourceWithWH(bArr3, i7, i6).getRawBitmap();
             }
             if (z && rawBitmap == null) {
-                tv5.b(str4);
+                kw5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z5);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
@@ -557,7 +557,7 @@ public abstract class AbstractImageLoaderProc implements eg<BdImage> {
             }
             sb.append(TbConfig.IMAGE_ADDRESS);
             sb.append("src=");
-            sb.append(bi.getUrlEncode(str));
+            sb.append(di.getUrlEncode(str));
             sb.append("&width=");
             sb.append(String.valueOf(i));
             sb.append("&height=");

@@ -16,6 +16,7 @@ public class WriteMsgHolder {
     public static String flutterPageId;
     public static int from;
     public static boolean isFromPersonCenter;
+    public static boolean isH5PageShowing;
     public static String lastForumId;
     public static String lastForumName;
     public static String lastVideoThumbUrl;

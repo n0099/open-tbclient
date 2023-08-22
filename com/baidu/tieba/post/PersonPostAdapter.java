@@ -54,12 +54,12 @@ public class PersonPostAdapter extends FragmentPagerAdapter {
         PersonReplyFragment personReplyFragment = new PersonReplyFragment();
         this.c = personReplyFragment;
         personReplyFragment.setArguments(bundle);
-        this.c.Z1(personPostActivity);
+        this.c.l2(personPostActivity);
         PersonThreadFragment personThreadFragment = new PersonThreadFragment();
         this.b = personThreadFragment;
         personThreadFragment.setArguments(bundle);
-        this.b.Y1(personPostActivity);
-        this.b.X1(personPostActivity);
+        this.b.k2(personPostActivity);
+        this.b.j2(personPostActivity);
         this.a = new int[]{0, 1};
     }
 

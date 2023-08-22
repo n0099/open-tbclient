@@ -1,27 +1,20 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class mo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void startActivity(Context context, Intent intent, Bundle bundle) {
+    public static SharedPreferences a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, context, intent, bundle) == null) {
-            context.startActivity(intent, bundle);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new nr4("key_pms_sp_name");
         }
-    }
-
-    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65537, null, activity, intent, i, bundle) == null) {
-            activity.startActivityForResult(intent, i, bundle);
-        }
+        return (SharedPreferences) invokeV.objValue;
     }
 }

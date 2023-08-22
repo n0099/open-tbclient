@@ -1,177 +1,74 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
+import android.os.Build;
+import android.os.HandlerThread;
 import android.os.Looper;
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.core.async.BdRunnable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 /* loaded from: classes5.dex */
-public class cw {
+public class cw extends HandlerThread {
     public static /* synthetic */ Interceptable $ic;
-    public static cw f;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExecutorService a;
-    public ExecutorService b;
-    public Handler c;
-    public Handler d;
-    public List<bw> e;
 
-    /* loaded from: classes5.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cw a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(cw cwVar, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cwVar, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cwVar;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                int i = message.what;
-                if (i != 0) {
-                    if (i != 1) {
-                        if (i == 2) {
-                            Object obj = message.obj;
-                            if (obj instanceof BdRunnable) {
-                                post((BdRunnable) obj);
-                            }
-                        }
-                    } else if (message.obj instanceof bw) {
-                        this.a.e.add((bw) message.obj);
-                    }
-                } else if (this.a.e != null) {
-                    Iterator it = this.a.e.iterator();
-                    while (it.hasNext()) {
-                        bw bwVar = (bw) it.next();
-                        if (this.a.e(bwVar)) {
-                            this.a.a.submit(bwVar);
-                            it.remove();
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public cw() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cw(String str, int i) {
+        super(str, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new ArrayList();
-        this.a = Executors.newFixedThreadPool(5);
-        this.b = Executors.newSingleThreadExecutor();
-        this.c = new a(this, aw.a("threadpool").getLooper());
-        this.d = new Handler(Looper.getMainLooper());
     }
 
-    public void h(BdRunnable bdRunnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdRunnable) == null) {
-            this.d.post(bdRunnable);
-        }
-    }
-
-    public static cw f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f == null) {
-                synchronized (cw.class) {
-                    if (f == null) {
-                        f = new cw();
-                    }
-                }
-            }
-            return f;
-        }
-        return (cw) invokeV.objValue;
-    }
-
-    public void d() {
+    public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c.removeMessages(0);
-            this.c.sendEmptyMessage(0);
+            try {
+                Looper looper = getLooper();
+                if (Build.VERSION.SDK_INT >= 18) {
+                    looper.quitSafely();
+                } else {
+                    looper.quit();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public final boolean e(bw bwVar) {
-        InterceptResult invokeL;
-        List<BdRunnable> e;
+    @Override // android.os.HandlerThread
+    public boolean quit() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bwVar)) == null) {
-            if (bwVar != null && (e = bwVar.e()) != null) {
-                for (int i = 0; i < e.size(); i++) {
-                    BdRunnable bdRunnable = e.get(i);
-                    if (bdRunnable != null && !bdRunnable.d()) {
-                        return false;
-                    }
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return quitSafely();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // android.os.HandlerThread
+    public boolean quitSafely() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            dw.c(this);
             return true;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void g(BdRunnable bdRunnable) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdRunnable) == null) && bdRunnable != null) {
-            if (bdRunnable instanceof bw) {
-                if (e((bw) bdRunnable)) {
-                    this.a.submit(bdRunnable);
-                    return;
-                } else {
-                    this.c.obtainMessage(1, bdRunnable).sendToTarget();
-                    return;
-                }
-            }
-            try {
-                this.a.submit(bdRunnable);
-            } catch (Error e) {
-                bdRunnable.b(e);
-            } catch (Exception e2) {
-                bdRunnable.a(e2);
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

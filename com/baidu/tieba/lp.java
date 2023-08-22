@@ -1,91 +1,95 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+/* loaded from: classes7.dex */
 public final class lp {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final float a;
-    public final long b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof lp) {
-                    lp lpVar = (lp) obj;
-                    if (Float.compare(this.a, lpVar.a) == 0) {
-                        if (this.b == lpVar.b) {
-                        }
-                    }
-                }
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448310441, "Lcom/baidu/tieba/lp;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.b;
-            return (Float.floatToIntBits(this.a) * 31) + ((int) (j ^ (j >>> 32)));
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "TaskSingleProcess(curRate=" + this.a + ", total=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public lp(float f, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448310441, "Lcom/baidu/tieba/lp;");
                 return;
             }
         }
-        this.a = f;
-        this.b = j;
+        a = new a(null);
     }
 
-    public final float a() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final sp a(os<TaskBuoyViewData, TaskBuoyViewModel> osVar, tp tpVar, TaskInfo taskInfo) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.floatValue;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, osVar, tpVar, taskInfo)) == null) ? a.a(osVar, tpVar, taskInfo) : (sp) invokeLLL.objValue;
     }
 
-    public final long b() {
-        InterceptResult invokeV;
+    @JvmStatic
+    public static final vp b(os<TaskBuoyViewData, TaskBuoyViewModel> osVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, osVar, taskBuoyViewModel, taskInfo)) == null) ? a.b(osVar, taskBuoyViewModel, taskInfo) : (vp) invokeLLL.objValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeV.longValue;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final sp a(os<TaskBuoyViewData, TaskBuoyViewModel> osVar, tp tpVar, TaskInfo taskInfo) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, osVar, tpVar, taskInfo)) == null) {
+                return new sp(osVar, tpVar, taskInfo);
+            }
+            return (sp) invokeLLL.objValue;
+        }
+
+        @JvmStatic
+        public final vp b(os<TaskBuoyViewData, TaskBuoyViewModel> osVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, osVar, taskBuoyViewModel, taskInfo)) == null) {
+                return new vp(osVar, taskBuoyViewModel, taskInfo);
+            }
+            return (vp) invokeLLL.objValue;
+        }
     }
 }

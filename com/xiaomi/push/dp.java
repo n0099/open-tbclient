@@ -5,7 +5,7 @@ public class dp {
     @Deprecated
 
     /* renamed from: a  reason: collision with other field name */
-    public static final String f232a = String.valueOf(hj.BroadcastActionRestarted.a());
+    public static final String f233a = String.valueOf(hj.BroadcastActionRestarted.a());
     @Deprecated
     public static final String b = String.valueOf(hj.BroadcastActionChanged.a());
 }

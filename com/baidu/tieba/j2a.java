@@ -1,200 +1,486 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.task.TbSocketMessageTask;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumHttpResMsg;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumReqMsg;
-import com.baidu.tieba.setting.forbiddenforum.ForbiddenForumSocketResMsg;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class j2a {
     public static /* synthetic */ Interceptable $ic;
+    public static j2a c;
+    public static DownloadData d;
+    public static List<DownloadData> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public k2a c;
-    public b d;
-    public NetMessageListener e;
+    public b a;
+    @SuppressLint({"HandlerLeak"})
+    public Handler b;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(k2a k2aVar);
-
-        void onError(int i, String str);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends NetMessageListener {
+    public class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j2a a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(j2a j2aVar, int i, int i2) {
-            super(i, i2);
+        public a(j2a j2aVar, Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j2aVar, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {j2aVar, looper};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = j2aVar;
         }
 
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            k2a k2aVar;
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
-            }
-            if (responsedMessage instanceof ForbiddenForumHttpResMsg) {
-                k2aVar = ((ForbiddenForumHttpResMsg) responsedMessage).getPageData();
-            } else if (responsedMessage instanceof ForbiddenForumSocketResMsg) {
-                k2aVar = ((ForbiddenForumSocketResMsg) responsedMessage).getPageData();
-            } else {
-                k2aVar = null;
-            }
-            if (responsedMessage.getError() == 0) {
-                if (this.a.b == 1 && (k2aVar == null || ListUtils.isEmpty(k2aVar.a))) {
-                    if (this.a.d != null) {
-                        this.a.d.a(null);
-                    }
-                } else if (k2aVar != null) {
-                    this.a.c.a.addAll(k2aVar.a);
-                    if (!ListUtils.isEmpty(k2aVar.a)) {
-                        this.a.c.b = k2aVar.b;
-                        j2a.c(this.a);
-                    } else {
-                        this.a.c.b = false;
-                    }
-                    if (this.a.d != null) {
-                        this.a.d.a(k2aVar);
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what == 900002 && message.arg2 > 0 && j2a.d != null) {
+                    j2a.d.setLength(message.arg1);
+                    j2a.d.setSize(message.arg2);
+                    j2a.d.setStatus(1);
+                    if (j2a.d.getCallback() != null) {
+                        j2a.d.getCallback().onFileUpdateProgress(j2a.d);
                     }
                 }
-            } else if (this.a.d != null) {
-                this.a.d.onError(responsedMessage.getError(), responsedMessage.getErrorString());
             }
         }
     }
 
-    public j2a(BdUniqueId bdUniqueId) {
+    @SuppressLint({"DefaultLocale"})
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<DownloadData, DownloadData, Integer> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public NetWork a;
+        public final /* synthetic */ j2a b;
+
+        public b(j2a j2aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j2aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = j2aVar;
+            this.a = new NetWork();
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                NetWork netWork = this.a;
+                if (netWork != null) {
+                    netWork.setCancel();
+                }
+                cancel(true);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public Integer doInBackground(DownloadData... downloadDataArr) {
+            InterceptResult invokeL;
+            FileInputStream fileInputStream;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadDataArr)) == null) {
+                FileInputStream fileInputStream2 = null;
+                if (downloadDataArr[0] == null) {
+                    return null;
+                }
+                if (downloadDataArr[0].getCallback() != null && !downloadDataArr[0].getCallback().onPreDownload(downloadDataArr[0])) {
+                    return 0;
+                }
+                File file = new File(downloadDataArr[0].getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (!file.exists()) {
+                    this.a.setUrl(downloadDataArr[0].getUrl());
+                    NetWork netWork = this.a;
+                    if (Boolean.valueOf(netWork.downloadFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp", this.b.b, TbConfig.NET_MSG_GETLENTH, 3, 3000)).booleanValue()) {
+                        File GetFile = FileHelper.GetFile(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
+                        if (GetFile == null) {
+                            GetFile = FileHelper.GetFileInCache(downloadDataArr[0].getId() + "_" + downloadDataArr[0].getName() + ".tmp");
+                        }
+                        if (GetFile != null) {
+                            try {
+                                try {
+                                    String parent = GetFile.getParent();
+                                    String parent2 = file.getParent();
+                                    if (parent.equals(parent2)) {
+                                        GetFile.renameTo(new File(parent2, file.getName()));
+                                    } else {
+                                        zh.f(GetFile, file);
+                                        zh.n(GetFile);
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                    return 7;
+                                }
+                            } catch (IOException unused) {
+                                zh.n(file);
+                                zh.n(GetFile);
+                                return 7;
+                            }
+                        } else {
+                            return 1;
+                        }
+                    } else {
+                        return 3;
+                    }
+                }
+                try {
+                    if (!di.isEmpty(downloadDataArr[0].getCheck())) {
+                        try {
+                            fileInputStream = new FileInputStream(downloadDataArr[0].getPath());
+                        } catch (FileNotFoundException e2) {
+                            e = e2;
+                        }
+                        try {
+                            if (!ji.b(fileInputStream).equalsIgnoreCase(downloadDataArr[0].getCheck())) {
+                                zh.n(new File(downloadDataArr[0].getPath()));
+                                try {
+                                    fileInputStream.close();
+                                } catch (IOException e3) {
+                                    BdLog.d(e3.getMessage());
+                                }
+                                return 4;
+                            }
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException e4) {
+                                BdLog.d(e4.getMessage());
+                            }
+                        } catch (FileNotFoundException e5) {
+                            e = e5;
+                            fileInputStream2 = fileInputStream;
+                            BdLog.d(e.getMessage());
+                            if (fileInputStream2 != null) {
+                                try {
+                                    fileInputStream2.close();
+                                } catch (IOException e6) {
+                                    BdLog.d(e6.getMessage());
+                                }
+                            }
+                            return 6;
+                        } catch (Throwable th) {
+                            th = th;
+                            fileInputStream2 = fileInputStream;
+                            if (fileInputStream2 != null) {
+                                try {
+                                    fileInputStream2.close();
+                                } catch (IOException e7) {
+                                    BdLog.d(e7.getMessage());
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                    if (downloadDataArr[0].getCallback() == null || downloadDataArr[0].getCallback().onFileDownloaded(downloadDataArr[0])) {
+                        return 0;
+                    }
+                    return 2;
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } else {
+                return (Integer) invokeL.objValue;
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                super.onCancelled();
+                this.a.setCancel();
+                j2a.d.setStatus(4);
+                j2a.d.setStatusMsg(null);
+                if (j2a.d.getCallback() != null) {
+                    j2a.d.getCallback().onFileUpdateProgress(j2a.d);
+                }
+                if (!j2a.e.isEmpty()) {
+                    j2a.e.remove(0);
+                }
+                DownloadData unused = j2a.d = null;
+                this.b.m();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
+            String string;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
+                super.onPostExecute((b) num);
+                if (num == null) {
+                    return;
+                }
+                if (num.intValue() == 0) {
+                    j2a.d.setStatus(0);
+                    if (j2a.d.getCallback() != null) {
+                        j2a.d.getCallback().onFileUpdateProgress(j2a.d);
+                    }
+                    if (j2a.d.getCallback() != null) {
+                        j2a.d.getCallback().onFileDownloadSucceed(j2a.d);
+                    }
+                } else {
+                    int intValue = num.intValue();
+                    if (intValue != 1) {
+                        if (intValue != 2) {
+                            if (intValue != 3) {
+                                if (intValue != 4) {
+                                    if (intValue != 6) {
+                                        if (intValue != 7) {
+                                            string = null;
+                                        } else {
+                                            string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
+                                        }
+                                    } else {
+                                        string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
+                                    }
+                                } else {
+                                    string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
+                                }
+                            } else {
+                                string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_net);
+                            }
+                        } else {
+                            string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
+                        }
+                    } else {
+                        string = TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail);
+                    }
+                    j2a.d.setStatusMsg(string);
+                    j2a.d.setErrorCode(num.intValue());
+                    j2a.d.setStatus(2);
+                    if (j2a.d.getCallback() != null) {
+                        j2a.d.getCallback().onFileUpdateProgress(j2a.d);
+                    }
+                    if (j2a.d.getCallback() != null) {
+                        j2a.d.getCallback().onFileDownloadFailed(j2a.d, num.intValue(), string);
+                    }
+                }
+                DownloadData unused = j2a.d = null;
+                if (!j2a.e.isEmpty()) {
+                    j2a.e.remove(0);
+                    this.b.m();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947832784, "Lcom/baidu/tieba/j2a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947832784, "Lcom/baidu/tieba/j2a;");
+                return;
+            }
+        }
+        c = new j2a();
+        d = null;
+        e = new LinkedList();
+    }
+
+    public j2a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, 309692);
-        this.e = aVar;
-        this.a = bdUniqueId;
-        aVar.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.e);
-        i();
-        h();
-        this.c = new k2a();
+        this.a = null;
+        this.b = new a(this, Looper.getMainLooper());
     }
 
-    public static /* synthetic */ int c(j2a j2aVar) {
-        int i = j2aVar.b;
-        j2aVar.b = i + 1;
-        return i;
-    }
-
-    public void k(b bVar) {
+    public static j2a j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return c;
         }
+        return (j2a) invokeV.objValue;
+    }
+
+    public List<DownloadData> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return e;
+        }
+        return (List) invokeV.objValue;
     }
 
     public void f(String str) {
-        k2a k2aVar;
-        String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (k2aVar = this.c) != null && !ListUtils.isEmpty(k2aVar.a)) {
-            for (i2a i2aVar : this.c.a) {
-                if (i2aVar != null && (str2 = i2aVar.c) != null && str2.equals(str)) {
-                    this.c.a.remove(i2aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            g(str, false);
+        }
+    }
+
+    public void g(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
+            DownloadData downloadData = d;
+            if (downloadData != null && downloadData.getUrl().equals(str)) {
+                if (z) {
+                    this.a.b();
+                    return;
+                } else {
+                    this.a.cancel(true);
                     return;
                 }
+            }
+            LinkedList<DownloadData> linkedList = new LinkedList();
+            Iterator<DownloadData> it = e.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                DownloadData next = it.next();
+                if (next.getUrl().equals(str)) {
+                    next.setStatus(4);
+                    if (next.getCallback() != null) {
+                        next.getCallback().onFileUpdateProgress(next);
+                    }
+                    linkedList.add(next);
+                }
+            }
+            for (DownloadData downloadData2 : linkedList) {
+                e.remove(downloadData2);
             }
         }
     }
 
-    public k2a g() {
-        InterceptResult invokeV;
+    public void h(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (k2a) invokeV.objValue;
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(309692);
-            tbSocketMessageTask.setResponsedClass(ForbiddenForumSocketResMsg.class);
-            tbSocketMessageTask.setNeedAck(true);
-            tbSocketMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbSocketMessageTask);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData) == null) && downloadData != null) {
+            g(downloadData.getUrl(), true);
+            File GetFile = FileHelper.GetFile(downloadData.getId() + "_" + downloadData.getName() + ".tmp");
+            if (GetFile != null) {
+                GetFile.delete();
+            }
         }
     }
 
-    public void j() {
+    public void k(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            ForbiddenForumReqMsg forbiddenForumReqMsg = new ForbiddenForumReqMsg();
-            forbiddenForumReqMsg.pageSize = 20;
-            forbiddenForumReqMsg.pageNum = this.b;
-            forbiddenForumReqMsg.setTag(this.a);
-            MessageManager.getInstance().sendMessage(forbiddenForumReqMsg);
+        if ((interceptable != null && interceptable.invokeL(1048580, this, downloadData) != null) || downloadData == null) {
+            return;
+        }
+        if (!FileHelper.checkSD()) {
+            downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_no_sd));
+            downloadData.setStatus(2);
+        }
+        if (downloadData.getStatus() == 2) {
+            if (downloadData.getCallback() != null) {
+                downloadData.getCallback().onFileUpdateProgress(downloadData);
+                return;
+            }
+            return;
+        }
+        for (int i = 0; i < e.size(); i++) {
+            DownloadData downloadData2 = e.get(i);
+            if (downloadData2 != null && downloadData2.getUrl().equals(downloadData.getUrl()) && downloadData2.getId().equals(downloadData.getId())) {
+                return;
+            }
+        }
+        downloadData.setStatus(5);
+        if (downloadData.getCallback() != null) {
+            downloadData.getCallback().onFileUpdateProgress(downloadData);
+        }
+        e.add(downloadData);
+        m();
+    }
+
+    public void l(DownloadData downloadData, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, downloadData, i) == null) {
+            int type = downloadData.getType();
+            int i2 = 0;
+            for (DownloadData downloadData2 : e) {
+                if (downloadData2.getType() == type) {
+                    i2++;
+                }
+            }
+            if (i2 >= i) {
+                downloadData.setStatus(2);
+                downloadData.setStatusMsg(TbadkCoreApplication.getInst().getApp().getString(R.string.download_fail_over_max));
+                if (downloadData.getCallback() != null) {
+                    downloadData.getCallback().onFileUpdateProgress(downloadData);
+                    return;
+                }
+                return;
+            }
+            k(downloadData);
         }
     }
 
-    public final void h() {
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_FORBIDDEN_FORUM, aba.a(TbConfig.URL_GET_FORBIDDEN_FORUM, 309692));
-            tbHttpMessageTask.setIsNeedAddCommenParam(false);
-            tbHttpMessageTask.setResponsedClass(ForbiddenForumHttpResMsg.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && d == null && !e.isEmpty()) {
+            DownloadData downloadData = e.get(0);
+            d = downloadData;
+            if (downloadData != null) {
+                b bVar = new b(this);
+                this.a = bVar;
+                bVar.execute(d);
+            }
         }
     }
 }

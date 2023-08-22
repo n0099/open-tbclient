@@ -528,7 +528,7 @@ public class ch {
                     try {
                         byteArrayOutputStream = new ByteArrayOutputStream(l.length / 2);
                         try {
-                            yh.b(l, byteArrayOutputStream);
+                            ai.b(l, byteArrayOutputStream);
                             bArr = byteArrayOutputStream.toByteArray();
                             BdCloseHelper.close((OutputStream) byteArrayOutputStream);
                         } catch (Exception e2) {
@@ -687,7 +687,7 @@ public class ch {
                 byteArrayOutputStream = new ByteArrayOutputStream(k.length / 2);
                 try {
                     try {
-                        yh.b(k, byteArrayOutputStream);
+                        ai.b(k, byteArrayOutputStream);
                         bArr = byteArrayOutputStream.toByteArray();
                     } catch (Exception e2) {
                         e = e2;

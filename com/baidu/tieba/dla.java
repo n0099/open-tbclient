@@ -1,56 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tieba.downloadball.DownloadFloatBallManager;
+import com.baidu.tieba.redtip.PersonRedTipManager;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.SevenZipUtils;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class dla {
+public class dla extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
-    public static final String e;
-    public static final String f;
-    public static final String g;
-    public static final String h;
-    public static final String i;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final eja b;
+    public final qia c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947709776, "Lcom/baidu/tieba/dla;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947709776, "Lcom/baidu/tieba/dla;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dla(MainTabActivity mainTabActivity, qia qiaVar) {
+        super(2001371);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, qiaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.music/";
-        StringBuilder sb = new StringBuilder();
-        sb.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
-        sb.append("/");
-        sb.append("tieba");
-        sb.append("/videoCover.jpg");
-        b = sb.toString();
-        c = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        d = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/" + SevenZipUtils.FILE_NAME_TEMP;
-        e = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbNewVideo/temp/";
-        f = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/tbVideo/temp/";
-        StringBuilder sb2 = new StringBuilder();
-        sb2.append(FileHelper.EXTERNAL_STORAGE_DIRECTORY);
-        sb2.append("/");
-        sb2.append("DCIM/tieba/");
-        g = sb2.toString();
-        h = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/.pendant/";
-        i = FileHelper.EXTERNAL_STORAGE_DIRECTORY + "/tieba/takepic/";
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
+        this.c = qiaVar;
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && Build.VERSION.SDK_INT > 25) {
+            if (UbsABTestHelper.isAdNotInstallRemindA()) {
+                kk1<rh5> a = new uh5().a();
+                if (a != null && a.get() != null) {
+                    a.get().a();
+                    return;
+                }
+                return;
+            }
+            km0.l().p();
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !MainTabActivity.W) {
+            g();
+            qx5.a(1);
+            of5.u(HotEventData.getInstance());
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        eja ejaVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001371) {
+            h();
+            TbadkCoreApplication.getInst().syncHasFinish = true;
+            if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
+                if (!TbSingleton.getInstance().mIsSplashClick && (ejaVar = this.b) != null && ejaVar.b() != null) {
+                    this.b.b().a();
+                }
+                eja ejaVar2 = this.b;
+                if (ejaVar2 != null && ejaVar2.h() != null) {
+                    this.b.h().a();
+                }
+            }
+            if (!MainTabActivity.W) {
+                new nv5(this.a).m();
+            }
+            ila T2 = this.a.T();
+            if (T2 != null) {
+                T2.b();
+            }
+            if (SharedPrefHelper.getInstance().getBoolean(SharedPrefHelper.getSharedPrefKeyWithAccount("key_new_god_pop_is_show"), false)) {
+                PersonRedTipManager.getInstance().updateRedTipState(11, true, true);
+            }
+            MainTabActivity.W = true;
+            this.c.T();
+            DownloadFloatBallManager.l().s(false, true);
+        }
     }
 }

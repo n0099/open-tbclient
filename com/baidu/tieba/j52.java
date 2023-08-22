@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class j52 extends e42 {
+public class j52 extends j42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public o52 a;
+    public Paint.Cap a;
 
     public j52() {
         Interceptable interceptable = $ic;
@@ -27,20 +29,27 @@ public class j52 extends e42 {
         }
     }
 
-    @Override // com.baidu.tieba.e42
-    public void a(f42 f42Var, Canvas canvas) {
-        o52 o52Var;
+    @Override // com.baidu.tieba.j42
+    public void a(k42 k42Var, Canvas canvas) {
+        Paint.Cap cap;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, f42Var, canvas) == null) && (o52Var = this.a) != null && o52Var.a()) {
-            f42Var.i = this.a;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, k42Var, canvas) == null) && (cap = this.a) != null) {
+            k42Var.c.setStrokeCap(cap);
         }
     }
 
-    @Override // com.baidu.tieba.e42
+    @Override // com.baidu.tieba.j42
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            this.a = new o52(jSONArray);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            String optString = jSONArray.optString(0);
+            if (TextUtils.equals(optString, "butt")) {
+                this.a = Paint.Cap.BUTT;
+            } else if (TextUtils.equals(optString, "round")) {
+                this.a = Paint.Cap.ROUND;
+            } else if (TextUtils.equals(optString, "square")) {
+                this.a = Paint.Cap.SQUARE;
+            }
         }
     }
 }

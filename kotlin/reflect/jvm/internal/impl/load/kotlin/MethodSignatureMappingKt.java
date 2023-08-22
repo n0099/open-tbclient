@@ -26,7 +26,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmClassName;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmPrimitiveType;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class MethodSignatureMappingKt {
     public static final void appendErasedType(StringBuilder sb, KotlinType kotlinType) {
         sb.append(mapToJvmType(kotlinType));

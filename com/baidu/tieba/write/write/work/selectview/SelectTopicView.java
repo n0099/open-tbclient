@@ -197,27 +197,27 @@ public class SelectTopicView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d09fd, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f092a43);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0a05, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f092a74);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_topic_sign)");
             setMTopicTitleSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0914e7);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0914fe);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f090694);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f090697);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content_tips)");
             setMCenterContentTips((TextView) findViewById3);
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f09261c);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f09264d);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.topic_center_content)");
             setMCenterContent((AutoChangeLineView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091f15);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091f38);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.bottom_line);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             e();
-            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: com.baidu.tieba.mza
+            getMCenterContent().setOnLabelClickListener(new AutoChangeLineView.c() { // from class: com.baidu.tieba.b6b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -229,7 +229,7 @@ public class SelectTopicView extends LinearLayout {
                     }
                 }
             });
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.qza
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.f6b
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

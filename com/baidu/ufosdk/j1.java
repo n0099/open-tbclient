@@ -138,16 +138,16 @@ public class j1 extends Dialog {
             setCanceledOnTouchOutside(true);
             setCancelable(true);
             getWindow().setGravity(17);
-            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09b0);
-            LinearLayout linearLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ee8);
+            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09b8);
+            LinearLayout linearLayout = (LinearLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f0b);
             this.a = linearLayout;
             if (z) {
-                i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08059d;
+                i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08059f;
             } else {
-                i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08059c;
+                i = com.baidu.tieba.R.drawable.obfuscated_res_0x7f08059e;
             }
             linearLayout.setBackgroundResource(i);
-            TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ee9);
+            TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f0c);
             this.b = textView;
             int i5 = -13421773;
             if (z) {
@@ -156,9 +156,9 @@ public class j1 extends Dialog {
                 i2 = -13421773;
             }
             textView.setTextColor(i2);
-            TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091ee7);
+            TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091f0a);
             this.c = textView2;
-            SpannableString spannableString = new SpannableString(this.f.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f059c));
+            SpannableString spannableString = new SpannableString(this.f.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f059e));
             spannableString.setSpan(new ForegroundColorSpan((int) BaseAnimatedElement.DEBUG_PAINT_COLOR), 51, 64, 33);
             spannableString.setSpan(new b(this.f, this.g), 51, 64, 33);
             textView2.setText(spannableString);
@@ -175,7 +175,7 @@ public class j1 extends Dialog {
             if (text instanceof Spannable) {
                 ((Spannable) textView4.getText()).setSpan(new NoUnderlineSpan(), 0, text.length(), 17);
             }
-            View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090908);
+            View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09090d);
             this.d = findViewById;
             if (z) {
                 i4 = -13619152;
@@ -183,7 +183,7 @@ public class j1 extends Dialog {
                 i4 = BdThumbSeekBarView.BUFFERING_PAINT_COLOR;
             }
             findViewById.setBackgroundColor(i4);
-            TextView textView5 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09124c);
+            TextView textView5 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091262);
             this.e = textView5;
             if (z) {
                 i5 = -11711155;

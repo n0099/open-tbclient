@@ -7,15 +7,15 @@ public class ae {
     public static final TimeZone a = TimeZone.getTimeZone("Asia/Shanghai");
 
     public static int a() {
-        return (int) (((m254a() / 3600000) % 24) + 8);
+        return (int) (((m256a() / 3600000) % 24) + 8);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static final long m254a() {
+    public static final long m256a() {
         return Calendar.getInstance(a).getTimeInMillis();
     }
 
     public static long b() {
-        return m254a() / 86400000;
+        return m256a() / 86400000;
     }
 }

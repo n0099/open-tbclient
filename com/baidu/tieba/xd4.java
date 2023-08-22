@@ -1,30 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xd4 extends JSEvent {
+public class xd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xd4() {
-        super("tap");
+    public static boolean a(View view2, j13 j13Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, j13Var)) == null) {
+            us1 W = qw2.T().W();
+            if (W != null && W.c(view2, j13Var)) {
+                return true;
             }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean f(View view2, j13 j13Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, j13Var)) == null) {
+            us1 W = qw2.T().W();
+            if (W != null && W.a(view2, j13Var)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static Context b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            us1 W = qw2.T().W();
+            if (W != null) {
+                return W.getContext();
+            }
+            return null;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static void c(cq3 cq3Var) {
+        us1 W;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, cq3Var) == null) && (W = qw2.T().W()) != null) {
+            W.e(cq3Var);
+        }
+    }
+
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            us1 W = qw2.T().W();
+            if (W != null && W.removeView(view2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(cq3 cq3Var) {
+        us1 W;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cq3Var) == null) && (W = qw2.T().W()) != null) {
+            W.f(cq3Var);
         }
     }
 }

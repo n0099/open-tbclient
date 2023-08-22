@@ -1,69 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.dialog.CancelType;
-/* loaded from: classes7.dex */
-public class s7c implements yac {
+/* loaded from: classes8.dex */
+public abstract class s7c<T> implements u7c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public f7c c;
-    public AbsViewEventHandler d;
-    public IYYPayAmountView e;
+    public final fac a;
 
-    @Override // com.baidu.tieba.yac
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    public abstract void b(Throwable th);
 
-    public s7c(int i, int i2, f7c f7cVar, AbsViewEventHandler absViewEventHandler, IYYPayAmountView iYYPayAmountView) {
+    public abstract void c(T t);
+
+    public s7c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), f7cVar, absViewEventHandler, iYYPayAmountView};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.info("AmountDialogListener", "create AmountDialogListener appId:" + i + " userChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = f7cVar;
-        this.d = absViewEventHandler;
-        this.e = iYYPayAmountView;
+        this.a = new fac();
     }
 
-    @Override // com.baidu.tieba.yac
-    public void a(CancelType cancelType) {
+    @Override // com.baidu.tieba.u7c
+    public final boolean isUnsubscribed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("AmountDialogListener", "PayAmountDialog notifyCancelType clickArea:" + cancelType);
-            if (cancelType == CancelType.ON_DIALOG_DISMISS) {
-                this.e.release();
-            }
-            this.c.g(cancelType, this.d);
-            k8c.a(this.a, this.b, cancelType);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.isUnsubscribed();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.u7c
+    public final void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.unsubscribe();
+        }
+    }
+
+    public final void a(u7c u7cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, u7cVar) == null) {
+            this.a.a(u7cVar);
         }
     }
 }

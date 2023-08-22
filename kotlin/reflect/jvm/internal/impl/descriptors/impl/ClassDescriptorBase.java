@@ -4,7 +4,7 @@ import kotlin.reflect.jvm.internal.impl.descriptors.DeclarationDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.SourceElement;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.storage.StorageManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public abstract class ClassDescriptorBase extends AbstractClassDescriptor {
     public final DeclarationDescriptor containingDeclaration;
     public final boolean isExternal;

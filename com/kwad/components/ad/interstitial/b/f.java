@@ -225,7 +225,7 @@ public final class f extends b {
 
             @Override // com.kwad.components.ad.interstitial.widget.i
             /* renamed from: do  reason: not valid java name */
-            public final void mo170do() {
+            public final void mo172do() {
                 f.this.e(2, 30);
             }
 
@@ -292,7 +292,7 @@ public final class f extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0912d3);
+        KsAutoCloseView ksAutoCloseView = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0912e9);
         this.ge = ksAutoCloseView;
         ksAutoCloseView.setViewListener(new KsAutoCloseView.a() { // from class: com.kwad.components.ad.interstitial.b.f.1
             @Override // com.kwad.components.core.widget.KsAutoCloseView.a

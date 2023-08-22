@@ -7,8 +7,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ea5;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import com.baidu.tieba.x95;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -80,14 +80,14 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.ya5
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.fb5
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                x95 x95Var = new x95();
-                x95Var.w(R.color.CAM_X0109);
-                setConfig(x95Var);
+                ea5 ea5Var = new ea5();
+                ea5Var.w(R.color.CAM_X0109);
+                setConfig(ea5Var);
                 setClickable(true);
                 if (i == 1) {
                     setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
@@ -95,11 +95,11 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                     setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
                 }
             } else {
-                x95 x95Var2 = new x95();
-                x95Var2.u(R.color.CAM_X0302);
-                setConfig(x95Var2);
+                ea5 ea5Var2 = new ea5();
+                ea5Var2.u(R.color.CAM_X0302);
+                setConfig(ea5Var2);
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e8));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e9));
             }
             if (i == 2) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();

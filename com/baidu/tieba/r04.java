@@ -1,226 +1,213 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import androidx.annotation.Nullable;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+import rx.schedulers.Schedulers;
+import rx.subjects.PublishSubject;
 /* loaded from: classes7.dex */
-public class r04 {
+public final class r04 {
     public static /* synthetic */ Interceptable $ic;
-    public static DisplayMetrics a;
+    public static volatile d a;
+    public static final b8c b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return (int) (f * d(AppRuntime.getAppContext()));
-        }
-        return invokeF.intValue;
+    /* loaded from: classes7.dex */
+    public interface c extends Executor {
+        void execute(@NonNull Runnable runnable, @NonNull String str);
     }
 
-    public static float d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = a;
-            if (displayMetrics != null) {
-                return displayMetrics.density;
+    /* loaded from: classes7.dex */
+    public static class a implements b8c<Pair<Runnable, String>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return 0.0f;
         }
-        return invokeL.floatValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.b8c
+        public void call(Pair<Runnable, String> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                String name = Thread.currentThread().getName();
+                Thread currentThread = Thread.currentThread();
+                currentThread.setName(name + "-" + ((String) pair.second));
+                try {
+                    ((Runnable) pair.first).run();
+                } catch (Throwable unused) {
+                }
+                Thread.currentThread().setName(name);
+            }
+        }
     }
 
-    public static int h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = a;
-            if (displayMetrics != null) {
-                return displayMetrics.heightPixels;
+    /* loaded from: classes7.dex */
+    public static class b implements g8c<Pair<Runnable, String>, n7c<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return 0;
         }
-        return invokeL.intValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.g8c
+        public n7c<?> call(Pair<Runnable, String> pair) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
+                return r7c.g(pair).h(Schedulers.io()).f(r04.b).l();
+            }
+            return (n7c) invokeL.objValue;
+        }
     }
 
-    public static int i(@Nullable Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
-            n(AppRuntime.getAppContext());
-            DisplayMetrics displayMetrics = a;
-            if (displayMetrics != null) {
-                return displayMetrics.widthPixels;
+    /* loaded from: classes7.dex */
+    public static class d extends lcc<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(mcc mccVar) {
+            super(mccVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mccVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((mcc) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return 0;
         }
-        return invokeL.intValue;
+
+        @Override // java.util.concurrent.Executor
+        public void execute(@NonNull Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                execute(runnable, "");
+            }
+        }
+
+        @Override // com.baidu.tieba.r04.c
+        public void execute(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
+                onNext(Pair.create(runnable, r04.c(str)));
+            }
+        }
     }
 
-    public static void n(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65549, null, context) == null) && a == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (appContext != null) {
-                context = appContext;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948067795, "Lcom/baidu/tieba/r04;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (context == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948067795, "Lcom/baidu/tieba/r04;");
                 return;
             }
-            a = context.getResources().getDisplayMetrics();
         }
+        b = new a();
     }
 
-    public static int p(float f) {
-        InterceptResult invokeF;
+    public r04() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65551, null, f)) == null) {
-            return (int) (f / d(AppRuntime.getAppContext()));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return invokeF.intValue;
     }
 
-    public static String b() {
+    public static c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String substring = new k04().a(String.valueOf(System.currentTimeMillis())).substring(4, 14);
-            String e = qz3.b().e();
-            return PayUVEventType.PAY_FULL_SPLIT_ORDER_CLOSE_BTN_CLICK + substring + e.substring(0, 4);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                String[] split = str.split(ParamableElem.DIVIDE_PARAM);
-                int length = split.length;
-                for (int i = 0; i != length; i++) {
-                    String trim = split[i].trim();
-                    String[] split2 = trim.split("=");
-                    if (split2.length >= 2 && TextUtils.equals(str2, split2[0])) {
-                        if (split2.length == 2) {
-                            return split2[1];
-                        }
-                        return trim.substring(split2[0].length() + 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (r04.class) {
+                    if (a == null) {
+                        a = new d(PublishSubject.Q());
+                        a.v().l(new b()).C().E();
                     }
                 }
             }
-            return null;
+            return a;
         }
-        return (String) invokeLL.objValue;
+        return (c) invokeV.objValue;
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            String str = Build.MODEL;
-            if (TextUtils.isEmpty(str)) {
-                return "NUL";
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (str != null) {
+                if (!str.startsWith("SwanAppExecutorUtils_")) {
+                    str = "SwanAppExecutorUtils_" + str;
+                }
+            } else {
+                str = null;
             }
-            return str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str)) {
-                return "0.0";
+            if (str == null) {
+                str = "SwanAppExecutorUtils";
             }
-            return str.replace("_", "-");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String str = Build.MANUFACTURER;
-            if (TextUtils.isEmpty(str)) {
-                return "NUL";
+            if (str.length() > 256) {
+                return str.substring(0, 255);
             }
-            return str.replace("_", "-");
+            return str;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static String j() {
-        InterceptResult invokeV;
+    public static void d(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date());
+        if (interceptable == null || interceptable.invokeLL(65541, null, runnable, str) == null) {
+            b().execute(runnable, str);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return AppRuntime.getAppContext().getPackageName();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            try {
-                Context appContext = AppRuntime.getAppContext();
-                return appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return TextUtils.equals(BaiduIdentityManager.VALUE_OSNAME, qz3.b().a());
-        }
-        return invokeV.booleanValue;
     }
 }

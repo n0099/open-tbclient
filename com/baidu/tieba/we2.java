@@ -1,49 +1,158 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.cu2;
+import com.baidu.tieba.zt2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.List;
 /* loaded from: classes8.dex */
-public interface we2 {
-    public static final we2 a = new a();
+public class we2 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle);
-
-    /* loaded from: classes8.dex */
-    public static class a implements we2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948267621, "Lcom/baidu/tieba/we2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948267621, "Lcom/baidu/tieba/we2;");
+                return;
             }
         }
+        a = nr1.a;
+    }
 
-        @Override // com.baidu.tieba.we2
-        public boolean a(PrefetchEvent prefetchEvent, PMSAppInfo pMSAppInfo, Bundle bundle) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, prefetchEvent, pMSAppInfo, bundle)) == null) {
-                if (pMSAppInfo != null && pMSAppInfo.appCategory == 0) {
-                    return true;
-                }
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return e(str, "swan_sub_package_zip");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return e(str, "swan_sub_package_zip");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean f(List<dk4> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, list)) == null) {
+            if (list == null || list.isEmpty()) {
                 return false;
             }
-            return invokeLLL.booleanValue;
+            return list.get(0).r;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            return a(zt2.e.i(str, str2).getPath());
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            File a2 = lu2.g().a(str, str2);
+            if (a2 != null) {
+                return c(a2.getPath());
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                File file = new File(str, str2);
+                if (file.exists()) {
+                    return file.getPath();
+                }
+                if (file.mkdirs()) {
+                    return file.getPath();
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean g(dk4 dk4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, dk4Var)) == null) {
+            if (dk4Var != null && !TextUtils.isEmpty(dk4Var.o)) {
+                return h(new File(dk4Var.a), new File(zt2.e.i(dk4Var.o, String.valueOf(dk4Var.i)).getPath(), dk4Var.p));
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean h(File file, File file2) {
+        InterceptResult invokeLL;
+        boolean U;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, file, file2)) == null) {
+            if (file != null && file2 != null) {
+                if (!file.exists()) {
+                    if (a) {
+                        Log.e("SubPkgDownloadUtil", "解压分包时，ZIP包不存在 zipFile=" + file);
+                    }
+                    return false;
+                } else if (!file2.exists() && !file2.mkdirs()) {
+                    if (a) {
+                        Log.e("SubPkgDownloadUtil", "创建分包解压文件夹失败 unzipFolder=" + file2);
+                    }
+                    return false;
+                } else {
+                    cu2.c j = cu2.j(file);
+                    int i = j.b;
+                    if (i != -1) {
+                        U = cu2.d(j.a, file2, i).a;
+                    } else {
+                        U = hr4.U(file.getAbsolutePath(), file2.getAbsolutePath());
+                    }
+                    if (U) {
+                        if (a) {
+                            Log.i("SubPkgDownloadUtil", "分包解压成功");
+                            return true;
+                        }
+                        return true;
+                    } else if (a) {
+                        Log.e("SubPkgDownloadUtil", "分包解压文件失败, file:" + file.getAbsolutePath() + " folder:" + file2.getAbsolutePath());
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

@@ -1,105 +1,78 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.tieba.ew2;
-import com.baidu.tieba.wt2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.channels.Pipe;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tt2 extends wt2.f {
+public class tt2 extends ad3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String d;
-    public final qi4 e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948192663, "Lcom/baidu/tieba/tt2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948192663, "Lcom/baidu/tieba/tt2;");
-                return;
-            }
-        }
-        f = ir1.a;
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tt2(String str, qi4 qi4Var) {
-        super("check_sign");
+    public tt2(ac3 ac3Var) {
+        super(ac3Var, "/swanAPI/updateInput");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, qi4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {ac3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = str;
-        this.e = qi4Var;
     }
 
-    @Override // com.baidu.tieba.wt2.f
-    public boolean g(Pipe.SourceChannel sourceChannel, Bundle bundle) {
-        InterceptResult invokeLL;
-        rm3 rm3Var;
+    @Override // com.baidu.tieba.ad3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, sourceChannel, bundle)) == null) {
-            dw2 d = dw2.d(bundle.getString("launch_id"));
-            ew2.b e = d.e();
-            e.b("SignChecker");
-            boolean z = true;
-            e.d(1);
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                try {
-                    rm3Var = qe2.a(sourceChannel, this.d, this.e);
-                } catch (IOException e2) {
-                    if (f) {
-                        e2.printStackTrace();
-                    }
-                    rm3 rm3Var2 = new rm3();
-                    rm3Var2.k(11L);
-                    rm3Var2.i(2300L);
-                    rm3Var2.f("inputStream IOException:" + e2.toString());
-                    vm3.a().f(rm3Var2);
-                    d.g("SignChecker", rm3Var2.toString());
-                    lp3.a(sourceChannel);
-                    rm3Var = rm3Var2;
-                }
-                d.g("SignChecker", "Cost: " + (System.currentTimeMillis() - currentTimeMillis));
-                if (rm3Var != null) {
-                    z = false;
-                }
-                if (rm3Var != null) {
-                    d.g("SignChecker", rm3Var.toString());
-                    c().putLong("result_error_code", rm3Var.a());
-                }
-                d.g("SignChecker", "done: " + z);
-                return z;
-            } finally {
-                lp3.a(sourceChannel);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
+            if (db3Var == null) {
+                d82.c("updateInput", "illegal swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
             }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                d82.c("updateInput", "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            String optString = optParamsAsJo.optString("slaveId");
+            String optString2 = optParamsAsJo.optString("componentId");
+            m72 m72Var = (m72) q72.b(optString, optString2);
+            if (m72Var == null) {
+                d82.c("updateInput", "input组件不存在");
+                d82.c("SwanAppAction", "can't find input component:#" + optString2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "input组件不存在");
+                return false;
+            }
+            n72 n72Var = (n72) m72Var.l();
+            n72Var.g(optParamsAsJo);
+            boolean a = m72Var.update((m72) n72Var).a();
+            if (a) {
+                d82.i("updateInput", "update success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 1001);
+            }
+            return a;
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

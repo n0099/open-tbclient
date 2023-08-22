@@ -1,13 +1,10 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
 import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.gb2;
+import com.baidu.tieba.lb2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,31 +12,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
 /* loaded from: classes8.dex */
 public class yb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gb2 a;
-    public final pb2 b;
-    public final db2 c;
-    public SceneType d;
+    public long a;
+    public boolean b;
+    public final lb2 c;
 
     /* loaded from: classes8.dex */
-    public class a implements gb2.b {
+    public class a implements lb2.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rb2 a;
-        public final /* synthetic */ fb2 b;
-        public final /* synthetic */ yb2 c;
+        public final /* synthetic */ yb2 a;
 
-        public a(yb2 yb2Var, rb2 rb2Var, fb2 fb2Var) {
+        public a(yb2 yb2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yb2Var, rb2Var, fb2Var};
+                Object[] objArr = {yb2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,39 +42,51 @@ public class yb2 {
                     return;
                 }
             }
-            this.c = yb2Var;
-            this.a = rb2Var;
-            this.b = fb2Var;
+            this.a = yb2Var;
         }
 
-        @Override // com.baidu.tieba.gb2.b
+        @Override // com.baidu.tieba.lb2.b
         public void a(NetworkStatus networkStatus) {
-            String str;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                za2.e(this.c.d.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                boolean m0 = sh2.U().m0();
-                long n = fu2.g0().n();
-                if (n >= LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION || m0) {
-                    this.c.f(networkStatus, this.b, this.a);
+                fb2.g(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
+                eb2.c(SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getType(), networkStatus.getStatus());
+                this.a.e(networkStatus);
+                if (yb2.d) {
+                    Log.d("SceneDownloadPkgTips", ">> " + SceneType.SCENE_DOWNLOAD_PKG_TIMEOUT.getScene() + networkStatus.getDesc());
                 }
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.c.d.getScene());
-                sb.append(String.format(Locale.getDefault(), "%d秒截屏；", Long.valueOf(n / 1000)));
-                if (m0) {
-                    str = "框架预加载：已完成；";
-                } else {
-                    str = "框架预加载：未完成；";
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-266088542, "Lcom/baidu/tieba/yb2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-                sb.append(str);
-                sb.append(this.b.a());
-                sb.append(this.a.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
-                if (yb2.e) {
-                    Log.d("SceneWhiteScreenTips", ">> " + sb.toString());
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-266088542, "Lcom/baidu/tieba/yb2$b;");
+                    return;
                 }
-                ab2.g(sb.toString());
+            }
+            int[] iArr = new int[NetworkStatus.values().length];
+            a = iArr;
+            try {
+                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
         }
     }
@@ -99,7 +104,7 @@ public class yb2 {
                 return;
             }
         }
-        e = ir1.a;
+        d = nr1.a;
     }
 
     public yb2() {
@@ -115,61 +120,70 @@ public class yb2 {
                 return;
             }
         }
-        this.d = SceneType.SCENE_WHITE_SCREEN_L1;
-        this.c = db2.d();
-        this.a = new gb2();
-        this.b = pb2.d();
+        this.c = new lb2();
     }
 
-    public void e(SceneType sceneType) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sceneType) == null) {
-            this.d = sceneType;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.c.a(new a(this));
         }
     }
 
-    public void d(String str) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (nb2.b().c()) {
-                if (e) {
-                    Log.d("SceneWhiteScreenTips", ">> start to recheck white screen.");
-                }
-                nb2.b().h(lb2.b(str, 3000L));
-                nb2.b().f();
-                return;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            boolean z = true;
+            if (cb3.K().k() == 1) {
+                z = false;
             }
-            if (e) {
-                Log.d("SceneWhiteScreenTips", ">> no need to recheck white screen.");
-            }
-            if (e) {
-                Log.d("SceneWhiteScreenTips", ">> start handle white screen tips.");
-            }
-            pb2.d().j();
-            db2.d().j();
-            nb2.b().j(true);
-            fb2 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
+            this.b = z;
+            this.a = 0L;
         }
     }
 
-    public final void f(@NonNull NetworkStatus networkStatus, @NonNull fb2 fb2Var, @NonNull rb2 rb2Var) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, networkStatus, fb2Var, rb2Var) == null) {
-            boolean b = fb2Var.b();
-            int i = R.string.obfuscated_res_0x7f0f1574;
-            if (b) {
-                i = R.string.obfuscated_res_0x7f0f1579;
-            } else if (rb2Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
-                i = R.string.obfuscated_res_0x7f0f1577;
-            } else if (rb2Var.e() != RequestStatus.STATUS_FAILED) {
-                if (rb2Var.e() == RequestStatus.STATUS_SLOW) {
-                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f1578 : R.string.obfuscated_res_0x7f0f1575;
-                } else if (rb2Var.e() != RequestStatus.STATUS_CORE_FAILED) {
-                    i = R.string.obfuscated_res_0x7f0f1576;
-                }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b = false;
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> stop collecting network status.");
             }
-            ya2.f(i);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.b) {
+            return;
+        }
+        if (this.a == 0) {
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> start to check download progress.");
+            }
+            this.a = System.currentTimeMillis();
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        if (currentTimeMillis - this.a > 2000) {
+            if (d) {
+                Log.d("SceneDownloadPkgTips", ">> download progress over 2s.");
+            }
+            c();
+            g();
+        }
+        this.a = currentTimeMillis;
+    }
+
+    public final void e(NetworkStatus networkStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatus) == null) {
+            int i = b.a[networkStatus.ordinal()];
+            if (i != 1 && i != 2) {
+                db2.f(R.string.obfuscated_res_0x7f0f1589);
+            } else {
+                db2.f(R.string.obfuscated_res_0x7f0f157f);
+            }
         }
     }
 }

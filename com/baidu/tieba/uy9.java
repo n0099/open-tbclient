@@ -1,142 +1,178 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
-import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.ecommerce.StatKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class uy9 {
+public class uy9 implements db9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public wy9 b;
 
-    public static boolean a(String str, int i, int i2) {
-        InterceptResult invokeLII;
+    public uy9(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, str, i, i2)) == null) {
-            if (i == 2) {
-                if ("frs_new_tab".equals(str) && k46.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
-                    return true;
-                }
-                if ("frs_hot_tab".equals(str) && k46.k().s(AbsDataRecorder.Scene.FRS_HOT)) {
-                    return true;
-                }
-                return false;
-            } else if (i == 3) {
-                if (k46.k().r(i2, AbsDataRecorder.Scene.PB)) {
-                    return true;
-                }
-                return false;
-            } else if (i == 1 && "INDEX".equals(str) && k46.k().s(AbsDataRecorder.Scene.RECOMMEND)) {
-                return true;
-            } else {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLII.booleanValue;
+        this.a = str;
+        this.b = new wy9(str);
     }
 
-    public static void b(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, int i, int i2) {
+    @Override // com.baidu.tieba.db9
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            if (i != 2 && i != 1) {
-                if (i == 3) {
-                    if (k46.k().m() && i2 == 1) {
-                        vipAdFreeGuideLayout.setBottomCornerRound(false);
-                        vipAdFreeGuideLayout.setAllCornerRound(false);
-                        if (adCardBaseView.getPbBottomView() != null) {
-                            adCardBaseView.getPbBottomView().setVisibility(8);
-                            return;
-                        }
-                        return;
-                    }
-                    if (vipAdFreeGuideLayout != null) {
-                        vipAdFreeGuideLayout.setBottomCornerRound(false);
-                        vipAdFreeGuideLayout.setAllCornerRound(true);
-                    }
-                    if (adCardBaseView.getPbBottomView() != null) {
-                        adCardBaseView.getPbBottomView().setVisibility(0);
-                    }
-                }
-            } else if (vipAdFreeGuideLayout != null) {
-                vipAdFreeGuideLayout.setBottomCornerRound(true);
-            }
-        }
-    }
-
-    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65538, null, vipAdFreeGuideLayout, str, str2, i) == null) {
-            if (i == 2) {
-                if ("frs_new_tab".equals(str2)) {
-                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
-                } else if ("frs_hot_tab".equals(str2)) {
-                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
-                }
-            } else if (i == 3) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
-            } else if (i == 1) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
-            }
-        }
-    }
-
-    public static void d(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || vipAdFreeGuideLayout == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || !m(str)) {
             return;
         }
-        vipAdFreeGuideLayout.setVisibility(0);
-        b(adCardBaseView, vipAdFreeGuideLayout, str2, i, i2);
-        vipAdFreeGuideLayout.f();
-        c(vipAdFreeGuideLayout, str, str2, i);
+        goa.d().j(this.a, goa.i(VideoPlatformStatic.c(), this.b.d(), this.b.b()));
     }
 
-    public static void e(AdvertAppInfo advertAppInfo, ly8<?> ly8Var, String str, String str2, int i, int i2) {
-        AdCardBaseView adCardBaseView;
-        int i3;
+    @Override // com.baidu.tieba.db9
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{advertAppInfo, ly8Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            VipAdFreeGuideLayout vipAdFreeGuideLayout = null;
-            if (ly8Var instanceof AdCardBaseView) {
-                adCardBaseView = (AdCardBaseView) ly8Var;
-            } else {
-                adCardBaseView = null;
-            }
-            if (adCardBaseView != null) {
-                vipAdFreeGuideLayout = adCardBaseView.getVipAdFreeGuideLayout();
-            }
-            VipAdFreeGuideLayout vipAdFreeGuideLayout2 = vipAdFreeGuideLayout;
-            if (vipAdFreeGuideLayout2 != null) {
-                if (i == 1) {
-                    i3 = k46.k().j(advertAppInfo.a);
-                } else {
-                    i3 = advertAppInfo.t;
-                }
-                if (i3 == 1) {
-                    vipAdFreeGuideLayout2.setVisibility(8);
-                } else if (i3 == 2) {
-                    d(adCardBaseView, vipAdFreeGuideLayout2, str, str2, i, i2);
-                } else if (a(str2, i, i2)) {
-                    d(adCardBaseView, vipAdFreeGuideLayout2, str, str2, i, i2);
-                    k46.k().c();
-                    if (i == 1) {
-                        k46.k().p(advertAppInfo.a, 2);
-                    } else {
-                        advertAppInfo.t = 2;
-                    }
-                } else {
-                    vipAdFreeGuideLayout2.setVisibility(8);
-                    if (i == 1) {
-                        k46.k().p(advertAppInfo.a, 1);
-                    } else {
-                        advertAppInfo.t = 1;
-                    }
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || !m(str)) {
+            return;
         }
+        this.b.k();
+        this.b.j();
+        this.b.a(new ly9(401, "write", -4399, ""));
+    }
+
+    @Override // com.baidu.tieba.db9
+    public void b(String str, int i, int i2, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2}) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.i();
+        this.b.k();
+        this.b.a(new ly9(i, "write", i2, str2));
+    }
+
+    @Override // com.baidu.tieba.db9
+    public void c(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.a(new ly9(i, StatKey.EDITADDR_TAG_STAGE_EDIT, i, str2));
+    }
+
+    @Override // com.baidu.tieba.db9
+    public void f(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048581, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.a(new ly9(i, "record", i, str2));
+    }
+
+    @Override // com.baidu.tieba.db9
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (!m(str)) {
+                return false;
+            }
+            return this.b.g();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.db9
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.b.h();
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.db9
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, str) != null) || !m(str)) {
+            return;
+        }
+        this.b.k();
+        this.b.a(new ly9(301, "write", -4399, ""));
+    }
+
+    public final boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (TextUtils.equals(this.a, str) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(this.a)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.db9
+    public void g(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048582, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.f();
+        this.b.i();
+        this.b.k();
+        this.b.a(new ly9(402, "write", i, str2));
+    }
+
+    @Override // com.baidu.tieba.db9
+    public void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048583, this, str, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.a(new ly9(503, str2, -4399, ""));
+    }
+
+    @Override // com.baidu.tieba.db9
+    public void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) != null) || !m(str)) {
+            return;
+        }
+        this.b.a(new ly9(501, str2, -4399, ""));
+    }
+
+    @Override // com.baidu.tieba.db9
+    public void l(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLIL(1048587, this, str, i, str2) != null) || !m(str)) {
+            return;
+        }
+        if (i != 103 && i != 105 && i != 106 && i != 107 && i != 104) {
+            this.b.a(new ly9(i, str2, -4399, ""));
+            return;
+        }
+        this.b.f();
+        this.b.a(new ly9(i, str2, i, VideoPlatformStatic.g(i)));
     }
 }

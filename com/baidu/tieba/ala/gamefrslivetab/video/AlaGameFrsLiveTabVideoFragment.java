@@ -15,14 +15,14 @@ import com.baidu.tbadk.browser.BrowserHelper;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.qg7;
+import com.baidu.tieba.hi7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements qg7 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements hi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
@@ -32,7 +32,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements qg7 
     public CustomMessageListener e;
     public CustomMessageListener f;
 
-    public void L1(String str) {
+    public void X1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
@@ -128,7 +128,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements qg7 
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (this.a.J1().contains(str) || str.contains(this.a.J1())) {
+                if (this.a.V1().contains(str) || str.contains(this.a.V1())) {
                     this.a.d.hideLoadingView();
                 }
             }
@@ -154,14 +154,14 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements qg7 
         this.f = new b(this, 2921023);
     }
 
-    public void K1(String str) {
+    public void W1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void M1(boolean z) {
+    public void Y1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.a = z;
@@ -186,7 +186,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements qg7 
             if (this.c) {
                 return;
             }
-            this.d.loadUrl(J1());
+            this.d.loadUrl(V1());
             this.d.onChangeSkinType(i);
         }
     }
@@ -200,7 +200,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements qg7 
         }
     }
 
-    public String J1() {
+    public String V1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -221,7 +221,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements qg7 
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qg7
+    @Override // com.baidu.tieba.hi7
     public NavigationBar o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -261,7 +261,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements qg7 
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onPrimary();
             if (this.c || StringUtils.isNull(this.d.getUrl())) {
-                this.d.loadUrl(J1());
+                this.d.loadUrl(V1());
                 this.c = false;
             }
         }
@@ -284,12 +284,12 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements qg7 
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (BrowserHelper.allowedUseNewWebContainer(J1())) {
+            if (BrowserHelper.allowedUseNewWebContainer(V1())) {
                 this.d = new NewAlaGameFrsLiveTabVideoView(this.a);
             } else {
                 this.d = new AlaGameFrsLiveTabVideoView(this.a);
             }
-            return this.d.G(layoutInflater, viewGroup);
+            return this.d.H(layoutInflater, viewGroup);
         }
         return (View) invokeLLL.objValue;
     }

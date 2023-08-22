@@ -52,7 +52,7 @@ public class BottomMenuView extends LinearLayout {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: i */
-        public static final int icon_card_morelist_n = 2131232831;
+        public static final int icon_card_morelist_n = 2131232840;
         public transient /* synthetic */ FieldHolder $fh;
         public int a;
         public TbPageContext<?> b;
@@ -102,7 +102,7 @@ public class BottomMenuView extends LinearLayout {
             LayoutInflater.from(getContext()).inflate(R.layout.bottom_menu_item, this);
             this.b = tbPageContext;
             this.c = (ImageView) findViewById(R.id.item_image);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d5);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0911eb);
         }
 
         private b getSubMenuGenerator() {
@@ -216,10 +216,10 @@ public class BottomMenuView extends LinearLayout {
                     return;
                 }
             }
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0180, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0183, this);
             setOrientation(1);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911d5);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090908);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0911eb);
+            this.b = findViewById(R.id.obfuscated_res_0x7f09090d);
         }
 
         public SubBottomMenu getSubMenuData() {

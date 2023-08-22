@@ -1,55 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Base64InputStream;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Formatter;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.cea.Cea708Decoder;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public class dab {
+public class dab extends Base64InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947699236, "Lcom/baidu/tieba/dab;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947699236, "Lcom/baidu/tieba/dab;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dab(InputStream inputStream, int i) {
+        super(inputStream, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
+        this.a = false;
+        this.b = false;
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.trim().length() != 0) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int read = super.read();
+            if (!this.a && read == 117) {
+                this.a = true;
+                return 31;
+            } else if (!this.b && read == 123) {
+                this.b = true;
+                return Cea708Decoder.COMMAND_TGW;
+            } else {
+                return read;
             }
-            return true;
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static String b(int i) {
-        InterceptResult invokeI;
+    @Override // android.util.Base64InputStream, java.io.FilterInputStream, java.io.InputStream
+    public int read(byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i < 1000) {
-                i = 1000;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
+            int read = super.read(bArr, i, i2);
+            if (!this.a && read >= 2) {
+                bArr[i] = 31;
+                bArr[i + 1] = -117;
+                this.a = true;
             }
-            return new Formatter(new StringBuilder(), Locale.getDefault()).format("%ds", Integer.valueOf(i / 1000)).toString();
+            return read;
         }
-        return (String) invokeI.objValue;
+        return invokeLII.intValue;
     }
 }

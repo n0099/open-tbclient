@@ -1,79 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
+import android.graphics.Bitmap;
+import android.net.http.SslError;
+import android.os.Message;
+import android.view.KeyEvent;
+import android.webkit.SslErrorHandler;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Autowired
 /* loaded from: classes7.dex */
-public class rb1 {
+public abstract class rb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements ec1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract void a(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
 
-        @Override // com.baidu.tieba.ec1
-        public Drawable a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                return null;
-            }
-            return (Drawable) invokeL.objValue;
-        }
+    public abstract pb1 b(AbsNadBrowserView absNadBrowserView, String str);
 
-        @Override // com.baidu.tieba.ec1
-        public Drawable b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return null;
-            }
-            return (Drawable) invokeL.objValue;
-        }
+    public abstract void c(AbsNadBrowserView absNadBrowserView, String str);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    public abstract boolean d(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
 
-    public static Context a() {
-        InterceptResult invokeV;
+    public abstract boolean e(AbsNadBrowserView absNadBrowserView, String str);
+
+    public abstract void f(AbsNadBrowserView absNadBrowserView, String str);
+
+    public abstract void g(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
+
+    public abstract void h(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
+
+    public abstract void i(AbsNadBrowserView absNadBrowserView, nb1 nb1Var, String str, String str2);
+
+    public abstract void j(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
+
+    public abstract void k(AbsNadBrowserView absNadBrowserView, float f, float f2);
+
+    public abstract void l(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+
+    public abstract void m(AbsNadBrowserView absNadBrowserView, String str, boolean z);
+
+    public rb1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return pj0.b();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (Context) invokeV.objValue;
-    }
-
-    @NonNull
-    @Inject(force = false)
-    public static ec1 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new a();
-        }
-        return (ec1) invokeV.objValue;
     }
 }

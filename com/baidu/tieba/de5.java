@@ -1,607 +1,666 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.os.Handler;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.coreExtra.messageCenter.SignManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.YyExtData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.tieba.ef;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class de5 {
     public static /* synthetic */ Interceptable $ic;
-    public static de5 o;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public boolean k;
-    public boolean l;
-    public String m;
-    public String n;
+    public boolean A;
+    public TBLottieAnimationView B;
+    public int C;
+    public int D;
+    public int E;
+    public h F;
+    public YyExtData G;
+    public String H;
+    public df a;
+    public final Activity b;
+    public final TbPageContext c;
+    public ViewGroup d;
+    public cf e;
+    public final Handler f;
+    public Runnable g;
+    public int h;
+    public String i;
+    public String j;
+    public TextView k;
+    public TextView l;
+    public HeadImageView m;
+    public View n;
+    public TBSpecificationBtn o;
+    public String p;
+    public String q;
+    public String r;
+    public View s;
+    public View t;
+    public ViewGroup u;
+    public boolean v;
+    public float w;
+    public float x;
+    public Long y;
+    public String z;
 
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes5.dex */
+    public interface h {
+        void dismiss();
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947701685, "Lcom/baidu/tieba/de5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ de5 a;
+
+        public a(de5 de5Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {de5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947701685, "Lcom/baidu/tieba/de5;");
+            this.a = de5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
+                this.a.a.e(this.a.d);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements ef.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ de5 a;
+
+        @Override // com.baidu.tieba.ef.a
+        public void onShown() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            }
+        }
+
+        public b(de5 de5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {de5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = de5Var;
+        }
+
+        @Override // com.baidu.tieba.ef.a
+        public void onDismiss() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-        }
-        o = new de5();
-    }
-
-    public static de5 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return o;
-        }
-        return (de5) invokeV.objValue;
-    }
-
-    public boolean A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.j;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean D() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.l;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return SignManager.getInstance().isSignAlertOn();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            sca.r();
+            this.a.a = null;
+            this.a.f.removeCallbacks(this.a.g);
         }
     }
 
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016010));
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class c implements cf {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ de5 a;
 
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            if (!this.j && !this.i) {
+        @Override // com.baidu.tieba.cf
+        public int a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return 3;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.cf
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 32;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.cf
+        public int getXOffset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return 0;
             }
-            if (this.j && !this.i) {
-                return 1;
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.cf
+        public int getYOffset() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return 0;
             }
-            if (!this.j && this.i) {
-                return 2;
+            return invokeV.intValue;
+        }
+
+        public c(de5 de5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {de5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return 3;
+            this.a = de5Var;
         }
-        return invokeV.intValue;
-    }
 
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch_has_done", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            SignManager.getInstance().updateSignAlarm();
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            return this.n;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            return this.m;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
-            return SharedPrefHelper.getInstance().getBoolean("permit_screen_lock", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            return SignManager.getInstance().getSignAlertHours();
-        }
-        return invokeV.intValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            return SignManager.getInstance().getSignAlertMins();
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "follow_friends_push_switch", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            return TbadkSettings.getInst().loadBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_invitation_answer_switch", true);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048623, this) == null) {
-            sca.n();
-        }
-    }
-
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
-            return this.e;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean y() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
-            if (this.a > 0) {
-                return true;
+        @Override // com.baidu.tieba.cf
+        public View c(LayoutInflater layoutInflater) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater)) == null) {
+                if (this.a.s != null) {
+                    return this.a.s;
+                }
+                return this.a.s(layoutInflater);
             }
-            return false;
+            return (View) invokeL.objValue;
         }
-        return invokeV.booleanValue;
     }
 
-    public de5() {
+    /* loaded from: classes5.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ de5 a;
+
+        public d(de5 de5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {de5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = de5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (!di.isEmpty(this.a.p)) {
+                    UrlManager.getInstance().dealOneLink(this.a.c, new String[]{this.a.p});
+                } else if (this.a.G != null) {
+                    YYLiveUtil.jumpToYYLiveRoom(this.a.c, this.a.G, "rec_fuceng");
+                }
+                this.a.q();
+                this.a.t();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class e implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ de5 a;
+
+        public e(de5 de5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {de5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = de5Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (!di.isEmpty(this.a.p)) {
+                    UrlManager.getInstance().dealOneLink(this.a.c, new String[]{this.a.p});
+                } else if (this.a.G != null) {
+                    YYLiveUtil.jumpToYYLiveRoom(this.a.c, this.a.G, "rec_fuceng");
+                }
+                this.a.q();
+                this.a.t();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class f implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ de5 a;
+
+        public f(de5 de5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {de5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = de5Var;
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                int action = motionEvent.getAction();
+                if (action != 0) {
+                    if (action != 1) {
+                        if (action == 2) {
+                            if (this.a.w == 0.0f) {
+                                this.a.w = motionEvent.getY();
+                            }
+                            this.a.x = motionEvent.getY() - this.a.w;
+                            if (this.a.x < 0.0f) {
+                                this.a.v = true;
+                            } else {
+                                this.a.v = false;
+                            }
+                        }
+                    } else if (this.a.v) {
+                        this.a.w();
+                        this.a.t();
+                        return true;
+                    }
+                } else {
+                    this.a.w = motionEvent.getY();
+                    this.a.v = false;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ de5 a;
+
+        public g(de5 de5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {de5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = de5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.B.playAnimation();
+            }
+        }
+    }
+
+    public de5(TbPageContext<?> tbPageContext, Map<String, Object> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, map};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 300;
-        this.b = true;
-        this.c = false;
-        this.d = true;
-        this.e = true;
-        this.f = true;
-        this.g = true;
-        this.h = true;
-        this.i = false;
-        this.j = true;
-        this.k = true;
-        this.l = false;
-        this.m = TbConfig.MSG_DEFAULT_NODISTURB_START_TIME;
-        this.n = TbConfig.MSG_DEFAULT_NODISTURB_END_TIME;
+        this.f = new Handler();
+        this.v = false;
+        this.x = 0.0f;
+        this.C = UtilHelper.getDimenPixelSize(R.dimen.M_H_X013);
+        this.D = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
+        this.E = UtilHelper.getDimenPixelSize(R.dimen.M_W_X003);
+        UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+        this.G = null;
+        this.c = tbPageContext;
+        this.b = tbPageContext.getPageActivity();
+        if (map != null) {
+            this.i = (String) map.get("view_top_params_key_title");
+            this.j = (String) map.get("view_top_params_key_desc");
+            this.h = ((Integer) map.get("view_top_params_key_type")).intValue();
+            this.p = (String) map.get("view_top_params_key_schema");
+            this.q = (String) map.get("view_top_params_key_image_url");
+            this.G = (YyExtData) map.get("view_top_params_key_yyext");
+            this.r = (String) map.get("view_top_params_user_name");
+            this.y = (Long) map.get("view_top_params_room_id");
+            this.z = (String) map.get("view_top_params_btn_text");
+            this.A = ((Boolean) map.get("view_top_params_is_breathe")).booleanValue();
+            this.H = (String) map.get("view_top_params_key_nid");
+        }
+        this.d = u(this.b);
     }
 
-    public boolean l() {
+    public void x(h hVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, hVar) == null) {
+            this.F = hVar;
+        }
+    }
+
+    public void y(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, view2) == null) {
+            this.s = view2;
+        }
+    }
+
+    public void A() {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (viewGroup = this.d) == null) {
+            return;
+        }
+        viewGroup.setVisibility(0);
+        df dfVar = this.a;
+        if (dfVar != null) {
+            dfVar.e(this.d);
+        }
+        this.g = new a(this);
+        ef efVar = new ef();
+        efVar.d(true);
+        efVar.h(new b(this));
+        if (this.e == null) {
+            this.e = r();
+        }
+        efVar.a(this.e);
+        efVar.e(R.anim.push_top_in);
+        efVar.f(R.anim.push_top_out);
+        df b2 = efVar.b();
+        this.a = b2;
+        b2.p(this.b, this.d, false);
+    }
+
+    public Activity getActivity() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            if (!this.f && !this.g && !this.h && !this.d && !s() && !H() && !o() && !n() && !F() && !r()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (Activity) invokeV.objValue;
     }
 
-    public final boolean H() {
+    public final cf r() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            if (sharedPrefHelper.getInt(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", -1) != 0) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new c(this);
+        }
+        return (cf) invokeV.objValue;
+    }
+
+    public void t() {
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            df dfVar = this.a;
+            if (dfVar != null && (viewGroup = this.d) != null) {
+                dfVar.e(viewGroup);
+                this.d.setVisibility(8);
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            if (sharedPrefHelper.getInt(TbadkCoreApplication.getCurrentAccount() + "key_friend_private_message_type", 1) == 1) {
-                return true;
+            h hVar = this.F;
+            if (hVar != null) {
+                hVar.dismiss();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            int i = sharedPrefHelper.getInt(TbadkCoreApplication.getCurrentAccount() + "key_friend_type", -1);
-            if (i == 0 || i == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void J(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "follow_friends_push_switch", z);
-            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "follow_friends_push_switch_has_done", true);
         }
     }
 
-    public void Y(boolean z) {
+    public void q() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
-            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch", z);
-            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "official_push_switch_has_done", true);
-        }
-    }
-
-    public void K(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.e = z;
-            b();
-        }
-    }
-
-    public void L(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            TbadkSettings.getInst().saveBoolean("group_notify", z);
-            b();
-        }
-    }
-
-    public void M(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.d = z;
-            b();
-        }
-    }
-
-    public void N(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
-            this.b = z;
-            b();
-        }
-    }
-
-    public void O(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            if (i == 0) {
-                this.a = i;
-                be5.p0().h0(0);
-                be5.p0().k0(0);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.G != null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_LIVE_REMIND_FLOAT_VIEW_CLICK);
+            statisticItem.param("obj_type", this.h);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_param1", this.G.mYyUid);
+            statisticItem.param("obj_name", this.r);
+            if (this.G.isYyGame) {
+                str = "3";
             } else {
-                this.a = 300;
+                str = "2";
             }
-            b();
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
+            statisticItem.param("liveid", this.y.longValue());
+            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
+            statisticItem.param(TiebaStatic.YYParams.YYSID, this.G.mSid);
+            statisticItem.param(TiebaStatic.YYParams.YYSSID, this.G.mSsid);
+            statisticItem.param("yyuid", this.G.mYyUid);
+            statisticItem.param("template_id", this.G.mTemplateId);
+            statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
+            statisticItem.param("vid", this.H);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void P(boolean z) {
+    public void z() {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public void Q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            this.h = z;
-            b();
-        }
-    }
-
-    public void R(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-            this.f = z;
-            b();
-        }
-    }
-
-    public void S(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
-            this.j = z;
-        }
-    }
-
-    public void T(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void U(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
-            this.g = z;
-            b();
-        }
-    }
-
-    public void V(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
-            this.n = str;
-        }
-    }
-
-    public void W(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.l = z;
-        }
-    }
-
-    public void X(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            this.m = str;
-        }
-    }
-
-    public void Z(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_forum_broadcast_switch", z);
-        }
-    }
-
-    public void a0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            TbadkSettings.getInst().saveBoolean(TbadkCoreApplication.getCurrentAccount() + "remind_invitation_answer_switch", z);
-        }
-    }
-
-    public void b0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048605, this, z) == null) {
-            SignManager.getInstance().setSignAlert(z, j(), k());
-        }
-    }
-
-    public void d0(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048608, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
-            if (i == 0) {
-                S(false);
-                T(false);
-            } else if (i == 1) {
-                S(true);
-                T(false);
-            } else if (i == 2) {
-                S(false);
-                T(true);
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.G != null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_LIVE_REMIND_FLOAT_VIEW_SHOW);
+            statisticItem.param("obj_type", this.h);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_param1", this.G.mYyUid);
+            statisticItem.param("obj_name", this.r);
+            if (this.G.isYyGame) {
+                str = "3";
             } else {
-                S(true);
-                T(true);
+                str = "2";
             }
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
+            statisticItem.param("liveid", this.y.longValue());
+            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
+            statisticItem.param(TiebaStatic.YYParams.YYSID, this.G.mSid);
+            statisticItem.param(TiebaStatic.YYParams.YYSSID, this.G.mSsid);
+            statisticItem.param("yyuid", this.G.mYyUid);
+            statisticItem.param("template_id", this.G.mTemplateId);
+            statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
+            statisticItem.param("vid", this.H);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void c0(int i, int i2) {
+    @NonNull
+    public final View s(LayoutInflater layoutInflater) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048607, this, i, i2) == null) {
-            SignManager.getInstance().setSignAlert(F(), i, i2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, layoutInflater)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.top_float_view, (ViewGroup) null);
+            this.t = inflate;
+            this.n = inflate.findViewById(R.id.frs_guide_bg);
+            this.k = (TextView) this.t.findViewById(R.id.frs_guide_text);
+            this.l = (TextView) this.t.findViewById(R.id.frs_guide_title);
+            this.m = (HeadImageView) this.t.findViewById(R.id.frs_guide_bar_icon);
+            this.B = (TBLottieAnimationView) this.t.findViewById(R.id.user_living_lottie);
+            this.o = (TBSpecificationBtn) this.t.findViewById(R.id.frs_guide_concern_btn);
+            this.l.setText(this.i);
+            this.k.setText(this.j);
+            if (di.isEmpty(this.z)) {
+                this.o.setVisibility(8);
+            } else {
+                this.o.setText(this.z);
+            }
+            this.o.setOnClickListener(new d(this));
+            this.n.setOnClickListener(new e(this));
+            this.n.setOnTouchListener(new f(this));
+            this.m.startLoad(this.q, 10, false);
+            this.m.setDefaultResource(17170445);
+            this.m.setPlaceHolder(1);
+            this.m.setIsRound(true);
+            this.m.setBorderWidth(R.dimen.L_X02);
+            this.m.setBorderColor(R.color.CAM_X0622);
+            this.m.setDrawBorder(true);
+            if (this.A) {
+                SkinManager.setLottieAnimation(this.B, R.raw.card_live_header_bg);
+            }
+            this.B.setVisibility(0);
+            if (!this.B.isAnimating()) {
+                this.B.setSpeed(0.8f);
+                this.B.setRepeatCount(-1);
+                this.B.post(new g(this));
+            }
+            z();
+            v();
+            return this.t;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public final ViewGroup u(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
+            if (activity == null) {
+                return null;
+            }
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
+            layoutParams.gravity = 48;
+            layoutParams.topMargin = this.C;
+            layoutParams.leftMargin = this.D;
+            layoutParams.rightMargin = this.E;
+            FrameLayout frameLayout = new FrameLayout(activity);
+            this.u = frameLayout;
+            ((FrameLayout) activity.findViewById(16908290)).addView(frameLayout, layoutParams);
+            return this.u;
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
+            TBSelector.makeShadowDrawable().setBgColor(R.color.CAM_X0207).setShapeRadius(BdUtilHelper.getDimens(this.b, R.dimen.tbds31)).setShadowColor(R.color.CAM_X0803).setShadowSide(ShadowDrawable.ALL).setShadowRadius(BdUtilHelper.getDimens(this.b, R.dimen.tbds16)).setOffsetX(0).setOffsetY(0).into(this.n);
+            da5 da5Var = new da5();
+            da5Var.r(R.color.CAM_X0302);
+            this.o.setConfig(da5Var);
         }
     }
 
-    public void f0(boolean z, long j) {
+    public void w() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            SignManager.getInstance().updateSignSwitchAndTimeByServerSync(z, j);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.G != null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_LIVE_REMIND_FLOAT_VIEW_HIDE);
+            statisticItem.param("obj_type", this.h);
+            statisticItem.param("liveid", this.y.longValue());
+            statisticItem.param("hdid", TbadkCoreApplication.getInst().getHdid());
+            statisticItem.param(TiebaStatic.YYParams.YYSID, this.G.mSid);
+            statisticItem.param(TiebaStatic.YYParams.YYSSID, this.G.mSsid);
+            statisticItem.param("yyuid", this.G.mYyUid);
+            statisticItem.param("template_id", this.G.mTemplateId);
+            statisticItem.param(TiebaStatic.YYParams.YYLIVEID, 1);
+            statisticItem.param("vid", this.H);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

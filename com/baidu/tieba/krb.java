@@ -1,283 +1,206 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import androidx.constraintlayout.motion.widget.Key;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.Layout;
-import com.opensource.svgaplayer.proto.ShapeEntity;
-import com.opensource.svgaplayer.proto.Transform;
-import java.util.ArrayList;
+import java.io.File;
+import java.util.LinkedList;
 import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class krb {
-    public static /* synthetic */ Interceptable $ic;
+public class krb implements mrb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Context sApplicationContext = null;
+    public static int sBlockThreshold = 2000;
+    public static krb sInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
-    public nrb b;
-    public Matrix c;
-    public frb d;
-    public List<SVGAVideoShapeEntity> e;
 
-    public krb(FrameEntity frameEntity) {
-        float f;
-        float f2;
-        float f3;
-        float f4;
-        float f5;
-        float f6;
-        float f7;
-        float f8;
-        float f9;
-        float f10;
-        float f11;
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947924110, "Lcom/baidu/tieba/krb;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frameEntity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.b = new nrb(0.0d, 0.0d, 0.0d, 0.0d);
-        this.c = new Matrix();
-        this.e = CollectionsKt__CollectionsKt.emptyList();
-        Float f12 = frameEntity.alpha;
-        if (f12 != null) {
-            f = f12.floatValue();
-        } else {
-            f = 0.0f;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947924110, "Lcom/baidu/tieba/krb;");
         }
-        this.a = f;
-        Layout layout = frameEntity.layout;
-        if (layout != null) {
-            Float f13 = layout.x;
-            if (f13 != null) {
-                f8 = f13.floatValue();
-            } else {
-                f8 = 0.0f;
-            }
-            double d = f8;
-            Float f14 = layout.y;
-            if (f14 != null) {
-                f9 = f14.floatValue();
-            } else {
-                f9 = 0.0f;
-            }
-            double d2 = f9;
-            Float f15 = layout.width;
-            if (f15 != null) {
-                f10 = f15.floatValue();
-            } else {
-                f10 = 0.0f;
-            }
-            double d3 = f10;
-            Float f16 = layout.height;
-            if (f16 != null) {
-                f11 = f16.floatValue();
-            } else {
-                f11 = 0.0f;
-            }
-            this.b = new nrb(d, d2, d3, f11);
-        }
-        Transform transform = frameEntity.transform;
-        if (transform != null) {
-            float[] fArr = new float[9];
-            Float f17 = transform.a;
-            if (f17 != null) {
-                f2 = f17.floatValue();
-            } else {
-                f2 = 1.0f;
-            }
-            Float f18 = transform.b;
-            if (f18 != null) {
-                f3 = f18.floatValue();
-            } else {
-                f3 = 0.0f;
-            }
-            Float f19 = transform.c;
-            if (f19 != null) {
-                f4 = f19.floatValue();
-            } else {
-                f4 = 0.0f;
-            }
-            Float f20 = transform.d;
-            if (f20 != null) {
-                f5 = f20.floatValue();
-            } else {
-                f5 = 1.0f;
-            }
-            Float f21 = transform.tx;
-            if (f21 != null) {
-                f6 = f21.floatValue();
-            } else {
-                f6 = 0.0f;
-            }
-            Float f22 = transform.ty;
-            if (f22 != null) {
-                f7 = f22.floatValue();
-            } else {
-                f7 = 0.0f;
-            }
-            fArr[0] = f2;
-            fArr[1] = f4;
-            fArr[2] = f6;
-            fArr[3] = f3;
-            fArr[4] = f5;
-            fArr[5] = f7;
-            fArr[6] = 0.0f;
-            fArr[7] = 0.0f;
-            fArr[8] = 1.0f;
-            this.c.setValues(fArr);
-        }
-        String str = frameEntity.clipPath;
-        if (str != null) {
-            str = str.length() > 0 ? str : null;
-            if (str != null) {
-                this.d = new frb(str);
-            }
-        }
-        List<ShapeEntity> list = frameEntity.shapes;
-        Intrinsics.checkExpressionValueIsNotNull(list, "obj.shapes");
-        ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-        for (ShapeEntity it : list) {
-            Intrinsics.checkExpressionValueIsNotNull(it, "it");
-            arrayList.add(new SVGAVideoShapeEntity(it));
-        }
-        this.e = arrayList;
     }
 
-    public krb(JSONObject jSONObject) {
-        boolean z;
+    public List<String> concernPackages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean deleteFilesInWhiteList() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public abstract boolean displayNotification();
+
+    public boolean filterNonConcernStack() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.mrb
+    public void onBlock(Context context, srb srbVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, srbVar) == null) {
+        }
+    }
+
+    public int provideMonitorDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public String provideNetworkType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "unknown" : (String) invokeV.objValue;
+    }
+
+    public String providePath() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "/blockcanary/" : (String) invokeV.objValue;
+    }
+
+    public String provideQualifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "unknown" : (String) invokeV.objValue;
+    }
+
+    public String provideUid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "uid" : (String) invokeV.objValue;
+    }
+
+    public boolean stopWhenDebugging() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean zip(File[] fileArr, File file) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, fileArr, file)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public krb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        krb krbVar = this;
-        krbVar.b = new nrb(0.0d, 0.0d, 0.0d, 0.0d);
-        krbVar.c = new Matrix();
-        krbVar.e = CollectionsKt__CollectionsKt.emptyList();
-        krbVar.a = jSONObject.optDouble(Key.ALPHA, 0.0d);
-        JSONObject optJSONObject = jSONObject.optJSONObject(TtmlNode.TAG_LAYOUT);
-        if (optJSONObject != null) {
-            krbVar.b = new nrb(optJSONObject.optDouble("x", 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
-        }
-        JSONObject optJSONObject2 = jSONObject.optJSONObject("transform");
-        if (optJSONObject2 != null) {
-            double optDouble = optJSONObject2.optDouble("a", 1.0d);
-            double optDouble2 = optJSONObject2.optDouble("b", 0.0d);
-            double optDouble3 = optJSONObject2.optDouble("c", 0.0d);
-            double optDouble4 = optJSONObject2.optDouble("d", 1.0d);
-            double optDouble5 = optJSONObject2.optDouble(MapBundleKey.MapObjKey.OBJ_TEXT, 0.0d);
-            double optDouble6 = optJSONObject2.optDouble("ty", 0.0d);
-            float f = (float) optDouble3;
-            z = true;
-            float f2 = (float) 0.0d;
-            float[] fArr = {(float) optDouble, f, (float) optDouble5, (float) optDouble2, (float) optDouble4, (float) optDouble6, f2, f2, (float) 1.0d};
-            krbVar = this;
-            krbVar.c.setValues(fArr);
-        } else {
-            z = true;
-        }
-        String optString = jSONObject.optString("clipPath");
-        if (optString != null) {
-            if (optString.length() <= 0 ? false : z) {
-                krbVar.d = new frb(optString);
+    }
+
+    public static krb get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            krb krbVar = sInstance;
+            if (krbVar != null) {
+                return krbVar;
             }
+            throw new RuntimeException("BlockCanaryContext null");
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("shapes");
-        if (optJSONArray != null) {
-            ArrayList arrayList = new ArrayList();
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
-                if (optJSONObject3 != null) {
-                    arrayList.add(new SVGAVideoShapeEntity(optJSONObject3));
-                }
-            }
-            krbVar.e = CollectionsKt___CollectionsKt.toList(arrayList);
-        }
+        return (krb) invokeV.objValue;
     }
 
-    public final double a() {
+    public int provideBlockThreshold() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return sBlockThreshold;
         }
-        return invokeV.doubleValue;
+        return invokeV.intValue;
     }
 
-    public final nrb b() {
+    public Context provideContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return sApplicationContext;
         }
-        return (nrb) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public final frb c() {
+    public int provideDumpInterval() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return provideBlockThreshold();
         }
-        return (frb) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final List<SVGAVideoShapeEntity> d() {
+    public List<String> provideWhiteList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            LinkedList linkedList = new LinkedList();
+            linkedList.add("org.chromium");
+            return linkedList;
         }
         return (List) invokeV.objValue;
     }
 
-    public final Matrix e() {
-        InterceptResult invokeV;
+    public static void init(Context context, krb krbVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, krbVar, i) == null) {
+            sApplicationContext = context;
+            sInstance = krbVar;
+            sBlockThreshold = i;
         }
-        return (Matrix) invokeV.objValue;
     }
 
-    public final void f(List<SVGAVideoShapeEntity> list) {
+    public void upload(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            this.e = list;
+        if (interceptable == null || interceptable.invokeL(1048591, this, file) == null) {
+            throw new UnsupportedOperationException();
         }
     }
 }

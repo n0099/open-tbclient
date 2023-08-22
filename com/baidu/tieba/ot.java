@@ -1,71 +1,87 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.TaskState;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.model.ITaskModelData;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.TypeCastException;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class ot {
+public final class ot extends pt<TaskState> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, mt<? extends ITaskModelData>> a;
+    public final rt a;
 
-    public ot() {
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? TaskState.key : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ot(rt rtVar) {
+        super(rtVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rtVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((rt) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        vt vtVar = new vt(this);
-        this.a.put(vtVar.b(), vtVar);
-        rt rtVar = new rt(this);
-        this.a.put(rtVar.b(), rtVar);
-        wt wtVar = new wt(this);
-        this.a.put(wtVar.c(), wtVar);
-        tt ttVar = new tt(this);
-        this.a.put(ttVar.b(), ttVar);
-        st stVar = new st(this);
-        this.a.put(stVar.c(), stVar);
-        ut utVar = new ut(this);
-        this.a.put(utVar.b(), utVar);
-        nt ntVar = new nt(this);
-        this.a.put(ntVar.b(), ntVar);
-        lt ltVar = new lt(this);
-        this.a.put(ltVar.c(), ltVar);
+        this.a = rtVar;
     }
 
-    public final <T extends ITaskModelData> mt<? extends T> a(String str) {
-        InterceptResult invokeL;
-        boolean z;
+    public final <T extends ITaskModelData> T b(rt rtVar, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a.get(str) != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                mt<? extends ITaskModelData> mtVar = this.a.get(str);
-                if (mtVar != null) {
-                    return (mt<? extends T>) mtVar;
-                }
-                throw new TypeCastException("null cannot be cast to non-null type com.baidu.bdtask.model.ITaskModelCreator<out T>");
-            }
-            throw new IllegalArgumentException(("can not find " + str + " model creator!").toString());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rtVar, str, str2)) == null) {
+            return rtVar.a(str).a(str2);
         }
-        return (mt) invokeL.objValue;
+        return (T) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pt
+    /* renamed from: d */
+    public TaskState a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                rt rtVar = this.a;
+                String optString = jSONObject.optString("info");
+                Intrinsics.checkExpressionValueIsNotNull(optString, "jsonObject.optString(TaskInfo.key)");
+                TaskInfo taskInfo = (TaskInfo) b(rtVar, "info", optString);
+                if (taskInfo != null) {
+                    rt rtVar2 = this.a;
+                    String optString2 = jSONObject.optString(TaskStatus.key);
+                    Intrinsics.checkExpressionValueIsNotNull(optString2, "jsonObject.optString(TaskStatus.key)");
+                    TaskStatus taskStatus = (TaskStatus) b(rtVar2, TaskStatus.key, optString2);
+                    if (taskStatus != null) {
+                        return new TaskState(taskInfo, taskStatus);
+                    }
+                }
+                return null;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (TaskState) invokeL.objValue;
     }
 }

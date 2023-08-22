@@ -1,74 +1,194 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.HandlerThread;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Handler;
 import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Message;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.core.util.BdLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class zv extends HandlerThread {
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+/* loaded from: classes9.dex */
+public final class zv {
     public static /* synthetic */ Interceptable $ic;
+    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> a;
+    public static b b;
+    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zv(String str, int i) {
-        super(str, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes9.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public /* synthetic */ b(Looper looper, a aVar) {
+            this(looper);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
+                zv.d();
+                zv.b.sendEmptyMessageDelayed(0, 15000L);
             }
         }
     }
 
-    public void a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448324081, "Lcom/baidu/tieba/zv;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448324081, "Lcom/baidu/tieba/zv;");
+                return;
+            }
+        }
+        a = new ConcurrentHashMap<>();
+        c = false;
+        b bVar = new b(dw.a("PreferenceQueue").getLooper(), null);
+        b = bVar;
+        bVar.sendEmptyMessageDelayed(0, 15000L);
+    }
+
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                Looper looper = getLooper();
-                if (Build.VERSION.SDK_INT >= 18) {
-                    looper.quitSafely();
+        if ((interceptable == null || interceptable.invokeV(65542, null) == null) && !b.hasMessages(0)) {
+            b.sendEmptyMessageDelayed(0, 15000L);
+        }
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            Log.d("BdPreferenceQueueWorker", "wait to finish");
+            b.removeMessages(0);
+            d();
+            f();
+        }
+    }
+
+    public static void c(String str, String str2, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, obj) != null) || str == null) {
+            return;
+        }
+        if (a.containsKey(str)) {
+            ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
+            if (concurrentHashMap != null) {
+                if (obj != null) {
+                    concurrentHashMap.put(str2, obj);
                 } else {
-                    looper.quit();
+                    concurrentHashMap.remove(str2);
+                }
+            } else if (obj != null && str2 != null) {
+                ConcurrentHashMap<String, Object> concurrentHashMap2 = new ConcurrentHashMap<>();
+                concurrentHashMap2.put(str2, obj);
+                a.put(str, concurrentHashMap2);
+            }
+        } else if (obj != null && str2 != null) {
+            ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
+            concurrentHashMap3.put(str2, obj);
+            a.put(str, concurrentHashMap3);
+        }
+    }
+
+    public static void d() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || c) {
+            return;
+        }
+        c = true;
+        try {
+            try {
+                Context baseContext = vv.a().getBaseContext();
+                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + a.size());
+                for (String str : a.keySet()) {
+                    ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
+                    if (concurrentHashMap != null && concurrentHashMap.size() > 0) {
+                        SharedPreferences.Editor edit = baseContext.getSharedPreferences(str, 0).edit();
+                        i = 0;
+                        for (String str2 : concurrentHashMap.keySet()) {
+                            Object obj = concurrentHashMap.get(str2);
+                            if (obj != null) {
+                                if (obj instanceof Integer) {
+                                    edit.putInt(str2, ((Integer) obj).intValue());
+                                } else if (obj instanceof Long) {
+                                    edit.putLong(str2, ((Long) obj).longValue());
+                                } else if (obj instanceof Float) {
+                                    edit.putFloat(str2, ((Float) obj).floatValue());
+                                } else if (obj instanceof Boolean) {
+                                    edit.putBoolean(str2, ((Boolean) obj).booleanValue());
+                                } else if (obj instanceof String) {
+                                    edit.putString(str2, (String) obj);
+                                } else if (obj instanceof Set) {
+                                    edit.putStringSet(str2, (Set) obj);
+                                }
+                                i++;
+                            }
+                        }
+                        edit.commit();
+                    } else {
+                        i = 0;
+                    }
+                    concurrentHashMap.clear();
+                    if (i > 0) {
+                        BdLog.a("BdPreferenceQueueWorker", str + ".xml " + i + " items have been wroten");
+                    }
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        } finally {
+            c = false;
         }
     }
 
-    @Override // android.os.HandlerThread
-    public boolean quit() {
-        InterceptResult invokeV;
+    public static void e(String str) {
+        ConcurrentHashMap<String, Object> concurrentHashMap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return quitSafely();
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && str != null && (concurrentHashMap = a.get(str)) != null) {
+            concurrentHashMap.clear();
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.os.HandlerThread
-    public boolean quitSafely() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            aw.c(this);
-            return true;
-        }
-        return invokeV.booleanValue;
     }
 }

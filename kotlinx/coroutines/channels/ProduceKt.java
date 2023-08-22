@@ -66,7 +66,7 @@ public final class ProduceKt {
                             produceKt$awaitClose$1.label = 1;
                             final CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(produceKt$awaitClose$1), 1);
                             cancellableContinuationImpl.initCancellability();
-                            producerScope.mo2355invokeOnClose(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.channels.ProduceKt$awaitClose$4$1
+                            producerScope.mo2357invokeOnClose(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.channels.ProduceKt$awaitClose$4$1
                                 /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: kotlinx.coroutines.CancellableContinuation<? super kotlin.Unit> */
                                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                                 /* JADX WARN: Multi-variable type inference failed */
@@ -86,7 +86,7 @@ public final class ProduceKt {
                                 public final void invoke2(Throwable th) {
                                     CancellableContinuation<Unit> cancellableContinuation = cancellableContinuationImpl;
                                     Result.Companion companion = Result.Companion;
-                                    cancellableContinuation.resumeWith(Result.m847constructorimpl(Unit.INSTANCE));
+                                    cancellableContinuation.resumeWith(Result.m849constructorimpl(Unit.INSTANCE));
                                 }
                             });
                             Object result = cancellableContinuationImpl.getResult();

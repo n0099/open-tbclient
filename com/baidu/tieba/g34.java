@@ -1,20 +1,67 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g34 implements tw1 {
+public class g34 implements yw1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile g34 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b34 a;
+    public HashMap<String, Boolean> a;
     public f34 b;
+
+    /* loaded from: classes6.dex */
+    public class a implements ho2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ho2 a;
+        public final /* synthetic */ g34 b;
+
+        public a(g34 g34Var, ho2 ho2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g34Var, ho2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = g34Var;
+            this.a = ho2Var;
+        }
+
+        @Override // com.baidu.tieba.ho2
+        public void onFail(int i, @Nullable String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                this.b.g(false);
+                this.a.onFail(i, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.ho2
+        public void onSuccess(@Nullable JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+                this.b.g(true);
+                this.a.onSuccess(jSONObject);
+            }
+        }
+    }
 
     public g34() {
         Interceptable interceptable = $ic;
@@ -29,46 +76,78 @@ public class g34 implements tw1 {
                 return;
             }
         }
-        c();
+        this.a = new HashMap<>();
+        this.b = new f34();
     }
 
-    public static g34 b() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (g34.class) {
-                    if (c == null) {
-                        c = new g34();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            db3 b0 = db3.b0();
+            if (b0 != null) {
+                return b0.O();
             }
-            return c;
+            return null;
         }
-        return (g34) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void c() {
+    public boolean f() {
+        InterceptResult invokeV;
+        Boolean bool;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new b34();
-            this.b = new f34();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String d = d();
+            if (TextUtils.isEmpty(d) || (bool = this.a.get(d)) == null) {
+                return false;
+            }
+            return bool.booleanValue();
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.tw1
-    public y22 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull co2 co2Var) {
+    @Override // com.baidu.tieba.yw1
+    @Nullable
+    public d32 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull ho2 ho2Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, co2Var)) == null) {
-            if (this.a.e(str)) {
-                return this.a.a(str, jSONObject, co2Var);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, ho2Var)) == null) {
+            if (f()) {
+                ho2Var.onSuccess(null);
+                return null;
             }
-            if (this.a.f()) {
-                return this.b.a(str, jSONObject, co2Var);
-            }
-            return new y22(10001, "authorize fail.");
+            return this.b.a(jSONObject, c(ho2Var));
         }
-        return (y22) invokeLLL.objValue;
+        return (d32) invokeLLL.objValue;
+    }
+
+    public final ho2 c(@NonNull ho2 ho2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ho2Var)) == null) {
+            return new a(this, ho2Var);
+        }
+        return (ho2) invokeL.objValue;
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return TextUtils.equals(this.b.a, str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            String d = d();
+            if (TextUtils.isEmpty(d)) {
+                return;
+            }
+            this.a.put(d, Boolean.valueOf(z));
+        }
     }
 }

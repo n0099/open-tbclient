@@ -1,100 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.im.db.pojo.ApkDetailPojo;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import protobuf.Item;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class bc8 {
+public final class bc8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
-    public String b;
-    public Double c;
-    public String d;
-    public List<String> e;
-    public Double f;
-    public Integer g;
-    public String h;
-    public String i;
-    public String j;
-    public Integer k;
-    public Integer l;
-    public String m;
-    public String n;
-    public ApkDetailPojo o;
+    public final TbWebView a;
 
-    public bc8() {
+    public bc8(TbWebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        Intrinsics.checkNotNullParameter(webView, "webView");
+        this.a = webView;
+    }
+
+    public static final void b(bc8 this$0, String name, HashMap params) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, this$0, name, params) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(name, "$name");
+            Intrinsics.checkNotNullParameter(params, "$params");
+            wl6.a().d(this$0.a, name, params);
         }
     }
 
-    public static bc8 a(Item item) {
-        InterceptResult invokeL;
+    public static final void d(bc8 this$0, String eventName, String json) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, item)) == null) {
-            if (item == null) {
-                return null;
-            }
-            bc8 bc8Var = new bc8();
-            bc8Var.a = item.itemId;
-            bc8Var.b = item.itemName;
-            bc8Var.c = item.iconSize;
-            bc8Var.d = item.iconUrl;
-            bc8Var.e = item.tags;
-            bc8Var.f = item.score;
-            bc8Var.g = item.star;
-            bc8Var.h = item.buttonName;
-            bc8Var.i = item.buttonLink;
-            bc8Var.j = item.itemAppid;
-            bc8Var.k = item.categoryId;
-            bc8Var.l = item.buttonLinkType;
-            bc8Var.m = item.apkName;
-            bc8Var.n = item.forumName;
-            bc8Var.o = ApkDetailPojo.N(item.apkDetail);
-            return bc8Var;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, eventName, json) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            Intrinsics.checkNotNullParameter(eventName, "$eventName");
+            Intrinsics.checkNotNullParameter(json, "$json");
+            wl6.a().i(this$0.a, eventName, new JSONObject(json));
         }
-        return (bc8) invokeL.objValue;
     }
 
-    public static bc8 b(tbclient.Item item) {
-        InterceptResult invokeL;
+    public final void a(final String name, final HashMap<String, Object> params) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, item)) == null) {
-            if (item == null) {
-                return null;
-            }
-            bc8 bc8Var = new bc8();
-            bc8Var.a = item.item_id;
-            bc8Var.b = item.item_name;
-            bc8Var.c = item.icon_size;
-            bc8Var.d = item.icon_url;
-            bc8Var.e = item.tags;
-            bc8Var.f = item.score;
-            bc8Var.g = item.star;
-            bc8Var.h = item.button_name;
-            bc8Var.i = item.button_link;
-            bc8Var.j = item.item_appid;
-            bc8Var.k = item.category_id;
-            bc8Var.l = item.button_link_type;
-            bc8Var.m = item.apk_name;
-            bc8Var.n = item.forum_name;
-            bc8Var.o = ApkDetailPojo.O(item.apk_detail);
-            return bc8Var;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, name, params) == null) {
+            Intrinsics.checkNotNullParameter(name, "name");
+            Intrinsics.checkNotNullParameter(params, "params");
+            lg.g(new Runnable() { // from class: com.baidu.tieba.wb8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        bc8.b(bc8.this, name, params);
+                    }
+                }
+            });
         }
-        return (bc8) invokeL.objValue;
+    }
+
+    public final void c(final String eventName, final String json) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eventName, json) == null) {
+            Intrinsics.checkNotNullParameter(eventName, "eventName");
+            Intrinsics.checkNotNullParameter(json, "json");
+            lg.g(new Runnable() { // from class: com.baidu.tieba.xb8
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        bc8.d(bc8.this, eventName, json);
+                    }
+                }
+            });
+        }
     }
 }

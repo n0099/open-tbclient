@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.searchbox.http.AbstractHttpManager;
-import com.baidu.tieba.gi4;
+import com.baidu.tieba.ki4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ai4 extends gi4.a {
+public class ai4 extends ki4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -33,16 +33,16 @@ public class ai4 extends gi4.a {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gi4.a, com.baidu.searchbox.http.request.HttpRequestBuilder
+    @Override // com.baidu.tieba.ki4.a, com.baidu.searchbox.http.request.HttpRequestBuilder
     /* renamed from: a */
-    public gi4 build() {
+    public ki4 build() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            qh4.b().j(this.httpUrl.toString(), this);
+            vh4.b().j(this.httpUrl.toString(), this);
             requestFrom(6);
             return super.build();
         }
-        return (gi4) invokeV.objValue;
+        return (ki4) invokeV.objValue;
     }
 }

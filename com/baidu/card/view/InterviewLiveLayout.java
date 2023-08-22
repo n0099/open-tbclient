@@ -33,11 +33,11 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b05;
-import com.baidu.tieba.cn6;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.qx;
-import com.baidu.tieba.u35;
+import com.baidu.tieba.a45;
+import com.baidu.tieba.h05;
+import com.baidu.tieba.jo6;
+import com.baidu.tieba.tx;
+import com.baidu.tieba.w05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes3.dex */
-public class InterviewLiveLayout extends FrameLayout implements qx<q05> {
+public class InterviewLiveLayout extends FrameLayout implements tx<w05> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public cn6<q05> c;
-    public q05 d;
+    public jo6<w05> c;
+    public w05 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -299,10 +299,10 @@ public class InterviewLiveLayout extends FrameLayout implements qx<q05> {
         }
     }
 
-    public void setSubClickListener(cn6<q05> cn6Var) {
+    public void setSubClickListener(jo6<w05> jo6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, cn6Var) == null) {
-            this.c = cn6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jo6Var) == null) {
+            this.c = jo6Var;
         }
     }
 
@@ -323,16 +323,16 @@ public class InterviewLiveLayout extends FrameLayout implements qx<q05> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qx
+    @Override // com.baidu.tieba.tx
     /* renamed from: j */
-    public void onBindDataToView(q05 q05Var) {
+    public void onBindDataToView(w05 w05Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) {
-            this.d = q05Var;
-            if (q05Var != null && this.e != null) {
-                ThreadData threadData = q05Var.getThreadData();
-                u35 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w05Var) == null) {
+            this.d = w05Var;
+            if (w05Var != null && this.e != null) {
+                ThreadData threadData = w05Var.getThreadData();
+                a45 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -340,7 +340,7 @@ public class InterviewLiveLayout extends FrameLayout implements qx<q05> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.h();
-                if (b05.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
+                if (h05.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
                     this.i.clear();
                     this.i.add(taskInfoData.m());
                     setVisibility(0);

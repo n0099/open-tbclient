@@ -1,269 +1,130 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.IBinder;
-import android.os.RemoteException;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.ubc.Flow;
-import com.baidu.swan.ubc.IRemoteUBCService;
-import com.baidu.tbadk.core.util.GameCenterCoreUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.GlideException;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Autowired
 /* loaded from: classes5.dex */
 public class eq4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile IRemoteUBCService a;
-    public static final Map<String, Integer> b;
-    public static final Set<String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947742977, "Lcom/baidu/tieba/eq4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947742977, "Lcom/baidu/tieba/eq4;");
-                return;
-            }
-        }
-        b = new HashMap();
-        HashSet hashSet = new HashSet();
-        c = hashSet;
-        hashSet.add(GameCenterCoreUtils.REF_TYPE_FROM_GAMECENTER);
-        c.add("671");
-        b.put(GameCenterCoreUtils.REF_TYPE_FROM_GAMECENTER, -1);
-        b.put("671", -1);
-    }
-
-    public eq4() {
+    public static Map<String, Integer> a(Set<String> set) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, set)) == null) {
+            HashMap hashMap = new HashMap();
+            int i = 0;
+            for (String str : set) {
+                hashMap.put(str, Integer.valueOf(i));
+                i++;
             }
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 
-    @Inject
-    public static lq4 g() {
-        InterceptResult invokeV;
+    public static StringBuilder b(StringBuilder... sbArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return f33.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sbArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (StringBuilder sb2 : sbArr) {
+                sb.append((CharSequence) sb2);
+            }
+            return sb;
         }
-        return (lq4) invokeV.objValue;
+        return (StringBuilder) invokeL.objValue;
     }
 
-    public static Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return AppRuntime.getAppContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public static int a(String str, String str2) {
-        InterceptResult invokeLL;
-        int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            Integer num = b.get(str);
-            if (num == null) {
-                num = -1;
-            }
-            if (num.intValue() == -1) {
-                intValue = tq4.e().getInt(str2, 0);
-            } else {
-                intValue = num.intValue();
-            }
-            int i = intValue + 1;
-            if (i >= Integer.MAX_VALUE || i < 0) {
-                return 0;
-            }
-            return i;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static String b(String str, String str2) {
+    public static String c(List<bq4> list, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!c.contains(str)) {
-                return str2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, str)) == null) {
+            Set<String> d = cq4.b().d();
+            int size = d.size();
+            Map<String, Integer> a = a(d);
+            StringBuilder[] sbArr = new StringBuilder[size];
+            for (int i = 0; i < size; i++) {
+                sbArr[i] = new StringBuilder();
             }
-            lq4 g = g();
-            if (g != null && g.p()) {
-                synchronized (eq4.class) {
-                    String str3 = "ubc_counter" + str;
-                    int a2 = a(str, str3);
-                    try {
-                        JSONObject jSONObject = new JSONObject(str2);
-                        jSONObject.put("counter", a2);
-                        str2 = jSONObject.toString();
-                        tq4.e().putInt(str3, a2);
-                        b.put(str, Integer.valueOf(a2));
-                    } catch (JSONException unused) {
-                    }
+            for (bq4 bq4Var : list) {
+                Integer num = a.get(bq4Var.f());
+                if (num != null) {
+                    sbArr[num.intValue()].append(Strings.repeat(GlideException.IndentedAppendable.INDENT, bq4Var.d()));
+                    sbArr[num.intValue()].append("- ");
+                    StringBuilder sb = sbArr[num.intValue()];
+                    sb.append(bq4Var.b() / 1000);
+                    sb.append("ms");
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(bq4Var.f());
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(bq4Var.c().getFullName());
+                    sbArr[num.intValue()].append("\n");
                 }
-                return str2;
             }
-            return str2;
+            String sb2 = b(sbArr).toString();
+            d(sb2, str);
+            return sb2;
         }
         return (String) invokeLL.objValue;
     }
 
-    public static JSONObject c(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
+    public static void d(String str, String str2) {
+        FileWriter fileWriter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
-            if (!c.contains(str)) {
-                return jSONObject;
-            }
-            lq4 g = g();
-            if (g != null && g.p()) {
-                synchronized (eq4.class) {
-                    String str2 = "ubc_counter" + str;
-                    int a2 = a(str, str2);
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+            FileWriter fileWriter2 = null;
+            try {
+                try {
                     try {
-                        jSONObject.put("counter", a2);
-                        tq4.e().putInt(str2, a2);
-                        b.put(str, Integer.valueOf(a2));
-                    } catch (JSONException unused) {
-                    }
-                }
-                return jSONObject;
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static Flow d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return e(str, "", 0);
-        }
-        return (Flow) invokeL.objValue;
-    }
-
-    public static void onEvent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            i(str, "", 0);
-        }
-    }
-
-    public static Flow e(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, str, str2, i)) == null) {
-            return pq4.b().a(str, str2, i);
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    public static void i(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65547, null, str, str2, i) == null) {
-            if (hk1.g()) {
-                str2 = b(str, str2);
-            }
-            if (yq4.a()) {
-                pq4.b().e(str, str2, i);
-            }
-        }
-    }
-
-    public static void k(String str, Map<String, String> map, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65549, null, str, map, i) == null) && yq4.a()) {
-            pq4.b().f(str, map, i);
-        }
-    }
-
-    public static void m(String str, JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65551, null, str, jSONObject, i) == null) {
-            if (hk1.g()) {
-                c(str, jSONObject);
-            }
-            if (yq4.a()) {
-                pq4.b().g(str, jSONObject, i);
-            }
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static IRemoteUBCService f() throws RemoteException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (a == null) {
-                synchronized (eq4.class) {
-                    if (a == null) {
-                        IBinder f = IPCServiceManager.f("open_log", true);
-                        if (f != null) {
-                            if (f != null) {
-                                a = IRemoteUBCService.Stub.asInterface(f);
-                            }
-                        } else {
-                            throw new RemoteException("Ceres get remote service empty !");
+                        File parentFile = new File(str2).getParentFile();
+                        if (parentFile != null && !parentFile.exists()) {
+                            parentFile.mkdirs();
                         }
+                        fileWriter = new FileWriter(str2);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return;
+                    }
+                } catch (IOException e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileWriter.write(str);
+                fileWriter.flush();
+                fileWriter.close();
+            } catch (IOException e3) {
+                e = e3;
+                fileWriter2 = fileWriter;
+                e.printStackTrace();
+                if (fileWriter2 != null) {
+                    fileWriter2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                fileWriter2 = fileWriter;
+                if (fileWriter2 != null) {
+                    try {
+                        fileWriter2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
                     }
                 }
+                throw th;
             }
-            return a;
-        }
-        return (IRemoteUBCService) invokeV.objValue;
-    }
-
-    public static void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
-            i(str, str2, 0);
-        }
-    }
-
-    public static void j(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, map) == null) {
-            k(str, map, 0);
-        }
-    }
-
-    public static void l(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, str, jSONObject) == null) {
-            m(str, jSONObject, 0);
         }
     }
 }

@@ -5,22 +5,27 @@ import android.database.sqlite.SQLiteDatabase;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.i41;
+import com.baidu.tieba.l41;
 import com.baidu.tieba.o9;
+import com.baidu.tieba.wba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class TiebaMainDatabaseHelper extends o9 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int DATABASE_VERSION = 25;
+    public static final int DATABASE_VERSION = 26;
+    public static final String TABLE_DOWNLOAD_MULTI_INFO = "download_multi_info";
     public static final String TABLE_NAME_DOWNLOAD_INFO = "download_info";
     public static final String TABLE_NAME_LOCAL_GAME = "local_game";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TiebaMainDatabaseHelper(Context context) {
-        super(context, TbConfig.PHONE_DATEBASE_NAME, 25);
+        super(context, TbConfig.PHONE_DATEBASE_NAME, 26);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,6 +105,7 @@ public class TiebaMainDatabaseHelper extends o9 {
                 prepareDBForV23(sQLiteDatabase);
                 prepareDBForV24(sQLiteDatabase);
                 prepareDBForV25(sQLiteDatabase);
+                prepareDBForV26(sQLiteDatabase);
             } catch (Exception e) {
                 TiebaStatic.printDBExceptionLog(e, "DatabaseHelper.createTables", new Object[0]);
             }
@@ -181,6 +187,9 @@ public class TiebaMainDatabaseHelper extends o9 {
             }
             if (i < 25) {
                 prepareDBForV25(sQLiteDatabase);
+            }
+            if (i < 26) {
+                prepareDBForV26(sQLiteDatabase);
             }
         }
     }
@@ -272,11 +281,23 @@ public class TiebaMainDatabaseHelper extends o9 {
 
     public void prepareDBForV7(SQLiteDatabase sQLiteDatabase) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, sQLiteDatabase) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, sQLiteDatabase) == null) {
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists chat_msgs(pk INTEGER primary key autoincrement, msgId bigint,ownerId varchar(32), friendId varchar(32), msgType int(11) default 0, status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE INDEX if not exists idx_c_msgs_of ON chat_msgs(ownerId, friendId, msgId)");
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE TABLE if not exists chat_recent_friends(pk varchar(64) primary key, unReadCount int(11) default 0 ,ownerId varchar(32), friendId varchar(32), ownerName varchar(64), friendName varchar(64), friendPortrait varchar(64), status int(11) default 0, localTime bigint(21) default 0, serverTime bigint(21) default 0, msgContent text)");
             executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, "CREATE INDEX if not exists idx_c_rfs_ost ON chat_recent_friends(ownerId, serverTime)");
+        }
+    }
+
+    public void prepareDBForV26(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, sQLiteDatabase) == null) {
+            l41 b = new wba().b();
+            executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, i41.b(b));
+            Iterator<String> it = i41.a(b).iterator();
+            while (it.hasNext()) {
+                executeDDLSqlIgnoreAnyErrors(sQLiteDatabase, it.next());
+            }
         }
     }
 }

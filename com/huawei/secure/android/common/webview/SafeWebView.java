@@ -23,8 +23,8 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rqb;
-import com.baidu.tieba.sqb;
+import com.baidu.tieba.gxb;
+import com.baidu.tieba.hxb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import com.huawei.secure.android.common.util.LogsUtil;
 import com.huawei.secure.android.common.webview.WebViewLoadCallBack;
 import java.util.Arrays;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SafeWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +44,13 @@ public class SafeWebView extends WebView {
     public String[] d;
     public WebViewLoadCallBack e;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public final class b extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -547,7 +547,7 @@ public class SafeWebView extends WebView {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            rqb.f(this);
+            gxb.f(this);
             setWebViewClient(null);
         }
     }
@@ -728,12 +728,12 @@ public class SafeWebView extends WebView {
                 String[] whitelistNotMatchSubDomain = getWhitelistNotMatchSubDomain();
                 String[] whitelist = getWhitelist();
                 if (whitelistWithPath != null && whitelistWithPath.length != 0) {
-                    return sqb.c(str, whitelistWithPath);
+                    return hxb.c(str, whitelistWithPath);
                 }
                 if (whitelistNotMatchSubDomain != null && whitelistNotMatchSubDomain.length != 0) {
-                    return sqb.h(str, whitelistNotMatchSubDomain);
+                    return hxb.h(str, whitelistNotMatchSubDomain);
                 }
-                return sqb.e(str, whitelist);
+                return hxb.e(str, whitelist);
             }
         }
         return invokeL.booleanValue;

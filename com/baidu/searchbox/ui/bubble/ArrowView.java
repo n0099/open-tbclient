@@ -199,7 +199,7 @@ public class ArrowView extends View {
     }
 
     private void init() {
-        this.mColor = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f06037f);
+        this.mColor = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f060385);
         this.mArrowPath = new Path();
         Paint paint = new Paint();
         this.mColorPaint = paint;

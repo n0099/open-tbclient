@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,10 +8,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class if9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile if9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final boolean b;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
 
     public if9() {
         Interceptable interceptable = $ic;
@@ -24,44 +24,43 @@ public class if9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = true;
-        this.a = true;
     }
 
-    public static if9 a() {
+    public int a() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (if9.class) {
-                    if (c == null) {
-                        c = new if9();
-                    }
-                }
-            }
-            return c;
-        }
-        return (if9) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
+        char c;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            String str = this.b;
+            int hashCode = str.hashCode();
+            if (hashCode != 2154) {
+                if (hashCode != 2161) {
+                    if (hashCode == 2162 && str.equals("CU")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("CT")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("CM")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c == 1) {
+                    return 2;
+                }
+                return 3;
+            }
+            return 1;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 }

@@ -1,4 +1,17 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface f91 extends w91 {
+public interface f91 {
+    void a();
+
+    void b();
+
+    void c();
+
+    void d();
+
+    void dismiss();
+
+    void e();
+
+    void f();
 }

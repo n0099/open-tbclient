@@ -18,8 +18,8 @@ public final class DurationConversionsJDK8Kt {
     @WasExperimental(markerClass = {ExperimentalTime.class})
     @InlineOnly
     /* renamed from: toJavaDuration-LRDsOJo  reason: not valid java name */
-    public static final Duration m2278toJavaDurationLRDsOJo(long j) {
-        Duration ofSeconds = Duration.ofSeconds(kotlin.time.Duration.m2165getInWholeSecondsimpl(j), kotlin.time.Duration.m2167getNanosecondsComponentimpl(j));
+    public static final Duration m2280toJavaDurationLRDsOJo(long j) {
+        Duration ofSeconds = Duration.ofSeconds(kotlin.time.Duration.m2167getInWholeSecondsimpl(j), kotlin.time.Duration.m2169getNanosecondsComponentimpl(j));
         Intrinsics.checkNotNullExpressionValue(ofSeconds, "toJavaDuration-LRDsOJo");
         return ofSeconds;
     }
@@ -29,6 +29,6 @@ public final class DurationConversionsJDK8Kt {
     @InlineOnly
     public static final long toKotlinDuration(Duration duration) {
         Intrinsics.checkNotNullParameter(duration, "<this>");
-        return kotlin.time.Duration.m2180plusLRDsOJo(DurationKt.toDuration(duration.getSeconds(), DurationUnit.SECONDS), DurationKt.toDuration(duration.getNano(), DurationUnit.NANOSECONDS));
+        return kotlin.time.Duration.m2182plusLRDsOJo(DurationKt.toDuration(duration.getSeconds(), DurationUnit.SECONDS), DurationKt.toDuration(duration.getNano(), DurationUnit.NANOSECONDS));
     }
 }

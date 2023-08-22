@@ -1,20 +1,41 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.util.atomic.LinkedQueueNode;
+import java.nio.charset.Charset;
 /* loaded from: classes8.dex */
-public abstract class x3c<E> extends z3c<E> {
+public class x3c {
     public static /* synthetic */ Interceptable $ic;
-    public static final long b;
+    public static Charset a;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedQueueNode<E> consumerNode;
+
+    public static void a(h4c h4cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, h4cVar) == null) {
+        }
+    }
+
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
+        }
+    }
+
+    public static void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65539, null, z) == null) {
+        }
+    }
+
+    public static void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TRACKBALL, null, z) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -29,36 +50,8 @@ public abstract class x3c<E> extends z3c<E> {
                 return;
             }
         }
-        b = b5c.a(x3c.class, "consumerNode");
-    }
-
-    public x3c() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final LinkedQueueNode<E> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (LinkedQueueNode) b5c.a.f(this, b);
-        }
-        return (LinkedQueueNode) invokeV.objValue;
-    }
-
-    public final void d(LinkedQueueNode<E> linkedQueueNode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
-            this.consumerNode = linkedQueueNode;
-        }
+        Charset forName = Charset.forName("UTF-8");
+        a = forName;
+        forName.newDecoder();
     }
 }

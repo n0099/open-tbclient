@@ -1,100 +1,138 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
+import com.baidu.tbadk.template.state.ViewType;
+import com.baidu.tieba.yu5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes8.dex */
-public class tu5 {
+public class tu5 implements su5 {
     public static /* synthetic */ Interceptable $ic;
-    public static tu5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public qb5 a;
-    public ABTestExtraData b;
+    public final HashMap<ViewType, uu5> a;
+    public final ViewGroup b;
+    public final bv5 c;
+    public final yu5 d;
+    public ViewType e;
+    public uu5 f;
 
-    public tu5() {
+    public tu5(bv5 bv5Var, @NonNull ViewGroup viewGroup, @NonNull yu5 yu5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bv5Var, viewGroup, yu5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+        this.b = viewGroup;
+        this.c = bv5Var;
+        this.d = yu5Var;
+    }
+
+    @Override // com.baidu.tieba.su5
+    public void a(ViewType viewType, String str) {
+        yu5.a aVar;
+        yu5.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, viewType, str) == null) {
+            if (viewType == ViewType.ERROR && (bVar = this.d.c) != null) {
+                bVar.a = str;
+            } else if (viewType == ViewType.EMPTY && (aVar = this.d.b) != null) {
+                aVar.a = str;
             }
         }
     }
 
-    public static tu5 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.su5
+    public void c(ViewType viewType, @NonNull uu5 uu5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (tu5.class) {
-                    if (c == null) {
-                        c = new tu5();
-                    }
-                }
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewType, uu5Var) == null) {
+            this.a.put(viewType, uu5Var);
         }
-        return (tu5) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.su5
+    public void b(ViewType viewType) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == null) {
-                ABTestExtraData aBTestExtraData = new ABTestExtraData();
-                this.b = aBTestExtraData;
-                aBTestExtraData.parserABTestExtraFormSharedPref();
-            }
-            return this.b.getABTestResult();
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewType) != null) || this.e == viewType) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final void a(qb5 qb5Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, qb5Var) == null) {
-            if (qb5Var != null && this.a != null && qb5Var.a() == this.a.a()) {
-                z = false;
+        this.e = viewType;
+        if (this.b == null) {
+            return;
+        }
+        bv5 bv5Var = this.c;
+        if (bv5Var != null && bv5Var.getView() != null) {
+            View view2 = this.c.getView();
+            if (viewType == ViewType.CONTENT) {
+                i = 0;
             } else {
-                z = true;
+                i = 8;
             }
-            this.a = qb5Var;
-            if (z) {
-                b("zan_or_cai_smallflow");
+            view2.setVisibility(i);
+        }
+        uu5 uu5Var = this.f;
+        if (uu5Var != null) {
+            uu5Var.b(this.b);
+        }
+        uu5 uu5Var2 = this.a.get(viewType);
+        yu5.e d = d(viewType);
+        if (uu5Var2 != null && d != null) {
+            uu5Var2.c(viewType, this.b, d);
+            this.f = uu5Var2;
+            this.a.put(viewType, uu5Var2);
+        }
+    }
+
+    public final yu5.e d(ViewType viewType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewType)) == null) {
+            if (viewType == ViewType.ERROR) {
+                return this.d.c;
             }
+            if (viewType == ViewType.EMPTY) {
+                return this.d.b;
+            }
+            if (viewType == ViewType.LOADING) {
+                return this.d.a;
+            }
+            return null;
+        }
+        return (yu5.e) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.su5
+    public void onChangeSkinType(int i) {
+        uu5 uu5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (uu5Var = this.f) != null) {
+            uu5Var.e(i);
         }
     }
 
-    public final void b(String str) {
+    @Override // com.baidu.tieba.su5
+    public void onDestroy() {
+        uu5 uu5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
-        }
-    }
-
-    public void e(qb5 qb5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, qb5Var) == null) {
-            a(qb5Var);
-        }
-    }
-
-    public void f(ABTestExtraData aBTestExtraData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
-            this.b = aBTestExtraData;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (uu5Var = this.f) != null) {
+            uu5Var.b(this.b);
         }
     }
 }

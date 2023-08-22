@@ -1,4 +1,4 @@
 package com.huawei.hms.core.aidl;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IMessageEntity {
 }

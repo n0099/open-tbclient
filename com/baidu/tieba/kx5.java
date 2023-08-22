@@ -1,71 +1,57 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class kx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WebView a;
-    public String b;
-    public int c;
-    public long d;
+    public boolean a;
+    public List<so6> b;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends WebViewClient {
+    public class a implements Comparator<so6> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ kx5 b;
 
-        public a(kx5 kx5Var, b bVar) {
+        public a(kx5 kx5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kx5Var, bVar};
+                Object[] objArr = {kx5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = kx5Var;
-            this.a = bVar;
         }
 
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(so6 so6Var, so6 so6Var2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                if (str.startsWith("http://notify/ready")) {
-                    this.b.c = 2;
-                    b bVar = this.a;
-                    if (bVar != null) {
-                        bVar.a();
-                        return true;
-                    }
-                    return true;
-                }
-                return false;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, so6Var, so6Var2)) == null) {
+                return so6Var.sort() - so6Var2.sort();
             }
-            return invokeLL.booleanValue;
+            return invokeLL.intValue;
         }
     }
 
@@ -82,39 +68,55 @@ public class kx5 {
                 return;
             }
         }
-        this.c = 0;
-        this.d = 0L;
-        this.d = System.currentTimeMillis();
+        this.b = new LinkedList();
     }
 
-    public boolean a() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == 2) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public void b(b bVar) {
-        WebView webView;
+    public List<so6> a(List<PbLinkData> list, List<PbGoodsData> list2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) != null) || (webView = this.a) == null) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, list, list2)) == null) {
+            return b(list, list2, null);
         }
-        webView.setWebViewClient(new a(this, bVar));
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.b);
-        if (bi.isEmpty(Uri.parse(this.b).getQuery())) {
-            sb.append("?");
-        } else {
-            sb.append("&");
+        return (List) invokeLL.objValue;
+    }
+
+    public List<so6> b(List<PbLinkData> list, List<PbGoodsData> list2, List<CardLinkInfoData> list3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2, list3)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (int i = 0; i < list.size(); i++) {
+                    PbLinkData pbLinkData = list.get(i);
+                    if (pbLinkData.urlType == 2 && !this.a) {
+                        this.a = true;
+                    }
+                    this.b.add(pbLinkData);
+                }
+            }
+            if (!ListUtils.isEmpty(list2)) {
+                this.a = true;
+                for (int i2 = 0; i2 < list2.size(); i2++) {
+                    this.b.add(list2.get(i2));
+                }
+            }
+            if (!ListUtils.isEmpty(list3)) {
+                this.a = false;
+                for (int i3 = 0; i3 < list3.size(); i3++) {
+                    this.b.add(list3.get(i3));
+                }
+            }
+            Collections.sort(this.b, new a(this));
+            return this.b;
         }
-        sb.append("page_lifecycle_type=preheat_enabled");
-        this.a.loadUrl(sb.toString());
-        this.c = 1;
+        return (List) invokeLLL.objValue;
     }
 }

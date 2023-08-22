@@ -21,9 +21,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag8;
-import com.baidu.tieba.fl6;
-import com.baidu.tieba.i1c;
+import com.baidu.tieba.b8c;
+import com.baidu.tieba.id8;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.tieba.im.message.MemoryInitCompleteMessage;
@@ -37,17 +36,18 @@ import com.baidu.tieba.immessagecenter.im.model.IMOfficialMaskModel;
 import com.baidu.tieba.immessagecenter.im.model.MsgChatTabModel;
 import com.baidu.tieba.immessagecenter.msgtab.obs.MainTabChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.ui.model.ChatMsgModel;
-import com.baidu.tieba.jn5;
-import com.baidu.tieba.kd8;
+import com.baidu.tieba.jcc;
+import com.baidu.tieba.jd8;
+import com.baidu.tieba.jh8;
+import com.baidu.tieba.km6;
 import com.baidu.tieba.lg;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.m1c;
-import com.baidu.tieba.oa8;
-import com.baidu.tieba.pa8;
-import com.baidu.tieba.rg8;
-import com.baidu.tieba.t5c;
+import com.baidu.tieba.n7c;
+import com.baidu.tieba.qk8;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.y0c;
+import com.baidu.tieba.x7c;
+import com.baidu.tieba.yn5;
+import com.baidu.tieba.zj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,20 +63,20 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000Ò\u0001\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0000\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\r\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000e\n\u0002\b\u0002\u0018\u00002\u00020\u0001B\u0015\u0012\u000e\u0010\u0002\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003¢\u0006\u0002\u0010\u0005J\u000e\u0010C\u001a\u00020D2\u0006\u0010E\u001a\u00020\u0014J\b\u0010F\u001a\u00020\u0007H\u0002J\u0016\u0010G\u001a\u00020D2\u0006\u0010H\u001a\u00020 2\u0006\u0010I\u001a\u00020JJ\u0006\u0010K\u001a\u00020DJ\f\u0010L\u001a\b\u0012\u0004\u0012\u00020\u00140MJ\u0012\u0010N\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020 0\u001f0MJ\u0006\u0010O\u001a\u00020+J\u0006\u0010P\u001a\u00020\u0007J\b\u0010Q\u001a\u00020DH\u0002J\b\u0010R\u001a\u00020\u0014H\u0002J.\u0010S\u001a\b\u0012\u0004\u0012\u00020\n0\t2\u000e\u0010T\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\t2\u000e\u0010U\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\tH\u0002J\u0006\u0010V\u001a\u00020DJ\u0006\u0010W\u001a\u00020DJ\u0006\u0010X\u001a\u00020DJ\u0010\u0010Y\u001a\u00020D2\u0006\u0010Z\u001a\u00020[H\u0002J\u0010\u0010\\\u001a\u00020D2\u0006\u0010]\u001a\u00020^H\u0002J\u0010\u0010_\u001a\u00020D2\u0006\u0010`\u001a\u00020aH\u0002J\u000e\u0010b\u001a\u00020D2\u0006\u0010c\u001a\u00020\u0014J\u0006\u0010d\u001a\u00020DJ\u0006\u0010e\u001a\u00020DJ(\u0010f\u001a\u00020D2\u000e\u0010g\u001a\n\u0012\u0004\u0012\u00020\n\u0018\u00010\u001f2\b\u0010H\u001a\u0004\u0018\u00010 2\u0006\u0010h\u001a\u00020iJ$\u0010j\u001a\u00020D2\b\u0010k\u001a\u0004\u0018\u00010l2\b\b\u0001\u0010m\u001a\u00020i2\u0006\u0010n\u001a\u00020\u0014H\u0002J\u0016\u0010o\u001a\u00020D2\u0006\u0010p\u001a\u00020\u00142\u0006\u0010q\u001a\u00020rJ\u0006\u0010s\u001a\u00020DR\u0010\u0010\u0006\u001a\u0004\u0018\u00010\u0007X\u0082\u000e¢\u0006\u0002\n\u0000R!\u0010\b\u001a\b\u0012\u0004\u0012\u00020\n0\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\r\u0010\u000e\u001a\u0004\b\u000b\u0010\fR\u000e\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0015\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0016\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0017\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R!\u0010\u0019\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001d\u0010\u000e\u001a\u0004\b\u001b\u0010\u001cR\u001a\u0010\u001e\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020 0\u001f0\u001aX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010!\u001a\u00020\"X\u0082\u0004¢\u0006\u0002\n\u0000R*\u0010$\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a2\f\u0010#\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b%\u0010\u001cR\u000e\u0010&\u001a\u00020'X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010(\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010)\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u001b\u0010*\u001a\u00020+8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010\u000e\u001a\u0004\b,\u0010-R\u000e\u0010/\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R*\u00101\u001a\b\u0012\u0004\u0012\u0002000\u001a2\f\u0010#\u001a\b\u0012\u0004\u0012\u0002000\u001a@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b2\u0010\u001cR\u000e\u00103\u001a\u000204X\u0082\u0004¢\u0006\u0002\n\u0000R*\u00105\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a2\f\u0010#\u001a\b\u0012\u0004\u0012\u00020\u00140\u001a@BX\u0086\u000e¢\u0006\b\n\u0000\u001a\u0004\b6\u0010\u001cR\u000e\u00107\u001a\u00020\u0018X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u00108\u001a\u000209X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010:\u001a\u00020\u0014X\u0082\u000e¢\u0006\u0002\n\u0000R\"\u0010\u0002\u001a\n\u0012\u0004\u0012\u00020\u0004\u0018\u00010\u0003X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b;\u0010<\"\u0004\b=\u0010\u0005R!\u0010>\u001a\b\u0012\u0004\u0012\u00020\n0\t8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b@\u0010\u000e\u001a\u0004\b?\u0010\fR\u000e\u0010A\u001a\u00020BX\u0082.¢\u0006\u0002\n\u0000¨\u0006t"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/model/ChatMsgModel;", "Lcom/baidu/tieba/immessagecenter/arch/model/BaseModel;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "(Lcom/baidu/tbadk/TbPageContext;)V", "dispatcher", "Lcom/baidu/tieba/immessagecenter/chatgroup/chatbox/ChatTabSubscribeGroupMessageDispatcher;", "groupCacheList", "", "Lcom/baidu/tieba/im/db/pojo/ImMessageCenterPojo;", "getGroupCacheList", "()Ljava/util/List;", "groupCacheList$delegate", "Lkotlin/Lazy;", "imOfficialMaskModel", "Lcom/baidu/tieba/immessagecenter/im/model/IMOfficialMaskModel;", "imUserListModel", "Lcom/baidu/tieba/im/model/IMUserListModel;", "isCurrentChatTab", "", "isInit", "isMsgTabPrimary", "mAgainRequestGroupListListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mAnswerVisibleBs", "Lrx/subjects/BehaviorSubject;", "getMAnswerVisibleBs", "()Lrx/subjects/BehaviorSubject;", "mAnswerVisibleBs$delegate", "mChatMsgDataBs", "", "Lcom/baidu/tbadk/core/data/ImMessageCenterShowItemData;", "mCompleteProcess", "Lcom/baidu/tieba/im/chat/notify/ICompleteProcess;", "<set-?>", "mCompleteProcessBs", "getMCompleteProcessBs", "mId", "Lcom/baidu/adp/BdUniqueId;", "mMarkTopListener", "mMemoryListener", "mModel", "Lcom/baidu/tieba/immessagecenter/im/model/MsgChatTabModel;", "getMModel", "()Lcom/baidu/tieba/immessagecenter/im/model/MsgChatTabModel;", "mModel$delegate", "mMsgInvitationListener", "", "mNotifyAdapterBs", "getMNotifyAdapterBs", "mOnChatGroupCallback", "Lcom/baidu/tieba/immessagecenter/chatgroup/chatbox/ChatTabSubscribeGroupMessageDispatcher$OnChatGroupMessageCallback;", "mRefreshStatusBs", "getMRefreshStatusBs", "mRemoveListItemListener", "mUserListMessageListener", "Lcom/baidu/adp/framework/listener/HttpMessageListener;", "memoryInitCompleted", "getPageContext", "()Lcom/baidu/tbadk/TbPageContext;", "setPageContext", "personCacheList", "getPersonCacheList", "personCacheList$delegate", "tabChangeSubscribe", "Lrx/Subscription;", "answerVisibleChange", "", "boolean", "createDispatcher", "deleteItem", "data", "iProcess", "Lcom/baidu/tieba/im/chat/notify/IProcess;", "forceRefreshUserListWhenInit", "getAnswerVisibleBs", "Lrx/Observable;", "getChatMsgDataObs", "getChatTabModel", "getSocketDispatcher", "getSubscribeRequest", "isHaveLocalGroupCache", "mergeChatTabData", "groupList", "personList", MissionEvent.MESSAGE_DESTROY, "onMsgTabPause", "onMsgTabPrimary", "processMemoryChanged", "changeMessage", "Lcom/baidu/tieba/im/message/MemoryChangedMessage;", "processMemoryInitComplete", "message", "Lcom/baidu/tieba/im/message/MemoryInitCompleteMessage;", "processResponseMemoryList", "resMessage", "Lcom/baidu/tieba/im/message/ResponsedMemoryListMessage;", "refreshMsg", "isSort", "refreshUserList", "registerListener", "sendChatTabRedTipUpdateMsg", "list", "type", "", "showTopToast", "act", "Landroid/app/Activity;", "resId", "isSuc", "switchSingleMask", "isMask", TbEnum.ParamKey.GID, "", "unRegisterListener", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class ChatMsgModel extends ag8 {
+public final class ChatMsgModel extends zj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<BaseFragmentActivity> a;
-    public final t5c<List<ImMessageCenterShowItemData>> b;
+    public final jcc<List<ImMessageCenterShowItemData>> b;
     public final Lazy c;
-    public t5c<Boolean> d;
-    public t5c<Object> e;
-    public t5c<Boolean> f;
-    public rg8 g;
+    public jcc<Boolean> d;
+    public jcc<Object> e;
+    public jcc<Boolean> f;
+    public qk8 g;
     public final BdUniqueId h;
     public final Lazy i;
     public final IMUserListModel j;
-    public final oa8 k;
+    public final id8 k;
     public final IMOfficialMaskModel l;
     public final Lazy m;
     public final Lazy n;
@@ -85,7 +85,7 @@ public final class ChatMsgModel extends ag8 {
     public boolean q;
     public boolean r;
     public final CustomMessageListener s;
-    public final rg8.o t;
+    public final qk8.o t;
     public final CustomMessageListener u;
     public final CustomMessageListener v;
     public final CustomMessageListener w;
@@ -93,7 +93,7 @@ public final class ChatMsgModel extends ag8 {
     public final HttpMessageListener y;
 
     /* loaded from: classes6.dex */
-    public static final class a implements jn5 {
+    public static final class a implements yn5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMsgModel a;
@@ -127,11 +127,11 @@ public final class ChatMsgModel extends ag8 {
                 } else {
                     activity = null;
                 }
-                this$0.V(activity, R.string.obfuscated_res_0x7f0f0cab, false);
+                this$0.V(activity, R.string.obfuscated_res_0x7f0f0cb3, false);
             }
         }
 
-        @Override // com.baidu.tieba.jn5
+        @Override // com.baidu.tieba.yn5
         public void a(int i, long j, List<Long> roomIdList, int i2, String errMsg) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), roomIdList, Integer.valueOf(i2), errMsg}) == null) {
@@ -139,7 +139,7 @@ public final class ChatMsgModel extends ag8 {
                 Intrinsics.checkNotNullParameter(errMsg, "errMsg");
                 if (this.a.o && this.a.p && i2 != 0) {
                     final ChatMsgModel chatMsgModel = this.a;
-                    lg.g(new Runnable() { // from class: com.baidu.tieba.oq8
+                    lg.g(new Runnable() { // from class: com.baidu.tieba.ou8
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -197,12 +197,12 @@ public final class ChatMsgModel extends ag8 {
                     ImMessageCenterShowItemData imMessageCenterShowItemData = (ImMessageCenterShowItemData) data;
                     if (this.a.C().getData().contains(imMessageCenterShowItemData)) {
                         imMessageCenterShowItemData.setGroupDelete(true);
-                        kd8.b().e(Long.valueOf(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L)), imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendBjhAvatar(), imMessageCenterShowItemData.getServerTime());
+                        jh8.b().e(Long.valueOf(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L)), imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendBjhAvatar(), imMessageCenterShowItemData.getServerTime());
                         this.a.C().getData().remove(imMessageCenterShowItemData);
                         this.a.b.onNext(this.a.C().getData());
-                        rg8 rg8Var = this.a.g;
-                        if (rg8Var != null) {
-                            rg8Var.X(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L));
+                        qk8 qk8Var = this.a.g;
+                        if (qk8Var != null) {
+                            qk8Var.X(JavaTypesHelper.toLong(imMessageCenterShowItemData.getFriendId(), 0L));
                         }
                         this.a.U(null, imMessageCenterShowItemData, 3);
                         return;
@@ -368,7 +368,7 @@ public final class ChatMsgModel extends ag8 {
     }
 
     /* loaded from: classes6.dex */
-    public static final class f implements rg8.o {
+    public static final class f implements qk8.o {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMsgModel a;
@@ -391,7 +391,7 @@ public final class ChatMsgModel extends ag8 {
             this.a = chatMsgModel;
         }
 
-        @Override // com.baidu.tieba.rg8.o
+        @Override // com.baidu.tieba.qk8.o
         public void b(List<? extends ImMessageCenterPojo> list) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
@@ -401,7 +401,7 @@ public final class ChatMsgModel extends ag8 {
             this.a.U(list, null, 1);
         }
 
-        @Override // com.baidu.tieba.rg8.o
+        @Override // com.baidu.tieba.qk8.o
         public void a(List<? extends ImMessageCenterPojo> list, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLZ(1048576, this, list, z) == null) {
@@ -453,13 +453,13 @@ public final class ChatMsgModel extends ag8 {
             this.a = chatMsgModel;
         }
 
-        public static final void a(ChatMsgModel this$0) {
-            rg8 rg8Var;
+        public static final void g(ChatMsgModel this$0) {
+            qk8 qk8Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65537, null, this$0) == null) {
                 Intrinsics.checkNotNullParameter(this$0, "this$0");
-                if (!this$0.J() && (rg8Var = this$0.g) != null) {
-                    rg8Var.Y(null);
+                if (!this$0.J() && (qk8Var = this$0.g) != null) {
+                    qk8Var.Y(null);
                 }
             }
         }
@@ -478,12 +478,12 @@ public final class ChatMsgModel extends ag8 {
                         if (removeItemByRoomId != null && this.a.C().getData().contains(removeItemByRoomId)) {
                             this.a.C().getData().remove(removeItemByRoomId);
                             this.a.b.onNext(this.a.C().getData());
-                            rg8 rg8Var = this.a.g;
-                            if (rg8Var != null) {
-                                rg8Var.Z(str);
+                            qk8 qk8Var = this.a.g;
+                            if (qk8Var != null) {
+                                qk8Var.Z(str);
                             }
                             final ChatMsgModel chatMsgModel = this.a;
-                            lg.e(new Runnable() { // from class: com.baidu.tieba.pq8
+                            lg.e(new Runnable() { // from class: com.baidu.tieba.pu8
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -491,16 +491,16 @@ public final class ChatMsgModel extends ag8 {
                                 public final void run() {
                                     Interceptable interceptable2 = $ic;
                                     if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                        ChatMsgModel.g.a(ChatMsgModel.this);
+                                        ChatMsgModel.g.g(ChatMsgModel.this);
                                     }
                                 }
                             });
                             if (ListUtils.isEmpty(this.a.C().getData())) {
                                 this.a.B().onNext(null);
                             }
-                            rg8 rg8Var2 = this.a.g;
-                            if (rg8Var2 != null) {
-                                rg8Var2.X(JavaTypesHelper.toLong(removeItemByRoomId.getFriendId(), 0L));
+                            qk8 qk8Var2 = this.a.g;
+                            if (qk8Var2 != null) {
+                                qk8Var2.X(JavaTypesHelper.toLong(removeItemByRoomId.getFriendId(), 0L));
                             }
                             this.a.U(null, removeItemByRoomId, 3);
                             return;
@@ -582,28 +582,28 @@ public final class ChatMsgModel extends ag8 {
             }
         }
         this.a = tbPageContext;
-        t5c<List<ImMessageCenterShowItemData>> Q = t5c.Q();
+        jcc<List<ImMessageCenterShowItemData>> Q = jcc.Q();
         Intrinsics.checkNotNullExpressionValue(Q, "create()");
         this.b = Q;
         this.c = LazyKt__LazyJVMKt.lazy(ChatMsgModel$mAnswerVisibleBs$2.INSTANCE);
-        t5c<Boolean> R = t5c.R(Boolean.FALSE);
+        jcc<Boolean> R = jcc.R(Boolean.FALSE);
         Intrinsics.checkNotNullExpressionValue(R, "create(false)");
         this.d = R;
-        t5c<Object> R2 = t5c.R(Boolean.FALSE);
+        jcc<Object> R2 = jcc.R(Boolean.FALSE);
         Intrinsics.checkNotNullExpressionValue(R2, "create(false)");
         this.e = R2;
-        t5c<Boolean> R3 = t5c.R(Boolean.FALSE);
+        jcc<Boolean> R3 = jcc.R(Boolean.FALSE);
         Intrinsics.checkNotNullExpressionValue(R3, "create(false)");
         this.f = R3;
         BdUniqueId gen = BdUniqueId.gen();
         Intrinsics.checkNotNullExpressionValue(gen, "gen()");
         this.h = gen;
         this.i = LazyKt__LazyJVMKt.lazy(ChatMsgModel$mModel$2.INSTANCE);
-        this.k = new oa8() { // from class: com.baidu.tieba.rq8
+        this.k = new id8() { // from class: com.baidu.tieba.ru8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.oa8
+            @Override // com.baidu.tieba.id8
             public final void onComplete() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
@@ -624,11 +624,11 @@ public final class ChatMsgModel extends ag8 {
         this.g = u();
         this.j = new IMUserListModel(null, this.h);
         this.l = new IMOfficialMaskModel();
-        Intrinsics.checkNotNullExpressionValue(MainTabChangedMonitor.c.a().d().g().H(new m1c() { // from class: com.baidu.tieba.qq8
+        Intrinsics.checkNotNullExpressionValue(MainTabChangedMonitor.c.a().d().g().H(new b8c() { // from class: com.baidu.tieba.qu8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            @Override // com.baidu.tieba.m1c
+            @Override // com.baidu.tieba.b8c
             public final void call(Object obj) {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -686,7 +686,7 @@ public final class ChatMsgModel extends ag8 {
         }
     }
 
-    public final void v(ImMessageCenterShowItemData data, pa8 iProcess) {
+    public final void v(ImMessageCenterShowItemData data, jd8 iProcess) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048601, this, data, iProcess) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -695,24 +695,24 @@ public final class ChatMsgModel extends ag8 {
         }
     }
 
-    public final t5c<Boolean> A() {
+    public final jcc<Boolean> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             Object value = this.c.getValue();
             Intrinsics.checkNotNullExpressionValue(value, "<get-mAnswerVisibleBs>(...)");
-            return (t5c) value;
+            return (jcc) value;
         }
-        return (t5c) invokeV.objValue;
+        return (jcc) invokeV.objValue;
     }
 
-    public final t5c<Boolean> B() {
+    public final jcc<Boolean> B() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.f;
         }
-        return (t5c) invokeV.objValue;
+        return (jcc) invokeV.objValue;
     }
 
     public final MsgChatTabModel C() {
@@ -724,22 +724,22 @@ public final class ChatMsgModel extends ag8 {
         return (MsgChatTabModel) invokeV.objValue;
     }
 
-    public final t5c<Object> D() {
+    public final jcc<Object> D() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.e;
         }
-        return (t5c) invokeV.objValue;
+        return (jcc) invokeV.objValue;
     }
 
-    public final t5c<Boolean> E() {
+    public final jcc<Boolean> E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.d;
         }
-        return (t5c) invokeV.objValue;
+        return (jcc) invokeV.objValue;
     }
 
     public final TbPageContext<BaseFragmentActivity> F() {
@@ -760,26 +760,26 @@ public final class ChatMsgModel extends ag8 {
         return (List) invokeV.objValue;
     }
 
-    public final rg8 H() {
+    public final qk8 H() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            rg8 rg8Var = this.g;
-            if (rg8Var == null) {
-                rg8 u = u();
+            qk8 qk8Var = this.g;
+            if (qk8Var == null) {
+                qk8 u = u();
                 this.g = u;
                 return u;
             }
-            return rg8Var;
+            return qk8Var;
         }
-        return (rg8) invokeV.objValue;
+        return (qk8) invokeV.objValue;
     }
 
     public final void I() {
-        rg8 rg8Var;
+        qk8 qk8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && BdNetTypeUtil.isNetWorkAvailable() && (rg8Var = this.g) != null) {
-            rg8Var.W();
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && BdNetTypeUtil.isNetWorkAvailable() && (qk8Var = this.g) != null) {
+            qk8Var.W();
         }
     }
 
@@ -788,9 +788,9 @@ public final class ChatMsgModel extends ag8 {
         List<Map<String, Long>> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            rg8 rg8Var = this.g;
-            if (rg8Var != null) {
-                list = rg8Var.N(0);
+            qk8 qk8Var = this.g;
+            if (qk8Var != null) {
+                list = qk8Var.N(0);
             } else {
                 list = null;
             }
@@ -820,15 +820,15 @@ public final class ChatMsgModel extends ag8 {
         }
     }
 
-    public final rg8 u() {
+    public final qk8 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            rg8 rg8Var = new rg8(this.a, this.t);
-            rg8Var.s(new a(this));
-            return rg8Var;
+            qk8 qk8Var = new qk8(this.a, this.t);
+            qk8Var.s(new a(this));
+            return qk8Var;
         }
-        return (rg8) invokeV.objValue;
+        return (qk8) invokeV.objValue;
     }
 
     public final void w() {
@@ -839,15 +839,15 @@ public final class ChatMsgModel extends ag8 {
         }
     }
 
-    public final y0c<List<ImMessageCenterShowItemData>> x() {
+    public final n7c<List<ImMessageCenterShowItemData>> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            y0c<List<ImMessageCenterShowItemData>> s = this.b.w().a().s(i1c.b());
+            n7c<List<ImMessageCenterShowItemData>> s = this.b.w().a().s(x7c.b());
             Intrinsics.checkNotNullExpressionValue(s, "mChatMsgDataBs.onBackpre…dSchedulers.mainThread())");
             return s;
         }
-        return (y0c) invokeV.objValue;
+        return (n7c) invokeV.objValue;
     }
 
     public final MsgChatTabModel y() {
@@ -909,7 +909,7 @@ public final class ChatMsgModel extends ag8 {
     public final void R(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            if (z && !fl6.a(C().getData())) {
+            if (z && !km6.a(C().getData())) {
                 C().sortList();
             }
             this.b.onNext(C().getData());
@@ -917,7 +917,7 @@ public final class ChatMsgModel extends ag8 {
     }
 
     public final void Q(ResponsedMemoryListMessage responsedMemoryListMessage) {
-        rg8 rg8Var;
+        qk8 qk8Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, responsedMemoryListMessage) == null) {
             G().clear();
@@ -925,8 +925,8 @@ public final class ChatMsgModel extends ag8 {
             if (data != null) {
                 G().addAll(data);
             }
-            if (ListUtils.isEmpty(C().getData()) && (rg8Var = this.g) != null) {
-                rg8Var.V();
+            if (ListUtils.isEmpty(C().getData()) && (qk8Var = this.g) != null) {
+                qk8Var.V();
             }
             if (responsedMemoryListMessage.getType() == 1 && this.o) {
                 I();
@@ -1000,9 +1000,9 @@ public final class ChatMsgModel extends ag8 {
             MessageManager.getInstance().unRegisterListener(this.x);
             MessageManager.getInstance().unRegisterListener(this.y);
             MessageManager.getInstance().unRegisterListener(this.s);
-            rg8 rg8Var = this.g;
-            if (rg8Var != null) {
-                rg8Var.o();
+            qk8 qk8Var = this.g;
+            if (qk8Var != null) {
+                qk8Var.o();
             }
         }
     }

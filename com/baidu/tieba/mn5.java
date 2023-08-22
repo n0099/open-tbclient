@@ -1,10 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.android.imsdk.chatmessage.request.IMEmojiReplyDetailListener;
-import java.util.List;
+@Deprecated
 /* loaded from: classes7.dex */
 public interface mn5 {
-    void a(int i, List<? extends IMEmojiReplyDetailListener.IMEmojiReplyReactionDetail> list);
-
-    void onFailure(int i, String str);
 }

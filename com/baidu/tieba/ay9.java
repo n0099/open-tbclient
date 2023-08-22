@@ -1,26 +1,28 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.cyberplayer.sdk.CyberPlayer;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface ay9 extends IAdBaseAsyncController {
+public class ay9 implements ix9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(int i);
+    public ay9(CyberPlayer cyberPlayer) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cyberPlayer};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
-
-    void a(TbPageContext<BaseFragmentActivity> tbPageContext);
-
-    void c(AdvertAppInfo advertAppInfo, boolean z);
-
-    @Nullable
-    ax9 i(AdvertAppInfo advertAppInfo);
-
-    void loadAd();
-
-    void m(AdvertAppInfo advertAppInfo);
 }

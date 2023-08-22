@@ -8,22 +8,22 @@ import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import com.baidu.searchbox.command.CommandUtils;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.dv2;
-import com.baidu.tieba.fd2;
-import com.baidu.tieba.fh3;
-import com.baidu.tieba.fu2;
-import com.baidu.tieba.ir1;
+import com.baidu.tieba.ba2;
+import com.baidu.tieba.do3;
+import com.baidu.tieba.iv2;
+import com.baidu.tieba.kd2;
 import com.baidu.tieba.kh3;
-import com.baidu.tieba.l43;
-import com.baidu.tieba.so3;
-import com.baidu.tieba.w92;
-import com.baidu.tieba.yn3;
+import com.baidu.tieba.ku2;
+import com.baidu.tieba.nr1;
+import com.baidu.tieba.ph3;
+import com.baidu.tieba.q43;
+import com.baidu.tieba.xo3;
 import org.json.JSONException;
 import org.json.JSONObject;
 @Keep
 /* loaded from: classes4.dex */
 public class SwanAppUtilsJavaScriptInterface {
-    public static final boolean DEBUG = ir1.a;
+    public static final boolean DEBUG = nr1.a;
     public static final String JAVASCRIPT_INTERFACE_NAME = "Bdbox_android_utils";
     public static final String KEY_SHARE_FORCE_LIGHT_THEME = "forceLightTheme";
     public static final String KEY_SHARE_SNAPSHOT = "snapshot";
@@ -32,7 +32,7 @@ public class SwanAppUtilsJavaScriptInterface {
     public Context mActivity;
     public boolean mIsForceLight = false;
     public String mSource = "";
-    public w92 mWebView;
+    public ba2 mWebView;
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
@@ -56,7 +56,7 @@ public class SwanAppUtilsJavaScriptInterface {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements dv2.a {
+    public class b implements iv2.a {
         public final /* synthetic */ String a;
         public final /* synthetic */ String b;
 
@@ -65,12 +65,12 @@ public class SwanAppUtilsJavaScriptInterface {
             this.b = str2;
         }
 
-        @Override // com.baidu.tieba.dv2.a
+        @Override // com.baidu.tieba.iv2.a
         public void a() {
             SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.b, String.valueOf(false));
         }
 
-        @Override // com.baidu.tieba.dv2.a
+        @Override // com.baidu.tieba.iv2.a
         public void b() {
             SwanAppUtilsJavaScriptInterface.this.notifyCallback(this.a, String.valueOf(true));
         }
@@ -93,9 +93,9 @@ public class SwanAppUtilsJavaScriptInterface {
         }
     }
 
-    public SwanAppUtilsJavaScriptInterface(Context context, w92 w92Var) {
+    public SwanAppUtilsJavaScriptInterface(Context context, ba2 ba2Var) {
         this.mActivity = context;
-        this.mWebView = w92Var;
+        this.mWebView = ba2Var;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -112,7 +112,7 @@ public class SwanAppUtilsJavaScriptInterface {
 
     public void loadJavaScript(String str) {
         if (this.mWebView != null) {
-            so3.e0(new a(str));
+            xo3.e0(new a(str));
         }
     }
 
@@ -145,8 +145,8 @@ public class SwanAppUtilsJavaScriptInterface {
             if (j < UBC_MIN_VERSION) {
                 return;
             }
-            fh3.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
-            l43.h().g().b(jSONObject);
+            kh3.l(jSONObject.optString("actionId"), jSONObject.optString("value"));
+            q43.h().g().b(jSONObject);
         } catch (NumberFormatException | JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();
@@ -172,23 +172,23 @@ public class SwanAppUtilsJavaScriptInterface {
         if (DEBUG) {
             Log.i(TAG, "callShare");
         }
-        JSONObject d = yn3.d(str2);
+        JSONObject d = do3.d(str2);
         try {
             d.put(KEY_SHARE_SNAPSHOT, z);
             d.put(KEY_SHARE_FORCE_LIGHT_THEME, z2);
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        fu2.f0().a(context, d, new b(str3, str4));
+        ku2.f0().a(context, d, new b(str3, str4));
     }
 
     @JavascriptInterface
     public void ubcEvent(String str) {
-        if (TextUtils.isEmpty(str) || kh3.b(str)) {
+        if (TextUtils.isEmpty(str) || ph3.b(str)) {
             return;
         }
-        w92 w92Var = this.mWebView;
-        if (fd2.a(w92Var, "ubcEvent - " + str)) {
+        ba2 ba2Var = this.mWebView;
+        if (kd2.a(ba2Var, "ubcEvent - " + str)) {
             return;
         }
         ExecutorUtilsExt.postOnElastic(new c(str), "ubcEvent", 3);

@@ -5,7 +5,7 @@ import com.baidu.tieba.R;
 import com.kwad.components.core.video.g;
 import com.kwad.components.core.video.h;
 import com.kwad.sdk.utils.ae;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d extends com.kwad.components.ad.draw.kwai.a {
     public TextView bt;
     public g mVideoPlayStateListener = new h() { // from class: com.kwad.components.ad.draw.a.d.1
@@ -44,7 +44,7 @@ public final class d extends com.kwad.components.ad.draw.kwai.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bt = (TextView) findViewById(R.id.obfuscated_res_0x7f09142b);
+        this.bt = (TextView) findViewById(R.id.obfuscated_res_0x7f091441);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

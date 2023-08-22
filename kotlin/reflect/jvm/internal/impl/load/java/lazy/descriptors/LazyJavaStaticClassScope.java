@@ -37,14 +37,14 @@ import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.utils.DFS;
 import kotlin.sequences.SequencesKt___SequencesKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class LazyJavaStaticClassScope extends LazyJavaStaticScope {
     public final JavaClass jClass;
     public final LazyJavaClassDescriptor ownerDescriptor;
 
     @Override // kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScopeImpl, kotlin.reflect.jvm.internal.impl.resolve.scopes.ResolutionScope
     /* renamed from: getContributedClassifier */
-    public ClassifierDescriptor mo2104getContributedClassifier(Name name, LookupLocation lookupLocation) {
+    public ClassifierDescriptor mo2106getContributedClassifier(Name name, LookupLocation lookupLocation) {
         return null;
     }
 
@@ -62,24 +62,24 @@ public final class LazyJavaStaticClassScope extends LazyJavaStaticScope {
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 TypeConstructor typeConstructor = it.getTypeConstructor();
                 Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "it.typeConstructor");
-                Collection<KotlinType> mo2103getSupertypes = typeConstructor.mo2103getSupertypes();
-                Intrinsics.checkExpressionValueIsNotNull(mo2103getSupertypes, "it.typeConstructor.supertypes");
-                return SequencesKt___SequencesKt.asIterable(SequencesKt___SequencesKt.mapNotNull(CollectionsKt___CollectionsKt.asSequence(mo2103getSupertypes), new Function1<KotlinType, ClassDescriptor>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.LazyJavaStaticClassScope$flatMapJavaStaticSupertypesScopes$1.1
+                Collection<KotlinType> mo2105getSupertypes = typeConstructor.mo2105getSupertypes();
+                Intrinsics.checkExpressionValueIsNotNull(mo2105getSupertypes, "it.typeConstructor.supertypes");
+                return SequencesKt___SequencesKt.asIterable(SequencesKt___SequencesKt.mapNotNull(CollectionsKt___CollectionsKt.asSequence(mo2105getSupertypes), new Function1<KotlinType, ClassDescriptor>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.LazyJavaStaticClassScope$flatMapJavaStaticSupertypesScopes$1.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
                     public final ClassDescriptor invoke(KotlinType kotlinType) {
-                        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
-                        if (!(mo2102getDeclarationDescriptor instanceof ClassDescriptor)) {
-                            mo2102getDeclarationDescriptor = null;
+                        ClassifierDescriptor mo2104getDeclarationDescriptor = kotlinType.getConstructor().mo2104getDeclarationDescriptor();
+                        if (!(mo2104getDeclarationDescriptor instanceof ClassDescriptor)) {
+                            mo2104getDeclarationDescriptor = null;
                         }
-                        return (ClassDescriptor) mo2102getDeclarationDescriptor;
+                        return (ClassDescriptor) mo2104getDeclarationDescriptor;
                     }
                 }));
             }
         }, new DFS.AbstractNodeHandler<ClassDescriptor, Unit>() { // from class: kotlin.reflect.jvm.internal.impl.load.java.lazy.descriptors.LazyJavaStaticClassScope$flatMapJavaStaticSupertypesScopes$2
             /* JADX DEBUG: Possible override for method kotlin.reflect.jvm.internal.impl.utils.DFS.NodeHandler.result()Ljava/lang/Object; */
             /* renamed from: result  reason: collision with other method in class */
-            public void m2099result() {
+            public void m2101result() {
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -99,7 +99,7 @@ public final class LazyJavaStaticClassScope extends LazyJavaStaticScope {
 
             @Override // kotlin.reflect.jvm.internal.impl.utils.DFS.NodeHandler
             public /* bridge */ /* synthetic */ Object result() {
-                m2099result();
+                m2101result();
                 return Unit.INSTANCE;
             }
         });

@@ -13,8 +13,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.EmojiData;
-import com.baidu.tieba.jk8;
-import com.baidu.tieba.mk8;
+import com.baidu.tieba.io8;
+import com.baidu.tieba.lo8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,9 +30,9 @@ public class EmojiReplyView extends ViewGroup {
     public transient /* synthetic */ FieldHolder $fh;
     public AlignMode a;
     @Nullable
-    public jk8 b;
+    public io8 b;
     public LayoutTransition c;
-    public mk8 d;
+    public lo8 d;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* loaded from: classes6.dex */
@@ -164,13 +164,13 @@ public class EmojiReplyView extends ViewGroup {
     }
 
     @Nullable
-    public jk8 getAdapter() {
+    public io8 getAdapter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.b;
         }
-        return (jk8) invokeV.objValue;
+        return (io8) invokeV.objValue;
     }
 
     public final void j() {
@@ -178,7 +178,7 @@ public class EmojiReplyView extends ViewGroup {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             LayoutTransition layoutTransition = new LayoutTransition();
             this.c = layoutTransition;
-            this.d = new mk8(layoutTransition, this, this.a);
+            this.d = new lo8(layoutTransition, this, this.a);
         }
     }
 
@@ -205,12 +205,12 @@ public class EmojiReplyView extends ViewGroup {
     }
 
     public void a(int i) {
-        jk8 jk8Var;
+        io8 io8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || (jk8Var = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || (io8Var = this.b) == null) {
             return;
         }
-        addView(jk8Var.h(this, null, i, jk8Var.i(i), 1), i);
+        addView(io8Var.h(this, null, i, io8Var.i(i), 1), i);
         requestLayout();
     }
 
@@ -222,10 +222,10 @@ public class EmojiReplyView extends ViewGroup {
         }
     }
 
-    public void setAdapter(@NonNull jk8 jk8Var) {
+    public void setAdapter(@NonNull io8 io8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, jk8Var) == null) {
-            this.b = jk8Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, io8Var) == null) {
+            this.b = io8Var;
         }
     }
 
@@ -302,39 +302,39 @@ public class EmojiReplyView extends ViewGroup {
     }
 
     public final void h(int i, int i2) {
-        jk8 jk8Var;
+        io8 io8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) != null) || (jk8Var = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) != null) || (io8Var = this.b) == null) {
             return;
         }
-        jk8Var.h(this, getChildAt(i2), i2, jk8Var.i(i2), i);
+        io8Var.h(this, getChildAt(i2), i2, io8Var.i(i2), i);
         requestLayout();
     }
 
     public final void g() {
-        jk8 jk8Var;
+        io8 io8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (jk8Var = this.b) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (io8Var = this.b) == null) {
             return;
         }
-        mk8 mk8Var = this.d;
-        if (mk8Var != null) {
-            mk8Var.b(false);
+        lo8 lo8Var = this.d;
+        if (lo8Var != null) {
+            lo8Var.b(false);
         }
         d();
-        for (int i = 0; i < jk8Var.g(); i++) {
-            EmojiData i2 = jk8Var.i(i);
+        for (int i = 0; i < io8Var.g(); i++) {
+            EmojiData i2 = io8Var.i(i);
             if (i2 != null) {
                 if (i2.isAdd()) {
-                    addView(jk8Var.f(this, null, i, i2));
+                    addView(io8Var.f(this, null, i, i2));
                 } else {
-                    addView(jk8Var.h(this, null, i, i2, 0));
+                    addView(io8Var.h(this, null, i, i2, 0));
                 }
             }
         }
-        mk8 mk8Var2 = this.d;
-        if (mk8Var2 != null) {
-            mk8Var2.b(true);
+        lo8 lo8Var2 = this.d;
+        if (lo8Var2 != null) {
+            lo8Var2.b(true);
         }
     }
 

@@ -63,10 +63,10 @@ public class WendaToolBarItemView extends LinearLayout implements IFontSizeViewL
     private void initView() {
         setGravity(5);
         setOrientation(0);
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d021a, this);
-        this.mWendaBarImg = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f092a04);
-        this.mWendaBarTitleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f092a05);
-        this.mWendaBarDividingLineImg = (ImageView) findViewById(R.id.obfuscated_res_0x7f092a03);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d021d, this);
+        this.mWendaBarImg = (BdBaseImageView) findViewById(R.id.obfuscated_res_0x7f092a35);
+        this.mWendaBarTitleTv = (TextView) findViewById(R.id.obfuscated_res_0x7f092a36);
+        this.mWendaBarDividingLineImg = (ImageView) findViewById(R.id.obfuscated_res_0x7f092a34);
     }
 
     public TextView getWendaBarTitleTv() {
@@ -95,7 +95,7 @@ public class WendaToolBarItemView extends LinearLayout implements IFontSizeViewL
         FontSizeTextViewExtKt.setScaledSizeRes(this.mWendaBarTitleTv, 0, R.dimen.obfuscated_res_0x7f0702e5);
         FontSizeViewExtKt.setScaledWidthRes(this.mWendaBarDividingLineImg, 0, R.dimen.obfuscated_res_0x7f0702df);
         FontSizeViewExtKt.setScaledHeightRes(this.mWendaBarDividingLineImg, 0, R.dimen.obfuscated_res_0x7f0702e5);
-        FontSizeImageViewExtKt.setScaledImageDrawableRes(this.mWendaBarDividingLineImg, 0, R.drawable.obfuscated_res_0x7f081576);
+        FontSizeImageViewExtKt.setScaledImageDrawableRes(this.mWendaBarDividingLineImg, 0, R.drawable.obfuscated_res_0x7f08158c);
     }
 
     public void updateWendaUI() {
@@ -104,15 +104,15 @@ public class WendaToolBarItemView extends LinearLayout implements IFontSizeViewL
             return;
         }
         if (i == 0) {
-            this.mWendaBarImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0814ea));
-            this.mWendaBarResInt = R.drawable.obfuscated_res_0x7f0814ea;
+            this.mWendaBarImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081500));
+            this.mWendaBarResInt = R.drawable.obfuscated_res_0x7f081500;
         }
         if (this.mWendaBarStatus == 1) {
-            this.mWendaBarImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0814eb));
-            this.mWendaBarResInt = R.drawable.obfuscated_res_0x7f0814eb;
+            this.mWendaBarImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081501));
+            this.mWendaBarResInt = R.drawable.obfuscated_res_0x7f081501;
         }
-        this.mWendaBarTitleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e2));
-        this.mWendaBarDividingLineImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081576));
+        this.mWendaBarTitleTv.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f0603e8));
+        this.mWendaBarDividingLineImg.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08158c));
         onFontSizeChange();
     }
 }

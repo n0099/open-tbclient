@@ -1,15 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class fh2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fh2 {
+    void onFail();
 
-    public abstract void a();
-
-    public abstract void b();
-
-    public abstract void c();
+    void onSuccess();
 }

@@ -1,71 +1,71 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernEmptyViewHolder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class ba6 extends lm<sb6, LiveTabConcernEmptyViewHolder> {
+public class ba6 implements kv2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ba6(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), sb6.b);
+    public ba6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: s */
-    public LiveTabConcernEmptyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new LiveTabConcernEmptyViewHolder(new na6(this.a, viewGroup));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return TbadkCoreApplication.getInst().getZid(context, null, 0, null);
         }
-        return (LiveTabConcernEmptyViewHolder) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, sb6 sb6Var, LiveTabConcernEmptyViewHolder liveTabConcernEmptyViewHolder) {
-        InterceptResult invokeCommon;
-        na6 na6Var;
+    @Override // com.baidu.tieba.kv2
+    public String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, sb6Var, liveTabConcernEmptyViewHolder})) == null) {
-            if (liveTabConcernEmptyViewHolder != null && (na6Var = liveTabConcernEmptyViewHolder.a) != null) {
-                na6Var.i(sb6Var);
-                return liveTabConcernEmptyViewHolder.getView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            if (!ProcessUtils.isMainProcess()) {
+                return c(context);
             }
-            return null;
+            return b(context);
         }
-        return (View) invokeCommon.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public final String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, aa6.class, null);
+            if (!callOnMainWithContentProvider.isOk()) {
+                return "";
+            }
+            return callOnMainWithContentProvider.mResult.getString("result", "");
+        }
+        return (String) invokeL.objValue;
     }
 }

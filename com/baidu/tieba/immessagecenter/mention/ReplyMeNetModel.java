@@ -7,15 +7,15 @@ import com.baidu.tbadk.mvc.data.INetRequestData;
 import com.baidu.tbadk.mvc.message.MvcProtobufHttpResponsedMessage;
 import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
 import com.baidu.tbadk.mvc.model.NetAutoModel;
-import com.baidu.tieba.qo8;
-import com.baidu.tieba.ro8;
+import com.baidu.tieba.ps8;
+import com.baidu.tieba.qs8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ReplyMeNetModel extends NetAutoModel<qo8, ro8, ReplyMessageFragment> {
+public class ReplyMeNetModel extends NetAutoModel<ps8, qs8, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -44,13 +44,13 @@ public class ReplyMeNetModel extends NetAutoModel<qo8, ro8, ReplyMessageFragment
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ReplyMeNetModel(TbPageContext tbPageContext, qo8 qo8Var) {
-        super(tbPageContext, qo8Var);
+    public ReplyMeNetModel(TbPageContext tbPageContext, ps8 ps8Var) {
+        super(tbPageContext, ps8Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, qo8Var};
+            Object[] objArr = {tbPageContext, ps8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,11 +85,11 @@ public class ReplyMeNetModel extends NetAutoModel<qo8, ro8, ReplyMessageFragment
     }
 
     @Override // com.baidu.tbadk.mvc.model.NetModel
-    public Class<ro8> getResponseDataClass() {
+    public Class<qs8> getResponseDataClass() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return ro8.class;
+            return qs8.class;
         }
         return (Class) invokeV.objValue;
     }

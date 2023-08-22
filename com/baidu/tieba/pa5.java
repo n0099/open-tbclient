@@ -1,138 +1,260 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.drawable.Drawable;
-import android.text.style.ReplacementSpan;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Intent;
+import android.content.SharedPreferences;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class pa5 extends ReplacementSpan {
+public class pa5 {
     public static /* synthetic */ Interceptable $ic;
+    public static pa5 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public Drawable e;
-    public Drawable f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public boolean o;
+    public final HashMap<String, DownloadData> a;
+    public final HashMap<String, DownloadData> b;
+    public final HashMap<String, String> c;
 
-    public pa5(int i, int i2, int i3, int i4, int i5, boolean z) {
+    /* loaded from: classes7.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pa5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(pa5 pa5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pa5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pa5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2001118 && (customResponsedMessage instanceof DownloadMessage)) {
+                List<DownloadData> data = ((DownloadMessage) customResponsedMessage).getData();
+                if (ListUtils.isEmpty(data)) {
+                    return;
+                }
+                for (DownloadData downloadData : data) {
+                    if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {
+                        String str = ((ItemDownloadExtraData) downloadData.getExtra()).pkgName;
+                        int status = downloadData.getStatus();
+                        if (status != 0) {
+                            if (status != 2) {
+                                if (status == 4 && this.a.a.containsKey(str)) {
+                                    this.a.a.remove(str);
+                                    oa5.a(downloadData, 400);
+                                    return;
+                                }
+                                return;
+                            }
+                            oa5.a(downloadData, 600);
+                            return;
+                        } else if (this.a.a.containsKey(str)) {
+                            this.a.b.put(str, this.a.a.get(str));
+                            this.a.a.remove(str);
+                            oa5.a(downloadData, 700);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pa5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(pa5 pa5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pa5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pa5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                Object data = customResponsedMessage.getData();
+                if (data instanceof Intent) {
+                    Intent intent = (Intent) data;
+                    String g = vm5.g(intent);
+                    if (!PackageChangedReceiver.ACTION_INSTALL.equals(intent.getAction()) && !"android.intent.action.PACKAGE_REPLACED".equals(intent.getAction())) {
+                        if (!PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
+                            return;
+                        }
+                        this.a.l(g);
+                    } else if (this.a.b.containsKey(g)) {
+                        oa5.a((DownloadData) this.a.b.get(g), 900);
+                        this.a.b.remove(g);
+                    }
+                }
+            }
+        }
+    }
+
+    public pa5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i6 = newInitContext.flag;
-            if ((i6 & 1) != 0) {
-                int i7 = i6 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = R.drawable.icon_pure_evaluation_star24_n;
-        this.b = R.color.CAM_X0112;
-        this.c = R.drawable.icon_pure_evaluation_star24_n;
-        this.d = R.color.CAM_X0305;
-        this.m = 5;
-        this.n = i;
-        this.g = i2;
-        this.h = i3;
-        this.i = i4;
-        this.k = i5;
-        this.o = z;
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = new HashMap<>();
+        h();
+        i();
     }
 
-    public final void a() {
+    public void d(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = SvgManager.getInstance().getPureDrawable(this.a, this.b, null);
-            this.f = SvgManager.getInstance().getPureDrawable(this.c, this.d, null);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.a.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        int dimenPixelSize;
-        int i6;
-        int i7;
+    public final void l(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            a();
-            this.j = (int) paint.getTextSize();
-            int i8 = ((int) f) + this.k;
-            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            int i9 = 0;
-            if (z65.b(charSequence)) {
-                z65.a(fontMetricsInt, (int) paint.getTextSize());
-                dimenPixelSize = 0 - UtilHelper.getDimenPixelSize(R.dimen.tbds3);
-            } else {
-                dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds3) + 0;
-            }
-            int i10 = dimenPixelSize + fontMetricsInt.ascent + i4;
-            int i11 = (this.j - this.h) / 2;
-            if (this.o) {
-                i6 = (i5 - i4) / 2;
-            } else {
-                i6 = 0;
-            }
-            int max = i10 + Math.max(0, i11 + i6);
-            while (true) {
-                i7 = this.n;
-                if (i9 >= i7) {
-                    break;
-                }
-                Drawable drawable = this.f;
-                if (drawable != null) {
-                    int i12 = this.h;
-                    drawable.setBounds(i8, max, i8 + i12, i12 + max);
-                    this.f.draw(canvas);
-                    i8 += this.g + this.h;
-                }
-                i9++;
-            }
-            while (i7 < this.m) {
-                Drawable drawable2 = this.e;
-                if (drawable2 != null) {
-                    int i13 = this.h;
-                    drawable2.setBounds(i8, max, i8 + i13, i13 + max);
-                    this.e.draw(canvas);
-                    i8 += this.g + this.h;
-                }
-                i7++;
-            }
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.c.remove(str);
+            SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
+            edit.remove(str);
+            edit.commit();
         }
     }
 
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public static pa5 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            int i3 = this.m;
-            int i4 = (this.h * i3) + (this.g * (i3 - 1)) + this.i + this.k;
-            this.l = i4;
-            return i4;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d == null) {
+                d = new pa5();
+            }
+            return d;
         }
-        return invokeCommon.intValue;
+        return (pa5) invokeV.objValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            a aVar = new a(this, 2001118);
+            aVar.setPriority(-1);
+            MessageManager.getInstance().registerListener(aVar);
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            b bVar = new b(this, 2002504);
+            bVar.setPriority(-1);
+            MessageManager.getInstance().registerListener(bVar);
+        }
+    }
+
+    public void e(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.b.put(((ItemDownloadExtraData) downloadData.getExtra()).pkgName, downloadData);
+        }
+    }
+
+    public String g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.c.containsKey(str)) {
+                return this.c.get(str);
+            }
+            String string = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).getString(str, "");
+            this.c.put(str, string);
+            return string;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void j(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.a.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        }
+    }
+
+    public void k(DownloadData downloadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, downloadData) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            this.b.remove(((ItemDownloadExtraData) downloadData.getExtra()).pkgName);
+        }
+    }
+
+    public void m(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) != null) || StringHelper.equals(this.c.get(str), str2)) {
+            return;
+        }
+        this.c.put(str, str2);
+        SharedPreferences.Editor edit = TbadkCoreApplication.getInst().getSharedPreferences("shouzhu_app_source_sp", 0).edit();
+        edit.putString(str, str2);
+        edit.commit();
     }
 }

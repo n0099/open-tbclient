@@ -1,206 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.pm.BundleInfoGroup;
-import com.baidu.nps.pm.manager.NPSPackageManager;
-import com.baidu.nps.utils.SourceData;
-import com.baidu.searchbox.pms.init.RequestParams;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Matrix;
+import android.graphics.Rect;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public class pk {
+public class pk extends mk {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean b;
-    public static boolean c;
-    public static pk d;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile dl a;
-
-    /* loaded from: classes7.dex */
-    public static class a implements ke1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ke1
-        public void onProgress(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ke1
-        public void onResult(int i, String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.e("Plug-in predownload status{\"code\": " + i + ", \"msg\": " + str + "}");
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448314130, "Lcom/baidu/tieba/pk;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448314130, "Lcom/baidu/tieba/pk;");
-                return;
-            }
-        }
-        d = new pk();
-    }
+    public Rect x;
 
     public pk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.x = new Rect();
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.fk, com.baidu.tieba.dk
+    public void h(Canvas canvas, gk gkVar, ImageView imageView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !c && dl.n()) {
-            c = true;
-            NPSPackageManager.getInstance().downloadAllBundles();
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65539, null) != null) || b) {
-            return;
-        }
-        b = true;
-        NPSPackageManager.getInstance().fetchBundleInfo();
-    }
-
-    public static pk f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d;
-        }
-        return (pk) invokeV.objValue;
-    }
-
-    public static void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a();
-        }
-    }
-
-    public RequestParams.Channel d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            h();
-            return this.a.l();
-        }
-        return (RequestParams.Channel) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.a == null) {
-                return "0";
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, canvas, gkVar, imageView) == null) {
+            Matrix matrix = this.f;
+            if (matrix != null) {
+                canvas.concat(matrix);
             }
-            return this.a.m();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public dl g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            h();
-            return this.a;
-        }
-        return (dl) invokeV.objValue;
-    }
-
-    public final synchronized void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    this.a = new dl();
+            canvas.save();
+            if (this.w) {
+                try {
+                    canvas.clipPath(this.t);
+                } catch (Error unused) {
                 }
             }
-        }
-    }
-
-    public static void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            if (str != null && str.trim().length() != 0) {
-                SourceData sourceData = new SourceData();
-                sourceData.source = "";
-                NPSPackageManager.getInstance().preDownload(str, new a(), 1, sourceData);
-            } else if (BdBaseApplication.getInst().isDebugMode()) {
-                BdLog.e("PackageName of Plug-in is null.");
+            if (gkVar.e()) {
+                Bitmap bitmap = gkVar.a.getBitmap();
+                this.x.set(0, 0, bitmap.getWidth(), bitmap.getHeight());
+                canvas.drawBitmap(bitmap, this.x, this.g, this.c);
+            } else {
+                this.x.set(0, 0, gkVar.b(), gkVar.a());
+                gkVar.b.drawImageTo(canvas, this.x, this.g, this.c);
             }
+            canvas.restore();
         }
-    }
-
-    @NonNull
-    public List<BundleInfo> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (Map.Entry<String, BundleInfoGroup> entry : NPSPackageManager.getInstance().getAllBundleGroup().entrySet()) {
-                BundleInfoGroup value = entry.getValue();
-                BundleInfo bundleByType = value.getBundleByType(3);
-                if (bundleByType == null) {
-                    bundleByType = value.getBundleByType(2);
-                }
-                if (bundleByType != null) {
-                    arrayList.add(bundleByType);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 }

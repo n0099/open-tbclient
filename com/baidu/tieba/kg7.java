@@ -1,60 +1,83 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.HorseRace.LiveHorseRaceData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetHorseRaceLampList.DataRes;
-import tbclient.GetHorseRaceLampList.LiveList;
 /* loaded from: classes6.dex */
-public class kg7 {
+public class kg7 extends ln6<fg7> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<LiveHorseRaceData> a;
+    public NoDataView i;
+    public int j;
 
-    public kg7() {
+    @Override // com.baidu.tieba.ln6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0316 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kg7(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.j = 3;
+        NoDataView a = NoDataViewFactory.a(this.b.getPageActivity(), h(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, BdUtilHelper.getDimens(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f07037a)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f1313), null);
+        this.i = a;
+        a.setVisibility(0);
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public List<LiveHorseRaceData> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln6
+    /* renamed from: r */
+    public void i(fg7 fg7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fg7Var) == null) {
+            j(this.b, TbadkCoreApplication.getInst().getSkinType());
         }
-        return (List) invokeV.objValue;
     }
 
-    public void b(DataRes dataRes) {
+    @Override // com.baidu.tieba.ln6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.j == i) {
             return;
         }
-        new LiveHorseRaceData();
-        List<LiveList> list = dataRes.live_list;
-        if (list != null) {
-            for (int i = 0; i < list.size(); i++) {
-                LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
-                liveHorseRaceData.parserProtobuf(list.get(i));
-                this.a.add(liveHorseRaceData);
-            }
+        NoDataView noDataView = this.i;
+        if (noDataView != null) {
+            noDataView.f(this.b, i);
         }
+        this.j = i;
     }
 }

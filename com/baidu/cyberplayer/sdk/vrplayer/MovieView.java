@@ -44,7 +44,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
     public int S;
 
     /* renamed from: T  reason: collision with root package name */
-    public i f1040T;
+    public i f1041T;
     public String U;
     public boolean V;
     public int W;
@@ -224,7 +224,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.G = hVar;
         this.H = hVar;
         this.K = false;
-        this.f1040T = i.PAUSED;
+        this.f1041T = i.PAUSED;
         if (!isInEditMode()) {
             a(context);
         }
@@ -252,7 +252,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.G = hVar;
         this.H = hVar;
         this.K = false;
-        this.f1040T = i.PAUSED;
+        this.f1041T = i.PAUSED;
         a(context);
     }
 
@@ -297,7 +297,7 @@ public class MovieView extends FrameLayout implements ICyberVideoView {
         this.G = hVar;
         this.H = hVar;
         this.K = false;
-        this.f1040T = i.PAUSED;
+        this.f1041T = i.PAUSED;
         a(context);
     }
 

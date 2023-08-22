@@ -1,64 +1,205 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.compatible.EditorHelper;
+import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface cx7 {
-    public static final a a = a.a;
+public class cx7 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile cx7 b;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, ArrayList<FunAdHistoryData>> a;
 
-    ex7 a(int i);
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ a a;
-        public static final ServiceReference b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-875463478, "Lcom/baidu/tieba/cx7$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-875463478, "Lcom/baidu/tieba/cx7$a;");
-                    return;
-                }
-            }
-            a = new a();
-            b = new ServiceReference("Frs", "FrsVisitedInfoService");
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+    public cx7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        HashMap hashMap = new HashMap();
+        this.a = hashMap;
+        hashMap.clear();
+        this.a.putAll(d());
+    }
 
-        public final ServiceReference a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
+    public static cx7 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (cx7.class) {
+                    if (b == null) {
+                        b = new cx7();
+                    }
+                }
             }
-            return (ServiceReference) invokeV.objValue;
+            return b;
         }
+        return (cx7) invokeV.objValue;
+    }
+
+    public void a(String str, FunAdHistoryData funAdHistoryData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, funAdHistoryData) == null) && UbsABTestHelper.isDuplicateRemovalFunAdABTest() && !TextUtils.isEmpty(str) && funAdHistoryData != null) {
+            ArrayList<FunAdHistoryData> c = c(str);
+            if (c == null) {
+                c = new ArrayList<>();
+            }
+            c.add(funAdHistoryData);
+            g(c);
+            ex7.e().a(str);
+            j(str);
+        }
+    }
+
+    public final ArrayList<FunAdHistoryData> b(JSONArray jSONArray) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
+            if (jSONArray == null) {
+                return null;
+            }
+            ArrayList<FunAdHistoryData> arrayList = new ArrayList<>();
+            int length = jSONArray.length();
+            for (int i = 0; i < length; i++) {
+                FunAdHistoryData funAdHistoryData = new FunAdHistoryData();
+                try {
+                    funAdHistoryData.parserJson(jSONArray.getJSONObject(i));
+                    arrayList.add(funAdHistoryData);
+                } catch (JSONException e) {
+                    BdLog.detailException(e);
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void i(ArrayList<FunAdHistoryData> arrayList) {
+        FunAdHistoryData next;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, arrayList) != null) || arrayList == null) {
+            return;
+        }
+        Iterator<FunAdHistoryData> it = arrayList.iterator();
+        long currentTimeMillis = System.currentTimeMillis() / 1000;
+        while (it.hasNext() && (next = it.next()) != null && currentTimeMillis - next.getShowTime() > 86400) {
+            it.remove();
+        }
+    }
+
+    public ArrayList<FunAdHistoryData> c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
+                return this.a.get(str);
+            }
+            return null;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void g(ArrayList<FunAdHistoryData> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, arrayList) != null) || arrayList == null) {
+            return;
+        }
+        h(arrayList);
+        i(arrayList);
+    }
+
+    public final void h(ArrayList<FunAdHistoryData> arrayList) {
+        int size;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, arrayList) != null) || arrayList == null || (size = arrayList.size()) <= 600) {
+            return;
+        }
+        ListUtils.removeSubList(arrayList, 0, size - 600);
+    }
+
+    public final Map<String, ArrayList<FunAdHistoryData>> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str : ex7.e().c()) {
+                if (!TextUtils.isEmpty(str)) {
+                    ArrayList<FunAdHistoryData> e = e(str);
+                    if (e == null) {
+                        e = new ArrayList<>();
+                    }
+                    hashMap.put(str, e);
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final ArrayList<FunAdHistoryData> e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            JSONArray jSONArray = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            SharedPreferences g = ex7.g();
+            String string = g.getString(str + "_fun_ad_history_key_suffix", "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                jSONArray = new JSONArray(string);
+            } catch (JSONException e) {
+                BdLog.detailException(e);
+            }
+            return b(jSONArray);
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void j(String str) {
+        ArrayList<FunAdHistoryData> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (arrayList = this.a.get(str)) == null) {
+            return;
+        }
+        JSONArray jSONArray = new JSONArray();
+        Iterator<FunAdHistoryData> it = arrayList.iterator();
+        while (it.hasNext()) {
+            JSONObject json = it.next().toJson();
+            if (json != null) {
+                jSONArray.put(json);
+            }
+        }
+        SharedPreferences g = ex7.g();
+        EditorHelper.putString(g, str + "_fun_ad_history_key_suffix", jSONArray.toString());
     }
 }

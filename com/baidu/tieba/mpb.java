@@ -1,94 +1,85 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jpb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.kwad.sdk.api.KsDrawAd;
 /* loaded from: classes7.dex */
-public final class mpb<TResult> implements cpb<TResult> {
+public class mpb extends FunNativeAd2Bridger<hpb, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public epb a;
-    public Executor b;
-    public final Object c;
+    public boolean b;
+    public final jpb.b c;
+    public final /* synthetic */ Context d;
+    public final /* synthetic */ jpb e;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gpb a;
-        public final /* synthetic */ mpb b;
-
-        public a(mpb mpbVar, gpb gpbVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mpbVar, gpbVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mpbVar;
-            this.a = gpbVar;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onFailure(this.a.d());
-                    }
-                }
-            }
-        }
-    }
-
-    public mpb(Executor executor, epb epbVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mpb(jpb jpbVar, ReporterPidLoader reporterPidLoader, hpb hpbVar, String str, Context context) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, epbVar};
+            Object[] objArr = {jpbVar, reporterPidLoader, hpbVar, str, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
-        this.a = epbVar;
-        this.b = executor;
+        this.e = jpbVar;
+        this.d = context;
+        this.c = new jpb.b(jpbVar, hpbVar, str);
     }
 
-    @Override // com.baidu.tieba.cpb
-    public final void cancel() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, hpb hpbVar, BaseNativeAd2<hpb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, hpbVar, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.cpb
-    public final void onComplete(gpb<TResult> gpbVar) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(hpb hpbVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gpbVar) == null) || gpbVar.h() || gpbVar.f()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hpbVar)) == null) {
+            return ((KsDrawAd) hpbVar.a).getDrawView(this.d);
         }
-        this.b.execute(new a(this, gpbVar));
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, hpb hpbVar, BaseNativeAd2<hpb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, hpbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            hpb hpbVar2 = hpbVar;
+            this.e.onShowStart(hpbVar2, this.b);
+            this.b = true;
+            jpb.b bVar = this.c;
+            bVar.e = funAdInteractionListener;
+            ((KsDrawAd) hpbVar2.a).setAdInteractionListener(bVar);
+            expressInflater.inflate();
+        }
     }
 }

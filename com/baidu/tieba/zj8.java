@@ -1,34 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
-public class zj8 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes9.dex */
+public abstract class zj8 implements yj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(long j, long j2, String str) {
+    @Override // com.baidu.tieba.yj8
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_ICON_CLICK);
-            statisticItem.param("uid", j);
-            statisticItem.param("obj_locate", j2);
-            statisticItem.param("obj_type", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    public static void b(long j, long j2, String str) {
+    @Override // com.baidu.tieba.yj8
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), str}) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.GROUP_CHAT_ICON_EXPLORE);
-            statisticItem.param("uid", j);
-            statisticItem.param("obj_locate", j2);
-            statisticItem.param("obj_type", str);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public zj8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 }

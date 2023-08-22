@@ -1,13 +1,9 @@
 package com.baidu.tieba;
-
-import java.io.IOException;
 /* loaded from: classes8.dex */
 public interface w7b {
-    void a() throws IOException;
+    void a(long j);
 
-    void b(String str) throws IOException;
+    void b(Exception exc, long j);
 
-    int c(byte[] bArr, int i, int i2) throws IOException;
-
-    void d(e8b e8bVar);
+    void onComplete(long j);
 }

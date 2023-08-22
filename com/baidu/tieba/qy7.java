@@ -1,104 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ky;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.widget.timepicker.DatePickerHelper;
+import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Date;
 /* loaded from: classes7.dex */
-public final class qy7 extends lm<wy7, ThreadCardViewHolder<q05>> {
+public class qy7 extends DatePickerHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final TbPageContext<?> a;
-    @JvmField
-    public BdUniqueId b;
-    public en<?> c;
+    public BaseActivity<?> a;
+    public b b;
+    public final OnTimeSelectListener c;
+
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a(Date date, long j);
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements OnTimeSelectListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qy7 a;
+
+        public a(qy7 qy7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qy7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qy7Var;
+        }
+
+        @Override // com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener
+        public void onTimeSelect(Date date, View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && date != null && this.a.a != null) {
+                if (date.getTime() > System.currentTimeMillis()) {
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f1050);
+                    return;
+                }
+                long time = date.getTime() / 1000;
+                if (this.a.b != null) {
+                    this.a.b.a(date, time);
+                }
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qy7(TbPageContext<?> mPageContext, BdUniqueId bdUniqueId) {
-        super(mPageContext.getPageActivity(), bdUniqueId);
+    public qy7(BaseActivity<?> baseActivity) {
+        super(baseActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mPageContext, bdUniqueId};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(mPageContext, "mPageContext");
-        this.a = mPageContext;
+        this.c = new a(this);
+        this.a = baseActivity;
     }
 
-    public final void u(en<?> enVar) {
+    public void c(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, enVar) == null) {
-            this.c = enVar;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.b = bVar;
+            super.showTimePicker(this.c);
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: s */
-    public ThreadCardViewHolder<q05> onCreateViewHolder(ViewGroup parent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, parent)) == null) {
-            Intrinsics.checkNotNullParameter(parent, "parent");
-            ky.b bVar = new ky.b(this.a.getPageActivity(), false);
-            hz7 hz7Var = new hz7(this.a);
-            hz7Var.q(this.b);
-            bVar.n(hz7Var);
-            bVar.l().j(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().e(0);
-            bVar.l().i(0);
-            ky k = bVar.k(BaseCardInfo.SupportType.CONTENT, parent, this.c);
-            Intrinsics.checkNotNullExpressionValue(k, "builder.build(BaseCardIn…, parent, mITypeListView)");
-            ThreadCardViewHolder<q05> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.j(this.b);
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wy7 wy7Var, ThreadCardViewHolder<q05> viewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wy7Var, viewHolder})) == null) {
-            Intrinsics.checkNotNullParameter(viewHolder, "viewHolder");
-            viewHolder.f(wy7Var);
-            if (viewHolder.b() != null) {
-                viewHolder.b().r(i);
-                viewHolder.b().onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-            }
-            return viewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
     }
 }

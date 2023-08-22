@@ -1,40 +1,91 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class sd5 extends tr6 {
+import org.json.JSONObject;
+import tbclient.FrsPage.DataRes;
+/* loaded from: classes8.dex */
+public class sd5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final sd5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
 
-    public sd5(Object obj) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948147589, "Lcom/baidu/tieba/sd5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948147589, "Lcom/baidu/tieba/sd5;");
+                return;
+            }
+        }
+        a = new sd5(false);
+    }
+
+    public sd5(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = obj;
     }
 
-    public final Object a() {
-        InterceptResult invokeV;
+    @NonNull
+    public static sd5 a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            boolean z = false;
+            if (jSONObject != null) {
+                i = jSONObject.optInt("voice_room_config");
+            } else {
+                i = 0;
+            }
+            if (i == 1) {
+                z = true;
+            }
+            return new sd5(z);
         }
-        return invokeV.objValue;
+        return (sd5) invokeL.objValue;
+    }
+
+    @NonNull
+    public static sd5 b(@Nullable DataRes dataRes) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
+            boolean z = false;
+            if (dataRes != null) {
+                i = dataRes.voice_room_config.intValue();
+            } else {
+                i = 0;
+            }
+            if (i == 1) {
+                z = true;
+            }
+            return new sd5(z);
+        }
+        return (sd5) invokeL.objValue;
     }
 }

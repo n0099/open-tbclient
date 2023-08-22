@@ -91,12 +91,12 @@ public class BannerDownloadStateBar extends LinearLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0065, (ViewGroup) this, true);
+            this.a = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0066, (ViewGroup) this, true);
             setOrientation(0);
             setGravity(17);
             setBackgroundResource(R.drawable.obfuscated_res_0x7f0800d5);
-            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09029b);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09029e);
+            this.c = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09029d);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0902a0);
             setState(0);
         }
     }

@@ -1,132 +1,88 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Lcom/baidu/tieba/gnb<TTResult;>; */
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public final class gnb<TResult> {
+public class gnb extends FunNativeAd2Bridger<tmb, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
     public boolean b;
-    public TResult c;
-    public Exception d;
-    public List<unb<TResult>> e;
+    public final /* synthetic */ anb c;
 
-    public gnb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gnb(anb anbVar, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {anbVar, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Object();
-        this.e = new ArrayList();
+        this.c = anbVar;
     }
 
-    public final Exception c() {
-        InterceptResult invokeV;
-        Exception exc;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, tmb tmbVar, BaseNativeAd2<tmb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.a) {
-                exc = this.d;
-            }
-            return exc;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, tmbVar, baseNativeAd2, funAdInteractionListener}) == null) {
         }
-        return (Exception) invokeV.objValue;
     }
 
-    public final TResult d() {
-        InterceptResult invokeV;
-        TResult tresult;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.a) {
-                if (this.d == null) {
-                    tresult = this.c;
-                } else {
-                    throw new RuntimeException(this.d);
-                }
-            }
-            return tresult;
-        }
-        return (TResult) invokeV.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.a) {
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    e();
-                    if (this.d == null) {
-                        z = true;
-                    }
-                }
-                z = false;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final gnb<TResult> a(unb<TResult> unbVar) {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(tmb tmbVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, unbVar)) == null) {
-            synchronized (this.a) {
-                if (!this.b) {
-                    this.e.add(unbVar);
-                } else {
-                    unbVar.a(this);
-                }
-            }
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tmbVar)) == null) {
+            return ((TTNativeExpressAd) tmbVar.a).getExpressAdView();
         }
-        return (gnb) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public final void b() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, tmb tmbVar, BaseNativeAd2<tmb, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                for (unb<TResult> unbVar : this.e) {
-                    try {
-                        unbVar.a(this);
-                    } catch (RuntimeException e) {
-                        throw e;
-                    } catch (Exception e2) {
-                        throw new RuntimeException(e2);
-                    }
-                }
-                this.e = null;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, tmbVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            tmb tmbVar2 = tmbVar;
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.g.get(tmbVar2);
+            if (expressAdListenerWrapper != null) {
+                expressAdListenerWrapper.funListener = funAdInteractionListener;
+            } else {
+                LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
             }
+            this.c.onShowStart(tmbVar2, this.b);
+            expressInflater.inflate();
+            View expressView = expressInflater.getExpressView();
+            anb anbVar = this.c;
+            anbVar.getClass();
+            ((TTNativeExpressAd) tmbVar2.a).setDislikeCallback(activity, new fnb(anbVar, expressView, tmbVar2, funAdInteractionListener, str));
+            this.b = true;
         }
     }
 }

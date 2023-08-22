@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.ph;
+import com.baidu.tieba.sh;
 import com.baidu.tieba.xe;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -50,11 +50,8 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(WalletSwitch.class);
             SwitchManager.getInstance().registerSwitch(WebpSwitch.class);
             SwitchManager.getInstance().registerSwitch(WebpForceSwitch.class);
-            SwitchManager.getInstance().registerSwitch(XiaomiPushSdkSwitch.class);
             SwitchManager.getInstance().registerSwitch(VoiceSwitch.class);
-            SwitchManager.getInstance().registerSwitch(ImgLogSwitch.class);
             SwitchManager.getInstance().registerSwitch(PerformanceSwitch.class);
-            SwitchManager.getInstance().registerSwitch(TBCdnPortraitSwitch.class);
             SwitchManager.getInstance().registerSwitch(AudioRecorderSwitch.class);
             SwitchManager.getInstance().registerSwitch(NickNameActivitySwitch.class);
             SwitchManager.getInstance().registerSwitch(QuickWebViewSwitch.class);
@@ -64,29 +61,22 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(PbReplySwitch.class);
             SwitchManager.getInstance().registerSwitch(ShareSwitch.class);
             SwitchManager.getInstance().registerSwitch(StrangeCleanSwitch.class);
-            SwitchManager.getInstance().registerSwitch(VideoMiddlePageSwitch.class);
             SwitchManager.getInstance().registerSwitch(RichTextGifViewSwitch.class);
-            SwitchManager.getInstance().registerSwitch(VideoSquareMiddlePageSwitch.class);
             SwitchManager.getInstance().registerSwitch(NetDeleteSwitch.class);
             SwitchManager.getInstance().registerSwitch(NetTypeFixedSwitch.class);
             SwitchManager.getInstance().registerSwitch(MessageChooseFriendSwitch.class);
             SwitchManager.getInstance().registerSwitch(CheckShowNameDialogSwitch.class);
-            SwitchManager.getInstance().registerSwitch(IsFullScreenSwitch.class);
             SwitchManager.getInstance().registerSwitch(BigdaySwitch.class);
             SwitchManager.getInstance().registerSwitch(VideoPreLoadSwitch.class);
-            SwitchManager.getInstance().registerSwitch(IdentifyImageSwitch.class);
             SwitchManager.getInstance().registerSwitch(EncSigNewSwitch.class);
             SwitchManager.getInstance().registerSwitch(LoginDefaultTypeSmsSwitch.class);
             SwitchManager.getInstance().registerSwitch(FaceFeedbackEnableSwitch.class);
-            SwitchManager.getInstance().registerSwitch(BenchmarkSwitch.class);
             SwitchManager.getInstance().registerSwitch(RedirectInterceptionSwitch.class);
             SwitchManager.getInstance().registerSwitch(YunPushOppoproxyEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(BarDetailForDirSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbNormalLikeButtonSwitch.class);
-            SwitchManager.getInstance().registerSwitch(TencentMMSwitch.class);
-            SwitchManager.getInstance().registerSwitch(PageStayDurationSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
-            SwitchManager.getInstance().registerSwitch(ph.class);
+            SwitchManager.getInstance().registerSwitch(sh.class);
             SwitchManager.getInstance().registerSwitch(RepostToDynamicDefaultSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbPreloadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
@@ -114,7 +104,6 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(QqShareH5Switch.class);
             SwitchManager.getInstance().registerSwitch(WorkAddTopicSwitch.class);
             SwitchManager.getInstance().registerSwitch(UploadPicParallelSwitch.class);
-            SwitchManager.getInstance().registerSwitch(AndroidActivityLogSwitch.class);
             SwitchManager.getInstance().registerSwitch(NovelPaySwitch.class);
             SwitchManager.getInstance().registerSwitch(ComplianceParmasSwitch.class);
             SwitchManager.getInstance().registerSwitch(OpenStartSafeModeSwitch.class);
@@ -125,11 +114,8 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(BdNetTypeSwitch.class);
             SwitchManager.getInstance().registerSwitch(HttpsTestSwitch.class);
             SwitchManager.getInstance().registerSwitch(Ipv6TestSwitch.class);
-            SwitchManager.getInstance().registerSwitch(AsyncGetClipboardSwitch.class);
             SwitchManager.getInstance().registerSwitch(MemeDiyEnableSwitch.class);
             SwitchManager.getInstance().registerSwitch(BearTimeoutTryShowSwitch.class);
-            SwitchManager.getInstance().registerSwitch(MainTabFragmentIdleSwitch.class);
-            SwitchManager.getInstance().registerSwitch(ImageChangeCacheKeySwitch.class);
             SwitchManager.getInstance().registerSwitch(NewWebHotTopicPageSwitch.class);
             SwitchManager.getInstance().registerSwitch(ImageAddRequestLayoutSwitch.class);
             SwitchManager.getInstance().registerSwitch(CheckIsQuestionThreadSwitch.class);
@@ -143,7 +129,6 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(ImageCacheOptimizeSwitch.class);
             SwitchManager.getInstance().registerSwitch(BigImageCacheOptimizeSwitch.class);
             SwitchManager.getInstance().registerSwitch(UploadLogButtonSwitch.class);
-            SwitchManager.getInstance().registerSwitch(EnableYaLogSwitch.class);
             SwitchManager.getInstance().registerSwitch(ImagePrePageLimitSwitch.class);
             SwitchManager.getInstance().registerSwitch(WebViewOptSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunnySpriteSwitch.class);
@@ -155,7 +140,6 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(FunnySpriteColdStartRequestSwitch.class);
             SwitchManager.getInstance().registerSwitch(SpriteInterceptHomeTipSwitch.class);
             SwitchManager.getInstance().registerSwitch(PicReqSwitch.class);
-            SwitchManager.getInstance().registerSwitch(DuTokenNewSwitch.class);
             SwitchManager.getInstance().registerSwitch(PageCountSwitch.class);
             SwitchManager.getInstance().registerSwitch(UbcAddCookieSwitch.class);
             xe.a().b();

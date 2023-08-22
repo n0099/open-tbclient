@@ -1,264 +1,173 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdHistoryData;
-import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.fga;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.mc.FrsModelController;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.Collections;
 import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class jv7 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jv7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> a;
 
-    public jv7() {
+    public static void a(ms7 ms7Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, ms7Var, str) == null) && !TextUtils.isEmpty(str) && ms7Var != null && !TextUtils.isEmpty(ms7Var.c)) {
+            StatisticItem statisticItem = new StatisticItem("c11942");
+            statisticItem.param("fid", ms7Var.c);
+            statisticItem.param("obj_name", str);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public static void g(FrsModelController frsModelController, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(65542, null, frsModelController, j) != null) || frsModelController == null) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        TiebaStatic.page(TiebaStatic.OpKey.OP_FRS_ENTER, currentTimeMillis - j, frsModelController.x0() - j, frsModelController.z0(), frsModelController.y0(), currentTimeMillis - frsModelController.w0());
+    }
+
+    public static void b(eh7 eh7Var, FrsViewData frsViewData, String str, boolean z, ThreadData threadData) {
+        zb5 adAdSense;
+        ul7 a0;
+        List<bn> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{eh7Var, frsViewData, str, Boolean.valueOf(z), threadData}) == null) && eh7Var != null && frsViewData != null && !TextUtils.isEmpty(str) && (adAdSense = TbadkCoreApplication.getInst().getAdAdSense()) != null && adAdSense.e()) {
+            List<bn> list2 = null;
+            if (eh7Var == null) {
+                a0 = null;
+            } else {
+                a0 = eh7Var.a0();
             }
-        }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add("pb_banner");
-        this.a.add("frs_feed");
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            SharedPreferences.Editor edit = g().edit();
-            edit.clear();
-            return edit.commit();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static jv7 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (iv7.class) {
-                    if (b == null) {
-                        b = new jv7();
+            if (a0 != null) {
+                list2 = a0.f();
+            }
+            if (threadData != null) {
+                list = Collections.singletonList(threadData);
+            } else {
+                list = list2;
+            }
+            if (list != null && list2 != null) {
+                ArrayList arrayList = new ArrayList();
+                if (z) {
+                    for (bn bnVar : list2) {
+                        for (bn bnVar2 : list) {
+                            if (bnVar == bnVar2 && (bnVar2 instanceof ThreadData)) {
+                                fga.c cVar = new fga.c();
+                                ((ThreadData) bnVar2).getTid();
+                                arrayList.add(cVar);
+                            }
+                        }
+                    }
+                } else {
+                    for (bn bnVar3 : list) {
+                        if (bnVar3 instanceof ThreadData) {
+                            ThreadData threadData2 = (ThreadData) bnVar3;
+                            if (threadData2.showStatus == 1 && !TextUtils.isEmpty(threadData2.getTid())) {
+                                threadData2.showStatus = 2;
+                                fga.c cVar2 = new fga.c();
+                                threadData2.getTid();
+                                arrayList.add(cVar2);
+                            }
+                        }
                     }
                 }
-            }
-            return b;
-        }
-        return (jv7) invokeV.objValue;
-    }
-
-    public static SharedPreferences g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return TbadkCoreApplication.getInst().getSharedPreferences("fun_ad_sid_strategy_shaedpref_name", 0);
-        }
-        return (SharedPreferences) invokeV.objValue;
-    }
-
-    public List<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        FunAdSidConfigData b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            ArrayList<FunAdHistoryData> c = hv7.f().c(str);
-            if (ListUtils.isEmpty(c) || (b2 = iv7.e().b(str)) == null) {
-                return;
-            }
-            List<FunAdHistoryData> h = h(c, b2.getRecordNum(), b2.getExpiryTime());
-            SharedPreferences g = g();
-            if (i(h, b2.getThreshold(), b2.getSpace(), g.getLong(str + "_fun_ad_last_change_sid_time", 0L))) {
-                j(str, b2);
+                if (arrayList.size() > 0) {
+                    frsViewData.getForum().getFirst_class();
+                    frsViewData.getForum().getSecond_class();
+                }
             }
         }
     }
 
-    public String d(String str) {
-        InterceptResult invokeL;
+    public static void c(a45 a45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if ("frs_feed".equals(str) && UbsABTestHelper.isFrsFunAdSdkTest()) {
-                return "6051002409-2123988582";
-            }
-            if (!UbsABTestHelper.isDuplicateRemovalFunAdABTest()) {
-                return f(str);
-            }
-            FunAdSidConfigData b2 = iv7.e().b(str);
-            if (b2 == null) {
-                return f(str);
-            }
-            if (ListUtils.isEmpty(b2.getBearSidList())) {
-                return f(str);
-            }
-            SharedPreferences g = g();
-            return g.getString(str + "_fun_ad_current_sid_suffix", f(str));
+        if ((interceptable != null && interceptable.invokeL(65538, null, a45Var) != null) || a45Var == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        String e = a45Var.e();
+        if (StringUtils.isNull(e)) {
+            e = a45Var.h();
+        }
+        String str = e;
+        String c = a45Var.c();
+        String d = a45Var.d();
+        String k = a45Var.k();
+        fga.c("frs", "CLICK", c, d, k, "tieba.baidu.com/p/" + a45Var.k(), str);
     }
 
-    public String f(String str) {
-        InterceptResult invokeL;
+    public static void d(FrsFragment frsFragment, FrsViewData frsViewData, ThreadData threadData) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if ("pb_banner".equals(str)) {
-                return dv7.o();
-            }
-            if ("frs_feed".equals(str)) {
-                return dv7.e();
-            }
-            if ("pic".equals(str)) {
-                return dv7.r();
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final List<FunAdHistoryData> h(List<FunAdHistoryData> list, int i, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{list, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            int size = list.size();
-            if (size > i) {
-                list = ListUtils.subList(list, size - i, size);
-            }
-            int size2 = list.size();
-            long currentTimeMillis = System.currentTimeMillis() / 1000;
-            int i2 = 0;
-            Iterator<FunAdHistoryData> it = list.iterator();
-            while (it.hasNext() && currentTimeMillis - it.next().getShowTime() > j) {
-                i2++;
-            }
-            return ListUtils.subList(list, i2, size2);
-        }
-        return (List) invokeCommon.objValue;
-    }
-
-    public final boolean i(List<FunAdHistoryData> list, int i, long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{list, Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if ((System.currentTimeMillis() / 1000) - j2 <= j) {
-                return false;
-            }
-            HashMap hashMap = new HashMap();
-            for (FunAdHistoryData funAdHistoryData : list) {
-                if (funAdHistoryData != null) {
-                    String funAdKey = funAdHistoryData.getFunAdKey();
-                    if (TextUtils.isEmpty(funAdKey)) {
-                        continue;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, frsFragment, frsViewData, threadData) == null) && threadData != null && frsViewData != null) {
+            FrsModelController e1 = frsFragment.e1();
+            eh7 L1 = frsFragment.L1();
+            if (L1 != null && e1 != null) {
+                if (threadData.getAuthor() != null && threadData.getAuthor().getGodInfo() != null) {
+                    TiebaStatic.log(new StatisticItem("c10806").param("obj_locate", 3).param("tid", threadData.getId()));
+                }
+                if (frsViewData != null && frsViewData.getForum() != null) {
+                    ms7 ms7Var = new ms7();
+                    if (frsViewData.needLog == 1) {
+                        z = true;
                     } else {
-                        Integer num = (Integer) hashMap.get(funAdKey);
-                        if (num == null) {
-                            num = 0;
-                        }
-                        if (num.intValue() + 1 >= i) {
-                            return true;
-                        }
-                        hashMap.put(funAdKey, Integer.valueOf(num.intValue() + 1));
+                        z = false;
                     }
+                    ms7Var.a = z;
+                    ms7Var.c = frsViewData.getForum().getId();
+                    ms7Var.d = frsViewData.getForum().getName();
+                    ms7Var.b = e1.i0();
+                    ms7 ms7Var2 = os7.q0;
+                    if (ms7Var2 != null) {
+                        ms7Var.e = ms7Var2.e;
+                        ms7Var.f = ms7Var2.f;
+                    }
+                    ns7.k().h(ms7Var, threadData, 1);
+                    ls7.e(threadData, 1, frsFragment.getUniqueId(), ms7Var, frsFragment.getTbPageTag());
                 }
+                b(L1, frsViewData, frsFragment.w(), true, threadData);
             }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void j(String str, FunAdSidConfigData funAdSidConfigData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, funAdSidConfigData) == null) {
-            SharedPreferences g = g();
-            int i = g.getInt(str + "_fun_ad_current_sid_index_suffix", -1);
-            List<String> bearSidList = funAdSidConfigData.getBearSidList();
-            if (ListUtils.isEmpty(bearSidList)) {
-                return;
-            }
-            int size = (i + 1) % bearSidList.size();
-            String str2 = (String) ListUtils.getItem(bearSidList, size);
-            SharedPreferences g2 = g();
-            EditorHelper.putInt(g2, str + "_fun_ad_current_sid_index_suffix", size);
-            if (TextUtils.isEmpty(str2)) {
-                return;
-            }
-            SharedPreferences g3 = g();
-            EditorHelper.putString(g3, str + "_fun_ad_current_sid_suffix", str2);
-            SharedPreferences g4 = g();
-            EditorHelper.putLong(g4, str + "_fun_ad_last_change_sid_time", System.currentTimeMillis() / 1000);
         }
     }
 
-    public void k(JSONObject jSONObject) {
+    public static void e(String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
-            if (jSONObject != null && UbsABTestHelper.isDuplicateRemovalFunAdABTest()) {
-                for (String str : this.a) {
-                    if (!TextUtils.isEmpty(str)) {
-                        FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
-                        JSONObject jSONObject2 = null;
-                        if (jSONObject.has(str)) {
-                            try {
-                                jSONObject2 = jSONObject.getJSONObject(str);
-                            } catch (JSONException e) {
-                                BdLog.e(e.getMessage());
-                            }
-                        }
-                        if (jSONObject2 != null) {
-                            funAdSidConfigData.parserJson(jSONObject2);
-                            if (funAdSidConfigData.getForce() == 1) {
-                                iv7.e().f(str, funAdSidConfigData);
-                                SharedPreferences g = g();
-                                EditorHelper.putInt(g, str + "_fun_ad_current_sid_index_suffix", -1);
-                                j(str, funAdSidConfigData);
-                            } else {
-                                SharedPreferences g2 = g();
-                                if ((System.currentTimeMillis() / 1000) - g2.getLong(str + "_fun_ad_last_change_sid_time", 0L) > funAdSidConfigData.getSpace()) {
-                                    iv7.e().f(str, funAdSidConfigData);
-                                    SharedPreferences g3 = g();
-                                    EditorHelper.putInt(g3, str + "_fun_ad_current_sid_index_suffix", -1);
-                                    j(str, funAdSidConfigData);
-                                }
-                            }
-                        }
-                    }
-                }
-                return;
-            }
-            b();
+        if (interceptable == null || interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2) == null) {
+            StatisticItem param = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE).param("obj_locate", i).param("obj_type", i2).param("obj_name", TbadkCoreApplication.getInst().getStartType()).param(TiebaStatic.Params.OBJ_PARAM3, 1);
+            zt4.a(param, str);
+            TiebaStatic.log(param);
+        }
+    }
+
+    public static void f(String str, int i, int i2, @NonNull Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), exc}) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_type", "recycleviewNotify").param("obj_source", str).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("cuid", TbadkCoreApplication.getInst().getCuid()).param("obj_param1", i).param(TiebaStatic.Params.OBJ_PARAM2, i2).param("extra", exc.toString()));
+            throw new RuntimeException(exc);
+        }
+    }
+
+    public static void h(@Nullable ThreadData threadData, @Nullable FrsViewData frsViewData, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65543, null, threadData, frsViewData, i) == null) && frsViewData != null && frsViewData.getForum() != null) {
+            ls7.d(threadData, frsViewData.getForum().getId(), i);
         }
     }
 }

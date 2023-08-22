@@ -1,39 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class f53 implements rp3<HybridUbcFlow> {
+public class f53 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public f53() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715077, "Lcom/baidu/tieba/f53;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947715077, "Lcom/baidu/tieba/f53;");
+                return;
+            }
+        }
+        a = nr1.a;
+        b = c("swan_perf_stat_rectify", 0);
+        c = c("swan_perf_stat_overlay_rectify", 0);
+        if (a) {
+            Log.d("SwanRectifyAbSwitcher", "670 data rectify on - " + b);
+            Log.d("SwanRectifyAbSwitcher", "670 data overlay rectify on - " + c);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rp3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("3864");
-            hybridUbcFlow.I(HybridUbcFlow.SubmitStrategy.SWAN_WEB);
-            hybridUbcFlow.E("from", "swan");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return c;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
+            ku2.g0().getSwitch(str, i);
+            if (a) {
+                Log.d("SwanRectifyAbSwitcher", str + " - " + i);
+            }
+            if (i == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 }

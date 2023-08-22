@@ -2,8 +2,8 @@ package com.baidu.tieba.themeCenter.card.category;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.jia;
-import com.baidu.tieba.ria;
+import com.baidu.tieba.ana;
+import com.baidu.tieba.sma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ public class PersonalCardCategoryHttpResponse extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean hasMore;
-    public List<jia> mCardCategoryList;
-    public ria mRecommand;
+    public List<sma> mCardCategoryList;
+    public ana mRecommand;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public PersonalCardCategoryHttpResponse(int i) {
@@ -68,24 +68,24 @@ public class PersonalCardCategoryHttpResponse extends TbHttpResponsedMessage {
             this.hasMore = false;
         }
         if (getCardByCategoryResIdl.data.recommend != null) {
-            ria riaVar = new ria();
-            this.mRecommand = riaVar;
-            riaVar.d(getCardByCategoryResIdl.data.recommend);
+            ana anaVar = new ana();
+            this.mRecommand = anaVar;
+            anaVar.d(getCardByCategoryResIdl.data.recommend);
         }
         List<ThemeCardInMain> list = getCardByCategoryResIdl.data.cards;
         if (list != null && list.size() > 0) {
             this.mCardCategoryList = new ArrayList();
             for (ThemeCardInMain themeCardInMain : list) {
                 if (themeCardInMain != null) {
-                    jia jiaVar = new jia();
-                    jiaVar.c(themeCardInMain);
-                    this.mCardCategoryList.add(jiaVar);
+                    sma smaVar = new sma();
+                    smaVar.c(themeCardInMain);
+                    this.mCardCategoryList.add(smaVar);
                 }
             }
         }
     }
 
-    public List<jia> getCardCategoryList() {
+    public List<sma> getCardCategoryList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -94,13 +94,13 @@ public class PersonalCardCategoryHttpResponse extends TbHttpResponsedMessage {
         return (List) invokeV.objValue;
     }
 
-    public ria getRecommand() {
+    public ana getRecommand() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mRecommand;
         }
-        return (ria) invokeV.objValue;
+        return (ana) invokeV.objValue;
     }
 
     public boolean isHasMore() {

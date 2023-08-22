@@ -15,12 +15,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.viewpager.ListViewPager;
-import com.baidu.tieba.a75;
-import com.baidu.tieba.b75;
-import com.baidu.tieba.c75;
-import com.baidu.tieba.d75;
-import com.baidu.tieba.f75;
 import com.baidu.tieba.g75;
+import com.baidu.tieba.h75;
+import com.baidu.tieba.i75;
+import com.baidu.tieba.j75;
+import com.baidu.tieba.l75;
+import com.baidu.tieba.m75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,20 +28,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class DownloadFlowView<T extends b75> extends FrameLayout {
+public class DownloadFlowView<T extends h75> extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListViewPager a;
     public IndicatorView b;
-    public d75 c;
+    public j75 c;
     public View d;
     public DownloadFlowAdapter<T> e;
-    public a75 f;
+    public g75 f;
     public DownloadFlowView<T>.c g;
     public boolean h;
     public boolean i;
     public boolean j;
-    public f75<T> k;
+    public l75<T> k;
     public DownloadFlowView<T>.e l;
     public DownloadFlowView<T>.b m;
     public DownloadFlowView<T>.d n;
@@ -81,7 +81,7 @@ public class DownloadFlowView<T extends b75> extends FrameLayout {
             this(downloadFlowView);
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.f75 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.l75 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
@@ -191,7 +191,7 @@ public class DownloadFlowView<T extends b75> extends FrameLayout {
             }
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.baidu.tieba.f75 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v12, resolved type: com.baidu.tieba.l75 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
@@ -255,7 +255,7 @@ public class DownloadFlowView<T extends b75> extends FrameLayout {
             this(downloadFlowView);
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.f75 */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: com.baidu.tieba.l75 */
         /* JADX WARN: Multi-variable type inference failed */
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
@@ -297,7 +297,7 @@ public class DownloadFlowView<T extends b75> extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             q(context);
             p(context);
-            setCoverFlowFactory(new c75());
+            setCoverFlowFactory(new i75());
             addView(this.a);
             addView(this.b);
             DownloadFlowAdapter<T> downloadFlowAdapter = new DownloadFlowAdapter<>(context);
@@ -308,17 +308,17 @@ public class DownloadFlowView<T extends b75> extends FrameLayout {
         }
     }
 
-    public void setCoverFlowFactory(a75 a75Var) {
+    public void setCoverFlowFactory(g75 g75Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, a75Var) != null) || a75Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, g75Var) != null) || g75Var == null) {
             return;
         }
-        this.f = a75Var;
-        d75 a2 = a75Var.a();
+        this.f = g75Var;
+        j75 a2 = g75Var.a();
         this.c = a2;
         a2.i(this.b);
-        a75Var.c().b(this.a);
-        View b2 = a75Var.b();
+        g75Var.c().b(this.a);
+        View b2 = g75Var.b();
         this.d = b2;
         if (b2 != null) {
             removeAllViews();
@@ -431,10 +431,10 @@ public class DownloadFlowView<T extends b75> extends FrameLayout {
         }
     }
 
-    public void setCallback(f75<T> f75Var) {
+    public void setCallback(l75<T> l75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, f75Var) == null) {
-            this.k = f75Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, l75Var) == null) {
+            this.k = l75Var;
         }
     }
 
@@ -500,11 +500,11 @@ public class DownloadFlowView<T extends b75> extends FrameLayout {
         }
     }
 
-    public void z(g75 g75Var) {
+    public void z(m75 m75Var) {
         ListViewPager listViewPager;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048601, this, g75Var) == null) && g75Var != null && (listViewPager = this.a) != null) {
-            g75Var.b(listViewPager);
+        if ((interceptable == null || interceptable.invokeL(1048601, this, m75Var) == null) && m75Var != null && (listViewPager = this.a) != null) {
+            m75Var.b(listViewPager);
         }
     }
 
@@ -532,13 +532,13 @@ public class DownloadFlowView<T extends b75> extends FrameLayout {
     }
 
     public void r() {
-        d75 d75Var;
+        j75 j75Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.e.d();
             IndicatorView indicatorView = this.b;
-            if (indicatorView != null && (d75Var = this.c) != null) {
-                indicatorView.setDrawable(SkinManager.getDrawable(d75Var.a()));
+            if (indicatorView != null && (j75Var = this.c) != null) {
+                indicatorView.setDrawable(SkinManager.getDrawable(j75Var.a()));
                 this.b.setSelector(SkinManager.getDrawable(this.c.b()));
             }
         }

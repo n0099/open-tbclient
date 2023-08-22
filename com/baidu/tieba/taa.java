@@ -1,20 +1,27 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.FrsPage.BusinessPromot;
-import tbclient.FrsPage.HeadImgs;
-import tbclient.TiebaPlusInfo;
+import java.util.HashMap;
+import kotlin.Pair;
+import kotlin.collections.MapsKt__MapsKt;
 /* loaded from: classes8.dex */
-public class taa {
+public final class taa implements vda {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public TiebaPlusInfo b;
+    public final aba a;
+    public final yaa b;
+    public final bba c;
+    public final zaa d;
+    public final uaa e;
+    public final waa f;
+    public final vaa g;
+    public final HashMap<yda, HashMap<wda, yda>> h;
 
     public taa() {
         Interceptable interceptable = $ic;
@@ -26,69 +33,94 @@ public class taa {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new aba();
+        this.b = new yaa();
+        this.c = new bba();
+        this.d = new zaa();
+        new cba();
+        this.e = new uaa();
+        this.f = new waa();
+        new xaa();
+        this.g = new vaa();
+        this.h = MapsKt__MapsKt.hashMapOf(new Pair(a(), MapsKt__MapsKt.hashMapOf(new Pair(this.e, this.b))), new Pair(this.b, MapsKt__MapsKt.hashMapOf(new Pair(this.f, this.c))), new Pair(this.c, MapsKt__MapsKt.hashMapOf(new Pair(this.g, this.d))), new Pair(this.d, MapsKt__MapsKt.hashMapOf(new Pair(this.e, this.b))));
     }
 
-    public TiebaPlusInfo a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (TiebaPlusInfo) invokeV.objValue;
-    }
-
-    public boolean b() {
+    public final uaa b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (uaa) invokeV.objValue;
+    }
+
+    public final yaa c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (yaa) invokeV.objValue;
+    }
+
+    public final zaa d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (zaa) invokeV.objValue;
+    }
+
+    public final vaa e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (vaa) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vda
+    /* renamed from: f */
+    public aba a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.a;
         }
-        return invokeV.booleanValue;
+        return (aba) invokeV.objValue;
     }
 
-    public void c(BusinessPromot businessPromot) {
+    public final waa g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, businessPromot) == null) {
-            this.a = businessPromot.is_download.booleanValue();
-            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
-            builder.app_company = businessPromot.download_developer;
-            builder.title = businessPromot.download_appname;
-            builder.app_privacy = businessPromot.download_privacy_policy;
-            builder.download_url = businessPromot.download_url;
-            builder.app_icon = businessPromot.download_img;
-            builder.app_version = businessPromot.download_version;
-            builder.app_power = businessPromot.download_user_power;
-            builder.app_package = businessPromot.download_package_name;
-            builder.app_id = businessPromot.download_appid;
-            builder.item_id = businessPromot.download_item_id;
-            this.b = builder.build(true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
         }
+        return (waa) invokeV.objValue;
     }
 
-    public void d(HeadImgs headImgs) {
-        boolean z;
+    @Override // com.baidu.tieba.vda
+    public HashMap<yda, HashMap<wda, yda>> getMap() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, headImgs) == null) {
-            if (headImgs.download_is_thirdpage.intValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.a = z;
-            TiebaPlusInfo.Builder builder = new TiebaPlusInfo.Builder();
-            builder.app_company = headImgs.download_developer;
-            builder.title = headImgs.download_appname;
-            builder.app_privacy = headImgs.download_privacy_policy;
-            builder.download_url = headImgs.download_url;
-            builder.app_icon = headImgs.download_img;
-            builder.app_version = headImgs.download_version;
-            builder.app_power = headImgs.download_user_power;
-            builder.app_package = headImgs.download_package_name;
-            builder.app_id = headImgs.download_appid;
-            builder.item_id = String.valueOf(headImgs.download_item_id);
-            this.b = builder.build(true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
         }
+        return (HashMap) invokeV.objValue;
+    }
+
+    public final bba h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.c;
+        }
+        return (bba) invokeV.objValue;
     }
 }

@@ -1,59 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class g98 {
+public class g98 extends om<j98, CardViewHolder<l98>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<lm> a;
+    public TbPageContext<?> a;
 
-    public g98(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        hf7 hf7Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g98(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), j98.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921336, hf7.class, tbPageContext);
-        if (runTask != null && (hf7Var = (hf7) runTask.getData()) != null) {
-            this.a.add(hf7Var);
-        }
-        this.a.add(new h98(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC));
-        this.a.add(new f98(tbPageContext, ThreadData.TYPE_FRS_HOTTOPIC_VIDEO));
-        bdTypeRecyclerView.addAdapters(this.a);
+        this.a = tbPageContext;
     }
 
-    public void a(TbPageTag tbPageTag) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: s */
+    public CardViewHolder<l98> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, tbPageTag) != null) || ListUtils.isEmpty(this.a)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            l98 l98Var = new l98(this.a);
+            l98Var.l(this.mPageId);
+            CardViewHolder<l98> cardViewHolder = new CardViewHolder<>(l98Var);
+            int dimens = BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.tbds44);
+            cardViewHolder.getView().setPadding(dimens, 0, dimens, 0);
+            return cardViewHolder;
         }
-        for (lm lmVar : this.a) {
-            if (lmVar instanceof hf7) {
-                ((hf7) lmVar).E(tbPageTag);
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, j98 j98Var, CardViewHolder<l98> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j98Var, cardViewHolder})) == null) {
+            if (j98Var != null && cardViewHolder != null && cardViewHolder.b() != null) {
+                cardViewHolder.b().i(j98Var);
+                cardViewHolder.b().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+                return cardViewHolder.getView();
             }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 }

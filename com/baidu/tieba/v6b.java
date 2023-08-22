@@ -1,83 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.VisibleForTesting;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.lang.reflect.Type;
+import com.baidu.turbonet.net.RequestFinishedInfo;
+@VisibleForTesting
 /* loaded from: classes8.dex */
-public class v6b implements u6b {
+public final class v6b extends RequestFinishedInfo.Metrics {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public v6b() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948194151, "Lcom/baidu/tieba/v6b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948194151, "Lcom/baidu/tieba/v6b;");
+        }
+    }
+
+    public v6b(long j, long j2, long j3, long j4, long j5, long j6, long j7, long j8, long j9, long j10, long j11, long j12, long j13, boolean z, long j14, long j15) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Long.valueOf(j6), Long.valueOf(j7), Long.valueOf(j8), Long.valueOf(j9), Long.valueOf(j10), Long.valueOf(j11), Long.valueOf(j12), Long.valueOf(j13), Boolean.valueOf(z), Long.valueOf(j14), Long.valueOf(j15)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.u6b
-    public String a(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (m5b.c().d() != null && m5b.c().d().c() != null) {
-                    return m5b.c().d().c().a(obj);
-                }
-                return new Gson().toJson(obj);
-            } catch (Exception e) {
-                p9b.b(e.getMessage());
-                return "";
-            }
+        int i3 = (j > (-1L) ? 1 : (j == (-1L) ? 0 : -1));
+        if (i3 != 0) {
+            int i4 = (j12 > (-1L) ? 1 : (j12 == (-1L) ? 0 : -1));
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.u6b
-    public <T> T b(String str, Class<T> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
-            try {
-                if (m5b.c().d() != null && m5b.c().d().c() != null) {
-                    return (T) m5b.c().d().c().b(str, cls);
-                }
-                return (T) new Gson().fromJson(str, (Class<Object>) cls);
-            } catch (Exception e) {
-                p9b.b(e.getMessage());
-                return null;
-            }
+        if (i3 != 0) {
+            int i5 = (j13 > (-1L) ? 1 : (j13 == (-1L) ? 0 : -1));
         }
-        return (T) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.u6b
-    public <T> T c(String str, Type type) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
-            try {
-                if (m5b.c().d() != null && m5b.c().d().c() != null) {
-                    return (T) m5b.c().d().c().c(str, type);
-                }
-                return (T) new Gson().fromJson(str, type);
-            } catch (Exception e) {
-                p9b.b(e.getMessage());
-                return null;
-            }
-        }
-        return (T) invokeLL.objValue;
     }
 }

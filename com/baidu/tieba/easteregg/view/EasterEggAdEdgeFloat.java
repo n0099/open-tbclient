@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.h6a;
+import com.baidu.tieba.maa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -107,7 +107,7 @@ public final class EasterEggAdEdgeFloat {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d().k();
+            d().j();
             EdgeFloatLifecycle.Companion.a().unRegister(d());
         }
     }
@@ -115,7 +115,7 @@ public final class EasterEggAdEdgeFloat {
     public final void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d().D();
+            d().C();
         }
     }
 
@@ -176,9 +176,8 @@ public final class EasterEggAdEdgeFloat {
                 return (FrameLayout) invokeV.objValue;
             }
         });
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<EdgeFloat>(this, view2, activity, i, i2, i3, z, pageSupportList, onScreenSizeChangedCallback) { // from class: com.baidu.tieba.easteregg.view.EasterEggAdEdgeFloat$edgeFloat$2
+        this.b = LazyKt__LazyJVMKt.lazy(new Function0<EdgeFloat>(this, view2, i, i2, i3, z, pageSupportList, onScreenSizeChangedCallback) { // from class: com.baidu.tieba.easteregg.view.EasterEggAdEdgeFloat$edgeFloat$2
             public static /* synthetic */ Interceptable $ic;
-            public final /* synthetic */ Activity $activity;
             public final /* synthetic */ boolean $canDrag;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int $gravity;
@@ -196,7 +195,7 @@ public final class EasterEggAdEdgeFloat {
                 if (interceptable2 != null) {
                     InitContext newInitContext2 = TitanRuntime.newInitContext();
                     newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this, view2, activity, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), pageSupportList, onScreenSizeChangedCallback};
+                    Object[] objArr2 = {this, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), pageSupportList, onScreenSizeChangedCallback};
                     interceptable2.invokeUnInit(65536, newInitContext2);
                     int i6 = newInitContext2.flag;
                     if ((i6 & 1) != 0) {
@@ -209,7 +208,6 @@ public final class EasterEggAdEdgeFloat {
                 }
                 this.this$0 = this;
                 this.$view = view2;
-                this.$activity = activity;
                 this.$gravity = i;
                 this.$startX = i2;
                 this.$startY = i3;
@@ -231,19 +229,18 @@ public final class EasterEggAdEdgeFloat {
                 }
                 c2 = this.this$0.c();
                 c2.addView(this.$view);
-                h6a h6aVar = new h6a(this.$activity);
                 c3 = this.this$0.c();
-                h6aVar.M(c3);
-                h6aVar.y(this.$gravity);
-                h6aVar.I(this.$startX);
-                h6aVar.J(this.$startY);
-                h6aVar.d(this.$canDrag);
-                h6aVar.N(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
-                h6aVar.z(EasterEggAdEdgeFloat.c.a());
-                h6aVar.D(this.$pageSupportList);
-                h6aVar.H(false);
-                h6aVar.G(this.$onScreenSizeChangedCallback);
-                return h6aVar.c();
+                maa maaVar = new maa(c3);
+                maaVar.x(this.$gravity);
+                maaVar.H(this.$startX);
+                maaVar.I(this.$startY);
+                maaVar.d(this.$canDrag);
+                maaVar.L(BdUtilHelper.getEquipmentWidth(TbadkCoreApplication.getInst()));
+                maaVar.y(EasterEggAdEdgeFloat.c.a());
+                maaVar.C(this.$pageSupportList);
+                maaVar.G(false);
+                maaVar.F(this.$onScreenSizeChangedCallback);
+                return maaVar.c();
             }
         });
     }
@@ -251,7 +248,7 @@ public final class EasterEggAdEdgeFloat {
     public final void f(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            d().C(i, i2);
+            d().B(i, i2);
         }
     }
 }

@@ -26,7 +26,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String i = "c";
@@ -42,7 +42,7 @@ public class c {
     public com.huawei.hms.framework.network.grs.a g;
     public FutureTask<Boolean> h;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements Callable<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -181,7 +181,7 @@ public class c {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, this, grsBaseInfo) == null) {
             try {
-                this.a = grsBaseInfo.m169clone();
+                this.a = grsBaseInfo.m171clone();
             } catch (CloneNotSupportedException e) {
                 Logger.w(i, "GrsClient catch CloneNotSupportedException", e);
                 this.a = grsBaseInfo.copy();

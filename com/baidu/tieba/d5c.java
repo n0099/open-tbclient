@@ -1,84 +1,159 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorNotImplementedException;
+import java.io.IOException;
+import java.io.InputStream;
+import org.brotli.dec.BrotliRuntimeException;
 /* loaded from: classes5.dex */
 public final class d5c {
     public static /* synthetic */ Interceptable $ic;
-    public static final z0c<Object> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public byte[] A;
+    public int B;
+    public int C;
+    public int D;
+    public int E;
+    public int F;
+    public int G;
+    public byte[] H;
+    public int I;
+    public int J;
+    public int K;
+    public int L;
+    public int M;
+    public int N;
+    public int O;
+    public int P;
+    public int Q;
+    public long R;
+    public byte[] S;
 
-    /* loaded from: classes5.dex */
-    public static class a implements z0c<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    /* renamed from: T  reason: collision with root package name */
+    public int f1099T;
+    public int U;
+    public int V;
+    public int W;
+    public int X;
+    public int Y;
+    public byte[] Z;
+    public int a;
+    public int b;
+    public final u4c c;
+    public byte[] d;
+    public final int[] e;
+    public final int[] f;
+    public int g;
+    public boolean h;
+    public boolean i;
+    public boolean j;
+    public final a5c k;
+    public final a5c l;
+    public final a5c m;
+    public final int[] n;
+    public final int[] o;
+    public final int[] p;
+    public final int[] q;
+    public int r;
+    public int s;
+    public int t;
+    public boolean u;
+    public int v;
+    public int w;
+    public int x;
+    public int y;
+    public byte[] z;
 
-        @Override // com.baidu.tieba.z0c
-        public final void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.z0c
-        public final void onNext(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.z0c
-        public final void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                throw new OnErrorNotImplementedException(th);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947656983, "Lcom/baidu/tieba/d5c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947656983, "Lcom/baidu/tieba/d5c;");
+    public d5c() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
+        this.a = 0;
+        this.c = new u4c();
+        this.e = new int[3240];
+        this.f = new int[3240];
+        this.k = new a5c();
+        this.l = new a5c();
+        this.m = new a5c();
+        this.n = new int[3];
+        this.o = new int[3];
+        this.p = new int[6];
+        this.q = new int[]{16, 15, 11, 4};
+        this.r = 0;
+        this.s = 0;
+        this.t = 0;
+        this.u = false;
+        this.v = 0;
+        this.Q = 0;
+        this.R = 0L;
+        this.S = new byte[0];
+        this.f1099T = 0;
     }
 
-    public static <T> z0c<T> a() {
-        InterceptResult invokeV;
+    public static void a(d5c d5cVar) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (z0c<T>) a;
+        if (interceptable == null || interceptable.invokeL(65537, null, d5cVar) == null) {
+            int i = d5cVar.a;
+            if (i != 0) {
+                if (i == 11) {
+                    return;
+                }
+                d5cVar.a = 11;
+                u4c.b(d5cVar.c);
+                return;
+            }
+            throw new IllegalStateException("State MUST be initialized");
         }
-        return (z0c) invokeV.objValue;
+    }
+
+    public static int b(u4c u4cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, u4cVar)) == null) {
+            if (u4c.i(u4cVar, 1) == 0) {
+                return 16;
+            }
+            int i = u4c.i(u4cVar, 3);
+            if (i != 0) {
+                return i + 17;
+            }
+            int i2 = u4c.i(u4cVar, 3);
+            if (i2 == 0) {
+                return 17;
+            }
+            return i2 + 8;
+        }
+        return invokeL.intValue;
+    }
+
+    public static void c(d5c d5cVar, InputStream inputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, d5cVar, inputStream) == null) {
+            if (d5cVar.a == 0) {
+                u4c.e(d5cVar.c, inputStream);
+                int b = b(d5cVar.c);
+                if (b != 9) {
+                    int i = 1 << b;
+                    d5cVar.P = i;
+                    d5cVar.O = i - 16;
+                    d5cVar.a = 1;
+                    return;
+                }
+                throw new BrotliRuntimeException("Invalid 'windowBits' code");
+            }
+            throw new IllegalStateException("State MUST be uninitialized");
+        }
     }
 }

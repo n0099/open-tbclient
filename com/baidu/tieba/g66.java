@@ -1,46 +1,36 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g66 {
+public abstract class g66<T, V extends TypeAdapter.ViewHolder> extends om<T, V> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile SQLiteDatabase a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized void a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g66(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (g66.class) {
-                ci.b(a);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public static synchronized SQLiteDatabase b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (g66.class) {
-                try {
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "RelationshipDbManager.getRelationshipDataBase", new Object[0]);
-                }
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return null;
-                }
-                if (a != null && a.isOpen()) {
-                    return a;
-                }
-                a = new f66(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
-                return a;
-            }
-        }
-        return (SQLiteDatabase) invokeV.objValue;
     }
 }

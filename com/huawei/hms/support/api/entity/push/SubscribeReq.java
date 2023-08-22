@@ -12,7 +12,7 @@ import com.huawei.hms.core.aidl.IMessageEntity;
 import com.huawei.hms.core.aidl.annotation.Packed;
 import com.huawei.hms.push.s;
 import com.huawei.hms.utils.Util;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SubscribeReq implements IMessageEntity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

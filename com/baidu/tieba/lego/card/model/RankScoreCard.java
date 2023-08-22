@@ -5,6 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
+import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RankScoreCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -58,7 +59,7 @@ public class RankScoreCard extends BaseCardInfo {
         this.d2ColorN = ColorUtils.parseColor(jSONObject.optString("d2ColorN", ""));
         this.d2Scheme = jSONObject.optString("d2Scheme");
         this.ratio = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION);
-        this.picUrl = jSONObject.optString("picUrl");
+        this.picUrl = jSONObject.optString(AiBotChatDispatcher.AI_SINGLE_CHAT_PIC_URL);
         this.subTitle = jSONObject.optString("subTitle");
         this.sColor = ColorUtils.parseColor(jSONObject.optString("sColor", ""));
         this.sColorNight = ColorUtils.parseColor(jSONObject.optString("sColorN", ""));

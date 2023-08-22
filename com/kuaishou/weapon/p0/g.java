@@ -13,7 +13,7 @@ import com.huawei.hms.common.internal.TransactionIdCreater;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class g {
     public static /* synthetic */ Interceptable $ic;
     public static final String[] a;

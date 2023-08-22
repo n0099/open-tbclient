@@ -1,34 +1,24 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class g82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
+    public static final boolean a;
+    public static String b;
+    public static String c;
+    public static f82 d;
+    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public JSONArray c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public long h;
 
     static {
         InterceptResult invokeClinit;
@@ -43,70 +33,120 @@ public class g82 {
                 return;
             }
         }
-        i = ir1.a;
+        a = nr1.a;
+        b = "";
+        c = "";
+        e = 0;
     }
 
-    public g82() {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (e == 2) {
+                return true;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (e == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d != null) {
+                return d.c() + File.separator + b;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d != null) {
+                return d.c() + File.separator + c;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void g(Bundle bundle) {
+        f82 f82Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, bundle) == null) && (f82Var = d) != null) {
+            f82Var.b(bundle);
         }
     }
 
-    @NonNull
-    public static g82 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            g82 g82Var = new g82();
-            try {
-                g82Var.c = jSONObject.getJSONArray("host");
-                g82Var.b = jSONObject.getString("appKey");
-                g82Var.a = jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
-                g82Var.d = jSONObject.getString("serverPort");
-                g82Var.f = jSONObject.getString("wsServerPort");
-                Uri.decode(jSONObject.optString("url"));
-                g82Var.g = jSONObject.optString("notInHistory", "1");
-                g82Var.h = jSONObject.optLong("coreVersion");
-            } catch (JSONException unused) {
-                if (i) {
-                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params: JSONException");
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            b = str;
+        }
+    }
+
+    public static void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            c = str;
+        }
+    }
+
+    public static void h(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, bundle) == null) {
+            String i = co3.i(bundle, "extraWSUrl");
+            String i2 = co3.i(bundle, "adb_debug_path");
+            if (!TextUtils.isEmpty(i)) {
+                d = new y82();
+                e = 1;
+            } else if (!TextUtils.isEmpty(i2)) {
+                d = new i82();
+                e = 2;
+            } else {
+                if (a) {
+                    Log.d("UserDebugParams", "not debug mode");
                 }
+                e = 0;
+                d = null;
+                return;
             }
-            return g82Var;
+            d.a(bundle);
         }
-        return (g82) invokeL.objValue;
-    }
-
-    public String a(int i2) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i2)) == null) {
-            JSONArray jSONArray = this.c;
-            if (jSONArray == null) {
-                return "";
-            }
-            return jSONArray.optString(i2);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            return "http://" + str + ":" + this.d + "/app.zip";
-        }
-        return (String) invokeL.objValue;
     }
 }

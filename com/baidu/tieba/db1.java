@@ -1,28 +1,34 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-@SuppressLint({"HandlerLeak"})
+@Service
 /* loaded from: classes5.dex */
-public final class db1 extends Handler {
+public final class db1 extends cj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ AbsNadBrowserView a;
+    public final String a;
 
-    /* JADX DEBUG: Incorrect args count in method signature: ()V */
-    public db1(AbsNadBrowserView absNadBrowserView) {
+    @Override // com.baidu.tieba.cj0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "prerender" : (String) invokeV.objValue;
+    }
+
+    public db1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {absNadBrowserView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,24 +38,51 @@ public final class db1 extends Handler {
                 return;
             }
         }
-        this.a = absNadBrowserView;
+        this.a = "PreRenderAction";
     }
 
-    @Override // android.os.Handler
-    public void handleMessage(Message msg) {
+    @Override // com.baidu.tieba.cj0
+    public boolean b(Context context, gj0 schemeModel, Map<String, Object> map, kj0 kj0Var) {
+        InterceptResult invokeLLLL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, msg) == null) {
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            int i = msg.what;
-            if (i != 1) {
-                if (i == 2) {
-                    this.a.T(msg.arg1);
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, kj0Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
+            super.b(context, schemeModel, map, kj0Var);
+            if (tn0.b().a().a("ad_do_prerender", 1) == 1) {
+                z = true;
+            } else {
+                z = false;
             }
-            this.a.l();
-            this.a.k();
+            if (!z) {
+                za1 d = xa1.d();
+                if (d != null) {
+                    d.c();
+                }
+                return false;
+            }
+            HashMap<String, String> d2 = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d2, "schemeModel.params");
+            String str = d2.get("url");
+            if (str != null && str.length() != 0) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (z2) {
+                fb1.a("PreRender_" + this.a, "URL 为空，协议错误，无法预渲染");
+                return false;
+            }
+            d2.get("web_type");
+            String str2 = d2.get("refer");
+            za1 d3 = xa1.d();
+            if (d3 != null) {
+                d3.b(str, null, str2);
+            }
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

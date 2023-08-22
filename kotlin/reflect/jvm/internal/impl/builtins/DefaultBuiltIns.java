@@ -2,7 +2,7 @@ package kotlin.reflect.jvm.internal.impl.builtins;
 
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.storage.LockBasedStorageManager;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class DefaultBuiltIns extends KotlinBuiltIns {
     public static final Companion Companion = new Companion(null);
     public static final DefaultBuiltIns Instance = new DefaultBuiltIns(false, 1, null);
@@ -15,7 +15,7 @@ public final class DefaultBuiltIns extends KotlinBuiltIns {
         return Instance;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }

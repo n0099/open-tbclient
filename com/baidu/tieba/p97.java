@@ -1,28 +1,38 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.core.util.SkinManager;
+import android.text.SpannableStringBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedContentResource;
+import tbclient.TitleComponent;
 /* loaded from: classes7.dex */
 public final class p97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(View view2) {
-        InterceptResult invokeL;
+    public static final void a(TitleComponent titleComponent, List<jb7<?>> dataList, SpannableStringBuilder titleBuilder, p77 feedExtraData, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<this>");
-            Object tag = view2.getTag(R.id.obfuscated_res_0x7f09293c);
-            if ((tag instanceof Integer) && Intrinsics.areEqual(tag, Integer.valueOf(SkinManager.getCurrentSkinType()))) {
-                return true;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{titleComponent, dataList, titleBuilder, feedExtraData, Boolean.valueOf(z)}) == null) {
+            Intrinsics.checkNotNullParameter(titleComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            i67 i67Var = new i67(titleBuilder, z);
+            List<FeedContentResource> list = titleComponent.data;
+            if (list != null) {
+                n97.a(list, titleBuilder, feedExtraData, i67Var);
             }
-            view2.setTag(R.id.obfuscated_res_0x7f09293c, Integer.valueOf(SkinManager.getCurrentSkinType()));
-            return false;
+            if (titleBuilder.length() > 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (z2) {
+                dataList.add(new kb7(i67Var, "title"));
+            }
         }
-        return invokeL.booleanValue;
     }
 }

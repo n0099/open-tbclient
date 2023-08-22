@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.view.TbLayerImageView;
+import com.baidu.tieba.z47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class lq6 implements z97 {
+/* loaded from: classes7.dex */
+public final class lq6 implements z47.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.z97
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13571" : (String) invokeV.objValue;
-    }
 
     public lq6() {
         Interceptable interceptable = $ic;
@@ -35,14 +31,31 @@ public final class lq6 implements z97 {
         }
     }
 
-    @Override // com.baidu.tieba.z97
-    public Map<String, String> a(m57 businessInfo) {
+    @Override // com.baidu.tieba.z47.c
+    public void a(View view2, List<String> list) {
+        TbLayerImageView tbLayerImageView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, list) != null) || list == null) {
+            return;
+        }
+        if (view2 instanceof TbLayerImageView) {
+            tbLayerImageView = (TbLayerImageView) view2;
+        } else {
+            tbLayerImageView = null;
+        }
+        if (tbLayerImageView != null) {
+            tbLayerImageView.a(list);
+        }
+    }
+
+    @Override // com.baidu.tieba.z47.c
+    public View create(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            return new HashMap();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            return new TbLayerImageView(context, null, 0, 6, null);
         }
-        return (Map) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 }

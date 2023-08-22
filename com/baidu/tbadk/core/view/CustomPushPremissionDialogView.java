@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.y95;
+import com.baidu.tieba.fa5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -134,17 +134,17 @@ public class CustomPushPremissionDialogView extends LinearLayout {
             this.e = tBSpecificationBtn;
             tBSpecificationBtn.setTextSize(R.dimen.tbds34);
             this.e.setText(context.getString(R.string.push_permission_dialog_cancel_button_text));
-            y95 y95Var = new y95();
-            y95Var.t(R.color.CAM_X0105);
-            this.e.setConfig(y95Var);
+            fa5 fa5Var = new fa5();
+            fa5Var.t(R.color.CAM_X0105);
+            this.e.setConfig(fa5Var);
             this.e.k();
             TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) findViewById(R.id.custom_push_permission_dialog_confirm_button);
             this.f = tBSpecificationBtn2;
             tBSpecificationBtn2.setTextSize(R.dimen.tbds34);
             this.f.setText(context.getString(R.string.push_permission_dialog_confirm_button_text));
-            y95 y95Var2 = new y95();
-            y95Var2.r(R.color.CAM_X0302);
-            this.f.setConfig(y95Var2);
+            fa5 fa5Var2 = new fa5();
+            fa5Var2.r(R.color.CAM_X0302);
+            this.f.setConfig(fa5Var2);
         }
     }
 

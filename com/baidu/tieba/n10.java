@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.util.devices.DeviceUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.devices.DeviceUtil;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class n10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public String a;
     public String b;
 
     public n10() {
@@ -29,38 +30,64 @@ public class n10 {
                 return;
             }
         }
-        this.a = false;
-        this.b = "";
+        d();
     }
 
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.a) {
-                StringBuilder sb = new StringBuilder();
-                if (DeviceUtils.isHarmonyOS(AppRuntime.getAppContext())) {
-                    sb.append("BDOS/1.0");
-                    sb.append(" ");
-                    sb.append("(");
-                    sb.append("HarmonyOS");
-                    sb.append(" ");
-                    String harmonyVersion = DeviceUtils.getHarmonyVersion();
-                    if (TextUtils.isEmpty(harmonyVersion)) {
-                        harmonyVersion = "0.0";
-                    }
-                    sb.append(harmonyVersion);
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                }
-                String sb2 = sb.toString();
-                this.b = sb2;
-                if (!TextUtils.isEmpty(sb2)) {
-                    this.b = p10.a(this.b);
-                }
-                this.a = true;
-            }
             return this.b;
         }
         return (String) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            this.a = c(appContext);
+            this.b = b(appContext);
+        }
+    }
+
+    public final String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            int displayWidth = DeviceUtil.ScreenInfo.getDisplayWidth(context);
+            int displayHeight = DeviceUtil.ScreenInfo.getDisplayHeight(context);
+            int densityDpi = DeviceUtil.ScreenInfo.getDensityDpi(context);
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(displayWidth);
+            stringBuffer.append("_");
+            stringBuffer.append(displayHeight);
+            stringBuffer.append("_");
+            stringBuffer.append("android");
+            stringBuffer.append("_");
+            stringBuffer.append(this.a);
+            stringBuffer.append("_");
+            stringBuffer.append(densityDpi);
+            return stringBuffer.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            String appVersion = f10.c().getAppVersion();
+            if (!TextUtils.isEmpty(appVersion)) {
+                return appVersion;
+            }
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "0.8";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -27,7 +27,7 @@ public class BarInformationModel extends BdBaseModel {
 
     /* loaded from: classes7.dex */
     public interface b {
-        void C(BazhuInfoData bazhuInfoData);
+        void A(BazhuInfoData bazhuInfoData);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -77,7 +77,7 @@ public class BarInformationModel extends BdBaseModel {
                     bVar = (b) extra;
                 }
                 if (bVar != null && (bazhuInfoResponseMessage = (BazhuInfoResponseMessage) httpResponsedMessage) != null) {
-                    bVar.C(bazhuInfoResponseMessage.data);
+                    bVar.A(bazhuInfoResponseMessage.data);
                 }
             }
         }

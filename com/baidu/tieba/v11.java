@@ -1,32 +1,64 @@
 package com.baidu.tieba;
 
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Iterator;
 /* loaded from: classes8.dex */
 public final class v11 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -2;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(String[] array) {
-        InterceptResult invokeL;
-        boolean z;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948187827, "Lcom/baidu/tieba/v11;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948187827, "Lcom/baidu/tieba/v11;");
+        }
+    }
+
+    public static void a(ClarityUrlList clarityUrlList) {
+        ClarityUrlList.c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, array)) == null) {
-            Intrinsics.checkNotNullParameter(array, "array");
-            for (String str : array) {
-                if (str != null && str.length() != 0) {
-                    z = false;
+        if (interceptable == null || interceptable.invokeL(65537, null, clarityUrlList) == null) {
+            Iterator it = clarityUrlList.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    cVar = (ClarityUrlList.c) it.next();
+                    if ("auto".equals(cVar.c())) {
+                        break;
+                    }
                 } else {
-                    z = true;
-                }
-                if (!z) {
-                    return str;
+                    cVar = null;
+                    break;
                 }
             }
-            return "";
+            if (cVar != null) {
+                clarityUrlList.remove(cVar);
+            }
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static i01 b(ClarityUrlList clarityUrlList, double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{clarityUrlList, Double.valueOf(d)})) == null) {
+            a(clarityUrlList);
+            int f = h21.f(a);
+            a = f;
+            return h21.g(clarityUrlList, f, d, false);
+        }
+        return (i01) invokeCommon.objValue;
     }
 }

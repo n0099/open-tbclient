@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,31 +12,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class i03 extends o62 {
+public class i03 extends f03 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public h03 B;
-    public boolean C;
-    public String j;
-    public boolean k;
-    public String l;
-    public String m;
-    public boolean n;
-    public boolean o;
-    public int p;
-    public boolean q;
-    public boolean r;
-    public String s;
-    public String t;
-    public boolean u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public int y;
-    public boolean z;
 
     static {
         InterceptResult invokeClinit;
@@ -51,108 +30,46 @@ public class i03 extends o62 {
                 return;
             }
         }
-        boolean z = ir1.a;
-    }
-
-    @Override // com.baidu.tieba.o62, com.baidu.tieba.x03
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !TextUtils.isEmpty(this.j);
-        }
-        return invokeV.booleanValue;
+        boolean z = nr1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i03() {
-        super("vrvideo", "viewId");
+    public i03(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = "";
-        this.k = false;
-        this.l = "";
-        this.m = "0";
-        this.n = false;
-        this.o = false;
-        this.p = 0;
-        this.r = true;
-        this.s = "";
-        this.t = "";
-        this.u = true;
-        this.v = true;
-        this.w = true;
-        this.x = true;
-        this.y = -1;
-        this.z = true;
-        this.A = true;
-        this.B = new h03();
-        this.C = true;
     }
 
-    public static i03 h(JSONObject jSONObject, @NonNull i03 i03Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.f03
+    public boolean a(vz2 vz2Var, xz2 xz2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, i03Var)) == null) {
-            i03 i03Var2 = new i03();
-            if (jSONObject != null) {
-                i03Var2.e(jSONObject, i03Var);
-                i03Var2.j = jSONObject.optString("videoId", i03Var.j);
-                i03Var2.n = jSONObject.optBoolean("autoplay", i03Var.n);
-                i03Var2.k = jSONObject.optBoolean("muted", i03Var.k);
-                i03Var2.m = jSONObject.optString("initialTime", i03Var.m);
-                i03Var2.l = jSONObject.optString(NativeConstants.POSTER, i03Var.l);
-                i03Var2.p = jSONObject.optInt(CriusAttrConstants.POSITION, i03Var.p);
-                i03Var2.q = jSONObject.optBoolean("fullScreen", i03Var.q);
-                i03Var2.o = jSONObject.optBoolean("loop", i03Var.o);
-                i03Var2.r = jSONObject.optBoolean("controls", i03Var.r);
-                i03Var2.s = i(jSONObject.optString("src", i03Var.s));
-                i03Var2.A = !gi3.E(jSONObject.optString("src", i03Var.s));
-                i03Var2.u = jSONObject.optBoolean("showPlayBtn", i03Var.u);
-                i03Var2.v = jSONObject.optBoolean("showMuteBtn", i03Var.v);
-                i03Var2.w = jSONObject.optBoolean("showCenterPlayBtn", i03Var.w);
-                i03Var2.x = jSONObject.optBoolean("showProgress", i03Var.x);
-                i03Var2.z = jSONObject.optBoolean("showFullscreenBtn", i03Var.z);
-                i03Var2.t = jSONObject.optString("sanId", i03Var.t);
-                i03Var2.B = i03Var2.B.a(jSONObject.optJSONObject("vrVideoMode"));
-                i03Var2.C = jSONObject.optBoolean("showNoWifiTip", i03Var.C);
-            }
-            return i03Var2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{vz2Var, xz2Var, context, unitedSchemeEntity, callbackHandler, db3Var})) == null) {
+            d82.i("video", "sendDanmu, video id:" + xz2Var.j + " slave id: " + xz2Var.c);
+            d(vz2Var, xz2Var.t, unitedSchemeEntity, callbackHandler);
+            return true;
         }
-        return (i03) invokeLL.objValue;
+        return invokeCommon.booleanValue;
     }
 
-    public static String i(String str) {
-        InterceptResult invokeL;
+    public final void d(vz2 vz2Var, String str, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (gi3.E(str) && ya3.M() != null) {
-                return gi3.H(str, ya3.M());
-            }
-            return str;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vz2Var, str, unitedSchemeEntity, callbackHandler) == null) {
+            vz2Var.r(str);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.o62
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "VideoPlayerParams{mPlayerId='" + this.j + "', mMute=" + this.k + ", mPoster='" + this.l + "', mInitialTime=" + this.m + ", mAutoPlay=" + this.n + ", mShowNoWifiTip=" + this.C + ", mLoop=" + this.o + ", mPos=" + this.p + ", mFullScreen=" + this.q + ", mShowControlPanel=" + this.r + ", mSrc='" + this.s + "', mSanId='" + this.t + "', mShowPlayBtn=" + this.u + ", mShowMuteBtn=" + this.v + ", mShowCenterPlayBtn=" + this.w + ", mShowProgress=" + this.x + ", mDirection=" + this.y + ", mShowFullscreenBtn=" + this.z + ", mIsRemoteFile=" + this.A + ", mVrVideoMode=" + this.B.toString() + '}';
-        }
-        return (String) invokeV.objValue;
     }
 }

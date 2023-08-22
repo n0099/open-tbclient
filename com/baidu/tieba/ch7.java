@@ -1,20 +1,116 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.frs.FrsHotTopic.FrsHotTopicListData;
+import com.baidu.tieba.frs.FrsHotTopic.FrsLinkHashMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class ch7 implements mg7 {
+public class ch7 {
     public static /* synthetic */ Interceptable $ic;
+    public static ch7 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsLinkHashMap<String, Long> a;
+
+    /* loaded from: classes5.dex */
+    public class a extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ch7 a;
+
+        public a(ch7 ch7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ch7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ch7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            FrsHotTopicListData frsHotTopicListData;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                r45.k();
+                ne<String> m = r45.m("tb.frs_hottopic", "");
+                if (m != null) {
+                    String str = m.get("hot_topic_key");
+                    if (!StringUtils.isNull(str) && (frsHotTopicListData = (FrsHotTopicListData) OrmObject.objectWithJsonStr(str, FrsHotTopicListData.class)) != null) {
+                        this.a.a = frsHotTopicListData.mSceneMap;
+                    }
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends BdAsyncTask<Void, Void, Void> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ch7 a;
+
+        public b(ch7 ch7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ch7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ch7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Void doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
+                r45.k();
+                ne<String> m = r45.m("tb.frs_hottopic", "");
+                if (m == null) {
+                    return null;
+                }
+                FrsHotTopicListData frsHotTopicListData = new FrsHotTopicListData();
+                frsHotTopicListData.mSceneMap = this.a.a;
+                String jsonStrWithObject = OrmObject.jsonStrWithObject(frsHotTopicListData);
+                if (!StringUtils.isNull(jsonStrWithObject)) {
+                    m.g("hot_topic_key", jsonStrWithObject);
+                }
+                return null;
+            }
+            return (Void) invokeL.objValue;
+        }
+    }
 
     public ch7() {
         Interceptable interceptable = $ic;
@@ -30,52 +126,72 @@ public class ch7 implements mg7 {
         }
     }
 
-    @Override // com.baidu.tieba.mg7
-    public lm<? extends w35, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        InterceptResult invokeLLZ;
+    public static ch7 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
-            return new wj7(tbPageContext, ThreadData.TYPE_STAR_INTERVIEW, bdUniqueId, z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (ch7.class) {
+                    if (b == null) {
+                        b = new ch7();
+                    }
+                }
+            }
+            return b;
         }
-        return (lm) invokeLLZ.objValue;
+        return (ch7) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mg7
-    public hf7<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            return new io7(tbPageContext, bdUniqueId, bdUniqueId2);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b bVar = new b(this);
+            bVar.setPriority(3);
+            bVar.execute(new Void[0]);
         }
-        return (hf7) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.mg7
-    public lm<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
+    public final void e(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            if (bdUniqueId == ThreadData.TYPE_LOTTERY) {
-                return new zi7(tbPageContext, bdUniqueId, bdUniqueId2);
-            }
-            throw new IllegalArgumentException("Unsupported adapter type.");
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            a aVar = new a(this);
+            aVar.setPriority(3);
+            aVar.execute(new Void[0]);
         }
-        return (lm) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.mg7
-    public lm<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        InterceptResult invokeCommon;
+    public boolean c(String str, long j) {
+        InterceptResult invokeLJ;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            if (bdUniqueId == uaa.d) {
-                return new vi7(tbPageContext, bdUniqueId, z);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+            if (this.a == null) {
+                this.a = new FrsLinkHashMap<>();
+                e(str, j);
             }
-            if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {
-                return new xj7(tbPageContext, bdUniqueId, bdUniqueId2, z);
+            if (StringUtils.isNull(str) || this.a.isEmpty()) {
+                return false;
             }
-            throw new IllegalArgumentException("Unsupported adapter type.");
+            Iterator<Map.Entry<String, Long>> it = this.a.entrySet().iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    Map.Entry<String, Long> next = it.next();
+                    if (next != null && str.equals(next.getKey())) {
+                        z = true;
+                        break;
+                    }
+                } else {
+                    z = false;
+                    break;
+                }
+            }
+            if (z && this.a.get(str).longValue() == j) {
+                return false;
+            }
+            this.a.put(str, Long.valueOf(j));
+            f();
+            return true;
         }
-        return (lm) invokeCommon.objValue;
+        return invokeLJ.booleanValue;
     }
 }

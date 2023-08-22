@@ -23,7 +23,7 @@ import kotlin.reflect.jvm.internal.impl.types.SimpleType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.utils.CollectionsKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\u0012\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\u0010\u0000\u001a\b\u0012\u0004\u0012\u00020\u00020\u0001\"\b\b\u0000\u0010\u0003*\u00020\u0004H\n¢\u0006\u0002\b\u0005"}, d2 = {"<anonymous>", "", "Lkotlin/reflect/jvm/internal/KTypeImpl;", ExifInterface.GPS_DIRECTION_TRUE, "", DiaoqiJsonListener.SCHEME_FORBID_WHITE_LIST}, k = 3, mv = {1, 1, 16}, pn = "", xi = 0, xs = "")
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class KClassImpl$Data$supertypes$2 extends Lambda implements Function0<List<? extends KTypeImpl>> {
     public final /* synthetic */ KClassImpl.Data this$0;
 
@@ -40,10 +40,10 @@ public final class KClassImpl$Data$supertypes$2 extends Lambda implements Functi
         boolean z;
         TypeConstructor typeConstructor = this.this$0.getDescriptor().getTypeConstructor();
         Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "descriptor.typeConstructor");
-        Collection<KotlinType> mo2103getSupertypes = typeConstructor.mo2103getSupertypes();
-        Intrinsics.checkExpressionValueIsNotNull(mo2103getSupertypes, "descriptor.typeConstructor.supertypes");
-        ArrayList<KTypeImpl> arrayList = new ArrayList(mo2103getSupertypes.size());
-        for (final KotlinType kotlinType : mo2103getSupertypes) {
+        Collection<KotlinType> mo2105getSupertypes = typeConstructor.mo2105getSupertypes();
+        Intrinsics.checkExpressionValueIsNotNull(mo2105getSupertypes, "descriptor.typeConstructor.supertypes");
+        ArrayList<KTypeImpl> arrayList = new ArrayList(mo2105getSupertypes.size());
+        for (final KotlinType kotlinType : mo2105getSupertypes) {
             Intrinsics.checkExpressionValueIsNotNull(kotlinType, "kotlinType");
             arrayList.add(new KTypeImpl(kotlinType, new Function0<Type>() { // from class: kotlin.reflect.jvm.internal.KClassImpl$Data$supertypes$2$$special$$inlined$mapTo$lambda$1
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -54,9 +54,9 @@ public final class KClassImpl$Data$supertypes$2 extends Lambda implements Functi
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function0
                 public final Type invoke() {
-                    ClassifierDescriptor mo2102getDeclarationDescriptor = KotlinType.this.getConstructor().mo2102getDeclarationDescriptor();
-                    if (mo2102getDeclarationDescriptor instanceof ClassDescriptor) {
-                        Class<?> javaClass = UtilKt.toJavaClass((ClassDescriptor) mo2102getDeclarationDescriptor);
+                    ClassifierDescriptor mo2104getDeclarationDescriptor = KotlinType.this.getConstructor().mo2104getDeclarationDescriptor();
+                    if (mo2104getDeclarationDescriptor instanceof ClassDescriptor) {
+                        Class<?> javaClass = UtilKt.toJavaClass((ClassDescriptor) mo2104getDeclarationDescriptor);
                         if (javaClass != null) {
                             if (Intrinsics.areEqual(KClassImpl.this.getJClass().getSuperclass(), javaClass)) {
                                 Type genericSuperclass = KClassImpl.this.getJClass().getGenericSuperclass();
@@ -71,11 +71,11 @@ public final class KClassImpl$Data$supertypes$2 extends Lambda implements Functi
                                 Intrinsics.checkExpressionValueIsNotNull(type, "jClass.genericInterfaces[index]");
                                 return type;
                             }
-                            throw new KotlinReflectionInternalError("No superclass of " + this.this$0 + " in Java reflection for " + mo2102getDeclarationDescriptor);
+                            throw new KotlinReflectionInternalError("No superclass of " + this.this$0 + " in Java reflection for " + mo2104getDeclarationDescriptor);
                         }
-                        throw new KotlinReflectionInternalError("Unsupported superclass of " + this.this$0 + ": " + mo2102getDeclarationDescriptor);
+                        throw new KotlinReflectionInternalError("Unsupported superclass of " + this.this$0 + ": " + mo2104getDeclarationDescriptor);
                     }
-                    throw new KotlinReflectionInternalError("Supertype not a class: " + mo2102getDeclarationDescriptor);
+                    throw new KotlinReflectionInternalError("Supertype not a class: " + mo2104getDeclarationDescriptor);
                 }
             }));
         }

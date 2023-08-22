@@ -9,10 +9,10 @@ import java.util.List;
 public class ie implements is<ie, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hs> f641a;
+    public List<hs> f642a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static final ji f640a = new ji("XmPushActionCustomConfig");
+    public static final ji f641a = new ji("XmPushActionCustomConfig");
     public static final ja a = new ja("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -21,11 +21,11 @@ public class ie implements is<ie, Object>, Serializable, Cloneable {
     public int compareTo(ie ieVar) {
         int a2;
         if (ie.class.equals(ieVar.getClass())) {
-            int compareTo = Boolean.valueOf(m632a()).compareTo(Boolean.valueOf(ieVar.m632a()));
+            int compareTo = Boolean.valueOf(m634a()).compareTo(Boolean.valueOf(ieVar.m634a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m632a() || (a2 = it.a(this.f641a, ieVar.f641a)) == 0) {
+            if (!m634a() || (a2 = it.a(this.f642a, ieVar.f642a)) == 0) {
                 return 0;
             }
             return a2;
@@ -34,12 +34,12 @@ public class ie implements is<ie, Object>, Serializable, Cloneable {
     }
 
     public List<hs> a() {
-        return this.f641a;
+        return this.f642a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m631a() {
-        if (this.f641a != null) {
+    public void m633a() {
+        if (this.f642a != null) {
             return;
         }
         throw new je("Required field 'customConfigs' was not present! Struct: " + toString());
@@ -47,22 +47,22 @@ public class ie implements is<ie, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo698a();
+        jdVar.mo700a();
         while (true) {
-            ja mo694a = jdVar.mo694a();
-            byte b = mo694a.a;
+            ja mo696a = jdVar.mo696a();
+            byte b = mo696a.a;
             if (b == 0) {
                 jdVar.f();
-                m631a();
+                m633a();
                 return;
             }
-            if (mo694a.f813a == 1 && b == 15) {
-                jb mo695a = jdVar.mo695a();
-                this.f641a = new ArrayList(mo695a.f814a);
-                for (int i = 0; i < mo695a.f814a; i++) {
+            if (mo696a.f814a == 1 && b == 15) {
+                jb mo697a = jdVar.mo697a();
+                this.f642a = new ArrayList(mo697a.f815a);
+                for (int i = 0; i < mo697a.f815a; i++) {
                     hs hsVar = new hs();
                     hsVar.a(jdVar);
-                    this.f641a.add(hsVar);
+                    this.f642a.add(hsVar);
                 }
                 jdVar.i();
             } else {
@@ -73,43 +73,43 @@ public class ie implements is<ie, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m632a() {
-        return this.f641a != null;
+    public boolean m634a() {
+        return this.f642a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m633a(ie ieVar) {
+    public boolean m635a(ie ieVar) {
         if (ieVar == null) {
             return false;
         }
-        boolean m632a = m632a();
-        boolean m632a2 = ieVar.m632a();
-        if (m632a || m632a2) {
-            return m632a && m632a2 && this.f641a.equals(ieVar.f641a);
+        boolean m634a = m634a();
+        boolean m634a2 = ieVar.m634a();
+        if (m634a || m634a2) {
+            return m634a && m634a2 && this.f642a.equals(ieVar.f642a);
         }
         return true;
     }
 
     @Override // com.xiaomi.push.is
     public void b(jd jdVar) {
-        m631a();
-        jdVar.a(f640a);
-        if (this.f641a != null) {
+        m633a();
+        jdVar.a(f641a);
+        if (this.f642a != null) {
             jdVar.a(a);
-            jdVar.a(new jb((byte) 12, this.f641a.size()));
-            for (hs hsVar : this.f641a) {
+            jdVar.a(new jb((byte) 12, this.f642a.size()));
+            for (hs hsVar : this.f642a) {
                 hsVar.b(jdVar);
             }
             jdVar.e();
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo702a();
+        jdVar.mo704a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ie)) {
-            return m633a((ie) obj);
+            return m635a((ie) obj);
         }
         return false;
     }
@@ -121,7 +121,7 @@ public class ie implements is<ie, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionCustomConfig(");
         sb.append("customConfigs:");
-        List<hs> list = this.f641a;
+        List<hs> list = this.f642a;
         if (list == null) {
             sb.append(StringUtil.NULL_STRING);
         } else {

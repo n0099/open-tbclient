@@ -1,9 +1,32 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
 public interface ko5 {
-    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
+    @NonNull
+    public static final ServiceReference a;
+    @NonNull
+    public static final ko5 b;
 
-    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
+    boolean a(@NonNull String str);
+
+    @NonNull
+    String b(@NonNull String str);
+
+    @NonNull
+    String c();
+
+    @NonNull
+    String d(@NonNull String str, boolean z);
+
+    @NonNull
+    String e(@NonNull String str, @NonNull String str2);
+
+    static {
+        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
+        a = serviceReference;
+        b = (ko5) ServiceManager.getService(serviceReference);
+    }
 }

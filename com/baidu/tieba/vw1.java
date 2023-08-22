@@ -3,11 +3,23 @@ package com.baidu.tieba;
 import android.content.Context;
 /* loaded from: classes8.dex */
 public interface vw1 {
-    void a(Context context, rp3<Boolean> rp3Var);
+    void b();
 
-    void b(boolean z, rp3<String> rp3Var);
+    void c();
 
-    void c(Context context, rp3<String> rp3Var);
+    vw1 create();
 
-    void d(rp3<Integer> rp3Var);
+    void d(n03 n03Var, boolean z);
+
+    void e(n03 n03Var, Context context);
+
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

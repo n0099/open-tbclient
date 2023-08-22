@@ -1,77 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
 public class c44 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile c44 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<e44> a;
 
-    public c44() {
+    public static boolean a(View view2, j13 j13Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, j13Var)) == null) {
+            us1 V = qw2.T().V();
+            if (V != null && V.c(view2, j13Var)) {
+                return true;
             }
+            return false;
         }
-        this.a = new CopyOnWriteArrayList();
+        return invokeLL.booleanValue;
     }
 
-    public static c44 b() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (c44.class) {
-                    if (b == null) {
-                        b = new c44();
-                    }
-                }
+            us1 V = qw2.T().V();
+            if (V == null || !V.b() || V.h()) {
+                return false;
             }
-            return b;
+            return true;
         }
-        return (c44) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void a(e44 e44Var) {
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, e44Var) == null) && e44Var != null && !this.a.contains(e44Var)) {
-            this.a.add(e44Var);
-        }
-    }
-
-    public void d(e44 e44Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, e44Var) == null) && this.a.contains(e44Var)) {
-            this.a.remove(e44Var);
-        }
-    }
-
-    public void c(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            for (e44 e44Var : this.a) {
-                if (i == 16) {
-                    e44Var.c();
-                } else if (i == 17) {
-                    e44Var.b(str);
-                }
-                d(e44Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            us1 V = qw2.T().V();
+            if (V != null && V.d(view2)) {
+                return true;
             }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            us1 V = qw2.T().V();
+            if (V == null) {
+                return false;
+            }
+            if (V.h()) {
+                SwanAppActivity activity = qw2.T().getActivity();
+                if (activity != null) {
+                    activity.setRequestedOrientation(0);
+                }
+                V.g(false);
+            }
+            return V.removeView(view2);
+        }
+        return invokeL.booleanValue;
     }
 }

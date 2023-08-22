@@ -22,7 +22,7 @@ public class DownloadCheckBox extends BdBaseImageView {
                 setImageDrawable(drawable);
                 return;
             } else {
-                setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805ba));
+                setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805bc));
                 return;
             }
         }
@@ -30,7 +30,7 @@ public class DownloadCheckBox extends BdBaseImageView {
         if (drawable2 != null) {
             setImageDrawable(drawable2);
         } else {
-            setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805bb));
+            setImageDrawable(getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0805bd));
         }
     }
 

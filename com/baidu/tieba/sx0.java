@@ -1,11 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes8.dex */
 public interface sx0 {
-    void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
+    void a(@NonNull zt0 zt0Var);
 
-    void b(BdThumbSeekBar bdThumbSeekBar);
+    @NonNull
+    mz0 b(@NonNull zt0 zt0Var, @Nullable mz0 mz0Var);
 
-    void c(BdThumbSeekBar bdThumbSeekBar);
+    void c(@NonNull zt0 zt0Var, boolean z);
+
+    boolean d(@NonNull zt0 zt0Var, mz0 mz0Var);
 }

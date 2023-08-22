@@ -103,7 +103,7 @@ public class BdPagerTabBar extends HorizontalScrollView {
             PagerTabBarItem pagerTabBarItem = new PagerTabBarItem(context);
             this.mPagerTabBarItem = pagerTabBarItem;
             pagerTabBarItem.setUIStandard(this.mUseStandardStyle, this.mLayoutInActionBar);
-            this.mPagerTabBarItem.setId(R.id.obfuscated_res_0x7f0917b0);
+            this.mPagerTabBarItem.setId(R.id.obfuscated_res_0x7f0917d1);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
             layoutParams.addRule(13);
             addView(this.mPagerTabBarItem, layoutParams);
@@ -252,7 +252,7 @@ public class BdPagerTabBar extends HorizontalScrollView {
                     setTextSize(0, resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701bc));
                 }
                 setBoldWhenSelect(true);
-                setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0603a9), resources.getColor(R.color.obfuscated_res_0x7f0603a8));
+                setTextColor(resources.getColor(R.color.obfuscated_res_0x7f0603af), resources.getColor(R.color.obfuscated_res_0x7f0603ae));
                 return;
             }
             setTextSize(0, bdPagerTab.getTextSize());

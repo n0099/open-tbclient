@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.l08;
-import com.baidu.tieba.rc5;
+import com.baidu.tieba.g28;
+import com.baidu.tieba.yc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -66,14 +66,14 @@ public class NewHotTipLabelView extends EMTextView {
         }
     }
 
-    public void setData(rc5 rc5Var) {
+    public void setData(yc5 yc5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, rc5Var) != null) || rc5Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, yc5Var) != null) || yc5Var == null) {
             return;
         }
-        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(rc5Var.a(), 6, "");
+        String cutChineseAndEnglishWithSuffix = StringHelper.cutChineseAndEnglishWithSuffix(yc5Var.a(), 6, "");
         if (StringUtils.isNull(cutChineseAndEnglishWithSuffix)) {
-            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0e28);
+            cutChineseAndEnglishWithSuffix = getContext().getString(R.string.obfuscated_res_0x7f0f0e30);
         }
         setText(cutChineseAndEnglishWithSuffix);
         setVisibility(0);
@@ -138,10 +138,10 @@ public class NewHotTipLabelView extends EMTextView {
     }
 
     public void c() {
-        rc5 hotNotifyConfig;
+        yc5 hotNotifyConfig;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (hotNotifyConfig = TbSingleton.getInstance().getHotNotifyConfig()) != null) {
-            l08.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
+            g28.c("key_new_hot_topic_update_time", hotNotifyConfig.b());
         }
     }
 

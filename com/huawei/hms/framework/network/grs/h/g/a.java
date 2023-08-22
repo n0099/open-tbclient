@@ -2,9 +2,9 @@ package com.huawei.hms.framework.network.grs.h.g;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import com.baidu.tieba.cqb;
-import com.baidu.tieba.eqb;
-import com.baidu.tieba.fqb;
+import com.baidu.tieba.rwb;
+import com.baidu.tieba.twb;
+import com.baidu.tieba.uwb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.SSLSocketFactory;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     public static /* synthetic */ Interceptable $ic;
     public static final HostnameVerifier a;
@@ -35,7 +35,7 @@ public class a {
                 return;
             }
         }
-        a = new fqb();
+        a = new uwb();
     }
 
     public static HostnameVerifier a() {
@@ -50,7 +50,7 @@ public class a {
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
                 AssetManager assets = context.getAssets();
-                return new cqb(new eqb(assets.open(GrsApp.getInstance().getBrand("/") + "grs_sp.bks"), ""));
+                return new rwb(new twb(assets.open(GrsApp.getInstance().getBrand("/") + "grs_sp.bks"), ""));
             } catch (IOException | KeyManagementException | NoSuchAlgorithmException e) {
                 throw new AssertionError(e);
             }

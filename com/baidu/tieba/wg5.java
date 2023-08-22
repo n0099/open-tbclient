@@ -4,13 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class wg5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-    public String c;
 
     public wg5() {
         Interceptable interceptable = $ic;
@@ -24,5 +23,14 @@ public class wg5 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        jSONObject.optString("favorite_forum_id");
+        this.a = jSONObject.optString("favorite_forum_name");
     }
 }

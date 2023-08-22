@@ -12,7 +12,7 @@ import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaConstructor;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaValueParameter;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectJavaConstructor extends ReflectJavaMember implements JavaConstructor {
     public final Constructor<?> member;
 

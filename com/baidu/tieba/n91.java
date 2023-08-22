@@ -1,77 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.va1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class n91 {
+public class n91 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
-    public static final int b = 0;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(Context context, int i);
-
-        boolean b(HashMap<String, String> hashMap, int i);
-
-        AbsNadBrowserView c(Context context, xa1 xa1Var, int i);
-
-        void d(Context context, boolean z, int i, va1.b bVar);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957187, "Lcom/baidu/tieba/n91;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static void a(ClogBuilder.LogType logType, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, logType, str, str2, str3) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType);
+            clogBuilder.u(ClogBuilder.Page.NAD_POP_WEB_PANEL);
+            if (!TextUtils.isEmpty(str)) {
+                clogBuilder.k(str);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947957187, "Lcom/baidu/tieba/n91;");
-                return;
+            if (!TextUtils.isEmpty(str3)) {
+                clogBuilder.p(str3);
             }
+            if (!TextUtils.isEmpty(str2)) {
+                clogBuilder.j(str2);
+            }
+            t31.e(clogBuilder);
         }
-        a aVar = m91.a;
-        Intrinsics.checkNotNullExpressionValue(aVar, "BuildConfig.BROWSER_FACTORY");
-        a = aVar;
-        c = 1;
     }
 
-    public static final a a() {
-        InterceptResult invokeV;
+    public static void b(ClogBuilder.Page page, ClogBuilder.LogType logType, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, page, logType, str, str2, str3) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(logType);
+            clogBuilder.u(page);
+            if (!TextUtils.isEmpty(str)) {
+                clogBuilder.k(str);
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                clogBuilder.p(str3);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                clogBuilder.j(str2);
+            }
+            t31.e(clogBuilder);
         }
-        return (a) invokeV.objValue;
-    }
-
-    public static final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return invokeV.intValue;
-    }
-
-    public static final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return invokeV.intValue;
     }
 }

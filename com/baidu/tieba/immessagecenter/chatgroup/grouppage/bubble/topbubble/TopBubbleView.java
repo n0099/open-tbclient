@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.wi8;
+import com.baidu.tieba.vm8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -63,13 +63,13 @@ public class TopBubbleView extends FrameLayout {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 a aVar = new a();
                 aVar.a = view2;
-                aVar.f = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906ba);
-                aVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09051e);
-                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051d);
-                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051b);
-                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051c);
-                aVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906bb);
-                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09218d);
+                aVar.f = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906bd);
+                aVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090521);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090520);
+                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09051e);
+                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09051f);
+                aVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0906be);
+                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921b4);
                 return aVar;
             }
             return (a) invokeL.objValue;
@@ -144,7 +144,7 @@ public class TopBubbleView extends FrameLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = a.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0998, this));
+            this.a = a.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09a0, this));
             b();
         }
     }
@@ -182,21 +182,21 @@ public class TopBubbleView extends FrameLayout {
             setIconVisibility(true);
             TextView textView = this.a.d;
             if (z) {
-                i = R.string.obfuscated_res_0x7f0f040b;
+                i = R.string.obfuscated_res_0x7f0f040c;
             } else {
-                i = R.string.obfuscated_res_0x7f0f040a;
+                i = R.string.obfuscated_res_0x7f0f040b;
             }
             textView.setText(i);
             if (z) {
                 if (z2) {
                     this.a.g.setVisibility(0);
-                    this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804d9);
+                    this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804da);
                 } else {
                     this.a.g.setVisibility(8);
                 }
-            } else if (!wi8.a(topBubbleData.getVersionKey())) {
+            } else if (!vm8.a(topBubbleData.getVersionKey())) {
                 this.a.g.setVisibility(0);
-                this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080614);
+                this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080619);
             } else {
                 this.a.g.setVisibility(8);
             }

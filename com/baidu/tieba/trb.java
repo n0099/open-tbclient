@@ -1,242 +1,164 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.ActivityManager;
+import android.util.Log;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.FieldEncoding;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileReader;
 import java.io.IOException;
-import kotlinx.coroutines.scheduling.CoroutineScheduler;
-import okio.BufferedSink;
-import okio.ByteString;
+import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
-public final class trb {
+public class trb {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BufferedSink a;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (-(i & 1)) ^ (i >>> 1) : invokeI.intValue;
-    }
-
-    public static long b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) ? (-(j & 1)) ^ (j >>> 1) : invokeJ.longValue;
-    }
-
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? (i >> 31) ^ (i << 1) : invokeI.intValue;
-    }
-
-    public static long d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) ? (j >> 63) ^ (j << 1) : invokeJ.longValue;
-    }
-
-    public static int i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
-            if ((i & (-128)) == 0) {
-                return 1;
-            }
-            if ((i & (-16384)) == 0) {
-                return 2;
-            }
-            if (((-2097152) & i) == 0) {
-                return 3;
-            }
-            return (i & (-268435456)) == 0 ? 4 : 5;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948192229, "Lcom/baidu/tieba/trb;")) == null) {
+            return;
         }
-        return invokeI.intValue;
-    }
-
-    public static int j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
-            if (((-128) & j) == 0) {
-                return 1;
-            }
-            if (((-16384) & j) == 0) {
-                return 2;
-            }
-            if ((CoroutineScheduler.PARKED_VERSION_MASK & j) == 0) {
-                return 3;
-            }
-            if (((-268435456) & j) == 0) {
-                return 4;
-            }
-            if (((-34359738368L) & j) == 0) {
-                return 5;
-            }
-            if (((-4398046511104L) & j) == 0) {
-                return 6;
-            }
-            if (((-562949953421312L) & j) == 0) {
-                return 7;
-            }
-            if (((-72057594037927936L) & j) == 0) {
-                return 8;
-            }
-            return (j & Long.MIN_VALUE) == 0 ? 9 : 10;
-        }
-        return invokeJ.intValue;
-    }
-
-    public trb(BufferedSink bufferedSink) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bufferedSink};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = bufferedSink;
-    }
-
-    public static int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
-            if (i >= 0) {
-                return i(i);
-            }
-            return 10;
-        }
-        return invokeI.intValue;
-    }
-
-    public static int g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
-            return i(f(i, FieldEncoding.VARINT));
-        }
-        return invokeI.intValue;
-    }
-
-    public void k(ByteString byteString) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, byteString) == null) {
-            this.a.write(byteString);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948192229, "Lcom/baidu/tieba/trb;");
         }
     }
 
-    public void l(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.writeIntLe(i);
-        }
-    }
+    /* loaded from: classes8.dex */
+    public class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public void m(long j) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.a.writeLongLe(j);
-        }
-    }
-
-    public void n(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            if (i >= 0) {
-                q(i);
-            } else {
-                r(i);
-            }
-        }
-    }
-
-    public void o(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.a.writeUtf8(str);
-        }
-    }
-
-    public void q(int i) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            while ((i & (-128)) != 0) {
-                this.a.writeByte((i & 127) | 128);
-                i >>>= 7;
-            }
-            this.a.writeByte(i);
-        }
-    }
-
-    public void r(long j) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            while (((-128) & j) != 0) {
-                this.a.writeByte((((int) j) & 127) | 128);
-                j >>>= 7;
-            }
-            this.a.writeByte((int) j);
-        }
-    }
-
-    public static int f(int i, FieldEncoding fieldEncoding) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65542, null, i, fieldEncoding)) == null) {
-            return (i << 3) | fieldEncoding.value;
-        }
-        return invokeIL.intValue;
-    }
-
-    public void p(int i, FieldEncoding fieldEncoding) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, fieldEncoding) == null) {
-            q(f(i, fieldEncoding));
-        }
-    }
-
-    public static int h(String str) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            int length = str.length();
-            int i2 = 0;
-            int i3 = 0;
-            while (i2 < length) {
-                char charAt = str.charAt(i2);
-                if (charAt >= 128) {
-                    if (charAt < 2048) {
-                        i3 += 2;
-                    } else if (charAt >= 55296 && charAt <= 57343) {
-                        if (charAt <= 56319 && (i = i2 + 1) < length && str.charAt(i) >= 56320 && str.charAt(i) <= 57343) {
-                            i3 += 4;
-                            i2 = i;
-                        }
-                    } else {
-                        i3 += 3;
-                    }
-                    i2++;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                i3++;
-                i2++;
             }
-            return i3;
         }
-        return invokeL.intValue;
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                return Pattern.matches("cpu[0-9]", file.getName());
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public static long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            ((ActivityManager) lrb.getContext().provideContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
+            return memoryInfo.availMem / 1024;
+        }
+        return invokeV.longValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == 0) {
+                try {
+                    a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
+                } catch (Exception e) {
+                    Log.e("PerformanceUtils", "getNumCores exception", e);
+                    a = 1;
+                }
+            }
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0058 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0015 */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.lang.Integer */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static long c() {
+        InterceptResult invokeV;
+        FileReader fileReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == 0) {
+                long j = -1;
+                FileReader fileReader2 = null;
+                try {
+                    try {
+                        try {
+                            fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
+                        } catch (IOException e) {
+                            Log.e("PerformanceUtils", "close localFileReader exception = ", e);
+                        }
+                    } catch (IOException e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
+                    String readLine = bufferedReader.readLine();
+                    String str = readLine;
+                    if (readLine != null) {
+                        Integer valueOf = Integer.valueOf(readLine.split("\\s+")[1]);
+                        j = valueOf.intValue();
+                        str = valueOf;
+                    }
+                    bufferedReader.close();
+                    fileReader.close();
+                    fileReader2 = str;
+                } catch (IOException e3) {
+                    e = e3;
+                    fileReader2 = fileReader;
+                    Log.e("PerformanceUtils", "getTotalMemory exception = ", e);
+                    if (fileReader2 != null) {
+                        fileReader2.close();
+                        fileReader2 = fileReader2;
+                    }
+                    b = j;
+                    return b;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileReader2 = fileReader;
+                    if (fileReader2 != null) {
+                        try {
+                            fileReader2.close();
+                        } catch (IOException e4) {
+                            Log.e("PerformanceUtils", "close localFileReader exception = ", e4);
+                        }
+                    }
+                    throw th;
+                }
+                b = j;
+            }
+            return b;
+        }
+        return invokeV.longValue;
     }
 }

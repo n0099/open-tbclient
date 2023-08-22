@@ -17,7 +17,7 @@ import android.widget.FrameLayout;
 import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh4;
+import com.baidu.tieba.jh4;
 import java.lang.ref.WeakReference;
 @SuppressLint({"ClickableViewAccessibility", "BDThrowableCheck", "SyntheticAccessor"})
 /* loaded from: classes4.dex */
@@ -86,7 +86,7 @@ public class PopupWindow {
             if (view2 != null && PopupWindow.this.f != null) {
                 WindowManager.LayoutParams layoutParams = (WindowManager.LayoutParams) PopupWindow.this.f.getLayoutParams();
                 PopupWindow popupWindow = PopupWindow.this;
-                popupWindow.R(popupWindow.t(view2, layoutParams, popupWindow.N, PopupWindow.this.O));
+                popupWindow.Q(popupWindow.t(view2, layoutParams, popupWindow.N, PopupWindow.this.O));
                 PopupWindow.this.update(layoutParams.x, layoutParams.y, -1, -1, true);
             }
         }
@@ -168,7 +168,7 @@ public class PopupWindow {
         this((View) null, 0, 0);
     }
 
-    public final void Q() {
+    public final void P() {
         View view2;
         WeakReference<View> weakReference = this.L;
         if (weakReference != null) {
@@ -268,15 +268,15 @@ public class PopupWindow {
         this.k = z;
     }
 
-    public void M(int i) {
+    public void L(int i) {
         this.i = i;
     }
 
-    public void N(int i) {
+    public void M(int i) {
         this.u = i;
     }
 
-    public final void R(boolean z) {
+    public final void Q(boolean z) {
         if (z != this.G) {
             this.G = z;
             if (this.D != null) {
@@ -317,7 +317,7 @@ public class PopupWindow {
     }
 
     public final void B(View view2, int i, int i2) {
-        Q();
+        P();
         this.L = new WeakReference<>(view2);
         ViewTreeObserver viewTreeObserver = view2.getViewTreeObserver();
         if (viewTreeObserver != null) {
@@ -327,7 +327,7 @@ public class PopupWindow {
         this.O = i2;
     }
 
-    public void O(View view2, int i, int i2) {
+    public void N(View view2, int i, int i2) {
         r(view2, i, i2);
     }
 
@@ -353,7 +353,7 @@ public class PopupWindow {
         this.M = new a();
         this.a = context;
         this.b = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, eh4.PopupWindow, i, i2);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, jh4.PopupWindow, i, i2);
         this.D = obtainStyledAttributes.getDrawable(4);
         int resourceId = obtainStyledAttributes.getResourceId(3, -1);
         this.K = resourceId != 16973824 ? resourceId : -1;
@@ -386,7 +386,7 @@ public class PopupWindow {
             this.b = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
         }
         F(view2);
-        N(i);
+        M(i);
         H(i2);
         G(z);
     }
@@ -431,9 +431,9 @@ public class PopupWindow {
             int i7 = layoutParams.x;
             int i8 = layoutParams.y;
             if (z) {
-                R(t(view2, layoutParams, i, i2));
+                Q(t(view2, layoutParams, i, i2));
             } else {
-                R(t(view2, layoutParams, this.N, this.O));
+                Q(t(view2, layoutParams, this.N, this.O));
             }
             int i9 = layoutParams.x;
             int i10 = layoutParams.y;
@@ -530,7 +530,7 @@ public class PopupWindow {
         return layoutParams;
     }
 
-    public void P(View view2, int i, int i2, int i3) {
+    public void O(View view2, int i, int i2, int i3) {
         s(view2.getWindowToken(), i, i2, i3);
     }
 
@@ -542,7 +542,7 @@ public class PopupWindow {
         b bVar;
         if (y() && this.f != null) {
             this.c = false;
-            Q();
+            P();
             try {
                 this.b.removeView(this.f);
                 View view2 = this.f;
@@ -590,7 +590,7 @@ public class PopupWindow {
             this.d = true;
             WindowManager.LayoutParams p = p(view2.getWindowToken());
             A(p);
-            R(t(view2, p, i, i2));
+            Q(t(view2, p, i, i2));
             int i3 = this.w;
             if (i3 < 0) {
                 this.y = i3;
@@ -608,7 +608,7 @@ public class PopupWindow {
 
     public void s(IBinder iBinder, int i, int i2, int i3) {
         if (iBinder != null && !y() && this.e != null) {
-            Q();
+            P();
             this.c = true;
             this.d = false;
             WindowManager.LayoutParams p = p(iBinder);
@@ -718,7 +718,7 @@ public class PopupWindow {
     public void update(int i, int i2, int i3, int i4, boolean z) {
         if (i3 != -1) {
             this.v = i3;
-            N(i3);
+            M(i3);
         }
         if (i4 != -1) {
             this.y = i4;

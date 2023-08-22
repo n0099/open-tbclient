@@ -1,125 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.database.FrsVisitedInfoManager;
-import com.baidu.tieba.ex7;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class qv6 extends sk1<cx7> {
+public final class qv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static final class a implements cx7 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    public static final vu6 a(h0 h0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            return (vu6) h0Var.d(vu6.class);
         }
-
-        @Override // com.baidu.tieba.cx7
-        public ex7 a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                List<String> k = FrsVisitedInfoManager.d.a().k(i);
-                if (k == null) {
-                    return null;
-                }
-                return b(k, FrsVisitedInfoManager.d.a().j(k));
-            }
-            return (ex7) invokeI.objValue;
-        }
-
-        public final ex7 b(List<String> list, Map<String, Map<String, r7a>> map) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, map)) == null) {
-                LinkedHashMap linkedHashMap = new LinkedHashMap();
-                for (String str : list) {
-                    linkedHashMap.put(str, c(map.get(str)));
-                }
-                return new ex7(linkedHashMap);
-            }
-            return (ex7) invokeLL.objValue;
-        }
-
-        public final ex7.a c(Map<String, r7a> map) {
-            InterceptResult invokeL;
-            r7a r7aVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, map)) == null) {
-                StringBuilder sb = new StringBuilder();
-                long j = 0;
-                for (int i = 0; i < 15; i++) {
-                    String format = FrsVisitedInfoManager.d.b().format(TimeHelper.getNDaysAgoDate(-i));
-                    if (map != null) {
-                        r7aVar = map.get(format);
-                    } else {
-                        r7aVar = null;
-                    }
-                    if (r7aVar != null) {
-                        sb.append(r7aVar.c());
-                        if (r7aVar.d() > j) {
-                            j = r7aVar.d();
-                        }
-                    } else {
-                        sb.append(0);
-                    }
-                    sb.append(",");
-                }
-                sb.deleteCharAt(sb.length() - 1);
-                String sb2 = sb.toString();
-                Intrinsics.checkNotNullExpressionValue(sb2, "frsCustomCounts.toString()");
-                return new ex7.a(sb2, j / 1000);
-            }
-            return (ex7.a) invokeL.objValue;
-        }
+        return (vu6) invokeL.objValue;
     }
 
-    public qv6() {
+    public static final su6 b(h0 h0Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            return (su6) h0Var.d(su6.class);
         }
+        return (su6) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sk1
-    /* renamed from: a */
-    public cx7 createService() {
-        InterceptResult invokeV;
+    public static final long c(h0 h0Var) {
+        InterceptResult invokeL;
+        gu6 a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            su6 b = b(h0Var);
+            if (b != null && (a = b.a()) != null) {
+                return a.g();
+            }
+            return 0L;
         }
-        return (cx7) invokeV.objValue;
+        return invokeL.longValue;
+    }
+
+    public static final ru6 d(h0 h0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            return (ru6) h0Var.d(ru6.class);
+        }
+        return (ru6) invokeL.objValue;
+    }
+
+    public static final tu6 e(h0 h0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            return (tu6) h0Var.d(tu6.class);
+        }
+        return (tu6) invokeL.objValue;
+    }
+
+    public static final long f(h0 h0Var) {
+        InterceptResult invokeL;
+        gu6 a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, h0Var)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            su6 b = b(h0Var);
+            if (b != null && (a = b.a()) != null) {
+                return a.j();
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public static final boolean g(h0 h0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, h0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            if (j - f(h0Var) < 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public static final boolean h(h0 h0Var, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65543, null, h0Var, j)) == null) {
+            Intrinsics.checkNotNullParameter(h0Var, "<this>");
+            if (j - f(h0Var) > c(h0Var)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
     }
 }

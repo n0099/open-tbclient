@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.res.Resources;
-import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,42 +9,18 @@ public class gy8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            try {
-                return Integer.parseInt(Build.VERSION.SDK);
-            } catch (NumberFormatException unused) {
-                return 0;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a() >= 14) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(Activity activity) {
+    @NonNull
+    public static cy8<dy8> a(@NonNull String str) {
         InterceptResult invokeL;
-        Resources resources;
-        int identifier;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            if (b() && (identifier = (resources = activity.getResources()).getIdentifier("config_showNavigationBar", "bool", "android")) > 0) {
-                return resources.getBoolean(identifier);
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            cy8<dy8> cy8Var = new cy8<>();
+            cy8Var.e().j(1);
+            dy8 dy8Var = new dy8();
+            dy8Var.f(str);
+            cy8Var.i(dy8Var);
+            return cy8Var;
         }
-        return invokeL.booleanValue;
+        return (cy8) invokeL.objValue;
     }
 }

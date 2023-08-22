@@ -392,33 +392,33 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.g = (int) (getResources().getDisplayMetrics().density * 86.0f * 0.6f);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09d1, (ViewGroup) this, true);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091f73);
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f092353);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09d9, (ViewGroup) this, true);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091f98);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f092381);
             this.b = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setTextViewShadowStringArrayId(R.array.S_O_X001);
             this.b.setDefaultSelectorColorResourceId(R.color.CAM_X0101);
             this.b.setNormalSelectorColorResId(R.color.CAM_X0103);
             this.b.setRectPaintColor(R.color.CAM_X0101);
-            this.b.B(BdUtilHelper.getDimens(context, R.dimen.T_X06), BdUtilHelper.getDimens(context, R.dimen.T_X04), BdUtilHelper.getDimens(context, R.dimen.tbds10), BdUtilHelper.getDimens(context, R.dimen.T_X04), true);
+            this.b.E(BdUtilHelper.getDimens(context, R.dimen.T_X06), BdUtilHelper.getDimens(context, R.dimen.T_X04), BdUtilHelper.getDimens(context, R.dimen.tbds10), BdUtilHelper.getDimens(context, R.dimen.T_X04), true);
             this.b.setIndicatorOffset(BdUtilHelper.getDimens(context, R.dimen.tbds64));
             this.b.setIndicatorOvershot(BdUtilHelper.getDimens(context, R.dimen.tbds8));
             this.b.setIndicatorRadius(BdUtilHelper.getDimens(context, R.dimen.tbds8));
             this.b.setIndicatorMarginBottom(BdUtilHelper.getDimens(context, R.dimen.tbds10));
             this.b.setmIndicatorWidth(BdUtilHelper.getDimens(context, R.dimen.tbds42));
             this.b.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(BdUtilHelper.getDimens(context, R.dimen.tbds166), -1));
-            this.b.E();
+            this.b.H();
             this.b.setOnTabItemClickListener(new b(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902f1);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902f3);
             this.c = textView;
             EMManager.from(textView).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X10).setTextStyle(R.string.F_X01).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0301);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091da2);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091dc5);
             this.d = textView2;
             EMManager.from(textView2).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X07).setTextStyle(R.string.F_X02);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091da0);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091dc3);
             this.e = findViewById;
             ((RelativeLayout.LayoutParams) findViewById.getLayoutParams()).setMargins(0, -BdUtilHelper.getDimens(context, R.dimen.tbds20), 0, 0);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091da1);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091dc4);
             this.f = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_common_pull_refresh);
             if (this.f.isAnimating()) {
@@ -458,7 +458,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (z) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    BdUtilHelper.showLongToast(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0e21));
+                    BdUtilHelper.showLongToast(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0e29));
                     return;
                 }
                 d dVar = this.i;

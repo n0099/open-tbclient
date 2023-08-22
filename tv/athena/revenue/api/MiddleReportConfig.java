@@ -61,22 +61,22 @@ public final class MiddleReportConfig extends ReportConfig {
         }
 
         /* renamed from: setAppName  reason: collision with other method in class */
-        public final void m2359setAppName(String str) {
+        public final void m2361setAppName(String str) {
             this.appName = str;
         }
 
         /* renamed from: setDeviceId  reason: collision with other method in class */
-        public final void m2360setDeviceId(String str) {
+        public final void m2362setDeviceId(String str) {
             this.deviceId = str;
         }
 
         /* renamed from: setReportRatio  reason: collision with other method in class */
-        public final void m2361setReportRatio(float f) {
+        public final void m2363setReportRatio(float f) {
             this.reportRatio = f;
         }
 
         /* renamed from: setReporter  reason: collision with other method in class */
-        public final void m2362setReporter(IReporter iReporter) {
+        public final void m2364setReporter(IReporter iReporter) {
             this.reporter = iReporter;
         }
     }

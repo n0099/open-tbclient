@@ -14,9 +14,10 @@ import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.bt8;
+import com.baidu.tieba.R;
+import com.baidu.tieba.dx8;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
-import com.baidu.tieba.rb8;
+import com.baidu.tieba.le8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,21 +30,21 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     public int a;
     public BaseFragment b;
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public VoiceManager.IPlayView g1(VoiceData.VoiceModel voiceModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voiceModel)) == null) {
-            return null;
-        }
-        return (VoiceManager.IPlayView) invokeL.objValue;
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a079" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public VoiceManager.IPlayView q1(VoiceData.VoiceModel voiceModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, voiceModel)) == null) {
+            return null;
+        }
+        return (VoiceManager.IPlayView) invokeL.objValue;
     }
 
     public MessageCenterActivity() {
@@ -62,6 +63,20 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         this.a = 3;
     }
 
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public VoiceManager G0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            BaseFragment baseFragment = this.b;
+            if (baseFragment instanceof MessageCenterFragment) {
+                return ((MessageCenterFragment) baseFragment).G0();
+            }
+            return null;
+        }
+        return (VoiceManager) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
@@ -72,24 +87,10 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         }
     }
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public VoiceManager z0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            BaseFragment baseFragment = this.b;
-            if (baseFragment instanceof MessageCenterFragment) {
-                return ((MessageCenterFragment) baseFragment).z0();
-            }
-            return null;
-        }
-        return (VoiceManager) invokeV.objValue;
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!BdActivityStack.getInst().isActivityExist("MainTabActivity")) {
                 sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(getPageContext().getPageActivity()).createNormalCfg(2)));
             }
@@ -127,9 +128,9 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
             super.onNewIntent(intent);
             BaseFragment baseFragment = this.b;
             if (baseFragment instanceof MessageCenterFragment) {
-                ((MessageCenterFragment) baseFragment).P1(intent);
+                ((MessageCenterFragment) baseFragment).b2(intent);
             } else {
-                rb8.l().c();
+                le8.l().c();
             }
         }
     }
@@ -143,15 +144,17 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
                 finish();
                 return;
             }
+            setContentView(R.layout.obfuscated_res_0x7f0d0622);
             TbSingleton.getInstance().setNeedJoinChatRoom(true);
-            if (bt8.a()) {
+            if (dx8.a()) {
                 this.b = new MsgCenterContainerFragment();
             } else {
                 this.b = new MessageCenterFragment();
             }
             FragmentTransaction beginTransaction = getSupportFragmentManager().beginTransaction();
-            beginTransaction.add(16908290, this.b);
+            beginTransaction.add(R.id.obfuscated_res_0x7f090b4d, this.b);
             beginTransaction.commitAllowingStateLoss();
+            adjustResizeBottomVirtualBar();
         }
     }
 }

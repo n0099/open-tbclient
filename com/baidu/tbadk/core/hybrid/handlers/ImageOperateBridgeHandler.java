@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.b85;
-import com.baidu.tieba.z75;
+import com.baidu.tieba.g85;
+import com.baidu.tieba.i85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ import org.json.JSONObject;
 public class ImageOperateBridgeHandler extends NamedBridgeHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z75 mBridge;
+    public g85 mBridge;
 
     @Override // com.baidu.tbadk.core.hybrid.NamedBridgeHandler
     public String scope() {
@@ -36,27 +36,27 @@ public class ImageOperateBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ImageOperateBridgeHandler(z75 z75Var) {
-        super(z75Var);
+    public ImageOperateBridgeHandler(g85 g85Var) {
+        super(g85Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {z75Var};
+            Object[] objArr = {g85Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((z75) newInitContext.callArgs[0]);
+                super((g85) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mBridge = z75Var;
+        this.mBridge = g85Var;
     }
 
-    @b85(isAsync = false, value = "scanBigImages")
+    @i85(isAsync = false, value = "scanBigImages")
     public void sanBigImages(JSONObject jSONObject) throws JSONException {
         String str;
         Interceptable interceptable = $ic;
@@ -96,7 +96,7 @@ public class ImageOperateBridgeHandler extends NamedBridgeHandler {
         sendMessage(new CustomMessage(2010000, builder.bulid(this.mBridge.getContext())));
     }
 
-    @b85("selectPhotos")
+    @i85("selectPhotos")
     public void selectPhotos(JSONObject jSONObject) throws JSONException {
         JSONArray optJSONArray;
         Interceptable interceptable = $ic;

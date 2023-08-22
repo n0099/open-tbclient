@@ -8,9 +8,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tbadk.util.NetMessageHelper;
-import com.baidu.tieba.az9;
+import com.baidu.tieba.f3a;
+import com.baidu.tieba.qv5;
 import com.baidu.tieba.recapp.localads.LocationCacheData;
-import com.baidu.tieba.zu5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -283,7 +283,7 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.ori_ugc_tid = this.oriUgcTid;
                 builder.ori_ugc_type = Integer.valueOf(this.oriUgcType);
                 builder.ori_ugc_vid = this.oriUgcVid;
-                builder.ad_context_list = az9.f().d("PB");
+                builder.ad_context_list = f3a.f().d("PB");
                 builder.up_schema = this.mSchemeUrl;
                 builder.from_push = Integer.valueOf(this.from_push);
                 AdExtParam.a b = AdExtParam.a.b();
@@ -292,7 +292,7 @@ public class PbPageRequestMessage extends NetMessage {
                 builder.source_type = Integer.valueOf(this.sourceType);
                 NetMessageHelper.bindCommonParamsToProtobufData(builder, true, false, true);
                 builder.immersion_video_comment_source = Integer.valueOf(this.immersionVideoCommentSource);
-                builder.app_transmit_data = zu5.b();
+                builder.app_transmit_data = qv5.b();
                 if (!this.isReqFoldComment) {
                     i3 = 0;
                 }

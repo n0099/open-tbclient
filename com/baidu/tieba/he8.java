@@ -1,86 +1,68 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im.message.LoadHistoryResponsedMessage;
-import com.baidu.tieba.im.message.OfficialFeedHeadResponsedMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.settingcache.OfficialSettingCache;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class he8 implements CustomMessageTask.CustomRunnable<OfficialFeedHeadResponsedMessage.a> {
+public class he8 {
     public static /* synthetic */ Interceptable $ic;
+    public static he8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public yb8 b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947820942, "Lcom/baidu/tieba/he8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947820942, "Lcom/baidu/tieba/he8;");
+                return;
+            }
+        }
+        a = new he8();
+    }
 
     public he8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = 2001154;
-        this.b = yb8.w();
     }
 
-    public final LoadHistoryResponsedMessage a(int i) {
-        InterceptResult invokeI;
+    public static he8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            LoadHistoryResponsedMessage loadHistoryResponsedMessage = new LoadHistoryResponsedMessage(i);
-            loadHistoryResponsedMessage.setError(-18);
-            return loadHistoryResponsedMessage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return (LoadHistoryResponsedMessage) invokeI.objValue;
+        return (he8) invokeV.objValue;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<OfficialFeedHeadResponsedMessage.a> customMessage) {
-        InterceptResult invokeL;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage)) == null) {
-            if (this.b == null) {
-                return a(this.a);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                mh8.a().onAccountChangedInBackground();
+                OfficialSettingCache.getInstance().onAccountChangedInBackground();
+                kh8.a().onAccountChangedInBackground();
+                je8.j().b(TbadkCoreApplication.getCurrentAccount());
             }
-            List<cc8> x = yb8.x();
-            if (x != null && x.size() > 0) {
-                HashMap hashMap = new HashMap(x.size());
-                for (cc8 cc8Var : x) {
-                    hashMap.put(cc8Var.b(), cc8Var);
-                }
-                LinkedList<ChatMessage> l = this.b.l(hashMap, 80);
-                if (l == null) {
-                    return a(this.a);
-                }
-                OfficialFeedHeadResponsedMessage.a aVar = new OfficialFeedHeadResponsedMessage.a();
-                OfficialFeedHeadResponsedMessage officialFeedHeadResponsedMessage = new OfficialFeedHeadResponsedMessage(this.a);
-                aVar.b = l;
-                aVar.a = x;
-                try {
-                    officialFeedHeadResponsedMessage.decodeInBackGround(2001105, aVar);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return officialFeedHeadResponsedMessage;
-            }
-            return a(this.a);
         }
-        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

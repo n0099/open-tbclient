@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.PopEventTypeEnum;
+import com.baidu.nadcore.max.event.NestedEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class yp0 implements nj0 {
+public final class yp0 implements qj0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PopEventTypeEnum a;
+    public final NestedEvent a;
 
-    public yp0(PopEventTypeEnum type) {
+    public yp0(NestedEvent type) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,24 +33,24 @@ public final class yp0 implements nj0 {
         this.a = type;
     }
 
-    @Override // com.baidu.tieba.nj0
+    @Override // com.baidu.tieba.qj0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String simpleName = yp0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "PopOverViewEvent::class.java.simpleName");
+            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedScrollEvent::class.java.simpleName");
             return simpleName;
         }
         return (String) invokeV.objValue;
     }
 
-    public final PopEventTypeEnum getType() {
+    public final NestedEvent getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (PopEventTypeEnum) invokeV.objValue;
+        return (NestedEvent) invokeV.objValue;
     }
 }

@@ -7,8 +7,8 @@ import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AccountRestoreActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.d46;
-import com.baidu.tieba.mk6;
+import com.baidu.tieba.rl6;
+import com.baidu.tieba.u46;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -88,7 +88,7 @@ public class AccountActivityStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            if (mk6.e(d46.a)) {
+            if (rl6.e(u46.a)) {
                 TbadkCoreApplication.getInst().RegisterIntent(AccountRestoreActivityConfig.class, NewAccountRestoreActivity.class);
             } else {
                 TbadkCoreApplication.getInst().RegisterIntent(AccountRestoreActivityConfig.class, AccountRestoreActivity.class);

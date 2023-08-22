@@ -2,8 +2,8 @@ package com.baidu.tieba.tracker;
 
 import android.app.Application;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fna;
 import com.baidu.tieba.tracker.core.data.IEventNode;
-import com.baidu.tieba.wia;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,7 +31,7 @@ public final class Tracker {
     public static final Lazy<Tracker> e;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public Set<wia> b;
+    public Set<fna> b;
     public final Map<String, IEventNode> c;
 
     /* loaded from: classes8.dex */
@@ -75,12 +75,12 @@ public final class Tracker {
             return (Tracker) invokeV.objValue;
         }
 
-        public final void c(wia wiaVar) {
+        public final void c(fna fnaVar) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wiaVar) != null) || wiaVar == null) {
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fnaVar) != null) || fnaVar == null) {
                 return;
             }
-            Tracker.d.b().f(wiaVar);
+            Tracker.d.b().f(fnaVar);
         }
 
         public final void d(String event, IEventNode iEventNode) {
@@ -143,8 +143,8 @@ public final class Tracker {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, iEventNode) == null) {
             if (this.a) {
-                for (wia wiaVar : this.b) {
-                    wiaVar.onEventReport(str, iEventNode);
+                for (fna fnaVar : this.b) {
+                    fnaVar.onEventReport(str, iEventNode);
                 }
                 return;
             }
@@ -152,12 +152,12 @@ public final class Tracker {
         }
     }
 
-    public final void f(wia wiaVar) {
+    public final void f(fna fnaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wiaVar) == null) {
-            Set<wia> set = this.b;
-            wiaVar.onInit();
-            set.add(wiaVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fnaVar) == null) {
+            Set<fna> set = this.b;
+            fnaVar.onInit();
+            set.add(fnaVar);
             synchronized (this.c) {
                 if (!this.c.isEmpty()) {
                     for (Map.Entry<String, IEventNode> entry : this.c.entrySet()) {

@@ -24,7 +24,7 @@ public class Scene {
 
     @Nullable
     public static Scene getCurrentScene(@NonNull ViewGroup viewGroup) {
-        return (Scene) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092687);
+        return (Scene) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0926b8);
     }
 
     public void setEnterAction(@Nullable Runnable runnable) {
@@ -44,10 +44,10 @@ public class Scene {
 
     @NonNull
     public static Scene getSceneForLayout(@NonNull ViewGroup viewGroup, @LayoutRes int i, @NonNull Context context) {
-        SparseArray sparseArray = (SparseArray) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09268a);
+        SparseArray sparseArray = (SparseArray) viewGroup.getTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0926bb);
         if (sparseArray == null) {
             sparseArray = new SparseArray();
-            viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f09268a, sparseArray);
+            viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0926bb, sparseArray);
         }
         Scene scene = (Scene) sparseArray.get(i);
         if (scene != null) {
@@ -65,7 +65,7 @@ public class Scene {
     }
 
     public static void setCurrentScene(@NonNull ViewGroup viewGroup, @Nullable Scene scene) {
-        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f092687, scene);
+        viewGroup.setTag(com.baidu.tieba.R.id.obfuscated_res_0x7f0926b8, scene);
     }
 
     public void enter() {

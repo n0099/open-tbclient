@@ -1,7 +1,7 @@
 package com.huawei.hms.base.log;
 
 import android.content.Context;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void a(Context context, String str);
 

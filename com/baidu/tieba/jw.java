@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.os.Environment;
+import android.os.StatFs;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,12 +27,29 @@ public final class jw {
         }
     }
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    public static float a() {
+        InterceptResult invokeV;
+        long j;
+        StatFs statFs;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
-            return Math.round(f * sv.a().getResources().getDisplayMetrics().density);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            long j2 = 0;
+            try {
+                statFs = new StatFs(Environment.getDataDirectory().getPath());
+                j = statFs.getBlockSize();
+            } catch (Exception e) {
+                e = e;
+                j = 0;
+            }
+            try {
+                j2 = statFs.getAvailableBlocks();
+            } catch (Exception e2) {
+                e = e2;
+                e.printStackTrace();
+                return ((float) (j2 * j)) / 1024.0f;
+            }
+            return ((float) (j2 * j)) / 1024.0f;
         }
-        return invokeF.intValue;
+        return invokeV.floatValue;
     }
 }

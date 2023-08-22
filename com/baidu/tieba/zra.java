@@ -1,22 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import java.util.List;
-/* loaded from: classes8.dex */
+import java.util.HashSet;
+/* loaded from: classes9.dex */
 public class zra {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public int d;
-    public List<MediaSegment> e;
-    public List<MultiMediaData> f;
 
     public zra() {
         Interceptable interceptable = $ic;
@@ -28,7 +21,10 @@ public class zra {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        SharedPrefHelper.getInstance().getInt("nani_key_download_show_position", 3);
+        new HashSet();
     }
 }

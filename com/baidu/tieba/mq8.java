@@ -1,76 +1,89 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.immessagecenter.mention.base.NotificationView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class mq8 {
+public class mq8 extends fr8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NotificationView a;
-    public boolean b;
-    public final a c;
+    @NonNull
+    public final AbilityItem a;
 
-    /* loaded from: classes7.dex */
-    public static final class a implements NotificationView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mq8 a;
-
-        public a(mq8 mq8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981429, "Lcom/baidu/tieba/mq8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mq8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = mq8Var;
-        }
-
-        @Override // com.baidu.tieba.immessagecenter.mention.base.NotificationView.b
-        public void onClose() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                NotificationView notificationView = this.a.a;
-                if (notificationView != null) {
-                    notificationView.setVisibility(8);
-                }
-                this.a.b = false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947981429, "Lcom/baidu/tieba/mq8;");
+                return;
             }
         }
+        b = BdUniqueId.gen().getId();
     }
 
-    public mq8(NotificationView notificationView) {
+    @Override // com.baidu.tieba.fr8
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return invokeV.intValue;
+    }
+
+    @NonNull
+    public AbilityItem b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (AbilityItem) invokeV.objValue;
+    }
+
+    @Nullable
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a.getStyleConf() != null) {
+                return this.a.getStyleConf().getContent();
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public mq8(@NonNull AbilityItem abilityItem) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {notificationView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {abilityItem};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = notificationView;
-        a aVar = new a(this);
-        this.c = aVar;
-        NotificationView notificationView2 = this.a;
-        if (notificationView2 != null) {
-            notificationView2.setOnCloseListener(aVar);
-        }
+        this.a = abilityItem;
     }
 }

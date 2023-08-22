@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
-/* loaded from: classes7.dex */
+import androidx.annotation.Nullable;
+import java.util.Map;
+/* loaded from: classes8.dex */
 public interface si4 {
-    void a(PMSAppInfo pMSAppInfo);
+    void a(@Nullable Map<String, String> map);
+
+    void onFail(Exception exc);
 }

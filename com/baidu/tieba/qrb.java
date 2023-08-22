@@ -1,200 +1,168 @@
 package com.baidu.tieba;
 
+import android.os.Process;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire2.Message;
-import com.squareup.wire2.Message.a;
-import com.squareup.wire2.ProtoAdapter;
-import com.squareup.wire2.WireField;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.util.List;
-import java.util.Map;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes7.dex */
-public final class qrb<M extends Message<M, B>, B extends Message.a<M, B>> {
+public class qrb extends jrb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WireField.Label a;
-    public final String b;
-    public final int c;
-    public final String d;
-    public final String e;
-    public final boolean f;
-    public final Field g;
-    public final Field h;
-    public final Method i;
-    public ProtoAdapter<?> j;
-    public ProtoAdapter<?> k;
-    public ProtoAdapter<Object> l;
+    public StringBuffer d;
+    public int e;
+    public long f;
+    public long g;
 
-    public qrb(WireField wireField, Field field, Class<B> cls) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qrb(long j) {
+        super(j);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wireField, field, cls};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = wireField.label();
-        this.b = field.getName();
-        this.c = wireField.tag();
-        this.d = wireField.keyAdapter();
-        this.e = wireField.adapter();
-        this.f = wireField.redacted();
-        this.g = field;
-        this.h = c(cls, this.b);
-        this.i = d(cls, this.b, field.getType());
+        this.d = new StringBuffer();
+        this.e = 0;
+        this.f = 0L;
+        this.g = 0L;
     }
 
-    public static Field c(Class<?> cls, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.jrb
+    public void b() {
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        String readLine;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.setLength(0);
+            BufferedReader bufferedReader3 = null;
             try {
-                return cls.getField(str);
-            } catch (NoSuchFieldException unused) {
-                throw new AssertionError("No builder field " + cls.getName() + "." + str);
-            }
-        }
-        return (Field) invokeLL.objValue;
-    }
-
-    public void j(B b, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, b, obj) == null) {
-            if (this.a.isRepeated()) {
-                ((List) e(b)).add(obj);
-            } else if (!this.d.isEmpty()) {
-                ((Map) e(b)).putAll((Map) obj);
-            } else {
-                h(b, obj);
-            }
-        }
-    }
-
-    public static Method d(Class<?> cls, String str, Class<?> cls2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, cls2)) == null) {
-            try {
-                return cls.getMethod(str, cls2);
-            } catch (NoSuchMethodException unused) {
-                throw new AssertionError("No builder method " + cls.getName() + "." + str + "(" + cls2.getName() + SmallTailInfo.EMOTION_SUFFIX);
-            }
-        }
-        return (Method) invokeLLL.objValue;
-    }
-
-    public ProtoAdapter<Object> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProtoAdapter<Object> protoAdapter = this.l;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            if (f()) {
-                ProtoAdapter<Object> newMapAdapter = ProtoAdapter.newMapAdapter(g(), i());
-                this.l = newMapAdapter;
-                return newMapAdapter;
-            }
-            ProtoAdapter<?> withLabel = i().withLabel(this.a);
-            this.l = withLabel;
-            return withLabel;
-        }
-        return (ProtoAdapter) invokeV.objValue;
-    }
-
-    public Object b(M m) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m)) == null) {
-            try {
-                return this.g.get(m);
-            } catch (IllegalAccessException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    public Object e(B b) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b)) == null) {
-            try {
-                return this.h.get(b);
-            } catch (IllegalAccessException e) {
-                throw new AssertionError(e);
-            }
-        }
-        return invokeL.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return !this.d.isEmpty();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ProtoAdapter<?> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ProtoAdapter<?> protoAdapter = this.k;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.d);
-            this.k = protoAdapter2;
-            return protoAdapter2;
-        }
-        return (ProtoAdapter) invokeV.objValue;
-    }
-
-    public ProtoAdapter<?> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            ProtoAdapter<?> protoAdapter = this.j;
-            if (protoAdapter != null) {
-                return protoAdapter;
-            }
-            ProtoAdapter<?> protoAdapter2 = ProtoAdapter.get(this.e);
-            this.j = protoAdapter2;
-            return protoAdapter2;
-        }
-        return (ProtoAdapter) invokeV.objValue;
-    }
-
-    public void h(B b, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, b, obj) == null) {
-            try {
-                if (this.a.isOneOf()) {
-                    this.i.invoke(b, obj);
-                } else {
-                    this.h.set(b, obj);
+                try {
+                    bufferedReader2 = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/stat")), 1000);
+                    try {
+                        readLine = bufferedReader2.readLine();
+                        str = "";
+                        if (readLine == null) {
+                            readLine = "";
+                        }
+                        if (this.e == 0) {
+                            this.e = Process.myPid();
+                        }
+                        bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/" + this.e + "/stat")), 1000);
+                    } catch (Throwable th) {
+                        th = th;
+                        bufferedReader = null;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    bufferedReader = null;
                 }
-            } catch (IllegalAccessException | InvocationTargetException e) {
-                throw new AssertionError(e);
+                try {
+                    String readLine2 = bufferedReader.readLine();
+                    if (readLine2 != null) {
+                        str = readLine2;
+                    }
+                    f(readLine, str);
+                    bufferedReader2.close();
+                    bufferedReader.close();
+                } catch (Throwable th3) {
+                    th = th3;
+                    bufferedReader3 = bufferedReader2;
+                    try {
+                        Log.e("SampleCpuSampler", "doSample: ", th);
+                        if (bufferedReader3 != null) {
+                            bufferedReader3.close();
+                        }
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                    } catch (Throwable th4) {
+                        if (bufferedReader3 != null) {
+                            try {
+                                bufferedReader3.close();
+                            } catch (IOException e) {
+                                Log.e("SampleCpuSampler", "doSample: ", e);
+                                throw th4;
+                            }
+                        }
+                        if (bufferedReader != null) {
+                            bufferedReader.close();
+                        }
+                        throw th4;
+                    }
+                }
+            } catch (IOException e2) {
+                Log.e("SampleCpuSampler", "doSample: ", e2);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.jrb
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.c();
+            g();
+        }
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.f = 0L;
+            this.g = 0L;
+        }
+    }
+
+    public final void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            String[] split = str.split(" ");
+            if (split.length < 9) {
+                return;
+            }
+            long parseLong = Long.parseLong(split[2]);
+            long parseLong2 = Long.parseLong(split[3]);
+            long parseLong3 = Long.parseLong(split[4]);
+            long parseLong4 = Long.parseLong(split[5]);
+            long parseLong5 = parseLong + parseLong2 + parseLong3 + parseLong4 + Long.parseLong(split[6]) + Long.parseLong(split[7]) + Long.parseLong(split[8]);
+            if (str2.split(" ").length < 17) {
+                return;
+            }
+            if (parseLong5 != 0) {
+                long j = parseLong5 - this.g;
+                this.d.append(((j - (parseLong4 - this.f)) * 100) / j);
+            }
+            this.f = parseLong4;
+            this.g = parseLong5;
         }
     }
 }

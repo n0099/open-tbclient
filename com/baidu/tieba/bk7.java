@@ -1,16 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
-import com.baidu.tieba.frs.FrsFragment;
+import android.widget.TextView;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public interface bk7 {
-    wt7 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
+public final class bk7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    zj7 b(FrsFragment frsFragment, en enVar, boolean z);
-
-    ck7 c();
-
-    dk7 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
-
-    mu7 e(String str, FrsFragment frsFragment, int i);
+    public static final void a(TextView textView, String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, textView, str) == null) {
+            Intrinsics.checkNotNullParameter(textView, "<this>");
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                textView.setText(str);
+                textView.setVisibility(0);
+                return;
+            }
+            textView.setVisibility(8);
+        }
+    }
 }

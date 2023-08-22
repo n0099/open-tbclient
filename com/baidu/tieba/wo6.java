@@ -1,32 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.ad.AbsDownloadGuide;
-import com.baidu.tbadk.widget.ad.DownloadGuideFull;
-import com.baidu.tbadk.widget.ad.DownloadGuidePart;
-import com.baidu.tieba.feed.widget.roundcorners.RoundFrameLayout;
-import com.baidu.tieba.k37;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.PbContent;
 /* loaded from: classes8.dex */
-public final class wo6 implements k37.f {
+public class wo6 implements fa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RoundFrameLayout a;
-    public AbsDownloadGuide b;
+    public int a;
+    public String b;
     public String c;
+    public long d;
+    public boolean e;
 
     public wo6() {
         Interceptable interceptable = $ic;
@@ -38,124 +27,35 @@ public final class wo6 implements k37.f {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.c = "part";
-    }
-
-    @Override // com.baidu.tieba.k37.r
-    public void a(ViewGroup view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            AbsDownloadGuide absDownloadGuide = this.b;
-            if (absDownloadGuide == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
-                absDownloadGuide = null;
-            }
-            absDownloadGuide.q();
         }
     }
 
-    @Override // com.baidu.tieba.k37.f
-    public ViewGroup create(Context context) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            this.a = new RoundFrameLayout(context);
-            int dimens = BdUtilHelper.getDimens(context, R.dimen.tbds21);
-            RoundFrameLayout roundFrameLayout = this.a;
-            if (roundFrameLayout == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
-                roundFrameLayout = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            roundFrameLayout.setRadiusPx(0, 0, dimens, dimens);
-            this.b = new DownloadGuidePart(context);
-            RoundFrameLayout roundFrameLayout2 = this.a;
-            if (roundFrameLayout2 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
-                roundFrameLayout2 = null;
+            if (!(obj instanceof jz5)) {
+                return false;
             }
-            AbsDownloadGuide absDownloadGuide = this.b;
-            if (absDownloadGuide == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
-                absDownloadGuide = null;
+            jz5 jz5Var = (jz5) obj;
+            if (jz5Var.d == this.d && jz5Var.c.equals(this.c) && jz5Var.b.equals(this.b) && jz5Var.e == this.e && jz5Var.a == this.a) {
+                return true;
             }
-            roundFrameLayout2.addView(absDownloadGuide);
-            RoundFrameLayout roundFrameLayout3 = this.a;
-            if (roundFrameLayout3 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
-                return null;
-            }
-            return roundFrameLayout3;
+            return false;
         }
-        return (ViewGroup) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.k37.f
-    public void update(ViewGroup view2, v57 downloadData) {
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, downloadData) == null) {
-            Intrinsics.checkNotNullParameter(view2, "view");
-            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
-            Map<String, String> a = downloadData.a().a();
-            String type = downloadData.getType();
-            AbsDownloadGuide absDownloadGuide = null;
-            if (!Intrinsics.areEqual(type, this.c)) {
-                RoundFrameLayout roundFrameLayout = this.a;
-                if (roundFrameLayout == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
-                    roundFrameLayout = null;
-                }
-                AbsDownloadGuide absDownloadGuide2 = this.b;
-                if (absDownloadGuide2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
-                    absDownloadGuide2 = null;
-                }
-                roundFrameLayout.removeView(absDownloadGuide2);
-                if (Intrinsics.areEqual(type, "part")) {
-                    Context context = view2.getContext();
-                    Intrinsics.checkNotNullExpressionValue(context, "view.context");
-                    this.b = new DownloadGuidePart(context);
-                } else if (Intrinsics.areEqual(type, "full")) {
-                    Context context2 = view2.getContext();
-                    Intrinsics.checkNotNullExpressionValue(context2, "view.context");
-                    this.b = new DownloadGuideFull(context2);
-                }
-                RoundFrameLayout roundFrameLayout2 = this.a;
-                if (roundFrameLayout2 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("roundLayout");
-                    roundFrameLayout2 = null;
-                }
-                AbsDownloadGuide absDownloadGuide3 = this.b;
-                if (absDownloadGuide3 == null) {
-                    Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
-                    absDownloadGuide3 = null;
-                }
-                roundFrameLayout2.addView(absDownloadGuide3);
-            }
-            ThreadData threadData = new ThreadData();
-            ArrayList arrayList = new ArrayList();
-            PbContent.Builder builder = new PbContent.Builder();
-            builder.type = 35;
-            builder.tiebaplus_info = sp6.a(downloadData.a());
-            PbContent build = builder.build(true);
-            Intrinsics.checkNotNullExpressionValue(build, "contentBuilder.build(true)");
-            arrayList.add(build);
-            threadData.setRichAbstractList(arrayList);
-            threadData.isTiebaPlusAdThread = Intrinsics.areEqual(a.get("is_tie_plus_ad"), "1");
-            threadData.tiebaPlusOrderId = a.get("tie_plus_order_id");
-            threadData.tid = a.get("thread_id");
-            threadData.setFid(JavaTypesHelper.toLong(a.get("forum_id"), 0L));
-            AbsDownloadGuide absDownloadGuide4 = this.b;
-            if (absDownloadGuide4 == null) {
-                Intrinsics.throwUninitializedPropertyAccessException("absDownloadGuide");
-            } else {
-                absDownloadGuide = absDownloadGuide4;
-            }
-            absDownloadGuide.setData(threadData);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.b + ",forumName=" + this.c + ",forumId=" + this.d + ",isLiked=" + this.e + "," + PreferencesUtil.RIGHT_MOUNT;
         }
+        return (String) invokeV.objValue;
     }
 }

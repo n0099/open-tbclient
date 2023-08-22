@@ -1,35 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pv3 {
+public class pv3 implements ov3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public boolean h;
-    public ov3 i;
-    public ov3 j;
-    public ov3 k;
-    public ov3 l;
+    public qv3 a;
+    public boolean b;
 
-    public pv3() {
+    public pv3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,108 +29,41 @@ public class pv3 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.c = -1;
-        this.d = -1;
-        this.e = -1;
-        this.f = -1;
-        this.g = -1;
+        this.b = false;
+        c(context);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ov3
+    public void a() {
+        qv3 qv3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.h) {
-                return b(this.l);
-            }
-            ov3 ov3Var = this.k;
-            if (ov3Var != null) {
-                return ov3Var.c;
-            }
-            ov3 ov3Var2 = this.i;
-            if (ov3Var2 != null) {
-                return ov3Var2.c;
-            }
-            ov3 ov3Var3 = this.j;
-            if (ov3Var3 != null) {
-                return ov3Var3.c;
-            }
-            return -1;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (qv3Var = this.a) != null && qv3Var.b()) {
+            this.b = false;
+            this.a.c(6, "", new int[0]);
+            this.a.c(3, "", new int[0]);
+            this.a.c(12, "", new int[0]);
+            this.a.c(9, "", new int[0]);
         }
-        return invokeV.intValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ov3
+    public void b(int i) {
+        qv3 qv3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.g != -1) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (qv3Var = this.a) != null && qv3Var.b() && this.a.c(12, "", new int[0]) == 0) {
+            this.b = true;
+            this.a.c(5, "", new int[0]);
+            this.a.c(2, "", new int[0]);
+            this.a.c(11, "", new int[0]);
+            this.a.c(8, "", new int[0]);
+            this.a.c(39, "", new int[0]);
         }
-        return invokeV.booleanValue;
     }
 
-    public final int b(ov3 ov3Var) {
-        InterceptResult invokeL;
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ov3Var)) == null) {
-            if (ov3Var != null) {
-                return ov3Var.c;
-            }
-            return -1;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
+            this.a = qv3.a(context);
         }
-        return invokeL.intValue;
-    }
-
-    public final int c(ov3 ov3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ov3Var)) == null) {
-            if (ov3Var != null) {
-                return ov3Var.b;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("cores", this.a);
-                jSONObject.put("is_biglittle", this.h);
-                if (this.h) {
-                    jSONObject.put("little_freq_min", c(this.j));
-                    jSONObject.put("little_freq_max", b(this.j));
-                    jSONObject.put("big_freq_min", c(this.i));
-                    jSONObject.put("big_freq_max", b(this.i));
-                    jSONObject.put("little_cores", this.b);
-                    jSONObject.put("big_cores", this.d);
-                    jSONObject.put("little_index", this.c);
-                    jSONObject.put("big_index", this.e);
-                    if (this.g != -1) {
-                        jSONObject.put("super_freq_min", c(this.k));
-                        jSONObject.put("super_freq_max", b(this.k));
-                        jSONObject.put("super_cores", this.f);
-                        jSONObject.put("super_index", this.g);
-                    }
-                } else {
-                    jSONObject.put("freq_min", c(this.l));
-                    jSONObject.put("freq_max", b(this.l));
-                }
-                return jSONObject.toString();
-            } catch (JSONException unused) {
-                return "";
-            }
-        }
-        return (String) invokeV.objValue;
     }
 }

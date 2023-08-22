@@ -1,35 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.growthFunnel.GrowthFunnelHelper;
-import com.baidu.tbadk.util.AppLaunchInfoFetcher;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.h75;
 /* loaded from: classes6.dex */
-public class l75 implements AppLaunchInfoFetcher.a {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface l75<T extends h75> {
+    void a(int i, boolean z, T t);
 
-    public l75() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.util.AppLaunchInfoFetcher.a
-    public void onFinish(wv5 wv5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, wv5Var) == null) && wv5Var != null) {
-            GrowthFunnelHelper.updateAppStartInfoByInfo(wv5Var.a, wv5Var.b);
-        }
-    }
+    void b(int i, T t, boolean z);
 }

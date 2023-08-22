@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface cn {
-    void cancelRefresh();
+public interface cn<T> {
+    int getCount();
 
-    zm getAdapter();
+    T getItem(int i);
 
-    int getFirstVisiblePosition();
-
-    int getLastVisiblePosition();
+    void notifyDataSetChanged();
 }

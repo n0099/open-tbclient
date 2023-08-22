@@ -1,103 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class b0a implements z97, x97 {
+public class b0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.x97
-    public String b() {
-        InterceptResult invokeV;
+    public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.z97
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c10731" : (String) invokeV.objValue;
-    }
-
-    public b0a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
         }
     }
 
-    @Override // com.baidu.tieba.z97
-    public Map<String, String> a(m57 businessInfo) {
-        InterceptResult invokeL;
+    public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            String str = businessInfo.a().get("weight");
-            String str2 = "";
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("obj_param1", str);
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, "1");
-            String str3 = businessInfo.a().get("source");
-            if (str3 == null) {
-                str3 = "";
-            }
-            hashMap.put("obj_source", str3);
-            String str4 = businessInfo.a().get("abtest_tag");
-            if (str4 == null) {
-                str4 = "";
-            }
-            hashMap.put("obj_name", str4);
-            String e = om6.e();
-            Intrinsics.checkNotNullExpressionValue(e, "getCurrentTimeStamp()");
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, e);
-            int i = 0;
-            if (JavaTypesHelper.toInt(businessInfo.a().get("is_live_card"), 0) != 0) {
-                i = 2;
-            } else if (JavaTypesHelper.toInt(businessInfo.a().get("is_video_card"), 0) != 0) {
-                i = 1;
-            }
-            if (i == 0) {
-                String str5 = businessInfo.a().get("pic_count");
-                if (str5 == null) {
-                    str5 = "0";
-                }
-                hashMap.put("obj_type", str5);
-            } else {
-                hashMap.put("obj_type", String.valueOf(i));
-            }
-            String str6 = businessInfo.a().get("abtest_tag");
-            if (str6 == null) {
-                str6 = "";
-            }
-            hashMap.put("ab_tag", str6);
-            String str7 = businessInfo.a().get("nid");
-            if (str7 != null) {
-                str2 = str7;
-            }
-            hashMap.put(TiebaStatic.Params.OBJ_PARAM4, str2);
-            return hashMap;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
         }
-        return (Map) invokeL.objValue;
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
+        }
+    }
+
+    public static void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
+        }
+    }
+
+    public static void e(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
+            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
+        }
+    }
+
+    public static Ringtone f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
+            ringtone.play();
+            return ringtone;
+        }
+        return (Ringtone) invokeV.objValue;
     }
 }

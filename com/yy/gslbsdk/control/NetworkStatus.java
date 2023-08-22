@@ -22,7 +22,7 @@ public class NetworkStatus {
     }
 
     public static NetworkStatus getInstanceClone() {
-        return getInstance().m842clone();
+        return getInstance().m844clone();
     }
 
     public boolean canV4() {
@@ -68,7 +68,7 @@ public class NetworkStatus {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public NetworkStatus m842clone() {
+    public NetworkStatus m844clone() {
         NetworkStatus networkStatus = new NetworkStatus();
         networkStatus.mEnableV6 = this.mEnableV6;
         networkStatus.mStatus = this.mStatus;

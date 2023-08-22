@@ -17,7 +17,7 @@ import java.util.HashSet;
 import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -69,7 +69,7 @@ public class a0 {
         return (Set) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:118:0x01e6, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:118:0x01e5, code lost:
         if (r1 != null) goto L131;
      */
     /*

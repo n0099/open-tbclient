@@ -14,32 +14,38 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.RobotMallConfig;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.MessageCenterActivityConfig;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.fl6;
-import com.baidu.tieba.h55;
-import com.baidu.tieba.ija;
+import com.baidu.tieba.b8c;
+import com.baidu.tieba.ex8;
+import com.baidu.tieba.g8c;
+import com.baidu.tieba.h8c;
 import com.baidu.tieba.immessagecenter.arch.view.BaseView;
 import com.baidu.tieba.immessagecenter.mention.MessageCenterActivity;
 import com.baidu.tieba.immessagecenter.msgtab.obs.MainTabChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.ui.frag.MsgCenterContainerFragment;
 import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgCenterContainerView;
-import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide;
-import com.baidu.tieba.jja;
-import com.baidu.tieba.m1c;
-import com.baidu.tieba.op8;
-import com.baidu.tieba.q1c;
-import com.baidu.tieba.r1c;
-import com.baidu.tieba.rb8;
-import com.baidu.tieba.rs8;
-import com.baidu.tieba.t5c;
-import com.baidu.tieba.y0c;
-import com.baidu.tieba.y5c;
+import com.baidu.tieba.jcc;
+import com.baidu.tieba.km6;
+import com.baidu.tieba.le8;
+import com.baidu.tieba.n55;
+import com.baidu.tieba.n7c;
+import com.baidu.tieba.occ;
+import com.baidu.tieba.ot8;
+import com.baidu.tieba.pw8;
+import com.baidu.tieba.rna;
+import com.baidu.tieba.sgb;
+import com.baidu.tieba.sna;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -50,23 +56,25 @@ import java.util.List;
 import kotlin.Metadata;
 import kotlin.Pair;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000y\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005*\u0001\u0010\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u001f\u001a\u00020 H\u0016J\b\u0010!\u001a\u00020 H\u0016J\b\u0010\"\u001a\u00020 H\u0016J\b\u0010#\u001a\u00020 H\u0016J\f\u0010$\u001a\b\u0012\u0004\u0012\u00020\u00190%J\u0012\u0010&\u001a\u00020'2\b\u0010(\u001a\u0004\u0018\u00010)H\u0016J&\u0010*\u001a\u0004\u0018\u00010+2\u0006\u0010,\u001a\u00020-2\b\u0010.\u001a\u0004\u0018\u00010/2\b\u0010(\u001a\u0004\u0018\u00010)H\u0017J\b\u00100\u001a\u00020'H\u0016J\b\u00101\u001a\u00020'H\u0016J\b\u00102\u001a\u00020'H\u0016J\b\u00103\u001a\u00020'H\u0016R\u0014\u0010\u0004\u001a\u00020\u0005X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R\u0014\u0010\b\u001a\u00020\u0005X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\u0007R\u0014\u0010\n\u001a\u00020\u0005X\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\u0007R\u0016\u0010\f\u001a\n \u000e*\u0004\u0018\u00010\r0\rX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u000f\u001a\u00020\u0010X\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0011R\u001d\u0010\u0012\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00150\u00140\u0013¢\u0006\b\n\u0000\u001a\u0004\b\u0016\u0010\u0017R2\u0010\u0018\u001a&\u0012\f\u0012\n \u000e*\u0004\u0018\u00010\u00190\u0019 \u000e*\u0012\u0012\f\u0012\n \u000e*\u0004\u0018\u00010\u00190\u0019\u0018\u00010\u00130\u0013X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001b\u001a\u0004\u0018\u00010\u001cX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001d\u001a\u0004\u0018\u00010\u001eX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00064"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/tracker/interfaces/ITraceable;", "()V", "SOURCE_FROM_BOTTOM_NAVIGATION", "", "getSOURCE_FROM_BOTTOM_NAVIGATION", "()I", "SOURCE_FROM_FRS", "getSOURCE_FROM_FRS", "SOURCE_FROM_PUSH_OTHER", "getSOURCE_FROM_PUSH_OTHER", "mBdUniqueId", "Lcom/baidu/adp/BdUniqueId;", "kotlin.jvm.PlatformType", "mChannelListChangedListener", "com/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment$mChannelListChangedListener$1", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment$mChannelListChangedListener$1;", "mDataChangedBs", "Lrx/subjects/BehaviorSubject;", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "getMDataChangedBs", "()Lrx/subjects/BehaviorSubject;", "mFragmentVisibleBs", "", "mHasCallInitMethod", "mRootView", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgCenterContainerView;", "mSubscription", "Lrx/subscriptions/CompositeSubscription;", "getCurrentPageKey", "", "getFrom", "getScene", "getTraceId", "getVisibleObs", "Lrx/Observable;", "onCreate", "", "savedInstanceState", "Landroid/os/Bundle;", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onPrimary", "onResume", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000w\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006*\u0001\u000f\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u001d\u001a\u00020\u001eH\u0016J\b\u0010\u001f\u001a\u00020\u001eH\u0016J\b\u0010 \u001a\u00020\u001eH\u0016J\b\u0010!\u001a\u00020\u001eH\u0016J\f\u0010\"\u001a\b\u0012\u0004\u0012\u00020\n0#J\u0012\u0010$\u001a\u00020%2\b\u0010&\u001a\u0004\u0018\u00010'H\u0016J&\u0010(\u001a\u0004\u0018\u00010)2\u0006\u0010*\u001a\u00020+2\b\u0010,\u001a\u0004\u0018\u00010-2\b\u0010&\u001a\u0004\u0018\u00010'H\u0017J\b\u0010.\u001a\u00020%H\u0016J\b\u0010/\u001a\u00020%H\u0016J\b\u00100\u001a\u00020%H\u0016J\b\u00101\u001a\u00020%H\u0016J\b\u00102\u001a\u00020%H\u0002R\u000e\u0010\u0004\u001a\u00020\u0005X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0006\u001a\u00020\u0005X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0005X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\b\u001a\u00020\u0005X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u000b\u001a\n \r*\u0004\u0018\u00010\f0\fX\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u000e\u001a\u00020\u000fX\u0082\u0004¢\u0006\u0004\n\u0002\u0010\u0010R\u001d\u0010\u0011\u001a\u000e\u0012\n\u0012\b\u0012\u0004\u0012\u00020\u00140\u00130\u0012¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0016R2\u0010\u0017\u001a&\u0012\f\u0012\n \r*\u0004\u0018\u00010\n0\n \r*\u0012\u0012\f\u0012\n \r*\u0004\u0018\u00010\n0\n\u0018\u00010\u00120\u0012X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0018\u001a\u00020\nX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u0019\u001a\u0004\u0018\u00010\u001aX\u0082\u000e¢\u0006\u0002\n\u0000R\u0010\u0010\u001b\u001a\u0004\u0018\u00010\u001cX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00063"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment;", "Lcom/baidu/tbadk/core/BaseFragment;", "Lcom/baidu/tieba/tracker/interfaces/ITraceable;", "()V", "ROBOT_MALL_EMTRANCE_EXPLORE", "", "SOURCE_FROM_BOTTOM_NAVIGATION", "SOURCE_FROM_FRS", "SOURCE_FROM_PUSH_OTHER", "isFirstEnter", "", "mBdUniqueId", "Lcom/baidu/adp/BdUniqueId;", "kotlin.jvm.PlatformType", "mChannelListChangedListener", "com/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment$mChannelListChangedListener$1", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/frag/MsgCenterContainerFragment$mChannelListChangedListener$1;", "mDataChangedBs", "Lrx/subjects/BehaviorSubject;", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "getMDataChangedBs", "()Lrx/subjects/BehaviorSubject;", "mFragmentVisibleBs", "mHasCallInitMethod", "mRootView", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgCenterContainerView;", "mSubscription", "Lrx/subscriptions/CompositeSubscription;", "getCurrentPageKey", "", "getFrom", "getScene", "getTraceId", "getVisibleObs", "Lrx/Observable;", "onCreate", "", "savedInstanceState", "Landroid/os/Bundle;", "onCreateView", "Landroid/view/View;", "inflater", "Landroid/view/LayoutInflater;", "container", "Landroid/view/ViewGroup;", MissionEvent.MESSAGE_DESTROY, MissionEvent.MESSAGE_PAUSE, "onPrimary", "onResume", "setRobotMallStatistic", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgCenterContainerFragment extends BaseFragment implements jja {
+public final class MsgCenterContainerFragment extends BaseFragment implements sna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MsgCenterContainerView a;
-    public y5c b;
-    public final t5c<List<op8>> c;
-    public final t5c<Boolean> d;
+    public occ b;
+    public final jcc<List<ot8>> c;
+    public final jcc<Boolean> d;
     public final BdUniqueId e;
-    public boolean f;
-    public final int g;
+    public final int f;
+    public boolean g;
     public final int h;
     public final int i;
-    public final a j;
+    public final int j;
+    public boolean k;
+    public final a l;
 
-    public static final Boolean Q1(Boolean bool) {
+    public static final Boolean c2(Boolean bool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeL = interceptable.invokeL(65543, null, bool)) == null) ? bool : (Boolean) invokeL.objValue;
@@ -76,14 +84,14 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "a079" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "a079" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jja
+    @Override // com.baidu.tieba.sna
     public String getScene() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "msgTab" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "msgTab" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
@@ -121,7 +129,7 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
                 Intrinsics.checkNotNullParameter(responsedMessage, "responsedMessage");
                 MsgCenterContainerView msgCenterContainerView = this.a.a;
                 if (msgCenterContainerView != null) {
-                    msgCenterContainerView.i0();
+                    msgCenterContainerView.h0();
                 }
             }
         }
@@ -140,51 +148,69 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
                 return;
             }
         }
-        t5c<List<op8>> Q = t5c.Q();
+        jcc<List<ot8>> Q = jcc.Q();
         Intrinsics.checkNotNullExpressionValue(Q, "create()");
         this.c = Q;
-        this.d = t5c.R(Boolean.FALSE);
+        this.d = jcc.R(Boolean.FALSE);
         this.e = BdUniqueId.gen();
-        this.g = 1;
-        this.h = 2;
-        this.i = 3;
-        this.j = new a(this);
+        this.f = 1;
+        this.h = 1;
+        this.i = 2;
+        this.j = 3;
+        this.k = true;
+        this.l = new a(this);
     }
 
-    public static final void P1(Pair pair) {
+    public final void e2() {
+        RobotMallConfig robotMallConfig;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, pair) == null) {
-            rs8 rs8Var = rs8.a;
-            Object second = pair.getSecond();
-            Intrinsics.checkNotNullExpressionValue(second, "it.second");
-            rs8Var.i((List) second);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (robotMallConfig = TbSingleton.getInstance().getRobotMallConfig()) != null && ex8.a() && !sgb.a(robotMallConfig.getAiChatEntranceImage()) && !sgb.a(robotMallConfig.getAiChatEntranceUrl())) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_ROBOT_MALL_ENTRANCE_EXPLORE_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", this.f));
         }
     }
 
-    public static final void L1(MsgCenterContainerFragment this$0, Integer num) {
+    public static final void b2(Pair pair) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, pair) == null) {
+            pw8 pw8Var = pw8.a;
+            Object second = pair.getSecond();
+            Intrinsics.checkNotNullExpressionValue(second, "it.second");
+            pw8Var.j((List) second);
+        }
+    }
+
+    public static final void X1(MsgCenterContainerFragment this$0, Integer num) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, this$0, num) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             if (num != null && num.intValue() == 3) {
                 MsgCenterContainerView msgCenterContainerView = this$0.a;
                 if (msgCenterContainerView != null) {
-                    msgCenterContainerView.h0();
+                    msgCenterContainerView.g0();
                 }
                 MsgCenterContainerView msgCenterContainerView2 = this$0.a;
                 if (msgCenterContainerView2 != null) {
-                    msgCenterContainerView2.k0();
+                    msgCenterContainerView2.j0();
+                }
+                if (this$0.k) {
+                    this$0.k = false;
+                    MsgCenterContainerView msgCenterContainerView3 = this$0.a;
+                    if (msgCenterContainerView3 != null) {
+                        msgCenterContainerView3.i0();
+                        return;
+                    }
                     return;
                 }
                 return;
             }
-            MsgCenterContainerView msgCenterContainerView3 = this$0.a;
-            if (msgCenterContainerView3 != null) {
-                msgCenterContainerView3.j0();
+            MsgCenterContainerView msgCenterContainerView4 = this$0.a;
+            if (msgCenterContainerView4 != null) {
+                msgCenterContainerView4.i0();
             }
         }
     }
 
-    public static final Pair M1(List list, Boolean bool) {
+    public static final Pair Y1(List list, Boolean bool) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, list, bool)) == null) {
@@ -193,7 +219,7 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
         return (Pair) invokeLL.objValue;
     }
 
-    public static final Boolean N1(Pair pair, Pair pair2) {
+    public static final Boolean Z1(Pair pair, Pair pair2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, pair, pair2)) == null) {
@@ -202,14 +228,14 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
         return (Boolean) invokeLL.objValue;
     }
 
-    public static final Boolean O1(Pair pair) {
+    public static final Boolean a2(Pair pair) {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, pair)) == null) {
             Object first = pair.getFirst();
             Intrinsics.checkNotNullExpressionValue(first, "it.first");
-            if (((Boolean) first).booleanValue() && !fl6.a((Collection) pair.getSecond())) {
+            if (((Boolean) first).booleanValue() && !km6.a((Collection) pair.getSecond())) {
                 z = true;
             } else {
                 z = false;
@@ -219,7 +245,7 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
         return (Boolean) invokeL.objValue;
     }
 
-    public static final void R1(MsgCenterContainerFragment this$0, Boolean bool) {
+    public static final void d2(MsgCenterContainerFragment this$0, Boolean bool) {
         Intent intent;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65544, null, this$0, bool) == null) {
@@ -231,43 +257,44 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
                     z = true;
                 }
                 if (!z) {
-                    rs8.a.h(this$0.i);
-                    return;
+                    pw8.a.i(this$0.j);
+                    this$0.e2();
                 }
             }
             if (this$0.getActivity() instanceof MessageCenterActivity) {
-                rs8.a.h(this$0.h);
+                pw8.a.i(this$0.i);
             } else {
-                rs8.a.h(this$0.g);
+                pw8.a.i(this$0.h);
             }
+            this$0.e2();
         }
     }
 
-    public final t5c<List<op8>> J1() {
+    public final jcc<List<ot8>> V1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (t5c) invokeV.objValue;
+        return (jcc) invokeV.objValue;
     }
 
-    public final y0c<Boolean> K1() {
+    public final n7c<Boolean> W1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            y0c<Boolean> g = this.d.a().g();
+            n7c<Boolean> g = this.d.a().g();
             Intrinsics.checkNotNullExpressionValue(g, "mFragmentVisibleBs.asObs…().distinctUntilChanged()");
             return g;
         }
-        return (y0c) invokeV.objValue;
+        return (n7c) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jja
+    @Override // com.baidu.tieba.sna
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             if (getActivity() instanceof MessageCenterActivity) {
                 return "frs";
             }
@@ -276,11 +303,11 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jja
+    @Override // com.baidu.tieba.sna
     public String getTraceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return String.valueOf(this.e.getId());
         }
         return (String) invokeV.objValue;
@@ -289,10 +316,10 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onPause();
             this.d.onNext(Boolean.FALSE);
-            YunDialogManager.onHidden(h55.l);
+            YunDialogManager.onHidden(n55.l);
         }
     }
 
@@ -301,113 +328,110 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
         Integer num;
         Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
             super.onCreate(bundle);
-            ija.c(this, getTraceId(), new Pair[0]);
-            BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
-            Intrinsics.checkNotNullExpressionValue(baseFragmentActivity, "baseFragmentActivity");
-            this.a = new MsgCenterContainerView(baseFragmentActivity, this, null, 4, null);
+            rna.c(this, getTraceId(), new Pair[0]);
             FragmentActivity activity = getActivity();
+            Long l = null;
             if (activity != null && (intent = activity.getIntent()) != null) {
                 num = Integer.valueOf(intent.getIntExtra(MessageCenterActivityConfig.SELECTED_TAB_ID, 0));
             } else {
                 num = null;
             }
-            if (num != null && num.intValue() == -2) {
-                MsgTabGuide.j.a();
-                TbSingleton.MsgUpgradeTips.markHasShown();
+            BaseFragmentActivity baseFragmentActivity = getBaseFragmentActivity();
+            Intrinsics.checkNotNullExpressionValue(baseFragmentActivity, "baseFragmentActivity");
+            if (num != null) {
+                l = Long.valueOf(num.intValue());
             }
-            BaseFragmentActivity baseFragmentActivity2 = getBaseFragmentActivity();
-            Intrinsics.checkNotNullExpressionValue(baseFragmentActivity2, "baseFragmentActivity");
-            this.a = new MsgCenterContainerView(baseFragmentActivity2, this, num);
-            MessageManager.getInstance().registerListener(this.j);
-            y5c y5cVar = new y5c();
-            this.b = y5cVar;
-            if (y5cVar != null) {
-                y5cVar.a(MainTabChangedMonitor.c.a().d().g().H(new m1c() { // from class: com.baidu.tieba.aq8
+            this.a = new MsgCenterContainerView(baseFragmentActivity, this, l);
+            MessageManager.getInstance().registerListener(this.l);
+            occ occVar = new occ();
+            this.b = occVar;
+            if (occVar != null) {
+                occVar.a(MainTabChangedMonitor.c.a().d().g().H(new b8c() { // from class: com.baidu.tieba.au8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.m1c
+                    @Override // com.baidu.tieba.b8c
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                            MsgCenterContainerFragment.L1(MsgCenterContainerFragment.this, (Integer) obj);
+                            MsgCenterContainerFragment.X1(MsgCenterContainerFragment.this, (Integer) obj);
                         }
                     }
                 }));
             }
-            y5c y5cVar2 = this.b;
-            if (y5cVar2 != null) {
-                y5cVar2.a(y0c.c(this.c, K1(), new r1c() { // from class: com.baidu.tieba.dq8
+            occ occVar2 = this.b;
+            if (occVar2 != null) {
+                occVar2.a(n7c.c(this.c, W1(), new h8c() { // from class: com.baidu.tieba.du8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.r1c
+                    @Override // com.baidu.tieba.h8c
                     public final Object call(Object obj, Object obj2) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? MsgCenterContainerFragment.M1((List) obj, (Boolean) obj2) : invokeLL.objValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? MsgCenterContainerFragment.Y1((List) obj, (Boolean) obj2) : invokeLL.objValue;
                     }
-                }).D(1).h(new r1c() { // from class: com.baidu.tieba.bq8
+                }).D(1).h(new h8c() { // from class: com.baidu.tieba.bu8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.r1c
+                    @Override // com.baidu.tieba.h8c
                     public final Object call(Object obj, Object obj2) {
                         InterceptResult invokeLL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? MsgCenterContainerFragment.N1((Pair) obj, (Pair) obj2) : invokeLL.objValue;
+                        return (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, obj, obj2)) == null) ? MsgCenterContainerFragment.Z1((Pair) obj, (Pair) obj2) : invokeLL.objValue;
                     }
-                }).k(new q1c() { // from class: com.baidu.tieba.fq8
+                }).k(new g8c() { // from class: com.baidu.tieba.fu8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.q1c
+                    @Override // com.baidu.tieba.g8c
                     public final Object call(Object obj) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
-                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? MsgCenterContainerFragment.O1((Pair) obj) : invokeL.objValue;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? MsgCenterContainerFragment.a2((Pair) obj) : invokeL.objValue;
                     }
-                }).w().H(new m1c() { // from class: com.baidu.tieba.iq8
+                }).w().H(new b8c() { // from class: com.baidu.tieba.iu8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.m1c
+                    @Override // com.baidu.tieba.b8c
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                            MsgCenterContainerFragment.P1((Pair) obj);
+                            MsgCenterContainerFragment.b2((Pair) obj);
                         }
                     }
                 }));
             }
-            y5c y5cVar3 = this.b;
-            if (y5cVar3 != null) {
-                y5cVar3.a(K1().k(new q1c() { // from class: com.baidu.tieba.vp8
+            occ occVar3 = this.b;
+            if (occVar3 != null) {
+                occVar3.a(W1().k(new g8c() { // from class: com.baidu.tieba.vt8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.q1c
+                    @Override // com.baidu.tieba.g8c
                     public final Object call(Object obj) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) {
                             Boolean bool = (Boolean) obj;
-                            MsgCenterContainerFragment.Q1(bool);
+                            MsgCenterContainerFragment.c2(bool);
                             return bool;
                         }
                         return invokeL.objValue;
                     }
-                }).x().H(new m1c() { // from class: com.baidu.tieba.eq8
+                }).x().H(new b8c() { // from class: com.baidu.tieba.eu8
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
-                    @Override // com.baidu.tieba.m1c
+                    @Override // com.baidu.tieba.b8c
                     public final void call(Object obj) {
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                            MsgCenterContainerFragment.R1(MsgCenterContainerFragment.this, (Boolean) obj);
+                            MsgCenterContainerFragment.d2(MsgCenterContainerFragment.this, (Boolean) obj);
                         }
                     }
                 }));
@@ -420,7 +444,7 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
     public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048583, this, inflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, inflater, viewGroup, bundle)) == null) {
             Intrinsics.checkNotNullParameter(inflater, "inflater");
             MsgCenterContainerView msgCenterContainerView = this.a;
             if (msgCenterContainerView != null) {
@@ -436,18 +460,18 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            MessageManager.getInstance().unRegisterListener(this.j);
-            rb8.l().c();
+            MessageManager.getInstance().unRegisterListener(this.l);
+            le8.l().c();
             this.a = null;
-            y5c y5cVar = this.b;
-            if (y5cVar != null) {
-                y5cVar.unsubscribe();
+            occ occVar = this.b;
+            if (occVar != null) {
+                occVar.unsubscribe();
             }
-            y5c y5cVar2 = this.b;
-            if (y5cVar2 != null) {
-                y5cVar2.c();
+            occ occVar2 = this.b;
+            if (occVar2 != null) {
+                occVar2.c();
             }
             this.b = null;
         }
@@ -456,18 +480,18 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPrimary();
             this.d.onNext(Boolean.valueOf(isPrimary()));
             if (isPrimary()) {
                 Context context = getContext();
                 if (context != null) {
-                    YunDialogManager.onShow(context, h55.l);
+                    YunDialogManager.onShow(context, n55.l);
                     return;
                 }
                 return;
             }
-            YunDialogManager.onHidden(h55.l);
+            YunDialogManager.onHidden(n55.l);
         }
     }
 
@@ -475,21 +499,21 @@ public final class MsgCenterContainerFragment extends BaseFragment implements jj
     public void onResume() {
         MsgCenterContainerView msgCenterContainerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             super.onResume();
             NotificationChangedMonitor.c.a().i();
-            if ((getActivity() instanceof MessageCenterActivity) && !this.f) {
-                this.f = true;
+            if ((getActivity() instanceof MessageCenterActivity) && !this.g) {
+                this.g = true;
                 MsgCenterContainerView msgCenterContainerView2 = this.a;
                 if (msgCenterContainerView2 != null) {
-                    msgCenterContainerView2.h0();
+                    msgCenterContainerView2.g0();
                 }
                 MsgCenterContainerView msgCenterContainerView3 = this.a;
                 if (msgCenterContainerView3 != null) {
-                    msgCenterContainerView3.k0();
+                    msgCenterContainerView3.j0();
                 }
             } else if ((isPrimary() || (getActivity() instanceof MessageCenterActivity)) && (msgCenterContainerView = this.a) != null) {
-                msgCenterContainerView.T();
+                msgCenterContainerView.S();
             }
             if (getActivity() instanceof MessageCenterActivity) {
                 this.d.onNext(Boolean.TRUE);

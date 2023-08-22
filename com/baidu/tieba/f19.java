@@ -1,27 +1,13 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.mainentrance.HotSearchInfoData;
-import tbclient.SearchSug.DataRes;
+import com.baidu.tieba.lego.card.model.ICardInfo;
 /* loaded from: classes5.dex */
 public interface f19 {
-    void a(String str, boolean z, int i);
+    void a(ICardInfo iCardInfo);
 
-    void b();
+    f19 b(String str, int i);
 
-    View c();
+    f19 c(String str, long j);
 
-    void d(HotSearchInfoData hotSearchInfoData);
-
-    View e();
-
-    void f(DataRes dataRes, String str);
-
-    void onChangeSkinType(int i);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
+    f19 d(String str, String str2);
 }

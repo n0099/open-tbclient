@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.http.HttpManager;
-import okhttp3.Callback;
-import okhttp3.Request;
-/* loaded from: classes6.dex */
+import java.io.File;
+/* loaded from: classes7.dex */
 public interface ls1 {
-    HttpManager a();
+    File a(String str, String str2);
 
-    void call(HttpManager httpManager, Request request, Callback callback);
+    File b();
+
+    String c();
 }

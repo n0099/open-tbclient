@@ -1,254 +1,245 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskManagerSharedPrefsUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
-import kotlin.Unit;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.LayoutFactory;
-import tbclient.Personalized.DataRes;
-import tbclient.Personalized.PageData;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public final class wz9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public String a;
+    public final List<xz9> b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948288019, "Lcom/baidu/tieba/wz9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948288019, "Lcom/baidu/tieba/wz9;");
+                return;
+            }
+        }
+        c = new a(null);
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof wz9) {
+                wz9 wz9Var = (wz9) obj;
+                return Intrinsics.areEqual(this.a, wz9Var.a) && Intrinsics.areEqual(this.b, wz9Var.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (this.a.hashCode() * 31) + this.b.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return "PushSceneGroupRecord(date=" + this.a + ", groups=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
 
     /* loaded from: classes8.dex */
-    public static final class a extends kw5<DataRes> {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wz9 a;
 
-        public a(wz9 wz9Var) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wz9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = wz9Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kw5
-        /* renamed from: a */
-        public DataRes doInBackground() {
-            InterceptResult invokeV;
-            byte[] bArr;
-            PageData pageData;
-            List<LayoutFactory> list;
+        public final List<xz9> a(JSONObject jSONObject) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                JSONArray optJSONArray = jSONObject.optJSONArray("groups");
+                if (optJSONArray == null) {
+                    return new ArrayList();
                 }
-                h67.a.b("tb.feed_home_reco_user_state", new g67("tb.feed_home_reco_user_state", currentAccount));
-                boolean z = true;
-                DataRes build = new DataRes.Builder().build(true);
-                Intrinsics.checkNotNullExpressionValue(build, "Builder().build(true)");
-                if (!this.a.b()) {
-                    return build;
-                }
-                ne<byte[]> d = l45.d("tb.reco_feed_space", TbadkCoreApplication.getCurrentAccount());
-                if (d != null && (bArr = d.get("0")) != null && bArr.length != 0) {
-                    try {
-                        DataRes res = (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                        if (res == null || (pageData = res.page_data) == null || (list = pageData.feed_list) == null || !(!list.isEmpty())) {
-                            z = false;
-                        }
-                        if (z) {
-                            Intrinsics.checkNotNullExpressionValue(res, "res");
-                            return res;
-                        }
-                        return build;
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return build;
+                ArrayList arrayList = new ArrayList();
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    xz9 a = xz9.c.a(optJSONArray.optJSONObject(i));
+                    if (a != null) {
+                        arrayList.add(a);
                     }
                 }
-                return build;
+                return arrayList;
             }
-            return (DataRes) invokeV.objValue;
+            return (List) invokeL.objValue;
         }
-    }
 
-    /* loaded from: classes8.dex */
-    public static final class b extends kw5<Unit> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
+        @JvmStatic
+        public final wz9 b(String str) {
+            InterceptResult invokeL;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                if (str != null && str.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
                 }
-            }
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (currentAccount == null) {
-                    currentAccount = "";
-                }
-                l45.b("tb.feed_home_reco_user_state", currentAccount);
-                h67.a.b("tb.feed_home_reco_user_state", new g67("tb.feed_home_reco_user_state", currentAccount));
-            }
-        }
-
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.kw5
-        public /* bridge */ /* synthetic */ Unit doInBackground() {
-            a();
-            return Unit.INSTANCE;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static final class c extends kw5<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DataRes.Builder a;
-
-        public c(DataRes.Builder builder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {builder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = builder;
-        }
-
-        @Override // com.baidu.tieba.kw5
-        public Object doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    l45.d("tb.reco_feed_space", TbadkCoreApplication.getCurrentAccount()).g("0", new DataRes.Builder(this.a.build(true)).build(true).toByteArray());
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
+                if (z) {
                     return null;
                 }
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString(GfhKeyValue.TYPE_DATE);
+                Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"date\")");
+                return new wz9(optString, a(jSONObject));
             }
-            return invokeV.objValue;
+            return (wz9) invokeL.objValue;
         }
     }
 
-    public wz9() {
+    public wz9(String date, List<xz9> groups) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {date, groups};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = SharedPrefHelper.getInstance().getLong("recommend_frs_cache_time", DiskManagerSharedPrefsUtils.DISK_CHECK_DURATION_DEFAULT) * 1000;
+        Intrinsics.checkNotNullParameter(date, "date");
+        Intrinsics.checkNotNullParameter(groups, "groups");
+        this.a = date;
+        this.b = groups;
     }
 
-    public final boolean b() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            long j = sharedPrefHelper.getLong("key_recommend_cache_update_time" + TbadkCoreApplication.getCurrentAccount(), 0L);
-            if (j > 0 && System.currentTimeMillis() - j > this.a) {
-                return false;
-            }
-            return true;
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final List<xz9> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Intrinsics.areEqual(this.a, di.getDateStringDay(new Date()));
         }
         return invokeV.booleanValue;
     }
 
-    public final void c(final vz9 recoFeedCacheListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recoFeedCacheListener) == null) {
-            Intrinsics.checkNotNullParameter(recoFeedCacheListener, "recoFeedCacheListener");
-            ow5.b(new a(this), new pv5() { // from class: com.baidu.tieba.tz9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.pv5
-                public final void onReturnDataInUI(Object obj) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
-                        wz9.d(vz9.this, (DataRes) obj);
-                    }
-                }
-            });
-        }
-    }
-
-    public final void g(DataRes.Builder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, builder) == null) {
-            Intrinsics.checkNotNullParameter(builder, "builder");
-            ow5.b(new c(builder), null);
-        }
-    }
-
-    public static final void d(vz9 recoFeedCacheListener, DataRes result) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, recoFeedCacheListener, result) == null) {
-            Intrinsics.checkNotNullParameter(recoFeedCacheListener, "$recoFeedCacheListener");
-            Intrinsics.checkNotNullExpressionValue(result, "result");
-            recoFeedCacheListener.a(result);
-        }
-    }
-
     public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ow5.b(new b(), null);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            String dateStringDay = di.getDateStringDay(new Date());
+            if (dateStringDay == null) {
+                dateStringDay = "";
+            }
+            this.a = dateStringDay;
+            this.b.clear();
         }
     }
 
-    public final void f() {
+    public final void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            sharedPrefHelper.putLong("key_recommend_cache_update_time" + TbadkCoreApplication.getCurrentAccount(), System.currentTimeMillis());
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            xz9 xz9Var = null;
+            for (xz9 xz9Var2 : this.b) {
+                if (xz9Var2.a() == i) {
+                    xz9Var = xz9Var2;
+                }
+            }
+            if (xz9Var == null) {
+                this.b.add(new xz9(i, 1));
+                return;
+            }
+            xz9Var.c(xz9Var.b() + 1);
         }
+    }
+
+    public final void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.a = str;
+        }
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            for (xz9 xz9Var : this.b) {
+                jSONArray.put(xz9Var.d());
+            }
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put(GfhKeyValue.TYPE_DATE, this.a);
+            jSONObject.put("groups", jSONArray);
+            String jSONObject2 = jSONObject.toString();
+            Intrinsics.checkNotNullExpressionValue(jSONObject2, "JSONObject().apply {\n   …ray)\n        }.toString()");
+            return jSONObject2;
+        }
+        return (String) invokeV.objValue;
     }
 }

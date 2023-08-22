@@ -1,162 +1,54 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.ImGroupChatLog;
-import com.baidu.tieba.ti8;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class si8 {
+/* loaded from: classes8.dex */
+public final class si8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ti8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a implements ti8.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ti8.a
-        public void a(@NonNull String str, @NonNull String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-                ImGroupChatLog.getInstance().i(str, str2);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948152487, "Lcom/baidu/tieba/si8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948152487, "Lcom/baidu/tieba/si8;");
-                return;
-            }
-        }
-        a = new ti8(new a());
-    }
-
-    public static void d() {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            a.b();
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            StatisticItem.make("c14880").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
         }
     }
 
-    public static void e() {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            a.c();
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StatisticItem.make("c14879").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
         }
     }
 
-    public static void a(@NonNull StringBuilder sb, long j, int i, @NonNull String str) {
+    public static void c(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{sb, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            sb.append("roomId");
-            sb.append("=");
-            sb.append(j);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_CODE);
-            sb.append("=");
-            sb.append(i);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_MSG);
-            sb.append("=");
-            sb.append(str);
-            sb.append(",");
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            qi8.a("私信链路耗时监控 Tb = " + j + "-x-" + currentTimeMillis);
+            TiebaStatic.log(new StatisticItem("c14673").param("obj_id", j).param("obj_param1", currentTimeMillis));
         }
     }
 
-    public static void b(@NonNull StringBuilder sb, long j, @NonNull Throwable th) {
+    public static void d(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{sb, Long.valueOf(j), th}) == null) {
-            sb.append("roomId");
-            sb.append("=");
-            sb.append(j);
-            sb.append(",");
-            sb.append("stackTrace");
-            sb.append("=");
-            sb.append(Log.getStackTraceString(th));
-            sb.append(",");
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            qi8.a("私信链路耗时监控 Tc = " + j + "-" + i + "-" + currentTimeMillis);
+            TiebaStatic.log(new StatisticItem("c14674").param("obj_id", j).param("obj_type", i).param("obj_param1", currentTimeMillis));
         }
     }
 
-    public static void c(@NonNull StringBuilder sb, boolean z) {
-        String str;
+    public static void e(long j, int i, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, sb, z) == null) {
-            if (z) {
-                str = "success";
-            } else {
-                str = "fail";
-            }
-            sb.append(str);
-            sb.append(",");
-        }
-    }
-
-    public static void f(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            a.a("enter_chat_room_user", sb.toString());
-        }
-    }
-
-    public static void g(@NonNull String str, long j, @NonNull Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Long.valueOf(j), th}) == null) {
-            StringBuilder sb = new StringBuilder();
-            b(sb, j, th);
-            a.a(str, sb.toString());
-        }
-    }
-
-    public static void h(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            a.a("exit_chat_room_user", sb.toString());
-        }
-    }
-
-    public static void i(boolean z, long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            c(sb, z);
-            a(sb, j, i, str);
-            a.a("get_chat_room_detail", sb.toString());
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)}) == null) {
+            long c = ti8.c(j);
+            qi8.a("私信链路耗时监控 Ta = " + c + "-" + i + "-" + j2);
+            TiebaStatic.log(new StatisticItem("c14672").param("obj_id", c).param("obj_type", i).param("obj_param1", j2));
         }
     }
 }

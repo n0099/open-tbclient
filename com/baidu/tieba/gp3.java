@@ -1,46 +1,72 @@
 package com.baidu.tieba;
 
-import android.util.Base64;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
+import java.util.Queue;
 /* loaded from: classes6.dex */
-public final class gp3 {
+public class gp3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
-    public static final String d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Queue<Runnable> a;
+    public Runnable b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947801567, "Lcom/baidu/tieba/gp3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947801567, "Lcom/baidu/tieba/gp3;");
+    public gp3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = a("b3Bwbw==");
-        b = a("T1BQTw==");
-        a("T3Bwbw==");
-        c = a("cm8uYnVpbGQudmVyc2lvbi5vcHBvcm9t");
-        d = a("Y29tLm9wcG8uZmVhdHVyZS5zY3JlZW4uaGV0ZXJvbW9ycGhpc20=");
+        this.a = new ArrayDeque();
+        this.b = null;
     }
 
-    public static String a(String str) {
+    public synchronized boolean a(Runnable runnable) {
         InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new String(Base64.decode(str, 0));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            synchronized (this) {
+                z = true;
+                if (runnable == null) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (!z2) {
+                    this.a.offer(runnable);
+                }
+                if (this.b == null && !this.a.isEmpty()) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                if (z3) {
+                    while (!this.a.isEmpty()) {
+                        Runnable poll = this.a.poll();
+                        this.b = poll;
+                        if (poll != null) {
+                            poll.run();
+                        }
+                        this.b = null;
+                    }
+                }
+                z = (z2 || !z3) ? false : false;
+            }
+            return z;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

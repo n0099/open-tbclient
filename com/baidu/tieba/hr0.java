@@ -1,34 +1,109 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.model.ParseError;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hr0 extends qr0 {
+public class hr0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
+    @JvmField
+    public int a;
+    @JvmField
+    public int b;
+    @JvmField
+    public Object c;
+    @JvmField
+    public br0 d;
+    @JvmField
+    public er0 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hr0(@NonNull gr0 gr0Var, @NonNull JSONObject jSONObject) throws ParseError {
-        super(gr0Var, jSONObject);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833187, "Lcom/baidu/tieba/hr0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947833187, "Lcom/baidu/tieba/hr0;");
+                return;
+            }
+        }
+        f = new a(null);
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final hr0 a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("popover");
+                if (optJSONObject == null) {
+                    optJSONObject = e31.c(jSONObject.optString("popover"));
+                }
+                if (optJSONObject == null) {
+                    return null;
+                }
+                hr0 hr0Var = new hr0();
+                hr0Var.a = optJSONObject.optInt("type");
+                hr0Var.b = optJSONObject.optInt("show_time");
+                optJSONObject.optInt("async_get_popover_data_switch");
+                optJSONObject.optInt("async_get_popover_data_delay_time");
+                optJSONObject.optString("popover_data_request_url");
+                optJSONObject.optJSONObject("popover_data_request_params");
+                return hr0Var;
+            }
+            return (hr0) invokeL.objValue;
+        }
+    }
+
+    public hr0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gr0Var, jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((gr0) objArr2[0], (JSONObject) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }

@@ -1,74 +1,116 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tbadk.core.util.PreLoadImageInfo;
+import com.baidu.tbadk.core.util.PreLoadImageProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes8.dex */
-public class tp9 extends lm<er9, CardViewHolder<is9>> {
+public class tp9 implements sp9, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public LikeModel b;
+    public String a;
+    public int b;
+    public int c;
+    public ArrayList<PreLoadImageInfo> d;
+    public String e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tp9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), er9.l);
+    @Override // com.baidu.tieba.sp9
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    public tp9(ExcContent excContent) {
+        Long l;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = new LikeModel(tbPageContext);
+        if (excContent != null && (l = excContent.type) != null && l.equals(3L)) {
+            this.d = new ArrayList<>(1);
+            this.a = excContent.src;
+            String str = excContent.bsize;
+            this.e = str;
+            if (str != null) {
+                try {
+                    String[] split = str.split(",");
+                    this.b = JavaTypesHelper.toInt(split[0], 0);
+                    this.c = JavaTypesHelper.toInt(split[1], 0);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            if (this.b <= 0) {
+                this.b = 1;
+            }
+            if (this.c <= 0) {
+                this.c = 1;
+            }
+            String str2 = excContent.cdn_src;
+            PreLoadImageInfo preLoadImageInfo = new PreLoadImageInfo();
+            preLoadImageInfo.procType = 17;
+            preLoadImageInfo.height = this.c;
+            preLoadImageInfo.width = this.b;
+            if (StringUtils.isNull(str2)) {
+                preLoadImageInfo.imgUrl = this.a;
+            } else {
+                preLoadImageInfo.imgUrl = str2;
+            }
+            this.d.add(preLoadImageInfo);
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: s */
-    public CardViewHolder<is9> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            is9 is9Var = new is9(this.a);
-            is9Var.z(this.b);
-            return new CardViewHolder<>(is9Var);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i <= 0) {
+                return 0;
+            }
+            return (i * this.c) / this.b;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeI.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, er9 er9Var, CardViewHolder<is9> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, er9Var, cardViewHolder})) == null) {
-            cardViewHolder.b().i(er9Var);
-            cardViewHolder.b().j(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (View) invokeCommon.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.util.PreLoadImageProvider
+    public ArrayList<PreLoadImageInfo> getImages() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (ArrayList) invokeV.objValue;
     }
 }

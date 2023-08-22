@@ -1,27 +1,34 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class w4a {
+public final class w4a extends y4a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile v4a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized v4a a() {
+    @Override // com.baidu.tieba.nb7
+    public String getKey() {
         InterceptResult invokeV;
-        v4a v4aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (w4a.class) {
-                if (a == null) {
-                    a = new v4a();
-                }
-                v4aVar = a;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? CommonStatisticKey.KEY_HOME_PAGE_YY_LIVE_AVATER_CLICK : (String) invokeV.objValue;
+    }
+
+    public w4a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return v4aVar;
         }
-        return (v4a) invokeV.objValue;
     }
 }

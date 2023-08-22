@@ -13,14 +13,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ci8;
-import com.baidu.tieba.gh8;
+import com.baidu.tieba.bm8;
+import com.baidu.tieba.fl8;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
-import com.baidu.tieba.lh8;
-import com.baidu.tieba.mn8;
-import com.baidu.tieba.oh8;
-import com.baidu.tieba.ug8;
-import com.baidu.tieba.zg8;
+import com.baidu.tieba.kl8;
+import com.baidu.tieba.lr8;
+import com.baidu.tieba.nl8;
+import com.baidu.tieba.tk8;
+import com.baidu.tieba.yk8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,18 +33,18 @@ import java.util.Map;
 public class ChatItemViewHolder extends BaseItemViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ci8 e;
+    public bm8 e;
     public String f;
-    public oh8 g;
-    public gh8 h;
-    public lh8 i;
-    public zg8 j;
+    public nl8 g;
+    public fl8 h;
+    public kl8 i;
+    public yk8 j;
     public View k;
-    public final mn8.a l;
+    public final lr8.a l;
     public final CustomMessageListener m;
 
     /* loaded from: classes6.dex */
-    public class a implements mn8.a {
+    public class a implements lr8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatItemViewHolder a;
@@ -67,14 +67,14 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
             this.a = chatItemViewHolder;
         }
 
-        @Override // com.baidu.tieba.mn8.a
+        @Override // com.baidu.tieba.lr8.a
         public void a(@Nullable CustomResponsedMessage<?> customResponsedMessage) {
-            ci8 ci8Var;
+            bm8 bm8Var;
             ChatRoomInfo chatRoomInfo;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921766 && (customResponsedMessage.getData() instanceof Map)) {
                 Map map = (Map) customResponsedMessage.getData();
-                if (!map.isEmpty() && (ci8Var = this.a.e) != null && ci8Var.a() != null && (chatRoomInfo = (ChatRoomInfo) map.get(Long.valueOf(this.a.e.a().getRoomId()))) != null) {
+                if (!map.isEmpty() && (bm8Var = this.a.e) != null && bm8Var.a() != null && (chatRoomInfo = (ChatRoomInfo) map.get(Long.valueOf(this.a.e.a().getRoomId()))) != null) {
                     this.a.e.c(chatRoomInfo);
                     ChatItemViewHolder chatItemViewHolder = this.a;
                     chatItemViewHolder.i.n(chatRoomInfo, chatItemViewHolder.e.b());
@@ -109,13 +109,13 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ChatItemViewHolder(@NonNull View view2, zg8 zg8Var, String str) {
+    public ChatItemViewHolder(@NonNull View view2, yk8 yk8Var, String str) {
         super(view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {view2, zg8Var, str};
+            Object[] objArr = {view2, yk8Var, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,17 +128,17 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
         }
         a aVar = new a(this);
         this.l = aVar;
-        this.m = new mn8(2921766, aVar);
-        this.j = zg8Var;
+        this.m = new lr8(2921766, aVar);
+        this.j = yk8Var;
         this.k = view2;
         this.f = str;
         if (str.equals("message_tab")) {
-            oh8 k = oh8.k(this.k);
+            nl8 k = nl8.k(this.k);
             this.g = k;
             k.j();
             return;
         }
-        gh8 k2 = gh8.k(this.k);
+        fl8 k2 = fl8.k(this.k);
         this.h = k2;
         k2.j();
     }
@@ -175,14 +175,14 @@ public class ChatItemViewHolder extends BaseItemViewHolder {
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
     @SuppressLint({"ResourceAsColor"})
-    public void e(@NonNull ug8 ug8Var, @NonNull TbPageContext tbPageContext, int i) {
+    public void e(@NonNull tk8 tk8Var, @NonNull TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ug8Var, tbPageContext, i) == null) && (ug8Var instanceof ci8)) {
-            this.e = (ci8) ug8Var;
+        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tk8Var, tbPageContext, i) == null) && (tk8Var instanceof bm8)) {
+            this.e = (bm8) tk8Var;
             if (this.f.equals("message_tab")) {
-                this.i = new lh8(this.a, this.e, this.g, this.f, this.j);
+                this.i = new kl8(this.a, this.e, this.g, this.f, this.j);
             } else {
-                this.i = new lh8(this.a, this.e, this.h, this.f, this.j);
+                this.i = new kl8(this.a, this.e, this.h, this.f, this.j);
             }
             this.i.m();
         }

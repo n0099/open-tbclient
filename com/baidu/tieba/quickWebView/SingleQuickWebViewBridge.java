@@ -5,10 +5,10 @@ import android.webkit.JsPromptResult;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.jw9;
-import com.baidu.tieba.kca;
-import com.baidu.tieba.ko;
+import com.baidu.tieba.no;
+import com.baidu.tieba.o0a;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
+import com.baidu.tieba.sga;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,22 +17,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONObject;
-@ko
+@no
 /* loaded from: classes7.dex */
 public class SingleQuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public jw9 mProxy;
+    public o0a mProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleQuickWebViewBridge(Context context, jw9 jw9Var) {
+    public SingleQuickWebViewBridge(Context context, o0a o0aVar) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, jw9Var};
+            Object[] objArr = {context, o0aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,10 +44,10 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
             }
         }
         this.REQUEST_BY_NATIVE = "requestByNative";
-        this.mProxy = jw9Var;
+        this.mProxy = o0aVar;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.gca
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.oga
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -71,11 +71,11 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         return invokeLLLL.booleanValue;
     }
 
-    public kca requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
+    public sga requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, jSONObject)) == null) {
-            kca kcaVar = new kca();
+            sga sgaVar = new sga();
             QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
             quickWebViewBridgeData.url = str;
             quickWebViewBridgeData.type = str2;
@@ -90,28 +90,28 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
                 quickWebViewBridgeData.data = hashMap;
             }
             quickWebViewBridgeData.begin = System.currentTimeMillis();
-            jw9 jw9Var = this.mProxy;
-            if (jw9Var != null) {
-                jw9Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
+            o0a o0aVar = this.mProxy;
+            if (o0aVar != null) {
+                o0aVar.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
-            kcaVar.x(str);
-            return kcaVar;
+            sgaVar.x(str);
+            return sgaVar;
         }
-        return (kca) invokeLLLL.objValue;
+        return (sga) invokeLLLL.objValue;
     }
 
-    public kca requestByNativeToH5(HashMap<String, String> hashMap) {
+    public sga requestByNativeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
-            kca kcaVar = new kca();
+            sga sgaVar = new sga();
             if (hashMap != null && hashMap.get("result") != null) {
-                kcaVar.o(hashMap.get("result"));
-                kcaVar.x(hashMap.get("NotificationKey"));
+                sgaVar.o(hashMap.get("result"));
+                sgaVar.x(hashMap.get("NotificationKey"));
             }
-            kcaVar.A(true);
-            return kcaVar;
+            sgaVar.A(true);
+            return sgaVar;
         }
-        return (kca) invokeL.objValue;
+        return (sga) invokeL.objValue;
     }
 }

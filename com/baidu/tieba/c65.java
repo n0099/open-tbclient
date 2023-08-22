@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
-import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tieba.de5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class c65 extends r55 {
+public final class c65 extends x55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,26 +33,59 @@ public class c65 extends r55 {
         }
     }
 
-    @Override // com.baidu.tieba.r55
-    public void a(@NonNull Context context, @NonNull j55 j55Var) {
+    public static final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, j55Var) == null) {
-            String a = j55Var.a("yun_dialogName");
-            String a2 = j55Var.a("yun_dialogUrl");
-            if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2)) {
-                b(context, a2, a);
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
         }
     }
 
-    public final void b(Context context, String str, String str2) {
+    @Override // com.baidu.tieba.x55
+    public void a(Context context, p55 data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-            bundle.putString(WebViewActivityConfig.TAG_WEB_DIALOG_NAME, str2);
-            bundle.putBoolean(WebViewActivityConfig.TAG_TRANSLUCENT_AUTO_CLOSE, true);
-            BrowserHelper.startWebActivity(context, "", str + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, false, true, true, bundle);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (currentActivity != null && (currentActivity instanceof TbPageContextSupport)) {
+                int i = 0;
+                LiveRemindRecommendData c = r85.a().c(0);
+                HashMap hashMap = new HashMap();
+                if (c.getRemindType() == 1) {
+                    i = 3;
+                } else if (c.getRemindType() == 2) {
+                    i = 4;
+                } else if (c.getRemindType() == 3) {
+                    i = 2;
+                }
+                hashMap.put("view_top_params_key_image_url", c.getLiveIconSrc());
+                hashMap.put("view_top_params_key_schema", c.getLiveIconScheme());
+                hashMap.put("view_top_params_user_name", c.getUserName());
+                hashMap.put("view_top_params_key_desc", c.getDesc());
+                hashMap.put("view_top_params_room_id", c.getRoomId());
+                hashMap.put("view_top_params_btn_text", c.getBtnText());
+                hashMap.put("view_top_params_key_title", c.getTitle());
+                hashMap.put("view_top_params_key_nid", c.getFeedId());
+                hashMap.put("view_top_params_key_yyext", c.getYyExtData());
+                hashMap.put("view_top_params_key_type", Integer.valueOf(i));
+                hashMap.put("view_top_params_is_breathe", Boolean.FALSE);
+                ee5.d(null, ((TbPageContextSupport) currentActivity).getPageContext(), hashMap, 0L, 4000L, new de5.h() { // from class: com.baidu.tieba.u55
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // com.baidu.tieba.de5.h
+                    public final void dismiss() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            c65.b();
+                        }
+                    }
+                });
+                s85.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
+                YunDialogManager.markShowingDialogName("homeLiveRemind");
+                return;
+            }
+            YunDialogManager.unMarkShowingDialogName("homeLiveRemind");
         }
     }
 }

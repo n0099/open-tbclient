@@ -47,24 +47,24 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
         public AddrPoiInfoViewHolder(@NonNull View view2) {
             super(view2);
             view2.setOnClickListener(this);
-            this.itemIc = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ff9);
-            this.nameTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ffb);
-            this.distanceTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff8);
-            this.addressTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ff6);
-            this.checkedIc = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ff7);
-            this.bottomLine = view2.findViewById(R.id.obfuscated_res_0x7f091ffa);
+            this.itemIc = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09201f);
+            this.nameTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092021);
+            this.distanceTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09201e);
+            this.addressTv = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09201c);
+            this.checkedIc = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09201d);
+            this.bottomLine = view2.findViewById(R.id.obfuscated_res_0x7f092020);
             Resources resources = view2.getContext().getResources();
             if (MapLocAddrAdapter.this.isDarkMode) {
-                view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609cb));
-                this.nameTv.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a16));
-                this.distanceTv.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a49));
-                this.addressTv.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a49));
-                this.bottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060a53));
-                this.checkedIc.setImageResource(R.drawable.obfuscated_res_0x7f0812b0);
-                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08131a);
+                view2.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f0609d1));
+                this.nameTv.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a1c));
+                this.distanceTv.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a4f));
+                this.addressTv.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060a4f));
+                this.bottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060a59));
+                this.checkedIc.setImageResource(R.drawable.obfuscated_res_0x7f0812c6);
+                view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08132f);
                 return;
             }
-            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081319);
+            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08132e);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -81,16 +81,16 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
             if (z) {
                 this.checkedIc.setVisibility(0);
                 if (MapLocAddrAdapter.this.isDarkMode) {
-                    this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f0812b2);
+                    this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f0812c8);
                 } else {
-                    this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f0812b3);
+                    this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f0812c9);
                 }
             } else {
                 this.itemView.setBackgroundColor(0);
                 if (MapLocAddrAdapter.this.isDarkMode) {
-                    this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f0812b4);
+                    this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f0812ca);
                 } else {
-                    this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f0812b5);
+                    this.itemIc.setImageResource(R.drawable.obfuscated_res_0x7f0812cb);
                 }
                 this.checkedIc.setVisibility(8);
             }
@@ -101,9 +101,9 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(optString);
                     Resources resources = this.nameTv.getContext().getResources();
                     if (MapLocAddrAdapter.this.isDarkMode) {
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(resources.getColor(R.color.obfuscated_res_0x7f060a1d)), indexOf, MapLocAddrAdapter.this.queryContent.length() + indexOf, 33);
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(resources.getColor(R.color.obfuscated_res_0x7f060a23)), indexOf, MapLocAddrAdapter.this.queryContent.length() + indexOf, 33);
                     } else {
-                        spannableStringBuilder.setSpan(new ForegroundColorSpan(resources.getColor(R.color.obfuscated_res_0x7f060a1c)), indexOf, MapLocAddrAdapter.this.queryContent.length() + indexOf, 33);
+                        spannableStringBuilder.setSpan(new ForegroundColorSpan(resources.getColor(R.color.obfuscated_res_0x7f060a22)), indexOf, MapLocAddrAdapter.this.queryContent.length() + indexOf, 33);
                     }
                     this.nameTv.setText(spannableStringBuilder);
                 } else {
@@ -221,11 +221,11 @@ public class MapLocAddrAdapter extends BaseRecyclerViewAdapter {
     @NonNull
     public BaseRecyclerViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         if (i == 0) {
-            return new HeaderViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0561, viewGroup, false));
+            return new HeaderViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0568, viewGroup, false));
         }
         if (i == 1) {
-            return new AddrPoiInfoViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0579, viewGroup, false));
+            return new AddrPoiInfoViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0580, viewGroup, false));
         }
-        return new CommonFootViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d057a, viewGroup, false), this.isDarkMode);
+        return new CommonFootViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0581, viewGroup, false), this.isDarkMode);
     }
 }

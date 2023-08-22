@@ -11,8 +11,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.fja;
-import com.baidu.tieba.jja;
+import com.baidu.tieba.ona;
+import com.baidu.tieba.sna;
 import com.baidu.tieba.tracker.core.data.AbsEventNode;
 import com.baidu.tieba.tracker.core.data.ErrCode;
 import com.baidu.tieba.tracker.core.data.TraceEventNode;
@@ -30,7 +30,7 @@ import kotlin.TuplesKt;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000<\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u0011\n\u0002\u0018\u0002\n\u0002\b\u0003\b&\u0018\u0000*\n\b\u0000\u0010\u0001 \u0000*\u00020\u00022\b\u0012\u0004\u0012\u0002H\u00010\u0003:\u0001\u0015B\u0005¢\u0006\u0002\u0010\u0004J\u0015\u0010\u0005\u001a\u00020\u00062\u0006\u0010\u0007\u001a\u00028\u0000H\u0017¢\u0006\u0002\u0010\bJ\u0017\u0010\t\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0007\u001a\u00028\u0000H$¢\u0006\u0002\u0010\u000bJ\u0015\u0010\f\u001a\u00020\r2\u0006\u0010\u0007\u001a\u00028\u0000H$¢\u0006\u0002\u0010\u000eJ9\u0010\u000f\u001a\u00020\u00102*\u0010\u0011\u001a\u0016\u0012\u0012\b\u0001\u0012\u000e\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020\r0\u00130\u0012\"\u000e\u0012\u0004\u0012\u00020\r\u0012\u0004\u0012\u00020\r0\u0013H$¢\u0006\u0002\u0010\u0014¨\u0006\u0016"}, d2 = {"Lcom/baidu/tieba/tracker/core/monitors/PageTraceMonitor;", "R", "Lcom/baidu/tieba/tracker/interfaces/ITraceable;", "Lcom/baidu/tieba/tracker/core/monitors/TraceMonitor;", "()V", "createTrackNode", "Lcom/baidu/tieba/tracker/core/data/AbsEventNode;", "thisRef", "(Lcom/baidu/tieba/tracker/interfaces/ITraceable;)Lcom/baidu/tieba/tracker/core/data/AbsEventNode;", "getLifecycle", "Landroidx/lifecycle/Lifecycle;", "(Lcom/baidu/tieba/tracker/interfaces/ITraceable;)Landroidx/lifecycle/Lifecycle;", "getParentPage", "", "(Lcom/baidu/tieba/tracker/interfaces/ITraceable;)Ljava/lang/String;", GameAssistConstKt.TYPE_CALLBACK_ERROR, "", "params", "", "Lkotlin/Pair;", "([Lkotlin/Pair;)V", "RecycleLifecycleObserver", "tracker"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes8.dex */
-public abstract class PageTraceMonitor<R extends jja> extends fja<R> {
+public abstract class PageTraceMonitor<R extends sna> extends ona<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -98,7 +98,7 @@ public abstract class PageTraceMonitor<R extends jja> extends fja<R> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, owner) == null) {
                 Intrinsics.checkNotNullParameter(owner, "owner");
-                b.post(new Runnable() { // from class: com.baidu.tieba.dja
+                b.post(new Runnable() { // from class: com.baidu.tieba.mna
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -128,7 +128,7 @@ public abstract class PageTraceMonitor<R extends jja> extends fja<R> {
         }
     }
 
-    @Override // com.baidu.tieba.fja
+    @Override // com.baidu.tieba.ona
     @MainThread
     public AbsEventNode a(R thisRef) {
         InterceptResult invokeL;

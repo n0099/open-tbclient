@@ -1,179 +1,380 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
+import com.baidu.turbonet.net.ExperimentalUrlRequest;
+import com.baidu.turbonet.net.RequestFinishedInfo;
+import com.baidu.turbonet.net.UploadDataProvider;
+import com.baidu.turbonet.net.UrlRequest;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public class q7b {
-    public static /* synthetic */ Interceptable $ic;
+public class q7b extends ExperimentalUrlRequest.Builder {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String B = "q7b";
     public transient /* synthetic */ FieldHolder $fh;
+    public String A;
+    public final s6b a;
+    public final String b;
+    public final UrlRequest.Callback c;
+    public final Executor d;
+    public String e;
+    public final ArrayList<Pair<String, String>> f;
+    public boolean g;
+    public boolean h;
+    public int i;
+    public Collection<Object> j;
+    public UploadDataProvider k;
+    public Executor l;
+    public boolean m;
+    public boolean n;
+    public int o;
+    public boolean p;
+    public int q;
+    public RequestFinishedInfo.Listener r;
+    public int s;
+    public boolean t;
+    public int u;
+    public int v;
+    public int w;
+    public int x;
+    public Object y;
+    public String z;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final int b;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948046157, "Lcom/baidu/tieba/q7b;")) == null) {
+            return;
         }
-
-        public int a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948046157, "Lcom/baidu/tieba/q7b;");
         }
     }
 
-    public static int[] a(float f, int i) {
-        InterceptResult invokeCommon;
+    public q7b(String str, UrlRequest.Callback callback, Executor executor, s6b s6bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            int[] iArr = new int[2];
-            if (f > 1.0f) {
-                iArr[0] = i;
-                iArr[1] = (int) (i * f);
-                int i2 = iArr[1] % 16;
-                if (i2 > 8) {
-                    iArr[1] = iArr[1] + (16 - i2);
-                } else {
-                    iArr[1] = iArr[1] - i2;
-                }
-            } else {
-                iArr[1] = i;
-                iArr[0] = (int) (i * (1.0f / f));
-                int i3 = iArr[0] % 16;
-                if (i3 > 8) {
-                    iArr[0] = iArr[0] + (16 - i3);
-                } else {
-                    iArr[0] = iArr[0] - i3;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, callback, executor, s6bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return iArr;
         }
-        return (int[]) invokeCommon.objValue;
+        this.f = new ArrayList<>();
+        this.i = 3;
+        this.s = 0;
+        if (str != null) {
+            if (callback != null) {
+                if (executor != null) {
+                    if (s6bVar != null) {
+                        this.b = str;
+                        this.c = callback;
+                        this.d = executor;
+                        this.a = s6bVar;
+                        this.t = false;
+                        this.u = 0;
+                        this.v = 0;
+                        this.w = 0;
+                        this.x = 0;
+                        this.y = null;
+                        this.z = null;
+                        this.A = null;
+                        return;
+                    }
+                    throw new NullPointerException("TurbonetEngine is required.");
+                }
+                throw new NullPointerException("Executor is required.");
+            }
+            throw new NullPointerException("Callback is required.");
+        }
+        throw new NullPointerException("URL is required.");
     }
 
-    public static int[] b(float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder a(String str, String str2) {
+        n(str, str2);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder m(UploadDataProvider uploadDataProvider, Executor executor) {
+        y(uploadDataProvider, executor);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder c() {
+        p();
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder d() {
+        q();
+        return this;
+    }
+
+    public q7b p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            int[] iArr = new int[2];
-            if (i > i2) {
-                int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
-                if (i3 == 0) {
-                    iArr[0] = c(i);
-                    iArr[1] = c(i);
-                    return iArr;
-                }
-                if (i3 > 0) {
-                    iArr[1] = i;
-                    iArr[0] = (int) (i * (1.0f / f));
-                } else {
-                    iArr[1] = i2;
-                    iArr[0] = (int) (i2 * (1.0f / f));
-                }
-                iArr[0] = c(iArr[0]);
-            } else {
-                int i4 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
-                if (i4 == 0) {
-                    iArr[0] = c(i2);
-                    iArr[1] = c(i2);
-                    return iArr;
-                }
-                if (i4 > 0) {
-                    iArr[0] = i;
-                    iArr[1] = (int) (i * f);
-                } else {
-                    iArr[0] = i2;
-                    iArr[1] = (int) (i2 * f);
-                }
-                iArr[1] = c(iArr[1]);
-            }
-            return iArr;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            this.g = true;
+            return this;
         }
-        return (int[]) invokeCommon.objValue;
+        return (q7b) invokeV.objValue;
     }
 
-    public static int c(int i) {
+    public q7b q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            this.t = true;
+            return this;
+        }
+        return (q7b) invokeV.objValue;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder e(String str) {
+        r(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public ExperimentalUrlRequest.Builder f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (str != null) {
+                this.e = str;
+                return this;
+            }
+            throw new NullPointerException("Method is required.");
+        }
+        return (ExperimentalUrlRequest.Builder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder g(String str) {
+        s(str);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder h(int i) {
+        t(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder i(int i) {
+        u(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder j(int i) {
+        v(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder k(int i) {
+        w(i);
+        return this;
+    }
+
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    public /* bridge */ /* synthetic */ ExperimentalUrlRequest.Builder l(int i) {
+        x(i);
+        return this;
+    }
+
+    public q7b r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, str)) == null) {
+            this.z = str;
+            return this;
+        }
+        return (q7b) invokeL.objValue;
+    }
+
+    public q7b s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            this.A = str;
+            return this;
+        }
+        return (q7b) invokeL.objValue;
+    }
+
+    public q7b t(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            int i2 = i % 16;
-            return i2 > 8 ? i + (16 - i2) : i - i2;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            this.w = i;
+            return this;
         }
-        return invokeI.intValue;
+        return (q7b) invokeI.objValue;
     }
 
-    public static a d(int i, int i2) {
-        InterceptResult invokeII;
+    public q7b u(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
-            if (i > 1920 || i2 > 1920) {
-                int[] a2 = a(i2 / i, RecordConstants.VIDEO_CONSTANT_WIDTH);
-                return new a(a2[0], a2[1]);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+            this.v = i;
+            return this;
+        }
+        return (q7b) invokeI.objValue;
+    }
+
+    public q7b v(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            this.u = i;
+            return this;
+        }
+        return (q7b) invokeI.objValue;
+    }
+
+    public q7b w(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            this.n = true;
+            this.o = i;
+            return this;
+        }
+        return (q7b) invokeI.objValue;
+    }
+
+    public q7b x(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048599, this, i)) == null) {
+            this.p = true;
+            this.q = i;
+            return this;
+        }
+        return (q7b) invokeI.objValue;
+    }
+
+    public q7b n(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, str, str2)) == null) {
+            if (str != null) {
+                if (str2 != null) {
+                    if ("Accept-Encoding".equalsIgnoreCase(str)) {
+                        Log.w(B, "It's not necessary to set Accept-Encoding on requests - cronet will do this automatically for you, and setting it yourself has no effect. See https://crbug.com/581399 for details.", new Exception());
+                        return this;
+                    }
+                    this.f.add(Pair.create(str, str2));
+                    return this;
+                }
+                throw new NullPointerException("Invalid header value.");
             }
-            return new a(i, i2);
+            throw new NullPointerException("Invalid header name.");
         }
-        return (a) invokeII.objValue;
+        return (q7b) invokeLL.objValue;
     }
 
-    public static a e(float f, int i) {
-        InterceptResult invokeCommon;
+    public q7b y(UploadDataProvider uploadDataProvider, Executor executor) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
-            if (f <= 0.0f) {
-                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, uploadDataProvider, executor)) == null) {
+            if (uploadDataProvider != null) {
+                if (executor != null) {
+                    if (this.e == null) {
+                        this.e = "POST";
+                    }
+                    this.k = uploadDataProvider;
+                    this.l = executor;
+                    return this;
+                }
+                throw new NullPointerException("Invalid UploadDataProvider Executor.");
             }
-            int[] a2 = a(f, i);
-            return new a(a2[0], a2[1]);
+            throw new NullPointerException("Invalid UploadDataProvider.");
         }
-        return (a) invokeCommon.objValue;
+        return (q7b) invokeLL.objValue;
     }
 
-    public static a f(float f, int i, int i2) {
-        InterceptResult invokeCommon;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.turbonet.net.ExperimentalUrlRequest.Builder
+    /* renamed from: o */
+    public p7b b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (f <= 0.0f) {
-                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            p7b g = this.a.g(this.b, this.c, this.d, this.i, this.j, this.g, this.h, this.m, this.n, this.o, this.p, this.q, this.r, this.s);
+            String str = this.e;
+            if (str != null) {
+                g.p(str);
             }
-            int[] b = b(f, i, i2);
-            return new a(b[0], b[1]);
+            Iterator<Pair<String, String>> it = this.f.iterator();
+            while (it.hasNext()) {
+                Pair<String, String> next = it.next();
+                g.n((String) next.first, (String) next.second);
+            }
+            UploadDataProvider uploadDataProvider = this.k;
+            if (uploadDataProvider != null) {
+                g.q(uploadDataProvider, this.l);
+            }
+            if (this.t) {
+                g.b();
+            }
+            int i = this.u;
+            if (i > 0) {
+                g.l(i);
+            }
+            int i2 = this.v;
+            if (i2 > 0) {
+                g.j(i2);
+            }
+            int i3 = this.w;
+            if (i3 > 0) {
+                g.i(i3);
+            }
+            int i4 = this.x;
+            if (i4 > 0) {
+                g.h(i4);
+            }
+            Object obj = this.y;
+            if (obj != null) {
+                g.k(obj);
+            }
+            if (!TextUtils.isEmpty(this.z)) {
+                g.f(this.z);
+            }
+            if (!TextUtils.isEmpty(this.A)) {
+                g.g(this.A);
+            }
+            return g;
         }
-        return (a) invokeCommon.objValue;
-    }
-
-    public static boolean g(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i > 1920 || i2 > 1920 : invokeII.booleanValue;
+        return (p7b) invokeV.objValue;
     }
 }

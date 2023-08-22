@@ -89,10 +89,10 @@ public class GamePlayServiceView extends RelativeLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d07fa, (ViewGroup) this, true);
-            this.b = findViewById(R.id.obfuscated_res_0x7f0915f8);
-            findViewById(R.id.obfuscated_res_0x7f091612).setOnClickListener(this.d);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09270b);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0800, (ViewGroup) this, true);
+            this.b = findViewById(R.id.obfuscated_res_0x7f09160f);
+            findViewById(R.id.obfuscated_res_0x7f091629).setOnClickListener(this.d);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09273c);
             d();
         }
     }

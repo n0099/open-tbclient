@@ -1,155 +1,78 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import tbclient.ForumToolPerm;
 /* loaded from: classes6.dex */
 public class gf7 {
     public static /* synthetic */ Interceptable $ic;
-    public static UserData a;
-    public static boolean b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<om> a;
+    public BdTypeListView b;
+    public cf7 c;
+    public ef7 d;
 
-    public static UserData a() {
+    public gf7(BaseActivity<?> baseActivity, BdTypeListView bdTypeListView) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        this.b = bdTypeListView;
+        arrayList.add(new ye7(baseActivity.getPageContext(), ze7.d));
+        this.a.add(new af7(baseActivity.getPageContext(), bf7.c));
+        this.a.add(new xe7(baseActivity.getPageContext(), bh7.c));
+        this.a.add(new oe7(baseActivity.getPageContext(), pe7.b));
+        this.a.add(new qe7(baseActivity.getPageContext(), re7.g));
+        this.a.add(new se7(baseActivity.getPageContext()));
+        cf7 cf7Var = new cf7(baseActivity.getPageContext(), df7.e);
+        this.c = cf7Var;
+        this.a.add(cf7Var);
+        ef7 ef7Var = new ef7(baseActivity.getPageContext(), ff7.d);
+        this.d = ef7Var;
+        this.a.add(ef7Var);
+    }
+
+    public List<om> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (UserData) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public void b() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            UserData a2 = a();
-            if (a2 == null || a2.getIs_manager() != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            UserData a2 = a();
-            if (a2 == null || a2.getIs_manager() != 3) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static UserData b(FrsViewData frsViewData) {
-        InterceptResult invokeL;
-        UserData userData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, frsViewData)) == null) {
-            if (frsViewData != null) {
-                userData = frsViewData.getUserData();
-            } else {
-                userData = null;
-            }
-            a = userData;
-            return userData;
-        }
-        return (UserData) invokeL.objValue;
-    }
-
-    public static boolean d(UserData userData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, userData)) == null) {
-            if (userData == null) {
-                return false;
-            }
-            int is_manager = userData.getIs_manager();
-            if (is_manager != 1 && is_manager != 2 && is_manager != 3 && is_manager != 4) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        List<ForumToolPerm> forumToolAuth;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            UserData a2 = a();
-            if (a2 != null && (forumToolAuth = a2.getForumToolAuth()) != null) {
-                for (int i = 0; i < forumToolAuth.size(); i++) {
-                    ForumToolPerm forumToolPerm = forumToolAuth.get(i);
-                    if (forumToolPerm != null && forumToolPerm.perm.longValue() == 1) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void i(ww wwVar, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65544, null, wwVar, frsViewData) != null) || wwVar == null) {
-            return;
-        }
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            b = frsViewData.getForum().isFrsMask();
-            c = frsViewData.getForum().getId();
-        }
-        if (frsViewData != null && (d(b(frsViewData)) || h())) {
-            wwVar.f(4);
-        } else {
-            wwVar.g(4);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bdTypeListView = this.b) != null && (bdTypeListView.getAdapter2() instanceof sm)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
     }
 
-    public static void j(ThreadCommentAndPraiseInfoLayout threadCommentAndPraiseInfoLayout, FrsViewData frsViewData) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65545, null, threadCommentAndPraiseInfoLayout, frsViewData) != null) || threadCommentAndPraiseInfoLayout == null) {
-            return;
-        }
-        if (frsViewData != null && frsViewData.getForum() != null) {
-            b = frsViewData.getForum().isFrsMask();
-            c = frsViewData.getForum().getId();
-        }
-        if (frsViewData != null && d(b(frsViewData))) {
-            threadCommentAndPraiseInfoLayout.setManageVisible(true);
-        } else {
-            threadCommentAndPraiseInfoLayout.setManageVisible(false);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.onDestroy();
+            this.d.onDestroy();
         }
     }
 }

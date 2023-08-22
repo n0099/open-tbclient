@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.bv9;
-import com.baidu.tieba.wu9;
-import com.baidu.tieba.yu9;
+import com.baidu.tieba.bz9;
+import com.baidu.tieba.dz9;
+import com.baidu.tieba.gz9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PostSearchActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public bv9 a;
-    public yu9 b;
+    public gz9 a;
+    public dz9 b;
     public String c;
     public String d;
     public String e;
@@ -95,43 +95,43 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            bv9 bv9Var = this.a;
-            if (bv9Var != null) {
-                bv9Var.h();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            gz9 gz9Var = this.a;
+            if (gz9Var != null) {
+                gz9Var.h();
             }
             super.onDestroy();
         }
     }
 
-    public yu9 t1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (yu9) invokeV.objValue;
-    }
-
-    public bv9 u1() {
+    public dz9 s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
+        }
+        return (dz9) invokeV.objValue;
+    }
+
+    public gz9 u1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.a;
         }
-        return (bv9) invokeV.objValue;
+        return (gz9) invokeV.objValue;
     }
 
     public void v1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.a.d();
         }
     }
 
     public final void w1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             Intent intent = getIntent();
             if (intent != null) {
                 this.d = intent.getStringExtra("forum_name");
@@ -144,29 +144,43 @@ public class PostSearchActivity extends BaseFragmentActivity {
     public boolean x1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.a.f();
         }
         return invokeV.booleanValue;
     }
 
-    public void y1() {
+    public void z1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.a.i(this.b.j);
         }
     }
 
-    public void A1(String str) {
+    public void A1(int i, bz9 bz9Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.k(str);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), bz9Var, Boolean.valueOf(z)}) == null) {
+            if (i == 1 && (bz9Var == null || !bz9Var.a())) {
+                this.a.c();
+                this.a.n();
+                return;
+            }
+            this.a.c();
+            this.a.b();
+            this.a.j(i, bz9Var, z);
         }
     }
 
     public void B1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a.k(str);
+        }
+    }
+
+    public void C1(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.c = str;
             this.a.o(1);
             this.b.q();
@@ -177,7 +191,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.a.g(i);
         }
     }
@@ -185,21 +199,21 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onCreate(bundle);
-            bv9 bv9Var = new bv9(this);
-            this.a = bv9Var;
-            bv9Var.e();
+            gz9 gz9Var = new gz9(this);
+            this.a = gz9Var;
+            gz9Var.e();
             this.a.l(this.f);
             addGlobalLayoutListener();
-            this.b = new yu9(this);
+            this.b = new dz9(this);
             w1();
         }
     }
 
     public final void D1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             int i2 = 2;
             if (i != 0) {
                 if (i != 1) {
@@ -217,20 +231,6 @@ public class PostSearchActivity extends BaseFragmentActivity {
                 param.param("tab_id", i2);
             }
             TiebaStatic.log(param);
-        }
-    }
-
-    public void z1(int i, wu9 wu9Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), wu9Var, Boolean.valueOf(z)}) == null) {
-            if (i == 1 && (wu9Var == null || !wu9Var.a())) {
-                this.a.c();
-                this.a.n();
-                return;
-            }
-            this.a.c();
-            this.a.b();
-            this.a.j(i, wu9Var, z);
         }
     }
 }

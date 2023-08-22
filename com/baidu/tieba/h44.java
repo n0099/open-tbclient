@@ -1,44 +1,77 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes6.dex */
 public class h44 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile h44 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<j44> a;
 
-    public static JSONObject a(boolean z) {
-        InterceptResult invokeZ;
+    public h44() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65536, null, z)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("isEnded", z);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeZ.objValue;
+        this.a = new CopyOnWriteArrayList();
     }
 
-    public static JSONObject b(String str) {
-        InterceptResult invokeL;
+    public static h44 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, "fail");
-                jSONObject.put("errDes", l04.a(str));
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (h44.class) {
+                    if (b == null) {
+                        b = new h44();
+                    }
+                }
             }
-            return jSONObject;
+            return b;
         }
-        return (JSONObject) invokeL.objValue;
+        return (h44) invokeV.objValue;
+    }
+
+    public void a(j44 j44Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, j44Var) == null) && j44Var != null && !this.a.contains(j44Var)) {
+            this.a.add(j44Var);
+        }
+    }
+
+    public void d(j44 j44Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, j44Var) == null) && this.a.contains(j44Var)) {
+            this.a.remove(j44Var);
+        }
+    }
+
+    public void c(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+            for (j44 j44Var : this.a) {
+                if (i == 16) {
+                    j44Var.c();
+                } else if (i == 17) {
+                    j44Var.b(str);
+                }
+                d(j44Var);
+            }
+        }
     }
 }

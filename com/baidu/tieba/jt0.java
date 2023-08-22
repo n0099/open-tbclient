@@ -1,36 +1,35 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.apache.http.client.methods.HttpPut;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public final class jt0 {
+public abstract class jt0<T> implements it0<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public jt0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (!TextUtils.equals(str, "GET") && !TextUtils.equals(str, "HEAD")) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ht0
+    public void c(Headers headers, InputStream inputStream, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.equals(str, "POST") && !TextUtils.equals(str, "PATCH") && !TextUtils.equals(str, HttpPut.METHOD_NAME) && !TextUtils.equals(str, "PROPPATCH") && !TextUtils.equals(str, "REPORT")) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, headers, inputStream, i) == null) {
+            throw new IllegalStateException("走错路了");
         }
-        return invokeL.booleanValue;
     }
 }

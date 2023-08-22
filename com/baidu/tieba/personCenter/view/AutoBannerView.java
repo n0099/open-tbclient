@@ -14,12 +14,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao9;
-import com.baidu.tieba.c75;
-import com.baidu.tieba.d75;
-import com.baidu.tieba.g75;
-import com.baidu.tieba.jz4;
+import com.baidu.tieba.fs9;
+import com.baidu.tieba.i75;
+import com.baidu.tieba.j75;
 import com.baidu.tieba.l9;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.oz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,12 +30,12 @@ import java.util.List;
 public class AutoBannerView extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CoverFlowView<ao9> a;
-    public List<ao9> b;
-    public jz4 c;
+    public CoverFlowView<fs9> a;
+    public List<fs9> b;
+    public oz4 c;
 
     /* loaded from: classes7.dex */
-    public class a extends c75 {
+    public class a extends i75 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoBannerView a;
@@ -58,35 +58,35 @@ public class AutoBannerView extends RelativeLayout {
             this.a = autoBannerView;
         }
 
-        @Override // com.baidu.tieba.c75, com.baidu.tieba.a75
-        public d75 a() {
+        @Override // com.baidu.tieba.i75, com.baidu.tieba.g75
+        public j75 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                d75 d75Var = new d75();
-                d75Var.c(R.drawable.icon_banner_gray_n);
-                d75Var.g(R.drawable.icon_banner_s);
-                d75Var.d(81);
-                d75Var.e(R.dimen.tbds26);
-                d75Var.h(R.dimen.tbds10);
-                return d75Var;
+                j75 j75Var = new j75();
+                j75Var.c(R.drawable.icon_banner_gray_n);
+                j75Var.g(R.drawable.icon_banner_s);
+                j75Var.d(81);
+                j75Var.e(R.dimen.tbds26);
+                j75Var.h(R.dimen.tbds10);
+                return j75Var;
             }
-            return (d75) invokeV.objValue;
+            return (j75) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.c75, com.baidu.tieba.a75
-        public g75 c() {
+        @Override // com.baidu.tieba.i75, com.baidu.tieba.g75
+        public m75 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                g75 g75Var = new g75();
-                g75Var.a(BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds209));
-                return g75Var;
+                m75 m75Var = new m75();
+                m75Var.a(BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds209));
+                return m75Var;
             }
-            return (g75) invokeV.objValue;
+            return (m75) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.c75, com.baidu.tieba.a75
+        @Override // com.baidu.tieba.i75, com.baidu.tieba.g75
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -195,7 +195,7 @@ public class AutoBannerView extends RelativeLayout {
         }
     }
 
-    public void d(List<ao9> list) {
+    public void d(List<fs9> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.b = list;
@@ -204,10 +204,10 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void e(int i) {
-        CoverFlowView<ao9> coverFlowView;
+        CoverFlowView<fs9> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (coverFlowView = this.a) != null) {
-            coverFlowView.t();
+            coverFlowView.v();
         }
     }
 
@@ -228,15 +228,15 @@ public class AutoBannerView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(jz4 jz4Var) {
+    public void setIWindowChangedListener(oz4 oz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jz4Var) == null) {
-            this.c = jz4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, oz4Var) == null) {
+            this.c = oz4Var;
         }
     }
 
     public void setIndicatorVisible(int i) {
-        CoverFlowView<ao9> coverFlowView;
+        CoverFlowView<fs9> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setIndicatorVisible(i);
@@ -244,7 +244,7 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void setMarqueenTime(long j) {
-        CoverFlowView<ao9> coverFlowView;
+        CoverFlowView<fs9> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048586, this, j) == null) && (coverFlowView = this.a) != null) {
             coverFlowView.setMarqueenTime(j);
@@ -266,10 +266,10 @@ public class AutoBannerView extends RelativeLayout {
     }
 
     public void f() {
-        CoverFlowView<ao9> coverFlowView;
+        CoverFlowView<fs9> coverFlowView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (coverFlowView = this.a) != null) {
-            coverFlowView.x();
+            coverFlowView.D();
         }
     }
 

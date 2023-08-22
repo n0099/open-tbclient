@@ -1,23 +1,55 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.mvc.data.IResponseData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkModule;
-import tbclient.NewHottopic.TimeLine;
-import tbclient.NewHottopic.TopicDetail;
+import com.squareup.wire.Message;
+import com.squareup.wire.Wire;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONObject;
+import tbclient.Error;
+import tbclient.ExcFrsPage.DataRes;
+import tbclient.ExcFrsPage.ExcFrsPageResIdl;
+import tbclient.ExcFrsPage.ExcellentTagInfo;
 /* loaded from: classes5.dex */
-public class a78 {
+public class a78 implements uq5, IResponseData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public p78 e;
-    public e78 f;
+    public List<Object> a;
+    public List<Object> b;
+
+    @Override // com.baidu.tieba.vq5
+    public String getCacheKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.uq5
+    public byte[] toCacheByteArray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (byte[]) invokeV.objValue;
+    }
 
     public a78() {
         Interceptable interceptable = $ic;
@@ -33,36 +65,45 @@ public class a78 {
         }
     }
 
-    public void a(TopicDetail topicDetail) {
+    @Override // com.baidu.tieba.uq5
+    public boolean initByByteArray(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, topicDetail) != null) || topicDetail == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            try {
+                initByProtobuf((ExcFrsPageResIdl) new Wire(new Class[0]).parseFrom(bArr, ExcFrsPageResIdl.class));
+                return true;
+            } catch (IOException e) {
+                e.printStackTrace();
+                return false;
+            }
         }
-        this.a = topicDetail.topic_id.longValue();
-        this.b = topicDetail.topic_desc;
-        topicDetail.discuss_num.longValue();
-        this.c = topicDetail.topic_image;
-        this.d = topicDetail.bg_image;
+        return invokeL.booleanValue;
     }
 
-    public void b(PkModule pkModule) {
+    @Override // com.baidu.tbadk.mvc.data.IResponseData
+    public void initByProtobuf(Message message) {
+        ExcFrsPageResIdl excFrsPageResIdl;
+        Error error;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            p78 p78Var = new p78();
-            this.e = p78Var;
-            p78Var.a = this.a;
-            p78Var.f = 2;
-            p78Var.a(pkModule);
-        }
-    }
-
-    public void c(TimeLine timeLine) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) != null) || timeLine == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, message) != null) || !(message instanceof ExcFrsPageResIdl) || (excFrsPageResIdl = (ExcFrsPageResIdl) message) == null || (error = excFrsPageResIdl.error) == null || error.errorno.intValue() != 0 || (dataRes = excFrsPageResIdl.data) == null) {
             return;
         }
-        e78 e78Var = new e78();
-        this.f = e78Var;
-        e78Var.a(this.a, timeLine);
+        if (dataRes.thread_list != null) {
+            ArrayList arrayList = new ArrayList();
+            this.a = arrayList;
+            arrayList.addAll(excFrsPageResIdl.data.thread_list);
+        }
+        excFrsPageResIdl.data.has_more.intValue();
+        excFrsPageResIdl.data.pn.intValue();
+        if (excFrsPageResIdl.data.tag_list != null) {
+            this.b = new ArrayList();
+            for (ExcellentTagInfo excellentTagInfo : excFrsPageResIdl.data.tag_list) {
+                if (excellentTagInfo != null) {
+                    this.b.add(excellentTagInfo);
+                }
+            }
+        }
     }
 }

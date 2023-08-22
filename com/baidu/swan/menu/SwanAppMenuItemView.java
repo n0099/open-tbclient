@@ -13,14 +13,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gh4;
+import com.baidu.tieba.lh4;
 /* loaded from: classes4.dex */
 public class SwanAppMenuItemView extends RelativeLayout {
     public ImageView a;
     public TextView b;
     public TextView c;
     public ImageView d;
-    public gh4 e;
+    public lh4 e;
     public int f;
     public int g;
     public boolean h;
@@ -33,8 +33,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
         @Override // java.lang.Runnable
         public void run() {
-            gh4 gh4Var = SwanAppMenuItemView.this.e;
-            if (gh4Var != null && gh4Var.d() != null) {
+            lh4 lh4Var = SwanAppMenuItemView.this.e;
+            if (lh4Var != null && lh4Var.d() != null) {
                 SwanAppMenuItemView swanAppMenuItemView = SwanAppMenuItemView.this;
                 swanAppMenuItemView.h = swanAppMenuItemView.e.d().a(SwanAppMenuItemView.this.e);
             }
@@ -61,8 +61,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
         return "99+";
     }
 
-    public final Drawable b(gh4 gh4Var) {
-        return gh4Var.a(getContext());
+    public final Drawable b(lh4 lh4Var) {
+        return lh4Var.a(getContext());
     }
 
     public final int c(int i) {
@@ -70,16 +70,16 @@ public class SwanAppMenuItemView extends RelativeLayout {
         return (int) (((i * 0.5d) + (resources.getDimension(R.dimen.obfuscated_res_0x7f0700e9) * 0.5d)) - resources.getDimension(R.dimen.obfuscated_res_0x7f0700ea));
     }
 
-    public final void g(gh4 gh4Var) {
-        if (gh4Var == null) {
+    public final void g(lh4 lh4Var) {
+        if (lh4Var == null) {
             return;
         }
         setAlpha(1.0f);
-        this.b.setText(gh4Var.h(getContext()));
-        Drawable b = b(gh4Var);
+        this.b.setText(lh4Var.h(getContext()));
+        Drawable b = b(lh4Var);
         if (b != null) {
             this.a.setImageDrawable(b);
-            this.a.setImageLevel(gh4Var.b());
+            this.a.setImageLevel(lh4Var.b());
         }
     }
 
@@ -90,12 +90,12 @@ public class SwanAppMenuItemView extends RelativeLayout {
         d();
     }
 
-    public void h(gh4 gh4Var, int i) {
-        if (gh4Var == null) {
+    public void h(lh4 lh4Var, int i) {
+        if (lh4Var == null) {
             return;
         }
-        e(gh4Var, i);
-        this.e = gh4Var;
+        e(lh4Var, i);
+        this.e = lh4Var;
     }
 
     public SwanAppMenuItemView(Context context, AttributeSet attributeSet, int i) {
@@ -107,35 +107,35 @@ public class SwanAppMenuItemView extends RelativeLayout {
 
     public final void d() {
         setGravity(49);
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0091, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a0);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a3);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a2);
-        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a1);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0093, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a2);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a5);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0901a4);
+        this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901a3);
         setBackgroundResource(0);
     }
 
-    public final void e(gh4 gh4Var, int i) {
+    public final void e(lh4 lh4Var, int i) {
         float f;
         this.b.setEllipsize(TextUtils.TruncateAt.END);
-        if (gh4Var.i()) {
+        if (lh4Var.i()) {
             f = 1.0f;
         } else {
             f = 0.3f;
         }
         this.b.setAlpha(f);
-        this.a.setEnabled(gh4Var.i());
+        this.a.setEnabled(lh4Var.i());
         this.a.setScaleType(ImageView.ScaleType.CENTER);
         this.a.setVisibility(0);
-        g(gh4Var);
-        f(gh4Var, i);
+        g(lh4Var);
+        f(lh4Var, i);
     }
 
-    public final void f(gh4 gh4Var, int i) {
-        if (gh4Var == null) {
+    public final void f(lh4 lh4Var, int i) {
+        if (lh4Var == null) {
             return;
         }
-        int f = gh4Var.f();
+        int f = lh4Var.f();
         if (f != 0) {
             if (f != 1) {
                 if (f != 2) {
@@ -144,16 +144,16 @@ public class SwanAppMenuItemView extends RelativeLayout {
                     return;
                 }
                 this.c.setVisibility(8);
-                this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081410));
+                this.d.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081426));
                 this.d.setVisibility(0);
                 return;
             } else if (i <= 0) {
                 return;
             } else {
                 this.d.setVisibility(8);
-                this.c.setText(a(gh4Var.e()));
-                this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060ac6));
-                this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08140f));
+                this.c.setText(a(lh4Var.e()));
+                this.c.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060acc));
+                this.c.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f081425));
                 ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
                 marginLayoutParams.leftMargin = c(i);
                 this.c.setLayoutParams(marginLayoutParams);
@@ -194,8 +194,8 @@ public class SwanAppMenuItemView extends RelativeLayout {
                 return super.onTouchEvent(motionEvent);
             }
         } else {
-            gh4 gh4Var = this.e;
-            if (gh4Var != null && gh4Var.d() != null) {
+            lh4 lh4Var = this.e;
+            if (lh4Var != null && lh4Var.d() != null) {
                 removeCallbacks(this.i);
                 this.h = false;
                 this.f = x;

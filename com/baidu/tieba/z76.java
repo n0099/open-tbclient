@@ -1,27 +1,83 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
-public class z76 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.PrintStream;
+/* loaded from: classes9.dex */
+public class z76 extends xk1<ej1> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile y76 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized y76 a() {
-        InterceptResult invokeV;
-        y76 y76Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (z76.class) {
-                if (a == null) {
-                    a = new y76();
+    /* loaded from: classes9.dex */
+    public class a implements ej1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(z76 z76Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z76Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                y76Var = a;
             }
-            return y76Var;
         }
-        return (y76) invokeV.objValue;
+
+        @Override // com.baidu.tieba.ej1
+        public boolean a(String str, yj1 yj1Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, yj1Var)) == null) {
+                if (c86.a) {
+                    PrintStream printStream = System.out;
+                    printStream.println("IAdSdkSplash SplashHost openUrl: " + str);
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016311, str + "&extInfo=" + nj1.a));
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public z76() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xk1
+    /* renamed from: a */
+    public ej1 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (ej1) invokeV.objValue;
     }
 }

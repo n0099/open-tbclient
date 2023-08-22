@@ -35,7 +35,7 @@ public class UserIconBox extends LinearLayout {
 
     /* loaded from: classes4.dex */
     public interface c<T extends View> {
-        ag<TbImageView> J();
+        ag<TbImageView> M();
     }
 
     /* loaded from: classes4.dex */
@@ -263,7 +263,7 @@ public class UserIconBox extends LinearLayout {
             setGravity(16);
             Context context2 = this.b;
             if (context2 instanceof c) {
-                this.a = ((c) context2).J();
+                this.a = ((c) context2).M();
             }
             setOnHierarchyChangeListener(new a(this));
         }

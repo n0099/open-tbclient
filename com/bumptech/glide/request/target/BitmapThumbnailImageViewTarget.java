@@ -13,7 +13,7 @@ public class BitmapThumbnailImageViewTarget extends ThumbnailImageViewTarget<Bit
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bumptech.glide.request.target.ThumbnailImageViewTarget
     public Drawable getDrawable(Bitmap bitmap) {
-        return new BitmapDrawable(((ImageView) this.f1197view).getResources(), bitmap);
+        return new BitmapDrawable(((ImageView) this.f1200view).getResources(), bitmap);
     }
 
     @Deprecated

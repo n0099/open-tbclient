@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes7.dex */
-public interface qz4 {
-    void a(Object obj);
 
-    void onError(String str);
+import android.view.View;
+/* loaded from: classes7.dex */
+public interface qz4<T> {
+    void d(View view2, T t, int i, long j);
 }

@@ -349,7 +349,7 @@ public class DownloadNotification {
                     if (!TextUtils.isEmpty(downloadInfo.mHint)) {
                         str2 = downloadInfo.mHint;
                     } else {
-                        str2 = this.mContext.getResources().getString(R.string.download_unknown_title);
+                        str2 = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f05ef);
                     }
                 }
                 NotificationItem notificationItem2 = new NotificationItem();
@@ -370,7 +370,7 @@ public class DownloadNotification {
                     }
                 }
                 if (downloadInfo.mStatus != 192 && notificationItem2.mPausedText == null) {
-                    notificationItem2.mPausedText = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f05d0);
+                    notificationItem2.mPausedText = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f05d7);
                 }
                 if (DEBUG) {
                     Log.d("DownloadNotification", notificationItem2.toString());
@@ -455,7 +455,7 @@ public class DownloadNotification {
                 this.mISystemFacade.cancelNotification(notificationItem3.mId);
             } else {
                 if (TextUtils.isEmpty(notificationItem3.mTickerText)) {
-                    notificationItem3.mTickerText = notificationItem3.mTitle + " " + this.mContext.getResources().getString(R.string.download_begin);
+                    notificationItem3.mTickerText = notificationItem3.mTitle + " " + this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f05b7);
                 }
                 versionedNotification.setTicker(notificationItem3.mTickerText);
             }
@@ -487,7 +487,7 @@ public class DownloadNotification {
                     if (!TextUtils.isEmpty(downloadInfo.mHint)) {
                         str2 = downloadInfo.mHint;
                     } else {
-                        str2 = this.mContext.getResources().getString(R.string.download_unknown_title);
+                        str2 = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f05ef);
                     }
                 }
                 if (TextUtils.isEmpty(str2)) {
@@ -498,11 +498,11 @@ public class DownloadNotification {
                 int category = FileClassifyHelper.getCategory(FileClassifyHelper.getFileSuffix(str), downloadInfo.mMimeType);
                 Uri withAppendedId = ContentUris.withAppendedId(Downloads.Impl.ALL_DOWNLOADS_CONTENT_URI, j);
                 if (Downloads.Impl.isStatusError(downloadInfo.mStatus)) {
-                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0e98);
+                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ea2);
                     intent = new Intent(Constants.ACTION_LIST);
                     smallIcon.setSmallIcon(17301642);
                 } else {
-                    string = this.mContext.getResources().getString(R.string.notification_download_complete);
+                    string = this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ea1);
                     int i = downloadInfo.mDestination;
                     if (i != 0 && i != 5) {
                         intent = new Intent(Constants.ACTION_LIST);

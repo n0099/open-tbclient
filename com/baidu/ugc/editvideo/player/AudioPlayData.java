@@ -55,7 +55,7 @@ public class AudioPlayData implements Parcelable, Serializable, Cloneable {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* renamed from: clone */
-    public AudioPlayData m156clone() {
+    public AudioPlayData m158clone() {
         try {
             return (AudioPlayData) super.clone();
         } catch (CloneNotSupportedException e) {

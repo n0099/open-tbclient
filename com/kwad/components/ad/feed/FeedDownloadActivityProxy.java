@@ -97,10 +97,10 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a impl
     }
 
     private void intiView() {
-        KsAdContainer ksAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.obfuscated_res_0x7f091293);
+        KsAdContainer ksAdContainer = (KsAdContainer) this.mContext.findViewById(R.id.obfuscated_res_0x7f0912a9);
         this.mAdContainer = ksAdContainer;
         ksAdContainer.setOnClickListener(this);
-        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.obfuscated_res_0x7f0912a5);
+        TailFrameBarAppPortraitVertical tailFrameBarAppPortraitVertical = (TailFrameBarAppPortraitVertical) this.mContext.findViewById(R.id.obfuscated_res_0x7f0912bb);
         this.mAppTailFrameView = tailFrameBarAppPortraitVertical;
         tailFrameBarAppPortraitVertical.c(this.mAdTemplate);
         this.mAppTailFrameView.u(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate));
@@ -170,7 +170,7 @@ public class FeedDownloadActivityProxy extends com.kwad.components.core.i.a impl
             return;
         }
         getActivity().setTheme(16973838);
-        setContentView(R.layout.obfuscated_res_0x7f0d0478);
+        setContentView(R.layout.obfuscated_res_0x7f0d047f);
         intiView();
     }
 

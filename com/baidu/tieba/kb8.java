@@ -1,51 +1,48 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.task.TbSocketMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class kb8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<MetaData> a;
 
-    public kb8() {
+    public static gt5 a(int i, Class<? extends CustomMessageTask.CustomRunnable<?>> cls) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, cls)) == null) {
+            try {
+                gt5 gt5Var = new gt5(i, cls.newInstance());
+                MessageManager.getInstance().registerTask(gt5Var);
+                return gt5Var;
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return null;
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+                return null;
             }
         }
-        this.a = new ArrayList();
+        return (gt5) invokeIL.objValue;
     }
 
-    @NonNull
-    public List<MetaData> b() {
-        InterceptResult invokeV;
+    public static TbSocketMessageTask b(int i, Class<? extends SocketResponsedMessage> cls, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), cls, Boolean.valueOf(z)})) == null) {
+            TbSocketMessageTask tbSocketMessageTask = new TbSocketMessageTask(i);
+            tbSocketMessageTask.setResponsedClass(cls);
+            tbSocketMessageTask.setNeedCompress(z);
+            tbSocketMessageTask.setParallel(TiebaIMConfig.getParallel());
+            MessageManager.getInstance().registerTask(tbSocketMessageTask);
+            return tbSocketMessageTask;
         }
-        return (List) invokeV.objValue;
-    }
-
-    public void a(MetaData metaData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, metaData) == null) {
-            this.a.add(metaData);
-        }
+        return (TbSocketMessageTask) invokeCommon.objValue;
     }
 }

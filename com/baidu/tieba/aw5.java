@@ -1,115 +1,86 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.util.WebviewHelper;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.net.URLDecoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class aw5 {
+public final class aw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ViewGroup a;
+    public final int b;
 
-    public static Boolean a(String str) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null) {
-                return Boolean.FALSE;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if (!bi.isEquals(WebviewHelper.getMatchStringFromURL(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN), "=")) {
-                try {
-                    str = URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
+            if (obj instanceof aw5) {
+                aw5 aw5Var = (aw5) obj;
+                return Intrinsics.areEqual(this.a, aw5Var.a) && this.b == aw5Var.b;
             }
-            String matchStringFromURL = WebviewHelper.getMatchStringFromURL(str, "topic_id=");
-            String matchStringFromURL2 = WebviewHelper.getMatchStringFromURL(str, "topic_name=");
-            String matchStringFromURL3 = WebviewHelper.getMatchStringFromURL(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
-            String matchStringFromURL4 = WebviewHelper.getMatchStringFromURL(str, "nonavigationbar=");
-            if ((!bi.isEmpty(matchStringFromURL) || !bi.isEmpty(matchStringFromURL2)) && StringHelper.equals(matchStringFromURL3, "1") && StringHelper.equals(matchStringFromURL4, "1")) {
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
+            return false;
         }
-        return (Boolean) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static Boolean b(Uri uri) {
-        InterceptResult invokeL;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
-            if (uri != null && uri.toString() != null) {
-                if (WebviewHelper.getMatchStringFromURL(uri.toString(), "source=").contains("hottopic_detail_hybrid")) {
-                    return Boolean.TRUE;
-                }
-                return Boolean.FALSE;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (this.a.hashCode() * 31) + this.b : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "DetailViewInfo(parent=" + this.a + ", childIndex=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public aw5(ViewGroup parent, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {parent, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return Boolean.FALSE;
         }
-        return (Boolean) invokeL.objValue;
+        Intrinsics.checkNotNullParameter(parent, "parent");
+        this.a = parent;
+        this.b = i;
     }
 
-    public static String c(String str, String str2) {
-        InterceptResult invokeLL;
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            StringBuilder sb = new StringBuilder("https://tieba.baidu.com/mo/q/newtopic/topicTemplate?");
-            sb.append(BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
-            sb.append("1");
-            sb.append("&nonavigationbar=");
-            sb.append("1");
-            sb.append("&from=");
-            sb.append("1");
-            sb.append("&loadingSignal=");
-            sb.append("1");
-            if (str != null) {
-                sb.append("&topic_id=");
-                sb.append(str);
-            }
-            if (str2 != null) {
-                sb.append("&topic_name=");
-                sb.append(str2);
-            }
-            sb.append("&skin=");
-            sb.append(SkinManager.getCurrentSkinTypeString());
-            return sb.toString();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (String) invokeLL.objValue;
+        return invokeV.intValue;
     }
 
-    public static String d(String str) {
-        InterceptResult invokeL;
+    public final ViewGroup b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return WebviewHelper.getMatchStringFromURL(str, "topic_id=");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            return WebviewHelper.getMatchStringFromURL(str, "hottopic_detail_hybrid-");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void f(TbPageContext tbPageContext, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(65541, null, tbPageContext, str, str2) != null) || tbPageContext == null) {
-            return;
-        }
-        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{c(str, str2)});
+        return (ViewGroup) invokeV.objValue;
     }
 }

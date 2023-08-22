@@ -1,206 +1,197 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.lifecycle.SavedStateHandle;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedList;
-import java.util.List;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.tencent.open.SocialConstants;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vkb implements xkb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static Context sApplicationContext = null;
-    public static int sBlockThreshold = 2000;
-    public static vkb sInstance;
+public class vkb extends jlb {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<a> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948245084, "Lcom/baidu/tieba/vkb;")) == null) {
-            return;
+    /* loaded from: classes8.dex */
+    public static class a extends jlb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final Map<String, Set<Object>> b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i, ObjectInput objectInput) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), objectInput};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = objectInput.readUTF();
+            HashMap hashMap = new HashMap();
+            int readInt = objectInput.readInt();
+            for (int i4 = 0; i4 < readInt; i4++) {
+                String readUTF = objectInput.readUTF();
+                int readInt2 = objectInput.readInt();
+                HashSet hashSet = new HashSet();
+                for (int i5 = 0; i5 < readInt2; i5++) {
+                    try {
+                        hashSet.add(objectInput.readObject());
+                    } catch (ClassNotFoundException e) {
+                        LogPrinter.e(e);
+                    }
+                }
+                hashMap.put(readUTF, Collections.unmodifiableSet(hashSet));
+            }
+            this.b = Collections.unmodifiableMap(hashMap);
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(JSONObject jSONObject) {
+            super(1);
+            Map<String, Set<Object>> unmodifiableMap;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jSONObject};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = jSONObject.getString("key");
+            JSONArray optJSONArray = jSONObject.optJSONArray("content");
+            if (optJSONArray == null) {
+                unmodifiableMap = Collections.emptyMap();
+            } else {
+                HashMap hashMap = new HashMap();
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i3);
+                    String string = jSONObject2.getString(CriusAttrConstants.COLUMN);
+                    JSONArray optJSONArray2 = jSONObject2.optJSONArray(SavedStateHandle.VALUES);
+                    int length = optJSONArray2 == null ? 0 : optJSONArray2.length();
+                    HashSet hashSet = new HashSet();
+                    for (int i4 = 0; i4 < length; i4++) {
+                        hashSet.add(optJSONArray2.get(i4));
+                    }
+                    hashMap.put(string, Collections.unmodifiableSet(hashSet));
+                }
+                unmodifiableMap = Collections.unmodifiableMap(hashMap);
+            }
+            this.b = unmodifiableMap;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948245084, "Lcom/baidu/tieba/vkb;");
+
+        @Override // com.baidu.tieba.jlb
+        public void srzableInternal(ObjectOutput objectOutput) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
+                objectOutput.writeUTF(this.a);
+                objectOutput.writeInt(this.b.size());
+                for (Map.Entry<String, Set<Object>> entry : this.b.entrySet()) {
+                    Set<Object> value = entry.getValue();
+                    objectOutput.writeUTF(entry.getKey());
+                    objectOutput.writeInt(value.size());
+                    for (Object obj : value) {
+                        objectOutput.writeObject(obj);
+                    }
+                }
+            }
         }
     }
 
-    public List<String> concernPackages() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean deleteFilesInWhiteList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public abstract boolean displayNotification();
-
-    public boolean filterNonConcernStack() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xkb
-    public void onBlock(Context context, dlb dlbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, dlbVar) == null) {
-        }
-    }
-
-    public int provideMonitorDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public String provideNetworkType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? "unknown" : (String) invokeV.objValue;
-    }
-
-    public String providePath() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "/blockcanary/" : (String) invokeV.objValue;
-    }
-
-    public String provideQualifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "unknown" : (String) invokeV.objValue;
-    }
-
-    public String provideUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? "uid" : (String) invokeV.objValue;
-    }
-
-    public boolean stopWhenDebugging() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean zip(File[] fileArr, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, fileArr, file)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public vkb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vkb(int i, ObjectInput objectInput) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), objectInput};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        int readInt = objectInput.readInt();
+        HashSet hashSet = new HashSet();
+        for (int i4 = 0; i4 < readInt; i4++) {
+            hashSet.add(new a(objectInput.readInt(), objectInput));
+        }
+        this.a = Collections.unmodifiableSet(hashSet);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vkb(JSONObject jSONObject) {
+        super(1);
+        Set<a> unmodifiableSet;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public static vkb get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            vkb vkbVar = sInstance;
-            if (vkbVar != null) {
-                return vkbVar;
+        JSONArray optJSONArray = jSONObject.optJSONArray(SocialConstants.PARAM_EXCLUDE);
+        if (optJSONArray == null) {
+            unmodifiableSet = Collections.emptySet();
+        } else {
+            HashSet hashSet = new HashSet();
+            for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                hashSet.add(new a(optJSONArray.getJSONObject(i3)));
             }
-            throw new RuntimeException("BlockCanaryContext null");
+            unmodifiableSet = Collections.unmodifiableSet(hashSet);
         }
-        return (vkb) invokeV.objValue;
+        this.a = unmodifiableSet;
     }
 
-    public int provideBlockThreshold() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.jlb
+    public void srzableInternal(ObjectOutput objectOutput) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return sBlockThreshold;
-        }
-        return invokeV.intValue;
-    }
-
-    public Context provideContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return sApplicationContext;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public int provideDumpInterval() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return provideBlockThreshold();
-        }
-        return invokeV.intValue;
-    }
-
-    public List<String> provideWhiteList() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add("org.chromium");
-            return linkedList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static void init(Context context, vkb vkbVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, context, vkbVar, i) == null) {
-            sApplicationContext = context;
-            sInstance = vkbVar;
-            sBlockThreshold = i;
-        }
-    }
-
-    public void upload(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, file) == null) {
-            throw new UnsupportedOperationException();
+        if (interceptable == null || interceptable.invokeL(1048576, this, objectOutput) == null) {
+            objectOutput.writeInt(this.a.size());
+            for (a aVar : this.a) {
+                aVar.srzable(objectOutput);
+            }
         }
     }
 }

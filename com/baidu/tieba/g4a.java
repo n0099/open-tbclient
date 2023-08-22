@@ -1,48 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.DeviceInfoHelper;
-import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.common.config.AppIdentityManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.common.security.IDeviceInfoAppHost;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class g4a implements IDeviceInfoAppHost {
+public final class g4a implements nb7, lb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IDeviceInfoAppHost.OAIDResult a;
 
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    public long getForceMappingCacheInterval() {
+    @Override // com.baidu.tieba.lb7
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 86400000L;
-        }
-        return invokeV.longValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    public boolean useMapping() {
+    @Override // com.baidu.tieba.nb7
+    public String getKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c10731" : (String) invokeV.objValue;
     }
 
     public g4a() {
@@ -59,75 +44,60 @@ public class g4a implements IDeviceInfoAppHost {
         }
     }
 
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public String getAppName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return AppIdentityManager.getInstance().getAppName();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public String getEnUid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (PermissionUtil.isAgreePrivacyPolicy()) {
-                return AppCuidRuntime.getAppCuidManager().getEnCuid();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public String getUA() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return DeviceInfoHelper.getUA();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static String a(@Nullable String str) {
+    @Override // com.baidu.tieba.nb7
+    public Map<String, String> a(a77 businessInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && !TextUtils.isEmpty(str)) {
-                return new v40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(str.getBytes());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            String str = businessInfo.a().get("weight");
+            String str2 = "";
+            if (str == null) {
+                str = "";
             }
-            return "";
+            hashMap.put("obj_param1", str);
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, "1");
+            String str3 = businessInfo.a().get("source");
+            if (str3 == null) {
+                str3 = "";
+            }
+            hashMap.put("obj_source", str3);
+            String str4 = businessInfo.a().get("abtest_tag");
+            if (str4 == null) {
+                str4 = "";
+            }
+            hashMap.put("obj_name", str4);
+            String e = vn6.e();
+            Intrinsics.checkNotNullExpressionValue(e, "getCurrentTimeStamp()");
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM3, e);
+            int i = 0;
+            if (JavaTypesHelper.toInt(businessInfo.a().get("is_live_card"), 0) != 0) {
+                i = 2;
+            } else if (JavaTypesHelper.toInt(businessInfo.a().get("is_video_card"), 0) != 0) {
+                i = 1;
+            }
+            if (i == 0) {
+                String str5 = businessInfo.a().get("pic_count");
+                if (str5 == null) {
+                    str5 = "0";
+                }
+                hashMap.put("obj_type", str5);
+            } else {
+                hashMap.put("obj_type", String.valueOf(i));
+            }
+            String str6 = businessInfo.a().get("abtest_tag");
+            if (str6 == null) {
+                str6 = "";
+            }
+            hashMap.put("ab_tag", str6);
+            String str7 = businessInfo.a().get("nid");
+            if (str7 != null) {
+                str2 = str7;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM4, str2);
+            return hashMap;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.common.security.IDeviceInfoAppHost
-    @NonNull
-    public IDeviceInfoAppHost.OAIDResult getOAID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            IDeviceInfoAppHost.OAIDResult oAIDResult = this.a;
-            if (oAIDResult != null) {
-                return oAIDResult;
-            }
-            if (PermissionUtil.isBrowseMode()) {
-                IDeviceInfoAppHost.OAIDResult oAIDResult2 = new IDeviceInfoAppHost.OAIDResult(true, "", "");
-                this.a = oAIDResult2;
-                return oAIDResult2;
-            }
-            String g = k20.f(AppRuntime.getAppContext()).g();
-            IDeviceInfoAppHost.OAIDResult oAIDResult3 = new IDeviceInfoAppHost.OAIDResult(true, g, a(g));
-            this.a = oAIDResult3;
-            return oAIDResult3;
-        }
-        return (IDeviceInfoAppHost.OAIDResult) invokeV.objValue;
+        return (Map) invokeL.objValue;
     }
 }

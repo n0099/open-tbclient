@@ -1,77 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public class snb {
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import java.lang.reflect.Field;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class snb extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
 
-    public snb(Context context, String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public snb(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (context != null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                Context createDeviceProtectedStorageContext = context.createDeviceProtectedStorageContext();
-                SharedPreferences sharedPreferences = createDeviceProtectedStorageContext.getSharedPreferences("move_to_de_records", 0);
-                if (!sharedPreferences.getBoolean(str, false) && createDeviceProtectedStorageContext.moveSharedPreferencesFrom(context, str)) {
-                    SharedPreferences.Editor edit = sharedPreferences.edit();
-                    edit.putBoolean(str, true);
-                    edit.apply();
-                }
-                context = createDeviceProtectedStorageContext;
-            }
-            this.a = context.getSharedPreferences(str, 0);
-            return;
-        }
-        throw new NullPointerException("context is null!");
     }
 
-    public boolean a(String str) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
-        SharedPreferences.Editor edit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences != null && sharedPreferences.contains(str) && (edit = this.a.edit()) != null) {
-                return edit.remove(str).commit();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                Object field = ReflectionUtils.getField(((qob) obj).a, "d", "a", "k");
+                Field declaredField = field.getClass().getDeclaredField("M");
+                declaredField.setAccessible(true);
+                return znb.a((JSONObject) declaredField.get(field));
+            } catch (Exception unused) {
+                LogPrinter.e();
+                return null;
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        SharedPreferences.Editor edit;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            SharedPreferences sharedPreferences = this.a;
-            if (sharedPreferences != null && (edit = sharedPreferences.edit()) != null) {
-                return edit.putString(str, str2).commit();
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

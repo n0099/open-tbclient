@@ -1,15 +1,14 @@
 package com.baidu.tieba;
 
-import android.webkit.HttpAuthHandler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class nb1 extends ib1 {
+public abstract class nb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Object a;
 
     public nb1() {
         Interceptable interceptable = $ic;
@@ -25,13 +24,10 @@ public final class nb1 extends ib1 {
         }
     }
 
-    public final ib1 b(HttpAuthHandler httpAuthHandler) {
-        InterceptResult invokeL;
+    public final void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpAuthHandler)) == null) {
-            a(httpAuthHandler);
-            return this;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            this.a = obj;
         }
-        return (ib1) invokeL.objValue;
     }
 }

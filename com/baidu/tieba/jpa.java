@@ -1,215 +1,69 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.IdRes;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class jpa {
+public abstract class jpa<T> extends ipa<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    @IdRes
-    public int b;
-    @IdRes
-    public int c;
-    public Object d;
-    public int e;
-    public int f;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final jpa a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new jpa();
-        }
-
-        public final jpa a() {
-            InterceptResult invokeV;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.a != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    return this.a;
-                }
-                throw new IllegalStateException("必须设置引导视图 GuideView".toString());
-            }
-            return (jpa) invokeV.objValue;
-        }
-
-        public final a b(Object viewTag) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewTag)) == null) {
-                Intrinsics.checkNotNullParameter(viewTag, "viewTag");
-                this.a.c(viewTag);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a c(@IdRes int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-                this.a.d(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a d(View view2) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-                Intrinsics.checkNotNullParameter(view2, "view");
-                this.a.e(view2);
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final a e(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.a.f(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a f(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                this.a.g(i);
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-    }
-
-    public jpa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jpa(String str, T t, String str2) {
+        super(str, t, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, t, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = -1;
-        this.c = -1;
     }
 
-    public final View b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ipa
+    public long e(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.a;
-            if (view2 != null) {
-                return view2;
-            }
-            Intrinsics.throwUninitializedPropertyAccessException("guideView");
-            return null;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
+            return SharedPrefHelper.getInstance().getLong(str, j);
         }
-        return (View) invokeV.objValue;
+        return invokeLJ.longValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x001a, code lost:
-        r5 = com.baidu.tieba.ipa.c(r5);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final PointF a(ViewGroup rootView) {
-        InterceptResult invokeL;
-        View findViewById;
-        RectF rectF;
+    @Override // com.baidu.tieba.ipa
+    public void g(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rootView)) == null) {
-            Intrinsics.checkNotNullParameter(rootView, "rootView");
-            Object obj = this.d;
-            if (obj != null) {
-                findViewById = rootView.findViewWithTag(obj);
-            } else {
-                findViewById = rootView.findViewById(this.c);
-            }
-            if (findViewById == null || rectF == null) {
-                rectF = new RectF();
-            }
-            View findViewById2 = b().findViewById(this.b);
-            return new PointF(rectF.left + this.e, (rectF.bottom - (findViewById2.getTop() + findViewById2.getHeight())) + this.f);
-        }
-        return (PointF) invokeL.objValue;
-    }
-
-    public final void c(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            this.d = obj;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            SharedPrefHelper.getInstance().putLong(str, j);
         }
     }
 
-    public final void d(int i) {
+    public int l(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            return SharedPrefHelper.getInstance().getInt(str, i);
         }
+        return invokeLI.intValue;
     }
 
-    public final void e(View view2) {
+    public void m(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            Intrinsics.checkNotNullParameter(view2, "<set-?>");
-            this.a = view2;
-        }
-    }
-
-    public final void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            SharedPrefHelper.getInstance().putInt(str, i);
         }
     }
 }

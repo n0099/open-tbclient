@@ -25,12 +25,12 @@ import com.huawei.hms.utils.HMSPackageManager;
 import com.huawei.hms.utils.PackageManagerHelper;
 import com.huawei.hms.utils.ResourceLoaderUtil;
 import java.util.Objects;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HmsMsgService extends Service {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

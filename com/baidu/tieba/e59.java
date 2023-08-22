@@ -1,60 +1,209 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.AlaLiveInfo;
+import tbclient.AlaUserInfo;
+import tbclient.SugLiveInfo;
+import tbclient.YyExt;
 /* loaded from: classes5.dex */
-public class e59 {
+public class e59 implements bn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public long c;
+    public int d;
+    public int e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public int j;
+    public long k;
 
-    public static void a(String str, String str2, String str3) {
+    public final int n(int i, int i2) {
+        InterceptResult invokeII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14870");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", str);
-            statisticItem.addParam("obj_id", str2);
-            statisticItem.addParam("fid", str3);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048588, this, i, i2)) == null) {
+            if (i == 1) {
+                return 1;
+            }
+            if (i == 0) {
+                return 4;
+            }
+            if (i == 3 && i2 == 0) {
+                return 2;
+            }
+            return (i == 3 && i2 == 1) ? 3 : 5;
+        }
+        return invokeII.intValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685472, "Lcom/baidu/tieba/e59;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947685472, "Lcom/baidu/tieba/e59;");
+                return;
+            }
+        }
+        l = BdUniqueId.gen();
+    }
+
+    public e59() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = "";
+        this.b = "";
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.k;
+        }
+        return invokeV.longValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return l;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.j;
+        }
+        return invokeV.intValue;
+    }
+
+    public void l(SugLiveInfo sugLiveInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, sugLiveInfo) != null) || sugLiveInfo == null) {
+            return;
+        }
+        this.a = sugLiveInfo.word;
+        AlaLiveInfo alaLiveInfo = sugLiveInfo.ala_info;
+        if (alaLiveInfo != null) {
+            this.k = alaLiveInfo.room_id.longValue();
+            this.d = sugLiveInfo.ala_info.live_type.intValue();
+            AlaUserInfo alaUserInfo = sugLiveInfo.ala_info.user_info;
+            if (alaUserInfo != null) {
+                this.c = alaUserInfo.user_id.longValue();
+            }
+            YyExt yyExt = sugLiveInfo.ala_info.yy_ext;
+            if (yyExt != null) {
+                this.f = yyExt.sid;
+                this.g = yyExt.ssid;
+                this.h = yyExt.template_id;
+                this.i = yyExt.yy_uid;
+                int intValue = yyExt.is_yy_game.intValue();
+                this.e = intValue;
+                this.j = n(this.d, intValue);
+            }
         }
     }
 
-    public static void c(int i, String str, String str2) {
+    public void m(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65538, null, i, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14871");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", str2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void d(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65539, null, i, str, str2) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14872");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", str2);
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static void b(int i, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
-            StatisticItem statisticItem = new StatisticItem("c14873");
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_source", i);
-            statisticItem.addParam("fid", str);
-            statisticItem.addParam("obj_locate", j);
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            this.b = str;
         }
     }
 }

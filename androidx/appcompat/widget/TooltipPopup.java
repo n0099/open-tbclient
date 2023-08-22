@@ -33,7 +33,7 @@ public class TooltipPopup {
         this.mContext = context;
         View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d001b, (ViewGroup) null);
         this.mContentView = inflate;
-        this.mMessageView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091740);
+        this.mMessageView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091757);
         this.mLayoutParams.setTitle(TooltipPopup.class.getSimpleName());
         this.mLayoutParams.packageName = this.mContext.getPackageName();
         WindowManager.LayoutParams layoutParams = this.mLayoutParams;
@@ -51,12 +51,12 @@ public class TooltipPopup {
         int i4;
         int i5;
         layoutParams.token = view2.getApplicationWindowToken();
-        int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b35);
+        int dimensionPixelOffset = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b37);
         if (view2.getWidth() < dimensionPixelOffset) {
             i = view2.getWidth() / 2;
         }
         if (view2.getHeight() >= dimensionPixelOffset) {
-            int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b34);
+            int dimensionPixelOffset2 = this.mContext.getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070b36);
             height = i2 + dimensionPixelOffset2;
             i3 = i2 - dimensionPixelOffset2;
         } else {
@@ -66,9 +66,9 @@ public class TooltipPopup {
         layoutParams.gravity = 49;
         Resources resources = this.mContext.getResources();
         if (z) {
-            i4 = R.dimen.obfuscated_res_0x7f070b38;
+            i4 = R.dimen.obfuscated_res_0x7f070b3a;
         } else {
-            i4 = R.dimen.obfuscated_res_0x7f070b37;
+            i4 = R.dimen.obfuscated_res_0x7f070b39;
         }
         int dimensionPixelOffset3 = resources.getDimensionPixelOffset(i4);
         View appRootView = getAppRootView(view2);

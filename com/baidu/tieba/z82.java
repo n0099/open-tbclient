@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.download.util.LocalFilesFilterKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,34 +12,37 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
 public class z82 {
     public static /* synthetic */ Interceptable $ic;
-    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public b b;
-    public c c;
+    public final String a;
+    public int b;
+    public Map<String, Object> c;
+    public b d;
+    public BufferedWriter e;
 
-    /* loaded from: classes8.dex */
-    public interface b {
-        void onConnected();
+    /* loaded from: classes9.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void start();
-
-        void stop();
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
+    @SuppressLint({"HandlerLeak"})
+    /* loaded from: classes9.dex */
+    public class b extends Handler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ z82 a;
 
-        public a(z82 z82Var) {
+        public b(z82 z82Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,20 +60,28 @@ public class z82 {
             this.a = z82Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public /* synthetic */ b(z82 z82Var, a aVar) {
+            this(z82Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!b82.e() && z82.e() == 0) {
-                    if (!b82.f()) {
-                        y72.c("V8Inspector", "Unknown inspect mode");
-                        return;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.c != null) {
+                this.a.c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry entry : this.a.c.entrySet()) {
+                    try {
+                        jSONObject.putOpt((String) entry.getKey(), entry.getValue());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
-                    this.a.c = new c92(t82.e(), this.a.b);
-                } else {
-                    this.a.c = new d92(String.format("v8in%s_devtools_remote", this.a.a.getPackageName()), this.a.b);
                 }
-                this.a.c.start();
+                this.a.e(jSONObject.toString());
+                d82.i("PropertyLogcat", jSONObject.toString());
+                if (this.a.d != null) {
+                    this.a.d.sendEmptyMessageDelayed(100, this.a.b);
+                }
             }
         }
     }
@@ -86,44 +99,22 @@ public class z82 {
                 return;
             }
         }
-        int i = 0;
-        if (mj3.a().getBoolean("Inspector", false)) {
-            i = 2;
-        }
-        d = i;
+        boolean z = nr1.a;
     }
 
-    public static int e() {
+    public final String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return li3.n(db3.g0(), this.a, LocalFilesFilterKt.FILTER_NAME_LOG);
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(this), "V8Inspector");
-        }
-    }
-
-    public void i() {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (cVar = this.c) != null) {
-            cVar.stop();
-            this.c = null;
-        }
-    }
-
-    public z82(Context context) {
+    public z82() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -133,28 +124,70 @@ public class z82 {
                 return;
             }
         }
-        this.a = context;
+        this.a = "performance_" + System.currentTimeMillis();
+        this.b = 3000;
     }
 
-    public static void g(int i) {
-        boolean z;
+    public String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            gj3 a2 = mj3.a();
-            if (i == 2) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c != null) {
+                a92.g().i();
+                this.c = null;
+                d82.i("PropertyLogcat", "Stop monitor logcat");
             }
-            a2.putBoolean("Inspector", z);
-            d = i;
+            hr4.d(this.e);
+            this.e = null;
+            return li3.I(f(), db3.g0());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void e(String str) {
+        BufferedWriter bufferedWriter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (bufferedWriter = this.e) != null) {
+            try {
+                bufferedWriter.write(str);
+                this.e.write(10);
+                d82.i("PropertyLogcat", "Export logcat success");
+            } catch (IOException e) {
+                d82.d("PropertyLogcat", "Logcat write fail", e);
+            }
         }
     }
 
-    public void f(b bVar) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
-            this.b = bVar;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i >= 1000) {
+            this.b = i;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.c == null) {
+                this.c = a92.g().h();
+                d82.i("PropertyLogcat", "Start monitor logcat");
+            }
+            if (this.d == null) {
+                this.d = new b(this, null);
+            }
+            if (this.e == null) {
+                File file = new File(f());
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    this.e = new BufferedWriter(new FileWriter(file, true));
+                } catch (IOException e) {
+                    d82.d("PropertyLogcat", "Create log file fail", e);
+                }
+            }
+            this.d.removeMessages(100);
+            this.d.sendEmptyMessage(100);
         }
     }
 }

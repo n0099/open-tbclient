@@ -1,6 +1,6 @@
 package com.baidu.tieba.frs.tab;
 
-import com.baidu.tieba.fs7;
+import com.baidu.tieba.au7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,8 +8,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Collection;
 import java.util.LinkedList;
-/* loaded from: classes5.dex */
-public class TabData extends LinkedList<fs7> {
+/* loaded from: classes6.dex */
+public class TabData extends LinkedList<au7> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int TYPE_TAB_LOCATE_1 = 1;
     public static final int TYPE_TAB_LOCATE_2 = 2;
@@ -42,8 +42,8 @@ public class TabData extends LinkedList<fs7> {
                 LinkedList linkedList = (LinkedList) collection;
                 int size = size();
                 for (int i = 0; i < size; i++) {
-                    fs7 fs7Var = get(i);
-                    if (fs7Var == null || !fs7Var.equals(linkedList.get(i))) {
+                    au7 au7Var = get(i);
+                    if (au7Var == null || !au7Var.equals(linkedList.get(i))) {
                         return false;
                     }
                 }

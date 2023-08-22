@@ -104,7 +104,7 @@ public class FeedbackReportActivity extends Activity {
     public h0 S;
 
     /* renamed from: T  reason: collision with root package name */
-    public byte[] f1194T;
+    public byte[] f1197T;
     public e0 U;
     public SharedPreferences.Editor a;
     public SharedPreferences b;
@@ -1733,7 +1733,7 @@ public class FeedbackReportActivity extends Activity {
             this.d = getIntent().getStringExtra("faq_id");
             this.y = getIntent().getStringExtra("msgid");
             getIntent().getIntExtra("product_type", -1);
-            this.f1194T = getIntent().getByteArrayExtra("shot");
+            this.f1197T = getIntent().getByteArrayExtra("shot");
             if (TextUtils.isEmpty(this.y)) {
                 this.y = "newMessage";
             }
@@ -1918,7 +1918,7 @@ public class FeedbackReportActivity extends Activity {
             this.F = new j1(this, this.e);
             ArrayList arrayList = new ArrayList();
             this.w = arrayList;
-            byte[] bArr = this.f1194T;
+            byte[] bArr = this.f1197T;
             if (bArr != null && bArr.length > 0) {
                 arrayList.add(bArr);
             }

@@ -8,27 +8,27 @@ public class fb implements bg.b.a {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public fv f355a;
+    public fv f356a;
 
     /* renamed from: a  reason: collision with other field name */
-    public XMPushService f356a;
+    public XMPushService f357a;
 
     /* renamed from: a  reason: collision with other field name */
-    public bg.b f357a;
+    public bg.b f358a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f359a = false;
+    public boolean f360a = false;
 
     /* renamed from: a  reason: collision with other field name */
-    public bg.c f358a = bg.c.binding;
+    public bg.c f359a = bg.c.binding;
 
     public fb(XMPushService xMPushService, bg.b bVar) {
-        this.f356a = xMPushService;
-        this.f357a = bVar;
+        this.f357a = xMPushService;
+        this.f358a = bVar;
     }
 
     private void b() {
-        this.f357a.b(this);
+        this.f358a.b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -40,24 +40,24 @@ public class fb implements bg.b.a {
     public void c() {
         ey eyVar;
         b();
-        if (!this.f359a || this.a == 11) {
+        if (!this.f360a || this.a == 11) {
             return;
         }
-        ez m475a = fg.m473a().m475a();
-        int i = fd.a[this.f358a.ordinal()];
+        ez m477a = fg.m475a().m477a();
+        int i = fd.a[this.f359a.ordinal()];
         if (i != 1) {
             if (i == 3) {
                 eyVar = ey.BIND_SUCCESS;
             }
-            if (m475a != null) {
-                m475a.b(this.f355a.mo502a());
-                m475a.d(this.f357a.f938b);
-                m475a.f344b = 1;
+            if (m477a != null) {
+                m477a.b(this.f356a.mo504a());
+                m477a.d(this.f358a.f939b);
+                m477a.f345b = 1;
                 try {
-                    m475a.a((byte) Integer.parseInt(this.f357a.g));
+                    m477a.a((byte) Integer.parseInt(this.f358a.g));
                 } catch (NumberFormatException unused) {
                 }
-                fg.m473a().a(m475a);
+                fg.m475a().a(m477a);
                 return;
             }
             return;
@@ -70,31 +70,31 @@ public class fb implements bg.b.a {
         } else {
             try {
                 fe.a c = fe.c(fg.a().a());
-                m475a.f341a = c.a.a();
-                m475a.c(c.f360a);
+                m477a.f342a = c.a.a();
+                m477a.c(c.f361a);
             } catch (NullPointerException unused2) {
-                m475a = null;
+                m477a = null;
             }
-            if (m475a != null) {
+            if (m477a != null) {
             }
         }
-        m475a.f341a = eyVar.a();
-        if (m475a != null) {
+        m477a.f342a = eyVar.a();
+        if (m477a != null) {
         }
     }
 
     public void a() {
-        this.f357a.a(this);
-        this.f355a = this.f356a.m743a();
+        this.f358a.a(this);
+        this.f356a = this.f357a.m745a();
     }
 
     @Override // com.xiaomi.push.service.bg.b.a
     public void a(bg.c cVar, bg.c cVar2, int i) {
-        if (!this.f359a && cVar == bg.c.binding) {
-            this.f358a = cVar2;
+        if (!this.f360a && cVar == bg.c.binding) {
+            this.f359a = cVar2;
             this.a = i;
-            this.f359a = true;
+            this.f360a = true;
         }
-        this.f356a.a(new fc(this, 4));
+        this.f357a.a(new fc(this, 4));
     }
 }

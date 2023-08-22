@@ -1,87 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.eob;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-@Deprecated
+import com.fun.ad.sdk.ChannelNativeAds;
 /* loaded from: classes6.dex */
-public abstract class hob implements eob {
+public class hob implements eob.e {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, hob> a;
-    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ ChannelNativeAds.GdtADStatusChangeListener a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947831854, "Lcom/baidu/tieba/hob;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947831854, "Lcom/baidu/tieba/hob;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new Object();
-    }
-
-    public hob() {
+    public hob(iob iobVar, ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {iobVar, gdtADStatusChangeListener};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = gdtADStatusChangeListener;
     }
 
-    public static hob c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.eob.e
+    public void onADStatusChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            Context applicationContext = context.getApplicationContext();
-            if (applicationContext != null) {
-                context = applicationContext;
-            }
-            return d(context, context.getPackageName());
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.onADStatusChanged();
         }
-        return (hob) invokeL.objValue;
     }
-
-    public static hob d(Context context, String str) {
-        InterceptResult invokeLL;
-        hob hobVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
-            synchronized (b) {
-                hobVar = a.get(str);
-                if (hobVar == null) {
-                    hobVar = new nob(context, str);
-                    a.put(str, hobVar);
-                }
-            }
-            return hobVar;
-        }
-        return (hob) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.eob
-    public abstract /* synthetic */ Context getContext();
-
-    @Override // com.baidu.tieba.eob
-    public abstract /* synthetic */ String getIdentifier();
 }

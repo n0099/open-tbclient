@@ -279,7 +279,7 @@ public class OauthActivity extends BaseActivity {
         }
         String stringExtra = intent.getStringExtra(L);
         this.z = stringExtra;
-        if (!TextUtils.isEmpty(stringExtra) && SapiUtils.versionCompareTo(this.z, "9.7.5") > 0) {
+        if (!TextUtils.isEmpty(stringExtra) && SapiUtils.versionCompareTo(this.z, "9.7.5.1") > 0) {
             setResult(0, a(-208));
             finish();
             this.D = true;

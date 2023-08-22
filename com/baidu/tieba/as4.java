@@ -1,80 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
-@Service
+import android.graphics.Bitmap;
+import android.media.MediaPlayer;
+import android.view.View;
 /* loaded from: classes5.dex */
-public class as4 implements tv1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface as4 {
 
-    public as4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(b bVar);
+
+        void b(b bVar, int i, int i2);
+
+        void c(b bVar, int i, int i2, int i3);
     }
 
-    @Override // com.baidu.tieba.tv1
-    public jr2 a(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, invoker, str)) == null) {
-            return new cs4();
-        }
-        return (jr2) invokeLL.objValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(MediaPlayer mediaPlayer);
+
+        as4 b();
     }
 
-    @Override // com.baidu.tieba.tv1
-    public jt2 b(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, invoker, str)) == null) {
-            return new fs4(invoker, str);
-        }
-        return (jt2) invokeLL.objValue;
-    }
+    void a(a aVar);
 
-    @Override // com.baidu.tieba.tv1
-    public jt2 c(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, invoker, str)) == null) {
-            return new es4(invoker, str);
-        }
-        return (jt2) invokeLL.objValue;
-    }
+    void b(a aVar);
 
-    @Override // com.baidu.tieba.tv1
-    public ir2 d(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, invoker, str)) == null) {
-            return new bs4();
-        }
-        return (ir2) invokeLL.objValue;
-    }
+    Bitmap getBitmap();
 
-    @Override // com.baidu.tieba.tv1
-    public gp2 e(ZeusPluginFactory.Invoker invoker, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, invoker, str)) == null) {
-            return new ps4(invoker, str);
-        }
-        return (gp2) invokeLL.objValue;
-    }
+    View getView();
+
+    void release();
+
+    void setAspectRatio(int i);
+
+    void setVideoSize(int i, int i2);
 }

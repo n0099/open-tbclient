@@ -1,42 +1,31 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.fnb;
+import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes5.dex */
-public class enb implements Runnable {
+public class enb {
     public static /* synthetic */ Interceptable $ic;
+    public static final SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ int a;
-    public final /* synthetic */ fnb.a b;
 
-    public enb(fnb.a aVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947741520, "Lcom/baidu/tieba/enb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947741520, "Lcom/baidu/tieba/enb;");
                 return;
             }
         }
-        this.b = aVar;
-        this.a = i;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.b(HonorPushErrorEnum.fromCode(this.a));
-        }
+        a = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_req_id", 0);
     }
 }

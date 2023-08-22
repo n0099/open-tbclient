@@ -1,134 +1,55 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xfb;
+import android.graphics.Color;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.PidLoaderSession;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.text.DecimalFormat;
 /* loaded from: classes5.dex */
-public class agb implements TTNativeExpressAd.ExpressAdInteractionListener {
+public class agb {
     public static /* synthetic */ Interceptable $ic;
+    public static final DecimalFormat a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public final /* synthetic */ zfb c;
-    public final /* synthetic */ ExpressAdListenerWrapper d;
-    public final /* synthetic */ String e;
-    public final /* synthetic */ xfb.b f;
-    public final /* synthetic */ TTNativeExpressAd g;
-    public final /* synthetic */ xfb h;
 
-    public agb(xfb xfbVar, zfb zfbVar, ExpressAdListenerWrapper expressAdListenerWrapper, String str, xfb.b bVar, TTNativeExpressAd tTNativeExpressAd) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xfbVar, zfbVar, expressAdListenerWrapper, str, bVar, tTNativeExpressAd};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947615629, "Lcom/baidu/tieba/agb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947615629, "Lcom/baidu/tieba/agb;");
                 return;
             }
         }
-        this.h = xfbVar;
-        this.c = zfbVar;
-        this.d = expressAdListenerWrapper;
-        this.e = str;
-        this.f = bVar;
-        this.g = tTNativeExpressAd;
+        a = new DecimalFormat("0.00");
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdClicked(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    public static String a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            LogPrinter.d();
-            this.h.onAdClicked((xfb) this.c, this.b, new String[0]);
-            this.b = true;
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.h.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.h.mPid;
-                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
         }
+        return (String) invokeCommon.objValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onAdShow(View view2, int i) {
-        Ssp.Pid pid;
-        Ssp.Pid pid2;
+    public static int b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-            LogPrinter.d();
-            this.h.onAdShow((xfb) this.c, this.a, new String[0]);
-            this.a = true;
-            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
-            if (funAdInteractionListener != null) {
-                String str = this.e;
-                pid = this.h.mPid;
-                String str2 = pid.ssp.type;
-                pid2 = this.h.mPid;
-                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            try {
+                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
+                return Color.parseColor("#" + hexString + str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
             }
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderFail(View view2, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
-            LogPrinter.d();
-            xfb.b bVar = this.f;
-            zfb zfbVar = this.c;
-            if (!bVar.d) {
-                int i2 = bVar.a + 1;
-                bVar.a = i2;
-                if (i2 == bVar.b) {
-                    bVar.e.onAdError(zfbVar, i, str);
-                }
-            }
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
-    public void onRenderSuccess(View view2, float f, float f2) {
-        boolean z;
-        PidLoaderSession<zfb> session;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            LogPrinter.d();
-            this.g.setCanInterruptVideoPlay(true);
-            this.h.g.put(this.c, this.d);
-            xfb.b bVar = this.f;
-            zfb zfbVar = this.c;
-            if (!bVar.d) {
-                bVar.e.onAdLoaded(zfbVar, new String[0]);
-                bVar.d = true;
-                session = bVar.e.getSession(zfbVar);
-                bVar.c = session;
-                return;
-            }
-            PidLoaderSession<zfb> pidLoaderSession = bVar.c;
-            if (pidLoaderSession != null) {
-                z = bVar.e.isSupportCaching;
-                pidLoaderSession.cacheOrDestroy(zfbVar, z);
-            }
-        }
+        return invokeLL.intValue;
     }
 }

@@ -10,9 +10,9 @@ import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.data.AdverSegmentData;
 import com.baidu.tbadk.data.IconStampData;
 import com.baidu.tbadk.data.VideoEasterEggData;
-import com.baidu.tieba.m35;
 import com.baidu.tieba.pb.data.ContriInfo;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.s35;
 import com.baidu.tieba.video.VideoTitleData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -48,7 +48,7 @@ public class PostWriteCallBackData implements Serializable {
     public AdverSegmentData mAdverSegmentData;
     public ContriInfo mContriInfo;
     public int mFrom;
-    public m35 mReplyPrivacyTip;
+    public s35 mReplyPrivacyTip;
     public VideoEasterEggData mVideoEasterEggData;
     public String mVideoMd5;
     public VideoTitleData mVideoTitleData;
@@ -217,13 +217,13 @@ public class PostWriteCallBackData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public m35 getReplyPrivacyTip() {
+    public s35 getReplyPrivacyTip() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.mReplyPrivacyTip;
         }
-        return (m35) invokeV.objValue;
+        return (s35) invokeV.objValue;
     }
 
     public ArrayList<String> getSensitiveWords() {
@@ -503,10 +503,10 @@ public class PostWriteCallBackData implements Serializable {
         }
     }
 
-    public void setReplyPrivacyTip(m35 m35Var) {
+    public void setReplyPrivacyTip(s35 s35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, m35Var) == null) {
-            this.mReplyPrivacyTip = m35Var;
+        if (interceptable == null || interceptable.invokeL(1048618, this, s35Var) == null) {
+            this.mReplyPrivacyTip = s35Var;
         }
     }
 

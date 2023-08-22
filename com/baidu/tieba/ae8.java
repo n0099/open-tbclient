@@ -1,180 +1,130 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.CommonStatisticUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.model.AddMsgRecordModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ae8 {
     public static /* synthetic */ Interceptable $ic;
-    public static ae8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashSet<String> a;
-    public StringBuilder b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947612405, "Lcom/baidu/tieba/ae8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947612405, "Lcom/baidu/tieba/ae8;");
-                return;
-            }
-        }
-        c = new ae8();
-    }
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
 
     public ae8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new HashSet<>();
-        this.b = new StringBuilder();
     }
 
-    public static ae8 c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (ae8) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b() {
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            StringBuilder sb = this.b;
-            if (sb != null && sb.length() > 0) {
-                StringBuilder sb2 = this.b;
-                sb2.delete(0, sb2.length());
-            }
-            HashSet<String> hashSet = this.a;
-            if (hashSet != null) {
-                hashSet.clear();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return invokeV.longValue;
     }
 
-    public void a(String str) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && str.length() > 0) {
-            StringBuilder sb = this.b;
-            sb.append(str);
-            sb.append(",");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
         }
+        return invokeV.intValue;
     }
 
-    public void d(ChatMessage chatMessage) {
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) && chatMessage.getUserInfo() != null && CommonStatisticKey.TbMemberOfficialStatic.TB_MEMBER_OFFICIAL_ID.equals(chatMessage.getUserInfo().getUserId()) && !StringUtils.isNull(chatMessage.getContent())) {
-            try {
-                JSONArray jSONArray = new JSONArray(chatMessage.getContent());
-                if (jSONArray.length() > 0) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(0);
-                    String optString = jSONObject.optString("msg_src");
-                    String optString2 = jSONObject.optString("type");
-                    CommonStatisticUtils.staticTbMemberNotify(CommonStatisticKey.TbMemberOfficialStatic.MEMBER_OFFICIAL_NOTIFY_LIST_PAGE_MSG_SHOW, optString + "_" + optString2, jSONObject.optString("title"));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void e(ChatMessage chatMessage, Context context) {
-        UserData userInfo;
-        lb8 p;
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, chatMessage, context) != null) || chatMessage == null || StringUtils.isNull(chatMessage.getContent()) || (userInfo = chatMessage.getUserInfo()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
         }
-        if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (p = ve8.p(chatMessage.getContent())) != null && !TextUtils.isEmpty(p.b) && this.a.add(p.b)) {
-            TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", p.a, "task_id", p.b);
-        }
+        return (String) invokeV.objValue;
     }
 
-    public void f(ChatMessage chatMessage, Context context) {
-        UserData userInfo;
+    public int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, chatMessage, context) == null) && chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null && userInfo.getUserType() == 4) {
-            StatisticItem statisticItem = new StatisticItem("c13989");
-            statisticItem.param("service_id", chatMessage.getStatisticsServiceId());
-            statisticItem.param("task_id", chatMessage.getStatTaskId());
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-            TiebaStatic.log(statisticItem);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.d = str;
         }
     }
 
-    public void g() {
-        String str;
-        StringBuilder sb;
-        StringBuilder sb2;
+    public void h(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            String str2 = null;
-            if (this.a != null) {
-                StringBuilder sb3 = new StringBuilder();
-                Iterator<String> it = this.a.iterator();
-                while (it.hasNext()) {
-                    String next = it.next();
-                    if (next != null && next.length() > 0) {
-                        sb3.append(next);
-                        sb3.append(",");
-                    }
-                }
-                if (sb3.length() > 0) {
-                    sb3.deleteCharAt(sb3.length() - 1);
-                    if (sb3.length() > 0) {
-                        str = sb3.toString();
-                        sb = this.b;
-                        if (sb != null && sb.length() > 0) {
-                            this.b.deleteCharAt(sb2.length() - 1);
-                            str2 = this.b.toString();
-                        }
-                        new AddMsgRecordModel().reqViewAndClick(str, str2);
-                    }
-                }
-            }
-            str = null;
-            sb = this.b;
-            if (sb != null) {
-                this.b.deleteCharAt(sb2.length() - 1);
-                str2 = this.b.toString();
-            }
-            new AddMsgRecordModel().reqViewAndClick(str, str2);
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.a = j;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.e = i;
         }
     }
 }

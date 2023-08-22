@@ -1,111 +1,312 @@
 package com.baidu.tieba;
 
-import androidx.annotation.IdRes;
+import android.text.TextUtils;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import com.baidu.prologue.business.data.SplashStyleRecorder;
-import com.baidu.tieba.wk1;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.prologue.business.data.BaseVM;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class kj1 {
+public class kj1 implements rl1, tl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
     @NonNull
-    public static wk1 a(@NonNull oj1 oj1Var) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        int b;
+    public final sl1 a;
+    @NonNull
+    public ViewGroup b;
+    @NonNull
+    public final tj1 c;
+    @NonNull
+    public final BaseVM d;
+    @Nullable
+    public jj1 e;
+    public long f;
+    public long g;
+    public final long h;
+    public long i;
+    public boolean j;
+    public oj1 k;
+
+    @Override // com.baidu.tieba.rl1
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, oj1Var)) == null) {
-            wk1.b bVar = new wk1.b(oj1Var.j(), oj1Var.g);
-            bVar.u("rsplash");
-            boolean z3 = false;
-            if (oj1Var.f == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            bVar.i(z);
-            bVar.f(b());
-            bVar.n(c());
-            if (oj1Var.f == 1) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            bVar.p(z2);
-            bVar.o(d(oj1Var.m));
-            bVar.D(oj1Var.n * 1000);
-            bVar.B(1);
-            bVar.G(SplashStyleRecorder.a());
-            bVar.g(5);
-            bVar.z(false);
-            bVar.c(oj1Var.l);
-            bVar.e(25);
-            bVar.d(13);
-            bVar.C(72);
-            bVar.A(30);
-            bVar.F(68);
-            bVar.E(30);
-            bVar.h(17);
-            bVar.r(oj1Var.z);
-            if (oj1Var.A == 1) {
-                z3 = true;
-            }
-            bVar.y(z3);
-            bVar.b(oj1Var.B);
-            bVar.q(oj1Var.f());
-            bVar.s("跳转详情页或第三方应用");
-            if (oj1Var.l()) {
-                b = 47;
-            } else {
-                b = b() + 39;
-            }
-            bVar.t(b);
-            bVar.k(oj1Var.H);
-            bVar.m(oj1Var.G);
-            bVar.l(oj1Var.e());
-            bVar.j(oj1Var.X);
-            bVar.x(oj1Var.i());
-            bVar.w(oj1Var.h());
-            bVar.v(oj1Var.g());
-            return bVar.a();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        return (wk1) invokeL.objValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rl1
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return aj1.a().b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return invokeV.intValue;
     }
 
-    @IdRes
-    public static int c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rl1
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return aj1.a().c();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
-        return invokeV.intValue;
     }
 
-    @IdRes
-    public static int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            if (i == 1) {
-                return aj1.a().h();
+    /* loaded from: classes6.dex */
+    public class a implements xj1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kj1 a;
+
+        @Override // com.baidu.tieba.xj1
+        public void handleSchemeDispatchCallback(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             }
-            return aj1.a().g();
         }
-        return invokeI.intValue;
+
+        public a(kj1 kj1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kj1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kj1Var;
+        }
+
+        @Override // com.baidu.tieba.xj1
+        public boolean c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (this.a.e != null) {
+                    return this.a.e.c(str);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kj1 a;
+
+        public b(kj1 kj1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kj1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kj1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e.d();
+            }
+        }
+    }
+
+    public kj1(@NonNull sl1 sl1Var, @NonNull ViewGroup viewGroup, @NonNull tj1 tj1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sl1Var, viewGroup, tj1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.j = true;
+        this.h = System.currentTimeMillis();
+        this.a = sl1Var;
+        this.b = viewGroup;
+        this.c = tj1Var;
+        this.d = new BaseVM(tj1Var);
+        nj1.b(tj1Var);
+    }
+
+    public final void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.i = System.currentTimeMillis() - this.f;
+            p8.f().e();
+            if (!this.j) {
+                return;
+            }
+            this.j = false;
+            this.d.e(str, this.i);
+        }
+    }
+
+    public void l(oj1 oj1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, oj1Var) == null) {
+            this.k = oj1Var;
+            sl1 sl1Var = this.a;
+            if (sl1Var != null) {
+                oj1Var.l(sl1Var);
+            }
+        }
+    }
+
+    public void m(@NonNull jj1 jj1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, jj1Var) == null) {
+            this.e = jj1Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.tl1
+    public void onAdError(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+            this.i = System.currentTimeMillis() - this.f;
+            jj1 jj1Var = this.e;
+            if (jj1Var != null) {
+                jj1Var.f();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.rl1
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (sj1.s() && !TextUtils.isEmpty(this.c.p)) {
+                bj0.b(this.c.p);
+                if (bh0.a) {
+                    o51.a().showToast(this.a.getAdView().getContext(), "执行nad统一新协议跳转");
+                }
+            } else {
+                ak1.a(sj0.b(), this.c.o, new a(this));
+                if (bh0.a) {
+                    o51.a().showToast(this.a.getAdView().getContext(), "执行splash旧协议跳转");
+                }
+            }
+            j(BaseVM.CloseType.CLICK_AD_AREA.value);
+            this.d.b("");
+            jj1 jj1Var = this.e;
+            if (jj1Var != null) {
+                jj1Var.a();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tl1
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f = System.currentTimeMillis();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("adShowScene", this.c.D);
+                jSONObject.put("adSplashType", this.c.e);
+                if (this.c.D == 1) {
+                    long j = this.g - this.h;
+                    if (j > 0) {
+                        jSONObject.put("adLoadCostTime", j);
+                    }
+                }
+                jSONObject.put("adRenderCostTime", this.f - this.h);
+                long currentTimeMillis = System.currentTimeMillis();
+                jSONObject.put("show_time", currentTimeMillis);
+                k(currentTimeMillis);
+            } catch (JSONException unused) {
+            }
+            this.d.c(jSONObject);
+            rj1.D(this.c);
+            vj1.e(this.c);
+            jj1 jj1Var = this.e;
+            if (jj1Var != null) {
+                jj1Var.onAdShow();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.tl1
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g = System.currentTimeMillis();
+        }
+    }
+
+    @Override // com.baidu.tieba.rl1
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            jj1 jj1Var = this.e;
+            if (jj1Var != null) {
+                jj1Var.onSkip();
+            }
+            j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
+        }
+    }
+
+    @Override // com.baidu.tieba.tl1
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.i = System.currentTimeMillis() - this.f;
+            if ("time_end".equals(str)) {
+                j(BaseVM.CloseType.COUNTDOWN_TIME_FINISH.value);
+            } else if ("click_skip_button".equals(str)) {
+                j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
+            } else if ("click_ad_area".equals(str)) {
+                j(BaseVM.CloseType.CLICK_AD_AREA.value);
+            } else {
+                j(BaseVM.CloseType.OTHER.value);
+            }
+            if (this.e != null) {
+                hk0.c(new b(this));
+            }
+        }
+    }
+
+    public final void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            String str = this.c.p;
+            if (!TextUtils.isEmpty(str)) {
+                this.c.p = str.replace("SplashShowTime", String.valueOf(j));
+            }
+            String str2 = this.c.O;
+            if (!TextUtils.isEmpty(str2)) {
+                this.c.O = str2.replace("SplashShowTime", String.valueOf(j));
+            }
+        }
     }
 }

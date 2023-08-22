@@ -7,8 +7,9 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
 import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.data.AtSelectData;
+import com.baidu.tbadk.data.JSONLikeSerializable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.t1a;
+import com.baidu.tieba.y5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class WritePostDispatcher implements t1a {
+public class WritePostDispatcher implements y5a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String SEEK_HELP = "seek_help";
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,21 +60,21 @@ public class WritePostDispatcher implements t1a {
         return (ArrayList) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.t1a
+    @Override // com.baidu.tieba.y5a
     public void dispatch(JSONObject jSONObject, Context context) {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             if ("game_rank".equals(jSONObject.optString("h5_from"))) {
                 WriteActivityConfig newInstance = WriteActivityConfig.newInstance(context);
-                newInstance.setTitle(jSONObject.optString("game_name") + context.getString(R.string.obfuscated_res_0x7f0f11c1));
+                newInstance.setTitle(jSONObject.optString("game_name") + context.getString(R.string.obfuscated_res_0x7f0f11cc));
                 StringBuilder sb = new StringBuilder();
                 sb.append("#");
                 sb.append(jSONObject.optString("topic_name"));
                 sb.append("#");
                 String optString = jSONObject.optString("rank_name");
                 String optString2 = jSONObject.optString("game_name");
-                sb.append(String.format(context.getString(R.string.obfuscated_res_0x7f0f11c2), optString, optString2, jSONObject.optString("reward_name")));
+                sb.append(String.format(context.getString(R.string.obfuscated_res_0x7f0f11cd), optString, optString2, jSONObject.optString("reward_name")));
                 newInstance.setContent(sb.toString());
                 newInstance.setXiuxiuOriginalContent(sb.toString());
                 newInstance.setGameRankImgUrl(jSONObject.optString(BigdayActivityConfig.IMG_URL));
@@ -157,6 +158,19 @@ public class WritePostDispatcher implements t1a {
             String optString10 = jSONObject.optString(WriteActivityConfig.NO_SUCCESS_TOAST);
             if (!TextUtils.isEmpty(optString10)) {
                 newInstance2.setNoSuccessToast(optString10);
+            }
+            if (1 == jSONObject.optInt("useH5WritePage")) {
+                newInstance2.setIsWriteTest(true);
+            }
+            String optString11 = jSONObject.optString(WriteActivityConfig.KEY_TARGET_TAB);
+            if (!TextUtils.isEmpty(optString11)) {
+                newInstance2.setTargetTab(optString11);
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject(WriteActivityConfig.KEY_WEBVIEW_DATA);
+            if (optJSONObject != null) {
+                JSONLikeSerializable jSONLikeSerializable = new JSONLikeSerializable();
+                jSONLikeSerializable.parseJsonObject(optJSONObject);
+                newInstance2.setInitData(jSONLikeSerializable);
             }
             newInstance2.send();
         }

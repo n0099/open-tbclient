@@ -1,182 +1,261 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewConfiguration;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.player.utils.BdViewOpUtils;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public class d21 implements SharedPreferences {
+public class d21 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947652550, "Lcom/baidu/tieba/d21;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ Activity b;
+
+        public a(View view2, Activity activity) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947652550, "Lcom/baidu/tieba/d21;");
-                return;
-            }
+            this.a = view2;
+            this.b = activity;
         }
-        b = ut0.f();
-    }
 
-    @Override // android.content.SharedPreferences
-    public SharedPreferences.Editor edit() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.edit();
-        }
-        return (SharedPreferences.Editor) invokeV.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public Map<String, ?> getAll() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.getAll();
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public d21(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int g = d21.g();
+                int systemUiVisibility = this.a.getSystemUiVisibility();
+                int h = d21.h(this.b);
+                if (g != systemUiVisibility) {
+                    h |= systemUiVisibility;
+                }
+                b21.b(BdViewOpUtils.TAG, "RESTORE KEY_SYSTEM_UI_VISIBILITY=" + h);
+                this.a.setSystemUiVisibility(h);
             }
         }
-        if (!TextUtils.isEmpty(str) && !"default".equals(str)) {
-            this.a = ut0.b().getSharedPreferences(str, 0);
-        } else {
-            this.a = PreferenceManager.getDefaultSharedPreferences(ut0.b());
-        }
     }
 
-    public void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            d(str, str2);
-            this.a.edit().putString(str, str2).apply();
-        }
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048581, this, str, z)) == null) {
-            return this.a.getBoolean(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048582, this, str, f)) == null) {
-            return this.a.getFloat(str, f);
-        }
-        return invokeLF.floatValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
-            return this.a.getInt(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, j)) == null) {
-            return this.a.getLong(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public String getString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) {
-            return this.a.getString(str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public Set<String> getStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, set)) == null) {
-            return this.a.getStringSet(str, set);
-        }
-        return (Set) invokeLL.objValue;
-    }
-
-    @Override // android.content.SharedPreferences
-    public boolean contains(String str) {
+    @Nullable
+    public static ViewGroup e(@Nullable Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return this.a.contains(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            if (activity != null) {
+                return (ViewGroup) activity.getWindow().getDecorView();
+            }
+            return null;
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    public static int f(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
+            if (activity.getIntent() == null) {
+                return 0;
+            }
+            return activity.getIntent().getIntExtra(BdViewOpUtils.KEY_DISPLAY_CUTOUT_MODE, 0);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int h(@Nullable Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, activity)) == null) {
+            if (activity == null || activity.getIntent() == null) {
+                return -1;
+            }
+            return activity.getIntent().getIntExtra(BdViewOpUtils.KEY_SYSTEM_UI_VISIBILITY, -1);
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            if (context != null) {
+                return !ViewConfiguration.get(context).hasPermanentMenuKey();
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+    public static void l(@Nullable Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, onSharedPreferenceChangeListener) == null) {
-            this.a.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        if ((interceptable != null && interceptable.invokeL(65547, null, activity) != null) || !i(activity)) {
+            return;
+        }
+        ViewGroup e = e(activity);
+        int h = h(activity);
+        if (e != null && h != -1) {
+            e.postDelayed(new a(e, activity), 300L);
         }
     }
 
-    @Override // android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+    public static boolean b(Activity activity, View view2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, onSharedPreferenceChangeListener) == null) {
-            this.a.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, view2)) == null) {
+            if (activity != null && view2 != null) {
+                ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                k(view2);
+                viewGroup.removeView(view2);
+                viewGroup.addView(view2);
+                if (i(activity)) {
+                    n(activity);
+                    o(viewGroup, true);
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void d(Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(65539, null, activity, z) != null) || activity == null || Build.VERSION.SDK_INT < 28) {
+            return;
+        }
+        Window window = activity.getWindow();
+        WindowManager.LayoutParams attributes = window.getAttributes();
+        if (z) {
+            m(activity, attributes.layoutInDisplayCutoutMode);
+            attributes.layoutInDisplayCutoutMode = 1;
+        } else {
+            attributes.layoutInDisplayCutoutMode = f(activity);
+        }
+        window.setAttributes(attributes);
+    }
+
+    public static void o(View view2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65550, null, view2, z) == null) {
+            b21.b(BdViewOpUtils.TAG, "setSystemUiVisibility immersive: " + z);
+            if (view2 == null) {
+                return;
+            }
+            if (z) {
+                view2.setSystemUiVisibility(g());
+            } else {
+                view2.setSystemUiVisibility(0);
+            }
         }
     }
 
-    public final void d(String str, String str2) {
+    public static boolean c(View view2, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && str2 != null && str2.length() > 256 && b) {
-            throw new IllegalArgumentException(String.format("the value of %s is %d, over the limit of %d!", str, Integer.valueOf(str2.length()), 256));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, view2, viewGroup)) == null) {
+            if (view2 != null && viewGroup != null && viewGroup.getParent() != null) {
+                b21.b(BdViewOpUtils.TAG, "attachView " + view2.hashCode() + " " + viewGroup.hashCode());
+                try {
+                    viewGroup.addView(view2);
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return 5638;
+            }
+            return 1542;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean j(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, viewGroup)) == null) {
+            if (viewGroup != null) {
+                b21.b(BdViewOpUtils.TAG, "removeChilds " + viewGroup.hashCode());
+                viewGroup.removeAllViews();
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean k(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, view2)) == null) {
+            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
+                ViewGroup viewGroup = (ViewGroup) view2.getParent();
+                if (viewGroup.indexOfChild(view2) != -1) {
+                    try {
+                        b21.b(BdViewOpUtils.TAG, "removeView " + view2.hashCode());
+                        viewGroup.removeView(view2);
+                        return true;
+                    } catch (Exception e) {
+                        b21.f("removeView(" + System.identityHashCode(view2) + SmallTailInfo.EMOTION_SUFFIX, e);
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void m(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65548, null, activity, i) == null) && activity.getIntent() != null) {
+            activity.getIntent().putExtra(BdViewOpUtils.KEY_DISPLAY_CUTOUT_MODE, i);
+        }
+    }
+
+    public static void n(@Nullable Activity activity) {
+        ViewGroup e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65549, null, activity) == null) && activity != null && activity.getIntent() != null && (e = e(activity)) != null) {
+            b21.b(BdViewOpUtils.TAG, "SAVE KEY_SYSTEM_UI_VISIBILITY=" + e.getSystemUiVisibility());
+            activity.getIntent().putExtra(BdViewOpUtils.KEY_SYSTEM_UI_VISIBILITY, e.getSystemUiVisibility());
         }
     }
 }

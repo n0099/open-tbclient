@@ -1,238 +1,134 @@
 package com.baidu.tieba;
 
-import android.util.SparseIntArray;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.PackageInfo;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.lego.card.view.BaseLegoCardView;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.lego.view.AdCardMultiPicView;
-import com.baidu.tieba.recapp.lego.view.AdCardSinglePicView;
-import com.baidu.tieba.recapp.lego.view.AdCardVideoView;
-import com.baidu.tieba.tm5;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class hy9 extends tx8 {
+public class hy9 extends gy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int T0;
+    public int U0;
 
-    @Override // com.baidu.tieba.tx8
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_for_RecApp" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements tm5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public a(hy9 hy9Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hy9Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.baidu.tieba.tm5.b
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardSinglePicView(this.a);
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements tm5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-
-        public b(hy9 hy9Var, TbPageContext tbPageContext) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hy9Var, tbPageContext};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-        }
-
-        @Override // com.baidu.tieba.tm5.b
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardMultiPicView(this.a);
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements tm5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ int b;
-
-        public c(hy9 hy9Var, TbPageContext tbPageContext, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hy9Var, tbPageContext, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tbPageContext;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.tm5.b
-        public Object build() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new AdCardVideoView(this.a, this.b);
-            }
-            return invokeV.objValue;
-        }
-    }
-
-    public hy9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hy9(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        s0(false);
+        this.T0 = BdUtilHelper.getEquipmentWidth(this.S) / 10;
     }
 
-    @Override // com.baidu.tieba.tx8
-    public <T> ly8 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
+    public void F0(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            if (iCardInfo == null) {
-                cardType = -1;
-            } else {
-                cardType = iCardInfo.getCardType();
-            }
-            if (cardType != 17 && cardType != 34) {
-                return null;
-            }
-            return e(tbPageContext, iCardInfo, i);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.Y = str2;
+            S();
+            T();
+            v0(this.b);
+            this.F.setPlayer(this.t.getControl());
+            this.B.setVisibility(8);
+            this.u.setPlaceHolder(3);
+            this.u.startLoad(str, 10, false);
+            this.H.setShareData(null);
         }
-        return (ly8) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.tieba.tx8
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.gy9
+    public void Z(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            if (i != 17 && i != 34) {
-                return null;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            Context context = this.S;
+            if (context instanceof BaseFragmentActivity) {
+                ((BaseFragmentActivity) context).setSwipeBackEnabled(this.c0);
+            } else if (context instanceof BaseActivity) {
+                ((BaseActivity) context).setSwipeBackEnabled(this.c0);
             }
-            return new AdCard(jSONObject);
+            super.Z(z);
+            if (this.c0) {
+                this.U.getLayoutParams().height = -1;
+                return;
+            }
+            this.U.getLayoutParams().height = this.U0;
         }
-        return (ICardInfo) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.tx8
-    public void c() {
+    @Override // com.baidu.tieba.gy9
+    public void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SparseIntArray sparseIntArray = tx8.a;
-            sparseIntArray.put(17, sparseIntArray.size() + 1);
-            SparseIntArray sparseIntArray2 = tx8.a;
-            sparseIntArray2.put(33, sparseIntArray2.size() + 1);
-            SparseIntArray sparseIntArray3 = tx8.a;
-            sparseIntArray3.put(34, sparseIntArray3.size() + 1);
-            tx8.b.put(17, BdUniqueId.gen());
-            tx8.b.put(33, BdUniqueId.gen());
-            tx8.b.put(34, BdUniqueId.gen());
+            this.t.getControl().setVolume(1.0f, 1.0f);
         }
     }
 
-    public final BaseLegoCardView e(TbPageContext<?> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
+    @Override // com.baidu.tieba.gy9
+    public boolean i0(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            if (!(iCardInfo instanceof AdCard)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+            if (!this.c0 && motionEvent.getX() <= this.T0) {
+                return false;
             }
-            AdCard adCard = (AdCard) iCardInfo;
-            int cardType = adCard.getCardType();
-            if (cardType != 17 && cardType != 34) {
-                BdLog.e("RecAppLegoFactory: specifyAdCardView got wrong card type!");
-                return null;
-            }
-            int i2 = adCard.goodsStyle;
-            if (i2 != 2) {
-                if (i2 != 14) {
-                    if (i2 != 6) {
-                        if (i2 != 7) {
-                            if (i2 != 8) {
-                                return null;
-                            }
-                        }
-                    } else {
-                        return (AdCardMultiPicView) tm5.e().d(1102, new b(this, tbPageContext));
-                    }
-                }
-                AdCardVideoView adCardVideoView = (AdCardVideoView) tm5.e().d(PackageInfo.CODE_HOST_VERSION, new c(this, tbPageContext, i));
-                adCardVideoView.setBusinessType(i);
-                return adCardVideoView;
-            }
-            return (AdCardSinglePicView) tm5.e().d(1101, new a(this, tbPageContext));
+            return true;
         }
-        return (BaseLegoCardView) invokeLLI.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gy9
+    public void v0(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            super.v0(i);
+            this.J.setVisibility(8);
+            this.D.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.gy9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
+    public void onPrepared() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.onPrepared();
+            if (this.t.getControl().getPlayerWidth() == 0) {
+                return;
+            }
+            if (this.t.getControl().getPlayerHeight() > this.t.getControl().getPlayerWidth()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.X = z;
+            int playerHeight = (int) ((this.t.getControl().getPlayerHeight() / this.t.getControl().getPlayerWidth()) * BdUtilHelper.getEquipmentWidth(this.S));
+            this.U0 = playerHeight;
+            if (playerHeight > BdUtilHelper.getEquipmentHeight(this.S)) {
+                this.U0 = BdUtilHelper.getEquipmentHeight(this.S);
+            }
+            this.U.getLayoutParams().height = this.U0;
+            this.U.requestLayout();
+        }
     }
 }

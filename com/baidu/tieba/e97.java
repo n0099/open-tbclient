@@ -1,79 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.ParameterizedType;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.BaseTextColor;
+import tbclient.FeedContentColor;
+import tbclient.FeedContentText;
 /* loaded from: classes5.dex */
-public abstract class e97<V extends View, M> implements u97<V, M> {
+public final class e97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
 
-    public e97(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = str;
-    }
-
-    @Override // com.baidu.tieba.u97
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
+    public static final h77 a(BaseTextColor baseTextColor) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            try {
-                Context context = viewGroup.getContext();
-                if (context instanceof ls6) {
-                    context = ((ls6) context).getPageContext().getPageActivity();
-                }
-                if (context == null) {
-                    context = viewGroup.getContext();
-                }
-                return d().getConstructor(Context.class).newInstance(context);
-            } catch (Exception e) {
-                throw new IllegalStateException(e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseTextColor)) == null) {
+            Intrinsics.checkNotNullParameter(baseTextColor, "<this>");
+            Integer type = baseTextColor.type;
+            Intrinsics.checkNotNullExpressionValue(type, "type");
+            return new h77(type.intValue(), baseTextColor.day, baseTextColor.night);
+        }
+        return (h77) invokeL.objValue;
+    }
+
+    public static final h77 b(FeedContentColor feedContentColor) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, feedContentColor)) == null) {
+            Intrinsics.checkNotNullParameter(feedContentColor, "<this>");
+            Integer type = feedContentColor.type;
+            Intrinsics.checkNotNullExpressionValue(type, "type");
+            return new h77(type.intValue(), feedContentColor.day, feedContentColor.night);
+        }
+        return (h77) invokeL.objValue;
+    }
+
+    public static final t87 c(FeedContentText feedContentText) {
+        InterceptResult invokeL;
+        h77 h77Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, feedContentText)) == null) {
+            Intrinsics.checkNotNullParameter(feedContentText, "<this>");
+            String str = feedContentText.text;
+            if (str == null) {
+                str = "";
             }
+            FeedContentColor feedContentColor = feedContentText.color;
+            h77 h77Var2 = null;
+            if (feedContentColor != null) {
+                h77Var = b(feedContentColor);
+            } else {
+                h77Var = null;
+            }
+            FeedContentColor feedContentColor2 = feedContentText.bg_color;
+            if (feedContentColor2 != null) {
+                h77Var2 = b(feedContentColor2);
+            }
+            return new t87(str, h77Var, h77Var2);
         }
-        return (View) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.u97
-    @NonNull
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final Class<V> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (Class) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[0];
-        }
-        return (Class) invokeV.objValue;
+        return (t87) invokeL.objValue;
     }
 }

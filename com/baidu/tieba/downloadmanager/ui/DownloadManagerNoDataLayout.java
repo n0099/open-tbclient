@@ -1,29 +1,26 @@
 package com.baidu.tieba.downloadmanager.ui;
 
 import android.content.Context;
-import android.util.AttributeSet;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class DownloadManagerNoDataLayout extends LinearLayout {
+public class DownloadManagerNoDataLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public TextView b;
-    public String c;
+    public String a;
+    public NoDataView b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DownloadManagerNoDataLayout(@NonNull Context context) {
@@ -46,83 +43,29 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         a(context);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DownloadManagerNoDataLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        super(context, attributeSet);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public DownloadManagerNoDataLayout(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
-        super(context, attributeSet, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            setOrientation(1);
-            setLayoutParams(new LinearLayout.LayoutParams(-1, BdUtilHelper.getDimens(context, R.dimen.tbds496)));
-            ImageView imageView = new ImageView(context);
-            this.a = imageView;
-            imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(context, R.dimen.tbds177), BdUtilHelper.getDimens(context, R.dimen.tbds177));
-            layoutParams.setMargins(0, BdUtilHelper.getDimens(context, R.dimen.tbds133), 0, 0);
-            layoutParams.gravity = 1;
-            addView(this.a, layoutParams);
-            this.b = new TextView(context);
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
-            layoutParams2.setMargins(0, BdUtilHelper.getDimens(context, R.dimen.tbds34), 0, 0);
-            this.b.setGravity(17);
-            addView(this.b, layoutParams2);
-            this.c = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04d6);
-            b();
+            setLayoutParams(new FrameLayout.LayoutParams(-1, BdUtilHelper.getDimens(context, R.dimen.tbds585)));
+            this.b = NoDataViewFactory.b(getContext(), this, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NORESULT, BdUtilHelper.getDimens(context, R.dimen.M_H_X010)), null, null, true);
+            this.a = TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04d8);
+            this.b.setVisibility(0);
         }
     }
 
-    public void b() {
+    public void b(TbPageContext<BaseFragmentActivity> tbPageContext, int i) {
+        NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setBackground(null);
-            SkinManager.setImageResource(this.a, R.drawable.im_no_data_icon);
-            EMManager.from(this.b).setTextColor(R.color.CAM_X0110).setTextSize(R.dimen.T_X08);
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && (noDataView = this.b) != null) {
+            noDataView.f(tbPageContext, i);
         }
     }
 
     public void setNoDataText(int i) {
+        NoDataView noDataView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b.setText(String.format(this.c, TbadkCoreApplication.getInst().getString(i)));
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (noDataView = this.b) != null) {
+            noDataView.setTextOption(NoDataViewFactory.e.c(String.format(this.a, TbadkApplication.getInst().getString(i))));
         }
     }
 }

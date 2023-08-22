@@ -1,108 +1,108 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.mo3;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qv2 implements cw2 {
+public class qv2 extends ov2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SwanAppConfigData a(File file) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file != null && file.exists()) {
-                long currentTimeMillis = System.currentTimeMillis();
-                SwanAppConfigData b = kb3.b(file.getAbsolutePath());
-                if (cw2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("buildAppJsonConfig cost = ");
-                    sb.append(currentTimeMillis2 - currentTimeMillis);
-                    sb.append("ms ; current thread is main = ");
-                    if (Looper.getMainLooper() == Looper.myLooper()) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    sb.append(" ; path = ");
-                    sb.append(file);
-                    Log.d("SwanPerformance", sb.toString());
-                }
-                return b;
-            }
-            return null;
-        }
-        return (SwanAppConfigData) invokeL.objValue;
-    }
-
-    public static SwanAppConfigData b(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file != null && file.exists()) {
-                SwanAppConfigData swanAppConfigData = (SwanAppConfigData) rv2.c().b(file.getAbsolutePath());
-                if (swanAppConfigData == null) {
-                    swanAppConfigData = b53.e().j(file);
-                    if (swanAppConfigData == null) {
-                        swanAppConfigData = a(file);
-                    }
-                    rv2.c().d(file.getAbsolutePath(), swanAppConfigData);
-                } else if (cw2.a) {
-                    Log.d("SwanPerformance", "adopt cached app.json");
-                }
-                return swanAppConfigData;
-            }
-            return null;
-        }
-        return (SwanAppConfigData) invokeL.objValue;
-    }
-
-    public static Boolean c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            Boolean bool = (Boolean) rv2.c().b("getNightModeStateCache");
-            if (bool == null) {
-                return Boolean.valueOf(fu2.M().a());
-            }
-            if (z) {
-                rv2.c().e("getNightModeStateCache");
-            }
-            return bool;
-        }
-        return (Boolean) invokeZ.objValue;
-    }
-
-    public static List<mo3.a> d() {
+    @Override // com.baidu.tieba.sv2
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            List<mo3.a> list = (List) rv2.c().b("getStorageListCache");
-            if (list == null) {
-                List<mo3.a> d = mo3.d();
-                rv2.c().d("getStorageListCache", d);
-                return d;
-            }
-            return list;
-        }
-        return (List) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "StorageApiDescInterceptor" : (String) invokeV.objValue;
     }
 
-    public static void e(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bool) == null) {
-            rv2.c().d("getNightModeStateCache", bool);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948105212, "Lcom/baidu/tieba/qv2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948105212, "Lcom/baidu/tieba/qv2;");
+                return;
+            }
         }
+        b = new String[]{"setStorage", "getStorage", "removeStorage", "getSystemInfo", "getStorageInfo"};
+    }
+
+    public qv2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.sv2
+    public boolean enable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return e("swan_storage_async");
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sv2
+    public boolean a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            for (String str3 : b) {
+                if (TextUtils.equals(str3, str2)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sv2
+    @NonNull
+    public JSONObject c(@NonNull String str, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray(WebChromeClient.KEY_ARG_ARRAY);
+            if (optJSONArray != null) {
+                optJSONArray.put(d("cb", EMABTest.TYPE_STRING));
+            }
+            if ("getSystemInfo".equals(str) || "getStorageInfo".equals(str)) {
+                try {
+                    String optString = jSONObject.optString("method");
+                    jSONObject.put("method", optString + "Async");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

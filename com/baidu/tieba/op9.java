@@ -1,79 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.NetMessageListener;
-import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.personExtra.SmartAppBrowseHistoryHttpResponsedMessage;
-import com.baidu.tieba.personExtra.SmartAppBrowseHistoryRequestMessage;
-import com.baidu.tieba.personExtra.SmartAppBrowseHistorySocketResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes7.dex */
 public class op9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public b b;
-    public NetMessageListener c;
-
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z, ip9 ip9Var);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends NetMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ op9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(op9 op9Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {op9Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = op9Var;
-        }
-
-        @Override // com.baidu.adp.framework.listener.NetMessageListener
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                this.a.a = false;
-                if (responsedMessage != null && responsedMessage.getError() == 0) {
-                    if (!(responsedMessage instanceof SmartAppBrowseHistorySocketResponsedMessage)) {
-                        if (!(responsedMessage instanceof SmartAppBrowseHistoryHttpResponsedMessage)) {
-                            return;
-                        }
-                        this.a.d(true, ((SmartAppBrowseHistoryHttpResponsedMessage) responsedMessage).getData());
-                        return;
-                    }
-                    this.a.d(true, ((SmartAppBrowseHistorySocketResponsedMessage) responsedMessage).getData());
-                    return;
-                }
-                this.a.d(false, null);
-            }
-        }
-    }
+    public ArrayList<sp9> a;
 
     public op9() {
         Interceptable interceptable = $ic;
@@ -88,55 +29,67 @@ public class op9 {
                 return;
             }
         }
-        this.a = false;
-        this.c = new a(this, CmdConfigHttp.CMD_HISTORY_SWAN, 309638);
-        f();
-        e();
+        this.a = new ArrayList<>();
     }
 
-    public final void d(boolean z, ip9 ip9Var) {
-        b bVar;
+    public ArrayList<sp9> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, ip9Var) == null) && (bVar = this.b) != null) {
-            bVar.a(z, ip9Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (ArrayList) invokeV.objValue;
     }
 
-    public void c() {
+    public final boolean b(ExcContent excContent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, excContent)) == null) {
+            long longValue = excContent.type.longValue();
+            if (longValue == 2 || longValue == 0 || longValue == 1) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void e() {
+    public void c(TbPageContext<?> tbPageContext, List<ExcContent> list) {
+        vp9 vp9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.c);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            aba.f(309638, SmartAppBrowseHistorySocketResponsedMessage.class, false);
-            aba.c(309638, CmdConfigHttp.CMD_HISTORY_SWAN, TbConfig.URL_HISTORY_SWAN, SmartAppBrowseHistoryHttpResponsedMessage.class, false, false, true, false);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a) {
-            return;
-        }
-        this.a = true;
-        MessageManager.getInstance().sendMessage(new SmartAppBrowseHistoryRequestMessage());
-    }
-
-    public void h(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.b = bVar;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, list) == null) && list != null && !list.isEmpty()) {
+            loop0: while (true) {
+                vp9Var = null;
+                for (ExcContent excContent : list) {
+                    if (excContent != null && excContent.type != null) {
+                        if (b(excContent)) {
+                            rp9 a = up9.a(tbPageContext, excContent);
+                            if (a == null) {
+                                continue;
+                            } else if (a.a()) {
+                                if (vp9Var != null) {
+                                    this.a.add(vp9Var);
+                                }
+                                this.a.add(a);
+                            } else {
+                                if (vp9Var == null) {
+                                    vp9Var = new vp9();
+                                }
+                                vp9Var.c(a.b());
+                            }
+                        } else {
+                            if (vp9Var != null) {
+                                this.a.add(vp9Var);
+                            }
+                            this.a.add(up9.b(excContent));
+                        }
+                    }
+                }
+                break loop0;
+            }
+            if (vp9Var != null) {
+                this.a.add(vp9Var);
+            }
         }
     }
 }

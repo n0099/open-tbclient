@@ -1,34 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.browser.TbWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class gza {
+public abstract class gza extends gn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ImageView b;
-    public EMTextView c;
-    public View d;
+    public final TbWebView d;
+    public final HashSet<String> e;
 
-    public gza(Context context) {
+    public abstract void i(WebView webView, String str);
+
+    public abstract void j(WebView webView, String str);
+
+    public gza(TbWebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,50 +36,80 @@ public class gza {
                 return;
             }
         }
-        this.a = context;
-        c();
+        Intrinsics.checkNotNullParameter(webView, "webView");
+        this.d = webView;
+        HashSet<String> hashSet = new HashSet<>();
+        this.e = hashSet;
+        hashSet.add("onPageStarted");
+        this.e.add("onPageFinished");
+        this.e.add("onAddView");
+        this.e.add("onDraftLoad");
+        this.d.p(this);
+        c(new dm6() { // from class: com.baidu.tieba.dza
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.dm6
+            public final void d(WebView webView2, String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str) == null) {
+                    gza.d(gza.this, webView2, str);
+                }
+            }
+        });
+        b(new cm6() { // from class: com.baidu.tieba.bza
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            @Override // com.baidu.tieba.cm6
+            public final void onPageFinished(WebView webView2, String str) {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 == null || interceptable2.invokeLL(1048576, this, webView2, str) == null) {
+                    gza.e(gza.this, webView2, str);
+                }
+            }
+        });
     }
 
-    public void d(int i) {
-        ImageView imageView;
+    public static final void d(gza this$0, WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (imageView = this.b) != null) {
-            imageView.setImageDrawable(WebPManager.getMaskDrawable(i, false));
+        if (interceptable == null || interceptable.invokeLLL(65537, null, this$0, webView, str) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.j(webView, str);
+            this$0.f("onPageStarted");
         }
     }
 
-    public void e(String str) {
-        EMTextView eMTextView;
+    public static final void e(gza this$0, WebView webView, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (eMTextView = this.c) != null) {
-            eMTextView.setText(str);
+        if (interceptable == null || interceptable.invokeLLL(65538, null, this$0, webView, str) == null) {
+            Intrinsics.checkNotNullParameter(this$0, "this$0");
+            this$0.i(webView, str);
+            this$0.f("onPageFinished");
         }
     }
 
-    public void a() {
+    public final void f(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d != null) {
-            EMManager.from(this.c).setTextLinePadding(R.dimen.M_T_X001).setTextSize(R.dimen.T_X05);
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.e.remove(str);
+            if (this.e.isEmpty()) {
+                wl6.a().i(this.d, "writePageNa.pageReady", new JSONObject());
+            }
         }
     }
 
-    public View b() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            f("onAddView");
         }
-        return (View) invokeV.objValue;
     }
 
-    public final void c() {
+    public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0a3a, (ViewGroup) null);
-            this.d = inflate;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0911a8);
-            this.c = (EMTextView) this.d.findViewById(R.id.obfuscated_res_0x7f0911d8);
-            a();
+            f("onDraftLoad");
         }
     }
 }

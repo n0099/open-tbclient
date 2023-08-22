@@ -1,22 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.requester.NadRequester;
+import com.baidu.nadcore.requester.RequestParameters;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes8.dex */
-public final /* synthetic */ class u21 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface u21 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "adRequester");
 
-    static {
-        int[] iArr = new int[AdDownloadStatus.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[AdDownloadStatus.NONE.ordinal()] = 1;
-        $EnumSwitchMapping$0[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
-        int[] iArr2 = new int[AdDownloadStatus.values().length];
-        $EnumSwitchMapping$1 = iArr2;
-        iArr2[AdDownloadStatus.INSTALLED.ordinal()] = 1;
-    }
+    void a(@NonNull RequestParameters requestParameters, @NonNull NadRequester.b bVar);
 }

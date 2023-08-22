@@ -1,49 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Application;
+import android.os.Build;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public abstract class ui implements xj {
-    public static /* synthetic */ Interceptable $ic;
+public class ui {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 0;
+    public static int b = 3;
+    public static final String[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile byte[] a;
-    public volatile boolean b;
 
-    public abstract byte[] d();
-
-    public ui() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318873, "Lcom/baidu/tieba/ui;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448318873, "Lcom/baidu/tieba/ui;");
                 return;
             }
         }
-        this.a = null;
-        this.b = false;
+        c = new String[]{"meizu"};
     }
 
-    public byte[] e() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (!this.b) {
-                    this.b = true;
-                    this.a = d();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = Build.BRAND;
+            if (str == null) {
+                return false;
             }
-            return this.a;
+            String lowerCase = str.toLowerCase();
+            int i = 0;
+            while (true) {
+                String[] strArr = c;
+                if (i >= strArr.length) {
+                    return false;
+                }
+                if (strArr[i].equals(lowerCase)) {
+                    return true;
+                }
+                i++;
+            }
+        } else {
+            return invokeV.booleanValue;
         }
-        return (byte[]) invokeV.objValue;
+    }
+
+    public static String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            Application app = BdBaseApplication.getInst().getApp();
+            if (app == null) {
+                return "";
+            }
+            return app.getString(i);
+        }
+        return (String) invokeI.objValue;
     }
 }

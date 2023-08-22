@@ -1,130 +1,85 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.slave.SwanWebModeWidget;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class u03 {
+public class u03 extends uz1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.gz1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        return i != 3 ? 100 : 118;
-                    }
-                    return 112;
-                }
-                return 100;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "SwanCallImageMenuApi" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u03(@NonNull ez1 ez1Var) {
+        super(ez1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ez1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ez1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 82;
         }
-        return invokeI.intValue;
     }
 
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            Bundle b = l73.b(v03.class, null);
-            if (b == null) {
-                return 1;
-            }
-            return b.getInt("font_size_level", 1);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b() + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return no3.f("3.200.101");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            SwanAppConfigData s = lw2.T().s();
-            if (s == null) {
-                return false;
-            }
-            return TextUtils.equals("none", s.e.q);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static NgWebView c(ea2 ea2Var) {
+    public d32 y(String str) {
         InterceptResult invokeL;
-        HashMap<String, gx1> V;
-        gx1 gx1Var;
-        fx1 r;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ea2Var)) == null) {
-            if (ea2Var instanceof ga2) {
-                ex1 q3 = ((ga2) ea2Var).q3();
-                if (q3 != null && q3.j() != null) {
-                    return (NgWebView) q3.j().r();
-                }
-                if (q3 == null) {
-                    return null;
-                }
-                return (NgWebView) q3.r();
-            } else if (!(ea2Var instanceof la2) || (V = sh2.U().V()) == null || V.size() <= 0 || (gx1Var = V.get(qq3.c().h())) == null || !(gx1Var instanceof SwanWebModeWidget) || (r = gx1Var.r()) == null || !(r instanceof NgWebView)) {
-                return null;
-            } else {
-                return (NgWebView) r;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            kx1 i = qw2.T().i();
+            if (!(i instanceof NgWebView)) {
+                return new d32(1001, "call image menu fail");
             }
+            ww1 E0 = ku2.E0();
+            if (E0 == null) {
+                return new d32(1001, "call image menu fail");
+            }
+            E0.b((NgWebView) i, str);
+            return d32.f();
         }
-        return (NgWebView) invokeL.objValue;
+        return (d32) invokeL.objValue;
     }
 
-    public static void g(int i, int i2) {
-        SwanAppActivity w;
-        ha2 Y;
-        ea2 m;
-        NgWebView c;
+    public d32 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(65542, null, i, i2) != null) || (w = xa3.K().w()) == null || (Y = w.Y()) == null || (m = Y.m()) == null || (c = c(m)) == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#callImageMenu", false);
+            if (db3.b0() == null) {
+                return new d32(1001, "swan app is null");
+            }
+            Pair<d32, JSONObject> s = s(str);
+            d32 d32Var = (d32) s.first;
+            if (!d32Var.isSuccess()) {
+                return d32Var;
+            }
+            String optString = ((JSONObject) s.second).optString("imageURL");
+            if (TextUtils.isEmpty(optString)) {
+                return new d32(202, ku2.c().getString(R.string.obfuscated_res_0x7f0f1791));
+            }
+            return y(optString);
         }
-        if (!f()) {
-            c.getSettings().setTextZoom(a(i));
-            t03.a(Integer.valueOf(i + 1), String.valueOf(i2));
-        }
-        h(i);
-    }
-
-    public static void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("key_text_size", i);
-            o73.e().h(new q73(22, bundle));
-        }
+        return (d32) invokeL.objValue;
     }
 }

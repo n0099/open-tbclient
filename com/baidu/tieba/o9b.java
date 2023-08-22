@@ -1,105 +1,110 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class o9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static <T> boolean a(List<T> list, List<T> list2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, list2)) == null) {
-            if (!e(list2) && list != null) {
-                return list.addAll(list2);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static <T> T c(List<T> list, int i) {
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final o9b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-588814445, "Lcom/baidu/tieba/o9b$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-588814445, "Lcom/baidu/tieba/o9b$b;");
+                    return;
+                }
+            }
+            a = new o9b(null);
+        }
+    }
+
+    public o9b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static o9b a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (o9b) invokeV.objValue;
+    }
+
+    public /* synthetic */ o9b(a aVar) {
+        this();
+    }
+
+    public int b(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
-                return null;
-            }
-            return list.get(i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            return f9b.f(str, i);
         }
-        return (T) invokeLI.objValue;
+        return invokeLI.intValue;
     }
 
-    public static <T> T g(List<T> list, int i) {
-        InterceptResult invokeLI;
+    public long c(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, list, i)) == null) {
-            if (!e(list) && list != null && i >= 0 && i < list.size()) {
-                return list.remove(i);
-            }
-            return null;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            return f9b.g(str, j);
         }
-        return (T) invokeLI.objValue;
+        return invokeLJ.longValue;
     }
 
-    public static <T> int b(List<T> list) {
-        InterceptResult invokeL;
+    public void d(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return list.size();
-            }
-            return 0;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            f9b.n(str, i);
         }
-        return invokeL.intValue;
     }
 
-    public static <T> T d(List<T> list) {
-        InterceptResult invokeL;
+    public void e(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, list)) == null) {
-            if (list != null && !list.isEmpty()) {
-                return (T) c(list, list.size() - 1);
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
+            f9b.o(str, j);
         }
-        return (T) invokeL.objValue;
     }
 
-    public static <T> boolean e(List<T> list) {
-        InterceptResult invokeL;
+    public void f(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            if (b(list) <= 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <T> boolean f(Map map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static <T> void h(List<T> list, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65543, null, list, i, i2) == null) && !e(list) && i >= 0 && i2 >= 0 && i <= b(list) - 1 && i2 <= b(list) - 1) {
-            Collections.swap(list, i, i2);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            f9b.p(str, str2);
         }
     }
 }

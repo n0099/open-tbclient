@@ -26,7 +26,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class ValueParameterDescriptorImpl extends VariableDescriptorImpl implements ValueParameterDescriptor {
     public static final Companion Companion = new Companion(null);
     public final boolean declaresDefaultValue;
@@ -51,7 +51,7 @@ public class ValueParameterDescriptorImpl extends VariableDescriptorImpl impleme
         return false;
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -69,7 +69,7 @@ public class ValueParameterDescriptorImpl extends VariableDescriptorImpl impleme
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class WithDestructuringDeclaration extends ValueParameterDescriptorImpl {
         public final Lazy destructuringVariables$delegate;
 
@@ -164,7 +164,7 @@ public class ValueParameterDescriptorImpl extends VariableDescriptorImpl impleme
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.VariableDescriptor
     /* renamed from: getCompileTimeInitializer  reason: collision with other method in class */
-    public /* bridge */ /* synthetic */ ConstantValue mo2098getCompileTimeInitializer() {
+    public /* bridge */ /* synthetic */ ConstantValue mo2100getCompileTimeInitializer() {
         return (ConstantValue) getCompileTimeInitializer();
     }
 

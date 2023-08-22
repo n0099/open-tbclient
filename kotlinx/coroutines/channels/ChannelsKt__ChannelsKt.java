@@ -15,7 +15,7 @@ public final /* synthetic */ class ChannelsKt__ChannelsKt {
     /* JADX WARN: Multi-variable type inference failed */
     @Deprecated(level = DeprecationLevel.ERROR, message = "Deprecated in the favour of 'trySendBlocking'. Consider handling the result of 'trySendBlocking' explicitly and rethrow exception if necessary", replaceWith = @ReplaceWith(expression = "trySendBlocking(element)", imports = {}))
     public static final <E> void sendBlocking(SendChannel<? super E> sendChannel, E e) {
-        if (!ChannelResult.m2311isSuccessimpl(sendChannel.mo2296trySendJP2dKIU(e))) {
+        if (!ChannelResult.m2313isSuccessimpl(sendChannel.mo2298trySendJP2dKIU(e))) {
             BuildersKt__BuildersKt.runBlocking$default(null, new ChannelsKt__ChannelsKt$sendBlocking$1(sendChannel, e, null), 1, null);
         }
     }
@@ -24,12 +24,12 @@ public final /* synthetic */ class ChannelsKt__ChannelsKt {
     /* JADX WARN: Multi-variable type inference failed */
     public static final <E> Object trySendBlocking(SendChannel<? super E> sendChannel, E e) {
         Object runBlocking$default;
-        Object mo2296trySendJP2dKIU = sendChannel.mo2296trySendJP2dKIU(e);
-        if (mo2296trySendJP2dKIU instanceof ChannelResult.Failed) {
+        Object mo2298trySendJP2dKIU = sendChannel.mo2298trySendJP2dKIU(e);
+        if (mo2298trySendJP2dKIU instanceof ChannelResult.Failed) {
             runBlocking$default = BuildersKt__BuildersKt.runBlocking$default(null, new ChannelsKt__ChannelsKt$trySendBlocking$2(sendChannel, e, null), 1, null);
-            return ((ChannelResult) runBlocking$default).m2313unboximpl();
+            return ((ChannelResult) runBlocking$default).m2315unboximpl();
         }
-        Unit unit = (Unit) mo2296trySendJP2dKIU;
-        return ChannelResult.Companion.m2316successJP2dKIU(Unit.INSTANCE);
+        Unit unit = (Unit) mo2298trySendJP2dKIU;
+        return ChannelResult.Companion.m2318successJP2dKIU(Unit.INSTANCE);
     }
 }

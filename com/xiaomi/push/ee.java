@@ -8,9 +8,9 @@ public enum ee {
     
 
     /* renamed from: a  reason: collision with other field name */
-    public String f313a;
+    public String f314a;
 
     ee(String str) {
-        this.f313a = str;
+        this.f314a = str;
     }
 }

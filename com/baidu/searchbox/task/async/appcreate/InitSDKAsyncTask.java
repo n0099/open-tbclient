@@ -3,8 +3,7 @@ package com.baidu.searchbox.task.async.appcreate;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.ruka.Ruka;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.eha;
-import com.baidu.tieba.fha;
+import com.baidu.tieba.ola;
 /* loaded from: classes4.dex */
 public class InitSDKAsyncTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -15,12 +14,6 @@ public class InitSDKAsyncTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public int getProcess() {
         return -1;
-    }
-
-    private void initJpusbSdk() {
-        if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            eha.b().d(TbadkCoreApplication.getInst());
-        }
     }
 
     private void initRuka() {
@@ -34,15 +27,14 @@ public class InitSDKAsyncTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         initStatSdk();
-        initJpusbSdk();
         initRuka();
     }
 
     private void initStatSdk() {
         if (TbadkCoreApplication.getInst().isMainProcess(true)) {
-            fha.b().d(TbadkCoreApplication.getInst());
-            fha.b().a(TbadkCoreApplication.getInst());
-            fha b = fha.b();
+            ola.b().d(TbadkCoreApplication.getInst());
+            ola.b().a(TbadkCoreApplication.getInst());
+            ola b = ola.b();
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
             TbadkCoreApplication.getInst();
             b.f(inst, TbadkCoreApplication.getFrom(), true);

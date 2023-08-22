@@ -25,9 +25,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aw5;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.y9a;
+import com.baidu.tieba.gea;
+import com.baidu.tieba.rw5;
+import com.baidu.tieba.w05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -183,11 +183,11 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public void setData(q05 q05Var) {
+    public void setData(w05 w05Var) {
         ThreadRecommendInfoData threadRecommendInfoData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048591, this, q05Var) == null) && q05Var != null && q05Var.getThreadData() != null) {
-            ThreadData threadData = q05Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(1048591, this, w05Var) == null) && w05Var != null && w05Var.getThreadData() != null) {
+            ThreadData threadData = w05Var.getThreadData();
             if (threadData.getThreadRecommendInfoDataList() == null || threadData.getThreadRecommendInfoDataList().size() <= 0 || (threadRecommendInfoData = threadData.getThreadRecommendInfoDataList().get(0)) == null) {
                 return;
             }
@@ -259,7 +259,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
     public void n(ThemeElement themeElement) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048588, this, themeElement) == null) && k(themeElement)) {
-            this.n.setTextColor(y9a.f(themeElement.common_color));
+            this.n.setTextColor(gea.f(themeElement.common_color));
         }
     }
 
@@ -346,7 +346,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
                 this.l.setVisibility(8);
             }
             if (!TextUtils.isEmpty(this.d.b) && !TextUtils.isEmpty(this.d.e)) {
-                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, "...") + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0774) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, "..."));
+                this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.b, this.b, "...") + TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f077c) + StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, "..."));
             } else if (!TextUtils.isEmpty(this.d.e)) {
                 this.m.setText(StringHelper.cutChineseAndEnglishWithSuffix(this.d.e, this.a, "..."));
             }
@@ -369,7 +369,7 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
             return;
         }
         if (NewWebHotTopicPageSwitch.isOn() && (tbPageContext = this.w) != null) {
-            aw5.f(tbPageContext, String.valueOf(j), null);
+            rw5.f(tbPageContext, String.valueOf(j), null);
         } else {
             new HotTopicActivityConfig(getContext()).createNormalConfig(String.valueOf(j), null, null, "2").start();
         }
@@ -503,16 +503,16 @@ public class TbLabelWidget extends LinearLayout implements View.OnClickListener 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLLL(1048587, this, themeElement, themeElement2, themeElement3, themeElement4) == null) {
             if (k(themeElement)) {
-                this.g.setTextColor(y9a.f(themeElement.common_color));
+                this.g.setTextColor(gea.f(themeElement.common_color));
             }
             if (k(themeElement2)) {
-                this.h.setBackgroundColor(y9a.f(themeElement2.common_color));
+                this.h.setBackgroundColor(gea.f(themeElement2.common_color));
             }
             if (k(themeElement3)) {
-                this.i.setTextColor(y9a.f(themeElement3.common_color));
+                this.i.setTextColor(gea.f(themeElement3.common_color));
             }
             if (k(themeElement4)) {
-                this.r.setBackGroundRealColor(y9a.f(themeElement4.common_color));
+                this.r.setBackGroundRealColor(gea.f(themeElement4.common_color));
             }
         }
     }

@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cw7;
-import com.baidu.tieba.dw7;
+import com.baidu.tieba.xx7;
+import com.baidu.tieba.yx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,23 +32,23 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(cw7 cw7Var, int i);
+        void a(xx7 xx7Var, int i);
     }
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cw7 a;
+        public final /* synthetic */ xx7 a;
         public final /* synthetic */ int b;
         public final /* synthetic */ GameRankHorizontalLayout c;
 
-        public a(GameRankHorizontalLayout gameRankHorizontalLayout, cw7 cw7Var, int i) {
+        public a(GameRankHorizontalLayout gameRankHorizontalLayout, xx7 xx7Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gameRankHorizontalLayout, cw7Var, Integer.valueOf(i)};
+                Object[] objArr = {gameRankHorizontalLayout, xx7Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i2 = newInitContext.flag;
                 if ((i2 & 1) != 0) {
@@ -59,7 +59,7 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
                 }
             }
             this.c = gameRankHorizontalLayout;
-            this.a = cw7Var;
+            this.a = xx7Var;
             this.b = i;
         }
 
@@ -158,56 +158,56 @@ public class GameRankHorizontalLayout extends HorizontalScrollView {
         }
     }
 
-    public final View c(cw7 cw7Var, int i) {
+    public final View c(xx7 xx7Var, int i) {
         InterceptResult invokeLI;
         RoundAngleRelativeLayout roundAngleRelativeLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cw7Var, i)) == null) {
-            if (cw7Var == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xx7Var, i)) == null) {
+            if (xx7Var == null) {
                 return null;
             }
-            if (!StringUtils.isNull(cw7Var.b())) {
-                roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ca, (ViewGroup) null);
+            if (!StringUtils.isNull(xx7Var.b())) {
+                roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03cf, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
-                HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090ef9);
+                HeadImageView headImageView = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090f06);
                 headImageView.setIsRound(true);
-                headImageView.startLoad(cw7Var.b(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092a01)).startLoad(cw7Var.b(), 10, false);
+                headImageView.startLoad(xx7Var.b(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092a32)).startLoad(xx7Var.b(), 10, false);
             } else {
-                roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03c9, (ViewGroup) null);
+                roundAngleRelativeLayout = (RoundAngleRelativeLayout) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ce, (ViewGroup) null);
                 roundAngleRelativeLayout.setRadius(4.0f);
-                HeadImageView headImageView2 = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090ef9);
+                HeadImageView headImageView2 = (HeadImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f090f06);
                 headImageView2.setIsRound(true);
-                headImageView2.startLoad(cw7Var.f(), 10, false);
-                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09197b)).startLoad(cw7Var.f(), 10, false);
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_name)).setText(cw7Var.e());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091e12)).setText(cw7Var.g());
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092841)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f08c6, cw7Var.d()));
-                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091e0b)).setText(cw7Var.a());
+                headImageView2.startLoad(xx7Var.f(), 10, false);
+                ((TbImageView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f09199e)).startLoad(xx7Var.f(), 10, false);
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.user_name)).setText(xx7Var.e());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091e35)).setText(xx7Var.g());
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f092872)).setText(getContext().getString(R.string.obfuscated_res_0x7f0f08ce, xx7Var.d()));
+                ((TextView) roundAngleRelativeLayout.findViewById(R.id.obfuscated_res_0x7f091e2e)).setText(xx7Var.a());
             }
             if (roundAngleRelativeLayout != null) {
-                roundAngleRelativeLayout.setOnClickListener(new a(this, cw7Var, i));
+                roundAngleRelativeLayout.setOnClickListener(new a(this, xx7Var, i));
             }
             return roundAngleRelativeLayout;
         }
         return (View) invokeLI.objValue;
     }
 
-    public void setData(dw7 dw7Var) {
+    public void setData(yx7 yx7Var) {
         LinearLayout linearLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dw7Var) == null) && (linearLayout = this.a) != null && dw7Var != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yx7Var) == null) && (linearLayout = this.a) != null && yx7Var != null) {
             linearLayout.removeAllViews();
-            if (!ListUtils.isEmpty(dw7Var.b())) {
-                for (int i = 0; i < dw7Var.b().size(); i++) {
-                    View c = c(dw7Var.b().get(i), i);
+            if (!ListUtils.isEmpty(yx7Var.b())) {
+                for (int i = 0; i < yx7Var.b().size(); i++) {
+                    View c = c(yx7Var.b().get(i), i);
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703e3), BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f07038b));
                     if (i != 0) {
                         layoutParams.leftMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f07041c);
                     } else {
                         layoutParams.leftMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070225);
                     }
-                    if (i == dw7Var.b().size() - 1) {
+                    if (i == yx7Var.b().size() - 1) {
                         layoutParams.rightMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070225);
                     } else {
                         layoutParams.rightMargin = 0;

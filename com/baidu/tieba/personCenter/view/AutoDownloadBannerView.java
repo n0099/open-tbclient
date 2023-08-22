@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.c75;
-import com.baidu.tieba.d75;
-import com.baidu.tieba.g75;
-import com.baidu.tieba.jz4;
+import com.baidu.tieba.i75;
+import com.baidu.tieba.j75;
+import com.baidu.tieba.m75;
+import com.baidu.tieba.oz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,10 +29,10 @@ public class AutoDownloadBannerView extends RelativeLayout {
     public Context a;
     public DownloadFlowView<ApkDownloadInfoData> b;
     public List<ApkDownloadInfoData> c;
-    public jz4 d;
+    public oz4 d;
 
     /* loaded from: classes7.dex */
-    public class a extends c75 {
+    public class a extends i75 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AutoDownloadBannerView a;
@@ -55,35 +55,35 @@ public class AutoDownloadBannerView extends RelativeLayout {
             this.a = autoDownloadBannerView;
         }
 
-        @Override // com.baidu.tieba.c75, com.baidu.tieba.a75
-        public d75 a() {
+        @Override // com.baidu.tieba.i75, com.baidu.tieba.g75
+        public j75 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                d75 d75Var = new d75();
-                d75Var.c(R.drawable.icon_banner_download_unselect);
-                d75Var.g(R.drawable.icon_banner_download_select);
-                d75Var.d(81);
-                d75Var.e(R.dimen.M_H_X005);
-                d75Var.h(R.dimen.tbds10);
-                return d75Var;
+                j75 j75Var = new j75();
+                j75Var.c(R.drawable.icon_banner_download_unselect);
+                j75Var.g(R.drawable.icon_banner_download_select);
+                j75Var.d(81);
+                j75Var.e(R.dimen.M_H_X005);
+                j75Var.h(R.dimen.tbds10);
+                return j75Var;
             }
-            return (d75) invokeV.objValue;
+            return (j75) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.c75, com.baidu.tieba.a75
-        public g75 c() {
+        @Override // com.baidu.tieba.i75, com.baidu.tieba.g75
+        public m75 c() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                g75 g75Var = new g75();
-                g75Var.a(BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds187));
-                return g75Var;
+                m75 m75Var = new m75();
+                m75Var.a(BdUtilHelper.getDimens(this.a.getContext(), R.dimen.tbds187));
+                return m75Var;
             }
-            return (g75) invokeV.objValue;
+            return (m75) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.c75, com.baidu.tieba.a75
+        @Override // com.baidu.tieba.i75, com.baidu.tieba.g75
         public TbImageView d(Context context) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
@@ -205,10 +205,10 @@ public class AutoDownloadBannerView extends RelativeLayout {
         }
     }
 
-    public void setIWindowChangedListener(jz4 jz4Var) {
+    public void setIWindowChangedListener(oz4 oz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jz4Var) == null) {
-            this.d = jz4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, oz4Var) == null) {
+            this.d = oz4Var;
         }
     }
 
@@ -250,13 +250,13 @@ public class AutoDownloadBannerView extends RelativeLayout {
             if (list == null) {
                 return;
             }
-            g75 g75Var = new g75();
+            m75 m75Var = new m75();
             if (list.size() == 1) {
-                g75Var.a(BdUtilHelper.getDimens(getContext(), R.dimen.tbds187));
+                m75Var.a(BdUtilHelper.getDimens(getContext(), R.dimen.tbds187));
             } else {
-                g75Var.a(BdUtilHelper.getDimens(getContext(), R.dimen.tbds230));
+                m75Var.a(BdUtilHelper.getDimens(getContext(), R.dimen.tbds230));
             }
-            this.b.z(g75Var);
+            this.b.z(m75Var);
         }
     }
 

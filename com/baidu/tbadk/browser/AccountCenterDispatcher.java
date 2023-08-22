@@ -2,14 +2,14 @@ package com.baidu.tbadk.browser;
 
 import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.tieba.t1a;
+import com.baidu.tieba.y5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class AccountCenterDispatcher implements t1a {
+public class AccountCenterDispatcher implements y5a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,7 +27,7 @@ public class AccountCenterDispatcher implements t1a {
         }
     }
 
-    @Override // com.baidu.tieba.t1a
+    @Override // com.baidu.tieba.y5a
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {

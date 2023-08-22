@@ -1,78 +1,343 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.c83;
+import com.baidu.tieba.e83;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class ze2 extends bz1 {
+/* loaded from: classes9.dex */
+public final class ze2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static f b;
+    public static g c;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bz1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Prefetch" : (String) invokeV.objValue;
+    /* loaded from: classes9.dex */
+    public interface d {
+        void a(c83 c83Var);
     }
 
-    @Override // com.baidu.tieba.bz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SwanPrefetchResourcesApi" : (String) invokeV.objValue;
+    /* loaded from: classes9.dex */
+    public interface e {
+        void a(@NonNull c83 c83Var, @Nullable PMSAppInfo pMSAppInfo);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ze2(@NonNull zy1 zy1Var) {
-        super(zy1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zy1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((zy1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes9.dex */
+    public class a implements d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e a;
+        public final /* synthetic */ PrefetchEvent b;
+        public final /* synthetic */ ze2 c;
+
+        public a(ze2 ze2Var, e eVar, PrefetchEvent prefetchEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ze2Var, eVar, prefetchEvent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ze2Var;
+            this.a = eVar;
+            this.b = prefetchEvent;
+        }
+
+        @Override // com.baidu.tieba.ze2.d
+        public void a(c83 c83Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, c83Var) != null) || c83Var == null) {
+                return;
+            }
+            if (!ze2.d && c83Var.E()) {
+                this.a.a(c83Var, null);
+            } else {
+                this.c.f(c83Var, this.b, this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class b implements c83.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public b(ze2 ze2Var, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ze2Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+        }
+
+        @Override // com.baidu.tieba.c83.b
+        public void a(c83 c83Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, c83Var) == null) {
+                this.a.a(c83Var);
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c extends s92 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c83 b;
+        public final /* synthetic */ e c;
+
+        public c(ze2 ze2Var, c83 c83Var, e eVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ze2Var, c83Var, eVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = c83Var;
+            this.c = eVar;
+        }
+
+        @Override // com.baidu.tieba.s92, com.baidu.tieba.t92.b
+        public void a() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                super.a();
+                if (ze2.d && this.b.E()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (this.b.S() || z) {
+                    this.c.a(this.b, null);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class f implements e83.c<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ f(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.e83.c
+        /* renamed from: b */
+        public boolean a(String str, c83 c83Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, c83Var)) == null) {
+                PrefetchEvent prefetchEvent = c83Var.f;
+                if (prefetchEvent == null) {
+                    return false;
+                }
+                return TextUtils.equals(str, prefetchEvent.appId);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public static class g implements e83.c<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ g(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.e83.c
+        /* renamed from: b */
+        public boolean a(String str, c83 c83Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, c83Var)) == null) {
+                if (c83Var.E() && TextUtils.equals(str, c83Var.c)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948356994, "Lcom/baidu/tieba/ze2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948356994, "Lcom/baidu/tieba/ze2;");
                 return;
             }
         }
+        a = nr1.a;
+        b = new f(null);
+        c = new g(null);
+        d = df2.p();
     }
 
-    public y22 x(String str) {
+    public ze2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static c83 c(@NonNull PrefetchEvent prefetchEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#prefetchResources params=" + str, false);
-            Pair<y22, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return (y22) s.first;
-            }
-            if (!SwanAppNetworkUtils.i(fu2.c())) {
-                return new y22(1001, "network disconnected");
-            }
-            JSONArray c = yn3.c(jSONObject, "video");
-            if (c != null && c.length() > 0) {
-                fu2.U().a(c);
-            }
-            JSONArray c2 = yn3.c(jSONObject, "image");
-            if (c2 != null && c2.length() > 0) {
-                fu2.U().c(c2);
-            }
-            return y22.f();
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, prefetchEvent)) == null) {
+            return e83.k().p(prefetchEvent.appId, b);
         }
-        return (y22) invokeL.objValue;
+        return (c83) invokeL.objValue;
+    }
+
+    public static c83 d(@NonNull PrefetchEvent prefetchEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, prefetchEvent)) == null) {
+            return e83.k().p(prefetchEvent.appId, c);
+        }
+        return (c83) invokeL.objValue;
+    }
+
+    public final void e(@NonNull c83 c83Var, @NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, c83Var, prefetchEvent, eVar) == null) {
+            t92.g(prefetchEvent.appId, "swan", prefetchEvent.scene, false, prefetchEvent.schema, new c(this, c83Var, eVar));
+        }
+    }
+
+    public final void f(@NonNull c83 c83Var, @NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c83Var, prefetchEvent, eVar) == null) {
+            e(c83Var, prefetchEvent, eVar);
+        }
+    }
+
+    public void g(@NonNull PrefetchEvent prefetchEvent, @NonNull e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, prefetchEvent, eVar) == null) {
+            h(prefetchEvent, new a(this, eVar, prefetchEvent));
+        }
+    }
+
+    @Nullable
+    public final void h(@NonNull PrefetchEvent prefetchEvent, @NonNull d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, prefetchEvent, dVar) == null) {
+            c83 d2 = d(prefetchEvent);
+            if (d2 != null) {
+                dVar.a(d2);
+                return;
+            }
+            c83 c2 = c(prefetchEvent);
+            if (c2 != null && c2.S()) {
+                dVar.a(c2);
+                return;
+            }
+            c83 e2 = e83.k().e();
+            if (e2.E()) {
+                if (a) {
+                    Log.e("PrefetchEnv", "prepareEnv isSwanAppLoaded.");
+                }
+                dVar.a(null);
+            } else if (e2.S()) {
+                if (a) {
+                    Log.d("PrefetchEnv", "prepareEnv isPreloaded.");
+                }
+                dVar.a(e2);
+            } else {
+                e2.k0(new b(this, dVar));
+                Bundle bundle = new Bundle();
+                bundle.putString("bundle_key_preload_preload_scene", "8");
+                b83.m(ku2.c(), e2, bundle);
+            }
+        }
     }
 }

@@ -1,403 +1,265 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewStub;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.widget.BaseAdapter;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.dimen.TbDimenUtil;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.write.write.NewWriteActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.Glide;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class oua {
+public class oua extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NewWriteActivity a;
-    public View b;
-    public View c;
+    public BdPageContext a;
+    public List<CloudMusicData.MusicTagList.MusicList> b;
+    public c c;
+    public String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948046126, "Lcom/baidu/tieba/oua;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public interface c {
+        void K1(View view2, String str, int i);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ oua c;
+
+        public a(oua ouaVar, CloudMusicData.MusicTagList.MusicList musicList, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ouaVar, musicList, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ouaVar;
+            this.a = musicList;
+            this.b = i;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948046126, "Lcom/baidu/tieba/oua;");
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.c.c != null) {
+                this.c.c.K1(view2, this.a.resource, this.b);
+            }
         }
     }
 
-    public oua(NewWriteActivity mActivity) {
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TbImageView b;
+        public View c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
+        public TextView g;
+        public View h;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
+                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
+                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
+                SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0302);
+                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f08031e);
+                SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
+                SkinManager.setImageResource(this.b, R.drawable.btn_icon_play_video_n);
+            }
+        }
+    }
+
+    public oua(BdPageContext bdPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {bdPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(mActivity, "mActivity");
-        this.a = mActivity;
+        this.d = "";
+        this.a = bdPageContext;
+        this.b = new ArrayList();
     }
 
-    public static final void g(oua this$0, View view2) {
+    public void b(List<CloudMusicData.MusicTagList.MusicList> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, this$0, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            View view3 = this$0.c;
-            Intrinsics.checkNotNull(view3);
-            view3.setVisibility(8);
-            YunDialogManager.unMarkShowingDialogName("writeSpringFestivalBless");
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
+            return;
         }
-    }
-
-    public static final void j(oua this$0, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            View view3 = this$0.b;
-            Intrinsics.checkNotNull(view3);
-            view3.setVisibility(8);
-            YunDialogManager.unMarkShowingDialogName("writeVirtualGuide");
-        }
-    }
-
-    public static final void k(oua this$0, View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, this$0, view2) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.a.t1("5");
-        }
-    }
-
-    public static final void h(oua this$0) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            View view2 = this$0.c;
-            if (view2 != null) {
-                view2.setVisibility(8);
+        for (CloudMusicData.MusicTagList.MusicList musicList : list) {
+            if (!this.b.contains(musicList)) {
+                this.b.add(musicList);
             }
-            YunDialogManager.unMarkShowingDialogName("writeSpringFestivalBless");
         }
+        notifyDataSetChanged();
     }
 
-    public static final void l(oua this$0) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public CloudMusicData.MusicTagList.MusicList getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, this$0) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            View view2 = this$0.b;
-            if (view2 != null) {
-                view2.setVisibility(8);
-            }
-            YunDialogManager.unMarkShowingDialogName("writeVirtualGuide");
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.b.get(i);
         }
+        return (CloudMusicData.MusicTagList.MusicList) invokeI.objValue;
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
+    public void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!c() && !b()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.d = str;
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public void e(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            View view2 = this.c;
-            if (view2 != null) {
-                Intrinsics.checkNotNull(view2);
-                if (view2.getVisibility() == 0) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            this.c = cVar;
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public void f(int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            View view2 = this.b;
-            if (view2 != null) {
-                Intrinsics.checkNotNull(view2);
-                if (view2.getVisibility() == 0) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.a.getIntent() != null && oj5.a() && f()) {
-                return;
-            }
-            i();
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            getItem(i).isLoading = z;
+            notifyDataSetChanged();
         }
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            View view2 = this.b;
-            if (view2 != null) {
-                Intrinsics.checkNotNull(view2);
-                if (view2.getVisibility() == 0) {
-                    View view3 = this.b;
-                    Intrinsics.checkNotNull(view3);
-                    view3.setVisibility(8);
-                    YunDialogManager.unMarkShowingDialogName("writeVirtualGuide");
-                    return true;
-                }
-            }
-            View view4 = this.c;
-            if (view4 != null) {
-                Intrinsics.checkNotNull(view4);
-                if (view4.getVisibility() == 0) {
-                    View view5 = this.c;
-                    Intrinsics.checkNotNull(view5);
-                    view5.setVisibility(8);
-                    YunDialogManager.unMarkShowingDialogName("writeSpringFestivalBless");
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean f() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (SharedPrefHelper.getInstance().getBoolean("key_write_spring_festival_bless_guide_has_show", false)) {
-                return false;
-            }
-            SharedPrefHelper.getInstance().putBoolean("key_write_spring_festival_bless_guide_has_show", true);
-            ((ViewStub) this.a.findViewById(R.id.obfuscated_res_0x7f092266)).inflate();
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092265);
-            this.c = findViewById;
-            Intrinsics.checkNotNull(findViewById);
-            findViewById.setVisibility(0);
-            View view2 = this.c;
-            Intrinsics.checkNotNull(view2);
-            view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.lua
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        oua.g(oua.this, view3);
-                    }
-                }
-            });
-            YunDialogManager.markShowingDialogName("writeSpringFestivalBless");
-            EMManager.from(this.c).setAlpha(R.string.A_X05).setBackGroundColor(R.color.CAM_X0611);
-            View view3 = this.c;
-            Intrinsics.checkNotNull(view3);
-            EMManager.from(view3.findViewById(R.id.obfuscated_res_0x7f092264)).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
-            View view4 = this.c;
-            Intrinsics.checkNotNull(view4);
-            EMManager.from((TextView) view4.findViewById(R.id.obfuscated_res_0x7f092267)).setTextColor(R.color.CAM_X0105).setTextStyle(R.string.F_X02);
-            View view5 = this.c;
-            Intrinsics.checkNotNull(view5);
-            EMManager.from((TextView) view5.findViewById(R.id.obfuscated_res_0x7f092261)).setTextColor(R.color.CAM_X0107);
-            View view6 = this.c;
-            Intrinsics.checkNotNull(view6);
-            EMManager.from(view6.findViewById(R.id.obfuscated_res_0x7f092269)).setCorner(R.string.J_X07).setAlpha(R.string.A_X10).setBackGroundColor(R.color.CAM_X0319);
-            View view7 = this.c;
-            Intrinsics.checkNotNull(view7);
-            EMManager.from((TextView) view7.findViewById(R.id.obfuscated_res_0x7f09226a)).setTextColor(R.color.CAM_X0301).setTextStyle(R.string.F_X02);
-            View view8 = this.c;
-            Intrinsics.checkNotNull(view8);
-            View findViewById2 = view8.findViewById(R.id.obfuscated_res_0x7f092262);
-            if (this.a.k instanceof txa) {
-                ViewGroup.LayoutParams layoutParams = findViewById2.getLayoutParams();
-                if (layoutParams != null) {
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-                    layoutParams2.setMarginStart(TbDimenUtil.dp2px(this.a.getApplicationContext(), 12.0f));
-                    layoutParams2.setMargins(0, TbDimenUtil.dp2px(this.a.getApplicationContext(), 20.0f), 0, TbDimenUtil.dp2px(this.a.getApplicationContext(), 8.0f));
-                    findViewById2.setLayoutParams(layoutParams2);
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
-                }
-            }
-            EMManager.from(findViewById2).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0205);
-            View view9 = this.c;
-            Intrinsics.checkNotNull(view9);
-            EMManager.from((TextView) view9.findViewById(R.id.obfuscated_res_0x7f092263)).setTextColor(R.color.CAM_X0105);
-            View view10 = this.c;
-            Intrinsics.checkNotNull(view10);
-            WebPManager.setPureDrawable((ImageView) view10.findViewById(R.id.obfuscated_res_0x7f09226b), R.drawable.icon_pure_post_chosen12, R.color.CAM_X0301, null);
-            View view11 = this.c;
-            Intrinsics.checkNotNull(view11);
-            view11.postDelayed(new Runnable() { // from class: com.baidu.tieba.jua
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        oua.h(oua.this);
-                    }
-                }
-            }, 4000L);
-            return true;
+            return this.b.size();
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public final boolean i() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            boolean z = SharedPrefHelper.getInstance().getBoolean("key_virtual_image_setting_guide_has_show", false);
-            if (b() || z) {
-                return false;
-            }
-            SharedPrefHelper.getInstance().putBoolean("key_virtual_image_setting_guide_has_show", true);
-            ((ViewStub) this.a.findViewById(R.id.obfuscated_res_0x7f092993)).inflate();
-            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f092992);
-            this.b = findViewById;
-            Intrinsics.checkNotNull(findViewById);
-            findViewById.setVisibility(0);
-            View view2 = this.b;
-            Intrinsics.checkNotNull(view2);
-            view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.kua
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view3) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view3) == null) {
-                        oua.j(oua.this, view3);
-                    }
-                }
-            });
-            YunDialogManager.markShowingDialogName("writeVirtualGuide");
-            EMManager.from(this.b).setAlpha(R.string.A_X05).setBackGroundColor(R.color.CAM_X0611);
-            View view3 = this.b;
-            Intrinsics.checkNotNull(view3);
-            EMManager.from(view3.findViewById(R.id.obfuscated_res_0x7f09298f)).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
-            View view4 = this.b;
-            Intrinsics.checkNotNull(view4);
-            View findViewById2 = view4.findViewById(R.id.obfuscated_res_0x7f09298e);
-            Intrinsics.checkNotNullExpressionValue(findViewById2, "mVirtualImageGuideView!!…_image_setting_guide_img)");
-            ImageView imageView = (ImageView) findViewById2;
-            Glide.with(imageView).load(bs6.b("virtual_image_setting_guide.gif", "virtual_image_setting_guide")).into(imageView);
-            View view5 = this.b;
-            Intrinsics.checkNotNull(view5);
-            View findViewById3 = view5.findViewById(R.id.obfuscated_res_0x7f09298c);
-            if (this.a.k instanceof txa) {
-                ViewGroup.LayoutParams layoutParams = findViewById3.getLayoutParams();
-                if (layoutParams != null) {
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
-                    layoutParams2.setMarginStart(TbDimenUtil.dp2px(this.a.getApplicationContext(), 100.0f));
-                    layoutParams2.setMargins(0, TbDimenUtil.dp2px(this.a.getApplicationContext(), 20.0f), 0, TbDimenUtil.dp2px(this.a.getApplicationContext(), 8.0f));
-                    findViewById3.setLayoutParams(layoutParams2);
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
-                }
-            }
-            if (yj5.isOn()) {
-                ViewGroup.LayoutParams layoutParams3 = findViewById3.getLayoutParams();
-                if (layoutParams3 != null) {
-                    RelativeLayout.LayoutParams layoutParams4 = (RelativeLayout.LayoutParams) layoutParams3;
-                    layoutParams4.setMarginStart(layoutParams4.getMarginStart() + BdUtilHelper.getDimens(this.a, R.dimen.tbds178));
-                    findViewById3.setLayoutParams(layoutParams4);
-                } else {
-                    throw new NullPointerException("null cannot be cast to non-null type android.widget.RelativeLayout.LayoutParams");
-                }
-            }
-            EMManager.from(findViewById3).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0205);
-            ProfileVirtualImageInfo profileVirtualImageInfo = ProfileVirtualImageInfo.getInstance();
-            View view6 = this.b;
-            Intrinsics.checkNotNull(view6);
-            EMManager.from((TextView) view6.findViewById(R.id.obfuscated_res_0x7f092990)).setTextColor(R.color.CAM_X0105);
-            View view7 = this.b;
-            Intrinsics.checkNotNull(view7);
-            EMManager.from((TextView) view7.findViewById(R.id.obfuscated_res_0x7f09298d)).setTextColor(R.color.CAM_X0105);
-            View view8 = this.b;
-            Intrinsics.checkNotNull(view8);
-            TextView textView = (TextView) view8.findViewById(R.id.obfuscated_res_0x7f09298a);
-            if (profileVirtualImageInfo != null && profileVirtualImageInfo.getIsSetVirtualImage() == 1) {
-                textView.setVisibility(8);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d020c, viewGroup, false);
+                bVar = new b();
+                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091841);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09183e);
+                bVar.a = tbImageView;
+                tbImageView.setDrawerType(1);
+                bVar.a.setIsRound(true);
+                bVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f08036d);
+                bVar.a.setDefaultBgResource(R.color.transparent);
+                bVar.a.setBorderWidth(BdUtilHelper.getDimens(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
+                bVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
+                bVar.a.setConrers(15);
+                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f09183f);
+                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091842);
+                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09183b);
+                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09183d);
+                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09183c);
+                bVar.h = view2.findViewById(R.id.obfuscated_res_0x7f09152c);
+                view2.setTag(bVar);
             } else {
-                EMManager.from(textView).setTextStyle(R.string.F_X01).setTextSize(R.dimen.T_X07).setTextColor(R.color.CAM_X0304).setCorner(R.string.J_X07).setBorderWidth(R.dimen.L_X02).setBorderColor(R.color.CAM_X0304).setBorderAlpha(R.string.A_X07);
-                textView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hua
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // android.view.View.OnClickListener
-                    public final void onClick(View view9) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, view9) == null) {
-                            oua.k(oua.this, view9);
-                        }
-                    }
-                });
+                bVar = (b) view2.getTag();
             }
-            View view9 = this.b;
-            Intrinsics.checkNotNull(view9);
-            view9.postDelayed(new Runnable() { // from class: com.baidu.tieba.iua
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        oua.l(oua.this);
-                    }
+            bVar.b(TbadkCoreApplication.getInst().getSkinType());
+            CloudMusicData.MusicTagList.MusicList musicList = this.b.get(i);
+            if (musicList != null) {
+                bVar.d.setText(musicList.name);
+                bVar.a.startLoad(musicList.image, 10, false);
+                bVar.e.setText(musicList.author);
+                bVar.f.setText(StringHelper.stringForVideoTime(musicList.duration * 1000));
+                if (musicList.isLoading) {
+                    bVar.c.setVisibility(0);
+                } else {
+                    bVar.c.setVisibility(4);
                 }
-            }, 4000L);
-            return true;
+                if (musicList.equals(pua.b().a())) {
+                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08040d);
+                    bVar.a.setDrawBorder(true);
+                    bVar.g.setVisibility(0);
+                    bVar.c.setVisibility(4);
+                    musicList.isLoading = false;
+                    bVar.g.setOnClickListener(new a(this, musicList, i));
+                } else if (pua.b().a() == null && getItem(i) != null && !TextUtils.isEmpty(this.d) && this.d.equals(String.valueOf(getItem(i).music_id))) {
+                    bVar.b.setImageResource(R.drawable.btn_icon_play_video_n);
+                    bVar.a.setDrawBorder(true);
+                    bVar.g.setVisibility(8);
+                    bVar.c.setVisibility(4);
+                    musicList.isLoading = false;
+                } else {
+                    bVar.b.setImageResource(R.drawable.btn_icon_play_video_n);
+                    bVar.a.setDrawBorder(false);
+                    bVar.g.setVisibility(8);
+                }
+            }
+            return view2;
         }
-        return invokeV.booleanValue;
+        return (View) invokeILL.objValue;
     }
 }

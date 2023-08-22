@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.NewErrorData;
-import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class tz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NetWork a;
-    public NewErrorData b;
+    public int a;
+    public int b;
+    public int c;
 
     public tz4() {
         Interceptable interceptable = $ic;
@@ -28,69 +26,34 @@ public class tz4 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = new NetWork();
+        this.a = 1500;
+        this.b = 3000;
+        this.c = 6000;
     }
 
-    public void b() {
-        NetWork netWork;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (netWork = this.a) != null) {
-            netWork.cancelNetConnect();
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                return netWork.getErrorString();
+        try {
+            jSONObject.optInt("wifiSlow", -1);
+            jSONObject.optInt("threeGSlow", -1);
+            jSONObject.optInt("twoGSlow", -1);
+            int optInt = jSONObject.optInt("wifiLog", -1);
+            if (optInt > 0) {
+                this.a = optInt;
             }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String postNetData = this.a.postNetData();
-            NewErrorData newErrorData = new NewErrorData();
-            this.b = newErrorData;
-            newErrorData.parserJson(postNetData);
-            return postNetData;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            NetWork netWork = this.a;
-            if (netWork != null) {
-                return netWork.getNetContext().getResponse().isRequestSuccess();
+            int optInt2 = jSONObject.optInt("threeGLog", -1);
+            if (optInt2 > 0) {
+                this.b = optInt2;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            this.a.addPostData(str, str2);
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.setUrl(str);
+            int optInt3 = jSONObject.optInt("twoGLog", -1);
+            if (optInt3 > 0) {
+                this.c = optInt3;
+            }
+            jSONObject.optInt("mobile_cdn_switch", 1);
+        } catch (Exception unused) {
         }
     }
 }

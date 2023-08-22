@@ -1,76 +1,69 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import androidx.constraintlayout.motion.widget.Key;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.menu.BaseMenuView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.route.DrivingRoutePlanOption;
+import com.baidu.mapapi.search.route.OnGetRoutePlanResultListener;
+import com.baidu.mapapi.search.route.PlanNode;
+import com.baidu.mapapi.search.route.RoutePlanSearch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class bh4 {
     public static /* synthetic */ Interceptable $ic;
+    public static bh4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public RoutePlanSearch a;
 
-    public static long a(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
+    public bh4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseMenuView)) == null) {
-            if (baseMenuView.a()) {
-                return 240L;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return 200L;
         }
-        return invokeL.longValue;
     }
 
-    public static ObjectAnimator c(View view2) {
-        InterceptResult invokeL;
+    public static bh4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (bh4.class) {
+                    if (b == null) {
+                        b = new bh4();
+                    }
+                }
+            }
+            return b;
         }
-        return (ObjectAnimator) invokeL.objValue;
+        return (bh4) invokeV.objValue;
     }
 
-    public static ObjectAnimator b(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
+    public void a() {
+        RoutePlanSearch routePlanSearch;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, 0.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new ch4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (routePlanSearch = this.a) != null) {
+            routePlanSearch.destroy();
         }
-        return (ObjectAnimator) invokeL.objValue;
     }
 
-    public static ObjectAnimator e(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
+    public void c(LatLng latLng, LatLng latLng2, OnGetRoutePlanResultListener onGetRoutePlanResultListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, baseMenuView.getHeight());
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new ch4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, latLng, latLng2, onGetRoutePlanResultListener) == null) && latLng != null && latLng2 != null && onGetRoutePlanResultListener != null) {
+            RoutePlanSearch newInstance = RoutePlanSearch.newInstance();
+            this.a = newInstance;
+            newInstance.setOnGetRoutePlanResultListener(onGetRoutePlanResultListener);
+            PlanNode withLocation = PlanNode.withLocation(latLng);
+            this.a.drivingSearch(new DrivingRoutePlanOption().from(withLocation).to(PlanNode.withLocation(latLng2)));
         }
-        return (ObjectAnimator) invokeL.objValue;
-    }
-
-    public static ObjectAnimator d(View view2, BaseMenuView baseMenuView) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeLL.objValue;
     }
 }

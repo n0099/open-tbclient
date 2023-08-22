@@ -25,13 +25,13 @@ import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.c75;
 import com.baidu.tieba.homepage.concern.view.RecommendHotReplyLayout;
-import com.baidu.tieba.ji;
-import com.baidu.tieba.lz4;
-import com.baidu.tieba.ma5;
-import com.baidu.tieba.rba;
-import com.baidu.tieba.rx;
-import com.baidu.tieba.w65;
+import com.baidu.tieba.li;
+import com.baidu.tieba.qz4;
+import com.baidu.tieba.ta5;
+import com.baidu.tieba.ux;
+import com.baidu.tieba.zfa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ import java.util.LinkedList;
 import java.util.List;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes6.dex */
-public class HotCardView extends LinearLayout implements rx {
+public class HotCardView extends LinearLayout implements ux {
     public static /* synthetic */ Interceptable $ic;
     public static final Integer l;
     public static int m;
@@ -59,7 +59,7 @@ public class HotCardView extends LinearLayout implements rx {
     public ThreadData h;
     public View i;
     public int j;
-    public lz4 k;
+    public qz4 k;
 
     public void setFrom(int i) {
         Interceptable interceptable = $ic;
@@ -150,23 +150,23 @@ public class HotCardView extends LinearLayout implements rx {
         b();
     }
 
-    public void setOutOnClickListener(lz4 lz4Var) {
+    public void setOutOnClickListener(qz4 qz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, lz4Var) == null) {
-            this.k = lz4Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qz4Var) == null) {
+            this.k = qz4Var;
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0857, (ViewGroup) this, true);
+            this.i = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d085d, (ViewGroup) this, true);
             setOrientation(1);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f092560);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907c1);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09258f);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0907c5);
             this.d = (EMTextView) findViewById(R.id.more_label_view);
             this.e = (TbImageView) findViewById(R.id.image_content);
-            this.f = (ViewFlipper) findViewById(R.id.obfuscated_res_0x7f09075d);
+            this.f = (ViewFlipper) findViewById(R.id.obfuscated_res_0x7f090761);
             this.b.setLineSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.M_T_X002), 1.0f);
             this.c.setLineSpacing(BdUtilHelper.getDimens(getContext(), R.dimen.M_T_X002), 1.0f);
             c();
@@ -200,7 +200,7 @@ public class HotCardView extends LinearLayout implements rx {
         if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, threadData, i, themeColorInfo) == null) {
             this.f.removeAllViews();
             this.f.stopFlipping();
-            List<rba> postList = threadData.getPostList();
+            List<zfa> postList = threadData.getPostList();
             if (!ListUtils.isEmpty(postList)) {
                 for (int i2 = 0; i2 < postList.size(); i2++) {
                     RecommendHotReplyLayout recommendHotReplyLayout = new RecommendHotReplyLayout(getContext());
@@ -246,7 +246,7 @@ public class HotCardView extends LinearLayout implements rx {
         }
     }
 
-    @Override // com.baidu.tieba.rx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(1048581, this, tbPageContext, i) != null) || this.j == i) {
@@ -276,18 +276,18 @@ public class HotCardView extends LinearLayout implements rx {
         } else {
             this.c.setVisibility(0);
             this.c.setText(threadData.getAbstractText());
-            i2 = (2 - ji.a(m, this.c.getPaint(), this.c.getText().toString(), 2)) + 1;
+            i2 = (2 - li.a(m, this.c.getPaint(), this.c.getText().toString(), 2)) + 1;
         }
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(threadData.getTitleText());
-        float[] B = w65.B(R.string.J_X04);
+        float[] B = c75.B(R.string.J_X04);
         int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.T_X10);
         int dimenPixelSize2 = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
-        ma5 ma5Var = new ma5(TagTextHelper.getIndexTextColorRes(i), (int) B[0], dimenPixelSize, R.color.CAM_X0101, UtilHelper.getDimenPixelSize(R.dimen.tbds3), UtilHelper.getDimenPixelSize(R.dimen.tbds5), 0);
-        ma5Var.b(dimenPixelSize2);
-        ma5Var.a(false);
+        ta5 ta5Var = new ta5(TagTextHelper.getIndexTextColorRes(i), (int) B[0], dimenPixelSize, R.color.CAM_X0101, UtilHelper.getDimenPixelSize(R.dimen.tbds3), UtilHelper.getDimenPixelSize(R.dimen.tbds5), 0);
+        ta5Var.b(dimenPixelSize2);
+        ta5Var.a(false);
         String valueOf = String.valueOf(i);
         spannableStringBuilder.insert(0, (CharSequence) valueOf);
-        spannableStringBuilder.setSpan(ma5Var, 0, valueOf.length(), 17);
+        spannableStringBuilder.setSpan(ta5Var, 0, valueOf.length(), 17);
         this.b.setMaxLines(i2);
         this.b.setText(spannableStringBuilder);
         d(threadData, i - 1, themeColorInfo);

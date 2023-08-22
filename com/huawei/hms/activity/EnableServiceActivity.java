@@ -32,7 +32,7 @@ public class EnableServiceActivity extends Activity {
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
             requestWindowFeature(1);
-            setContentView(R.layout.obfuscated_res_0x7f0d0036);
+            setContentView(R.layout.obfuscated_res_0x7f0d0037);
         }
     }
 }

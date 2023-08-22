@@ -1,87 +1,53 @@
 package com.baidu.tieba;
 
+import android.graphics.Color;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qx2 implements x03 {
+public class qx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public vx2 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948107134, "Lcom/baidu/tieba/qx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(String str, int i) {
+        InterceptResult invokeLI;
+        long parseLong;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                d82.o("map", "color string is empty, use default " + Integer.toHexString(i));
+                return i;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948107134, "Lcom/baidu/tieba/qx2;");
-                return;
+            try {
+                if (str.charAt(0) == '#') {
+                    String substring = str.substring(1);
+                    if (substring.length() != 6 && substring.length() != 8) {
+                        throw new IllegalArgumentException("char count not right");
+                    }
+                    if (substring.length() == 6) {
+                        parseLong = Long.parseLong(substring, 16) | (-16777216);
+                    } else {
+                        parseLong = Long.parseLong(substring.substring(6) + substring.substring(0, 6), 16);
+                    }
+                    return (int) parseLong;
+                }
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                d82.o("map", "parse color error, use default " + Integer.toHexString(i));
+                return i;
             }
         }
-        boolean z = ir1.a;
+        return invokeLI.intValue;
     }
 
-    public qx2() {
+    public static float b(double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            return (float) (d * uo3.l(AppRuntime.getAppContext()));
         }
-        this.b = "";
-        this.c = false;
-    }
-
-    @Override // com.baidu.tieba.x03
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            vx2 vx2Var = this.d;
-            if (vx2Var != null && vx2Var.isValid() && !TextUtils.isEmpty(this.b)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.x03
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has(CriusAttrConstants.POSITION) && jSONObject.has("iconPath")) {
-            String optString = jSONObject.optString("controlId");
-            this.a = optString;
-            if (TextUtils.isEmpty(optString)) {
-                this.a = jSONObject.optString("id");
-            }
-            vx2 vx2Var = new vx2();
-            this.d = vx2Var;
-            vx2Var.a(jSONObject.optJSONObject(CriusAttrConstants.POSITION));
-            this.b = jSONObject.optString("iconPath");
-            this.c = jSONObject.optBoolean("clickable");
-        }
+        return invokeCommon.floatValue;
     }
 }

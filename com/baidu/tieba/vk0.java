@@ -1,164 +1,185 @@
 package com.baidu.tieba;
 
+import android.content.pm.PackageInfo;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.connect.NetWorkUtils;
+import com.baidu.nadcore.download.basic.AdAppStateManager;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.io.File;
 /* loaded from: classes8.dex */
-public class vk0 {
+public class vk0 implements dm0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, el0> a;
+    public final hl0 a;
+    public int b;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final vk0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-343723888, "Lcom/baidu/tieba/vk0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-343723888, "Lcom/baidu/tieba/vk0$b;");
-                    return;
-                }
-            }
-            a = new vk0(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948243534, "Lcom/baidu/tieba/vk0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948243534, "Lcom/baidu/tieba/vk0;");
-                return;
-            }
-        }
-        b = TimeUnit.DAYS.toMillis(10L);
-    }
-
-    public vk0() {
+    public vk0(@NonNull hl0 hl0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hl0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
+        this.b = 0;
+        this.a = hl0Var;
     }
 
-    public static vk0 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dm0
+    public void a(int i, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (vk0) invokeV.objValue;
-    }
-
-    @NonNull
-    public HashMap<String, el0> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            wk0.e().b(this.a);
-        }
-    }
-
-    public /* synthetic */ vk0(a aVar) {
-        this();
-    }
-
-    public void e(@NonNull el0 el0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, el0Var) == null) {
-            wk0.e().c(xk0.a(el0Var));
-        }
-    }
-
-    public void f(@NonNull o31 o31Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, o31Var) == null) {
-            wk0.e().update(o31Var);
-        }
-    }
-
-    public el0 query(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return (el0) c31.b(this.a, str);
-        }
-        return (el0) invokeL.objValue;
-    }
-
-    public void update(el0 el0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, el0Var) != null) || el0Var == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) != null) || j < 0 || j2 <= 0 || j > j2) {
             return;
         }
-        c31.e(this.a, el0Var.e(), el0Var);
+        this.a.i = (float) g31.a(j, j2);
+        this.a.c = AdDownloadStatus.DOWNLOADING;
+        uk0.c().g(AdDownloadAction.PROGRESS_UPDATE, this.a);
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.dm0
+    public void b(long j, File file) {
+        AdDownloadAction adDownloadAction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            List<el0> a2 = wk0.e().a();
-            if (a31.g(a2)) {
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, file) == null) {
+            if (this.a.c == AdDownloadStatus.PAUSE) {
+                adDownloadAction = AdDownloadAction.RESUME;
+            } else {
+                adDownloadAction = AdDownloadAction.START;
+            }
+            this.a.l = System.currentTimeMillis();
+            hl0 hl0Var = this.a;
+            hl0Var.c = AdDownloadStatus.DOWNLOADING;
+            hl0Var.h = file;
+            il0 il0Var = hl0Var.q;
+            il0Var.e = j;
+            il0Var.v = true;
+            uk0.c().g(adDownloadAction, this.a);
+            yk0.b().update(this.a);
+            yk0.b().e(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.dm0
+    public void c(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            this.a.c = AdDownloadStatus.PAUSE;
+            uk0.c().g(AdDownloadAction.PAUSE, this.a);
+            ql0.f().i(this.a, "notify_type_pause");
+            yk0.b().e(this.a);
+        }
+    }
+
+    @Override // com.baidu.tieba.dm0
+    public void d(@Nullable pl0 pl0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, pl0Var) == null) {
+            if (e(pl0Var)) {
+                hl0 hl0Var = this.a;
+                if (hl0Var.c == AdDownloadStatus.PAUSE) {
+                    uk0.c().l(this.a);
+                } else {
+                    hl0Var.i = 0.0f;
+                    hl0Var.j = 0.0f;
+                    uk0.c().m(this.a);
+                }
+                this.b++;
+            } else {
+                hl0 hl0Var2 = this.a;
+                hl0Var2.c = AdDownloadStatus.FAILED;
+                hl0Var2.i = 0.0f;
+                hl0Var2.j = 0.0f;
+                uk0.c().h(AdDownloadAction.FAIL, this.a, pl0Var);
+                ql0.f().i(this.a, "notify_type_stop");
+            }
+            yk0.b().e(this.a);
+        }
+    }
+
+    public final boolean e(@Nullable pl0 pl0Var) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, pl0Var)) == null) {
+            if (pl0Var == null || !pl0Var.c) {
+                return false;
+            }
+            if (tn0.b().a().a("nad_failed_retry_switch", 0) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return false;
+            }
+            if (this.b >= tn0.b().a().a("nad_failed_retry_count", 0)) {
+                return false;
+            }
+            if (tn0.b().a().a("nad_failed_retry_without_wifi", 0) == 1) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if (!z2 && !NetWorkUtils.c(sj0.b())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dm0
+    public void onSuccess(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a.m = System.currentTimeMillis();
+            if (TextUtils.isEmpty(this.a.d)) {
+                hl0 hl0Var = this.a;
+                hl0Var.d = rm0.b(hl0Var.h);
+            }
+            if (rm0.g(this.a.h)) {
+                PackageInfo packageArchiveInfo = sj0.b().getPackageManager().getPackageArchiveInfo(this.a.h.getAbsolutePath(), 128);
+                if (packageArchiveInfo != null) {
+                    hl0 hl0Var2 = this.a;
+                    hl0Var2.o = packageArchiveInfo.versionName;
+                    hl0Var2.n = packageArchiveInfo.versionCode;
+                }
+                AdAppStateManager.instance().register(this.a);
+                hl0 hl0Var3 = this.a;
+                hl0Var3.c = AdDownloadStatus.COMPLETED;
+                hl0Var3.i = 1.0f;
+                hl0Var3.j = 1.0f;
+                uk0.c().g(AdDownloadAction.COMPLETE, this.a);
+                jm0.f().k(this.a);
+                ql0.f().k(this.a);
+                yk0.b().e(this.a);
+                hl0 hl0Var4 = this.a;
+                rm0.e(hl0Var4.h, hl0Var4.a());
                 return;
             }
-            int l = a31.l(a2);
-            for (int i = 0; i != l; i++) {
-                el0 el0Var = (el0) a31.d(a2, i);
-                if (el0Var != null) {
-                    if (el0Var.c == AdDownloadStatus.DOWNLOADING) {
-                        el0Var.c = AdDownloadStatus.PAUSE;
-                    }
-                    c31.e(this.a, el0Var.e(), el0Var);
-                }
-            }
+            hl0 hl0Var5 = this.a;
+            hl0Var5.c = AdDownloadStatus.FAILED;
+            hl0Var5.i = 0.0f;
+            hl0Var5.j = 0.0f;
+            uk0.c().g(AdDownloadAction.FAIL, this.a);
+            yk0.b().e(this.a);
         }
     }
 }

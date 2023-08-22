@@ -1,80 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
-import java.net.URLDecoder;
-import org.json.JSONObject;
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 /* loaded from: classes6.dex */
-public class hh1 {
+public final class hh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static hh1 c;
+    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public b b;
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onResult(int i, String str);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends fg1<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ji1 a;
-
-        public a(hh1 hh1Var, ji1 ji1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hh1Var, ji1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ji1Var;
-        }
-
-        @Override // com.baidu.tieba.fg1
-        public void b(Throwable th, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
-                this.a.onResult(119501, "");
-                th.printStackTrace();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fg1
-        /* renamed from: d */
-        public void c(JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-                int optInt = jSONObject.optInt("status", -1);
-                int optInt2 = jSONObject.optInt("signStatus", -1);
-                int optInt3 = jSONObject.optInt("payStatus", -1);
-                if (2 != optInt && 2 != optInt3) {
-                    this.a.onResult(optInt2, "");
-                } else {
-                    this.a.onResult(0, EventAlias.PayEventAlias.PAY_SUCCESS);
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -89,71 +28,38 @@ public class hh1 {
                 return;
             }
         }
-        c = new hh1();
+        a = Charset.forName("US-ASCII");
+        Charset.forName("UTF-8");
     }
 
-    public hh1() {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (RuntimeException e) {
+                throw e;
+            } catch (Exception unused) {
             }
         }
     }
 
-    public static hh1 b() {
-        InterceptResult invokeV;
+    public static void b(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return (hh1) invokeV.objValue;
-    }
-
-    public b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (b) invokeV.objValue;
-    }
-
-    public void a(ji1 ji1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ji1Var) == null) {
-            String[] split = this.a.split("&");
-            gg1 gg1Var = new gg1();
-            for (String str : split) {
-                String[] split2 = str.split("=");
-                if (split2 != null && split2.length == 2) {
-                    if (TextUtils.equals(split2[0], "timestamp")) {
-                        gg1Var.d(split2[0], URLDecoder.decode(split2[1]));
-                    } else {
-                        gg1Var.d(split2[0], split2[1]);
+        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        b(file2);
+                    }
+                    if (!file2.delete()) {
+                        throw new IOException("failed to delete file: " + file2);
                     }
                 }
+                return;
             }
-            ng1.j().g(pg1.e(), gg1Var, new a(this, ji1Var));
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void e(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
-            this.b = bVar;
+            throw new IOException("not a readable directory: " + file);
         }
     }
 }

@@ -1,72 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.guide.TaskGuideData;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.bdtask.model.ITaskModelData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.TypeCastException;
 /* loaded from: classes7.dex */
-public final class rt extends mt<TaskGuideData> {
+public final class rt {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ot a;
+    public Map<String, pt<? extends ITaskModelData>> a;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "guide" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rt(ot otVar) {
-        super(otVar);
+    public rt() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {otVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ot) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = otVar;
+        this.a = new HashMap();
+        yt ytVar = new yt(this);
+        this.a.put(ytVar.b(), ytVar);
+        ut utVar = new ut(this);
+        this.a.put(utVar.b(), utVar);
+        zt ztVar = new zt(this);
+        this.a.put(ztVar.c(), ztVar);
+        wt wtVar = new wt(this);
+        this.a.put(wtVar.b(), wtVar);
+        vt vtVar = new vt(this);
+        this.a.put(vtVar.c(), vtVar);
+        xt xtVar = new xt(this);
+        this.a.put(xtVar.b(), xtVar);
+        qt qtVar = new qt(this);
+        this.a.put(qtVar.b(), qtVar);
+        ot otVar = new ot(this);
+        this.a.put(otVar.c(), otVar);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mt
-    /* renamed from: c */
-    public TaskGuideData a(String str) {
+    public final <T extends ITaskModelData> pt<? extends T> a(String str) {
         InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt(TaskResponseData.keyUiType);
-                mt a = this.a.a(TaskUIData.key);
-                String optString = jSONObject.optString(TaskUIData.key);
-                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
-                TaskUIData taskUIData = (TaskUIData) a.a(optString);
-                if (taskUIData != null) {
-                    return new TaskGuideData(optInt, taskUIData);
-                }
-                return new TaskGuideData(0, null, 3, null);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return new TaskGuideData(0, null, 3, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a.get(str) != null) {
+                z = true;
+            } else {
+                z = false;
             }
+            if (z) {
+                pt<? extends ITaskModelData> ptVar = this.a.get(str);
+                if (ptVar != null) {
+                    return (pt<? extends T>) ptVar;
+                }
+                throw new TypeCastException("null cannot be cast to non-null type com.baidu.bdtask.model.ITaskModelCreator<out T>");
+            }
+            throw new IllegalArgumentException(("can not find " + str + " model creator!").toString());
         }
-        return (TaskGuideData) invokeL.objValue;
+        return (pt) invokeL.objValue;
     }
 }

@@ -1,25 +1,21 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class bi5 implements Comparable<bi5> {
+public abstract class bi5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(ei5 ei5Var);
-    }
+    public abstract di5 b(Context context);
 
-    public abstract void b(a aVar);
+    public abstract void c(di5 di5Var);
 
-    public abstract int c();
-
-    public abstract void d();
+    public abstract void d(di5 di5Var);
 
     public bi5() {
         Interceptable interceptable = $ic;
@@ -31,24 +27,19 @@ public abstract class bi5 implements Comparable<bi5> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        d();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(bi5 bi5Var) {
+    public di5 a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bi5Var)) == null) {
-            if (bi5Var == null) {
-                return 1;
-            }
-            return c() - bi5Var.c();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            di5 b = b(context);
+            d(b);
+            c(b);
+            return b;
         }
-        return invokeL.intValue;
+        return (di5) invokeL.objValue;
     }
 }

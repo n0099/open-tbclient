@@ -20,8 +20,8 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a35;
-import com.baidu.tieba.fe5;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.me5;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseFollowListSwitchMsg;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseLocalPersonListMessage;
 import com.baidu.tieba.myAttentionAndFans.message.ResponseNetPersonListMessage;
@@ -51,7 +51,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public d d;
     public int e;
     public PersonListActivity f;
-    public fe5 g;
+    public me5 g;
     public int h;
     public HttpMessageListener httpListener;
     public int i;
@@ -61,7 +61,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
 
     /* loaded from: classes7.dex */
     public interface d {
-        a35 a(a35 a35Var, boolean z);
+        g35 a(g35 g35Var, boolean z);
 
         void b(String str, boolean z);
     }
@@ -173,7 +173,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             int statusCode = httpResponsedMessage.getStatusCode();
             int error = httpResponsedMessage.getError();
             if (statusCode == 200 && error == 0) {
-                a35 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
+                g35 data = ((ResponseNetPersonListMessage) httpResponsedMessage).getData();
                 if (data != null) {
                     if (!StringUtils.isNull(data.g)) {
                         this.a.j = data.g;
@@ -187,7 +187,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
                 }
             } else if (this.a.d != null) {
                 if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                    errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0e21);
+                    errorString = this.a.f.getResources().getString(R.string.obfuscated_res_0x7f0f0e29);
                 } else {
                     errorString = httpResponsedMessage.getErrorString();
                 }
@@ -230,7 +230,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage instanceof ResponseLocalPersonListMessage)) {
                 return;
             }
-            a35 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
+            g35 data2 = ((ResponseLocalPersonListMessage) customResponsedMessage).getData2();
             if (data2 != null) {
                 if (!StringUtils.isNull(data2.g)) {
                     this.a.j = data2.g;
@@ -385,9 +385,9 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         this.httpListener = new b(this, CmdConfigHttp.PIC_PERSONAL_LIST);
         this.customListener = new c(this, 2001188);
         this.f = personListActivity;
-        fe5 fe5Var = new fe5(personListActivity.getPageContext());
-        this.g = fe5Var;
-        fe5Var.g(this.mLoadDataCallBack);
+        me5 me5Var = new me5(personListActivity.getPageContext());
+        this.g = me5Var;
+        me5Var.g(this.mLoadDataCallBack);
         this.a = true;
         this.b = null;
         this.d = dVar;

@@ -1,104 +1,84 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.graphics.RectF;
-import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.ui.DanmakuPlayer;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.LinkedHashSet;
+import java.util.Set;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class cv6 {
+public abstract class cv6<T> extends xu6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final cv6 a;
-    public static final Pools.SimplePool<RectF> b;
-    public static final Pools.SimplePool<PointF> c;
-    public static final Pools.SimplePool<vs6> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean b;
+    public final Set<T> c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947688262, "Lcom/baidu/tieba/cv6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947688262, "Lcom/baidu/tieba/cv6;");
-                return;
-            }
-        }
-        a = new cv6();
-        b = new Pools.SimplePool<>(200);
-        c = new Pools.SimplePool<>(200);
-        d = new Pools.SimplePool<>(1000);
-    }
+    public abstract T c(hu6 hu6Var);
 
-    public cv6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cv6(int i, boolean z) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = z;
+        this.c = Collections.synchronizedSet(new LinkedHashSet());
+        this.d = true;
     }
 
-    public final PointF b() {
-        InterceptResult invokeV;
+    public /* synthetic */ cv6(int i, boolean z, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(i, (i2 & 2) != 0 ? false : z);
+    }
+
+    @Override // com.baidu.tieba.xu6
+    public boolean b(gu6 item, jw6 timer, au6 config) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            PointF acquire = c.acquire();
-            if (acquire == null) {
-                return new PointF();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
+            Intrinsics.checkNotNullParameter(item, "item");
+            Intrinsics.checkNotNullParameter(timer, "timer");
+            Intrinsics.checkNotNullParameter(config, "config");
+            if (!this.d) {
+                return false;
             }
-            return acquire;
+            boolean contains = this.c.contains(c(item.e()));
+            if (this.b) {
+                if (contains) {
+                    return false;
+                }
+                return true;
+            }
+            return contains;
         }
-        return (PointF) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public final RectF c() {
+    public final Set<T> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            RectF acquire = b.acquire();
-            if (acquire == null) {
-                return new RectF();
-            }
-            return acquire;
+            Set<T> mFilterSet = this.c;
+            Intrinsics.checkNotNullExpressionValue(mFilterSet, "mFilterSet");
+            return mFilterSet;
         }
-        return (RectF) invokeV.objValue;
-    }
-
-    public final vs6 a(ws6 data, DanmakuPlayer player) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(player, "player");
-            vs6 acquire = d.acquire();
-            if (acquire != null) {
-                acquire.l(data);
-                acquire.q(player.m().w());
-            } else {
-                acquire = null;
-            }
-            if (acquire == null) {
-                return new vs6(data, player);
-            }
-            return acquire;
-        }
-        return (vs6) invokeLL.objValue;
+        return (Set) invokeV.objValue;
     }
 }

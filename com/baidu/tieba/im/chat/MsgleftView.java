@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aa8;
-import com.baidu.tieba.ax5;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
-import com.baidu.tieba.nc8;
+import com.baidu.tieba.mg8;
+import com.baidu.tieba.rx5;
+import com.baidu.tieba.uc8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class MsgleftView extends aa8 {
+public class MsgleftView extends uc8 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String Q = "com.baidu.tieba.im.chat.MsgleftView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -96,11 +96,11 @@ public class MsgleftView extends aa8 {
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
                 if (motionEvent.getAction() == 0) {
                     this.a = System.currentTimeMillis();
-                    ax5.e();
+                    rx5.e();
                 } else if (motionEvent.getAction() == 1) {
                     if (System.currentTimeMillis() - this.a <= 200) {
                         MsgleftView msgleftView = this.b;
-                        msgleftView.b.z(view2, 2, msgleftView.f, 0L);
+                        msgleftView.b.y(view2, 2, msgleftView.f, 0L);
                     } else if (this.b.M.get()) {
                         MsgleftView msgleftView2 = this.b;
                         msgleftView2.c.O(view2, 2, msgleftView2.f, 0L);
@@ -190,7 +190,7 @@ public class MsgleftView extends aa8 {
         this.n.setIsLeft(true);
     }
 
-    @Override // com.baidu.tieba.aa8
+    @Override // com.baidu.tieba.uc8
     public void K() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.E == TbadkCoreApplication.getInst().getSkinType()) {
@@ -198,7 +198,7 @@ public class MsgleftView extends aa8 {
         }
         super.K();
         SkinManager.setBackgroundResource(this.j, R.drawable.selector_msg_text_bubble_other);
-        this.q.p(Q);
+        this.q.u(Q);
         this.r.l(Q);
         this.k.setVoicePureColor(SkinManager.getColor(R.color.CAM_X0105));
         this.k.f(Q);
@@ -213,23 +213,23 @@ public class MsgleftView extends aa8 {
     /* JADX WARN: Removed duplicated region for block: B:39:0x0141 A[Catch: Exception -> 0x01ee, TryCatch #0 {Exception -> 0x01ee, blocks: (B:19:0x00b3, B:21:0x00b9, B:22:0x00db, B:24:0x00e8, B:27:0x00f3, B:29:0x00f7, B:30:0x0109, B:32:0x010d, B:34:0x0119, B:35:0x011f, B:37:0x012e, B:39:0x0141, B:40:0x0164, B:42:0x0198, B:43:0x019d, B:57:0x01ba, B:59:0x01be, B:60:0x01c2, B:61:0x01c6, B:62:0x01ca, B:63:0x01ce, B:64:0x01d2, B:65:0x01d8, B:66:0x01dc, B:67:0x01e2, B:68:0x01e8, B:36:0x0127), top: B:76:0x00b3 }] */
     /* JADX WARN: Removed duplicated region for block: B:42:0x0198 A[Catch: Exception -> 0x01ee, TryCatch #0 {Exception -> 0x01ee, blocks: (B:19:0x00b3, B:21:0x00b9, B:22:0x00db, B:24:0x00e8, B:27:0x00f3, B:29:0x00f7, B:30:0x0109, B:32:0x010d, B:34:0x0119, B:35:0x011f, B:37:0x012e, B:39:0x0141, B:40:0x0164, B:42:0x0198, B:43:0x019d, B:57:0x01ba, B:59:0x01be, B:60:0x01c2, B:61:0x01c6, B:62:0x01ca, B:63:0x01ce, B:64:0x01d2, B:65:0x01d8, B:66:0x01dc, B:67:0x01e2, B:68:0x01e8, B:36:0x0127), top: B:76:0x00b3 }] */
     /* JADX WARN: Removed duplicated region for block: B:45:0x01a3  */
-    @Override // com.baidu.tieba.aa8
+    @Override // com.baidu.tieba.uc8
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void N(View view2, ChatMessage chatMessage) {
+    public void M(View view2, ChatMessage chatMessage) {
         ArrayList<IconData> arrayList;
         int msgType;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, chatMessage) == null) {
-            super.N(view2, chatMessage);
+            super.M(view2, chatMessage);
             String str = null;
             if (chatMessage != null) {
                 arrayList = chatMessage.getUserInfo().getTShowInfoNew();
             } else {
                 arrayList = null;
             }
-            p0();
+            o0();
             UserIconBox userIconBox = this.K;
             if (userIconBox != null && this.v) {
                 userIconBox.setVisibility(0);
@@ -241,7 +241,7 @@ public class MsgleftView extends aa8 {
                 this.I.setText((CharSequence) null);
                 this.j.setVisibility(0);
                 this.j.setText(null);
-                P(8);
+                O(8);
                 this.p.getImage().setTag(null);
                 this.k.setVisibility(8);
                 this.k.setTag(null);
@@ -260,9 +260,9 @@ public class MsgleftView extends aa8 {
                 return;
             }
             f0(chatMessage);
-            q0(chatMessage);
+            p0(chatMessage);
             this.I.setText("");
-            o0(chatMessage);
+            n0(chatMessage);
             l0(chatMessage);
             try {
                 if (chatMessage.getUserInfo() != null) {
@@ -272,7 +272,7 @@ public class MsgleftView extends aa8 {
                 }
                 if (chatMessage.getUserInfo().getUserType() != 1 && chatMessage.getUserInfo().getUserType() != 3) {
                     if (this.O == null) {
-                        this.O = nc8.n().h(String.valueOf(chatMessage.getUserId()), 2);
+                        this.O = mg8.n().h(String.valueOf(chatMessage.getUserId()), 2);
                     }
                     if (this.O != null && !TextUtils.isEmpty(this.O.getGroup_head())) {
                         str = this.O.getGroup_head();
@@ -286,7 +286,7 @@ public class MsgleftView extends aa8 {
                         this.H.setVisibility(8);
                     }
                     this.j.setVisibility(8);
-                    P(8);
+                    O(8);
                     this.k.setVisibility(8);
                     this.l.setVisibility(8);
                     this.n.setVisibility(8);
@@ -351,7 +351,7 @@ public class MsgleftView extends aa8 {
                 if (F()) {
                 }
                 this.j.setVisibility(8);
-                P(8);
+                O(8);
                 this.k.setVisibility(8);
                 this.l.setVisibility(8);
                 this.n.setVisibility(8);
@@ -372,7 +372,7 @@ public class MsgleftView extends aa8 {
         }
     }
 
-    public final void o0(ChatMessage chatMessage) {
+    public final void n0(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) {
             String string = SharedPrefHelper.getInstance().getString("live_room_chat_page_author_id", "");
@@ -384,7 +384,7 @@ public class MsgleftView extends aa8 {
         }
     }
 
-    public void p0() {
+    public void o0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.v) {
@@ -404,7 +404,7 @@ public class MsgleftView extends aa8 {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void q0(ChatMessage chatMessage) {
+    public final void p0(ChatMessage chatMessage) {
         int i;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048580, this, chatMessage) != null) || !this.v) {

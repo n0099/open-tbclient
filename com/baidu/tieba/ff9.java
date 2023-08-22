@@ -1,160 +1,220 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Intent;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.browser.BrowserHelper;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
-import com.baidu.tieba.vb9;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.account.AccountStorage;
+import com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.log.Logger;
+import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ff9 extends cf9<CustomDialogData> implements View.OnClickListener {
+public class ff9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomDialogData c;
-    public gf9 d;
-    public TbImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
-    public View j;
-    public View k;
-    public LinearLayout l;
+    @Nullable
+    public final BaseActivity<?> a;
+    @Nullable
+    public BdAsyncTask<?, ?, ?> b;
+    public final AccountLoginCoreHelper.IReLoginCallback c;
 
-    @Override // com.baidu.tieba.hf9
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.custom_dailog_view : invokeV.intValue;
+    /* loaded from: classes5.dex */
+    public class a implements AccountLoginCoreHelper.IReLoginCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ff9 a;
+
+        public a(ff9 ff9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ff9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ff9Var;
+        }
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onBeforeLogin(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+                return;
+            }
+            this.a.j();
+        }
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onSuccess(AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) != null) {
+                return;
+            }
+            this.a.e();
+            this.a.g(accountData);
+        }
+
+        @Override // com.baidu.tbadk.core.account.helper.AccountLoginCoreHelper.IReLoginCallback
+        public void onFailure(String str, int i, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, str2) == null) {
+                this.a.e();
+                if (this.a.a != null) {
+                    this.a.a.showToast(str2);
+                }
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ff9(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AccountData a;
+
+        public b(ff9 ff9Var, AccountData accountData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ff9Var, accountData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = accountData;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                AccountStorage.saveAccountData(this.a);
+                Logger.addLog("account", -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
+            }
+        }
+    }
+
+    public ff9(@Nullable BaseActivity<?> baseActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new a(this);
+        this.a = baseActivity;
     }
 
-    @Override // com.baidu.tieba.hf9
-    public void b() {
+    public final void g(AccountData accountData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = (TbImageView) getViewGroup().findViewById(R.id.dialog_image);
-            this.f = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f0908c4);
-            this.g = (TextView) getViewGroup().findViewById(R.id.dialog_body);
-            this.h = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f092a6f);
-            this.i = (TextView) getViewGroup().findViewById(R.id.obfuscated_res_0x7f09194c);
-            this.j = getViewGroup().findViewById(R.id.bdDialog_divider_line);
-            this.k = getViewGroup().findViewById(R.id.divider_yes_no_button);
-            this.l = (LinearLayout) getViewGroup().findViewById(R.id.real_view);
-            this.h.setOnClickListener(this);
-            this.i.setOnClickListener(this);
-            SkinManager.setBackgroundResource(this.h, R.drawable.dialog_single_button_bg_selector);
-            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
-            SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.g, (int) R.color.common_color_10122);
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(this.k, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(this.l, R.drawable.dialog_background);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            i(accountData);
+            Logger.addLog("account", -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
+            if (this.a != null) {
+                TbadkCoreApplication.getInst().onUserChanged(this.a.getIntent());
+            }
+            f(-1);
+            TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
         }
     }
 
-    public void f(gf9 gf9Var) {
+    public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, gf9Var) == null) {
-            this.d = gf9Var;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hf9
-    /* renamed from: e */
-    public void c(CustomDialogData customDialogData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, customDialogData) != null) || customDialogData == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a == null) {
             return;
         }
-        this.c = customDialogData;
-        CustomDialogData.Head head = customDialogData.head;
-        if (!TextUtils.isEmpty(head.imageUrl)) {
-            this.e.startLoad(head.imageUrl, 10, false);
+        this.a.setResult(i, new Intent());
+        this.a.finish();
+    }
+
+    public final void e() {
+        BaseActivity<?> baseActivity;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (baseActivity = this.a) == null) {
+            return;
         }
-        if (!TextUtils.isEmpty(head.text)) {
-            this.f.setText(head.text);
-        }
-        if (!TextUtils.isEmpty(customDialogData.body)) {
-            this.g.setText(customDialogData.body);
-        }
-        CustomDialogData.Button button = customDialogData.leftButton;
-        if (button != null && !StringUtils.isNull(button.text)) {
-            this.i.setText(customDialogData.leftButton.text);
-        }
-        CustomDialogData.Button button2 = customDialogData.rightButton;
-        if (button2 != null && !StringUtils.isNull(button2.text)) {
-            this.h.setText(customDialogData.rightButton.text);
+        baseActivity.closeLoadingDialog();
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
+            SapiAccount session = SapiAccountManager.getInstance().getSession();
+            if (session != null) {
+                BdAsyncTask<?, ?, ?> bdAsyncTask = this.b;
+                if (bdAsyncTask != null) {
+                    bdAsyncTask.cancel();
+                }
+                this.b = AccountLoginCoreHelper.getInstance().asyncReLogin(session.username, session.bduss, "", null, this.c);
+                return;
+            }
+            e();
+            f(0);
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        CustomDialogData.Button button;
-        CustomDialogData.Button button2;
+    public final void j() {
+        BaseActivity<?> baseActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            if (view2 == this.h) {
-                CustomDialogData customDialogData = this.c;
-                if (customDialogData != null && (button2 = customDialogData.rightButton) != null && !StringUtils.isNull(button2.action)) {
-                    UrlManager.getInstance().dealOneLink(d(), new String[]{this.c.rightButton.action});
-                }
-                gf9 gf9Var = this.d;
-                if (gf9Var != null) {
-                    gf9Var.dismiss();
-                }
-                StatisticItem statisticItem = new StatisticItem(vb9.a.b);
-                statisticItem.param("obj_locate", 2);
-                TiebaStatic.log(statisticItem);
-            } else if (view2 == this.i) {
-                CustomDialogData customDialogData2 = this.c;
-                if (customDialogData2 != null && (button = customDialogData2.leftButton) != null && !StringUtils.isNull(button.action)) {
-                    BrowserHelper.startWebActivity((Context) this.a.getPageActivity(), (String) null, this.c.leftButton.action, true);
-                }
-                gf9 gf9Var2 = this.d;
-                if (gf9Var2 != null) {
-                    gf9Var2.dismiss();
-                }
-                StatisticItem statisticItem2 = new StatisticItem(vb9.a.b);
-                statisticItem2.param("obj_locate", 1);
-                TiebaStatic.log(statisticItem2);
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (baseActivity = this.a) == null) {
+            return;
+        }
+        if (baseActivity.getLoadingDialog() != null && this.a.getLoadingDialog().isShowing()) {
+            return;
+        }
+        BaseActivity<?> baseActivity2 = this.a;
+        baseActivity2.showLoadingDialog(baseActivity2.getString(R.string.sapi_logining));
+        if (this.a.getLoadingDialog() != null) {
+            this.a.getLoadingDialog().setCancelable(false);
+            this.a.getLoadingDialog().setCanceledOnTouchOutside(false);
+        }
+    }
+
+    public final void i(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, accountData) == null) {
+            kg.a().c(new b(this, accountData));
+            Logger.addLog("account", -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
+            BaseActivity<?> baseActivity = this.a;
+            if (baseActivity != null) {
+                TbadkCoreApplication.setCurrentAccount(accountData, baseActivity);
             }
+            BrowserHelper.initCookie(TbadkCoreApplication.getInst());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
         }
     }
 }

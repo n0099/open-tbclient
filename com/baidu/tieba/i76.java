@@ -1,52 +1,137 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.basic.AdAppStateManager;
+import com.baidu.nadcore.download.consts.AdDownloadAction;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class i76 {
+public final class i76 {
     public static /* synthetic */ Interceptable $ic;
+    public static final i76 a;
+    public static final HashMap<String, hl0> b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
 
-    public i76(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static final class a implements zl0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hl0 a;
+
+        public a(hl0 hl0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hl0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hl0Var;
+        }
+
+        @Override // com.baidu.tieba.zl0
+        public void a(AdDownloadAction action, hl0 data) {
+            hl0 hl0Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, action, data) == null) {
+                Intrinsics.checkNotNullParameter(action, "action");
+                Intrinsics.checkNotNullParameter(data, "data");
+                if (action == AdDownloadAction.INSTALL_FINISH && !d31.h(i76.b)) {
+                    String str = data.d;
+                    if (!TextUtils.isEmpty(str) && (hl0Var = (hl0) f31.b(i76.b, str)) != null && hl0Var.e() != null) {
+                        km0.l().t(this.a, true);
+                        ql0.f().a(hl0Var.e().hashCode());
+                        ql0.f().h(ClogBuilder.LogType.INSTALL_COMPLETE.type, ClogBuilder.Area.AD_NOTIFICATION_NOTIFY.type, hl0Var.p.a, hl0Var.q.m);
+                        f31.g(i76.b, str);
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.zl0
+        public hl0 getData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (hl0) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806465, "Lcom/baidu/tieba/i76;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947806465, "Lcom/baidu/tieba/i76;");
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
+        a = new i76();
+        b = new HashMap<>();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public i76() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return invokeV.intValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public final void b(hl0 hl0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hl0Var) != null) || hl0Var == null) {
+            return;
         }
-        return invokeV.intValue;
+        a aVar = new a(hl0Var);
+        AdAppStateManager.instance().register(hl0Var);
+        uk0.c().k(hl0Var.e(), aVar);
+    }
+
+    public final void c(hl0 adDownloadBean) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adDownloadBean) == null) {
+            Intrinsics.checkNotNullParameter(adDownloadBean, "adDownloadBean");
+            b(adDownloadBean);
+            HashMap<String, hl0> hashMap = b;
+            String str = adDownloadBean.d;
+            Intrinsics.checkNotNullExpressionValue(str, "adDownloadBean.packageName");
+            hashMap.put(str, adDownloadBean);
+            ql0.f().h(ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_NOTIFICATION_SHOW.type, adDownloadBean.p.a, adDownloadBean.q.m);
+            if (!c) {
+                ql0.f().h(ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_NOTIFICATION_NOTIFY.type, "", String.valueOf(j76.b.a() + 1));
+                c = true;
+            }
+            km0.l().t(adDownloadBean, false);
+        }
     }
 }

@@ -1,17 +1,19 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes7.dex */
-public class r52 extends e42 {
+public class r52 extends j42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m42 a;
+    public int a;
 
     public r52() {
         Interceptable interceptable = $ic;
@@ -23,30 +25,42 @@ public class r52 extends e42 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.e42
-    public void a(f42 f42Var, Canvas canvas) {
-        m42 m42Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, f42Var, canvas) == null) && (m42Var = this.a) != null && m42Var.d()) {
-            if (this.a.c()) {
-                f42Var.c.setShader(this.a.b());
                 return;
             }
-            f42Var.m = this.a.a();
-            f42Var.c.setColor(this.a.a());
-            f42Var.b.setShader(null);
+        }
+        this.a = 0;
+    }
+
+    @Override // com.baidu.tieba.j42
+    public void a(k42 k42Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, k42Var, canvas) == null) {
+            k42Var.k = this.a;
         }
     }
 
-    @Override // com.baidu.tieba.e42
+    @Override // com.baidu.tieba.j42
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new m42(jSONArray);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    String optString = jSONArray.optString(0);
+                    if (TextUtils.equals(optString, "top")) {
+                        this.a = 1;
+                    } else if (TextUtils.equals(optString, NativeConstants.MIDDLE)) {
+                        this.a = 2;
+                    } else if (TextUtils.equals(optString, "bottom")) {
+                        this.a = 3;
+                    } else {
+                        this.a = 0;
+                    }
+                }
+            } catch (Exception e) {
+                if (nr1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

@@ -3,11 +3,9 @@ package com.baidu.nadcore.widget.uiwidget;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.text.Layout;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,23 +13,31 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac1;
-import com.baidu.tieba.tr0;
-import com.baidu.tieba.yi0;
+import com.baidu.tieba.bj0;
+import com.baidu.tieba.fc1;
+import com.baidu.tieba.t31;
+import com.baidu.tieba.tn0;
+import com.baidu.tieba.wr0;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 /* loaded from: classes3.dex */
 public class SimpleAdInfoView extends FrameLayout {
     public TextView a;
     public TextView b;
     public TextView c;
     public TextView d;
-    public tr0 e;
-    public c f;
-    public View.OnClickListener g;
-    public int h;
+    public TextView e;
+    public wr0 f;
+    public c g;
+    public View.OnClickListener h;
+    public int i;
 
     /* loaded from: classes3.dex */
     public interface c {
         void a(String str);
+    }
+
+    public final boolean a(int i, int i2) {
+        return (i & i2) == i2;
     }
 
     /* loaded from: classes3.dex */
@@ -42,113 +48,130 @@ public class SimpleAdInfoView extends FrameLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             String str;
-            if (SimpleAdInfoView.this.e == null) {
+            if (SimpleAdInfoView.this.f == null) {
                 return;
             }
             int id = view2.getId();
             String str2 = "";
             if (id == R.id.nad_app_privacy) {
-                tr0.b bVar = SimpleAdInfoView.this.e.g;
-                if (bVar != null) {
-                    str2 = bVar.b;
+                wr0.c cVar = SimpleAdInfoView.this.f.g;
+                if (cVar != null) {
+                    str2 = cVar.b;
                     str = ClogBuilder.Area.APP_PRIVACY.type;
                 }
                 str = "";
+            } else if (id == R.id.nad_app_permission) {
+                wr0.b bVar = SimpleAdInfoView.this.f.h;
+                if (bVar != null) {
+                    str2 = bVar.b;
+                    str = ClogBuilder.Area.APP_PERMISSION.type;
+                }
+                str = "";
             } else {
-                if (id == R.id.nad_app_permission) {
-                    tr0.a aVar = SimpleAdInfoView.this.e.h;
+                if (id == R.id.nad_app_feature) {
+                    wr0.a aVar = SimpleAdInfoView.this.f.i;
                     if (aVar != null) {
                         str2 = aVar.b;
-                        str = ClogBuilder.Area.APP_PERMISSION.type;
+                        str = ClogBuilder.Area.APP_FEATURE.type;
                     }
                 } else if (id == R.id.nad_full_author_name) {
-                    Toast.makeText(SimpleAdInfoView.this.getContext(), SimpleAdInfoView.this.e.d, 1).show();
+                    Toast.makeText(SimpleAdInfoView.this.getContext(), SimpleAdInfoView.this.f.d, 1).show();
                     return;
                 } else if (id == R.id.nad_app_version) {
-                    Toast.makeText(SimpleAdInfoView.this.getContext(), SimpleAdInfoView.this.e.f, 1).show();
+                    Toast.makeText(SimpleAdInfoView.this.getContext(), SimpleAdInfoView.this.f.f, 1).show();
                     return;
                 }
                 str = "";
             }
-            yi0.c(str2, SimpleAdInfoView.this.getContext());
-            c cVar = SimpleAdInfoView.this.f;
-            if (cVar != null) {
-                cVar.a(str);
+            bj0.c(str2, SimpleAdInfoView.this.getContext());
+            c cVar2 = SimpleAdInfoView.this.g;
+            if (cVar2 != null) {
+                cVar2.a(str);
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class b implements View.OnLayoutChangeListener {
         public final /* synthetic */ TextView a;
-        public final /* synthetic */ ViewTreeObserver b;
 
-        public b(TextView textView, ViewTreeObserver viewTreeObserver) {
+        public b(TextView textView) {
             this.a = textView;
-            this.b = viewTreeObserver;
         }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
+        @Override // android.view.View.OnLayoutChangeListener
+        public void onLayoutChange(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
             int lineCount;
+            this.a.removeOnLayoutChangeListener(this);
             Layout layout = this.a.getLayout();
             if (layout != null && (lineCount = layout.getLineCount()) > 0 && layout.getEllipsisCount(lineCount - 1) > 0) {
-                this.a.setOnClickListener(SimpleAdInfoView.this.g);
-            }
-            if (this.b.isAlive()) {
-                this.b.removeOnGlobalLayoutListener(this);
-                return;
-            }
-            ViewTreeObserver viewTreeObserver = this.a.getViewTreeObserver();
-            if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
-                viewTreeObserver.removeOnGlobalLayoutListener(this);
+                this.a.setOnClickListener(SimpleAdInfoView.this.h);
             }
         }
     }
 
     public SimpleAdInfoView(@NonNull Context context) {
         super(context);
-        this.g = new a();
-        this.h = R.layout.nad_operate_app_info_layout;
-        a(null);
+        this.h = new a();
+        this.i = R.layout.nad_operate_app_info_layout;
+        b(null);
     }
 
     private void setLayoutByAttrs(AttributeSet attributeSet) {
         if (attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ac1.SimpleAdInfoView);
-        this.h = obtainStyledAttributes.getResourceId(0, -1);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, fc1.SimpleAdInfoView);
+        this.i = obtainStyledAttributes.getResourceId(0, -1);
         obtainStyledAttributes.recycle();
     }
 
-    public final void b(@NonNull TextView textView) {
-        ViewTreeObserver viewTreeObserver = textView.getViewTreeObserver();
-        if (viewTreeObserver == null) {
-            return;
+    public final void c(@NonNull TextView textView) {
+        textView.addOnLayoutChangeListener(new b(textView));
+    }
+
+    public void d(wr0 wr0Var) {
+        if (wr0Var != null && f()) {
+            e(ClogBuilder.LogType.CHECK, wr0Var.m, PayUVEventType.PAY_WALLET_BANNER_SHOW, "20001");
         }
-        viewTreeObserver.addOnGlobalLayoutListener(new b(textView, viewTreeObserver));
     }
 
     public void setAfterListener(c cVar) {
-        this.f = cVar;
+        this.g = cVar;
     }
 
     public SimpleAdInfoView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.g = new a();
-        this.h = R.layout.nad_operate_app_info_layout;
-        a(attributeSet);
+        this.h = new a();
+        this.i = R.layout.nad_operate_app_info_layout;
+        b(attributeSet);
     }
 
     public SimpleAdInfoView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.g = new a();
-        this.h = R.layout.nad_operate_app_info_layout;
-        a(attributeSet);
+        this.h = new a();
+        this.i = R.layout.nad_operate_app_info_layout;
+        b(attributeSet);
     }
 
-    public void a(AttributeSet attributeSet) {
+    public static void e(@NonNull ClogBuilder.LogType logType, @NonNull String str, @NonNull String str2, @NonNull String str3) {
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.y(logType).p(str).k(str2).l(str3);
+        t31.e(clogBuilder);
+    }
+
+    public static boolean f() {
+        if (tn0.b().a().a("ad_feature_strict_mode_check_switch", 0) != 1) {
+            return false;
+        }
+        return true;
+    }
+
+    public int getLayoutId() {
+        return this.i;
+    }
+
+    public void b(AttributeSet attributeSet) {
         setLayoutByAttrs(attributeSet);
         if (getLayoutId() == -1) {
             return;
@@ -158,66 +181,75 @@ public class SimpleAdInfoView extends FrameLayout {
         this.b = (TextView) findViewById(R.id.nad_full_author_name);
         this.c = (TextView) findViewById(R.id.nad_app_privacy);
         this.d = (TextView) findViewById(R.id.nad_app_permission);
+        this.e = (TextView) findViewById(R.id.nad_app_feature);
         TextView textView = this.c;
         if (textView != null) {
-            textView.setOnClickListener(this.g);
+            textView.setOnClickListener(this.h);
         }
         TextView textView2 = this.d;
         if (textView2 != null) {
-            textView2.setOnClickListener(this.g);
+            textView2.setOnClickListener(this.h);
+        }
+        TextView textView3 = this.e;
+        if (textView3 != null) {
+            textView3.setOnClickListener(this.h);
         }
     }
 
-    public int getLayoutId() {
-        return this.h;
-    }
-
-    public void setAdInfo(tr0 tr0Var) {
-        if (tr0Var != null && tr0Var.k) {
-            this.e = tr0Var;
+    public void setAdInfo(wr0 wr0Var) {
+        if (wr0Var != null && wr0Var.l) {
+            this.f = wr0Var;
+            int e = wr0Var.e();
             if (this.a != null) {
-                if (!TextUtils.isEmpty(tr0Var.f)) {
-                    this.a.setText(tr0Var.f);
+                if (!a(e, 2)) {
+                    this.a.setText(wr0Var.f);
                     this.a.setVisibility(0);
-                    b(this.a);
+                    c(this.a);
                 } else {
                     this.a.setVisibility(8);
                 }
             }
             if (this.b != null) {
-                if (!TextUtils.isEmpty(tr0Var.d)) {
-                    this.b.setText(tr0Var.d);
+                if (!a(e, 1)) {
+                    this.b.setText(wr0Var.d);
                     this.b.setVisibility(0);
-                    b(this.b);
+                    c(this.b);
                 } else {
                     this.b.setVisibility(8);
                 }
             }
             if (this.c != null) {
-                tr0.b bVar = tr0Var.g;
-                if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(tr0Var.g.a)) {
-                    this.c.setText(tr0Var.g.a);
+                if (!a(e, 4)) {
+                    this.c.setText(wr0Var.g.a);
                     this.c.setVisibility(0);
                 } else {
                     this.c.setVisibility(8);
                 }
             }
             if (this.d != null) {
-                tr0.a aVar = tr0Var.h;
-                if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(tr0Var.h.a)) {
-                    this.d.setText(tr0Var.h.a);
+                if (!a(e, 8)) {
+                    this.d.setText(wr0Var.h.a);
                     this.d.setVisibility(0);
+                } else {
+                    this.d.setVisibility(8);
+                }
+            }
+            if (this.e != null) {
+                if (!a(e, 16)) {
+                    this.e.setText(wr0Var.i.a);
+                    this.e.setVisibility(0);
                     return;
                 }
-                this.d.setVisibility(8);
+                d(wr0Var);
+                this.e.setVisibility(8);
                 return;
             }
             return;
         }
-        this.e = null;
+        this.f = null;
     }
 
-    public void setFontSize(int i, int i2, int i3, int i4) {
+    public void setFontSize(int i, int i2, int i3, int i4, int i5) {
         TextView textView = this.a;
         if (textView != null) {
             textView.setTextSize(i);
@@ -233,6 +265,10 @@ public class SimpleAdInfoView extends FrameLayout {
         TextView textView4 = this.c;
         if (textView4 != null) {
             textView4.setTextSize(i4);
+        }
+        TextView textView5 = this.e;
+        if (textView5 != null) {
+            textView5.setTextSize(i5);
         }
         requestLayout();
     }

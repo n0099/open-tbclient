@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.dw5;
-import com.baidu.tieba.fw5;
-import com.baidu.tieba.hv4;
+import com.baidu.tieba.jv4;
+import com.baidu.tieba.uw5;
+import com.baidu.tieba.ww5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,8 +23,8 @@ import tbclient.TiebaPlusInfo;
 /* loaded from: classes5.dex */
 public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
-    public static final fw5<Integer> a;
-    public static final fw5<Integer> b;
+    public static final ww5<Integer> a;
+    public static final ww5<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -225,7 +225,7 @@ public final class TiePlusStat {
                         landingType = null;
                         break;
                 }
-                dw5.b(landingType);
+                uw5.b(landingType);
                 return landingType;
             }
             return (LandingType) invokeI.objValue;
@@ -441,8 +441,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, hv4.h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, hv4.i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, jv4.h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, jv4.i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
             DOWNLOAD_FINISHED = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
@@ -663,8 +663,8 @@ public final class TiePlusStat {
                 return;
             }
         }
-        a = new fw5<>(3000, TimeUnit.MILLISECONDS);
-        b = new fw5<>(3000, TimeUnit.MILLISECONDS);
+        a = new ww5<>(3000, TimeUnit.MILLISECONDS);
+        b = new ww5<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -708,33 +708,52 @@ public final class TiePlusStat {
         }
     }
 
-    public static void c(int i, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i2) {
+    public static void c(int i, @NonNull Locate locate, @NonNull String str, @Nullable String str2, @Nullable String str3, int i2) {
+        String str4;
+        String str5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), statType, locate, str, str2, str3, Integer.valueOf(i2)}) == null) {
-            if (statType == StatType.EXPOSE && !b.a(Integer.valueOf(i))) {
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), locate, str, str2, str3, Integer.valueOf(i2)}) == null) {
+            if (str2 == null) {
+                str4 = "";
+            } else {
+                str4 = str2;
             }
-            hv4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
+            if (str3 == null) {
+                str5 = "";
+            } else {
+                str5 = str3;
+            }
+            jv4.a(i, locate.statValue, str, str4, str5, i2);
         }
     }
 
-    public static void d(@NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+    public static void d(int i, @NonNull StatType statType, @NonNull Locate locate, @NonNull String str, @NonNull String str2, @NonNull String str3, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{statType, locate, threadType, richTextType, str, str2, str3, str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), statType, locate, str, str2, str3, Integer.valueOf(i2)}) == null) {
+            if (statType == StatType.EXPOSE && !b.a(Integer.valueOf(i))) {
+                return;
+            }
+            jv4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
+        }
+    }
+
+    public static void e(@NonNull StatType statType, @NonNull Locate locate, @NonNull ThreadType threadType, @NonNull RichTextType richTextType, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{statType, locate, threadType, richTextType, str, str2, str3, str4}) == null) {
             TiebaStatic.log(new StatisticItem(statType.urlKey).addParam("obj_locate", locate.statValue).addParam("obj_type", threadType.statValue).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("tid", str).addParam(TiebaStatic.Params.FID_1, str2).addParam(TiebaStatic.Params.FID_2, str3).addParam("order_id", str4));
         }
     }
 
-    public static void e(@NonNull StatType statType, @NonNull RichTextType richTextType, @NonNull String str, @NonNull String str2) {
+    public static void f(@NonNull StatType statType, @NonNull RichTextType richTextType, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65541, null, statType, richTextType, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65542, null, statType, richTextType, str, str2) == null) {
             TiebaStatic.log(new StatisticItem(statType.urlKey).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam("tid", str).addParam("order_id", str2));
         }
     }
 
-    public static void f(StatType statType, RichTextType richTextType, WechatDialogType wechatDialogType, String str) {
+    public static void g(StatType statType, RichTextType richTextType, WechatDialogType wechatDialogType, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65542, null, statType, richTextType, wechatDialogType, str) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65543, null, statType, richTextType, wechatDialogType, str) == null) {
             TiebaStatic.log(new StatisticItem(statType.urlKey).addParam(RichTextType.STAT_KEY, richTextType.statValue).addParam(WechatDialogType.STAT_KEY, wechatDialogType.statValue).addParam("tid", str));
         }
     }

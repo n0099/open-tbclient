@@ -1,29 +1,196 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.text.TextUtils;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.tieba.xl4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import com.qq.e.ads.nativ.NativeUnifiedADAppInfoImpl;
-import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class yi4<T> {
+public abstract class yi4 implements vi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract ContentValues c(T t);
+    public ui4<dk4> A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (ui4) invokeV.objValue;
+    }
 
-    public abstract T d(Cursor cursor) throws SQLException;
+    public Map<String, String> B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
 
-    public abstract List<T> e(Cursor cursor) throws SQLException;
+    public void C(xj4 xj4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xj4Var) == null) {
+        }
+    }
+
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public void G(lo4 lo4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, lo4Var) == null) {
+        }
+    }
+
+    public void H(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
+        }
+    }
+
+    public void I(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vi4
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vi4
+    public void n(@Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+        }
+    }
+
+    public xi4 p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return null;
+        }
+        return (xi4) invokeV.objValue;
+    }
+
+    public ui4<ek4> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return null;
+        }
+        return (ui4) invokeV.objValue;
+    }
+
+    public ui4<yj4> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return null;
+        }
+        return (ui4) invokeV.objValue;
+    }
+
+    public ui4<ak4> s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return null;
+        }
+        return (ui4) invokeV.objValue;
+    }
+
+    public Map<String, String> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public ui4<ck4> u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return null;
+        }
+        return (ui4) invokeV.objValue;
+    }
+
+    public qi4<xl4.a> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return null;
+        }
+        return (qi4) invokeV.objValue;
+    }
+
+    public xn4 w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            return null;
+        }
+        return (xn4) invokeL.objValue;
+    }
+
+    public ui4<ek4> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return null;
+        }
+        return (ui4) invokeV.objValue;
+    }
+
+    public Map<String, String> y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public ui4<fk4> z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return null;
+        }
+        return (ui4) invokeV.objValue;
+    }
 
     public yi4() {
         Interceptable interceptable = $ic;
@@ -39,70 +206,19 @@ public abstract class yi4<T> {
         }
     }
 
-    public ContentValues a(wj4 wj4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wj4Var)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("bundle_id", wj4Var.g);
-            contentValues.put("category", Integer.valueOf(wj4Var.h));
-            contentValues.put(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME, wj4Var.j);
-            contentValues.put("version_code", Long.valueOf(wj4Var.i));
-            contentValues.put("size", Long.valueOf(wj4Var.k));
-            contentValues.put(PackageTable.MD5, wj4Var.l);
-            contentValues.put("sign", wj4Var.m);
-            contentValues.put(TTDownloadField.TT_DOWNLOAD_URL, wj4Var.n);
-            contentValues.put(PackageTable.FILE_PATH, wj4Var.a);
-            contentValues.put(PackageTable.CURRENT_SIZE, Long.valueOf(wj4Var.b));
-            contentValues.put("create_time", Long.valueOf(wj4Var.c));
-            contentValues.put("update_time", Long.valueOf(wj4Var.d));
-            contentValues.put("state", Integer.valueOf(wj4Var.e));
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public boolean b(Cursor cursor, wj4 wj4Var) {
+    @Override // com.baidu.tieba.wi4
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor, wj4Var)) == null) {
-            if (cursor != null) {
-                int columnIndex = cursor.getColumnIndex("bundle_id");
-                int columnIndex2 = cursor.getColumnIndex("category");
-                int columnIndex3 = cursor.getColumnIndex(NativeUnifiedADAppInfoImpl.Keys.VERSION_NAME);
-                int columnIndex4 = cursor.getColumnIndex("version_code");
-                int columnIndex5 = cursor.getColumnIndex("size");
-                int columnIndex6 = cursor.getColumnIndex(PackageTable.MD5);
-                int columnIndex7 = cursor.getColumnIndex("sign");
-                int columnIndex8 = cursor.getColumnIndex(TTDownloadField.TT_DOWNLOAD_URL);
-                int columnIndex9 = cursor.getColumnIndex("_id");
-                int columnIndex10 = cursor.getColumnIndex(PackageTable.FILE_PATH);
-                int columnIndex11 = cursor.getColumnIndex(PackageTable.CURRENT_SIZE);
-                int columnIndex12 = cursor.getColumnIndex("create_time");
-                int columnIndex13 = cursor.getColumnIndex("update_time");
-                int columnIndex14 = cursor.getColumnIndex("state");
-                String string = cursor.getString(columnIndex);
-                if (TextUtils.isEmpty(string)) {
-                    return false;
-                }
-                wj4Var.g = string;
-                wj4Var.h = cursor.getInt(columnIndex2);
-                wj4Var.j = cursor.getString(columnIndex3);
-                wj4Var.i = cursor.getLong(columnIndex4);
-                wj4Var.k = cursor.getLong(columnIndex5);
-                wj4Var.l = cursor.getString(columnIndex6);
-                wj4Var.m = cursor.getString(columnIndex7);
-                wj4Var.n = cursor.getString(columnIndex8);
-                wj4Var.a = cursor.getString(columnIndex10);
-                wj4Var.b = cursor.getLong(columnIndex11);
-                wj4Var.c = cursor.getLong(columnIndex12);
-                wj4Var.d = cursor.getLong(columnIndex13);
-                wj4Var.f = cursor.getLong(columnIndex9);
-                wj4Var.e = cursor.getInt(columnIndex14);
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (set.contains("event_performance_ubc")) {
+                n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+                set.remove("event_performance_ubc");
             }
-            return false;
+            return bundle2;
         }
-        return invokeLL.booleanValue;
+        return (Bundle) invokeLL.objValue;
     }
 }

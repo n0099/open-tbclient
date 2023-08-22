@@ -2,8 +2,8 @@ package com.huawei.hms.push;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gpb;
-import com.baidu.tieba.hpb;
+import com.baidu.tieba.vvb;
+import com.baidu.tieba.wvb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import com.huawei.hms.push.utils.PushBiUtil;
 import com.huawei.hms.support.api.entity.push.EnableConsentReq;
 import com.huawei.hms.support.api.entity.push.PushNaming;
 import com.huawei.hms.utils.JsonUtil;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HmsConsent {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -59,10 +59,10 @@ public class HmsConsent {
         return (HmsConsent) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r6v10. Raw type applied. Possible types: com.baidu.tieba.gpb<TResult>, com.baidu.tieba.gpb<java.lang.Void> */
-    public final gpb<Void> a(boolean z) {
+    /* JADX DEBUG: Type inference failed for r6v10. Raw type applied. Possible types: com.baidu.tieba.vvb<TResult>, com.baidu.tieba.vvb<java.lang.Void> */
+    public final vvb<Void> a(boolean z) {
         InterceptResult invokeZ;
-        hpb hpbVar;
+        wvb wvbVar;
         int externalCode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
@@ -76,38 +76,38 @@ public class HmsConsent {
                 }
                 throw ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.toApiException();
             } catch (ApiException e) {
-                hpb hpbVar2 = new hpb();
-                hpbVar2.c(e);
+                wvb wvbVar2 = new wvb();
+                wvbVar2.c(e);
                 externalCode = e.getStatusCode();
-                hpbVar = hpbVar2;
+                wvbVar = wvbVar2;
                 PushBiUtil.reportExit(this.b, PushNaming.PUSH_CONSENT, reportEntry, externalCode);
-                return hpbVar.b();
+                return wvbVar.b();
             } catch (Exception unused) {
-                hpbVar = new hpb();
-                hpbVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
+                wvbVar = new wvb();
+                wvbVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
                 externalCode = ErrorEnum.ERROR_INTERNAL_ERROR.getExternalCode();
                 PushBiUtil.reportExit(this.b, PushNaming.PUSH_CONSENT, reportEntry, externalCode);
-                return hpbVar.b();
+                return wvbVar.b();
             }
         }
-        return (gpb) invokeZ.objValue;
+        return (vvb) invokeZ.objValue;
     }
 
-    public gpb<Void> consentOff() {
+    public vvb<Void> consentOff() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return a(false);
         }
-        return (gpb) invokeV.objValue;
+        return (vvb) invokeV.objValue;
     }
 
-    public gpb<Void> consentOn() {
+    public vvb<Void> consentOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return a(true);
         }
-        return (gpb) invokeV.objValue;
+        return (vvb) invokeV.objValue;
     }
 }

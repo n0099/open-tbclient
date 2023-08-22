@@ -1,183 +1,73 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.logsys.LogFile;
+import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
+import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public class w85<T> extends Thread implements a95 {
+public class w85 extends ProcessEventSceneHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final List<v85<T>> a;
-    @Nullable
-    public y85<T> b;
-    @NonNull
-    public final z85<T> c;
-    public volatile boolean d;
-    public volatile boolean e;
-    @Nullable
-    public x85<T> f;
 
-    public w85(@NonNull z85<T> z85Var) {
+    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
+    @Nullable
+    public Set<LogFile> getCustomizedSnapshots(@NonNull Context context, @NonNull File file, @NonNull EventObject eventObject) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, file, eventObject)) == null) {
+            return null;
+        }
+        return (Set) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
+    public boolean saveFragmentSnapshot(@NonNull Context context, @NonNull EventObject eventObject, @NonNull File file) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, eventObject, file)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public w85() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {z85Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = Collections.synchronizedList(new ArrayList());
-        this.d = false;
-        this.e = false;
-        this.c = z85Var;
-        e();
-    }
-
-    @Override // com.baidu.tieba.a95
-    public void a(@Nullable Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, objArr) == null) {
-            synchronized (this.a) {
-                for (v85<T> v85Var : this.a) {
-                    v85Var.a(objArr);
-                }
-                this.e = false;
-                this.d = true;
-                this.a.notifyAll();
             }
         }
     }
 
-    public final void b(@NonNull v85<T> v85Var) {
+    @Override // com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.BaseEventSceneHandler, com.baidu.searchbox.logsystem.logsys.eventscene.handler.EventSceneHandler
+    public Set<ProcessSnapshotType> requireGeneralSnapshots(@NonNull Context context, @NonNull EventObject eventObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v85Var) == null) {
-            synchronized (this.a) {
-                Collections.addAll(this.a, v85Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, eventObject)) == null) {
+            if (eventObject.mEventLog.contains("OutOfMemoryError")) {
+                HashSet hashSet = new HashSet(1);
+                hashSet.add(ProcessSnapshotType.PROCESS_MEMORY_STATUS);
+                return hashSet;
             }
+            return null;
         }
-    }
-
-    public void d(T t) {
-        x85<T> x85Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && (x85Var = this.f) != null) {
-            x85Var.a(t);
-        }
-    }
-
-    public void f(@NonNull y85<T> y85Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, y85Var) == null) {
-            synchronized (this.a) {
-                this.b = y85Var;
-                this.a.notifyAll();
-            }
-        }
-    }
-
-    public void g(@NonNull x85<T> x85Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, x85Var) == null) {
-            this.f = x85Var;
-        }
-    }
-
-    @WorkerThread
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (v85<T> v85Var : this.a) {
-                v85Var.onDestroy();
-            }
-            this.a.clear();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            start();
-        }
-    }
-
-    @Override // com.baidu.tieba.a95
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.d = false;
-            this.e = true;
-            interrupt();
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:27:0x0051, code lost:
-        r4 = false;
-     */
-    @Override // java.lang.Thread, java.lang.Runnable
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void run() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            synchronized (this.a) {
-                while (true) {
-                    if (isInterrupted()) {
-                        c();
-                        break;
-                    } else if (this.e) {
-                        c();
-                        break;
-                    } else {
-                        if (this.a.size() == 0 || !this.d) {
-                            try {
-                                this.a.wait();
-                            } catch (InterruptedException unused) {
-                                c();
-                            }
-                        }
-                        int i = 0;
-                        while (true) {
-                            z = true;
-                            if (i >= this.a.size() || this.a.get(i).a == null) {
-                                break;
-                            } else if (i == this.a.size() - 1) {
-                                break;
-                            } else {
-                                i++;
-                            }
-                        }
-                        if (z) {
-                            if (this.b != null) {
-                                this.b.a(this.c.a(this.a));
-                            }
-                            for (v85<T> v85Var : this.a) {
-                                v85Var.a = null;
-                                v85Var.onDestroy();
-                            }
-                            this.a.clear();
-                            this.d = false;
-                        }
-                    }
-                }
-            }
-        }
+        return (Set) invokeLL.objValue;
     }
 }

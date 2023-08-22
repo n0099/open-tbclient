@@ -6,11 +6,11 @@ import com.xiaomi.push.jj;
 /* loaded from: classes10.dex */
 public class ir {
     public static short a(Context context, id idVar) {
-        return a(context, idVar.f638b);
+        return a(context, idVar.f639b);
     }
 
     public static short a(Context context, String str) {
-        return (short) (g.a(context, str, false).a() + 0 + (ai.b(context) ? 4 : 0) + (ai.a(context) ? 8 : 0) + (com.xiaomi.push.service.ax.m777a(context) ? 16 : 0));
+        return (short) (g.a(context, str, false).a() + 0 + (ai.b(context) ? 4 : 0) + (ai.a(context) ? 8 : 0) + (com.xiaomi.push.service.ax.m779a(context) ? 16 : 0));
     }
 
     public static <T extends is<T, ?>> void a(T t, byte[] bArr) {

@@ -1,32 +1,63 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Configuration;
-import android.graphics.Point;
-import android.graphics.Rect;
-import android.os.Build;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.WindowManager;
+import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class i22 {
+public class i22 extends c22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.gz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetPerformanceLevelApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ i22 b;
+
+        public a(i22 i22Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i22Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i22Var;
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.d(this.a, new d32(0, this.b.y()));
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,138 +72,58 @@ public class i22 {
                 return;
             }
         }
-        a = ir1.a;
+        boolean z = nr1.a;
     }
 
-    public static synchronized void f() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i22(@NonNull ez1 ez1Var) {
+        super(ez1Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            synchronized (i22.class) {
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "release cache system info");
-                }
-                b = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ez1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((ez1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static JSONObject a(@NonNull Context context) {
+    public d32 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (a) {
-                Log.d("SystemInfoCacheHelper", "start create System Info");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#getPerformanceLevel", false);
+            Pair<d32, JSONObject> s = s(str);
+            if (!((d32) s.first).isSuccess()) {
+                return (d32) s.first;
             }
-            WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
-            windowManager.getDefaultDisplay().getSize(new Point());
-            windowManager.getDefaultDisplay().getRectSize(new Rect());
-            Configuration configuration = context.getResources().getConfiguration();
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new d32(202, "cb is empty");
+            }
+            xn3.k(new a(this, optString), "SWAN_DEVICE_PERFORMANCE_CHECK");
+            return new d32(0);
+        }
+        return (d32) invokeL.objValue;
+    }
+
+    public JSONObject y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String b = ku2.u0().b();
+            d82.k("GetPerformanceLevelApi", "getPerformanceLevel: " + b);
             JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("brand", Build.BRAND);
-                jSONObject.put("model", Build.MODEL);
-                jSONObject.put("pixelRatio", displayMetrics.density);
-                jSONObject.put("devicePixelRatio", displayMetrics.density);
-                jSONObject.put("language", c(configuration));
-                jSONObject.put("version", so3.D());
-                jSONObject.put("system", "Android " + Build.VERSION.RELEASE);
-                jSONObject.put(Constants.PARAM_PLATFORM, "android");
-                jSONObject.put("fontSizeSetting", fu2.o().r());
-                jSONObject.put("swanNativeVersion", jr1.a());
-                jSONObject.put("host", fu2.n().a());
-                jSONObject.put("statusBarHeight", po3.O(po3.t()));
-                jSONObject.put("navigationBarHeight", po3.O(po3.j()));
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "end create System Info");
-                }
-                return jSONObject;
-            } catch (JSONException e) {
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "crate system info error : ");
-                    e.printStackTrace();
-                    return null;
-                }
-                return null;
-            }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @Nullable
-    public static synchronized JSONObject b(Context context) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            synchronized (i22.class) {
-                if (b == null && context != null) {
-                    if (a) {
-                        Log.d("SystemInfoCacheHelper", "need create system info");
-                    }
-                    b = a(context);
-                }
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "return cache system info");
-                }
-                jSONObject = b;
-            }
+            do3.f(jSONObject, "performanceLevel", b);
             return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static String c(Configuration configuration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, configuration)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i < 21) {
-                return configuration.locale.toString();
-            }
-            if (i < 24) {
-                return configuration.locale.toLanguageTag();
-            }
-            return configuration.getLocales().toLanguageTags();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(int i) {
-        JSONObject jSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && (jSONObject = b) != null) {
-            try {
-                jSONObject.put("fontSizeSetting", i);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Nullable
-    public static synchronized void e(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
-            synchronized (i22.class) {
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "start pre cache system info");
-                }
-                if (!fu2.g0().s()) {
-                    return;
-                }
-                if (b == null && context != null) {
-                    if (a) {
-                        Log.d("SystemInfoCacheHelper", "need create system info");
-                    }
-                    b = a(context);
-                }
-                if (a) {
-                    Log.d("SystemInfoCacheHelper", "end pre cache system info");
-                }
-            }
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

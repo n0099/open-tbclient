@@ -1885,7 +1885,7 @@ public class SapiWebView extends WebView {
         if (!TextUtils.isEmpty(Build.VERSION.RELEASE)) {
             str2 = Build.VERSION.RELEASE;
         }
-        String encode = URLEncoder.encode("Sapi_9.7.5_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + str + "_" + str2 + "_Sapi");
+        String encode = URLEncoder.encode("Sapi_9.7.5.1_Android_" + SapiUtils.getAppName(getContext()) + "_" + SapiUtils.getVersionName(getContext()) + "_" + str + "_" + str2 + "_Sapi");
         if (isValidPackage() && !TextUtils.isEmpty(this.configuration.userAgent)) {
             return encode + " " + this.configuration.userAgent;
         }

@@ -1,14 +1,27 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.CyberPlayerManager;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.videoplay.VideoPlayView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public class hsa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public bsa c;
+    public VideoPlayView.i d;
+    public int e;
+    public Set<String> f;
 
     public hsa() {
         Interceptable interceptable = $ic;
@@ -20,43 +33,64 @@ public class hsa {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0;
+        this.f = new HashSet();
     }
 
-    public static hsa a(int i, float f, float f2, float f3, float f4, float f5) {
-        InterceptResult invokeCommon;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)})) == null) {
-            return new hsa();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = Math.min(7, TbConfig.PREFETCH_NEXT_VIDEO_NUM);
+            this.b = this.a + 1;
+            b();
         }
-        return (hsa) invokeCommon.objValue;
     }
 
-    public static hsa b(int i) {
-        InterceptResult invokeI;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i != 5) {
-                                    return null;
-                                }
-                                return a(i, 0.47f, 3.0f, 2.14f, 1.41f, 1.03f);
-                            }
-                            return a(i, 0.53f, 3.0f, 1.64f, 1.08f, 0.62f);
-                        }
-                        return a(i, 0.59f, 3.0f, 1.11f, 0.71f, 0.67f);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c != null && this.e > 0) {
+            while (this.b < this.c.k()) {
+                VideoItemData t = this.c.t(this.b);
+                this.b++;
+                if (t != null && !TextUtils.isEmpty(t.video_url)) {
+                    this.e--;
+                    if (!this.f.contains(t.video_url)) {
+                        CyberPlayerManager.prefetch(t.video_url, null, null, TbConfig.PREFETCH_NEXT_VIDEO_SIZE, null);
+                        this.f.add(t.video_url);
                     }
-                    return a(i, 0.1f, 2.0f, 0.39f, 0.31f, 0.66f);
+                    if (this.e <= 0) {
+                        break;
+                    }
                 }
-                return a(i, 0.1f, 1.0f, 0.0f, 0.0f, 0.09f);
             }
-            return a(i, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+            if (this.e > 0 && this.d != null && this.c.k() - this.a < 10) {
+                this.d.a();
+            }
         }
-        return (hsa) invokeI.objValue;
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void d(bsa bsaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bsaVar) == null) {
+            this.c = bsaVar;
+        }
+    }
+
+    public void e(VideoPlayView.i iVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, iVar) == null) {
+            this.d = iVar;
+        }
     }
 }

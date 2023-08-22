@@ -1,97 +1,26 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y0c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
+import com.yy.transvod.player.log.TLog;
 /* loaded from: classes5.dex */
-public final class a2c<T, R> implements y0c.a<R> {
+public class a2c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y0c<T> a;
-    public final q1c<? super T, ? extends R> b;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public long d;
+    public long e;
 
-    /* loaded from: classes5.dex */
-    public static final class a<T, R> extends e1c<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final e1c<? super R> e;
-        public final q1c<? super T, ? extends R> f;
-        public boolean g;
-
-        public a(e1c<? super R> e1cVar, q1c<? super T, ? extends R> q1cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e1cVar, q1cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = e1cVar;
-            this.f = q1cVar;
-        }
-
-        @Override // com.baidu.tieba.e1c
-        public void f(a1c a1cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, a1cVar) == null) {
-                this.e.f(a1cVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.z0c
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                if (this.g) {
-                    l5c.j(th);
-                    return;
-                }
-                this.g = true;
-                this.e.onError(th);
-            }
-        }
-
-        @Override // com.baidu.tieba.z0c
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                try {
-                    this.e.onNext(this.f.call(t));
-                } catch (Throwable th) {
-                    k1c.e(th);
-                    unsubscribe();
-                    onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.z0c
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-                return;
-            }
-            this.e.onCompleted();
-        }
-    }
-
-    public a2c(y0c<T> y0cVar, q1c<? super T, ? extends R> q1cVar) {
+    public a2c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {y0cVar, q1cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -101,21 +30,91 @@ public final class a2c<T, R> implements y0c.a<R> {
                 return;
             }
         }
-        this.a = y0cVar;
-        this.b = q1cVar;
+        this.a = false;
+        this.b = true;
+        this.c = 0;
+        this.d = 0L;
+        this.e = 0L;
     }
 
-    public void call(e1c<? super R> e1cVar) {
+    public synchronized boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, e1cVar) == null) {
-            a aVar = new a(e1cVar, this.b);
-            e1cVar.b(aVar);
-            this.a.O(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                boolean z = false;
+                if (this.c < 2) {
+                    return false;
+                }
+                if (Math.abs(this.d - this.e) < 100) {
+                    z = true;
+                }
+                return z;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                z = this.a;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                TLog.g(this, "[surface] surfaceCreated");
+                if (this.c > 0) {
+                    this.e = this.d;
+                }
+                this.c++;
+                this.d = System.currentTimeMillis();
+                this.b = true;
+                this.a = true;
+            }
         }
     }
 
-    @Override // com.baidu.tieba.y0c.a, com.baidu.tieba.m1c
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((e1c) ((e1c) obj));
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                TLog.g(this, "[surface] surfaceDestroy");
+                this.b = true;
+                this.a = false;
+            }
+        }
+    }
+
+    public synchronized boolean a(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            synchronized (this) {
+                if (this.b == z) {
+                    this.b = z2;
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public synchronized void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            synchronized (this) {
+            }
+        }
     }
 }

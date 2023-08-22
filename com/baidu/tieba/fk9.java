@@ -1,47 +1,116 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.MainThread;
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationManagerCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
+import android.view.MotionEvent;
+import android.view.View;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tbadk.mvc.message.WriteCacheMessage;
-import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.pb.pb.main.pendantrecord.PbPendantRecordCacheModel;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.by6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class fk9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public PbPendantRecordCacheModel b;
-    public boolean c;
-    public boolean d;
-    public String e;
-    public String f;
-    public ArrayList<uj9> g;
-    public long h;
-    public final CacheModel.CacheModelCallback<uj9> i;
+    public boolean a;
+    public boolean b;
+    public final dk9 c;
+    public final cy6 d;
+    public by6.b e;
+    public View.OnTouchListener f;
 
     /* loaded from: classes5.dex */
-    public class a implements CacheModel.CacheModelCallback<uj9> {
+    public class a implements by6.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ fk9 a;
+
+        @Override // com.baidu.tieba.by6.b
+        public void c(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.by6.b
+        public void d(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.fk9$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0291a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public RunnableC0291a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.g(false);
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a.g(false);
+                }
+            }
+        }
 
         public a(fk9 fk9Var) {
             Interceptable interceptable = $ic;
@@ -61,178 +130,141 @@ public class fk9 {
             this.a = fk9Var;
         }
 
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-        public void onCacheDataGet(ReadCacheRespMsg<List<uj9>> readCacheRespMsg, ReadCacheMessage<uj9> readCacheMessage) {
+        @Override // com.baidu.tieba.by6.b
+        public void a(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, readCacheRespMsg, readCacheMessage) == null) {
-                this.a.c = true;
-                if (readCacheRespMsg != null && readCacheRespMsg.getData() != null) {
-                    this.a.g.clear();
-                    this.a.g.addAll(readCacheRespMsg.getData());
-                }
-                if (this.a.d) {
-                    this.a.d = false;
-                    if (!TextUtils.isEmpty(this.a.e) && !TextUtils.isEmpty(this.a.f)) {
-                        fk9 fk9Var = this.a;
-                        fk9Var.n(fk9Var.e, this.a.f);
-                        this.a.e = null;
-                        this.a.f = null;
-                    }
-                }
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && this.a.c.k() && !this.a.e() && !this.a.f()) {
+                this.a.g(true);
+                this.a.h(true);
+                this.a.c.j().t(new RunnableC0291a(this));
             }
         }
 
-        @Override // com.baidu.tbadk.mvc.model.CacheModel.CacheModelCallback
-        public void onCacheDataWrite(WriteCacheRespMsg<List<uj9>> writeCacheRespMsg, WriteCacheMessage<uj9> writeCacheMessage) {
+        @Override // com.baidu.tieba.by6.b
+        public void b(int i, int i2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeCacheRespMsg, writeCacheMessage) == null) {
-                if (writeCacheMessage != null && writeCacheMessage.getData() != null) {
-                    this.a.j(writeCacheMessage.getData().getCacheKey(), writeCacheMessage.getData().b(), ListUtils.getCount(writeCacheMessage.getData().c()));
-                }
-                this.a.p();
+            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && this.a.c.k() && !this.a.e() && this.a.c.j().h() && Math.abs(i2) > fk9.g) {
+                this.a.c.i(new b(this));
+                this.a.g(true);
+                this.a.h(false);
             }
         }
     }
 
-    public fk9(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fk9 a;
+
+        public b(fk9 fk9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fk9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fk9Var;
+        }
+
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                this.a.d.c(motionEvent);
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947767157, "Lcom/baidu/tieba/fk9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947767157, "Lcom/baidu/tieba/fk9;");
                 return;
             }
         }
-        this.c = false;
-        this.d = false;
-        this.g = new ArrayList<>();
-        this.h = 0L;
-        this.i = new a(this);
-        this.a = tbPageContext;
+        g = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f0701d5);
     }
 
-    public final ArrayList<String> k(@NonNull String str) {
-        InterceptResult invokeL;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            arrayList.add(str);
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    @MainThread
-    public void q(@NonNull String str) {
-        PbPendantRecordCacheModel pbPendantRecordCacheModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || (pbPendantRecordCacheModel = this.b) == null) {
-            return;
-        }
-        pbPendantRecordCacheModel.addCache(new uj9(str, "", new ArrayList()));
-    }
-
-    public final void j(@NonNull String str, @NonNull String str2, int i) {
-        tv9 g;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) && (g = uv9.e().g("pb_to_personalize")) != null && g.e() > 0 && uv9.e().b("pb_to_personalize") && i >= g.e()) {
-            sr6.b().b(new te9(true, JavaTypesHelper.toLong(str2, 0L)));
-            if (this.a != null && !TextUtils.isEmpty(str)) {
-                String string = this.a.getResources().getString(R.string.push_tip_default_title);
-                String string2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0ff6, str);
-                g.h(string);
-                g.g(string2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gk9 j = this.c.j();
+            if (j.m()) {
+                j.e().setOnTouchListener(this.f);
             }
-            q(str);
         }
     }
 
-    @NonNull
-    public final ArrayList l(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (ListUtils.isEmpty(this.g)) {
-                this.g = new ArrayList<>();
-            }
-            Iterator<uj9> it = this.g.iterator();
-            while (it.hasNext()) {
-                uj9 next = it.next();
-                if (next != null && str.equals(next.a())) {
-                    ArrayList<String> c = next.c();
-                    if (next.d() < this.h) {
-                        c.clear();
-                        c.add(str2);
-                        return c;
-                    } else if (c.contains(str2)) {
-                        return c;
-                    } else {
-                        c.add(str2);
-                        return c;
-                    }
-                }
-            }
-            return k(str2);
-        }
-        return (ArrayList) invokeLL.objValue;
-    }
-
-    public fk9 m() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == null) {
-                PbPendantRecordCacheModel pbPendantRecordCacheModel = new PbPendantRecordCacheModel(this.a);
-                this.b = pbPendantRecordCacheModel;
-                pbPendantRecordCacheModel.setCallback(this.i);
-                this.h = UtilHelper.getTodayZeroTime();
-                p();
-            }
-            return this;
-        }
-        return (fk9) invokeV.objValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            TbPageContext tbPageContext = this.a;
-            if (tbPageContext != null && tbPageContext.getPageActivity() != null && NotificationManagerCompat.from(this.a.getPageActivity()).areNotificationsEnabled()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public final void p() {
-        PbPendantRecordCacheModel pbPendantRecordCacheModel;
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (pbPendantRecordCacheModel = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        pbPendantRecordCacheModel.loadCache();
+        return invokeV.booleanValue;
     }
 
-    @MainThread
-    public void n(@NonNull String str, @NonNull String str2) {
+    public fk9(dk9 dk9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) && this.b != null && !TextUtils.isEmpty(str)) {
-            if (!this.c) {
-                this.d = true;
-                this.e = str;
-                this.f = str2;
-                p();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dk9Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            this.b.addCache(new uj9(str, str2, l(str, str2)));
+        }
+        this.e = new a(this);
+        this.f = new b(this);
+        this.c = dk9Var;
+        cy6 cy6Var = new cy6(dk9Var.b.getPageContext().getPageActivity());
+        this.d = cy6Var;
+        cy6Var.d(this.e);
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b = z;
         }
     }
 }

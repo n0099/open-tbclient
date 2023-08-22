@@ -1,224 +1,151 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Rect;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.play.monitor.VideoSerializeVideoThreadInfo;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes8.dex */
-public class zt9 extends bu9 {
+/* loaded from: classes9.dex */
+public class zt9 extends om<kv9, CardViewHolder<mw9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VideoItemData T0;
-    public VideoSerializeVideoThreadInfo U0;
-    public ThreadData V0;
-    public a W0;
+    public TbPageContext<?> a;
+    public ag<PersonCommonForumItemView> b;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a();
-    }
+    /* loaded from: classes9.dex */
+    public class a implements bg<PersonCommonForumItemView> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zt9 a;
 
-    @Override // com.baidu.tieba.bu9
-    public void U() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        public PersonCommonForumItemView e(PersonCommonForumItemView personCommonForumItemView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
         }
-    }
 
-    @Override // com.baidu.tieba.bu9, com.baidu.tieba.yt9
-    public boolean onBackPress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return false;
+        public PersonCommonForumItemView h(PersonCommonForumItemView personCommonForumItemView) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, personCommonForumItemView)) == null) ? personCommonForumItemView : (PersonCommonForumItemView) invokeL.objValue;
         }
-        return invokeV.booleanValue;
+
+        public a(zt9 zt9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zt9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zt9Var;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.bg
+        public /* bridge */ /* synthetic */ PersonCommonForumItemView a(PersonCommonForumItemView personCommonForumItemView) {
+            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
+            e(personCommonForumItemView2);
+            return personCommonForumItemView2;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.tieba.bg
+        public /* bridge */ /* synthetic */ PersonCommonForumItemView c(PersonCommonForumItemView personCommonForumItemView) {
+            PersonCommonForumItemView personCommonForumItemView2 = personCommonForumItemView;
+            h(personCommonForumItemView2);
+            return personCommonForumItemView2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        /* renamed from: f */
+        public void b(PersonCommonForumItemView personCommonForumItemView) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048581, this, personCommonForumItemView) == null) && personCommonForumItemView != null) {
+                personCommonForumItemView.removeAllViews();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        /* renamed from: g */
+        public PersonCommonForumItemView d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return new PersonCommonForumItemView(this.a.mContext);
+            }
+            return (PersonCommonForumItemView) invokeV.objValue;
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zt9(Context context, View view2) {
-        super(context, view2);
+    public zt9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), kv9.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (View) objArr2[1]);
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 5000;
+        this.b = new ag<>(new a(this), 12, 0);
+        this.a = tbPageContext;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public zt9(Context context, View view2, boolean z) {
-        this(context, view2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: t */
+    public CardViewHolder<mw9> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            mw9 mw9Var = new mw9(this.a);
+            mw9Var.A(this.b);
+            return new CardViewHolder<>(mw9Var);
         }
-        s0(z);
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public final void F0(Rect rect) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, kv9 kv9Var, CardViewHolder<mw9> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, rect) != null) || this.V0 == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, kv9Var, cardViewHolder})) == null) {
+            cardViewHolder.b().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            cardViewHolder.b().i(kv9Var);
+            return cardViewHolder.getView();
         }
-        if (this.T0 == null) {
-            this.T0 = new VideoItemData();
-        }
-        ArrayList arrayList = new ArrayList();
-        this.T0.buildWithThreadData(this.V0);
-        arrayList.add(this.T0);
-        String str = null;
-        ThreadData threadData = this.V0;
-        if (threadData != null && threadData.getBaijiahaoData() != null) {
-            str = this.V0.getBaijiahaoData().oriUgcNid;
-        }
-        String str2 = str;
-        Context context = this.S;
-        boolean z = this.X;
-        String str3 = this.f0;
-        ThreadData threadData2 = this.V0;
-        vv5.e(context, arrayList, str2, z, 0, rect, "from_nani_video", "personalize_page", "", str3, str3, false, threadData2.isJumpToFrsVideoTabPlay, true, threadData2.getFid());
-    }
-
-    @Override // com.baidu.tieba.bu9, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2) != null) || view2 == null) {
-            return;
-        }
-        int id = view2.getId();
-        if (id == R.id.video_mute) {
-            a0();
-        } else if (id == R.id.obfuscated_res_0x7f091eee) {
-            v0(this.b);
-            startPlay();
-        } else {
-            a aVar = this.W0;
-            if (aVar != null) {
-                aVar.a();
-                return;
-            }
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                BdUtilHelper.showToast(this.S, (int) R.string.no_network_guide);
-            } else {
-                F0(ThreadCardUtils.computeViewArea(this.U));
-                TbSingleton.getInstance().setIsNeedReuseVideoPlayer(isPlaying());
-            }
-            View.OnClickListener onClickListener = this.F0;
-            if (onClickListener != null) {
-                onClickListener.onClick(getMainView());
-            }
-        }
-    }
-
-    public void G0(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.W0 = aVar;
-        }
-    }
-
-    public void H0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            v0(this.f);
-        }
-    }
-
-    @Override // com.baidu.tieba.bu9
-    public void S() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i = this.p;
-            if (i == this.e || i == this.n) {
-                H0();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bu9
-    public void T() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f = 32;
-        }
-    }
-
-    @Override // com.baidu.tieba.bu9
-    public void g0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            super.g0();
-            this.U.setOnTouchListener(null);
-            this.U.setOnClickListener(this);
-        }
-    }
-
-    @Override // com.baidu.tieba.bu9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
-    public void onCompletion() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            startPlay();
-        }
-    }
-
-    @Override // com.baidu.tieba.bu9, com.baidu.tieba.yt9
-    public void setData(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, threadData) == null) {
-            super.setData(threadData);
-            this.V0 = threadData;
-            if (this.X) {
-                VideoItemData videoItemData = new VideoItemData();
-                this.T0 = videoItemData;
-                videoItemData.buildWithThreadData(threadData);
-                return;
-            }
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo = new VideoSerializeVideoThreadInfo();
-            this.U0 = videoSerializeVideoThreadInfo;
-            videoSerializeVideoThreadInfo.copyFromThreadInfo(threadData);
-            VideoSerializeVideoThreadInfo videoSerializeVideoThreadInfo2 = this.U0;
-            videoSerializeVideoThreadInfo2.source = threadData.mRecomSource;
-            videoSerializeVideoThreadInfo2.extra = threadData.mRecomExtra;
-            videoSerializeVideoThreadInfo2.ab_tag = threadData.mRecomAbTag;
-            videoSerializeVideoThreadInfo2.weight = threadData.mRecomWeight;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -12,7 +12,7 @@ public final class R {
     /* loaded from: classes3.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int transparent = 0x7f060b80;
+        public static final int transparent = 0x7f060b86;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {

@@ -1,108 +1,159 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.gh3;
-import com.baidu.tieba.vv2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.ubc.Flow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class kh3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947913043, "Lcom/baidu/tieba/kh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static jh3 a(String str) {
+        InterceptResult invokeL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Flow d = jq4.d(str);
+            if (g()) {
+                obj = ku2.A0().beginFlow(str);
+            } else {
+                obj = null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947913043, "Lcom/baidu/tieba/kh3;");
-                return;
-            }
+            return new jh3(obj, d);
         }
-        a = ir1.a;
-        b = fu2.g0().u() * 1024;
+        return (jh3) invokeL.objValue;
     }
 
-    public static boolean c() {
+    public static void b(@NonNull jh3 jh3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, jh3Var) == null) {
+            if (g()) {
+                ku2.A0().b(jh3Var.b());
+            }
+            Flow a = jh3Var.a();
+            if (a != null) {
+                a.cancel();
+            }
+        }
+    }
+
+    public static void c(@NonNull jh3 jh3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, jh3Var) == null) {
+            if (g()) {
+                ku2.A0().c(jh3Var.b());
+            }
+            Flow a = jh3Var.a();
+            if (a != null) {
+                a.end();
+            }
+        }
+    }
+
+    public static void d(@NonNull jh3 jh3Var, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, jh3Var, str, str2) == null) {
+            if (g()) {
+                ku2.A0().a(jh3Var.b(), str, str2);
+            }
+            Flow a = jh3Var.a();
+            if (a != null) {
+                a.addEvent(str, str2);
+            }
+        }
+    }
+
+    public static void i(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, jSONObject) == null) {
+            if (g()) {
+                ku2.A0().f(str, jSONObject);
+            }
+            jq4.l(str2, jSONObject);
+        }
+    }
+
+    public static void e(@NonNull jh3 jh3Var, String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jh3Var, str, str2, Long.valueOf(j)}) == null) {
+            if (g()) {
+                ku2.A0().g(jh3Var.b(), str, str2, j);
+            }
+            Flow a = jh3Var.a();
+            if (a != null) {
+                a.addEvent(str, str2, j);
+            }
+        }
+    }
+
+    public static void f(@NonNull jh3 jh3Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, jh3Var, str) == null) {
+            if (g()) {
+                ku2.A0().h(jh3Var.b(), str);
+            }
+            Flow a = jh3Var.a();
+            if (a != null) {
+                a.setValueWithDuration(str);
+            }
+        }
+    }
+
+    public static void h(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
+            if (g()) {
+                ku2.A0().i(str, str2);
+            }
+            jq4.h(str, str2);
+        }
+    }
+
+    public static void j(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, map) == null) {
+            if (g()) {
+                ku2.A0().d(str, map);
+            }
+            jq4.j(str, map);
+        }
+    }
+
+    public static void k(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, str, jSONObject) == null) {
+            if (g()) {
+                ku2.A0().f(str, jSONObject);
+            }
+            jq4.l(str, jSONObject);
+        }
+    }
+
+    public static void l(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
+            ku2.A0().i(str, str2);
+        }
+    }
+
+    public static void m(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65548, null, str, jSONObject) == null) {
+            ku2.A0().f(str, jSONObject);
+        }
+    }
+
+    public static boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b > 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return ku2.A0().e();
         }
         return invokeV.booleanValue;
-    }
-
-    public static boolean a(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || str.getBytes().length <= b) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!c()) {
-                return false;
-            }
-            boolean a2 = a(str);
-            if (a2) {
-                d(str);
-            }
-            return a2;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void d(@NonNull String str) {
-        ya3 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || (b0 = ya3.b0()) == null) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            vv2.a W = b0.W();
-            SwanCoreVersion coreVersion = lw2.T().getCoreVersion();
-            int k = b0.k();
-            jSONObject.putOpt("scheme", W.W());
-            jSONObject.putOpt("swanjs", dk3.i(coreVersion, k));
-            if (str != null && str.length() > 1024) {
-                jSONObject.putOpt("params", str.substring(0, 1024));
-            }
-            gh3.b bVar = new gh3.b(10020);
-            bVar.j(so3.n().e());
-            bVar.i(jSONObject.toString());
-            bVar.h(b0.getAppId());
-            bVar.m();
-            y72.k("SwanAppParamChecker", "10020, params: " + str);
-        } catch (JSONException e) {
-            if (a) {
-                e.printStackTrace();
-            }
-        }
     }
 }

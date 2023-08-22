@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.LineNumberReader;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -93,7 +93,7 @@ public class b1 {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (JSONObject) invokeV.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:42:0x00c2, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00c1, code lost:
         if (r7 != null) goto L41;
      */
     /*

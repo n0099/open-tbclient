@@ -1,52 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.FileUtils;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import rx.schedulers.Schedulers;
 /* loaded from: classes8.dex */
 public class yu5 {
     public static /* synthetic */ Interceptable $ic;
-    public static JSONObject a;
-    public static ArrayList<Long> b;
-    public static final Hashtable<String, ArrayList<c<Integer, Integer>>> c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public d a;
+    public a b;
+    public b c;
 
     /* loaded from: classes8.dex */
-    public static class a implements m1c<String> {
+    public static class a extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public String a;
+        public boolean b;
+        public int c;
+        public String d;
+        public String e;
+        public boolean f;
+        public int g;
+        public View.OnClickListener h;
 
-        public a(String str) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,43 +44,32 @@ public class yu5 {
                     return;
                 }
             }
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m1c
-        public void call(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                String string = SharedPrefHelper.getInstance().getString("old_sniff_url", "");
-                if (TextUtils.isEmpty(this.a) || this.a.equals(string)) {
-                    yu5.p(false);
-                    return;
-                }
-                File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
-                if (!file.exists()) {
-                    file.mkdir();
-                }
-                if (uu5.j().b(new File(file, "sniff.json"), this.a) > 0) {
-                    SharedPrefHelper.getInstance().putString("old_sniff_url", "");
-                }
-                yu5.p(true);
-            }
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_05;
+            this.d = yu5.c(R.string.no_data_common_txt, new Object[0]);
+            this.e = yu5.c(R.string.refresh_view_button_text, new Object[0]);
+            this.f = false;
+            this.g = BdUtilHelper.getDimens(yu5.b(), R.dimen.obfuscated_res_0x7f0703d9);
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class b implements m1c<String> {
+    public static class b extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
+        public String a;
+        public boolean b;
+        public int c;
+        public int d;
+        public String e;
+        public String f;
+        public String g;
+        public View.OnClickListener h;
 
-        public b(boolean z) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -102,35 +79,32 @@ public class yu5 {
                     return;
                 }
             }
-            this.a = z;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m1c
-        public void call(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                if (yu5.a == null || this.a) {
-                    yu5.g();
-                }
-                yu5.o();
-            }
+            this.b = true;
+            this.c = R.drawable.new_pic_emotion_08;
+            this.d = BdUtilHelper.getDimens(yu5.b(), R.dimen.obfuscated_res_0x7f0703b0);
+            this.e = yu5.c(R.string.refresh_view_button_text, new Object[0]);
+            this.f = yu5.c(R.string.refresh_view_title_text, new Object[0]);
+            this.g = yu5.c(R.string.data_load_error, new Object[0]);
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class c<X, Y> {
+    public static class c extends e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final X a;
-        public final Y b;
+        public int a;
+        public int b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public boolean g;
+        public View.OnClickListener h;
 
-        public c(X x, Y y) {
+        public c() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x, y};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -140,261 +114,93 @@ public class yu5 {
                     return;
                 }
             }
-            this.a = x;
-            this.b = y;
+            this.a = BdUtilHelper.getDimens(yu5.b(), R.dimen.tbds182);
+            this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
+            this.c = yu5.c(R.string.obfuscated_res_0x7f0f0bec, new Object[0]);
+            this.d = yu5.c(R.string.pb_load_more, new Object[0]);
+            this.e = yu5.c(R.string.list_no_more, new Object[0]);
+            this.f = yu5.c(R.string.click_retry, new Object[0]);
+            this.g = false;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948342672, "Lcom/baidu/tieba/yu5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public static class d extends e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+
+        public d() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948342672, "Lcom/baidu/tieba/yu5;");
-                return;
+            this.a = yu5.c(R.string.loading_text, new Object[0]);
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static abstract class e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        b = new ArrayList<>();
-        c = new Hashtable<>();
-        d = true;
     }
 
     public yu5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static String e() {
+    public static /* synthetic */ Context b() {
+        return getContext();
+    }
+
+    public static Context getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return qh0.e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return TbadkCoreApplication.getInst().getApplicationContext();
         }
-        return (String) invokeV.objValue;
+        return (Context) invokeV.objValue;
     }
 
-    public static void h(String str) {
+    public static String c(int i, Object... objArr) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            y0c.n("").s(Schedulers.io()).H(new a(str));
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, objArr)) == null) {
+            return getContext().getString(i, objArr);
         }
-    }
-
-    public static void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, null, i) == null) {
-            k(i, 0);
-        }
-    }
-
-    public static void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65550, null, i) == null) {
-            j(i, 0);
-        }
-    }
-
-    public static void p(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65553, null, z) == null) {
-            y0c.n("").s(Schedulers.io()).H(new b(z));
-        }
-    }
-
-    public static void f(PackageManager packageManager, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65543, null, packageManager, str, i, i2) == null) {
-            try {
-                packageManager.getApplicationInfo(str, 0);
-                j(i, i2);
-            } catch (PackageManager.NameNotFoundException unused) {
-                k(i, i2);
-            }
-        }
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            File file = new File(BdBaseApplication.getInst().getApp().getApplicationContext().getFilesDir(), "sniff");
-            if (!file.exists()) {
-                return;
-            }
-            File file2 = new File(file, "sniff.json");
-            if (!file2.exists()) {
-                return;
-            }
-            String readFileData = FileUtils.readFileData(file2);
-            if (!TextUtils.isEmpty(readFileData)) {
-                synchronized (yu5.class) {
-                    try {
-                        a = new JSONObject(readFileData);
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-        }
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            ArrayList<Long> arrayList = b;
-            if (arrayList != null && arrayList.size() != 0) {
-                ArrayList arrayList2 = new ArrayList();
-                Iterator<Long> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    arrayList2.add(String.valueOf(it.next()));
-                }
-                return TextUtils.join(",", arrayList2);
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void j(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65547, null, i, i2) == null) {
-            ArrayList<Long> arrayList = b;
-            if (i < arrayList.size()) {
-                arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() | (1 << i2)));
-            }
-        }
-    }
-
-    public static void k(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65548, null, i, i2) == null) {
-            ArrayList<Long> arrayList = b;
-            if (i < arrayList.size()) {
-                arrayList.set(i, Long.valueOf(arrayList.get(i).longValue() & (~(1 << i2))));
-            }
-        }
-    }
-
-    public static void n(int i, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65551, null, i, jSONArray) == null) {
-            if (i >= b.size()) {
-                Log.e("AD_SNIFF_RESULT_KEY", "group index should NOT greater or equal group size!!!");
-                return;
-            }
-            PackageManager packageManager = BdBaseApplication.getInst().getApp().getApplicationContext().getPackageManager();
-            l(i);
-            int i2 = 0;
-            while (i2 < jSONArray.length()) {
-                String optString = jSONArray.optString(i2);
-                i2++;
-                c<Integer, Integer> cVar = new c<>(Integer.valueOf(i), Integer.valueOf(i2));
-                ArrayList<c<Integer, Integer>> arrayList = c.get(optString);
-                if (arrayList == null) {
-                    arrayList = new ArrayList<>();
-                }
-                arrayList.add(cVar);
-                c.put(optString, arrayList);
-                f(packageManager, optString, i, i2);
-            }
-            m(i);
-            SharedPrefHelper.getInstance().putString("AD_SNIFF_RESULT_KEY", i());
-        }
-    }
-
-    public static void o() {
-        JSONObject jSONObject;
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65552, null) != null) || (jSONObject = a) == null || (optJSONArray = jSONObject.optJSONArray("data")) == null) {
-            return;
-        }
-        int length = optJSONArray.length();
-        int size = b.size();
-        ArrayList<Long> arrayList = new ArrayList<>();
-        for (int i = 0; i < length; i++) {
-            if (i < size) {
-                arrayList.add(b.get(i));
-            } else {
-                arrayList.add(0L);
-            }
-        }
-        b = arrayList;
-        for (int i2 = 0; i2 < length; i2++) {
-            JSONObject optJSONObject = optJSONArray.optJSONObject(i2);
-            if (optJSONObject == null) {
-                return;
-            }
-            q(i2, optJSONObject.optString("name"), optJSONObject.optInt("interval"), optJSONObject.optJSONArray("list"), d);
-        }
-        if (d) {
-            d = false;
-        }
-    }
-
-    public static void q(int i, String str, int i2, JSONArray jSONArray, boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65554, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), jSONArray, Boolean.valueOf(z)}) == null) && i >= 0 && !TextUtils.isEmpty(str) && i2 >= 0 && jSONArray != null && jSONArray.length() != 0) {
-            long time = new Date().getTime();
-            String str2 = "AD_SNIFF_RESULT_KEY_" + str + "_TS";
-            long j = SharedPrefHelper.getInstance().getLong(str2, 0L);
-            long millis = TimeUnit.MINUTES.toMillis(i2);
-            boolean z3 = true;
-            int i3 = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i3 == 0) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            z3 = (i3 <= 0 || time - j <= millis) ? false : false;
-            if (z || z2 || z3) {
-                SharedPrefHelper.getInstance().putLong(str2, time);
-                n(i, jSONArray);
-            }
-        }
-    }
-
-    public static void r(Intent intent) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65555, null, intent) != null) || TextUtils.isEmpty(intent.getDataString())) {
-            return;
-        }
-        if (intent.getDataString().length() > 8) {
-            str = intent.getDataString().substring(8);
-        } else {
-            str = "";
-        }
-        String action = intent.getAction();
-        ArrayList<c<Integer, Integer>> arrayList = c.get(str);
-        if (arrayList != null && arrayList.size() != 0) {
-            Iterator<c<Integer, Integer>> it = arrayList.iterator();
-            while (it.hasNext()) {
-                c<Integer, Integer> next = it.next();
-                if (next != null) {
-                    int intValue = next.a.intValue();
-                    int intValue2 = next.b.intValue();
-                    if (PackageChangedReceiver.ACTION_INSTALL.equals(action)) {
-                        j(intValue, intValue2);
-                    } else {
-                        k(intValue, intValue2);
-                    }
-                }
-            }
-        }
+        return (String) invokeIL.objValue;
     }
 }

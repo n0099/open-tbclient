@@ -1,36 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.ChatRoomEntranceData;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.data.LevePopData;
-import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tbadk.data.MemberBroadcastData;
-import com.baidu.tbadk.data.SubscribeGroupUnreadMsgData;
-import java.util.List;
-import tbclient.AlaLiveInfo;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+@Target({ElementType.METHOD})
+@Retention(RetentionPolicy.RUNTIME)
 /* loaded from: classes6.dex */
-public interface i85 {
-    MemberBroadcastData getActivityBroadcastData();
+public @interface i85 {
+    boolean isAsync() default false;
 
-    ChatRoomEntranceData getChatRoomEntranceData();
-
-    jg5 getFestivalConfigData();
-
-    IconPopData getIconPopData();
-
-    LevePopData getLevePopData();
-
-    List<AlaLiveInfo> getLiveFollowSecondFloor();
-
-    List<AlaLiveInfo> getLiveIndexSecondFloor();
-
-    List<AlaLiveInfo> getLivePicSecondFloor();
-
-    LiveRemindData getLiveRemindData();
-
-    MemberBroadcastData getMemberBroadcastData();
-
-    SubscribeGroupUnreadMsgData getSubscribeChatHaveUnReadMsg();
-
-    String getUniqueId();
+    String value() default "";
 }

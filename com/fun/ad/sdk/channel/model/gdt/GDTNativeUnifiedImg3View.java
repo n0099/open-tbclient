@@ -123,10 +123,10 @@ public class GDTNativeUnifiedImg3View extends t {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onFinishInflate();
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900c1);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900be);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bf);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c0);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900c3);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c0);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c1);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900c2);
         }
     }
 

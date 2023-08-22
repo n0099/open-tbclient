@@ -18,7 +18,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class la {
     public static /* synthetic */ Interceptable $ic;
     public static la a;
@@ -76,7 +76,7 @@ public class la {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                yh.a(byteArrayInputStream, byteArrayOutputStream);
+                ai.a(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
@@ -94,7 +94,7 @@ public class la {
             ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr, i, i2);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             try {
-                yh.c(byteArrayInputStream, byteArrayOutputStream);
+                ai.c(byteArrayInputStream, byteArrayOutputStream);
                 byteArrayOutputStream.flush();
                 return byteArrayOutputStream.toByteArray();
             } finally {
@@ -174,7 +174,7 @@ public class la {
                 if (kaVar.d() && maVar.d > 0) {
                     if (na.a().b() != null) {
                         try {
-                            byte[] a2 = ii.a(na.a().b(), maVar.b, maVar.c, maVar.d);
+                            byte[] a2 = ki.a(na.a().b(), maVar.b, maVar.c, maVar.d);
                             maVar.b = a2;
                             maVar.c = 0;
                             maVar.d = a2.length;
@@ -230,7 +230,7 @@ public class la {
                 encodeInBackGround = a(encodeInBackGround, 0, encodeInBackGround.length);
             }
             if (encodeInBackGround != null && z2) {
-                encodeInBackGround = ii.c(na.a().b(), encodeInBackGround);
+                encodeInBackGround = ki.c(na.a().b(), encodeInBackGround);
             }
             return ka.i(z2, z, socketMessage.getCmd(), i, encodeInBackGround, z3);
         }

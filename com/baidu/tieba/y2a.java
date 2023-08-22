@@ -1,139 +1,146 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.text.TextPaint;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes8.dex */
-public class y2a extends Thread {
+public class y2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final String b;
-    public Process c;
-    public BufferedReader d;
-    public FileOutputStream e;
-    public a f;
 
-    /* loaded from: classes8.dex */
-    public interface a {
-        void a();
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
     }
 
-    public y2a(String str, String str2, boolean z) {
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = true;
-        this.d = null;
-        this.e = null;
-        try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
-            this.e = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + ".txt"), true);
-        } catch (FileNotFoundException e) {
-            BdLog.e(Log.getStackTraceString(e));
-        }
-        if (z) {
-            this.b = "logcat -v threadtime *:v -d";
-        } else {
-            this.b = "logcat -v threadtime *:v";
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) ((i * 16.0d) / 9.0d) : invokeI.intValue;
     }
 
-    public final void a() {
+    public static int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Process process = this.c;
-            if (process != null) {
-                process.destroy();
-                this.c = null;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
+    }
+
+    public static hl0 d(@NonNull AdCard adCard) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adCard)) == null) {
+            if (yk0.b().query(adCard.getDownloadKey()) != null) {
+                return yk0.b().query(adCard.getDownloadKey());
             }
-            BufferedReader bufferedReader = this.d;
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                    this.d = null;
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
+            hl0 hl0Var = new hl0();
+            hl0Var.h(adCard.getDownloadKey());
+            if (adCard.downloadInfo != null) {
+                if (TextUtils.isEmpty(hl0Var.e())) {
+                    hl0Var.h(adCard.downloadInfo.b);
                 }
+                q2a q2aVar = adCard.downloadInfo;
+                hl0Var.g = q2aVar.b;
+                hl0Var.d = q2aVar.a;
             }
-            FileOutputStream fileOutputStream = this.e;
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                    BdLog.e(Log.getStackTraceString(e2));
-                }
-                this.e = null;
+            if (TextUtils.isEmpty(hl0Var.e())) {
+                hl0Var.h(adCard.adId);
             }
-            a aVar = this.f;
-            if (aVar != null) {
-                aVar.a();
+            ll0 ll0Var = new ll0();
+            ll0Var.d = adCard.getButtonText();
+            ll0Var.j = adCard.adId;
+            ll0Var.a = adCard.getExtInfo();
+            y05 y05Var = adCard.appInfoModel;
+            if (y05Var != null) {
+                ll0Var.g = y05Var.b;
+                ll0Var.h = y05Var.c;
             }
+            if (pj0.n(adCard.cmdScheme)) {
+                ll0Var.c = adCard.cmdScheme;
+            }
+            hl0Var.p = ll0Var;
+            il0 il0Var = new il0();
+            il0Var.a = adCard.getAdvertAppInfo().j;
+            il0Var.t = s26.a().b();
+            il0Var.s = s26.a().h();
+            hl0Var.q = il0Var;
+            return hl0Var;
         }
+        return (hl0) invokeL.objValue;
     }
 
-    public void b(a aVar) {
+    public static String e(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f = aVar;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (ellipsize != null) {
+                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+            }
+            return str2;
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public void c() {
+    public static Drawable f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = false;
-            a();
-            interrupt();
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) {
+            return c75.G(c75.n(d75.y(), i), i2, i3, i4);
         }
+        return (Drawable) invokeIIII.objValue;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        String readLine;
+    public static int g(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i == i2) {
+                return i;
+            }
+            if (f <= 0.0f) {
+                return i;
+            }
+            if (f >= 1.0f) {
+                return i2;
+            }
+            int red = Color.red(i);
+            int green = Color.green(i);
+            int blue = Color.blue(i);
+            int alpha = Color.alpha(i);
+            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static int h(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
             try {
-                try {
-                    this.c = Runtime.getRuntime().exec(this.b);
-                    this.d = new BufferedReader(new InputStreamReader(this.c.getInputStream()), 1024);
-                    while (this.a && (readLine = this.d.readLine()) != null && this.a) {
-                        if (readLine.length() != 0 && this.e != null) {
-                            FileOutputStream fileOutputStream = this.e;
-                            fileOutputStream.write((readLine + "\n").getBytes());
-                        }
-                    }
-                    BdLog.d("collector complete.");
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
-                }
-            } finally {
-                a();
+                return Color.parseColor(str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return i;
             }
         }
+        return invokeLI.intValue;
     }
 }

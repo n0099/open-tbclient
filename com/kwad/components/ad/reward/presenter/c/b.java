@@ -38,13 +38,13 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
         this.nM.mRootContainer.postDelayed(new Runnable() { // from class: com.kwad.components.ad.reward.presenter.c.b.3
             @Override // java.lang.Runnable
             public final void run() {
-                int m171if = b.this.m171if();
+                int m173if = b.this.m173if();
                 int S = b.this.S(i);
                 if (b.this.to != null) {
                     FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) b.this.to.getLayoutParams();
                     layoutParams.width = -1;
-                    layoutParams.topMargin = m171if;
-                    layoutParams.height = (az.getScreenHeight(b.this.getContext()) - m171if) - S;
+                    layoutParams.topMargin = m173if;
+                    layoutParams.height = (az.getScreenHeight(b.this.getContext()) - m173if) - S;
                     b.this.to.setLayoutParams(layoutParams);
                 }
             }
@@ -58,7 +58,7 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: if  reason: not valid java name */
-    public int m171if() {
+    public int m173if() {
         ViewGroup viewGroup;
         int height;
         if (this.tj.getHeight() > 0) {
@@ -163,12 +163,12 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0912ec);
-        this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912ee);
-        this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091326);
-        this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912eb);
-        this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09132c);
-        this.tm = findViewById(R.id.obfuscated_res_0x7f091292);
+        this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091302);
+        this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091304);
+        this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09133c);
+        this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091301);
+        this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091342);
+        this.tm = findViewById(R.id.obfuscated_res_0x7f0912a8);
     }
 
     @Override // com.kwad.components.ad.reward.presenter.c.a, com.kwad.sdk.mvp.Presenter

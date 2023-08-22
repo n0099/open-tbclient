@@ -236,9 +236,9 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
 
     private void hl() {
         SceneImpl sceneImpl = this.nM.mAdTemplate.mAdScene;
-        SceneImpl m173clone = sceneImpl != null ? sceneImpl.m173clone() : null;
-        if (m173clone != null) {
-            com.kwad.components.ad.reward.e.a(m173clone, this);
+        SceneImpl m175clone = sceneImpl != null ? sceneImpl.m175clone() : null;
+        if (m175clone != null) {
+            com.kwad.components.ad.reward.e.a(m175clone, this);
         }
     }
 
@@ -364,7 +364,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0913c8);
+        KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f0913de);
         this.qX = ksRefluxView;
         this.bF = ksRefluxView.getWebView();
         this.qX.setViewListener(this);

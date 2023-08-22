@@ -15,7 +15,6 @@ import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.an5;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.Action;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
@@ -23,9 +22,10 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSys
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.EmojiReplySysMsg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.SizedSyncTreeSet;
-import com.baidu.tieba.kn5;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.si8;
+import com.baidu.tieba.pn5;
+import com.baidu.tieba.rm8;
+import com.baidu.tieba.zn5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -46,7 +46,7 @@ import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ChatMsgProcessor implements kn5 {
+public class ChatMsgProcessor implements zn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final SparseArray<Class<? extends BaseMsg>> a;
@@ -602,7 +602,7 @@ public class ChatMsgProcessor implements kn5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
-            TreeSet<ChatMsg> treeSet = new TreeSet<>(an5.b);
+            TreeSet<ChatMsg> treeSet = new TreeSet<>(pn5.b);
             treeSet.add(chatMsg);
             return treeSet;
         }
@@ -878,7 +878,7 @@ public class ChatMsgProcessor implements kn5 {
         }
     }
 
-    @Override // com.baidu.tieba.kn5
+    @Override // com.baidu.tieba.zn5
     public void a(int i2, long j2, @NonNull TreeSet<ChatMsg> treeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048596, this, new Object[]{Integer.valueOf(i2), Long.valueOf(j2), treeSet}) == null) {
@@ -1213,7 +1213,7 @@ public class ChatMsgProcessor implements kn5 {
                                 A.add(j4);
                             }
                         } catch (Exception e2) {
-                            si8.g("parse_msg_exception", j2, e2);
+                            rm8.g("parse_msg_exception", j2, e2);
                         }
                     }
                 }

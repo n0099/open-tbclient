@@ -11,12 +11,12 @@ import com.baidu.nadcore.rotationpop.NadLottiePopView;
 import com.baidu.nadcore.rotationpop.NadSensorLottieComponent;
 import com.baidu.nadcore.utils.ExtensionsKt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ds0;
-import com.baidu.tieba.gr0;
-import com.baidu.tieba.h61;
-import com.baidu.tieba.mr0;
-import com.baidu.tieba.rp0;
-import com.baidu.tieba.w21;
+import com.baidu.tieba.gs0;
+import com.baidu.tieba.jr0;
+import com.baidu.tieba.m61;
+import com.baidu.tieba.pr0;
+import com.baidu.tieba.up0;
+import com.baidu.tieba.z21;
 import com.baidu.webkit.sdk.WebChromeClient;
 import kotlin.Lazy;
 import kotlin.LazyKt__LazyJVMKt;
@@ -33,8 +33,8 @@ import kotlin.text.StringsKt__StringsJVMKt;
 public final class NadRewardFloatingLayerView extends FrameLayout {
     public final Lazy a;
     public NadSensorLottieComponent b;
-    public mr0 c;
-    public ds0 d;
+    public pr0 c;
+    public gs0 d;
     public Function1<? super String, Unit> e;
     public boolean f;
 
@@ -63,11 +63,11 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
 
         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
         public void onGlobalLayout() {
-            ds0 d;
+            gs0 d;
             NadRewardFloatingLayerView.this.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-            mr0 mr0Var = NadRewardFloatingLayerView.this.c;
-            if (mr0Var != null && (d = mr0Var.d()) != null) {
-                int e = (int) ((h61.c.e(this.b) * d.q) + (h61.c.a(this.b, 25.0f) * 2));
+            pr0 pr0Var = NadRewardFloatingLayerView.this.c;
+            if (pr0Var != null && (d = pr0Var.d()) != null) {
+                int e = (int) ((m61.c.e(this.b) * d.q) + (m61.c.a(this.b, 25.0f) * 2));
                 FrameLayout container = NadRewardFloatingLayerView.this.getContainer();
                 ViewGroup.LayoutParams layoutParams = NadRewardFloatingLayerView.this.getContainer().getLayoutParams();
                 layoutParams.height = e;
@@ -78,8 +78,8 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
     }
 
     /* loaded from: classes3.dex */
-    public static final class b extends w21 {
-        @Override // com.baidu.tieba.w21
+    public static final class b extends z21 {
+        @Override // com.baidu.tieba.z21
         public boolean a() {
             return true;
         }
@@ -88,17 +88,17 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         public b() {
         }
 
-        @Override // com.baidu.tieba.w21
+        @Override // com.baidu.tieba.z21
         public void h() {
             NadLottiePopView c;
             String str;
             NadSensorLottieComponent nadSensorLottieComponent = NadRewardFloatingLayerView.this.b;
             if (nadSensorLottieComponent != null && (c = nadSensorLottieComponent.c()) != null && c.getVisibility() == 0) {
-                rp0.v(NadRewardFloatingLayerView.this.c);
+                up0.v(NadRewardFloatingLayerView.this.c);
                 NadRewardFloatingLayerView nadRewardFloatingLayerView = NadRewardFloatingLayerView.this;
-                ds0 ds0Var = nadRewardFloatingLayerView.d;
-                if (ds0Var != null) {
-                    str = ds0Var.i;
+                gs0 gs0Var = nadRewardFloatingLayerView.d;
+                if (gs0Var != null) {
+                    str = gs0Var.i;
                 } else {
                     str = null;
                 }
@@ -126,11 +126,11 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         public void b(View view2) {
             String str;
             Intrinsics.checkNotNullParameter(view2, "view");
-            rp0.m(NadRewardFloatingLayerView.this.c);
+            up0.m(NadRewardFloatingLayerView.this.c);
             NadRewardFloatingLayerView nadRewardFloatingLayerView = NadRewardFloatingLayerView.this;
-            ds0 ds0Var = nadRewardFloatingLayerView.d;
-            if (ds0Var != null) {
-                str = ds0Var.i;
+            gs0 gs0Var = nadRewardFloatingLayerView.d;
+            if (gs0Var != null) {
+                str = gs0Var.i;
             } else {
                 str = null;
             }
@@ -145,14 +145,14 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         @Override // com.baidu.nadcore.rotationpop.NadLottiePopView.e
         public void onShown() {
             String str;
-            gr0 gr0Var;
-            mr0 mr0Var = NadRewardFloatingLayerView.this.c;
-            if (mr0Var != null && (gr0Var = mr0Var.f) != null) {
-                str = gr0Var.d;
+            jr0 jr0Var;
+            pr0 pr0Var = NadRewardFloatingLayerView.this.c;
+            if (pr0Var != null && (jr0Var = pr0Var.f) != null) {
+                str = jr0Var.d;
             } else {
                 str = null;
             }
-            rp0.n(str);
+            up0.n(str);
             NadRewardFloatingLayerView.this.f = true;
         }
     }
@@ -184,14 +184,14 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public final boolean h(ds0 ds0Var) {
+    public final boolean h(gs0 gs0Var) {
         String str;
-        if (ds0Var != null) {
-            str = ds0Var.n;
+        if (gs0Var != null) {
+            str = gs0Var.n;
         } else {
             str = null;
         }
-        if (Intrinsics.areEqual(str, "shake") && (!StringsKt__StringsJVMKt.isBlank(ds0Var.b))) {
+        if (Intrinsics.areEqual(str, "shake") && (!StringsKt__StringsJVMKt.isBlank(gs0Var.b))) {
             return true;
         }
         return false;
@@ -225,15 +225,15 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         }
     }
 
-    public final void setData(mr0 mr0Var) {
-        ds0 ds0Var;
-        this.c = mr0Var;
-        if (mr0Var != null) {
-            ds0Var = mr0Var.d();
+    public final void setData(pr0 pr0Var) {
+        gs0 gs0Var;
+        this.c = pr0Var;
+        if (pr0Var != null) {
+            gs0Var = pr0Var.d();
         } else {
-            ds0Var = null;
+            gs0Var = null;
         }
-        this.d = ds0Var;
+        this.d = gs0Var;
         m();
         if (!h(this.d)) {
             return;
@@ -246,7 +246,7 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         this.e = callback;
     }
 
-    private final w21 getSLComponentSensorListener() {
+    private final z21 getSLComponentSensorListener() {
         return new b();
     }
 
@@ -271,12 +271,12 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
         this.f = false;
     }
 
-    public final void i(ds0 ds0Var) {
+    public final void i(gs0 gs0Var) {
         String str;
         NadLottiePopView c2;
         NadLottiePopView nadLottiePopView = null;
-        if (ds0Var != null) {
-            str = ds0Var.n;
+        if (gs0Var != null) {
+            str = gs0Var.n;
         } else {
             str = null;
         }
@@ -286,7 +286,7 @@ public final class NadRewardFloatingLayerView extends FrameLayout {
             NadSensorLottieComponent nadSensorLottieComponent = new NadSensorLottieComponent(context, getSLComponentViewListener(), getSLComponentSensorListener());
             this.b = nadSensorLottieComponent;
             if (nadSensorLottieComponent != null) {
-                nadSensorLottieComponent.g(ds0Var);
+                nadSensorLottieComponent.g(gs0Var);
             }
             NadSensorLottieComponent nadSensorLottieComponent2 = this.b;
             if (nadSensorLottieComponent2 != null && (c2 = nadSensorLottieComponent2.c()) != null) {

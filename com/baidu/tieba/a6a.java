@@ -1,104 +1,190 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.download.util.MigrateStatisticUtils;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.adp.lib.safe.BdCloseHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class a6a extends CustomMessageListener {
+public class a6a {
     public static /* synthetic */ Interceptable $ic;
+    public static a6a b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final x5a a;
-    @NonNull
-    public final y5a b;
+    public HashMap<String, String> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a6a(@NonNull x5a x5aVar, @NonNull y5a y5aVar) {
-        super(2016311);
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(HashMap<String, String> hashMap);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends bx5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a6a a;
+
+        public a(a6a a6aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a6aVar;
+        }
+
+        @Override // com.baidu.tieba.bx5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Reader reader;
+            Throwable th;
+            InputStream inputStream;
+            BufferedReader bufferedReader;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                try {
+                    try {
+                        inputStream = TbadkCoreApplication.getInst().getAssets().open("schema_map1.txt");
+                    } catch (Throwable th2) {
+                        th = th2;
+                    }
+                    try {
+                        bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                        while (true) {
+                            try {
+                                String readLine = bufferedReader.readLine();
+                                if (readLine == null) {
+                                    break;
+                                }
+                                String[] split = readLine.split(",");
+                                if (split.length == 2 && split[0] != null && split[1] != null) {
+                                    this.a.a.put(split[0], split[1]);
+                                }
+                            } catch (Exception e) {
+                                e = e;
+                                e.printStackTrace();
+                                BdCloseHelper.close(inputStream);
+                                BdCloseHelper.close((Reader) bufferedReader);
+                                return null;
+                            }
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        bufferedReader = null;
+                    } catch (Throwable th3) {
+                        reader = null;
+                        th = th3;
+                        BdCloseHelper.close(inputStream);
+                        BdCloseHelper.close(reader);
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    inputStream = null;
+                    bufferedReader = null;
+                } catch (Throwable th4) {
+                    reader = null;
+                    th = th4;
+                    inputStream = null;
+                }
+                BdCloseHelper.close(inputStream);
+                BdCloseHelper.close((Reader) bufferedReader);
+                return null;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements gw5<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+        public final /* synthetic */ a6a b;
+
+        public b(a6a a6aVar, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a6aVar, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = a6aVar;
+            this.a = cVar;
+        }
+
+        @Override // com.baidu.tieba.gw5
+        public void onReturnDataInUI(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                this.a.a(this.b.a);
+            }
+        }
+    }
+
+    public a6a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x5aVar, y5aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = x5aVar;
-        this.b = y5aVar;
+        this.a = new HashMap<>();
+        new HashMap();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        String str;
+    public static a6a c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016311) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-            Object data = customResponsedMessage.getData();
-            if (data instanceof String) {
-                String str2 = (String) data;
-                cea.a("SplashClickListener link:" + str2);
-                if (!TextUtils.isEmpty(str2) && !TextUtils.equals("advertevent", Uri.parse(str2).getScheme())) {
-                    Intent intent = new Intent();
-                    int indexOf = str2.indexOf("&extInfo=");
-                    if (indexOf > 0) {
-                        str = str2.substring(0, indexOf);
-                    } else {
-                        str = str2;
-                    }
-                    String substring = str2.substring(str.length() + 9, str2.length());
-                    if (str.startsWith("https://") || str.startsWith("http://")) {
-                        intent.putExtra("gd_ad", true);
-                        intent.putExtra(MigrateStatisticUtils.EXT_INFO, substring);
-                    }
-                    if (!this.a.h() && ((StringUtils.isNull(str) || !str.startsWith("bdtiebalive")) && this.a.g() != 2)) {
-                        intent.putExtra("class", 30);
-                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
-                        intent.putExtra("is_ad", true);
-                        TbadkCoreApplication.setIntent(intent);
-                    } else {
-                        intent.putExtra("class", 30);
-                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
-                        intent.putExtra("is_ad", true);
-                        UtilHelper.commenDealIntent(this.a.getActivity(), intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (a6a.class) {
+                    if (b == null) {
+                        b = new a6a();
                     }
                 }
-                this.a.e();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 5).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.d())));
-                if (!this.a.d() && !DeviceInfoUtil.isHuaWeiP40Pro()) {
-                    SpeedStatsManager.getInstance().setStatsFlag(-1);
-                    if (!this.a.h()) {
-                        TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "click"));
-                        return;
-                    }
-                    return;
-                }
-                this.b.a();
+            }
+            return b;
+        }
+        return (a6a) invokeV.objValue;
+    }
+
+    public void b(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+            if (!this.a.isEmpty()) {
+                cVar.a(this.a);
+            } else {
+                fx5.b(new a(this), new b(this, cVar));
             }
         }
     }

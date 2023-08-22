@@ -99,7 +99,7 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
             layoutParams.gravity = 17;
             ExplosionCommentView.this.mLottieContainer.addView(ExplosionCommentView.this.mExplosionLottie, layoutParams);
             ExplosionCommentView.this.mExplodingView = new BdBaseImageView(ExplosionCommentView.this.mContext);
-            ExplosionCommentView.this.mExplodingView.setImageDrawable(ExplosionCommentView.this.getContext().getApplicationContext().getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080622));
+            ExplosionCommentView.this.mExplodingView.setImageDrawable(ExplosionCommentView.this.getContext().getApplicationContext().getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080627));
             FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(DeviceUtil.ScreenInfo.dp2px(AppRuntime.getAppContext(), 20.0f), DeviceUtil.ScreenInfo.dp2px(AppRuntime.getAppContext(), 16.0f));
             layoutParams2.gravity = 17;
             ExplosionCommentView.this.mLottieContainer.addView(ExplosionCommentView.this.mExplodingView, layoutParams2);
@@ -214,10 +214,10 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
 
     private void init(Context context) {
         this.mExplosionLottie = new LottieAnimationView(this.mContext);
-        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d02c4, (ViewGroup) this, false);
+        RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d02c7, (ViewGroup) this, false);
         this.mRoot = relativeLayout;
-        this.mExplosionView = (ImageView) relativeLayout.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090ab3);
-        this.mExplosionText = (TextView) this.mRoot.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090ab5);
+        this.mExplosionView = (ImageView) relativeLayout.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090abf);
+        this.mExplosionText = (TextView) this.mRoot.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f090ac1);
         setUI();
         this.mRoot.setOnTouchListener(new TouchStateListener());
         this.mRoot.setOnClickListener(this);
@@ -241,7 +241,7 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
     /* JADX INFO: Access modifiers changed from: private */
     public void resetExplosionView() {
         if (this.mExplosionView != null) {
-            this.mExplosionView.setImageDrawable(getContext().getApplicationContext().getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080623));
+            this.mExplosionView.setImageDrawable(getContext().getApplicationContext().getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080628));
         }
         RelativeLayout relativeLayout = this.mRoot;
         if (relativeLayout != null) {
@@ -333,10 +333,10 @@ public class ExplosionCommentView extends FrameLayout implements View.OnClickLis
 
     public void setUI() {
         if (this.mExplosionText != null) {
-            this.mExplosionText.setTextColor(getContext().getApplicationContext().getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06018b));
+            this.mExplosionText.setTextColor(getContext().getApplicationContext().getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060191));
         }
         if (this.mExplosionView != null) {
-            this.mExplosionView.setImageDrawable(getContext().getApplicationContext().getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080623));
+            this.mExplosionView.setImageDrawable(getContext().getApplicationContext().getResources().getDrawable(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080628));
         }
     }
 }

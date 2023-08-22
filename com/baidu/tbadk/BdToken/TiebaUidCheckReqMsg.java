@@ -16,7 +16,7 @@ import tbclient.GetUserByTiebaUid.GetUserByTiebaUidReqIdl;
 public class TiebaUidCheckReqMsg extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTokenController.m mTiebaUidData;
+    public BdTokenController.l mTiebaUidData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TiebaUidCheckReqMsg() {
@@ -59,10 +59,10 @@ public class TiebaUidCheckReqMsg extends NetMessage {
         return invokeZ.objValue;
     }
 
-    public void setTiebaUid(BdTokenController.m mVar) {
+    public void setTiebaUid(BdTokenController.l lVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mVar) == null) {
-            this.mTiebaUidData = mVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lVar) == null) {
+            this.mTiebaUidData = lVar;
         }
     }
 }

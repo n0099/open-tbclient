@@ -1,270 +1,186 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import android.view.ViewTreeObserver;
-import androidx.annotation.ColorInt;
-import androidx.annotation.DimenRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.util.Log;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.material.badge.BadgeDrawable;
-import com.google.android.material.badge.BadgeUtils;
-import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
 public class av5 {
     public static /* synthetic */ Interceptable $ic;
-    @Nullable
-    public static Field e;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final BadgeDrawable a;
-    @Nullable
-    public String b;
-    public boolean c;
-    @Nullable
-    public b d;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        boolean a();
+    public static List<bn> a(List<? extends bn> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            for (bn bnVar : list) {
+                if (bnVar instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) bnVar;
+                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
+                    if (threadData.getType() == ThreadData.TYPE_NORMAL) {
+                        c45 c45Var = new c45();
+                        c45Var.t = threadData;
+                        c45Var.position = i;
+                        c45Var.a = true;
+                        c45Var.setSupportType(BaseCardInfo.SupportType.TOP);
+                        arrayList.add(c45Var);
+                        c45 c45Var2 = new c45();
+                        c45Var2.t = threadData;
+                        c45Var2.position = i;
+                        if (threadData.isBJHNormalThreadType()) {
+                            c45Var2.f = true;
+                        } else if (threadData.picCount() == 1) {
+                            c45Var2.d = true;
+                            c45Var2.u = imageWidthAndHeight[0];
+                            c45Var2.v = imageWidthAndHeight[1];
+                        } else if (threadData.picCount() >= 2) {
+                            c45Var2.e = true;
+                        } else {
+                            c45Var2.b = true;
+                        }
+                        c45Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList.add(c45Var2);
+                        if (threadData.getItem() != null) {
+                            c45 c45Var3 = new c45();
+                            c45Var3.n = true;
+                            c45Var3.t = threadData;
+                            c45Var3.position = i;
+                            c45Var3.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList.add(c45Var3);
+                        }
+                        if (!ListUtils.isEmpty(threadData.getLinkDataList())) {
+                            c45 c45Var4 = new c45();
+                            c45Var4.t = threadData;
+                            c45Var4.position = i;
+                            if (ListUtils.getCount(threadData.getLinkDataList()) == 1) {
+                                c45Var4.p = true;
+                            } else {
+                                c45Var4.q = true;
+                            }
+                            c45Var4.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList.add(c45Var4);
+                        }
+                        c45 c45Var5 = new c45();
+                        c45Var5.m = true;
+                        c45Var5.t = threadData;
+                        c45Var5.position = i;
+                        c45Var5.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList.add(c45Var5);
+                        c45 c45Var6 = new c45();
+                        c45Var6.g = true;
+                        c45Var6.t = threadData;
+                        c45Var6.position = i;
+                        c45Var6.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        arrayList.add(c45Var6);
+                    } else if (threadData.getType() == ThreadData.TYPE_VIDEO) {
+                        c45 c45Var7 = new c45();
+                        c45Var7.t = threadData;
+                        c45Var7.position = i;
+                        c45Var7.a = true;
+                        c45Var7.setSupportType(BaseCardInfo.SupportType.TOP);
+                        arrayList.add(c45Var7);
+                        c45 c45Var8 = new c45();
+                        c45Var8.t = threadData;
+                        c45Var8.position = i;
+                        c45Var8.i = true;
+                        c45Var8.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList.add(c45Var8);
+                        if (threadData.getItem() != null) {
+                            c45 c45Var9 = new c45();
+                            c45Var9.n = true;
+                            c45Var9.t = threadData;
+                            c45Var9.position = i;
+                            c45Var9.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                            arrayList.add(c45Var9);
+                        }
+                        c45 c45Var10 = new c45();
+                        c45Var10.m = true;
+                        c45Var10.t = threadData;
+                        c45Var10.position = i;
+                        c45Var10.setSupportType(BaseCardInfo.SupportType.EXTEND);
+                        arrayList.add(c45Var10);
+                        c45 c45Var11 = new c45();
+                        c45Var11.g = true;
+                        c45Var11.t = threadData;
+                        c45Var11.position = i;
+                        c45Var11.setSupportType(BaseCardInfo.SupportType.BOTTOM);
+                        arrayList.add(c45Var11);
+                    } else if (threadData.getType() == ThreadData.TYPE_ARTICLE && threadData.isBJHArticleThreadType()) {
+                        c45 c45Var12 = new c45();
+                        c45Var12.t = threadData;
+                        c45Var12.position = i;
+                        arrayList.add(c45Var12);
+                    } else if (yo6.R(threadData)) {
+                        yo6 yo6Var = new yo6(threadData);
+                        yo6Var.g = threadData.getTid();
+                        arrayList.add(yo6Var);
+                    } else {
+                        c45 c45Var13 = new c45();
+                        c45Var13.t = threadData;
+                        c45Var13.position = i;
+                        arrayList.add(c45Var13);
+                    }
+                } else if (bnVar instanceof BaseCardInfo) {
+                    ((BaseCardInfo) bnVar).position = i;
+                    arrayList.add(bnVar);
+                } else {
+                    arrayList.add(bnVar);
+                }
+                i++;
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ av5 b;
-
-        public a(av5 av5Var, View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {av5Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void b(List<bn> list, w05 w05Var) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, list, w05Var) != null) || w05Var == null || list == null || (i = w05Var.floorPosition) <= 0) {
+            return;
+        }
+        int size = list.size();
+        int i2 = 0;
+        for (int i3 = 0; i3 < size; i3++) {
+            if (list.get(i3) instanceof ThreadData) {
+                if (i == i2) {
+                    zu5.b("insertFloorPosition-> floorPosition = " + i);
+                    ListUtils.add(list, i3, w05Var);
                     return;
                 }
-            }
-            this.b = av5Var;
-            this.a = view2;
-        }
-
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BadgeUtils.attachBadgeDrawable(this.b.a, this.a, null);
-                this.a.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+                i2++;
             }
         }
     }
 
-    public av5(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = true;
-        this.a = BadgeDrawable.create(context);
-    }
-
-    @NonNull
-    public av5 i(@DimenRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (e == null) {
-                try {
-                    Field declaredField = BadgeDrawable.class.getDeclaredField("badgeRadius");
-                    e = declaredField;
-                    declaredField.setAccessible(true);
-                } catch (NoSuchFieldException e2) {
-                    e2.printStackTrace();
-                }
-            }
-            try {
-                if (e != null) {
-                    e.set(this.a, Integer.valueOf(UtilHelper.getDimenPixelSize(i)));
-                }
-            } catch (IllegalAccessException e3) {
-                e3.printStackTrace();
-            }
-            return this;
-        }
-        return (av5) invokeI.objValue;
-    }
-
-    @NonNull
-    public static av5 c(@NonNull Context context) {
+    public static List<ThreadData> c(List<ThreadInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return new av5(context);
-        }
-        return (av5) invokeL.objValue;
-    }
-
-    @NonNull
-    public av5 f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            this.c = z;
-            return this;
-        }
-        return (av5) invokeZ.objValue;
-    }
-
-    @NonNull
-    public av5 g(@ColorInt int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.a.setBackgroundColor(i);
-            return this;
-        }
-        return (av5) invokeI.objValue;
-    }
-
-    @NonNull
-    public av5 h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a.setBadgeGravity(i);
-            return this;
-        }
-        return (av5) invokeI.objValue;
-    }
-
-    @NonNull
-    public av5 k(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            this.b = str;
-            return this;
-        }
-        return (av5) invokeL.objValue;
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.a.setVisible(z);
-            if (!z && this.b != null) {
-                SharedPrefHelper.getInstance().putBoolean(this.b, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList(list.size());
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(threadInfo);
+                threadData.insertItemToTitleOrAbstractText();
+                arrayList.add(threadData);
+            }
+            Log.i("Template", "parserThreadList-> size = " + arrayList.size());
+            return arrayList;
         }
-    }
-
-    @NonNull
-    public av5 b(@NonNull View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            b bVar = this.d;
-            if (bVar != null && !bVar.a()) {
-                return this;
-            }
-            if (this.b != null && SharedPrefHelper.getInstance().getBoolean(this.b, false)) {
-                return this;
-            }
-            ViewParent parent = view2.getParent();
-            if (parent instanceof ViewGroup) {
-                ViewGroup viewGroup = (ViewGroup) parent;
-                viewGroup.setClipChildren(this.c);
-                viewGroup.setClipToPadding(this.c);
-            }
-            view2.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, view2));
-            return this;
-        }
-        return (av5) invokeL.objValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b bVar = this.d;
-            boolean z2 = true;
-            if (bVar != null) {
-                z = bVar.a();
-            } else {
-                z = true;
-            }
-            if (this.b != null) {
-                return (!z || SharedPrefHelper.getInstance().getBoolean(this.b, false)) ? false : false;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.isVisible();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public av5 j(@DimenRes int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(i);
-            if (z) {
-                dimenPixelSize = -dimenPixelSize;
-            }
-            this.a.setHorizontalOffset(dimenPixelSize);
-            return this;
-        }
-        return (av5) invokeCommon.objValue;
-    }
-
-    @NonNull
-    public av5 l(@DimenRes int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(i);
-            if (z) {
-                dimenPixelSize = -dimenPixelSize;
-            }
-            this.a.setVerticalOffset(dimenPixelSize);
-            return this;
-        }
-        return (av5) invokeCommon.objValue;
+        return (List) invokeL.objValue;
     }
 }

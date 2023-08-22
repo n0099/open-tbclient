@@ -1,300 +1,70 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.security.keystore.KeyGenParameterSpec;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.Key;
-import java.security.KeyStore;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.NoSuchProviderException;
-import java.security.UnrecoverableKeyException;
-import java.security.cert.CertificateException;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import javax.crypto.BadPaddingException;
-import javax.crypto.Cipher;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.KeyGenerator;
-import javax.crypto.NoSuchPaddingException;
-import javax.crypto.SecretKey;
-import javax.crypto.spec.GCMParameterSpec;
-import org.chromium.net.AndroidKeyStore;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.KsSplashScreenAd;
+import com.kwad.sdk.api.model.AdExposureFailedReason;
 /* loaded from: classes8.dex */
-public class tpb {
+public class tpb extends qqb<KsSplashScreenAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, SecretKey> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948190307, "Lcom/baidu/tieba/tpb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948190307, "Lcom/baidu/tieba/tpb;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tpb(KsSplashScreenAd ksSplashScreenAd) {
+        super(ksSplashScreenAd);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ksSplashScreenAd};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new HashMap();
     }
 
-    public static boolean b() {
+    @Override // com.baidu.tieba.qqb
+    public double a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            A a = this.a;
+            if (a == 0) {
+                return 0.0d;
             }
-            return false;
+            return ((KsSplashScreenAd) a).getECPM();
         }
-        return invokeV.booleanValue;
+        return invokeV.doubleValue;
     }
 
-    public static SecretKey a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qqb
+    public void b(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            zpb.d("GCMKS", "load key");
-            SecretKey secretKey = null;
-            try {
-                KeyStore keyStore = KeyStore.getInstance(AndroidKeyStore.TAG);
-                keyStore.load(null);
-                Key key = keyStore.getKey(str, null);
-                if (key instanceof SecretKey) {
-                    secretKey = (SecretKey) key;
-                } else {
-                    zpb.d("GCMKS", "generate key");
-                    KeyGenerator keyGenerator = KeyGenerator.getInstance("AES", AndroidKeyStore.TAG);
-                    keyGenerator.init(new KeyGenParameterSpec.Builder(str, 3).setBlockModes("GCM").setEncryptionPaddings("NoPadding").setKeySize(256).build());
-                    secretKey = keyGenerator.generateKey();
-                }
-            } catch (IOException e) {
-                zpb.c("GCMKS", "IOException : " + e.getMessage());
-            } catch (InvalidAlgorithmParameterException e2) {
-                zpb.c("GCMKS", "InvalidAlgorithmParameterException : " + e2.getMessage());
-            } catch (KeyStoreException e3) {
-                zpb.c("GCMKS", "KeyStoreException : " + e3.getMessage());
-            } catch (NoSuchAlgorithmException e4) {
-                zpb.c("GCMKS", "NoSuchAlgorithmException : " + e4.getMessage());
-            } catch (NoSuchProviderException e5) {
-                zpb.c("GCMKS", "NoSuchProviderException : " + e5.getMessage());
-            } catch (UnrecoverableKeyException e6) {
-                zpb.c("GCMKS", "UnrecoverableKeyException : " + e6.getMessage());
-            } catch (CertificateException e7) {
-                zpb.c("GCMKS", "CertificateException : " + e7.getMessage());
-            } catch (Exception e8) {
-                zpb.c("GCMKS", "Exception: " + e8.getMessage());
-            }
-            a.put(str, secretKey);
-            return secretKey;
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) || this.a == 0) {
+            return;
         }
-        return (SecretKey) invokeL.objValue;
+        AdExposureFailedReason adExposureFailedReason = new AdExposureFailedReason();
+        adExposureFailedReason.winEcpm = i;
+        ((KsSplashScreenAd) this.a).reportAdExposureFailed(i2, adExposureFailedReason);
     }
 
-    public static SecretKey c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qqb
+    public void c(long j, long j2) {
+        A a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (a.get(str) == null) {
-                a(str);
-            }
-            return a.get(str);
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) || (a = this.a) == 0) {
+            return;
         }
-        return (SecretKey) invokeL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                try {
-                    return new String(e(str, wpb.b(str2)), "UTF-8");
-                } catch (UnsupportedEncodingException e) {
-                    zpb.c("GCMKS", "decrypt: UnsupportedEncodingException : " + e.getMessage());
-                    return "";
-                }
-            }
-            zpb.c("GCMKS", "alias or encrypt content is null");
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static byte[] e(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, bArr)) == null) {
-            byte[] bArr2 = new byte[0];
-            if (!TextUtils.isEmpty(str) && bArr != null) {
-                if (!b()) {
-                    zpb.c("GCMKS", "sdk version is too low");
-                    return bArr2;
-                } else if (bArr.length <= 12) {
-                    zpb.c("GCMKS", "Decrypt source data is invalid.");
-                    return bArr2;
-                } else {
-                    return f(c(str), bArr);
-                }
-            }
-            zpb.c("GCMKS", "alias or encrypt content is null");
-            return bArr2;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static String g(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                try {
-                    return wpb.a(h(str, str2.getBytes("UTF-8")));
-                } catch (UnsupportedEncodingException e) {
-                    zpb.c("GCMKS", "encrypt: UnsupportedEncodingException : " + e.getMessage());
-                    return "";
-                }
-            }
-            zpb.c("GCMKS", "alias or encrypt content is null");
-            return "";
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static byte[] f(SecretKey secretKey, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, secretKey, bArr)) == null) {
-            byte[] bArr2 = new byte[0];
-            if (secretKey == null) {
-                zpb.c("GCMKS", "Decrypt secret key is null");
-                return bArr2;
-            } else if (bArr == null) {
-                zpb.c("GCMKS", "content is null");
-                return bArr2;
-            } else if (!b()) {
-                zpb.c("GCMKS", "sdk version is too low");
-                return bArr2;
-            } else if (bArr.length <= 12) {
-                zpb.c("GCMKS", "Decrypt source data is invalid.");
-                return bArr2;
-            } else {
-                byte[] copyOf = Arrays.copyOf(bArr, 12);
-                try {
-                    Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                    cipher.init(2, secretKey, new GCMParameterSpec(128, copyOf));
-                    return cipher.doFinal(bArr, 12, bArr.length - 12);
-                } catch (InvalidAlgorithmParameterException e) {
-                    zpb.c("GCMKS", "InvalidAlgorithmParameterException : " + e.getMessage());
-                    return bArr2;
-                } catch (InvalidKeyException e2) {
-                    zpb.c("GCMKS", "InvalidKeyException : " + e2.getMessage());
-                    return bArr2;
-                } catch (NoSuchAlgorithmException e3) {
-                    zpb.c("GCMKS", "NoSuchAlgorithmException : " + e3.getMessage());
-                    return bArr2;
-                } catch (BadPaddingException e4) {
-                    zpb.c("GCMKS", "BadPaddingException : " + e4.getMessage());
-                    return bArr2;
-                } catch (IllegalBlockSizeException e5) {
-                    zpb.c("GCMKS", "IllegalBlockSizeException : " + e5.getMessage());
-                    return bArr2;
-                } catch (NoSuchPaddingException e6) {
-                    zpb.c("GCMKS", "NoSuchPaddingException : " + e6.getMessage());
-                    return bArr2;
-                } catch (Exception e7) {
-                    zpb.c("GCMKS", "Exception: " + e7.getMessage());
-                    return bArr2;
-                }
-            }
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] i(SecretKey secretKey, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, secretKey, bArr)) == null) {
-            byte[] bArr2 = new byte[0];
-            if (bArr == null) {
-                zpb.c("GCMKS", "content is null");
-                return bArr2;
-            } else if (secretKey == null) {
-                zpb.c("GCMKS", "secret key is null");
-                return bArr2;
-            } else if (!b()) {
-                zpb.c("GCMKS", "sdk version is too low");
-                return bArr2;
-            } else {
-                try {
-                    Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                    cipher.init(1, secretKey);
-                    byte[] doFinal = cipher.doFinal(bArr);
-                    byte[] iv = cipher.getIV();
-                    if (iv != null && iv.length == 12) {
-                        byte[] copyOf = Arrays.copyOf(iv, iv.length + doFinal.length);
-                        System.arraycopy(doFinal, 0, copyOf, iv.length, doFinal.length);
-                        return copyOf;
-                    }
-                    zpb.c("GCMKS", "IV is invalid.");
-                    return bArr2;
-                } catch (InvalidKeyException e) {
-                    zpb.c("GCMKS", "InvalidKeyException : " + e.getMessage());
-                    return bArr2;
-                } catch (NoSuchAlgorithmException e2) {
-                    zpb.c("GCMKS", "NoSuchAlgorithmException : " + e2.getMessage());
-                    return bArr2;
-                } catch (BadPaddingException e3) {
-                    zpb.c("GCMKS", "BadPaddingException : " + e3.getMessage());
-                    return bArr2;
-                } catch (IllegalBlockSizeException e4) {
-                    zpb.c("GCMKS", "IllegalBlockSizeException : " + e4.getMessage());
-                    return bArr2;
-                } catch (NoSuchPaddingException e5) {
-                    zpb.c("GCMKS", "NoSuchPaddingException : " + e5.getMessage());
-                    return bArr2;
-                } catch (Exception e6) {
-                    zpb.c("GCMKS", "Exception: " + e6.getMessage());
-                    return bArr2;
-                }
-            }
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] h(String str, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, bArr)) == null) {
-            byte[] bArr2 = new byte[0];
-            if (!TextUtils.isEmpty(str) && bArr != null) {
-                if (!b()) {
-                    zpb.c("GCMKS", "sdk version is too low");
-                    return bArr2;
-                }
-                return i(c(str), bArr);
-            }
-            zpb.c("GCMKS", "alias or encrypt content is null");
-            return bArr2;
-        }
-        return (byte[]) invokeLL.objValue;
+        ((KsSplashScreenAd) a).setBidEcpm((int) j);
     }
 }

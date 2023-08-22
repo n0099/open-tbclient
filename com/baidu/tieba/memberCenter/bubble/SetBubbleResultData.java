@@ -1,5 +1,6 @@
 package com.baidu.tieba.memberCenter.bubble;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,6 +26,8 @@ public class SetBubbleResultData extends OrmObject implements Serializable {
         public String b_url;
         public int can_use;
         public String dynamic_url;
+        public String ios_b_url;
+        public String ios_bimg_format;
         public int is_free;
         public String t_msg;
 
@@ -81,10 +84,28 @@ public class SetBubbleResultData extends OrmObject implements Serializable {
             return (String) invokeV.objValue;
         }
 
-        public int getIs_free() {
+        public String getIosBImgFormat() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.ios_bimg_format;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getIosBUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.ios_b_url;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public int getIs_free() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 return this.is_free;
             }
             return invokeV.intValue;
@@ -93,7 +114,7 @@ public class SetBubbleResultData extends OrmObject implements Serializable {
         public String getT_msg() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
                 return this.t_msg;
             }
             return (String) invokeV.objValue;
@@ -102,7 +123,7 @@ public class SetBubbleResultData extends OrmObject implements Serializable {
         public boolean isFree() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
                 if (this.is_free == 1) {
                     return true;
                 }

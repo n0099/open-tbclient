@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.it4;
+import com.baidu.tieba.nt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.DecryptCode.DecryptCodeResIdl;
 public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public it4 decryptData;
+    public nt4 decryptData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DecryptCodeSocketRespMsg(int i) {
@@ -47,9 +47,9 @@ public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
             try {
                 DecryptCodeResIdl decryptCodeResIdl = (DecryptCodeResIdl) new Wire(new Class[0]).parseFrom(bArr, DecryptCodeResIdl.class);
                 if (decryptCodeResIdl != null) {
-                    it4 it4Var = new it4();
-                    this.decryptData = it4Var;
-                    it4Var.h(decryptCodeResIdl.data);
+                    nt4 nt4Var = new nt4();
+                    this.decryptData = nt4Var;
+                    nt4Var.h(decryptCodeResIdl.data);
                 }
                 return decryptCodeResIdl;
             } catch (Throwable th) {
@@ -60,12 +60,12 @@ public class DecryptCodeSocketRespMsg extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public it4 getDecryptData() {
+    public nt4 getDecryptData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.decryptData;
         }
-        return (it4) invokeV.objValue;
+        return (nt4) invokeV.objValue;
     }
 }

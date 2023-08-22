@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.qa5;
-import com.baidu.tieba.qw7;
+import com.baidu.tieba.ly7;
+import com.baidu.tieba.v15;
+import com.baidu.tieba.xa5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -249,7 +249,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void f(int i) {
-        qa5 E;
+        xa5 E;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (E = this.b.E(i)) != null && getText() != null) {
             this.b.delete(E.f(), E.c());
@@ -281,7 +281,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void setOnSpanGroupChangedListener(qa5.a aVar) {
+    public void setOnSpanGroupChangedListener(xa5.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
             this.b.W(aVar);
@@ -444,18 +444,18 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void g(List<qw7> list, List<String> list2) {
+    public void g(List<ly7> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048581, this, list, list2) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
-            qw7 qw7Var = list.get(i);
+            ly7 ly7Var = list.get(i);
             String str = list2.get(i);
-            if (!this.b.p(qw7Var.a())) {
+            if (!this.b.p(ly7Var.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
-                p15 b = p15.b(tbLinkSpanGroup, qw7Var);
+                v15 b = v15.b(tbLinkSpanGroup, ly7Var);
                 b.h = str;
                 tbLinkSpanGroup.C(b.d);
                 tbLinkSpanGroup.t();

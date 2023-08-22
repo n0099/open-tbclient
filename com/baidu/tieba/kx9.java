@@ -1,70 +1,157 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.widget.MediaController;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class kx9 {
+public class kx9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final kx9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public MediaController.MediaPlayerControl c;
+    public b d;
+    public d e;
+    public c f;
+    public Handler g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947928605, "Lcom/baidu/tieba/kx9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(int i, int i2);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface d {
+        void a();
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kx9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(kx9 kx9Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kx9Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947928605, "Lcom/baidu/tieba/kx9;");
-                return;
+            this.a = kx9Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message != null && message.what == 1 && this.a.c != null && this.a.c.isPlaying()) {
+                int currentPosition = this.a.c.getCurrentPosition();
+                int duration = this.a.c.getDuration();
+                if (currentPosition < this.a.b) {
+                    if (this.a.d != null) {
+                        this.a.d.a();
+                    }
+                } else if (currentPosition == this.a.b && this.a.e != null) {
+                    this.a.e.a();
+                }
+                if (this.a.f != null) {
+                    this.a.f.a(duration, currentPosition);
+                }
+                this.a.b = currentPosition;
+                this.a.h();
             }
         }
-        a = new kx9();
     }
 
     public kx9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = 1000;
+        this.b = 0;
+        this.g = new a(this, Looper.getMainLooper());
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
-    public final boolean a() {
-        InterceptResult invokeV;
+    public void j(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (m36.a().b("tieba_download_btn_upgrade", 0) != 1) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
+            this.f = cVar;
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public void k(d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (m36.a().b("tieba_flow_video_preload", 0) != 1) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
+            this.e = dVar;
         }
-        return invokeV.booleanValue;
+    }
+
+    public void l(MediaController.MediaPlayerControl mediaPlayerControl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mediaPlayerControl) == null) {
+            this.c = mediaPlayerControl;
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.g.removeMessages(1);
+            Handler handler = this.g;
+            handler.sendMessageDelayed(handler.obtainMessage(1), this.a);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = 0;
+            h();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.g.removeMessages(1);
+        }
     }
 }

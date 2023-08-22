@@ -1,76 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.graphics.Rect;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import androidx.core.view.ViewCompat;
+import android.content.Intent;
+import android.os.Handler;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h61;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.la1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class y91 implements ViewTreeObserver.OnGlobalLayoutListener {
+public final class y91 extends x91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
-    public int b;
-    public WeakReference<View> c;
+    public Handler b;
+    public final ba1 c;
 
     /* loaded from: classes8.dex */
-    public static final class a implements Application.ActivityLifecycleCallbacks {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ y91 b;
-        public final /* synthetic */ View c;
+        public final /* synthetic */ y91 a;
+        public final /* synthetic */ la1.b b;
 
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, outState) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                Intrinsics.checkNotNullParameter(outState, "outState");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        public a(Context context, y91 y91Var, View view2) {
+        public a(y91 y91Var, la1.b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, y91Var, view2};
+                Object[] objArr = {y91Var, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -80,51 +42,26 @@ public final class y91 implements ViewTreeObserver.OnGlobalLayoutListener {
                     return;
                 }
             }
-            this.a = context;
-            this.b = y91Var;
-            this.c = view2;
+            this.a = y91Var;
+            this.b = bVar;
         }
 
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
+        @Override // java.lang.Runnable
+        public final void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                if (activity == this.c.getContext()) {
-                    ((Application) this.a).unregisterActivityLifecycleCallbacks(this);
-                }
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPaused(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                if (activity == this.c.getContext()) {
-                    this.b.a = false;
-                }
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityResumed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                if (activity == this.c.getContext()) {
-                    this.b.a = true;
-                }
-            }
+            this.a.q(this.b.a());
         }
     }
 
-    public y91(View rootView) {
+    public y91(ba1 container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rootView};
+            Object[] objArr = {container};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -134,41 +71,112 @@ public final class y91 implements ViewTreeObserver.OnGlobalLayoutListener {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(rootView, "rootView");
-        this.b = -1;
-        this.c = new WeakReference<>(rootView);
-        Context a2 = sa1.a();
-        if (a2 instanceof Application) {
-            ((Application) a2).registerActivityLifecycleCallbacks(new a(a2, this, rootView));
+        Intrinsics.checkNotNullParameter(container, "container");
+        this.c = container;
+    }
+
+    public final void o(la1.b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) && !this.a && bVar != null && bVar.d()) {
+            if (this.b == null) {
+                this.b = new Handler();
+            }
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.postDelayed(new a(this, bVar), (long) (bVar.b() * 1000));
+            }
         }
     }
 
-    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-    public void onGlobalLayout() {
-        View rootView;
-        int measuredHeight;
+    @Override // com.baidu.tieba.x91
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (rootView = this.c.get()) != null) {
-            Intrinsics.checkNotNullExpressionValue(rootView, "rootView");
-            if (this.b >= ((int) (h61.c.f(rootView.getContext()) * 0.85f)) && !this.a) {
-                return;
-            }
-            if (ViewCompat.isAttachedToWindow(rootView)) {
-                Rect rect = new Rect();
-                rootView.getWindowVisibleDisplayFrame(rect);
-                int i = rect.top;
-                if (i == 0) {
-                    i = h61.c.g();
-                }
-                measuredHeight = rect.bottom - i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.b();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.x91
+    public void c() {
+        la1.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            la1.d l = this.c.l();
+            if (l != null) {
+                bVar = l.d();
             } else {
-                measuredHeight = rootView.getMeasuredHeight();
+                bVar = null;
             }
-            if (this.b != measuredHeight && measuredHeight > 0) {
-                this.b = measuredHeight;
-                rootView.getLayoutParams().height = measuredHeight;
-                rootView.requestLayout();
+            o(bVar);
+            super.c();
+        }
+    }
+
+    @Override // com.baidu.tieba.x91
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
             }
+            this.b = null;
+            this.a = false;
+            super.d();
+        }
+    }
+
+    @Override // com.baidu.tieba.x91
+    public void e(Intent intent) {
+        la1.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
+            la1.d l = this.c.l();
+            if (l != null) {
+                bVar = l.d();
+            } else {
+                bVar = null;
+            }
+            o(bVar);
+            super.e(intent);
+        }
+    }
+
+    public final void p(la1.b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) && !this.a && bVar != null && bVar.e()) {
+            q(bVar.a());
+        }
+    }
+
+    public final void q(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, str) != null) || this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        u31.b(str);
+        this.a = true;
+    }
+
+    @Override // com.baidu.tieba.x91
+    public void g(AbsNadBrowserView webView, String str) {
+        la1.b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            AbsNadBrowserView m = this.c.m();
+            if (m != null && !m.w() && !this.a) {
+                la1.d l = this.c.l();
+                if (l != null) {
+                    bVar = l.d();
+                } else {
+                    bVar = null;
+                }
+                p(bVar);
+            }
+            super.g(webView, str);
         }
     }
 }

@@ -1,79 +1,126 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
+import android.content.Context;
+import android.content.MutableContextWrapper;
+import android.webkit.URLUtil;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.browser.data.PreRenderMode;
+import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import okhttp3.Response;
 /* loaded from: classes5.dex */
-public class dj6 implements zi6<Pair<String, Map<String, String>>, Response> {
+public class dj6 extends xk1<ym6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HttpManager a;
 
     /* loaded from: classes5.dex */
-    public class a extends ResponseCallback<Response> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n1c a;
+    }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: parseResponse  reason: avoid collision after fix types in other method */
-        public Response parseResponse2(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? response : (Response) invokeLI.objValue;
+    /* loaded from: classes5.dex */
+    public static final class b implements ym6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* loaded from: classes5.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ WebView a;
+
+            public a(b bVar, WebView webView) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, webView};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = webView;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    cj6.f().k(this.a);
+                }
+            }
         }
 
-        public a(dj6 dj6Var, n1c n1cVar) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dj6Var, n1cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = n1cVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(Response response, int i) {
+        @Override // com.baidu.tieba.ym6
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, response, i) == null) {
-                this.a.call(response, null);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                cj6.f().b();
             }
         }
 
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public /* bridge */ /* synthetic */ Response parseResponse(Response response, int i) throws Exception {
-            parseResponse2(response, i);
-            return response;
+        public /* synthetic */ b(a aVar) {
+            this();
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // com.baidu.tieba.ym6
+        @NonNull
+        public WebView b(Context context, String str) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                this.a.call(null, exc);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+                if (!URLUtil.isNetworkUrl(str) && !URLUtil.isAssetUrl(str) && !URLUtil.isFileUrl(str)) {
+                    return cj6.f().j(context);
+                }
+                return jj6.b().b(context, str);
+            }
+            return (WebView) invokeLL.objValue;
+        }
+
+        @Override // com.baidu.tieba.ym6
+        public void c(String str, WebView webView) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, webView) == null) {
+                MonitorWebView monitorWebView = (MonitorWebView) webView;
+                if (URLUtil.isValidUrl(str) && (monitorWebView.getPreRenderMode() == PreRenderMode.MULTI || monitorWebView.getPreRenderMode() == PreRenderMode.MULTI_AUTO_REMOVE)) {
+                    jj6.b().c(str, monitorWebView);
+                } else if (cj6.f().d() == 1) {
+                    webView.loadUrl("about:blank");
+                    Context context = monitorWebView.getContext();
+                    if (context instanceof MutableContextWrapper) {
+                        ((MutableContextWrapper) context).setBaseContext(kl6.getContext());
+                    }
+                    SafeHandler.getInst().postDelayed(new a(this, webView), 200L);
+                } else {
+                    cj6.f().k(webView);
+                }
             }
         }
     }
@@ -88,39 +135,19 @@ public class dj6 implements zi6<Pair<String, Map<String, String>>, Response> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = HttpManager.getDefault(fk6.getContext());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zi6
-    @Nullable
-    /* renamed from: c */
-    public Response a(Pair<String, Map<String, String>> pair) throws Exception {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xk1
+    /* renamed from: a */
+    public ym6 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair)) == null) {
-            if (pair != null && !TextUtils.isEmpty(pair.first)) {
-                return this.a.getRequest().url(pair.first).tag(this).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).followRedirects(false).followSslRedirects(false).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeSync();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(null);
         }
-        return (Response) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zi6
-    /* renamed from: d */
-    public void b(Pair<String, Map<String, String>> pair, n1c<Response, Exception> n1cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, pair, n1cVar) == null) {
-            if (pair != null && !TextUtils.isEmpty(pair.first)) {
-                this.a.getRequest().url(pair.first).tag(this).followRedirects(false).followSslRedirects(false).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeAsync(new a(this, n1cVar));
-            } else {
-                n1cVar.call(null, new IllegalArgumentException("url is null !"));
-            }
-        }
+        return (ym6) invokeV.objValue;
     }
 }

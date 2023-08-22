@@ -1,104 +1,81 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.sk2;
+import com.baidu.tieba.qk2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import com.facebook.common.internal.Sets;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes7.dex */
-public class rk2 implements sk2.a {
+public class rk2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> a;
+    public static final Set<String> b;
+    public static final Set<String> c;
+    public static final Map<String, qk2> d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public JSONObject b;
 
-    public rk2(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948124432, "Lcom/baidu/tieba/rk2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948124432, "Lcom/baidu/tieba/rk2;");
                 return;
             }
         }
-        JSONObject jSONObject = new JSONObject();
-        this.b = jSONObject;
-        this.a = str;
-        try {
-            jSONObject.put(IntentConfig.PKG_ID, str);
-            if (z) {
-                update();
-            }
-        } catch (JSONException e) {
-            if (sk2.n0) {
-                e.printStackTrace();
-            }
-        }
+        a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+        b = new HashSet(a);
+        c = new HashSet(b);
+        d = new HashMap();
+        e = false;
     }
 
-    public static rk2 query(String str) {
+    public static qk2 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new rk2(str, true);
+            c();
+            return d.get(str);
         }
-        return (rk2) invokeL.objValue;
+        return (qk2) invokeL.objValue;
     }
 
-    private void update() throws JSONException {
-        PMSAppInfo u;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = vi4.i().u(this.a)) != null) {
-            this.b.put("app_name", u.appName);
-            this.b.put("pkg_vername", u.versionName);
-            this.b.put("pkg_vercode", u.versionCode);
-            this.b.put("create_time", u.createTime);
-            this.b.put("last_launch_time", u.getLastLaunchTime());
-            this.b.put("launch_count", u.getLaunchCount());
-            this.b.put("install_src", u.getInstallSrc());
-        }
-    }
-
-    @Override // com.baidu.tieba.sk2.a
-    public String a() {
+    public static qk2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            qk2.b bVar = new qk2.b();
+            bVar.d(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+            bVar.e(ku2.w0().a());
+            bVar.b(ku2.w0().d());
+            return bVar.a();
         }
-        return (String) invokeV.objValue;
+        return (qk2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sk2.a
-    public JSONObject b() {
-        InterceptResult invokeV;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            if (!e) {
+                for (String str : c) {
+                    if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
+                        d.put(str, b());
+                    }
+                }
+            }
+            e = true;
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sk2.a
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
-        }
-        return invokeV.booleanValue;
     }
 }

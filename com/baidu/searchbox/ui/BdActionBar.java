@@ -717,13 +717,13 @@ public class BdActionBar extends RelativeLayout {
         int i = AnonymousClass5.$SwitchMap$com$baidu$searchbox$ui$BdActionBar$ActionbarTemplate[actionbarTemplate.ordinal()];
         if (i != 1) {
             if (i == 2) {
-                setTitleColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06018b);
+                setTitleColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060191);
                 setRightMenuImageSrc(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0800d0);
                 return;
             }
             return;
         }
-        setTitleColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060ba7);
+        setTitleColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060bad);
         setRightMenuImageSrc(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0800d3);
     }
 
@@ -925,19 +925,19 @@ public class BdActionBar extends RelativeLayout {
 
     private void init() {
         LayoutInflater.from(getContext()).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0026, this);
-        this.mLeftCustomLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914d6);
-        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914d8);
+        this.mLeftCustomLayout = (FrameLayout) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914ed);
+        TextView textView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914ef);
         this.mLeftFirstView = textView;
         textView.setCompoundDrawables(getDrawableFromId(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0800cc), null, null, null);
         this.mLeftFirstViewImageSrcId = com.baidu.tieba.R.drawable.obfuscated_res_0x7f0800cc;
-        this.mLeftFirstView.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0603e6));
-        this.mTitleViewCenter = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09258e);
-        TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0922e5);
+        this.mLeftFirstView.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ec));
+        this.mTitleViewCenter = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925bd);
+        TextView textView2 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09230c);
         this.mSubTitleViewCenter = textView2;
-        textView2.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060ba7));
-        TextView textView3 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914e2);
+        textView2.setTextColor(getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060bad));
+        TextView textView3 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0914f9);
         this.mLeftSecondView = textView3;
-        textView3.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0603e6));
+        textView3.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ec));
         float f = this.mTitleTxtShadowDx;
         if (f != -1.0f) {
             float f2 = this.mTitleTxtShadowDy;
@@ -948,10 +948,10 @@ public class BdActionBar extends RelativeLayout {
                 }
             }
         }
-        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925b0);
+        View findViewById = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925df);
         this.mRightTxtZone2 = findViewById;
         findViewById.setVisibility(VISIBILITY_FLAGS[this.mRightTxtZone2Visibility]);
-        TextView textView4 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925b1);
+        TextView textView4 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925e0);
         this.mRightTxtZone2Text = textView4;
         String str = this.mRightTxtZone2TextString;
         if (str != null) {
@@ -961,12 +961,12 @@ public class BdActionBar extends RelativeLayout {
         if (i != -1) {
             this.mRightTxtZone2Text.setTextColor(i);
         } else {
-            this.mRightTxtZone2Text.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0603e6));
+            this.mRightTxtZone2Text.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ec));
         }
-        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925ad);
+        View findViewById2 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925dc);
         this.mRightTxtZone1 = findViewById2;
         findViewById2.setVisibility(VISIBILITY_FLAGS[this.mRightTxtZone1Visibility]);
-        TextView textView5 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925af);
+        TextView textView5 = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925de);
         this.mRightTxtZone1Text = textView5;
         String str2 = this.mRightTxtZone1TextString;
         if (str2 != null) {
@@ -976,29 +976,29 @@ public class BdActionBar extends RelativeLayout {
         if (i2 != -1) {
             this.mRightTxtZone1Text.setTextColor(i2);
         } else {
-            this.mRightTxtZone1Text.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0603e6));
+            this.mRightTxtZone1Text.setTextColor(getResources().getColorStateList(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ec));
         }
-        this.mRightTxtZone1Progress = (ProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925ae);
-        this.mRightImgZone2Image = (BdBaseImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925a4);
-        this.mRightImgZone2Tips = (BdBaseImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091925);
-        View findViewById3 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925a3);
+        this.mRightTxtZone1Progress = (ProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925dd);
+        this.mRightImgZone2Image = (BdBaseImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d3);
+        this.mRightImgZone2Tips = (BdBaseImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091948);
+        View findViewById3 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d2);
         this.mRightImgZone2 = findViewById3;
         findViewById3.setVisibility(VISIBILITY_FLAGS[this.mRightImgZone2Visibility]);
-        this.mRightImgZone1Image = (BdBaseImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925a2);
-        View findViewById4 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925a1);
+        this.mRightImgZone1Image = (BdBaseImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d1);
+        View findViewById4 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d0);
         this.mRightImgZone1 = findViewById4;
         findViewById4.setVisibility(VISIBILITY_FLAGS[this.mRightImgZone1Visibility]);
-        View findViewById5 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925b2);
+        View findViewById5 = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925e1);
         this.mRightZones = findViewById5;
         findViewById5.setVisibility(VISIBILITY_FLAGS[this.mRightZonesVisibility]);
-        this.mLeftZones = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925a0);
-        this.mRightImgZone2Notify = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925a5);
-        this.mRightMenu = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925a7);
-        this.mRightMenuImageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925a9);
+        this.mLeftZones = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925cf);
+        this.mRightImgZone2Notify = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d4);
+        this.mRightMenu = findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d6);
+        this.mRightMenuImageView = (ImageView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0925d8);
         this.mRightMenu.setOnClickListener(this.mOnClickListener);
         setTitleAlignment(1);
         setTitle(this.mTitleText);
-        setTitleColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06018b);
+        setTitleColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060191);
         setRightMenuImageSrc(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0800d3);
         setRightImgZone2Src(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0800c8);
         setRightImgZone1Src(com.baidu.tieba.R.drawable.obfuscated_res_0x7f0800c9);
@@ -1032,7 +1032,7 @@ public class BdActionBar extends RelativeLayout {
             this.mRightImgZone1ImageSrc = obtainStyledAttributes.getDrawable(0);
             this.mRightImgZone1Visibility = obtainStyledAttributes.getInt(1, 0);
             this.mRightImgZone2Visibility = obtainStyledAttributes.getInt(3, 0);
-            this.mRightTxtZone1TxtColor = obtainStyledAttributes.getColor(5, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603e7));
+            this.mRightTxtZone1TxtColor = obtainStyledAttributes.getColor(5, getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0603ed));
             this.mTitleAlignment = obtainStyledAttributes.getInt(13, 1);
         } finally {
             obtainStyledAttributes.recycle();

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,16 +11,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class iq2 extends so2<jr2> {
+public class iq2 extends xo2<or2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.so2
+    @Override // com.baidu.tieba.xo2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "exitRoom" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableLocalMirror" : (String) invokeV.objValue;
     }
 
     public iq2() {
@@ -36,13 +38,24 @@ public class iq2 extends so2<jr2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.so2
+    @Override // com.baidu.tieba.xo2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull jr2 jr2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull or2 or2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, jr2Var) == null) {
-            d(jr2Var, command.what, null, true);
-            jr2Var.exitRoom();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, or2Var) == null) {
+            String str = command.what;
+            d(or2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals("auto", str2)) {
+                    or2Var.h0(str2);
+                } else if (TextUtils.equals("enable", str2)) {
+                    or2Var.h0(str2);
+                } else if (TextUtils.equals(PackageTable.DISABLE, str2)) {
+                    or2Var.h0(str2);
+                }
+            }
         }
     }
 }

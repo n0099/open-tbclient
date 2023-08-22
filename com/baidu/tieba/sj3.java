@@ -1,88 +1,64 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.storage.swankv.AshmemFileDescriptor;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
-/* loaded from: classes7.dex */
-public class sj3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes8.dex */
+public class sj3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Map<String, rj3> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948153293, "Lcom/baidu/tieba/sj3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948153293, "Lcom/baidu/tieba/sj3;");
-                return;
+    public sj3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = ir1.a;
-        b = new ArrayMap();
     }
 
     @Nullable
-    public static AshmemFileDescriptor a(@NonNull String str, int i) {
+    public static AshmemFileDescriptor c(@NonNull String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            try {
-                if (ProcessUtils.isMainProcess()) {
-                    synchronized (b) {
-                        rj3 rj3Var = b.get(str);
-                        if (rj3Var != null && rj3Var.a() != null) {
-                            return rj3Var.a();
-                        }
-                        int ashmemFD = SwanKV.getAshmemFD(str, i);
-                        if (ashmemFD >= 0) {
-                            AshmemFileDescriptor ashmemFileDescriptor = new AshmemFileDescriptor(str, ashmemFD, i);
-                            oj3.e(ashmemFileDescriptor);
-                            return ashmemFileDescriptor;
-                        }
-                        return null;
-                    }
-                }
-                return nj3.c(str, i);
-            } catch (Throwable th) {
-                if (a) {
-                    th.printStackTrace();
-                    return null;
-                }
-                return null;
+            Bundle bundle = new Bundle();
+            bundle.putString("name", str);
+            bundle.putInt("size", i);
+            s73 c = q73.c(sj3.class, bundle);
+            if (c.a()) {
+                c.a.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+                return (AshmemFileDescriptor) c.a.getParcelable("result");
             }
+            return null;
         }
         return (AshmemFileDescriptor) invokeLI.objValue;
     }
 
-    public static synchronized void b(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, ashmemFileDescriptor) == null) {
-            synchronized (sj3.class) {
-                if (ProcessUtils.isMainProcess()) {
-                    return;
-                }
-                rj3 rj3Var = b.get(ashmemFileDescriptor.getName());
-                if (rj3Var != null && rj3Var.a() != null && rj3Var.a().getAshmemFD() != ashmemFileDescriptor.getAshmemFD()) {
-                    SwanKV b2 = rj3Var.b();
-                    rj3Var.c(new SwanKV(ashmemFileDescriptor));
-                    b2.release();
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            String string = bundle.getString("name", null);
+            int i = bundle.getInt("size", 0);
+            Bundle bundle2 = new Bundle();
+            bundle2.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+            bundle2.putParcelable("result", xj3.a(string, i));
+            return bundle2;
         }
+        return (Bundle) invokeL.objValue;
     }
 }

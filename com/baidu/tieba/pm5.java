@@ -1,15 +1,23 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.RelativeLayout;
+import android.graphics.Bitmap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class pm5 implements lm5 {
+public abstract class pm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract String a();
+
+    public abstract Bitmap b(Bitmap bitmap, boolean z) throws Exception;
+
+    public abstract void d(String str);
 
     public pm5() {
         Interceptable interceptable = $ic;
@@ -25,21 +33,12 @@ public class pm5 implements lm5 {
         }
     }
 
-    @Override // com.baidu.tieba.lm5
-    public void a(View view2, View view3, boolean z) {
+    public Bitmap c(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) view2;
-            if (z) {
-                relativeLayout.addView(view3, 0);
-            } else {
-                relativeLayout.addView(view3);
-            }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.width = -1;
-            layoutParams.height = -1;
-            layoutParams.addRule(14);
-            view3.setLayoutParams(layoutParams);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return b(BitmapHelper.loadBitmap(str), true);
         }
+        return (Bitmap) invokeL.objValue;
     }
 }

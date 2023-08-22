@@ -12,10 +12,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dc7;
+import com.baidu.tieba.ad7;
+import com.baidu.tieba.ea5;
 import com.baidu.tieba.feed.widget.ForumAttentionView;
-import com.baidu.tieba.mb7;
-import com.baidu.tieba.x95;
+import com.baidu.tieba.rd7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,27 +99,27 @@ public final class ForumAttentionView extends TBSpecificationBtn {
             }
         }
         q(false);
-        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e8));
+        setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e9));
     }
 
     public /* synthetic */ ForumAttentionView(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    public static /* synthetic */ void s(ForumAttentionView forumAttentionView, dc7 dc7Var, boolean z, int i, Object obj) {
+    public static /* synthetic */ void s(ForumAttentionView forumAttentionView, rd7 rd7Var, boolean z, int i, Object obj) {
         if ((i & 2) != 0) {
             z = false;
         }
-        forumAttentionView.update(dc7Var, z);
+        forumAttentionView.update(rd7Var, z);
     }
 
-    public static final void t(final ForumAttentionView this$0, final dc7 state) {
+    public static final void t(final ForumAttentionView this$0, final rd7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, state) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
             Intrinsics.checkNotNullParameter(state, "$state");
-            if (mb7.a(this$0, state, false)) {
-                this$0.post(new Runnable() { // from class: com.baidu.tieba.ub7
+            if (ad7.a(this$0, state, false)) {
+                this$0.post(new Runnable() { // from class: com.baidu.tieba.id7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -135,7 +135,7 @@ public final class ForumAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public static final void u(ForumAttentionView this$0, dc7 state) {
+    public static final void u(ForumAttentionView this$0, rd7 state) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, null, this$0, state) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
@@ -144,11 +144,11 @@ public final class ForumAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public static final void v(dc7 state, TbPageContext pageContext, View view2) {
+    public static final void v(rd7 state, TbPageContext pageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(65543, null, state, pageContext, view2) == null) {
             Intrinsics.checkNotNullParameter(state, "$state");
-            Function2<dc7, TbPageContext<?>, Unit> g = state.g();
+            Function2<rd7, TbPageContext<?>, Unit> g = state.g();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
             g.invoke(state, pageContext);
         }
@@ -157,17 +157,17 @@ public final class ForumAttentionView extends TBSpecificationBtn {
     public final void q(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            x95 x95Var = new x95();
+            ea5 ea5Var = new ea5();
             if (z) {
-                x95Var.w(R.color.CAM_X0109);
+                ea5Var.w(R.color.CAM_X0109);
             } else {
-                x95Var.u(R.color.CAM_X0302);
-                x95Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
-                x95Var.i(R.color.CAM_X0304);
-                x95Var.h(BdUtilHelper.getDimens(getContext(), R.dimen.tbds26));
-                x95Var.g(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002));
+                ea5Var.u(R.color.CAM_X0302);
+                ea5Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+                ea5Var.i(R.color.CAM_X0304);
+                ea5Var.h(BdUtilHelper.getDimens(getContext(), R.dimen.tbds26));
+                ea5Var.g(BdUtilHelper.getDimens(getContext(), R.dimen.M_W_X002));
             }
-            setConfig(x95Var);
+            setConfig(ea5Var);
         }
     }
 
@@ -178,13 +178,13 @@ public final class ForumAttentionView extends TBSpecificationBtn {
         }
     }
 
-    public final void update(final dc7 state, boolean z) {
+    public final void update(final rd7 state, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, state, z) == null) {
             Intrinsics.checkNotNullParameter(state, "state");
-            mb7.b(this, state, false, 2, null);
+            ad7.b(this, state, false, 2, null);
             if (!z) {
-                Runnable runnable = new Runnable() { // from class: com.baidu.tieba.qb7
+                Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ed7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -205,7 +205,7 @@ public final class ForumAttentionView extends TBSpecificationBtn {
                 Context context = getContext();
                 if (context != null) {
                     final TbPageContext pageContext = ((TbPageContextSupport) context).getPageContext();
-                    setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb7
+                    setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dd7
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -213,7 +213,7 @@ public final class ForumAttentionView extends TBSpecificationBtn {
                         public final void onClick(View view2) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                                ForumAttentionView.v(dc7.this, pageContext, view2);
+                                ForumAttentionView.v(rd7.this, pageContext, view2);
                             }
                         }
                     });
@@ -234,7 +234,7 @@ public final class ForumAttentionView extends TBSpecificationBtn {
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
                 setClickable(true);
-                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e8));
+                setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e9));
             }
             r();
         }

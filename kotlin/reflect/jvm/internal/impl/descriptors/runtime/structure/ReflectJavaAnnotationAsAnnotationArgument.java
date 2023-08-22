@@ -4,7 +4,7 @@ import java.lang.annotation.Annotation;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaAnnotation;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaAnnotationAsAnnotationArgument;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectJavaAnnotationAsAnnotationArgument extends ReflectJavaAnnotationArgument implements JavaAnnotationAsAnnotationArgument {
     public final Annotation annotation;
 

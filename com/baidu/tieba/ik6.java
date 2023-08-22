@@ -1,150 +1,23 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.MessageQueue;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ik6;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import java.util.HashMap;
+import org.xml.sax.Attributes;
 /* loaded from: classes6.dex */
-public class ik6 {
+public class ik6 extends hk6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947856437, "Lcom/baidu/tieba/ik6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947856437, "Lcom/baidu/tieba/ik6;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Handler a;
-        public final Looper b;
-        public MessageQueue c;
-
-        public a(Looper looper) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = looper;
-            this.a = new Handler(looper);
-        }
-
-        public static /* synthetic */ boolean b(Runnable runnable) {
-            runnable.run();
-            return false;
-        }
-
-        public boolean c(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
-                if (a() == null) {
-                    return false;
-                }
-                return this.a.post(runnable);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void e(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) && a() != null) {
-                this.a.removeCallbacks(runnable);
-            }
-        }
-
-        public void f(final Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, runnable) != null) || a() == null) {
-                return;
-            }
-            this.c.addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.ek6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.os.MessageQueue.IdleHandler
-                public final boolean queueIdle() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? ik6.a.b(runnable) : invokeV.booleanValue;
-                }
-            });
-        }
-
-        @SuppressLint({"DiscouragedPrivateApi"})
-        public final synchronized MessageQueue a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                synchronized (this) {
-                    if (this.c != null) {
-                        return this.c;
-                    }
-                    if (Build.VERSION.SDK_INT >= 23) {
-                        MessageQueue queue = this.b.getQueue();
-                        this.c = queue;
-                        return queue;
-                    }
-                    try {
-                        Field declaredField = Looper.class.getDeclaredField("mQueue");
-                        declaredField.setAccessible(true);
-                        Object obj = declaredField.get(this.b);
-                        if (obj instanceof MessageQueue) {
-                            this.c = (MessageQueue) obj;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return this.c;
-                }
-            }
-            return (MessageQueue) invokeV.objValue;
-        }
-
-        public boolean d(Runnable runnable, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j)) == null) {
-                if (a() == null) {
-                    return false;
-                }
-                return this.a.postDelayed(runnable, j);
-            }
-            return invokeLJ.booleanValue;
+    @Override // com.baidu.tieba.hk6
+    public void a(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
         }
     }
 
@@ -152,29 +25,35 @@ public class ik6 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static a a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.hk6
+    public void b(boolean z, String str, Attributes attributes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (ik6.class) {
-                    if (a == null) {
-                        a = new a(Looper.getMainLooper());
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
+            String value = attributes.getValue("", NativeConstants.HREF);
+            if (TextUtils.equals(attributes.getValue("", "rel"), "stylesheet") && !TextUtils.isEmpty(value)) {
+                String str2 = "http";
+                if (!value.startsWith("http")) {
+                    StringBuilder sb = new StringBuilder();
+                    if (z) {
+                        str2 = "https";
                     }
+                    sb.append(str2);
+                    sb.append(":");
+                    sb.append(value);
+                    value = sb.toString();
                 }
+                lk6.g().b(value, value, new HashMap());
             }
-            return a;
         }
-        return (a) invokeV.objValue;
     }
 }

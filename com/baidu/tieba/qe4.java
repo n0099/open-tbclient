@@ -1,33 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.Request;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes7.dex */
 public class qe4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public SimpleDraweeView b;
+    public TextView c;
 
-    public static void a(Callback callback) {
+    @SuppressLint({"InflateParams"})
+    public qe4(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, callback) == null) {
-            b(callback, "6");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-    }
-
-    public static void b(Callback callback, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callback, str) != null) || ya3.M() == null) {
-            return;
-        }
-        HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
-        newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
-        newBuilder.addQueryParameter(GameGuideConfigInfo.KEY_APP_KEY, ya3.M().O());
-        newBuilder.addQueryParameter("source", "4");
-        ((f94) ya3.M().i0()).call(new Request.Builder().url(newBuilder.build()).build(), callback);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0943, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f092357);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092358);
     }
 }

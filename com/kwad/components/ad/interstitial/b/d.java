@@ -62,7 +62,7 @@ public final class d extends b {
     public boolean dR;
 
     /* renamed from: do  reason: not valid java name */
-    public ImageView f6do;
+    public ImageView f7do;
     public com.kwad.sdk.core.video.videoview.a dp;
     public com.kwad.sdk.core.g.d eN;
     public Vibrator eO;
@@ -300,7 +300,7 @@ public final class d extends b {
         float a = a(cB, av);
         com.kwad.sdk.core.e.b.d("InterstitialWebViewPresenter", "replaceNativeView cardRatio: " + a);
         this.gh.gj.setRatio(a);
-        final ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f0912e2);
+        final ViewGroup viewGroup = (ViewGroup) this.gS.findViewById(R.id.obfuscated_res_0x7f0912f8);
         viewGroup.setVisibility(0);
         viewGroup.post(new Runnable() { // from class: com.kwad.components.ad.interstitial.b.d.22
             @Override // java.lang.Runnable
@@ -448,8 +448,8 @@ public final class d extends b {
 
             @Override // com.kwad.components.core.video.a.b
             public final void onVideoPlaying() {
-                if (d.this.f6do.getVisibility() == 0) {
-                    d.this.f6do.setVisibility(8);
+                if (d.this.f7do.getVisibility() == 0) {
+                    d.this.f7do.setVisibility(8);
                 }
                 com.kwad.components.core.webview.b.a.s sVar2 = sVar;
                 sVar2.NZ = false;
@@ -801,15 +801,15 @@ public final class d extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f091446);
+        KsAdWebView ksAdWebView = (KsAdWebView) getRootView().findViewById(R.id.obfuscated_res_0x7f09145c);
         this.gT = ksAdWebView;
         ksAdWebView.setBackgroundColor(0);
         this.gT.setVisibility(4);
         this.aM = new com.kwad.components.core.widget.kwai.b(this.gT, 100);
-        this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091293);
-        this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f09141d);
-        this.f6do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f09142d);
-        this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f0912ea);
+        this.gS = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f0912a9);
+        this.dN = (KSFrameLayout) getRootView().findViewById(R.id.obfuscated_res_0x7f091433);
+        this.f7do = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091443);
+        this.gU = (ImageView) getRootView().findViewById(R.id.obfuscated_res_0x7f091300);
         Context context = getContext();
         this.mContext = context;
         if (context != null) {

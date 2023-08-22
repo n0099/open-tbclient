@@ -1,9 +1,5 @@
 package com.baidu.tieba;
-
-import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface s51 {
-    void a(JSONObject jSONObject);
-
-    void b(m51 m51Var);
+    boolean a();
 }

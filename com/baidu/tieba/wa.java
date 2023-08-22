@@ -10,9 +10,9 @@ public abstract class wa extends ya<byte[]> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void a(int i, BdUniqueId bdUniqueId);
+    public abstract void g(int i, BdUniqueId bdUniqueId);
 
-    public abstract void b(BdUniqueId bdUniqueId);
+    public abstract void h(BdUniqueId bdUniqueId);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public wa(int i) {

@@ -2,15 +2,15 @@ package com.huawei.hms.hatool;
 
 import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.qpb;
-import com.baidu.tieba.wpb;
+import com.baidu.tieba.fwb;
+import com.baidu.tieba.lwb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.nio.charset.Charset;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic;
     public static final Charset a;
@@ -39,7 +39,7 @@ public class d {
             if (str == null || str.length() < 32) {
                 return new Pair<>(new byte[0], str);
             }
-            return new Pair<>(wpb.b(str.substring(0, 32)), str.substring(32));
+            return new Pair<>(lwb.b(str.substring(0, 32)), str.substring(32));
         }
         return (Pair) invokeL.objValue;
     }
@@ -49,7 +49,7 @@ public class d {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
             Pair<byte[], String> a2 = a(str);
-            return new String(qpb.i(wpb.b((String) a2.second), wpb.b(str2), (byte[]) a2.first), a);
+            return new String(fwb.i(lwb.b((String) a2.second), lwb.b(str2), (byte[]) a2.first), a);
         }
         return (String) invokeLL.objValue;
     }
@@ -62,9 +62,9 @@ public class d {
             if (bArr == null || bArr.length == 0 || str == null) {
                 str2 = "cbc encrypt(byte) param is not right";
             } else {
-                byte[] b = wpb.b(str);
+                byte[] b = lwb.b(str);
                 if (b.length >= 16) {
-                    return wpb.a(qpb.l(bArr, b));
+                    return lwb.a(fwb.l(bArr, b));
                 }
                 str2 = "key length is not right";
             }
@@ -77,6 +77,6 @@ public class d {
     public static String b(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? wpb.a(qpb.l(str.getBytes(a), wpb.b(str2))) : (String) invokeLL.objValue;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) ? lwb.a(fwb.l(str.getBytes(a), lwb.b(str2))) : (String) invokeLL.objValue;
     }
 }

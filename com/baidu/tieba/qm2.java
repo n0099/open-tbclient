@@ -1,64 +1,64 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.config.QuickPersistConfigConst;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class qm2 {
+public class qm2 extends pm2<km2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qm2() {
+        super(new km2());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((mm2) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pm2
+    public boolean k() {
         InterceptResult invokeV;
-        String optString;
-        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            ya3 b0 = ya3.b0();
-            JSONObject jSONObject = new JSONObject();
-            if (b0 != null) {
-                jSONObject = b0.W().M();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (r(h().extensionCorePath) && !super.k()) {
+                return false;
             }
-            if (jSONObject != null && (optString = jSONObject.optString("keyfeed")) != null && (indexOf = optString.indexOf("_")) >= 0 && TextUtils.equals("miniapp", optString.substring(0, indexOf))) {
-                return optString.substring(indexOf + 1);
-            }
-            return "";
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static Map<String, Object> b(String str, String str2) {
-        InterceptResult invokeLL;
+    public static boolean r(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
-            hashMap.put("op_type", str2);
-            String a = a();
-            if (!TextUtils.isEmpty(a)) {
-                hashMap.put("nid", a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            d82.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable extensionPath:" + str);
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            return hashMap;
+            File file = new File(str, "extension.js");
+            if (file.exists() && file.length() > 0) {
+                z = true;
+            }
+            d82.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable: " + z);
+            return z;
         }
-        return (Map) invokeLL.objValue;
-    }
-
-    public static Map<String, Object> c(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
-            hashMap.put(QuickPersistConfigConst.KEY_SPLASH_SORT, Integer.valueOf(i));
-            hashMap.put("op_type", "add");
-            return hashMap;
-        }
-        return (Map) invokeLI.objValue;
+        return invokeL.booleanValue;
     }
 }

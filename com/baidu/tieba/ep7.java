@@ -1,93 +1,107 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.core.data.BdToastData;
-import com.baidu.tbadk.core.util.BdToastHelper;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.abtest.group.AbsGroupUbsABTest;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.itemtab.FrsItemTabFragment;
+import com.baidu.tieba.frs.itemtab.FrsItemTabHttpResponseMessage;
+import com.baidu.tieba.frs.itemtab.FrsItemTabNetModel;
+import com.baidu.tieba.frs.itemtab.FrsItemTabRequestData;
+import com.baidu.tieba.frs.itemtab.FrsItemTabSocketResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class ep7 extends PriorityOrganizer.Task {
+public class ep7 implements NetModel.k {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<FrsActivity> a;
-    public WeakReference<FrsFragment> b;
-    public BdToastData c;
+    public FrsItemTabFragment a;
+    public fp7 b;
+    public FrsItemTabNetModel c;
+    public int d;
+    public String e;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ep7 a;
-
-        public a(ep7 ep7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ep7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ep7Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                BdToastHelper.toast(this.a.c);
-            }
-        }
-    }
-
-    public ep7(FrsActivity frsActivity, FrsFragment frsFragment) {
+    public ep7(FrsItemTabFragment frsItemTabFragment, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
+            Object[] objArr = {frsItemTabFragment, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new WeakReference<>(frsActivity);
-        this.b = new WeakReference<>(frsFragment);
-        this.c = new BdToastData();
+        if (frsItemTabFragment == null) {
+            return;
+        }
+        this.a = frsItemTabFragment;
+        FrsItemTabRequestData frsItemTabRequestData = new FrsItemTabRequestData();
+        frsItemTabRequestData.itemId = i;
+        FrsItemTabNetModel frsItemTabNetModel = new FrsItemTabNetModel(frsItemTabFragment.getPageContext(), frsItemTabRequestData);
+        this.c = frsItemTabNetModel;
+        frsItemTabNetModel.p0(this);
+        this.c.setUniqueId(frsItemTabFragment.getUniqueId());
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean isDataReady() {
-        InterceptResult invokeV;
-        WeakReference<FrsFragment> weakReference;
+    @Override // com.baidu.tbadk.mvc.model.NetModel.l
+    public void G(MvcHttpResponsedMessage mvcHttpResponsedMessage, MvcHttpMessage mvcHttpMessage, MvcNetMessage mvcNetMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<FrsActivity> weakReference2 = this.a;
-            if (weakReference2 != null && weakReference2.get() != null && (weakReference = this.b) != null && weakReference.get() != null && TbSingleton.getInstance().getFrsResponseData() != null) {
+        if ((interceptable != null && interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) != null) || mvcHttpResponsedMessage == null) {
+            return;
+        }
+        fp7 fp7Var = null;
+        if (!mvcHttpResponsedMessage.hasError() && (mvcHttpResponsedMessage instanceof FrsItemTabHttpResponseMessage)) {
+            fp7Var = (fp7) ((FrsItemTabHttpResponseMessage) mvcHttpResponsedMessage).getData();
+        }
+        if (fp7Var != null && c(fp7Var)) {
+            return;
+        }
+        this.d = mvcHttpResponsedMessage.getError();
+        this.e = mvcHttpResponsedMessage.getErrorString();
+        b();
+    }
+
+    @Override // com.baidu.tbadk.mvc.model.NetModel.m
+    public void v(MvcSocketResponsedMessage mvcSocketResponsedMessage, MvcSocketMessage mvcSocketMessage, MvcNetMessage mvcNetMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) != null) || mvcSocketResponsedMessage == null) {
+            return;
+        }
+        fp7 fp7Var = null;
+        if (!mvcSocketResponsedMessage.hasError() && (mvcSocketResponsedMessage instanceof FrsItemTabSocketResponseMessage)) {
+            fp7Var = ((FrsItemTabSocketResponseMessage) mvcSocketResponsedMessage).getData();
+        }
+        if (fp7Var != null && c(fp7Var)) {
+            return;
+        }
+        this.d = mvcSocketResponsedMessage.getError();
+        this.e = mvcSocketResponsedMessage.getErrorString();
+        b();
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            fp7 fp7Var = this.b;
+            if (fp7Var != null && fp7Var.a != null) {
                 return true;
             }
             return false;
@@ -95,43 +109,96 @@ public class ep7 extends PriorityOrganizer.Task {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void onExecute() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SafeHandler.getInst().postDelayed(new a(this), 2000L);
+            ErrorData errorData = new ErrorData();
+            errorData.setError_code(this.d);
+            errorData.setError_msg(this.e);
+            if (this.d != 0) {
+                this.a.f(errorData);
+            }
         }
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void onFinish() {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.clear();
-            this.a.clear();
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.c.h0()) {
+            return;
         }
+        this.c.loadData();
+        ax7.a();
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean isNeedExecute() {
-        InterceptResult invokeV;
+    public final boolean c(fp7 fp7Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String stringExtra = this.a.get().getIntent().getStringExtra(FrsActivityConfig.TOAST_DATA);
-            if (TextUtils.isEmpty(stringExtra)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fp7Var)) == null) {
+            if (fp7Var == null) {
                 return false;
             }
-            try {
-                this.c.parserJson(new JSONObject(stringExtra));
-            } catch (JSONException e) {
-                BdLog.e(e);
-            }
-            BdToastData bdToastData = this.c;
-            if (bdToastData == null || bdToastData.getIconType() == 0) {
-                return false;
-            }
+            this.b = fp7Var;
+            fp7Var.c = e(fp7Var.c);
+            this.a.Y1(this.b);
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public final ArrayList<bn> e(ArrayList<bn> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, arrayList)) == null) {
+            ArrayList<bn> arrayList2 = new ArrayList<>();
+            Iterator<bn> it = arrayList.iterator();
+            int i = 0;
+            while (it.hasNext()) {
+                bn next = it.next();
+                if (next instanceof ThreadData) {
+                    ThreadData threadData = (ThreadData) next;
+                    AbsGroupUbsABTest.setCardInfoUbsABTest(threadData);
+                    int[] imageWidthAndHeight = threadData.getImageWidthAndHeight();
+                    if (threadData.getType() == ThreadData.TYPE_NORMAL && !threadData.isTop()) {
+                        c45 c45Var = new c45();
+                        c45Var.t = threadData;
+                        c45Var.position = i;
+                        c45Var.a = true;
+                        c45Var.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(c45Var);
+                        c45 c45Var2 = new c45();
+                        c45Var2.t = threadData;
+                        c45Var2.position = i;
+                        if (threadData.picCount() == 1) {
+                            c45Var2.d = true;
+                            c45Var2.u = imageWidthAndHeight[0];
+                            c45Var2.v = imageWidthAndHeight[1];
+                        } else if (threadData.picCount() >= 2) {
+                            c45Var2.e = true;
+                        } else {
+                            c45Var2.b = true;
+                        }
+                        c45Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(c45Var2);
+                        c45 c45Var3 = new c45();
+                        c45Var3.g = true;
+                        c45Var3.t = threadData;
+                        c45Var3.position = i;
+                        c45Var3.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                        arrayList2.add(c45Var3);
+                        i++;
+                    }
+                    threadData.setSupportType(BaseCardInfo.SupportType.CONTENT);
+                } else {
+                    if (next instanceof BaseCardInfo) {
+                        ((BaseCardInfo) next).position = i;
+                    }
+                    arrayList2.add(next);
+                    i++;
+                }
+            }
+            AbsGroupUbsABTest.setCardInfoUbsABTest(arrayList2);
+            return arrayList2;
+        }
+        return (ArrayList) invokeL.objValue;
     }
 }

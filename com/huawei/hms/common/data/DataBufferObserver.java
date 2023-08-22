@@ -1,5 +1,5 @@
 package com.huawei.hms.common.data;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface DataBufferObserver {
     void onDataChanged();
 

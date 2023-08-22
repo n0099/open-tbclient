@@ -10,13 +10,13 @@ import kotlin.reflect.jvm.internal.impl.load.kotlin.header.KotlinClassHeader;
 import kotlin.reflect.jvm.internal.impl.load.kotlin.header.ReadKotlinClassHeaderAnnotationVisitor;
 import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectKotlinClass implements KotlinJvmBinaryClass {
     public static final Factory Factory = new Factory(null);
     public final KotlinClassHeader classHeader;
     public final Class<?> klass;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Factory {
         public Factory() {
         }

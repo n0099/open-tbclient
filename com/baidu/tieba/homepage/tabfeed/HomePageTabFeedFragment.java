@@ -38,28 +38,28 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.pageStayDuration.PageStayDurationItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.av4;
+import com.baidu.tieba.b78;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.co6;
+import com.baidu.tieba.cv4;
+import com.baidu.tieba.d78;
+import com.baidu.tieba.e88;
+import com.baidu.tieba.ei7;
+import com.baidu.tieba.f18;
+import com.baidu.tieba.f78;
+import com.baidu.tieba.g78;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.channel.model.ChannelTabNetFeedModel;
 import com.baidu.tieba.homepage.tabfeed.model.TabFeedNetFeedModel;
 import com.baidu.tieba.homepage.tabfeed.view.HomePageTabFeedView;
-import com.baidu.tieba.i58;
-import com.baidu.tieba.k58;
-import com.baidu.tieba.kz7;
-import com.baidu.tieba.l68;
-import com.baidu.tieba.m58;
-import com.baidu.tieba.n58;
-import com.baidu.tieba.ng7;
-import com.baidu.tieba.q25;
-import com.baidu.tieba.rn6;
+import com.baidu.tieba.in5;
 import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
-import com.baidu.tieba.tm5;
-import com.baidu.tieba.vm6;
-import com.baidu.tieba.ym;
+import com.baidu.tieba.w25;
+import com.baidu.tieba.yo6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -73,13 +73,13 @@ import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes6.dex */
-public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
+public class HomePageTabFeedFragment extends BaseFragment implements f78, ei7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
     public int c;
-    public n58 d;
+    public g78 d;
     public HomePageTabFeedView e;
     public ViewGroup f;
     public HttpMessageListener g;
@@ -93,23 +93,23 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
     public boolean o;
     public CustomMessageListener p;
 
-    @Override // com.baidu.tieba.ng7
-    public void M() {
+    @Override // com.baidu.tieba.ei7
+    public void O() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    public int R1() {
+    public int d2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d093f : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.obfuscated_res_0x7f0d0947 : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ng7
-    public void g0() {
+    @Override // com.baidu.tieba.ei7
+    public void m0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
         }
     }
 
@@ -117,7 +117,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
     public String taskActionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) ? "714" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) ? "714" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
@@ -287,7 +287,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                k58.f();
+                d78.f();
                 PermissionUtil.requestLocation(this.a, 0, new a(this));
             }
         }
@@ -325,7 +325,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && (httpResponsedMessage.getmOrginalMessage() instanceof MercatorModel.MercatorRequestHttpMessage) && ((MercatorModel.MercatorRequestHttpMessage) httpResponsedMessage.getmOrginalMessage()).isFromHomePageTabFeedFragment()) {
-                this.a.Q1(false);
+                this.a.c2(false);
                 TbSingleton.getInstance().setMercatorRequestFromHomePageTabFeedFragment(false);
                 this.a.n = false;
             }
@@ -480,17 +480,17 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             View view2;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof kz7)) {
-                kz7 kz7Var = (kz7) customResponsedMessage.getData();
-                if ("local".equals(kz7Var.b)) {
-                    int i = kz7Var.c;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof f18)) {
+                f18 f18Var = (f18) customResponsedMessage.getData();
+                if ("local".equals(f18Var.b)) {
+                    int i = f18Var.c;
                     if (i == 0) {
-                        kz7Var.a = this.a.e.r();
-                        if (!this.a.b2() && (view2 = kz7Var.a) != null && view2.getVisibility() == 0) {
-                            k58.n();
+                        f18Var.a = this.a.e.r();
+                        if (!this.a.n2() && (view2 = f18Var.a) != null && view2.getVisibility() == 0) {
+                            d78.n();
                         }
                     } else if (i == 1) {
-                        kz7Var.a = null;
+                        f18Var.a = null;
                     }
                 }
             }
@@ -544,26 +544,26 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
                         if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                             GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e21);
+                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e29);
                             } else {
                                 errorString2 = getMyPostHttpResponseMessage.getErrorString();
                             }
                             if (!z && getMyPostHttpResponseMessage.getError() != 0) {
                                 return;
                             }
-                            this.a.W1(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
+                            this.a.i2(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
                             return;
                         } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                             GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e21);
+                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e29);
                             } else {
                                 errorString = getMyPostSocketResponseMessage.getErrorString();
                             }
                             if (!z && getMyPostSocketResponseMessage.getError() != 0) {
                                 return;
                             }
-                            this.a.W1(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
+                            this.a.i2(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
                             return;
                         } else {
                             return;
@@ -619,11 +619,11 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
                             if (i >= this.a.e.s().getCount()) {
                                 break;
                             }
-                            ym item = this.a.e.s().getItem(i);
-                            if (item instanceof rn6) {
-                                rn6 rn6Var = (rn6) item;
-                                if (rn6Var.getThreadData() != null && rn6Var.getThreadData().getThreadAlaInfo() != null && optString2.equals(String.valueOf(rn6Var.getThreadData().getThreadAlaInfo().live_id))) {
-                                    optString = rn6Var.getThreadData().getTid();
+                            bn item = this.a.e.s().getItem(i);
+                            if (item instanceof yo6) {
+                                yo6 yo6Var = (yo6) item;
+                                if (yo6Var.getThreadData() != null && yo6Var.getThreadData().getThreadAlaInfo() != null && optString2.equals(String.valueOf(yo6Var.getThreadData().getThreadAlaInfo().live_id))) {
+                                    optString = yo6Var.getThreadData().getTid();
                                     break;
                                 }
                             }
@@ -650,7 +650,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
                     }
                 }
                 if (this.a.e.s() != null) {
-                    List<Integer> d = i58.d(optString, this.a.e.s());
+                    List<Integer> d = b78.d(optString, this.a.e.s());
                     int intValue = d.get(0).intValue();
                     int intValue2 = d.get(1).intValue();
                     if (intValue != -1 && intValue2 != -1) {
@@ -678,37 +678,28 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         this.p = new h(this, 2016488);
     }
 
-    @Override // com.baidu.tieba.ng7
-    public void C() {
+    @Override // com.baidu.tieba.ei7
+    public void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Q1(true);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c2(true);
         }
     }
 
-    public n58 T1() {
+    public g78 f2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.d;
         }
-        return (n58) invokeV.objValue;
+        return (g78) invokeV.objValue;
     }
 
-    public String U1() {
+    public String g2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String V1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
         }
         return (String) invokeV.objValue;
     }
@@ -717,7 +708,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             if (this.c == 201) {
                 return "a075";
             }
@@ -730,7 +721,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
     public PageStayDurationItem getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             PageStayDurationItem pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.resourceId = this.a;
@@ -740,24 +731,21 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         return (PageStayDurationItem) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.m58
-    public void j() {
-        n58 n58Var;
+    public String h2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (n58Var = this.d) != null) {
-            n58Var.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ng7
-    public void k0() {
+    @Override // com.baidu.tieba.f78
+    public void j() {
+        g78 g78Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            HomePageTabFeedView homePageTabFeedView = this.e;
-            if (homePageTabFeedView != null) {
-                homePageTabFeedView.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            }
-            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && (g78Var = this.d) != null) {
+            g78Var.c();
         }
     }
 
@@ -765,7 +753,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
     public void notifyColourHeaderData() {
         HomePageTabFeedView homePageTabFeedView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (homePageTabFeedView = this.e) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && (homePageTabFeedView = this.e) != null) {
             homePageTabFeedView.C();
         }
     }
@@ -776,7 +764,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         if ((interceptable == null || interceptable.invokeV(1048607, this) == null) && BdNetTypeUtil.isNetWorkAvailable()) {
             hideNetRefreshView(this.f);
             showLoadingView(this.f);
-            Q1(false);
+            c2(false);
         }
     }
 
@@ -789,7 +777,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.F();
             }
-            vm6.b().e(false);
+            co6.b().e(false);
         }
     }
 
@@ -803,7 +791,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
                 if (homePageTabFeedView != null) {
                     homePageTabFeedView.I();
                 }
-                c2();
+                o2();
                 return;
             }
             HomePageTabFeedView homePageTabFeedView2 = this.e;
@@ -813,11 +801,23 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         }
     }
 
+    @Override // com.baidu.tieba.ei7
+    public void q0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048611, this) == null) {
+            HomePageTabFeedView homePageTabFeedView = this.e;
+            if (homePageTabFeedView != null) {
+                homePageTabFeedView.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            }
+            onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment
     public ViewGroup taskAttachParentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             HomePageTabFeedView homePageTabFeedView = this.e;
             if (homePageTabFeedView != null) {
                 return homePageTabFeedView.p;
@@ -830,8 +830,8 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void taskStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048616, this) == null) {
-            String e2 = av4.f().e(taskActionId(), "tab_code");
+        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+            String e2 = cv4.f().e(taskActionId(), "tab_code");
             if (!TextUtils.isEmpty(e2) && e2.equalsIgnoreCase(this.b)) {
                 super.taskStart();
             }
@@ -841,7 +841,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNoDataRefreshView(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048613, this, view2, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(1048614, this, view2, z) == null) {
             HomePageTabFeedView homePageTabFeedView = this.e;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.L(false);
@@ -851,25 +851,35 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         }
     }
 
-    public void a2(boolean z) {
+    @Override // com.baidu.tieba.f78
+    public void B0(e88 e88Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.o = z;
+        if (interceptable == null || interceptable.invokeL(1048576, this, e88Var) == null) {
+            hideLoadingView(this.f);
+            g78 g78Var = this.d;
+            if (g78Var != null && !g78Var.d()) {
+                showNoDataRefreshView(this.f, false);
+                return;
+            }
+            HomePageTabFeedView homePageTabFeedView = this.e;
+            if (homePageTabFeedView != null) {
+                homePageTabFeedView.E(e88Var);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.i95.g
+    @Override // com.baidu.tieba.p95.g
     public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            Q1(false);
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            c2(false);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideLoadingView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
             super.hideLoadingView(view2);
             HomePageTabFeedView homePageTabFeedView = this.e;
             if (homePageTabFeedView != null) {
@@ -881,12 +891,19 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
             super.hideNetRefreshView(view2);
             HomePageTabFeedView homePageTabFeedView = this.e;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.L(true);
             }
+        }
+    }
+
+    public void m2(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            this.o = z;
         }
     }
 
@@ -916,38 +933,21 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showLoadingView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048611, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048612, this, view2) == null) {
             HomePageTabFeedView homePageTabFeedView = this.e;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.L(false);
             }
-            super.showLoadingView(view2, false, S1());
+            super.showLoadingView(view2, false, e2());
         }
     }
 
-    @Override // com.baidu.tieba.m58
-    public void u0(l68 l68Var) {
+    public void c2(boolean z) {
+        g78 g78Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048617, this, l68Var) == null) {
-            hideLoadingView(this.f);
-            n58 n58Var = this.d;
-            if (n58Var != null && !n58Var.d()) {
-                showNoDataRefreshView(this.f, false);
-                return;
-            }
-            HomePageTabFeedView homePageTabFeedView = this.e;
-            if (homePageTabFeedView != null) {
-                homePageTabFeedView.E(l68Var);
-            }
-        }
-    }
-
-    public void Q1(boolean z) {
-        n58 n58Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && !b2() && !Y1() && (n58Var = this.d) != null) {
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && !n2() && !k2() && (g78Var = this.d) != null) {
             if (this.e != null && z) {
-                if (n58Var.d()) {
+                if (g78Var.d()) {
                     this.e.N();
                     this.e.J(true);
                 } else {
@@ -959,20 +959,20 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         }
     }
 
-    @Override // com.baidu.tieba.m58
+    @Override // com.baidu.tieba.f78
     public void f(ErrorData errorData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, errorData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, errorData) == null) {
             hideLoadingView(this.f);
             if (errorData != null) {
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f0a42);
+                    showToast(R.string.obfuscated_res_0x7f0f0a4a);
                 }
             }
-            n58 n58Var = this.d;
-            if (n58Var != null && !n58Var.d()) {
+            g78 g78Var = this.d;
+            if (g78Var != null && !g78Var.d()) {
                 String str = null;
                 if (errorData != null) {
                     str = getString(R.string.net_error_text, errorData.error_msg, Integer.valueOf(errorData.error_code));
@@ -986,10 +986,10 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         }
     }
 
-    public final int S1() {
+    public final int e2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             int equipmentHeight = ((BdUtilHelper.getEquipmentHeight(getContext()) - BdUtilHelper.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
             if (this.o) {
                 return equipmentHeight - UtilHelper.getDimenPixelSize(R.dimen.tbds200);
@@ -999,9 +999,9 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         return invokeV.intValue;
     }
 
-    public final void c2() {
+    public final void o2() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && isPrimary()) {
+        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && isPrimary()) {
             StatisticItem statisticItem = new StatisticItem("c13749");
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
             statisticItem.param("resource_id", this.a);
@@ -1015,15 +1015,15 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             super.onDestroy();
-            vm6.b().e(false);
-            n58 n58Var = this.d;
-            if (n58Var != null) {
-                n58Var.destory();
+            co6.b().e(false);
+            g78 g78Var = this.d;
+            if (g78Var != null) {
+                g78Var.destory();
             }
             if (this.e != null) {
                 getLifecycle().removeObserver(this.e);
             }
-            tm5.e().b();
+            in5.e().b();
         }
     }
 
@@ -1033,12 +1033,12 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
             super.onLazyLoad();
             if (BdNetTypeUtil.isNetWorkAvailable()) {
-                if (!b2() && !Y1()) {
+                if (!n2() && !k2()) {
                     showLoadingView(this.f);
-                    n58 n58Var = this.d;
-                    if (n58Var != null) {
+                    g78 g78Var = this.d;
+                    if (g78Var != null) {
                         try {
-                            n58Var.refresh();
+                            g78Var.refresh();
                             return;
                         } catch (Exception unused) {
                             return;
@@ -1052,20 +1052,20 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         }
     }
 
-    public final void W1(int i2, String str, GetMyPostResIdl getMyPostResIdl) {
+    public final void i2(int i2, String str, GetMyPostResIdl getMyPostResIdl) {
         User_Info user_Info;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2, str, getMyPostResIdl) == null) {
+        if (interceptable == null || interceptable.invokeILL(1048591, this, i2, str, getMyPostResIdl) == null) {
             if (i2 != 0) {
                 showToast(str);
                 return;
             }
             DataRes dataRes = getMyPostResIdl.data;
             if (dataRes != null && dataRes.thread_info != null) {
-                q25 q25Var = new q25();
+                w25 w25Var = new w25();
                 ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
                 User.Builder builder2 = new User.Builder(builder.author);
-                Z1(builder2, getMyPostResIdl.data.user_info);
+                l2(builder2, getMyPostResIdl.data.user_info);
                 User user = builder.author;
                 if (user == null || TextUtils.isEmpty(user.name)) {
                     builder.author = builder2.build(true);
@@ -1076,15 +1076,15 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
                 }
                 builder.fname = WriteMsgHolder.getLastForumName();
                 builder.fid = Long.valueOf(JavaTypesHelper.toLong(WriteMsgHolder.getLastForumName(), 0L));
-                q25Var.parserProtobuf(builder.build(true));
-                this.e.w(q25Var);
+                w25Var.parserProtobuf(builder.build(true));
+                this.e.w(w25Var);
             }
         }
     }
 
-    public final void X1() {
+    public final void j2() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && "local".equals(this.b)) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && "local".equals(this.b)) {
             if (this.g == null) {
                 this.g = new a(this, CmdConfigHttp.CMD_GET_MERCATOR);
             }
@@ -1116,10 +1116,10 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         }
     }
 
-    public final boolean Y1() {
+    public final boolean k2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             if ("local".equals(this.b) && this.n && PermissionUtil.checkLocationForTieba(getPageContext().getPageActivity())) {
                 if (isNetRefreshViewAttached()) {
                     hideNetRefreshView(this.f);
@@ -1150,9 +1150,9 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         }
     }
 
-    public final void Z1(User.Builder builder, User_Info user_Info) {
+    public final void l2(User.Builder builder, User_Info user_Info) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048587, this, builder, user_Info) != null) || user_Info == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048595, this, builder, user_Info) != null) || user_Info == null) {
             return;
         }
         Long l = user_Info.id;
@@ -1174,10 +1174,10 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
         builder.new_god_data = user_Info.new_god_data;
     }
 
-    public final boolean b2() {
+    public final boolean n2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             if (!"local".equals(this.b)) {
                 return false;
             }
@@ -1194,7 +1194,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
             if (isNetRefreshViewAttached()) {
                 hideNetRefreshView(this.f);
             }
-            k58.m();
+            d78.m();
             showLocationView(this.f, new i(this, pageActivity));
             return true;
         }
@@ -1227,14 +1227,14 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
                 ((ViewGroup) this.f.getParent()).removeView(this.f);
             }
             if (this.f == null) {
-                ViewGroup viewGroup3 = (ViewGroup) getLayoutInflater().inflate(R1(), (ViewGroup) null);
+                ViewGroup viewGroup3 = (ViewGroup) getLayoutInflater().inflate(d2(), (ViewGroup) null);
                 this.f = viewGroup3;
                 this.e = new HomePageTabFeedView(this, this, viewGroup3, this.b);
                 getLifecycle().addObserver(this.e);
             }
             HomePageTabFeedView homePageTabFeedView = this.e;
             if (homePageTabFeedView != null) {
-                homePageTabFeedView.H();
+                homePageTabFeedView.G();
             }
             if (this.d == null) {
                 if (this.c == 201) {
@@ -1246,7 +1246,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
             }
             this.d.i(getUniqueId());
             registerListener(this.p);
-            X1();
+            j2();
             return this.f;
         }
         return (View) invokeLLL.objValue;
@@ -1255,7 +1255,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements m58, ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view2, String str, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048612, this, view2, str, z) == null) {
+        if (interceptable == null || interceptable.invokeLLZ(1048613, this, view2, str, z) == null) {
             HomePageTabFeedView homePageTabFeedView = this.e;
             if (homePageTabFeedView != null) {
                 homePageTabFeedView.L(false);

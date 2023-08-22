@@ -1,8 +1,17 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.Application;
+import android.content.ComponentCallbacks2;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.os.Build;
+import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,45 +19,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.PrintStream;
-import java.math.BigInteger;
-import java.nio.ByteBuffer;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
+import com.yy.sdk.crashreportbaidu.CrashInfo;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.net.URLConnection;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.WritableByteChannel;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
-import java.util.Random;
-import java.util.TimeZone;
-import kotlin.jvm.internal.ByteCompanionObject;
-import okhttp3.internal.ws.WebSocketProtocol;
-import org.apache.http.protocol.HTTP;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.IncompleteException;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.exceptions.InvalidHandshakeException;
-import org.java_websocket.exceptions.LimitExedeedException;
-import org.java_websocket.exceptions.NotSendableException;
-import org.java_websocket.framing.Framedata;
+import java.util.Map;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
+import okhttp3.Headers;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vzb extends Draft {
-    public static /* synthetic */ Interceptable $ic;
+public class vzb {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "https://crash-reporting.yy.com/crash/reporting";
+    public static long b = 31457280;
+    public static Executor c = null;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public xzb c;
-    public List<xzb> d;
-    public q0c e;
-    public List<q0c> f;
-    public Framedata g;
-    public List<ByteBuffer> h;
-    public ByteBuffer i;
-    public final Random j;
+
+    /* loaded from: classes8.dex */
+    public interface f {
+        void onResult(String str, boolean z, int i, String str2);
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -65,943 +74,657 @@ public class vzb extends Draft {
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public vzb() {
-        this(Collections.emptyList());
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((List) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+    /* loaded from: classes8.dex */
+    public static class a implements Application.ActivityLifecycleCallbacks {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    public xzb A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (xzb) invokeV.objValue;
-    }
+    /* loaded from: classes8.dex */
+    public static class b implements ComponentCallbacks2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public List<xzb> B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<q0c> C() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public q0c E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (q0c) invokeV.objValue;
-    }
-
-    public final String F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
-            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
-            return simpleDateFormat.format(calendar.getTime());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            xzb xzbVar = this.c;
-            int i2 = 0;
-            if (xzbVar != null) {
-                i = xzbVar.hashCode();
-            } else {
-                i = 0;
+        @Override // android.content.ComponentCallbacks
+        public void onConfigurationChanged(Configuration configuration) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, configuration) == null) {
             }
-            int i3 = i * 31;
-            q0c q0cVar = this.e;
-            if (q0cVar != null) {
-                i2 = q0cVar.hashCode();
+        }
+
+        @Override // android.content.ComponentCallbacks
+        public void onLowMemory() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             }
-            return i3 + i2;
         }
-        return invokeV.intValue;
-    }
 
-    @Override // org.java_websocket.drafts.Draft
-    public Draft.CloseHandshakeType l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return Draft.CloseHandshakeType.TWOWAY;
-        }
-        return (Draft.CloseHandshakeType) invokeV.objValue;
-    }
-
-    @Override // org.java_websocket.drafts.Draft
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.i = null;
-            xzb xzbVar = this.c;
-            if (xzbVar != null) {
-                xzbVar.reset();
+        @Override // android.content.ComponentCallbacks2
+        public void onTrimMemory(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             }
-            this.c = new wzb();
-            this.e = null;
         }
-    }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public vzb(List<xzb> list) {
-        this(list, Collections.singletonList(new r0c("")));
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((List) objArr2[0], (List) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
     }
 
-    public final Framedata.Opcode I(byte b) throws InvalidFrameException {
-        InterceptResult invokeB;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeB = interceptable.invokeB(1048583, this, b)) == null) {
-            if (b != 0) {
-                if (b != 1) {
-                    if (b != 2) {
-                        switch (b) {
-                            case 8:
-                                return Framedata.Opcode.CLOSING;
-                            case 9:
-                                return Framedata.Opcode.PING;
-                            case 10:
-                                return Framedata.Opcode.PONG;
-                            default:
-                                throw new InvalidFrameException("Unknown opcode " + ((int) b));
+    /* loaded from: classes8.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+
+        public c(Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zzb.a(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ Map d;
+        public final /* synthetic */ f e;
+
+        public d(List list, String str, String str2, Map map, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {list, str, str2, map, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = list;
+            this.b = str;
+            this.c = str2;
+            this.d = map;
+            this.e = fVar;
+        }
+
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Removed duplicated region for block: B:113:0x022b A[Catch: all -> 0x0278, TRY_LEAVE, TryCatch #10 {all -> 0x0278, blocks: (B:111:0x0222, B:113:0x022b), top: B:152:0x0222 }] */
+        /* JADX WARN: Removed duplicated region for block: B:146:0x029c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:148:0x025b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:154:0x027c A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:158:0x023b A[EXC_TOP_SPLITTER, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:198:? A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:64:0x012d A[Catch: all -> 0x01dd, Exception -> 0x01e2, TryCatch #13 {all -> 0x01dd, blocks: (B:28:0x0063, B:29:0x006b, B:31:0x0071, B:32:0x0077, B:33:0x0094, B:34:0x0099, B:37:0x00a1, B:38:0x00a4, B:39:0x00aa, B:43:0x00b5, B:45:0x00bb, B:47:0x00c9, B:49:0x00d0, B:50:0x00d4, B:52:0x00e0, B:54:0x00fa, B:55:0x00ff, B:57:0x0105, B:60:0x010c, B:62:0x0117, B:64:0x012d, B:67:0x013f, B:70:0x0154, B:73:0x0171, B:71:0x0160, B:61:0x0111, B:80:0x017f, B:81:0x0182, B:82:0x019c), top: B:156:0x0063 }] */
+        /* JADX WARN: Removed duplicated region for block: B:71:0x0160 A[Catch: all -> 0x01dd, Exception -> 0x01e2, TryCatch #13 {all -> 0x01dd, blocks: (B:28:0x0063, B:29:0x006b, B:31:0x0071, B:32:0x0077, B:33:0x0094, B:34:0x0099, B:37:0x00a1, B:38:0x00a4, B:39:0x00aa, B:43:0x00b5, B:45:0x00bb, B:47:0x00c9, B:49:0x00d0, B:50:0x00d4, B:52:0x00e0, B:54:0x00fa, B:55:0x00ff, B:57:0x0105, B:60:0x010c, B:62:0x0117, B:64:0x012d, B:67:0x013f, B:70:0x0154, B:73:0x0171, B:71:0x0160, B:61:0x0111, B:80:0x017f, B:81:0x0182, B:82:0x019c), top: B:156:0x0063 }] */
+        /* JADX WARN: Removed duplicated region for block: B:73:0x0171 A[Catch: all -> 0x01dd, Exception -> 0x01e2, TryCatch #13 {all -> 0x01dd, blocks: (B:28:0x0063, B:29:0x006b, B:31:0x0071, B:32:0x0077, B:33:0x0094, B:34:0x0099, B:37:0x00a1, B:38:0x00a4, B:39:0x00aa, B:43:0x00b5, B:45:0x00bb, B:47:0x00c9, B:49:0x00d0, B:50:0x00d4, B:52:0x00e0, B:54:0x00fa, B:55:0x00ff, B:57:0x0105, B:60:0x010c, B:62:0x0117, B:64:0x012d, B:67:0x013f, B:70:0x0154, B:73:0x0171, B:71:0x0160, B:61:0x0111, B:80:0x017f, B:81:0x0182, B:82:0x019c), top: B:156:0x0063 }] */
+        /* JADX WARN: Type inference failed for: r6v0 */
+        /* JADX WARN: Type inference failed for: r6v1 */
+        /* JADX WARN: Type inference failed for: r6v19 */
+        /* JADX WARN: Type inference failed for: r6v2, types: [java.util.zip.ZipOutputStream] */
+        /* JADX WARN: Type inference failed for: r6v3, types: [java.util.zip.ZipOutputStream] */
+        @Override // java.lang.Runnable
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void run() {
+            WritableByteChannel writableByteChannel;
+            Throwable th;
+            ZipOutputStream zipOutputStream;
+            ZipOutputStream zipOutputStream2;
+            Exception exc;
+            StringBuilder sb;
+            ZipOutputStream zipOutputStream3;
+            ZipOutputStream zipOutputStream4;
+            FileChannel fileChannel;
+            long length;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    ArrayList<String> arrayList = new ArrayList();
+                    if (this.a != null) {
+                        try {
+                            if (this.a.size() > 0) {
+                                for (String str : this.a) {
+                                    if (str != null && str.length() > 0) {
+                                        arrayList.add(str);
+                                    }
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            zipOutputStream4 = null;
+                            writableByteChannel = null;
+                            zipOutputStream2 = zipOutputStream4;
+                            try {
+                                tzb.h("CrashUploader", "uploadReport ERROR:", e);
+                                if (this.e != null) {
+                                }
+                                if (zipOutputStream2 != 0) {
+                                }
+                                if (writableByteChannel == null) {
+                                }
+                            } catch (Throwable th2) {
+                                th = th2;
+                                zipOutputStream = zipOutputStream2;
+                                if (zipOutputStream != 0) {
+                                    try {
+                                        zipOutputStream.finish();
+                                        zipOutputStream.close();
+                                    } catch (Exception e2) {
+                                        tzb.g("CrashUploader", "outZip close ERROR:" + e2.getMessage());
+                                    }
+                                }
+                                if (writableByteChannel != null) {
+                                    try {
+                                        writableByteChannel.close();
+                                    } catch (Exception e3) {
+                                        tzb.g("CrashUploader", "writableByteChannel close ERROR:" + e3.getMessage());
+                                    }
+                                }
+                                throw th;
+                            }
+                        } catch (Throwable th3) {
+                            th = th3;
+                            zipOutputStream3 = null;
+                            writableByteChannel = null;
+                            zipOutputStream = zipOutputStream3;
+                            if (zipOutputStream != 0) {
+                            }
+                            if (writableByteChannel != null) {
+                            }
+                            throw th;
                         }
                     }
-                    return Framedata.Opcode.BINARY;
+                    if (arrayList.size() > 0) {
+                        ZipOutputStream zipOutputStream5 = new ZipOutputStream(new BufferedOutputStream(new FileOutputStream(this.b)));
+                        try {
+                            writableByteChannel = Channels.newChannel(zipOutputStream5);
+                            try {
+                                try {
+                                    long j = 0;
+                                    for (String str2 : arrayList) {
+                                        try {
+                                            tzb.d("CrashUploader", "uploadReport file = " + str2);
+                                            fileChannel = new FileInputStream(str2).getChannel();
+                                            try {
+                                                File file = new File(str2);
+                                                if (!file.exists()) {
+                                                    if (fileChannel != null) {
+                                                        fileChannel.close();
+                                                    }
+                                                    tzb.b("CrashUploader", "Exception: File is not exists");
+                                                } else {
+                                                    if (!str2.endsWith("dmp")) {
+                                                        if (str2.endsWith("hprof")) {
+                                                            if (j + (file.length() / 4) > vzb.b) {
+                                                                tzb.b("CrashUploader", "Upload hprof file too large, not upload!");
+                                                                if (fileChannel != null) {
+                                                                    fileChannel.close();
+                                                                }
+                                                            }
+                                                        } else if (j + file.length() > vzb.b) {
+                                                            tzb.b("CrashUploader", file.getName() + " too large, not upload!");
+                                                            if (fileChannel != null) {
+                                                                fileChannel.close();
+                                                            }
+                                                        }
+                                                    }
+                                                    if (!str2.endsWith("dmp") && !str2.endsWith("hprof")) {
+                                                        length = file.length();
+                                                        long j2 = j + length;
+                                                        zipOutputStream5.putNextEntry(new ZipEntry(file.getName()));
+                                                        if (!str2.endsWith("hprof")) {
+                                                            long length2 = file.length() / 4;
+                                                            long length3 = file.length();
+                                                            long j3 = 0;
+                                                            while (length3 > length2) {
+                                                                length3 -= length2;
+                                                                j3 += fileChannel.transferTo(j3, length2, writableByteChannel);
+                                                            }
+                                                            if (length3 > 0) {
+                                                                fileChannel.transferTo(j3, length3, writableByteChannel);
+                                                            }
+                                                        } else {
+                                                            fileChannel.transferTo(0L, file.length(), writableByteChannel);
+                                                        }
+                                                        if (fileChannel != null) {
+                                                            fileChannel.close();
+                                                        }
+                                                        j = j2;
+                                                    }
+                                                    length = file.length() / 4;
+                                                    long j22 = j + length;
+                                                    zipOutputStream5.putNextEntry(new ZipEntry(file.getName()));
+                                                    if (!str2.endsWith("hprof")) {
+                                                    }
+                                                    if (fileChannel != null) {
+                                                    }
+                                                    j = j22;
+                                                }
+                                            } catch (Exception e4) {
+                                                e = e4;
+                                                if (fileChannel != null) {
+                                                    fileChannel.close();
+                                                }
+                                                tzb.b("CrashUploader", "Exception: " + e.getMessage());
+                                            }
+                                        } catch (Exception e5) {
+                                            e = e5;
+                                            fileChannel = null;
+                                        }
+                                    }
+                                    zipOutputStream5.flush();
+                                    zipOutputStream5.finish();
+                                    zipOutputStream5.close();
+                                    tzb.d("CrashUploader", "post file size = " + j);
+                                    vzb.h(vzb.c, this.c, this.d, this.b, this.e);
+                                    tzb.d("CrashUploader", "post end file size = " + j);
+                                } catch (Throwable th4) {
+                                    th = th4;
+                                    zipOutputStream = zipOutputStream5;
+                                    if (zipOutputStream != 0) {
+                                    }
+                                    if (writableByteChannel != null) {
+                                    }
+                                    throw th;
+                                }
+                            } catch (Exception e6) {
+                                e = e6;
+                                zipOutputStream2 = zipOutputStream5;
+                                tzb.h("CrashUploader", "uploadReport ERROR:", e);
+                                if (this.e != null) {
+                                    this.e.onResult(this.c, false, 201, e.getMessage());
+                                }
+                                if (zipOutputStream2 != 0) {
+                                    try {
+                                        zipOutputStream2.finish();
+                                        zipOutputStream2.close();
+                                    } catch (Exception e7) {
+                                        tzb.g("CrashUploader", "outZip close ERROR:" + e7.getMessage());
+                                    }
+                                }
+                                if (writableByteChannel == null) {
+                                    try {
+                                        writableByteChannel.close();
+                                        return;
+                                    } catch (Exception e8) {
+                                        exc = e8;
+                                        sb = new StringBuilder();
+                                        sb.append("writableByteChannel close ERROR:");
+                                        sb.append(exc.getMessage());
+                                        tzb.g("CrashUploader", sb.toString());
+                                    }
+                                }
+                                return;
+                            }
+                        } catch (Exception e9) {
+                            e = e9;
+                            zipOutputStream4 = zipOutputStream5;
+                            writableByteChannel = null;
+                            zipOutputStream2 = zipOutputStream4;
+                            tzb.h("CrashUploader", "uploadReport ERROR:", e);
+                            if (this.e != null) {
+                            }
+                            if (zipOutputStream2 != 0) {
+                            }
+                            if (writableByteChannel == null) {
+                            }
+                        } catch (Throwable th5) {
+                            th = th5;
+                            zipOutputStream3 = zipOutputStream5;
+                            writableByteChannel = null;
+                            zipOutputStream = zipOutputStream3;
+                            if (zipOutputStream != 0) {
+                            }
+                            if (writableByteChannel != null) {
+                            }
+                            throw th;
+                        }
+                    } else {
+                        tzb.d("CrashUploader", "post file null");
+                        writableByteChannel = null;
+                        try {
+                            vzb.h(vzb.c, this.c, this.d, null, this.e);
+                            tzb.d("CrashUploader", "post file null end");
+                        } catch (Exception e10) {
+                            e = e10;
+                            zipOutputStream2 = writableByteChannel;
+                            tzb.h("CrashUploader", "uploadReport ERROR:", e);
+                            if (this.e != null) {
+                            }
+                            if (zipOutputStream2 != 0) {
+                            }
+                            if (writableByteChannel == null) {
+                            }
+                        } catch (Throwable th6) {
+                            th = th6;
+                            th = th;
+                            zipOutputStream = writableByteChannel;
+                            if (zipOutputStream != 0) {
+                            }
+                            if (writableByteChannel != null) {
+                            }
+                            throw th;
+                        }
+                    }
+                    WritableByteChannel writableByteChannel2 = writableByteChannel;
+                    if (writableByteChannel2 != null) {
+                        try {
+                            writableByteChannel2.close();
+                        } catch (Exception e11) {
+                            exc = e11;
+                            sb = new StringBuilder();
+                            sb.append("writableByteChannel close ERROR:");
+                            sb.append(exc.getMessage());
+                            tzb.g("CrashUploader", sb.toString());
+                        }
+                    }
+                } catch (Exception e12) {
+                    e = e12;
+                    writableByteChannel = null;
+                } catch (Throwable th7) {
+                    th = th7;
+                    writableByteChannel = null;
                 }
-                return Framedata.Opcode.TEXT;
             }
-            return Framedata.Opcode.CONTINUOUS;
         }
-        return (Framedata.Opcode) invokeB.objValue;
     }
 
-    public final byte y(Framedata.Opcode opcode) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, opcode)) == null) {
-            if (opcode == Framedata.Opcode.CONTINUOUS) {
-                return (byte) 0;
-            }
-            if (opcode == Framedata.Opcode.TEXT) {
-                return (byte) 1;
-            }
-            if (opcode == Framedata.Opcode.BINARY) {
-                return (byte) 2;
-            }
-            if (opcode == Framedata.Opcode.CLOSING) {
-                return (byte) 8;
-            }
-            if (opcode == Framedata.Opcode.PING) {
-                return (byte) 9;
-            }
-            if (opcode == Framedata.Opcode.PONG) {
-                return (byte) 10;
-            }
-            throw new IllegalArgumentException("Don't know how to handle " + opcode.toString());
-        }
-        return invokeL.byteValue;
-    }
+    /* loaded from: classes8.dex */
+    public static class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ f d;
 
-    public vzb(List<xzb> list, List<q0c> list2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, list2};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.c = new wzb();
-        this.j = new Random();
-        if (list != null && list2 != null) {
-            this.d = new ArrayList(list.size());
-            this.f = new ArrayList(list2.size());
-            boolean z = false;
-            this.h = new ArrayList();
-            for (xzb xzbVar : list) {
-                if (xzbVar.getClass().equals(wzb.class)) {
-                    z = true;
+        public e(Map map, String str, String str2, f fVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, str, str2, fVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            this.d.addAll(list);
-            if (!z) {
-                List<xzb> list3 = this.d;
-                list3.add(list3.size(), this.c);
+            this.a = map;
+            this.b = str;
+            this.c = str2;
+            this.d = fVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    Thread.currentThread().setName("fallThread");
+                    MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
+                    for (Map.Entry entry : this.a.entrySet()) {
+                        type.addPart(Headers.of("Content-Disposition", "form-data; name=\"" + ((String) entry.getKey()) + "\""), RequestBody.create((MediaType) null, (String) entry.getValue()));
+                    }
+                    if (this.b != null && this.b.length() > 0) {
+                        File file = new File(this.b);
+                        MediaType parse = MediaType.parse(URLConnection.getFileNameMap().getContentTypeFor(this.b));
+                        type.addPart(Headers.of("Content-Disposition", "form-data; name=\"files\"; filename=\"" + file.getName() + "\""), RequestBody.create(parse, file));
+                    }
+                    Request build = new Request.Builder().url(this.c).post(type.build()).build();
+                    OkHttpClient.Builder builder = new OkHttpClient.Builder();
+                    builder.connectTimeout(3000L, TimeUnit.SECONDS);
+                    builder.writeTimeout(5000L, TimeUnit.SECONDS);
+                    builder.readTimeout(3000L, TimeUnit.SECONDS);
+                    Response execute = builder.build().newCall(build).execute();
+                    tzb.d("CrashUploader", "post end");
+                    String string = execute.body().string();
+                    int code = execute.code();
+                    if (this.d != null) {
+                        this.d.onResult(this.c, true, code, string);
+                    }
+                    execute.close();
+                } catch (Throwable th) {
+                    f fVar = this.d;
+                    if (fVar != null) {
+                        fVar.onResult(this.c, false, -3, th.getMessage());
+                    }
+                }
             }
-            this.f.addAll(list2);
-            return;
-        }
-        throw new IllegalArgumentException();
-    }
-
-    public static void G(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj) == null) && szb.u) {
-            System.out.println(obj);
         }
     }
 
-    public final ByteBuffer D() throws LimitExedeedException {
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = 0;
-            for (ByteBuffer byteBuffer : this.h) {
-                j += byteBuffer.limit();
-            }
-            if (j <= 2147483647L) {
-                ByteBuffer allocate = ByteBuffer.allocate((int) j);
-                for (ByteBuffer byteBuffer2 : this.h) {
-                    allocate.put(byteBuffer2);
-                }
-                allocate.flip();
-                return allocate;
-            }
-            throw new LimitExedeedException("Payloadsize is to big...");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d;
         }
-        return (ByteBuffer) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // org.java_websocket.drafts.Draft
-    public Draft f() {
-        InterceptResult invokeV;
+    public static String b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (xzb xzbVar : B()) {
-                arrayList.add(xzbVar.a());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                return str;
             }
-            ArrayList arrayList2 = new ArrayList();
-            for (q0c q0cVar : C()) {
-                arrayList2.add(q0cVar.a());
-            }
-            return new vzb(arrayList, arrayList2);
-        }
-        return (Draft) invokeV.objValue;
-    }
-
-    @Override // org.java_websocket.drafts.Draft
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            String draft = super.toString();
-            if (A() != null) {
-                draft = draft + " extension: " + A().toString();
-            }
-            if (E() != null) {
-                return draft + " protocol: " + E().toString();
-            }
-            return draft;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final byte[] H(long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
-            byte[] bArr = new byte[i];
-            int i2 = (i * 8) - 8;
-            for (int i3 = 0; i3 < i; i3++) {
-                bArr[i3] = (byte) (j >>> (i2 - (i3 * 8)));
-            }
-            return bArr;
-        }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    @Override // org.java_websocket.drafts.Draft
-    public List<Framedata> h(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, str, z)) == null) {
-            g0c g0cVar = new g0c();
-            g0cVar.j(ByteBuffer.wrap(u0c.f(str)));
-            g0cVar.n(z);
             try {
-                g0cVar.h();
-                return Collections.singletonList(g0cVar);
-            } catch (InvalidDataException e) {
-                throw new NotSendableException(e);
+                JSONObject jSONObject = new JSONObject(str);
+                jSONObject.put(str2, str3);
+                return jSONObject.toString();
+            } catch (Exception unused) {
+                return str;
             }
         }
-        return (List) invokeLZ.objValue;
+        return (String) invokeLLL.objValue;
     }
 
-    public Framedata J(ByteBuffer byteBuffer) throws IncompleteException, InvalidDataException {
+    public static Map<String, String> c(String str) {
         InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
-        boolean z5;
-        boolean z6;
-        int i;
-        int i2;
-        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer)) == null) {
-            int remaining = byteBuffer.remaining();
-            int i3 = 2;
-            if (remaining >= 2) {
-                byte b = byteBuffer.get();
-                if ((b >> 8) != 0) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if ((b & 64) != 0) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if ((b & 32) != 0) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                if ((b & 16) != 0) {
-                    z4 = true;
-                } else {
-                    z4 = false;
-                }
-                byte b2 = byteBuffer.get();
-                if ((b2 & Byte.MIN_VALUE) != 0) {
-                    z5 = true;
-                } else {
-                    z5 = false;
-                }
-                byte b3 = (byte) (b2 & ByteCompanionObject.MAX_VALUE);
-                Framedata.Opcode I = I((byte) (b & 15));
-                if (b3 >= 0 && b3 <= 125) {
-                    z6 = z2;
-                    i = b3;
-                } else if (I != Framedata.Opcode.PING && I != Framedata.Opcode.PONG && I != Framedata.Opcode.CLOSING) {
-                    if (b3 == 126) {
-                        if (remaining >= 4) {
-                            z6 = z2;
-                            i = new BigInteger(new byte[]{0, byteBuffer.get(), byteBuffer.get()}).intValue();
-                            i3 = 4;
-                        } else {
-                            throw new IncompleteException(4);
-                        }
-                    } else {
-                        i3 = 10;
-                        if (remaining >= 10) {
-                            byte[] bArr = new byte[8];
-                            for (int i4 = 0; i4 < 8; i4++) {
-                                bArr[i4] = byteBuffer.get();
-                            }
-                            z6 = z2;
-                            long longValue = new BigInteger(bArr).longValue();
-                            if (longValue <= 2147483647L) {
-                                i = (int) longValue;
-                            } else {
-                                throw new LimitExedeedException("Payloadsize is to big...");
-                            }
-                        } else {
-                            throw new IncompleteException(10);
-                        }
-                    }
-                } else {
-                    throw new InvalidFrameException("more than 125 octets");
-                }
-                if (z5) {
-                    i2 = 4;
-                } else {
-                    i2 = 0;
-                }
-                int i5 = i3 + i2 + i;
-                if (remaining >= i5) {
-                    d(i);
-                    ByteBuffer allocate = ByteBuffer.allocate(i);
-                    if (z5) {
-                        byte[] bArr2 = new byte[4];
-                        byteBuffer.get(bArr2);
-                        for (int i6 = 0; i6 < i; i6++) {
-                            allocate.put((byte) (byteBuffer.get() ^ bArr2[i6 % 4]));
-                        }
-                    } else {
-                        allocate.put(byteBuffer.array(), byteBuffer.position(), allocate.limit());
-                        byteBuffer.position(byteBuffer.position() + allocate.limit());
-                    }
-                    d0c g = d0c.g(I);
-                    g.i(z);
-                    g.k(z6);
-                    g.l(z3);
-                    g.m(z4);
-                    allocate.flip();
-                    g.j(allocate);
-                    A().h(g);
-                    A().f(g);
-                    if (szb.u) {
-                        PrintStream printStream = System.out;
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("afterDecoding(");
-                        sb.append(g.a().remaining());
-                        sb.append("): {");
-                        if (g.a().remaining() > 1000) {
-                            str = "too big to display";
-                        } else {
-                            str = new String(g.a().array());
-                        }
-                        sb.append(str);
-                        sb.append('}');
-                        printStream.println(sb.toString());
-                    }
-                    g.h();
-                    return g;
-                }
-                throw new IncompleteException(i5);
-            }
-            throw new IncompleteException(2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, wzb.e());
+            hashMap.put("sign", "");
+            hashMap.put("data", yzb.a(str));
+            tzb.d("CrashUploader", "APP_ID_KEY: " + wzb.e());
+            return hashMap;
         }
-        return (Framedata) invokeL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    @Override // org.java_websocket.drafts.Draft
-    public Draft.HandshakeState a(h0c h0cVar, o0c o0cVar) throws InvalidHandshakeException {
+    public static String d(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, h0cVar, o0cVar)) == null) {
-            if (!c(o0cVar)) {
-                G("acceptHandshakeAsClient - Missing/wrong upgrade or connection in handshake.");
-                return Draft.HandshakeState.NOT_MATCHED;
-            } else if (h0cVar.e("Sec-WebSocket-Key") && o0cVar.e("Sec-WebSocket-Accept")) {
-                if (!z(h0cVar.d("Sec-WebSocket-Key")).equals(o0cVar.d("Sec-WebSocket-Accept"))) {
-                    G("acceptHandshakeAsClient - Wrong key for Sec-WebSocket-Key.");
-                    return Draft.HandshakeState.NOT_MATCHED;
-                }
-                Draft.HandshakeState handshakeState = Draft.HandshakeState.NOT_MATCHED;
-                String d = o0cVar.d("Sec-WebSocket-Extensions");
-                Iterator<xzb> it = this.d.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    xzb next = it.next();
-                    if (next.b(d)) {
-                        this.c = next;
-                        handshakeState = Draft.HandshakeState.MATCHED;
-                        G("acceptHandshakeAsClient - Matching extension found: " + this.c.toString());
-                        break;
-                    }
-                }
-                Draft.HandshakeState handshakeState2 = Draft.HandshakeState.NOT_MATCHED;
-                String d2 = o0cVar.d("Sec-WebSocket-Protocol");
-                Iterator<q0c> it2 = this.f.iterator();
-                while (true) {
-                    if (!it2.hasNext()) {
-                        break;
-                    }
-                    q0c next2 = it2.next();
-                    if (next2.b(d2)) {
-                        this.e = next2;
-                        handshakeState2 = Draft.HandshakeState.MATCHED;
-                        G("acceptHandshakeAsClient - Matching protocol found: " + this.e.toString());
-                        break;
-                    }
-                }
-                Draft.HandshakeState handshakeState3 = Draft.HandshakeState.MATCHED;
-                if (handshakeState2 == handshakeState3 && handshakeState == handshakeState3) {
-                    return handshakeState3;
-                }
-                G("acceptHandshakeAsClient - No matching extension or protocol found.");
-                return Draft.HandshakeState.NOT_MATCHED;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return wzb.s() + File.separator + str + "_" + str2 + ".zip";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void e(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, context) != null) || c != null) {
+            return;
+        }
+        c = Executors.newSingleThreadExecutor();
+        if ((context instanceof Application) && Build.VERSION.SDK_INT >= 14) {
+            g((Application) context);
+        }
+        i(context);
+    }
+
+    @TargetApi(14)
+    public static void g(Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, application) == null) {
+            application.registerActivityLifecycleCallbacks(new a());
+            application.registerComponentCallbacks(new b());
+        }
+    }
+
+    public static void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+            if (context == null) {
+                tzb.b("CrashUploader", "Context is null");
             } else {
-                G("acceptHandshakeAsClient - Missing Sec-WebSocket-Key or Sec-WebSocket-Accept");
-                return Draft.HandshakeState.NOT_MATCHED;
+                c.execute(new c(context));
             }
         }
-        return (Draft.HandshakeState) invokeLL.objValue;
     }
 
-    @Override // org.java_websocket.drafts.Draft
-    public Draft.HandshakeState b(h0c h0cVar) throws InvalidHandshakeException {
-        InterceptResult invokeL;
+    public static boolean h(Executor executor, String str, Map<String, String> map, String str2, f fVar) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, h0cVar)) == null) {
-            if (r(h0cVar) != 13) {
-                G("acceptHandshakeAsServer - Wrong websocket version.");
-                return Draft.HandshakeState.NOT_MATCHED;
-            }
-            Draft.HandshakeState handshakeState = Draft.HandshakeState.NOT_MATCHED;
-            String d = h0cVar.d("Sec-WebSocket-Extensions");
-            Iterator<xzb> it = this.d.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                xzb next = it.next();
-                if (next.e(d)) {
-                    this.c = next;
-                    handshakeState = Draft.HandshakeState.MATCHED;
-                    G("acceptHandshakeAsServer - Matching extension found: " + this.c.toString());
-                    break;
-                }
-            }
-            Draft.HandshakeState handshakeState2 = Draft.HandshakeState.NOT_MATCHED;
-            String d2 = h0cVar.d("Sec-WebSocket-Protocol");
-            Iterator<q0c> it2 = this.f.iterator();
-            while (true) {
-                if (!it2.hasNext()) {
-                    break;
-                }
-                q0c next2 = it2.next();
-                if (next2.b(d2)) {
-                    this.e = next2;
-                    handshakeState2 = Draft.HandshakeState.MATCHED;
-                    G("acceptHandshakeAsServer - Matching protocol found: " + this.e.toString());
-                    break;
-                }
-            }
-            Draft.HandshakeState handshakeState3 = Draft.HandshakeState.MATCHED;
-            if (handshakeState2 == handshakeState3 && handshakeState == handshakeState3) {
-                return handshakeState3;
-            }
-            G("acceptHandshakeAsServer - No matching extension or protocol found.");
-            return Draft.HandshakeState.NOT_MATCHED;
-        }
-        return (Draft.HandshakeState) invokeL.objValue;
-    }
-
-    @Override // org.java_websocket.drafts.Draft
-    public i0c m(i0c i0cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, i0cVar)) == null) {
-            i0cVar.put("Upgrade", "websocket");
-            i0cVar.put(HTTP.CONN_DIRECTIVE, "Upgrade");
-            byte[] bArr = new byte[16];
-            this.j.nextBytes(bArr);
-            i0cVar.put("Sec-WebSocket-Key", s0c.g(bArr));
-            i0cVar.put("Sec-WebSocket-Version", "13");
-            StringBuilder sb = new StringBuilder();
-            for (xzb xzbVar : this.d) {
-                if (xzbVar.g() != null && xzbVar.g().length() != 0) {
-                    if (sb.length() > 0) {
-                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    }
-                    sb.append(xzbVar.g());
-                }
-            }
-            if (sb.length() != 0) {
-                i0cVar.put("Sec-WebSocket-Extensions", sb.toString());
-            }
-            StringBuilder sb2 = new StringBuilder();
-            for (q0c q0cVar : this.f) {
-                if (q0cVar.c().length() != 0) {
-                    if (sb2.length() > 0) {
-                        sb2.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                    }
-                    sb2.append(q0cVar.c());
-                }
-            }
-            if (sb2.length() != 0) {
-                i0cVar.put("Sec-WebSocket-Protocol", sb2.toString());
-            }
-            return i0cVar;
-        }
-        return (i0c) invokeL.objValue;
-    }
-
-    @Override // org.java_websocket.drafts.Draft
-    public List<Framedata> u(ByteBuffer byteBuffer) throws InvalidDataException {
-        LinkedList linkedList;
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, byteBuffer)) == null) {
-            while (true) {
-                linkedList = new LinkedList();
-                if (this.i == null) {
-                    break;
-                }
-                try {
-                    byteBuffer.mark();
-                    int remaining = byteBuffer.remaining();
-                    int remaining2 = this.i.remaining();
-                    if (remaining2 > remaining) {
-                        this.i.put(byteBuffer.array(), byteBuffer.position(), remaining);
-                        byteBuffer.position(byteBuffer.position() + remaining);
-                        return Collections.emptyList();
-                    }
-                    this.i.put(byteBuffer.array(), byteBuffer.position(), remaining2);
-                    byteBuffer.position(byteBuffer.position() + remaining2);
-                    linkedList.add(J((ByteBuffer) this.i.duplicate().position(0)));
-                    this.i = null;
-                } catch (IncompleteException e) {
-                    int preferredSize = e.getPreferredSize();
-                    d(preferredSize);
-                    ByteBuffer allocate = ByteBuffer.allocate(preferredSize);
-                    this.i.rewind();
-                    allocate.put(this.i);
-                    this.i = allocate;
-                }
-            }
-            while (byteBuffer.hasRemaining()) {
-                byteBuffer.mark();
-                try {
-                    linkedList.add(J(byteBuffer));
-                } catch (IncompleteException e2) {
-                    byteBuffer.reset();
-                    int preferredSize2 = e2.getPreferredSize();
-                    d(preferredSize2);
-                    ByteBuffer allocate2 = ByteBuffer.allocate(preferredSize2);
-                    this.i = allocate2;
-                    allocate2.put(byteBuffer);
-                }
-            }
-            return linkedList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || vzb.class != obj.getClass()) {
-                return false;
-            }
-            vzb vzbVar = (vzb) obj;
-            xzb xzbVar = this.c;
-            if (xzbVar == null ? vzbVar.c != null : !xzbVar.equals(vzbVar.c)) {
-                return false;
-            }
-            q0c q0cVar = this.e;
-            q0c q0cVar2 = vzbVar.e;
-            if (q0cVar != null) {
-                return q0cVar.equals(q0cVar2);
-            }
-            if (q0cVar2 == null) {
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65544, null, executor, str, map, str2, fVar)) == null) {
+            if (str != null && str.length() > 0) {
+                tzb.d("CrashUploader", "post start file name is " + str2);
+                executor.execute(new e(map, str2, str, fVar));
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    public final String z(String str) {
-        InterceptResult invokeL;
+    public static boolean j(CrashInfo crashInfo, String str, f fVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            String trim = str.trim();
-            try {
-                return s0c.g(MessageDigest.getInstance("SHA1").digest((trim + WebSocketProtocol.ACCEPT_MAGIC).getBytes()));
-            } catch (NoSuchAlgorithmException e) {
-                throw new IllegalStateException(e);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65546, null, crashInfo, str, fVar)) == null) {
+            Map<String, String> c2 = c(b(crashInfo.nyyData, "stage", "1"));
+            if (str != null && str.length() > 0) {
+                c2.put("errorInfo", str);
             }
+            return h(c, a, c2, null, fVar);
         }
-        return (String) invokeL.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // org.java_websocket.drafts.Draft
-    public ByteBuffer g(Framedata framedata) {
-        InterceptResult invokeL;
-        String str;
+    public static boolean k(CrashInfo crashInfo, String str, List<String> list, f fVar) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, framedata)) == null) {
-            A().c(framedata);
-            if (szb.u) {
-                PrintStream printStream = System.out;
-                StringBuilder sb = new StringBuilder();
-                sb.append("afterEnconding(");
-                sb.append(framedata.a().remaining());
-                sb.append("): {");
-                if (framedata.a().remaining() > 1000) {
-                    str = "too big to display";
-                } else {
-                    str = new String(framedata.a().array());
-                }
-                sb.append(str);
-                sb.append('}');
-                printStream.println(sb.toString());
-            }
-            return x(framedata);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65547, null, crashInfo, str, list, fVar)) == null) {
+            return l(a, c(b(crashInfo.nyyData, "stage", str)), list, d(crashInfo.crashId, str), fVar);
         }
-        return (ByteBuffer) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // org.java_websocket.drafts.Draft
-    public List<Framedata> i(ByteBuffer byteBuffer, boolean z) {
-        InterceptResult invokeLZ;
+    public static boolean l(String str, Map<String, String> map, List<String> list, String str2, f fVar) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048592, this, byteBuffer, z)) == null) {
-            yzb yzbVar = new yzb();
-            yzbVar.j(byteBuffer);
-            yzbVar.n(z);
-            try {
-                yzbVar.h();
-                return Collections.singletonList(yzbVar);
-            } catch (InvalidDataException e) {
-                throw new NotSendableException(e);
-            }
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65548, null, str, map, list, str2, fVar)) == null) {
+            c.execute(new d(list, str2, str, map, fVar));
+            return true;
         }
-        return (List) invokeLZ.objValue;
-    }
-
-    @Override // org.java_websocket.drafts.Draft
-    public j0c n(h0c h0cVar, p0c p0cVar) throws InvalidHandshakeException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, h0cVar, p0cVar)) == null) {
-            p0cVar.put("Upgrade", "websocket");
-            p0cVar.put(HTTP.CONN_DIRECTIVE, h0cVar.d(HTTP.CONN_DIRECTIVE));
-            String d = h0cVar.d("Sec-WebSocket-Key");
-            if (d != null) {
-                p0cVar.put("Sec-WebSocket-Accept", z(d));
-                if (A().d().length() != 0) {
-                    p0cVar.put("Sec-WebSocket-Extensions", A().d());
-                }
-                if (E() != null && E().c().length() != 0) {
-                    p0cVar.put("Sec-WebSocket-Protocol", E().c());
-                }
-                p0cVar.c("Web Socket Protocol Handshake");
-                p0cVar.put("Server", "TooTallNate Java-WebSocket");
-                p0cVar.put("Date", F());
-                return p0cVar;
-            }
-            throw new InvalidHandshakeException("missing Sec-WebSocket-Key");
-        }
-        return (j0c) invokeLL.objValue;
-    }
-
-    @Override // org.java_websocket.drafts.Draft
-    public void o(szb szbVar, Framedata framedata) throws InvalidDataException {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048596, this, szbVar, framedata) == null) {
-            Framedata.Opcode d = framedata.d();
-            if (d == Framedata.Opcode.CLOSING) {
-                int i = 1005;
-                if (framedata instanceof zzb) {
-                    zzb zzbVar = (zzb) framedata;
-                    i = zzbVar.o();
-                    str = zzbVar.p();
-                } else {
-                    str = "";
-                }
-                if (szbVar.t() == WebSocket.READYSTATE.CLOSING) {
-                    szbVar.g(i, str, true);
-                } else if (l() == Draft.CloseHandshakeType.TWOWAY) {
-                    szbVar.d(i, str, true);
-                } else {
-                    szbVar.o(i, str, false);
-                }
-            } else if (d == Framedata.Opcode.PING) {
-                szbVar.v().onWebsocketPing(szbVar, framedata);
-            } else if (d == Framedata.Opcode.PONG) {
-                szbVar.N();
-                szbVar.v().onWebsocketPong(szbVar, framedata);
-            } else if (framedata.f() && d != Framedata.Opcode.CONTINUOUS) {
-                if (this.g == null) {
-                    if (d == Framedata.Opcode.TEXT) {
-                        try {
-                            szbVar.v().onWebsocketMessage(szbVar, u0c.e(framedata.a()));
-                            return;
-                        } catch (RuntimeException e) {
-                            szbVar.v().onWebsocketError(szbVar, e);
-                            return;
-                        }
-                    } else if (d == Framedata.Opcode.BINARY) {
-                        try {
-                            szbVar.v().onWebsocketMessage(szbVar, framedata.a());
-                            return;
-                        } catch (RuntimeException e2) {
-                            szbVar.v().onWebsocketError(szbVar, e2);
-                            return;
-                        }
-                    } else {
-                        throw new InvalidDataException(1002, "non control or continious frame expected");
-                    }
-                }
-                throw new InvalidDataException(1002, "Continuous frame sequence not completed.");
-            } else {
-                if (d != Framedata.Opcode.CONTINUOUS) {
-                    if (this.g == null) {
-                        this.g = framedata;
-                        this.h.add(framedata.a());
-                    } else {
-                        throw new InvalidDataException(1002, "Previous continuous frame sequence not completed.");
-                    }
-                } else if (framedata.f()) {
-                    if (this.g != null) {
-                        this.h.add(framedata.a());
-                        if (this.g.d() == Framedata.Opcode.TEXT) {
-                            ((d0c) this.g).j(D());
-                            ((d0c) this.g).h();
-                            try {
-                                szbVar.v().onWebsocketMessage(szbVar, u0c.e(this.g.a()));
-                            } catch (RuntimeException e3) {
-                                szbVar.v().onWebsocketError(szbVar, e3);
-                            }
-                        } else if (this.g.d() == Framedata.Opcode.BINARY) {
-                            ((d0c) this.g).j(D());
-                            ((d0c) this.g).h();
-                            try {
-                                szbVar.v().onWebsocketMessage(szbVar, this.g.a());
-                            } catch (RuntimeException e4) {
-                                szbVar.v().onWebsocketError(szbVar, e4);
-                            }
-                        }
-                        this.g = null;
-                        this.h.clear();
-                    } else {
-                        throw new InvalidDataException(1002, "Continuous frame sequence was not started.");
-                    }
-                } else if (this.g == null) {
-                    throw new InvalidDataException(1002, "Continuous frame sequence was not started.");
-                }
-                if (d == Framedata.Opcode.TEXT && !u0c.b(framedata.a())) {
-                    throw new InvalidDataException(1007);
-                }
-                if (d == Framedata.Opcode.CONTINUOUS && this.g != null) {
-                    this.h.add(framedata.a());
-                }
-            }
-        }
-    }
-
-    public final ByteBuffer x(Framedata framedata) {
-        InterceptResult invokeL;
-        boolean z;
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, framedata)) == null) {
-            ByteBuffer a = framedata.a();
-            int i5 = 0;
-            if (this.a == WebSocket.Role.CLIENT) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (a.remaining() <= 125) {
-                i = 1;
-            } else if (a.remaining() <= 65535) {
-                i = 2;
-            } else {
-                i = 8;
-            }
-            if (i > 1) {
-                i2 = i + 1;
-            } else {
-                i2 = i;
-            }
-            int i6 = i2 + 1;
-            if (z) {
-                i3 = 4;
-            } else {
-                i3 = 0;
-            }
-            ByteBuffer allocate = ByteBuffer.allocate(i6 + i3 + a.remaining());
-            byte y = y(framedata.d());
-            byte b = Byte.MIN_VALUE;
-            if (framedata.f()) {
-                i4 = -128;
-            } else {
-                i4 = 0;
-            }
-            allocate.put((byte) (((byte) i4) | y));
-            byte[] H = H(a.remaining(), i);
-            if (i == 1) {
-                byte b2 = H[0];
-                if (!z) {
-                    b = 0;
-                }
-                allocate.put((byte) (b2 | b));
-            } else if (i == 2) {
-                if (!z) {
-                    b = 0;
-                }
-                allocate.put((byte) (b | 126));
-                allocate.put(H);
-            } else if (i == 8) {
-                if (!z) {
-                    b = 0;
-                }
-                allocate.put((byte) (b | ByteCompanionObject.MAX_VALUE));
-                allocate.put(H);
-            } else {
-                throw new RuntimeException("Size representation not supported/specified");
-            }
-            if (z) {
-                ByteBuffer allocate2 = ByteBuffer.allocate(4);
-                allocate2.putInt(this.j.nextInt());
-                allocate.put(allocate2.array());
-                while (a.hasRemaining()) {
-                    allocate.put((byte) (a.get() ^ allocate2.get(i5 % 4)));
-                    i5++;
-                }
-            } else {
-                allocate.put(a);
-                a.flip();
-            }
-            allocate.flip();
-            return allocate;
-        }
-        return (ByteBuffer) invokeL.objValue;
+        return invokeLLLLL.booleanValue;
     }
 }

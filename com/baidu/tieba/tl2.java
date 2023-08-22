@@ -1,43 +1,59 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
+import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.dg3;
-import com.baidu.tieba.sh2;
+import com.baidu.tieba.zt2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class tl2 extends vc3 {
+public final class tl2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final File a;
+    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes8.dex */
-    public static class a implements rp3<bg3<dg3.e>> {
+    public static class a implements zt2.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ JSONObject d;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
 
-        public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject) {
+        @Override // com.baidu.tieba.zt2.c
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            }
+        }
+
+        public a(CallbackHandler callbackHandler, String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {callbackHandler, unitedSchemeEntity, context, jSONObject};
+                Object[] objArr = {callbackHandler, str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,209 +64,314 @@ public class tl2 extends vc3 {
                 }
             }
             this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = context;
-            this.d = jSONObject;
+            this.b = str;
+            this.c = str2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rp3
-        /* renamed from: b */
-        public void a(bg3<dg3.e> bg3Var) {
+        @Override // com.baidu.tieba.zt2.c
+        public void onFailed() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bg3Var) == null) {
-                if (wf3.h(bg3Var)) {
-                    try {
-                        tl2.l(this.c, this.d);
-                        UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(this.d, 0));
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                d82.k("DebugDynamicLibControl", "debug动态库下载失败 url=" + this.c);
+                if (this.a != null && !TextUtils.isEmpty(this.b)) {
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.zt2.c
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                if (this.a != null && !TextUtils.isEmpty(this.b)) {
+                    File j = tl2.j();
+                    d82.k("DebugDynamicLibControl", "debug动态库下载成功 file=" + j.getAbsolutePath());
+                    Pair g = tl2.g(j);
+                    if (!((Boolean) g.first).booleanValue()) {
+                        d82.k("DebugDynamicLibControl", "debug动态库解密失败 file=" + j.getAbsolutePath());
+                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解密失败").toString());
                         return;
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
+                    } else if (((Boolean) tl2.s((File) g.second).first).booleanValue()) {
+                        tl2.r(true);
+                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                        return;
+                    } else {
+                        d82.k("DebugDynamicLibControl", "debug动态库解压失败 file=" + j.getAbsolutePath());
+                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug动态库解压失败").toString());
                         return;
                     }
                 }
-                wf3.p(bg3Var, this.a, this.b);
+                d82.k("DebugDynamicLibControl", "debug动态库下载成功，但是 handler=" + this.a + " cb=" + this.b);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tl2(vb3 vb3Var) {
-        super(vb3Var, "/swanAPI/debug/getDebugConfig");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vb3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948184975, "Lcom/baidu/tieba/tl2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948184975, "Lcom/baidu/tieba/tl2;");
                 return;
             }
         }
+        a = zt2.q();
+        b = "rMzurs3ur83vsM7vss/vtNHwt9LwuNPx".getBytes(StandardCharsets.UTF_8);
     }
 
-    public static JSONObject k(String str, Object obj) throws JSONException {
-        InterceptResult invokeLL;
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, obj)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("name", str);
-            jSONObject.put("value", obj);
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            r(false);
+            e();
         }
-        return (JSONObject) invokeLL.objValue;
     }
 
-    /* JADX WARN: Type inference failed for: r1v14 */
-    /* JADX WARN: Type inference failed for: r1v15, types: [boolean, int] */
-    /* JADX WARN: Type inference failed for: r1v51 */
-    public static void l(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
-        ?? r1;
+    public static File j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, jSONObject) == null) {
-            String string = context.getString(R.string.obfuscated_res_0x7f0f016c);
-            boolean s = x63.s();
-            ml2.a(s);
-            jSONObject.put("loadCts", k(string, Integer.valueOf(s ? 1 : 0)));
-            String string2 = context.getString(R.string.obfuscated_res_0x7f0f014f);
-            boolean r = x63.r();
-            ml2.a(r);
-            jSONObject.put("emitLive", k(string2, Integer.valueOf(r ? 1 : 0)));
-            String string3 = context.getString(R.string.obfuscated_res_0x7f0f014d);
-            boolean o = x63.o();
-            ml2.a(o);
-            jSONObject.put("emitHttps", k(string3, Integer.valueOf(o ? 1 : 0)));
-            String string4 = context.getString(R.string.obfuscated_res_0x7f0f0180);
-            boolean y = x63.y();
-            ml2.a(y);
-            jSONObject.put("useExtension", k(string4, Integer.valueOf(y ? 1 : 0)));
-            String string5 = context.getString(R.string.obfuscated_res_0x7f0f014b);
-            if (!x63.w() && !x63.A()) {
-                r1 = 1;
-            } else {
-                r1 = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return new File(vv2.d().get(0).a, "debugDynamicLib.zip");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static File k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return new File(vv2.d().get(0).a, "aiapps_debug_dynamic_lib");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return rj3.a().getBoolean("KEY_SWAN_APP_DEBUG_DYNAMIC_LIB_MODE", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return l();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            r(true);
+        }
+    }
+
+    public static void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65554, null, z) == null) {
+            rj3.a().putBoolean("KEY_SWAN_APP_DEBUG_DYNAMIC_LIB_MODE", z);
+        }
+    }
+
+    public static File d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            return new File(a.getAbsolutePath() + File.separator + str + File.separator + "debug_dynamic");
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static Pair<Boolean, File> i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
+            File d = d(str);
+            if (d.exists() && d.isDirectory()) {
+                return new Pair<>(Boolean.TRUE, d);
             }
-            ml2.a(r1);
-            jSONObject.put("emitDomain", k(string5, Integer.valueOf((int) r1)));
-            String string6 = context.getString(R.string.obfuscated_res_0x7f0f0156);
-            boolean q = x63.q();
-            ml2.a(q);
-            jSONObject.put("emitWss", k(string6, Integer.valueOf(q ? 1 : 0)));
-            String string7 = context.getString(R.string.obfuscated_res_0x7f0f014e);
-            boolean x = x63.x();
-            ml2.a(x);
-            jSONObject.put("emitLaunchMode", k(string7, Integer.valueOf(x ? 1 : 0)));
-            jSONObject.put("debugEnvData", k(context.getString(R.string.obfuscated_res_0x7f0f0163), x63.g()));
-            String string8 = context.getString(R.string.obfuscated_res_0x7f0f0154);
-            boolean k = x63.k();
-            ml2.a(k);
-            jSONObject.put("emitReplaceSwanCore", k(string8, Integer.valueOf(k ? 1 : 0)));
-            String string9 = context.getString(R.string.obfuscated_res_0x7f0f0152);
-            boolean h = x63.h();
-            ml2.a(h);
-            jSONObject.put("emitReplaceGameCore", k(string9, Integer.valueOf(h ? 1 : 0)));
-            String string10 = context.getString(R.string.obfuscated_res_0x7f0f0153);
-            boolean p = x63.p();
-            ml2.a(p);
-            jSONObject.put("emitReplaceJsNative", k(string10, Integer.valueOf(p ? 1 : 0)));
-            boolean d = sh2.v.d();
-            String string11 = context.getString(R.string.obfuscated_res_0x7f0f0155);
-            ml2.a(d);
-            jSONObject.put("emitReplaceV8Core", k(string11, Integer.valueOf(d ? 1 : 0)));
-            String string12 = context.getString(R.string.obfuscated_res_0x7f0f0151);
-            boolean m = ol2.m();
-            ml2.a(m);
-            jSONObject.put("emitReplaceDynamicLib", k(string12, Integer.valueOf(m ? 1 : 0)));
-            jSONObject.put("emitHostEnv", k(context.getString(R.string.obfuscated_res_0x7f0f014c), Integer.valueOf(x63.t())));
-            String string13 = context.getString(R.string.obfuscated_res_0x7f0f0173);
-            boolean a2 = rl2.a();
-            ml2.a(a2);
-            jSONObject.put("openStabilityCollector", k(string13, Integer.valueOf(a2 ? 1 : 0)));
-            String string14 = context.getString(R.string.obfuscated_res_0x7f0f0172);
-            boolean a3 = ql2.a();
-            ml2.a(a3);
-            jSONObject.put("openPerformanceTesting", k(string14, Integer.valueOf(a3 ? 1 : 0)));
-            String string15 = context.getString(R.string.obfuscated_res_0x7f0f0150);
-            boolean k2 = nl2.k();
-            ml2.a(k2);
-            jSONObject.put("emitReplaceDependency", k(string15, Integer.valueOf(k2 ? 1 : 0)));
+            return new Pair<>(Boolean.FALSE, null);
         }
+        return (Pair) invokeL.objValue;
     }
 
-    public static boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
-        InterceptResult invokeLLLL;
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
-            ya3Var.e0().g(context, "mapp_cts_debug", new a(callbackHandler, unitedSchemeEntity, context, new JSONObject()));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public static boolean n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, unitedSchemeEntity, callbackHandler)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            y72.i("getDebugConfig", "swangame getDebugConfig");
-            if (!vc3.b) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
-                return false;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            hr4.j(j());
+            hr4.j(k());
+            for (File file : n()) {
+                hr4.j(file);
             }
-            JSONObject a2 = vc3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                y72.c("getDebugConfig", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!TextUtils.equals(a2.optString("category"), "swanGame")) {
-                y72.c("getDebugConfig", "params is not swangame");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
+        }
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static Pair<Boolean, File> g(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, file)) == null) {
+            if (file != null && file.exists()) {
+                File file2 = new File(file.getAbsolutePath() + ".zip");
                 try {
-                    boolean o = x63.o();
-                    ml2.a(o);
-                    jSONObject.put("emitHttps", o ? 1 : 0);
-                    boolean q = x63.q();
-                    ml2.a(q);
-                    jSONObject.put("emitWss", q ? 1 : 0);
-                    jSONObject.put("debugEnvData", x63.g());
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
-                    return false;
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    FileOutputStream fileOutputStream = new FileOutputStream(file2);
+                    try {
+                        byte[] bArr = new byte[16];
+                        fileInputStream.skip(10L);
+                        fileInputStream.read(bArr, 0, 10);
+                        fileInputStream.skip(5L);
+                        fileInputStream.read(bArr, 10, 6);
+                        fileInputStream.skip(3L);
+                        byte[] bArr2 = new byte[fileInputStream.available()];
+                        fileInputStream.read(bArr2);
+                        file2.deleteOnExit();
+                        file2.createNewFile();
+                        IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr);
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(b, "AES");
+                        Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
+                        cipher.init(2, secretKeySpec, ivParameterSpec);
+                        fileOutputStream.write(cipher.doFinal(bArr2));
+                        fileOutputStream.flush();
+                        Pair<Boolean, File> pair = new Pair<>(Boolean.TRUE, file2);
+                        fileOutputStream.close();
+                        fileInputStream.close();
+                        return pair;
+                    } finally {
+                    }
+                } catch (Exception e) {
+                    d82.l("DebugDynamicLibControl", "debug动态库解密失败: ", e);
+                    return new Pair<>(Boolean.FALSE, null);
                 }
+            } else {
+                return new Pair<>(Boolean.FALSE, null);
             }
+        } else {
+            return (Pair) invokeL.objValue;
         }
-        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vc3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
-        InterceptResult invokeLLLL;
+    public static synchronized void h(@NonNull String str, @Nullable CallbackHandler callbackHandler, @Nullable String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
-            y72.i("getDebugConfig", "swan getDebugConfig");
-            int k = xa3.K().k();
-            if (k != 0) {
-                if (k != 1) {
-                    y72.c("getDebugConfig", "frame type error");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "frame type error");
-                    return false;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, callbackHandler, str2) == null) {
+            synchronized (tl2.class) {
+                if (TextUtils.isEmpty(str)) {
+                    d82.k("DebugDynamicLibControl", "download url is empty");
+                } else {
+                    zt2.H(str, new a(callbackHandler, str2, str));
                 }
-                return n(unitedSchemeEntity, callbackHandler);
             }
-            return m(context, unitedSchemeEntity, callbackHandler, ya3Var);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static List<File> n() {
+        InterceptResult invokeV;
+        File[] C;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (File file : hr4.C(a)) {
+                if (file.isDirectory()) {
+                    File[] C2 = hr4.C(file);
+                    int length = C2.length;
+                    int i = 0;
+                    while (true) {
+                        if (i < length) {
+                            File file2 = C2[i];
+                            if (file2.isDirectory() && "debug_dynamic".equals(file2.getName())) {
+                                arrayList.add(file2);
+                                break;
+                            }
+                            i++;
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @NonNull
+    public static List<String> o() {
+        InterceptResult invokeV;
+        File[] C;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (File file : hr4.C(a)) {
+                if (file.isDirectory()) {
+                    File[] C2 = hr4.C(file);
+                    int length = C2.length;
+                    int i = 0;
+                    while (true) {
+                        if (i < length) {
+                            File file2 = C2[i];
+                            if (file2.isDirectory() && "debug_dynamic".equals(file2.getName())) {
+                                arrayList.add(file.getName());
+                                break;
+                            }
+                            i++;
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static String q(File file) throws Exception {
+        InterceptResult invokeL;
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, file)) == null) {
+            if (file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length == 1 && listFiles[0].isDirectory()) {
+                hr4.e(listFiles[0], file);
+                hr4.j(listFiles[0]);
+            }
+            return (String) new JSONObject(hr4.E(new File(file, "dynamicLib.json"))).get("name");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static Pair<Boolean, String> s(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, file)) == null) {
+            String str = "";
+            boolean z = false;
+            try {
+                File k = k();
+                hr4.l(k);
+                if (file.exists() && hr4.U(file.getAbsolutePath(), k.getAbsolutePath())) {
+                    str = q(k);
+                    File d = d(str);
+                    if (d.exists()) {
+                        hr4.j(d);
+                    }
+                    d.mkdirs();
+                    hr4.e(k, d);
+                    hr4.j(k);
+                    hr4.j(file);
+                    z = true;
+                }
+            } catch (Exception e) {
+                d82.k("DebugDynamicLibControl", "debug动态库解压异常: " + e.toString());
+            }
+            d82.k("DebugDynamicLibControl", "debug动态库解压结果: unzipSuccess=" + z + " dynamicLibName=" + str);
+            return new Pair<>(Boolean.valueOf(z), str);
+        }
+        return (Pair) invokeL.objValue;
     }
 }

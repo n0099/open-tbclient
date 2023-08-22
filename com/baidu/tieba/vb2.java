@@ -1,138 +1,43 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.tieba.gb2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class vb2 {
+public final class vb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gb2 a;
-    public final pb2 b;
-    public final db2 c;
-    public long d;
-    public String e;
-    public Timer f;
+    public final xb2 a;
+    public long b;
 
-    /* loaded from: classes8.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vb2 a;
-
-        public a(vb2 vb2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vb2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vb2Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e(null);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements gb2.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ fb2 a;
-        public final /* synthetic */ rb2 b;
-        public final /* synthetic */ rp3 c;
-        public final /* synthetic */ vb2 d;
-
-        public b(vb2 vb2Var, fb2 fb2Var, rb2 rb2Var, rp3 rp3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vb2Var, fb2Var, rb2Var, rp3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = vb2Var;
-            this.a = fb2Var;
-            this.b = rb2Var;
-            this.c = rp3Var;
-        }
-
-        @Override // com.baidu.tieba.gb2.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.a());
-                sb.append(this.b.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.b.c());
-                if (vb2.g) {
-                    Log.d("SceneLaunchDefaultTips", ">> " + sb.toString());
-                }
-                this.d.e = sb.toString();
-                rp3 rp3Var = this.c;
-                if (rp3Var != null) {
-                    rp3Var.a(this.d.e);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948234947, "Lcom/baidu/tieba/vb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948234947, "Lcom/baidu/tieba/vb2;");
+    public vb2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g = ir1.a;
+        this.b = 0L;
+        this.a = new xb2();
     }
 
     public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (System.currentTimeMillis() - this.d > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.a.g().size() >= 2.0d) {
                 return true;
             }
             return false;
@@ -140,75 +45,109 @@ public class vb2 {
         return invokeV.booleanValue;
     }
 
-    public String f() {
+    public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a.i() > 2 && System.currentTimeMillis() - this.b >= 3000) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public final void g() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (timer = this.f) != null) {
-            timer.cancel();
-            this.f = null;
-        }
+        return invokeV.booleanValue;
     }
 
     public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (g) {
-                Log.d("SceneLaunchDefaultTips", ">> start to collect default launch info.");
-            }
-            g();
-            Timer timer = new Timer();
-            this.f = timer;
-            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a.b();
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            g();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = System.currentTimeMillis();
         }
     }
 
-    public vb2() {
+    public void a(tb2 tb2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tb2Var) == null) {
+            this.a.a(tb2Var);
+        }
+    }
+
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int size = this.a.d().size();
+            int i = this.a.i();
+            if (i <= 0 || (size * 1.0d) / i <= 0.5d) {
+                return false;
             }
+            return true;
         }
-        this.d = System.currentTimeMillis();
-        this.e = "";
-        this.a = new gb2();
-        this.b = pb2.d();
-        this.c = db2.d();
+        return invokeV.booleanValue;
     }
 
-    public void e(@Nullable rp3<String> rp3Var) {
+    public final boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rp3Var) == null) {
-            if (d() && !TextUtils.isEmpty(this.e)) {
-                if (rp3Var != null) {
-                    rp3Var.a(this.e);
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<tb2> d = this.a.d();
+            if (d.size() <= 0) {
+                return false;
+            }
+            for (tb2 tb2Var : d) {
+                if (ng2.k().i(tb2Var.f)) {
+                    return true;
                 }
-                return;
             }
-            this.a.a(new b(this, this.c.f(), this.b.f(), rp3Var));
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int size = this.a.f().size();
+            int i = this.a.i();
+            if (i <= 0 || (size * 1.0d) / i <= 0.5d) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public wb2 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            wb2 wb2Var = new wb2();
+            wb2Var.i(this.b);
+            wb2Var.h(this.a.d());
+            wb2Var.k(this.a.g());
+            wb2Var.l(this.a.i());
+            if (c()) {
+                wb2Var.j(RequestStatus.STATUS_CORE_FAILED);
+            } else if (e()) {
+                wb2Var.j(RequestStatus.STATUS_UNKNOWN);
+            } else if (f()) {
+                wb2Var.j(RequestStatus.STATUS_SERVER_FAILED);
+            } else if (b()) {
+                wb2Var.j(RequestStatus.STATUS_FAILED);
+            } else if (d()) {
+                wb2Var.j(RequestStatus.STATUS_SLOW);
+            } else {
+                wb2Var.j(RequestStatus.STATUS_SUCCESS);
+            }
+            return wb2Var;
+        }
+        return (wb2) invokeV.objValue;
     }
 }

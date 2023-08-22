@@ -1,7 +1,7 @@
 package com.baidu.tieba.immessagecenter.im.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.be5;
+import com.baidu.tieba.ie5;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,7 +35,7 @@ public class MsgNotifyTabModel extends ImMessageCenterModel {
             if (imMessageCenterPojo == null || imMessageCenterPojo.getCustomGroupType() == -4) {
                 return false;
             }
-            if ((imMessageCenterPojo.getCustomGroupType() != 4 || imMessageCenterPojo.getUserType() != 4 || !be5.P(imMessageCenterPojo.getGid())) && imMessageCenterPojo.getCustomGroupType() != -8) {
+            if ((imMessageCenterPojo.getCustomGroupType() != 4 || imMessageCenterPojo.getUserType() != 4 || !ie5.P(imMessageCenterPojo.getGid())) && imMessageCenterPojo.getCustomGroupType() != -8) {
                 return false;
             }
             return true;

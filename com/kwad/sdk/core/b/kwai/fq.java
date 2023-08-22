@@ -1,5 +1,6 @@
 package com.kwad.sdk.core.b.kwai;
 
+import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.kwad.sdk.core.response.model.TemplateConfig;
 import org.json.JSONObject;
 /* loaded from: classes10.dex */
@@ -9,8 +10,8 @@ public final class fq implements com.kwad.sdk.core.d<TemplateConfig> {
         if (jSONObject == null) {
             return;
         }
-        templateConfig.h5Url = jSONObject.optString("h5Url");
-        if (jSONObject.opt("h5Url") == JSONObject.NULL) {
+        templateConfig.h5Url = jSONObject.optString(AiBotChatDispatcher.AI_SINGLE_H5_URL);
+        if (jSONObject.opt(AiBotChatDispatcher.AI_SINGLE_H5_URL) == JSONObject.NULL) {
             templateConfig.h5Url = "";
         }
         templateConfig.h5Version = jSONObject.optString("h5Version");
@@ -30,7 +31,7 @@ public final class fq implements com.kwad.sdk.core.d<TemplateConfig> {
         }
         String str = templateConfig.h5Url;
         if (str != null && !str.equals("")) {
-            com.kwad.sdk.utils.r.putValue(jSONObject, "h5Url", templateConfig.h5Url);
+            com.kwad.sdk.utils.r.putValue(jSONObject, AiBotChatDispatcher.AI_SINGLE_H5_URL, templateConfig.h5Url);
         }
         String str2 = templateConfig.h5Version;
         if (str2 != null && !str2.equals("")) {

@@ -1,67 +1,193 @@
 package com.baidu.tieba;
 
-import android.database.DataSetObservable;
-import android.database.DataSetObserver;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.os.Looper;
+import android.os.MessageQueue;
+import android.text.TextUtils;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.by5;
+import com.baidu.tieba.log.TbLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public abstract class dy5 {
+public class dy5 {
     public static /* synthetic */ Interceptable $ic;
+    public static List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public DataSetObservable a;
 
-    public abstract int a();
+    /* loaded from: classes5.dex */
+    public static class a implements by5.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
 
-    public abstract View b(int i, ViewGroup viewGroup);
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
 
-    public dy5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @Override // com.baidu.tieba.by5.b
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                TbLog defaultLog = DefaultLog.getInstance();
+                defaultLog.i("WebPreheat", "预热成功:" + this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements MessageQueue.IdleHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ by5.b c;
+
+        public b(Context context, String str, by5.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, str, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = str;
+            this.c = bVar;
+        }
+
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                by5 a = cy5.b().a(this.a.getApplicationContext(), this.b);
+                if (a != null) {
+                    a.b(this.c);
+                    return false;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947720905, "Lcom/baidu/tieba/dy5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947720905, "Lcom/baidu/tieba/dy5;");
                 return;
             }
         }
-        this.a = new DataSetObservable();
+        a = new ArrayList();
     }
 
-    public void c() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.notifyChanged();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            for (String str2 : a) {
+                if (str2 != null && str != null && str.startsWith(str2)) {
+                    return str2;
+                }
+            }
+            return null;
         }
+        return (String) invokeL.objValue;
     }
 
-    public void d(DataSetObserver dataSetObserver) {
+    public static void c(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dataSetObserver) == null) {
+        if ((interceptable != null && interceptable.invokeL(65539, null, jSONArray) != null) || jSONArray == null) {
+            return;
+        }
+        a.clear();
+        for (int i = 0; i < jSONArray.length(); i++) {
             try {
-                this.a.registerObserver(dataSetObserver);
+                a.add((String) jSONArray.get(i));
             } catch (Throwable th) {
-                BdLog.e(th, true);
+                th.printStackTrace();
+                return;
             }
         }
     }
 
-    public void e(DataSetObserver dataSetObserver) {
+    public static void b(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dataSetObserver) == null) {
-            try {
-                this.a.unregisterObserver(dataSetObserver);
-            } catch (Throwable th) {
-                BdLog.e(th, true);
+        if ((interceptable != null && interceptable.invokeL(65538, null, webView) != null) || webView == null) {
+            return;
+        }
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        webView.getSettings().setAllowFileAccess(true);
+        webView.getSettings().setDatabaseEnabled(true);
+        webView.getSettings().setDomStorageEnabled(true);
+        webView.getSettings().setTextZoom(100);
+        webView.getSettings().setDatabasePath(webView.getContext().getApplicationContext().getDir("databases", 0).getAbsolutePath());
+        webView.setHorizontalScrollBarEnabled(false);
+        webView.setHorizontalScrollbarOverlay(false);
+    }
+
+    public static boolean d(Context context, String str, by5.b bVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, bVar)) == null) {
+            if (!TextUtils.isEmpty(str) && !cy5.b().d(str)) {
+                Looper.myQueue().addIdleHandler(new b(context, str, bVar));
+                return true;
             }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static void e(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, jSONArray) != null) || jSONArray == null) {
+            return;
+        }
+        int length = jSONArray.length();
+        for (int i = 0; i < length; i++) {
+            String optString = jSONArray.optString(i);
+            d(TbadkCoreApplication.getInst(), optString, new a(optString));
         }
     }
 }

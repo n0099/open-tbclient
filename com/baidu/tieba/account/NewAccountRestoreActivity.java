@@ -18,9 +18,9 @@ import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tbadk.util.PageType;
 import com.baidu.tieba.R;
 import com.baidu.tieba.browser.TbWebView;
-import com.baidu.tieba.d46;
-import com.baidu.tieba.fca;
-import com.baidu.tieba.gca;
+import com.baidu.tieba.nga;
+import com.baidu.tieba.oga;
+import com.baidu.tieba.u46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,8 +34,8 @@ public class NewAccountRestoreActivity extends BaseActivity<NewAccountRestoreAct
     public NavigationBar a;
     public TbWebView b;
     public String c;
-    public fca d;
-    public gca e;
+    public nga d;
+    public oga e;
 
     /* loaded from: classes5.dex */
     public class a extends WebChromeClient {
@@ -88,7 +88,7 @@ public class NewAccountRestoreActivity extends BaseActivity<NewAccountRestoreAct
                 return;
             }
         }
-        this.e = new gca(this) { // from class: com.baidu.tieba.account.NewAccountRestoreActivity.1
+        this.e = new oga(this) { // from class: com.baidu.tieba.account.NewAccountRestoreActivity.1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ NewAccountRestoreActivity this$0;
@@ -111,7 +111,7 @@ public class NewAccountRestoreActivity extends BaseActivity<NewAccountRestoreAct
                 this.this$0 = this;
             }
 
-            @Override // com.baidu.tieba.gca
+            @Override // com.baidu.tieba.oga
             public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
                 InterceptResult invokeLLLL;
                 Interceptable interceptable2 = $ic;
@@ -152,21 +152,21 @@ public class NewAccountRestoreActivity extends BaseActivity<NewAccountRestoreAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d06f4);
-            fca fcaVar = new fca();
-            this.d = fcaVar;
-            fcaVar.a(this.e);
+            setContentView(R.layout.obfuscated_res_0x7f0d06f9);
+            nga ngaVar = new nga();
+            this.d = ngaVar;
+            ngaVar.a(this.e);
             this.c = getIntent().getStringExtra("page_type");
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f02bd));
-            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092612)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-            TbWebView tbWebView = (TbWebView) findViewById(R.id.obfuscated_res_0x7f0929eb);
+            this.a.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f02be));
+            ((LinearLayout.LayoutParams) ((TextView) findViewById(R.id.obfuscated_res_0x7f092643)).getLayoutParams()).height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+            TbWebView tbWebView = (TbWebView) findViewById(R.id.obfuscated_res_0x7f092a1c);
             this.b = tbWebView;
             tbWebView.setWebChromeClient(new a(this));
             TbWebView tbWebView2 = this.b;
-            tbWebView2.loadUrl(d46.a + "?_client_version=" + TbConfig.getVersion());
+            tbWebView2.loadUrl(u46.a + "?_client_version=" + TbConfig.getVersion());
         }
     }
 }

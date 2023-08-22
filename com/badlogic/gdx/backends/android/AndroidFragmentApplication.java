@@ -73,7 +73,7 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         c7.a();
     }
 
-    public w0 I1() {
+    public w0 U1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -82,7 +82,7 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         return (w0) invokeV.objValue;
     }
 
-    public Files J1() {
+    public Files V1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -91,7 +91,7 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         return (Files) invokeV.objValue;
     }
 
-    public Net K1() {
+    public Net W1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -100,7 +100,7 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         return (Net) invokeV.objValue;
     }
 
-    public final boolean L1() {
+    public final boolean X1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -254,7 +254,7 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
             this.a.u(true);
             this.a.r();
             this.b.onPause();
-            if (isRemoving() || L1() || getActivity().isFinishing()) {
+            if (isRemoving() || X1() || getActivity().isFinishing()) {
                 this.a.h();
                 this.a.j();
             }
@@ -357,10 +357,10 @@ public class AndroidFragmentApplication extends Fragment implements z1 {
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             x0.a = this;
             mo6getInput();
-            x0.c = I1();
-            x0.d = J1();
+            x0.c = U1();
+            x0.d = V1();
             x0.b = getGraphics();
-            K1();
+            W1();
             this.b.onResume();
             j2 j2Var = this.a;
             if (j2Var != null) {

@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.ImShareCardCommonData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.widget.sharecard.ChatShareCommonCard;
-import com.baidu.tieba.ne8;
+import com.baidu.tieba.mi8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -28,18 +28,19 @@ import kotlin.Metadata;
 import kotlin.jvm.JvmOverloads;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000 \u001a2\u00020\u0001:\u0001\u001aB\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0010\u0010\u0013\u001a\u00020\u00142\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016J\u000e\u0010\u0017\u001a\u00020\u00142\u0006\u0010\u0018\u001a\u00020\fJ\u0018\u0010\u0017\u001a\u00020\u00142\b\b\u0001\u0010\u0019\u001a\u00020\u000e2\u0006\u0010\u0018\u001a\u00020\fR\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\r\u001a\u00020\u000eX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/im/widget/sharecard/ChatShareCommonCard;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "activeContent", "Lcom/baidu/tieba/im/widget/sharecard/ChatShareActiveView;", "commonContent", "Lcom/baidu/tieba/im/widget/sharecard/ChatShareCommonView;", "isActive", "", "scene", "", "getScene", "()I", "setScene", "(I)V", "onBindView", "", "data", "Lcom/baidu/tbadk/data/ImShareCardCommonData;", "onChangeSkinType", "isLeft", NotificationCompat.WearableExtender.KEY_BACKGROUND, "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\t\n\u0002\b\u0005\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u0000  2\u00020\u0001:\u0001 B\u001b\b\u0007\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0006J\u0010\u0010\u0019\u001a\u00020\u001a2\b\u0010\u001b\u001a\u0004\u0018\u00010\u001cJ\u000e\u0010\u001d\u001a\u00020\u001a2\u0006\u0010\u001e\u001a\u00020\fJ\u0018\u0010\u001d\u001a\u00020\u001a2\b\b\u0001\u0010\u001f\u001a\u00020\u00142\u0006\u0010\u001e\u001a\u00020\fR\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\t\u001a\u00020\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u000b\u001a\u00020\fX\u0082\u000e¢\u0006\u0002\n\u0000R\u001a\u0010\r\u001a\u00020\u000eX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000f\u0010\u0010\"\u0004\b\u0011\u0010\u0012R\u001a\u0010\u0013\u001a\u00020\u0014X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0015\u0010\u0016\"\u0004\b\u0017\u0010\u0018¨\u0006!"}, d2 = {"Lcom/baidu/tieba/im/widget/sharecard/ChatShareCommonCard;", "Landroidx/constraintlayout/widget/ConstraintLayout;", "context", "Landroid/content/Context;", "attrs", "Landroid/util/AttributeSet;", "(Landroid/content/Context;Landroid/util/AttributeSet;)V", "activeContent", "Lcom/baidu/tieba/im/widget/sharecard/ChatShareActiveView;", "commonContent", "Lcom/baidu/tieba/im/widget/sharecard/ChatShareCommonView;", "isActive", "", "roomId", "", "getRoomId", "()J", "setRoomId", "(J)V", "scene", "", "getScene", "()I", "setScene", "(I)V", "onBindView", "", "data", "Lcom/baidu/tbadk/data/ImShareCardCommonData;", "onChangeSkinType", "isLeft", NotificationCompat.WearableExtender.KEY_BACKGROUND, "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class ChatShareCommonCard extends ConstraintLayout {
     public static /* synthetic */ Interceptable $ic;
-    public static final int e;
     public static final int f;
     public static final int g;
+    public static final int h;
     public transient /* synthetic */ FieldHolder $fh;
     public final ChatShareCommonView a;
     public final ChatShareActiveView b;
     public int c;
     public boolean d;
+    public long e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     @JvmOverloads
@@ -77,9 +78,9 @@ public final class ChatShareCommonCard extends ConstraintLayout {
                 return;
             }
         }
-        e = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
-        f = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
-        g = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
+        f = UtilHelper.getDimenPixelSize(R.dimen.tbds16);
+        g = UtilHelper.getDimenPixelSize(R.dimen.M_W_X006);
+        h = UtilHelper.getDimenPixelSize(R.dimen.M_H_X004);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -126,15 +127,15 @@ public final class ChatShareCommonCard extends ConstraintLayout {
             if (type != 1) {
                 if (type != 2) {
                     if (type == 3) {
-                        ne8.d("c15286", 6, this$0.c);
+                        mi8.d("c15286", 6, this$0.c, 0L, "", this$0.e);
                         return;
                     }
                     return;
                 }
-                ne8.d("c15286", 4, this$0.c);
+                mi8.d("c15286", 4, this$0.c, 0L, "", this$0.e);
                 return;
             }
-            ne8.d("c15286", 3, this$0.c);
+            mi8.d("c15286", 3, this$0.c, 0L, "", this$0.e);
         }
     }
 
@@ -151,7 +152,7 @@ public final class ChatShareCommonCard extends ConstraintLayout {
                 this.b.setVisibility(8);
                 this.a.setData(imShareCardCommonData);
             }
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.cf8
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.dj8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -170,12 +171,12 @@ public final class ChatShareCommonCard extends ConstraintLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             if (z && !this.d) {
-                int i2 = f;
-                int i3 = g;
-                setPadding(e + i2, i3, i2, i3);
+                int i2 = g;
+                int i3 = h;
+                setPadding(f + i2, i3, i2, i3);
             } else {
-                int i4 = f;
-                int i5 = g;
+                int i4 = g;
+                int i5 = h;
                 setPadding(i4, i5, i4, i5);
             }
             if (i != 0) {
@@ -193,17 +194,33 @@ public final class ChatShareCommonCard extends ConstraintLayout {
         }
     }
 
+    public final void setRoomId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.e = j;
+        }
+    }
+
     public final void setScene(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
             this.c = i;
         }
+    }
+
+    public final long getRoomId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.longValue;
     }
 
     public final int getScene() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.c;
         }
         return invokeV.intValue;

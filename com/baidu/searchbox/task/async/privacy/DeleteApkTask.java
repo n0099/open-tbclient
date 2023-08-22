@@ -8,7 +8,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.kg;
-import com.baidu.tieba.sh;
+import com.baidu.tieba.uh;
 import java.io.File;
 import java.io.FileFilter;
 /* loaded from: classes4.dex */
@@ -71,7 +71,7 @@ public class DeleteApkTask extends LaunchTask {
         StringBuilder sb = new StringBuilder();
         sb.append(BdBaseApplication.getInst().getFilesDir());
         sb.append(File.separator);
-        if (sh.a()) {
+        if (uh.a()) {
             str = "so_64_cache";
         } else {
             str = "so_cache";

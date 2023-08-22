@@ -1,139 +1,349 @@
 package com.baidu.tieba;
 
-import android.text.Editable;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.graphics.Typeface;
+import android.text.style.ReplacementSpan;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class va5 extends qa5<va5> {
+public class va5 extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String i;
+    public int a;
+    public RectF b;
+    public final int c;
+    public final int d;
+    public final int e;
+    public final int f;
+    public final int g;
+    public final int h;
+    public final int i;
+    public final float j;
+    public final int k;
+    public int l;
+    public int m;
+    public float n;
+    public boolean o;
+    public final int p;
+    public final int q;
 
-    public va5() {
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
+        public int d;
+        public int e;
+        public int f;
+        public int g;
+        public float h;
+        public int i;
+        public int j;
+        public int k;
+        public float l;
+        public boolean m;
+        public int n;
+        public int o;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = R.dimen.T_X10;
+            this.b = SkinManager.getColor(R.color.CAM_X0101);
+            this.e = SkinManager.getColor(R.color.CAM_X0302);
+            this.k = 0;
+            this.m = false;
+        }
+
+        public b A(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                this.d = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b B(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.a = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public void C(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+                this.m = z;
+            }
+        }
+
+        public b D(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                this.b = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b E(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.n = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b q(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+                this.e = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public void r(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+                this.l = f;
+            }
+        }
+
+        public void s(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+                this.k = i;
+            }
+        }
+
+        public void t(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+                this.j = i;
+            }
+        }
+
+        public b u(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+                this.i = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b v(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+                this.o = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b w(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+                this.g = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b x(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+                this.c = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b y(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048590, this, f)) == null) {
+                this.h = f;
+                return this;
+            }
+            return (b) invokeF.objValue;
+        }
+
+        public b z(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+                this.f = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public va5 p() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return new va5(this, null);
+            }
+            return (va5) invokeV.objValue;
+        }
+    }
+
+    public va5(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            q(true);
-            x();
-        }
-    }
-
-    public String u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "#[视频]" + this.i + "#";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public va5(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.i = str;
+        this.c = bVar.a;
+        this.d = bVar.b;
+        this.g = bVar.e;
+        this.e = bVar.c;
+        this.f = bVar.d;
+        this.i = bVar.g;
+        this.h = bVar.f;
+        this.j = bVar.h;
+        this.k = bVar.i;
+        this.l = bVar.j;
+        this.m = bVar.k;
+        this.n = bVar.l;
+        this.o = bVar.m;
+        this.p = bVar.n;
+        this.q = bVar.o;
     }
 
-    @Override // com.baidu.tieba.qa5
-    public void r(Editable editable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editable) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            k(sb);
-        }
+    public /* synthetic */ va5(b bVar, a aVar) {
+        this(bVar);
     }
 
-    public static va5 w(@NonNull va5 va5Var, @NonNull Editable editable) {
-        InterceptResult invokeLL;
+    public final void a(Canvas canvas, CharSequence charSequence, int i, int i2, float f, float f2, Paint paint) {
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, va5Var, editable)) == null) {
-            va5 va5Var2 = new va5();
-            va5Var2.b(va5Var);
-            va5Var2.p(editable);
-            return va5Var2;
-        }
-        return (va5) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.qa5
-    public void s(Editable editable, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, editable, i) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("#");
-            sb.append("[视频]");
-            sb.append(this.i);
-            sb.append("#");
-            k(sb);
-        }
-    }
-
-    @Override // com.baidu.tieba.qa5
-    public void a(Editable editable, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
-            super.a(editable, i, i2, i3);
-        }
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            k(u());
-            if (!ov5.g(this.c, f())) {
-                EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_videotopic31, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
-                eMRichTextAnyIconSpan.f(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-                eMRichTextAnyIconSpan.j(UtilHelper.getDimenPixelSize(R.dimen.M_W_X001));
-                eMRichTextAnyIconSpan.h(true);
-                n(eMRichTextAnyIconSpan, f() + 1, f() + 1 + 4, 33);
-                n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f(), c(), 33);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), paint}) == null) {
+            if (this.m != 0) {
+                paint.setStyle(Paint.Style.STROKE);
+                paint.setColor(this.m);
+                paint.setStrokeWidth(this.l);
+                paint.setAlpha((int) (this.n * 255.0f));
+            } else {
+                paint.setStyle(Paint.Style.FILL);
+                paint.setColor(this.g);
+            }
+            paint.setAntiAlias(true);
+            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
+            if (f75.b(charSequence.subSequence(i, i2))) {
+                f75.a(fontMetricsInt, (int) paint.getTextSize());
+            }
+            RectF rectF = new RectF(this.i + f, (fontMetricsInt.ascent + f2) - this.p, (this.a + f) - this.h, ((fontMetricsInt.descent + f2) - this.k) + this.q);
+            this.b = rectF;
+            float f3 = this.j;
+            canvas.drawRoundRect(rectF, f3, f3, paint);
+            paint.setAlpha(255);
+            if (this.m != 0 && (i3 = this.g) != 0) {
+                paint.setColor(i3);
+                paint.setStyle(Paint.Style.FILL);
+                int i4 = this.l;
+                RectF rectF2 = new RectF(i4 + f + this.i, ((fontMetricsInt.ascent + f2) + i4) - this.p, ((f + this.a) - this.h) - i4, (((f2 + fontMetricsInt.descent) - this.k) - i4) + this.q);
+                float f4 = this.j;
+                canvas.drawRoundRect(rectF2, f4, f4, paint);
             }
         }
+    }
+
+    public final void b(Canvas canvas, CharSequence charSequence, int i, int i2, float f, float f2, Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), paint}) == null) {
+            paint.setColor(this.d);
+            paint.setStyle(Paint.Style.FILL);
+            paint.setTextSize(BdUtilHelper.getDimens(TbadkApplication.getInst(), this.c));
+            Paint.FontMetrics fontMetrics = paint.getFontMetrics();
+            float centerY = this.b.centerY();
+            float f3 = fontMetrics.descent;
+            float f4 = (centerY + ((f3 - fontMetrics.ascent) / 2.0f)) - f3;
+            float f5 = f + this.e;
+            if (this.o) {
+                paint.setTypeface(Typeface.defaultFromStyle(1));
+            } else {
+                paint.setTypeface(Typeface.defaultFromStyle(0));
+            }
+            canvas.drawText(charSequence.subSequence(i, i2).toString(), f5, f4, paint);
+        }
+    }
+
+    @Override // android.text.style.ReplacementSpan
+    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            float f2 = i4;
+            a(canvas, charSequence, i, i2, f, f2, paint);
+            b(canvas, charSequence, i, i2, f, f2, paint);
+        }
+    }
+
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            float textSize = paint.getTextSize();
+            paint.setTextSize(BdUtilHelper.getDimens(TbadkApplication.getInst(), this.c));
+            this.a = ((int) paint.measureText(charSequence, i, i2)) + this.e + this.f + this.h + this.i;
+            paint.setTextSize(textSize);
+            return this.a;
+        }
+        return invokeCommon.intValue;
     }
 }

@@ -53,7 +53,7 @@ public final class ApkCheckerKt {
     public static final void m73reqPermissionAndDelete$lambda6(final CategoryInfoData data, boolean z) {
         Intrinsics.checkNotNullParameter(data, "$data");
         if (z) {
-            ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.tieba.dn1
+            ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.tieba.in1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -81,14 +81,14 @@ public final class ApkCheckerKt {
 
     public static final void onCheckFailed(Function0<Unit> function0) {
         isChecking = false;
-        UniversalToast.makeText(AppRuntime.getAppContext()).setText(AppRuntime.getAppContext().getString(R.string.download_apk_check_failed)).show();
+        UniversalToast.makeText(AppRuntime.getAppContext()).setText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05b0)).show();
         if (function0 != null) {
             function0.invoke();
         }
     }
 
     public static final void reqPermissionAndDelete(final CategoryInfoData categoryInfoData) {
-        DownloadHelper.checkExternalStorage(new File(categoryInfoData.mDownloadPath).getAbsolutePath(), true, new ExternalStorageCallBack() { // from class: com.baidu.tieba.vm1
+        DownloadHelper.checkExternalStorage(new File(categoryInfoData.mDownloadPath).getAbsolutePath(), true, new ExternalStorageCallBack() { // from class: com.baidu.tieba.an1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -116,7 +116,7 @@ public final class ApkCheckerKt {
         if (needDirectInstall(categoryInfoData)) {
             onCheckSuccess(function1, true);
         } else {
-            DownloadHelper.checkExternalStorage(new File(categoryInfoData.mDownloadPath).getAbsolutePath(), true, new ExternalStorageCallBack() { // from class: com.baidu.tieba.an1
+            DownloadHelper.checkExternalStorage(new File(categoryInfoData.mDownloadPath).getAbsolutePath(), true, new ExternalStorageCallBack() { // from class: com.baidu.tieba.fn1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -198,7 +198,7 @@ public final class ApkCheckerKt {
     }
 
     public static final Function0<Unit> showCheckingToast(Activity activity) {
-        Drawable drawable = activity.getDrawable(R.drawable.obfuscated_res_0x7f080f68);
+        Drawable drawable = activity.getDrawable(R.drawable.obfuscated_res_0x7f080f79);
         if (drawable != null) {
             RotateDrawable rotateDrawable = (RotateDrawable) drawable;
             final ObjectAnimator ofInt = ObjectAnimator.ofInt(rotateDrawable, "level", 0, 10000);
@@ -209,7 +209,7 @@ public final class ApkCheckerKt {
             makeText.setDuration(30);
             makeText.setLeftIcon(rotateDrawable);
             makeText.setTemplate(ToastTemplate.T2);
-            makeText.setText(activity.getString(R.string.download_checking_toast));
+            makeText.setText(activity.getString(R.string.obfuscated_res_0x7f0f05bd));
             Function0<Unit> function0 = new Function0<Unit>() { // from class: com.baidu.searchbox.download.apkcheck.ApkCheckerKt$showCheckingToast$cancelAction$1
                 /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                 {
@@ -239,8 +239,8 @@ public final class ApkCheckerKt {
 
     public static final void showRiskDialog(final Activity activity, final CategoryInfoData categoryInfoData) {
         if (!activity.isFinishing() && !activity.isDestroyed()) {
-            BdAlertDialog.Builder message = new BdAlertDialog.Builder(activity).setTitle(R.string.download_apk_check_risk_title).setMessage(R.string.download_apk_check_risk_content);
-            String string = activity.getString(R.string.obfuscated_res_0x7f0f0e3b);
+            BdAlertDialog.Builder message = new BdAlertDialog.Builder(activity).setTitle(R.string.obfuscated_res_0x7f0f05b3).setMessage(R.string.obfuscated_res_0x7f0f05b1);
+            String string = activity.getString(R.string.obfuscated_res_0x7f0f0e43);
             Intrinsics.checkNotNullExpressionValue(string, "activity.getString(R.string.no)");
             BdAlertDialog.Builder button = message.setButton(new BdAlertDialog.ButtonItem(string, new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.apkcheck.ApkCheckerKt$showRiskDialog$1
                 @Override // com.baidu.android.ext.widget.dialog.BdAlertDialog.OnItemClickListener
@@ -249,9 +249,9 @@ public final class ApkCheckerKt {
                     ApkCheckUBCManagerKt.apkCheckCloseDialogEvent();
                 }
             }));
-            String string2 = activity.getString(R.string.download_apk_check_risk_delete);
+            String string2 = activity.getString(R.string.obfuscated_res_0x7f0f05b2);
             Intrinsics.checkNotNullExpressionValue(string2, "activity.getString(R.str…ad_apk_check_risk_delete)");
-            button.setButton(new BdAlertDialog.ButtonItem(string2, (int) R.color.obfuscated_res_0x7f0601e6, new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.apkcheck.ApkCheckerKt$showRiskDialog$2
+            button.setButton(new BdAlertDialog.ButtonItem(string2, (int) R.color.obfuscated_res_0x7f0601ec, new BdAlertDialog.OnItemClickListener() { // from class: com.baidu.searchbox.download.apkcheck.ApkCheckerKt$showRiskDialog$2
                 @Override // com.baidu.android.ext.widget.dialog.BdAlertDialog.OnItemClickListener
                 public void onItemClick(View view2) {
                     Intrinsics.checkNotNullParameter(view2, "view");
@@ -261,10 +261,10 @@ public final class ApkCheckerKt {
                     } else {
                         ((IDeleteUnSafeApk) activity2).delUnSafeApk(categoryInfoData);
                     }
-                    UniversalToast.makeText(AppRuntime.getAppContext()).setText(AppRuntime.getAppContext().getString(R.string.download_apk_check_del_toast)).show();
+                    UniversalToast.makeText(AppRuntime.getAppContext()).setText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f05af)).show();
                     ApkCheckUBCManagerKt.apkCheckDelEvent();
                 }
-            })).setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.cn1
+            })).setOnCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.hn1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -275,7 +275,7 @@ public final class ApkCheckerKt {
                         ApkCheckerKt.m75showRiskDialog$lambda3(dialogInterface);
                     }
                 }
-            }).setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.fn1
+            }).setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.kn1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

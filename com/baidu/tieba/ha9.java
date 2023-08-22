@@ -1,27 +1,34 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.widget.AbsListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleAMoreViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.editortools.DLauncher;
+import com.baidu.tieba.pk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class ha9 extends lm<qa9, InterestedForumStyleAMoreViewHolder> {
+public class ha9 extends pk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wa9 a;
-    public xa9 b;
+    public LinkedList<hi5> m;
+
+    @Override // com.baidu.tieba.ai5
+    public void E(zh5 zh5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zh5Var) == null) {
+        }
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements in {
+    public class a implements pk5.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ha9 a;
@@ -44,107 +51,89 @@ public class ha9 extends lm<qa9, InterestedForumStyleAMoreViewHolder> {
             this.a = ha9Var;
         }
 
-        @Override // com.baidu.tieba.in
-        public void b(View view2, ym ymVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.pk5.a
+        public View getView(int i, View view2, ViewGroup viewGroup) {
+            InterceptResult invokeILL;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, ymVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(ymVar instanceof qa9)) {
-                return;
+            if (interceptable == null || (invokeILL = interceptable.invokeILL(1048576, this, i, view2, viewGroup)) == null) {
+                DLauncher A = this.a.A(i);
+                if (A.getLayoutParams() == null) {
+                    A.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+                }
+                return A;
             }
-            qa9 qa9Var = (qa9) ymVar;
-            if (this.a.a != null) {
-                this.a.a.d(qa9Var.a(), qa9Var.b(), i);
-            }
-            if (this.a.b != null) {
-                this.a.b.a();
-            }
+            return (View) invokeILL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ha9(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public ha9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.mContext = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this));
     }
 
-    public void A(xa9 xa9Var) {
+    @Override // com.baidu.tieba.pk5
+    public void a() {
+        LinkedList<hi5> linkedList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xa9Var) == null) {
-            this.b = xa9Var;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (linkedList = this.m) != null) {
+            linkedList.clear();
+            this.m = null;
         }
     }
 
-    public final void B(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
+    @Override // com.baidu.tieba.pk5
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, interestedForumStyleAMoreViewHolder) == null) {
-            EMManager.from(interestedForumStyleAMoreViewHolder.c).setTextColor(R.color.CAM_X0302).setTextSize(R.dimen.T_X07);
-            EMManager.from(interestedForumStyleAMoreViewHolder.d).setBackGroundColor(R.color.CAM_X0206);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: u */
-    public InterestedForumStyleAMoreViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return new InterestedForumStyleAMoreViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0463, viewGroup, false));
-        }
-        return (InterestedForumStyleAMoreViewHolder) invokeL.objValue;
-    }
-
-    public void z(wa9 wa9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, wa9Var) == null) {
-            this.a = wa9Var;
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.lm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, qa9 qa9Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
-        x(i, view2, viewGroup, qa9Var, interestedForumStyleAMoreViewHolder);
-        return view2;
-    }
-
-    public View x(int i, View view2, ViewGroup viewGroup, qa9 qa9Var, InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qa9Var, interestedForumStyleAMoreViewHolder})) == null) {
-            B(interestedForumStyleAMoreViewHolder);
-            y(interestedForumStyleAMoreViewHolder, qa9Var);
-            return view2;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void y(InterestedForumStyleAMoreViewHolder interestedForumStyleAMoreViewHolder, qa9 qa9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, interestedForumStyleAMoreViewHolder, qa9Var) == null) {
-            interestedForumStyleAMoreViewHolder.c.setText(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f0ad5));
-            if (qa9Var.c()) {
-                interestedForumStyleAMoreViewHolder.b.setVisibility(0);
-            } else {
-                interestedForumStyleAMoreViewHolder.b.setVisibility(8);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            LinkedList<hi5> linkedList = this.m;
+            if (linkedList != null) {
+                return linkedList.size();
             }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public final DLauncher A(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < c()) {
+                return (DLauncher) this.m.get(i);
+            }
+            return null;
+        }
+        return (DLauncher) invokeI.objValue;
+    }
+
+    public void z(LinkedList<hi5> linkedList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, linkedList) == null) {
+            this.m = linkedList;
+        }
+    }
+
+    @Override // com.baidu.tieba.pk5
+    public void n(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
+            o(4);
+            v(2);
+            q(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X004));
+            t(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            u(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_W_X006));
+            x(new a(this));
+            h().b(this);
         }
     }
 }

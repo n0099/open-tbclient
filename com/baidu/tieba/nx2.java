@@ -10,12 +10,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nx2 extends kx2 {
+public class nx2 extends px2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rx2 A;
-    public double B;
-    public int C;
     public String z;
 
     public nx2() {
@@ -32,36 +29,27 @@ public class nx2 extends kx2 {
             }
         }
         this.z = "";
-        this.C = 1000;
     }
 
-    @Override // com.baidu.tieba.kx2, com.baidu.tieba.o62, com.baidu.tieba.x03
+    @Override // com.baidu.tieba.t62, com.baidu.tieba.c13
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(this.z);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.px2, com.baidu.tieba.t62, com.baidu.tieba.c13
     public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        this.z = jSONObject.optString("markerId");
-        rx2 rx2Var = new rx2();
-        this.A = rx2Var;
-        rx2Var.a(jSONObject.optJSONObject("destination"));
-        jSONObject.optBoolean("autoRotate");
-        this.B = jSONObject.optDouble("rotate");
-        this.C = Math.abs(jSONObject.optInt("duration", this.C));
-    }
-
-    @Override // com.baidu.tieba.o62, com.baidu.tieba.x03
-    public boolean isValid() {
-        InterceptResult invokeV;
-        rx2 rx2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.z) && (rx2Var = this.A) != null && rx2Var.isValid()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        this.z = jSONObject.optString("cb");
+        jSONObject.optDouble("latitude");
+        jSONObject.optDouble("longitude");
     }
 }

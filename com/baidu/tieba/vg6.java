@@ -1,27 +1,49 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.ala.utils.AlaStringHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gra;
-import com.baidu.tieba.ug6;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffectData;
+import com.baidu.tieba.wallet.CurrencySwitchUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class vg6 implements ug6 {
+public class vg6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public gra a;
+    public RelativeLayout a;
     public TextView b;
-    public ug6.c c;
-    public ug6.b d;
-    public ug6.a e;
+    public TextView c;
+    public TextView d;
+    public TextView e;
+    public TextView f;
+    public LinearLayout g;
+    public LinearLayout h;
+    public TextView i;
+    public b j;
+    public AlaEnterEffectData k;
+    public Context l;
 
     /* loaded from: classes8.dex */
-    public class a implements gra.a {
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes8.dex */
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ vg6 a;
@@ -44,55 +66,21 @@ public class vg6 implements ug6 {
             this.a = vg6Var;
         }
 
-        @Override // com.baidu.tieba.gra.a
-        public void onProgress(float f) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
-                this.a.b.setText(this.a.h(f));
-            }
-        }
-
-        @Override // com.baidu.tieba.gra.a
-        public void a(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-                if (this.a.e != null) {
-                    this.a.e.a(f);
-                }
-                TextView textView = this.a.b;
-                vg6 vg6Var = this.a;
-                textView.setText(vg6Var.h(vg6Var.getProgress()));
-            }
-        }
-
-        @Override // com.baidu.tieba.gra.a
-        public float getSpeed() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.d != null) {
-                    return this.a.d.getSpeed();
-                }
-                return 1.0f;
-            }
-            return invokeV.floatValue;
-        }
-
-        @Override // com.baidu.tieba.gra.a
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.c != null) {
-                this.a.c.onFinished();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.j != null) {
+                this.a.j.a();
             }
         }
     }
 
-    public vg6(gra graVar, TextView textView, ug6.c cVar, ug6.b bVar, ug6.a aVar) {
+    public vg6(Context context, AlaEnterEffectData alaEnterEffectData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {graVar, textView, cVar, bVar, aVar};
+            Object[] objArr = {context, alaEnterEffectData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -102,218 +90,111 @@ public class vg6 implements ug6 {
                 return;
             }
         }
-        this.a = graVar;
-        this.b = textView;
-        this.c = cVar;
-        this.d = bVar;
-        this.e = aVar;
-        i();
-    }
-
-    @Override // com.baidu.tieba.ug6
-    public boolean setMaxDuration(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                graVar.setMaxDuration(i);
-                this.a.invalidate();
-                return true;
-            }
-            return false;
+        if (alaEnterEffectData != null && context != null) {
+            this.l = context;
+            this.k = alaEnterEffectData;
+            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00f2, (ViewGroup) null);
+            this.a = relativeLayout;
+            this.b = (TextView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f09099e);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0914fc);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0915b9);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0907a9);
+            this.f = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09236d);
+            this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f09236e);
+            this.h = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090830);
+            this.i = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09082f);
+            c(alaEnterEffectData);
         }
-        return invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ug6
-    public boolean setMinDuration(int i) {
-        InterceptResult invokeI;
+    public void d(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                graVar.setMinDuration(i);
-                this.a.invalidate();
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.j = bVar;
         }
-        return invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ug6
-    public boolean setProgress(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                graVar.setProgress(j);
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ug6
-    public boolean setShowDeleteLastTip(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                graVar.setShowDeleteLastTip(z);
-                return true;
-            }
-            return false;
-        }
-        return invokeZ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ug6
-    public boolean a() {
+    public RelativeLayout b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                graVar.a();
-                return true;
-            }
-            return false;
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return (RelativeLayout) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ug6
-    public boolean b() {
-        InterceptResult invokeV;
+    public void c(AlaEnterEffectData alaEnterEffectData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                return graVar.b();
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, alaEnterEffectData) != null) || alaEnterEffectData == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ug6
-    public int getMaxDuration() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                return graVar.getMaxDuration();
+        this.k = alaEnterEffectData;
+        this.e.setEnabled(true);
+        int i = this.k.categoryType;
+        if (3 != i) {
+            if (2 == i) {
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801f0);
+                this.e.setTextColor(this.l.getResources().getColor(R.color.CAM_X0201));
+                this.g.setVisibility(0);
+                this.f.setText(AlaStringHelper.formatLowercasekDou((float) alaEnterEffectData.price));
+                Drawable normalSkinMoneyIcon = CurrencySwitchUtil.getNormalSkinMoneyIcon();
+                int dimensionPixelSize = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070215);
+                normalSkinMoneyIcon.setBounds(0, 0, dimensionPixelSize, dimensionPixelSize);
+                this.f.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070363));
+                this.f.setCompoundDrawables(normalSkinMoneyIcon, null, null, null);
+                this.h.setVisibility(0);
+                this.i.setText(AlaStringHelper.formatLowercasekDou((float) TbadkCoreApplication.getInst().currentAccountTdouNum));
+                Drawable normalSkinMoneyIcon2 = CurrencySwitchUtil.getNormalSkinMoneyIcon();
+                int dimensionPixelSize2 = this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
+                normalSkinMoneyIcon2.setBounds(0, 0, dimensionPixelSize2, dimensionPixelSize2);
+                this.i.setCompoundDrawablePadding(this.l.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
+                this.i.setCompoundDrawables(normalSkinMoneyIcon2, null, null, null);
+            } else {
+                this.d.setVisibility(0);
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f82);
+                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607cd));
             }
-            return 0;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ug6
-    public float getProgress() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                return graVar.getProgress();
+        AlaEnterEffectData alaEnterEffectData2 = this.k;
+        if (alaEnterEffectData2.isOwn) {
+            if (alaEnterEffectData2.isUsing()) {
+                this.e.setBackgroundResource(R.drawable.obfuscated_res_0x7f080f7f);
+                this.e.setTextColor(this.l.getResources().getColorStateList(R.color.obfuscated_res_0x7f0607cc));
+                this.e.setText(R.string.obfuscated_res_0x7f0f027c);
+                if (2 == this.k.categoryType) {
+                    this.h.setVisibility(8);
+                }
+            } else {
+                this.e.setText(R.string.obfuscated_res_0x7f0f024d);
             }
-            return 0.0f;
+        } else {
+            int i2 = alaEnterEffectData2.categoryType;
+            if (3 == i2) {
+                this.e.setText(R.string.obfuscated_res_0x7f0f0267);
+                this.c.setText(this.l.getString(R.string.obfuscated_res_0x7f0f023f, alaEnterEffectData.nobilityName));
+            } else if (2 == i2) {
+                if (TbadkCoreApplication.getInst().currentAccountTdouNum >= this.k.price) {
+                    this.e.setText(R.string.obfuscated_res_0x7f0f0244);
+                } else {
+                    this.e.setText(R.string.obfuscated_res_0x7f0f023d);
+                }
+            } else {
+                this.e.setBackgroundDrawable(null);
+                this.e.setTextColor(this.l.getResources().getColor(R.color.white_alpha60));
+                this.e.setText(R.string.obfuscated_res_0x7f0f0241);
+                this.e.setEnabled(false);
+            }
         }
-        return invokeV.floatValue;
-    }
-
-    @Override // com.baidu.tieba.ug6
-    public int getSlideNum() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                return graVar.getSlideNum();
-            }
-            return 0;
+        this.e.setOnClickListener(new a(this));
+        if (!StringUtils.isNull(alaEnterEffectData.name)) {
+            this.b.setText(alaEnterEffectData.name);
         }
-        return invokeV.intValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            gra graVar = this.a;
-            if (graVar == null) {
-                return false;
-            }
-            graVar.setOnProgressListener(new a(this));
-            return true;
+        long currentTimeMillis = (alaEnterEffectData.end_time * 1000) - System.currentTimeMillis();
+        if (currentTimeMillis >= 0) {
+            this.c.setText(this.l.getResources().getString(R.string.obfuscated_res_0x7f0f0250, StringHelper.formatDayOrHourTime(currentTimeMillis)));
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ug6
-    public boolean pause() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                graVar.stop();
-                return true;
-            }
-            return false;
+        if (!StringUtils.isNull(alaEnterEffectData.effect_range_name)) {
+            this.d.setText(alaEnterEffectData.effect_range_name);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ug6
-    public boolean reset() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                graVar.reset();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ug6
-    public boolean start() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            gra graVar = this.a;
-            if (graVar != null) {
-                graVar.start();
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String h(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            if (f >= getMaxDuration()) {
-                f = getMaxDuration();
-            }
-            if (f > 60.0f) {
-                return ((int) (f / 60.0f)) + "'" + String.format("%.1f", Float.valueOf(f % 60.0f));
-            }
-            return String.format("%.1f", Float.valueOf(f));
-        }
-        return (String) invokeF.objValue;
     }
 }

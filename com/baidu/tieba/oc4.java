@@ -1,21 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class oc4 {
+public class oc4 extends fi3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public int progress;
-    @V8JavascriptField
-    public long totalBytesExpectedToWrite;
-    @V8JavascriptField
-    public long totalBytesWritten;
+    public int k;
+    public String l;
+    public int m;
+    public int n;
+    public long o;
 
     public oc4() {
         Interceptable interceptable = $ic;
@@ -31,12 +33,27 @@ public class oc4 {
         }
     }
 
-    public String toString() {
+    @Override // com.baidu.tieba.fi3
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SubPackageProgressData{progress=" + this.progress + ", totalBytesWritten=" + this.totalBytesWritten + ", totalBytesExpectedToWrite=" + this.totalBytesExpectedToWrite + '}';
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put("stage", this.k);
+                this.h.put(StatConstants.KEY_EXT_ERR_MSG, this.l);
+                this.h.put("netStatus", this.m);
+                this.h.put(DownloadStatisticConstants.UBC_PAGE_VALUE_TOUCH, this.n);
+                this.h.put("stuck_interval", this.o);
+            } catch (JSONException e) {
+                if (fi3.j) {
+                    e.printStackTrace();
+                }
+            }
+            return super.f();
         }
-        return (String) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

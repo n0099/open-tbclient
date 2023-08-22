@@ -37,7 +37,7 @@ public class tg {
     public boolean s;
     public boolean t;
     public boolean u;
-    public oh v;
+    public ph v;
 
     public String p() {
         InterceptResult invokeV;
@@ -51,12 +51,12 @@ public class tg {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) ? ARPScriptEnvironment.KEY_DATA_PIP_TRACK : (String) invokeV.objValue;
     }
 
-    public tg(oh ohVar) {
+    public tg(ph phVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ohVar};
+            Object[] objArr = {phVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,7 +84,7 @@ public class tg {
         this.s = false;
         this.t = false;
         this.u = false;
-        this.v = ohVar;
+        this.v = phVar;
     }
 
     public static String g(String str) {

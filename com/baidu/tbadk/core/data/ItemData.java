@@ -2,6 +2,7 @@ package com.baidu.tbadk.core.data;
 
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
@@ -26,20 +27,26 @@ import tbclient.TiebaPlusInfo;
 public class ItemData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ASSOCIATED_ITEM_DATA_FORMAT = "#(item,%d,%s)";
+    public static final String FILE_TYPE_APP = "app";
     public transient /* synthetic */ FieldHolder $fh;
     public transient ApkDetail apkDetail;
     public String appId;
     public String buttonLink;
     public Integer buttonLinkType;
     public String buttonName;
+    public String fileType;
     public String forumName;
+    public boolean isFromTbDownloaderTable;
     public long itemId;
     public double mIconSize;
     public String mIconUrl;
     public double mScore;
     public int mStar;
     public List<String> mTags;
+    public int mTbFileDownloaderType;
     public String mTitle;
+    public int notificationShowCount;
+    public String packageName;
     public String pkgName;
 
     public ItemData() {
@@ -94,6 +101,9 @@ public class ItemData extends OrmObject implements Serializable {
                 this.forumName = jSONObject.optString("forum_name");
                 this.pkgName = jSONObject.optString("apk_name");
                 this.appId = jSONObject.optString("item_appid");
+                this.mTbFileDownloaderType = jSONObject.optInt("file_download_type");
+                this.notificationShowCount = jSONObject.optInt("notification_show_count");
+                this.fileType = jSONObject.optString(NetDiskFileMsg.NetDiskFile.JSON_KEY_FILE_TYPE);
                 if (z && (optJSONObject = jSONObject.optJSONObject("apk_detail")) != null) {
                     ApkDetail.Builder builder = new ApkDetail.Builder();
                     builder.developer = optJSONObject.optString("developer");

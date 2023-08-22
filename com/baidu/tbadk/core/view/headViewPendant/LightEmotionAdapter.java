@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.data.LightEmotionData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.ca5;
+import com.baidu.tieba.di;
+import com.baidu.tieba.ja5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,9 +30,9 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
     public View b;
     public ArrayList<LightEmotionData> c;
 
-    public void q(ca5 ca5Var) {
+    public void q(ja5 ja5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ca5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ja5Var) == null) {
         }
     }
 
@@ -146,7 +146,7 @@ public class LightEmotionAdapter extends RecyclerView.Adapter<LightEmotionView> 
 
     public void p(LightEmotionView lightEmotionView, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, lightEmotionView, str) == null) && lightEmotionView != null && lightEmotionView.b != null && !bi.isEmpty(str)) {
+        if ((interceptable == null || interceptable.invokeLL(1048583, this, lightEmotionView, str) == null) && lightEmotionView != null && lightEmotionView.b != null && !di.isEmpty(str)) {
             lightEmotionView.b.setText(str);
         }
     }

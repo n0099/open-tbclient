@@ -1,209 +1,310 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import androidx.annotation.NonNull;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.browser.BrowserHelper;
+import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaDatabase;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.dialog.TBAlertConfig;
-import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.data.LevePopData;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class aha extends e55 {
+public class aha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity f;
-    public final iea g;
-    public LevePopData h;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ aha a;
-
-        public a(aha ahaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ahaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ahaVar;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947616559, "Lcom/baidu/tieba/aha;")) == null) {
+            return;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LevePopData a;
-        public final /* synthetic */ aha b;
-
-        public b(aha ahaVar, LevePopData levePopData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ahaVar, levePopData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ahaVar;
-            this.a = levePopData;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                BrowserHelper.startWebActivity(view2.getContext(), (String) null, this.a.getBtn_scheme(), true);
-                this.b.c();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aha(@NonNull MainTabActivity mainTabActivity, @NonNull iea ieaVar) {
-        super(mainTabActivity);
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ieaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.f = mainTabActivity;
-        this.g = ieaVar;
-    }
-
-    @Override // com.baidu.tieba.b55
-    public void d(b55.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            if (YunDialogManager.isShowingDialog() && aVar != null) {
-                aVar.callback(false);
-                return;
-            }
-            iea ieaVar = this.g;
-            if ((ieaVar == null || ieaVar.z() == null || (this.g.z().getCurrentTabType() != 2 && this.g.z().getCurrentTabType() != 1 && this.g.z().getCurrentTabType() != 3)) && aVar != null) {
-                aVar.callback(false);
-                return;
-            }
-            LevePopData levePopData = TbSingleton.getInstance().getLevePopData();
-            this.h = levePopData;
-            if (!levePopData.isHadShow() && !StringUtils.isNull(this.h.getTitle()) && !StringUtils.isNull(this.h.getDesc()) && !StringUtils.isNull(this.h.getBtn_scheme()) && this.h.getLevel() > 0 && this.h.getLevel() <= 10 && this.f.K1() && this.f.B && this.h.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId() && aVar != null) {
-                aVar.callback(true);
-            } else if (aVar != null) {
-                aVar.callback(false);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947616559, "Lcom/baidu/tieba/aha;");
         }
     }
 
-    @Override // com.baidu.tieba.e55
-    public void h(TBAlertBuilder tBAlertBuilder) {
-        String cancel_btn_text;
-        String btn_text;
+    public static boolean a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
-            if (this.h == null) {
-                this.h = TbSingleton.getInstance().getLevePopData();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            n9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            mainDBDatabaseManager.e("delete from cash_data where type=?", new String[]{String.valueOf(i)});
+            return mainDBDatabaseManager.e("Insert into cash_data(type ,account ,data ) values(?,?,?)", new String[]{String.valueOf(i), "", str});
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void f(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65542, null, i, str) == null) {
+            TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
+        }
+    }
+
+    public static void i(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65545, null, i, str) == null) {
+            n9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null) {
+                if (i != 0) {
+                    if (i == 1) {
+                        mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
+                        return;
+                    }
+                    return;
+                }
+                mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
             }
-            LevePopData levePopData = this.h;
-            if (levePopData != null && levePopData.isHadShow()) {
-                c();
+        }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            c(0);
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c(1);
+        }
+    }
+
+    public static void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            e(2);
+        }
+    }
+
+    public static ArrayList<String> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return l(0);
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static ArrayList<String> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return l(1);
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            n9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (i != 0) {
+                if (i == 1) {
+                    mainDBDatabaseManager.d("delete from search_post_data");
+                    return;
+                }
                 return;
             }
-            RelativeLayout relativeLayout = new RelativeLayout(this.f);
-            View view2 = new View(this.f);
-            EMManager.from(view2).setCardType(1).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0205);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds127));
-            layoutParams.setMargins(0, UtilHelper.getDimenPixelSize(R.dimen.tbds149), 0, 0);
-            relativeLayout.addView(view2, layoutParams);
-            ImageView imageView = new ImageView(this.f);
-            imageView.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.icon_mask_usergrouth_home, WebPManager.ResourceStateType.NORMAL));
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-2, -2);
-            layoutParams2.addRule(14);
-            relativeLayout.addView(imageView, layoutParams2);
-            LevePopData levePopData2 = this.h;
-            TBAlertBuilder customHeaderView = tBAlertBuilder.setTitleStr(levePopData2.getTitle()).setDescStr(this.h.getDesc()).setDescLightStyle(true).setCustomHeaderView(relativeLayout);
-            TBAlertConfig.OperateBtnConfig[] operateBtnConfigArr = new TBAlertConfig.OperateBtnConfig[2];
-            if (StringUtils.isNull(this.h.getCancel_btn_text())) {
-                cancel_btn_text = TbadkCoreApplication.getInst().getString(R.string.guide_popup_window_known);
-            } else {
-                cancel_btn_text = this.h.getCancel_btn_text();
-            }
-            operateBtnConfigArr[0] = new TBAlertConfig.OperateBtnConfig(cancel_btn_text, TBAlertConfig.OperateBtnStyle.SECONDARY, new a(this));
-            if (StringUtils.isNull(this.h.getBtn_text())) {
-                btn_text = TbadkCoreApplication.getInst().getString(R.string.check_detail);
-            } else {
-                btn_text = this.h.getBtn_text();
-            }
-            operateBtnConfigArr[1] = new TBAlertConfig.OperateBtnConfig(btn_text, TBAlertConfig.OperateBtnStyle.MAIN, new b(this, levePopData2));
-            customHeaderView.setOperateBtn(operateBtnConfigArr).setCancelable(false).setAutoClose().show();
-            PollingModel.setLevelPopData(this.h, true);
+            mainDBDatabaseManager.d("delete from search_data");
         }
     }
 
-    @Override // com.baidu.tieba.e55
-    public void i() {
+    public static void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            YunDialogManager.unMarkShowingDialogName("userGrowth");
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            f(13, str);
         }
     }
 
-    @Override // com.baidu.tieba.e55
-    public void j() {
+    public static void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            YunDialogManager.markShowingDialogName("userGrowth");
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            i(0, str);
         }
+    }
+
+    public static void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
+            p(0, str);
+        }
+    }
+
+    public static void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
+            p(1, str);
+        }
+    }
+
+    public static void e(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(65541, null, i) != null) || TbadkCoreApplication.getCurrentAccount() == null) {
+            return;
+        }
+        TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkCoreApplication.getCurrentAccount()});
+    }
+
+    public static ArrayList<String> l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
+            n9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            ArrayList<String> arrayList = new ArrayList<>();
+            Cursor cursor = null;
+            try {
+                try {
+                    if (i != 0) {
+                        if (i == 1) {
+                            cursor = mainDBDatabaseManager.i("select * from search_post_data order by time desc limit 5", null);
+                        }
+                    } else {
+                        cursor = mainDBDatabaseManager.i("select * from search_data order by time desc limit 20", null);
+                    }
+                    while (cursor.moveToNext()) {
+                        String string = cursor.getString(0);
+                        if (string != null && string.length() > 0) {
+                            arrayList.add(string);
+                        }
+                    }
+                } catch (Exception e) {
+                    mainDBDatabaseManager.h(e, "getAllSearchData");
+                }
+                return arrayList;
+            } finally {
+                BdCloseHelper.close(cursor);
+            }
+        }
+        return (ArrayList) invokeI.objValue;
+    }
+
+    public static void n() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65550, null) == null) && TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
+            n9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = mainDBDatabaseManager.i("select * from setting where account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                    if (cursor != null && cursor.moveToFirst()) {
+                        ke5.d().O(cursor.getInt(cursor.getColumnIndex(FetchTimer.FREQUENCY)));
+                        ke5 d = ke5.d();
+                        if (cursor.getInt(cursor.getColumnIndex("fans_switch")) == 1) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        d.Q(z);
+                        if (cursor.getInt(cursor.getColumnIndex("reply_me_switch")) == 0) {
+                            ke5.d().R(false);
+                        } else {
+                            ke5.d().R(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("at_me_switch")) == 0) {
+                            ke5.d().M(false);
+                        } else {
+                            ke5.d().M(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("zan_me_switch")) == 0) {
+                            ke5.d().U(false);
+                        } else {
+                            ke5.d().U(true);
+                        }
+                        ke5.d().a(cursor.getInt(cursor.getColumnIndex("remind_tone")));
+                        if (cursor.getInt(cursor.getColumnIndex("msg_chat_switch")) == 0) {
+                            ke5.d().N(false);
+                        } else {
+                            ke5.d().N(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("nodisturb_switch")) == 0) {
+                            ke5.d().W(false);
+                        } else {
+                            ke5.d().W(true);
+                        }
+                        ke5.d().X(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        ke5.d().V(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                        if (cursor.getInt(cursor.getColumnIndex("remind_light")) == 0) {
+                            ke5.d().P(false);
+                        } else {
+                            ke5.d().P(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("stranger_chat_switch")) == 0) {
+                            ke5.d().d0(false);
+                        } else {
+                            ke5.d().d0(true);
+                        }
+                    } else {
+                        ke5.d().O(300);
+                        ke5.d().Q(true);
+                        ke5.d().R(true);
+                        ke5.d().M(true);
+                        ke5.d().U(true);
+                        ke5.d().S(true);
+                        ke5.d().T(false);
+                        ke5.d().P(true);
+                        ke5.d().d0(false);
+                        ke5.d().N(true);
+                        ke5.d().W(false);
+                        ke5.d().X(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        ke5.d().V(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                    }
+                    ke5.d().K(SharedPrefHelper.getInstance().getBoolean("GroupChatPushOn", true));
+                } catch (Exception e) {
+                    mainDBDatabaseManager.h(e, "getSettingData");
+                }
+                BdCloseHelper.close(cursor);
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001311));
+            } catch (Throwable th) {
+                BdCloseHelper.close((Cursor) null);
+                throw th;
+            }
+        }
+    }
+
+    public static void p(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65552, null, i, str) == null) {
+            n9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null) {
+                if (i != 0) {
+                    if (i == 1) {
+                        mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
+                        mainDBDatabaseManager.e("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
+                        return;
+                    }
+                    return;
+                }
+                mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
+                mainDBDatabaseManager.e("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
+            }
+        }
+    }
+
+    public static void r() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65554, null) != null) || TbadkCoreApplication.getCurrentAccount() == null) {
+            return;
+        }
+        n9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{TbadkCoreApplication.getCurrentAccount()});
+        mainDBDatabaseManager.e("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time,remind_light,stranger_chat_switch,zan_me_switch) values(?,?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{TbadkCoreApplication.getCurrentAccount(), Integer.valueOf(ke5.d().f()), Integer.valueOf(ke5.d().y() ? 1 : 0), Integer.valueOf(ke5.d().A() ? 1 : 0), Integer.valueOf(ke5.d().v() ? 1 : 0), Integer.valueOf(ke5.d().c()), Integer.valueOf(ke5.d().w() ? 1 : 0), Integer.valueOf(ke5.d().E() ? 1 : 0), ke5.d().h(), ke5.d().g(), Integer.valueOf(ke5.d().x() ? 1 : 0), Integer.valueOf(ke5.d().G() ? 1 : 0), Integer.valueOf(ke5.d().D() ? 1 : 0)});
+        SharedPrefHelper.getInstance().putBoolean("GroupChatPushOn", ke5.d().t());
     }
 }

@@ -37,25 +37,25 @@ import com.baidu.tbadk.mutiprocess.aiApply.AICapacityStatusUpdateEvent;
 import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.UpdateDialog;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.bf8;
-import com.baidu.tieba.ep5;
+import com.baidu.tieba.b75;
+import com.baidu.tieba.bj8;
+import com.baidu.tieba.ifa;
 import com.baidu.tieba.im.memorycache.ImMemoryCacheRegister;
-import com.baidu.tieba.j75;
+import com.baidu.tieba.jb8;
 import com.baidu.tieba.lc.LcUpdateDialogActivity;
-import com.baidu.tieba.lk5;
-import com.baidu.tieba.pca;
-import com.baidu.tieba.pz4;
-import com.baidu.tieba.q98;
+import com.baidu.tieba.mg7;
+import com.baidu.tieba.pe8;
+import com.baidu.tieba.pq5;
+import com.baidu.tieba.q75;
 import com.baidu.tieba.service.FatalErrorService;
 import com.baidu.tieba.service.TiebaSyncService;
 import com.baidu.tieba.service.UpdateInfoService;
-import com.baidu.tieba.uw4;
-import com.baidu.tieba.v65;
-import com.baidu.tieba.vb8;
-import com.baidu.tieba.ve7;
+import com.baidu.tieba.uz4;
+import com.baidu.tieba.vp5;
 import com.baidu.tieba.wallet.WalletStaticInit;
-import com.baidu.tieba.yp5;
+import com.baidu.tieba.ww4;
+import com.baidu.tieba.xga;
+import com.baidu.tieba.zk5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -231,17 +231,17 @@ public class LaunchStatic {
         b();
         d();
         c();
-        pca.a();
-        bf8.a();
-        q98.a();
+        xga.a();
+        bj8.a();
+        jb8.a();
         ImMemoryCacheRegister.i();
-        vb8.i();
-        uw4.h();
+        pe8.i();
+        ww4.h();
         ServiceStaticInit.init();
         WalletStaticInit.init();
-        v65.d();
-        j75.a();
-        pz4.d();
+        b75.d();
+        q75.a();
+        uz4.d();
         a();
         e();
         f();
@@ -254,9 +254,9 @@ public class LaunchStatic {
             CustomMessageTask customMessageTask = new CustomMessageTask(2006002, new a());
             customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
             MessageManager.getInstance().registerTask(customMessageTask);
-            lk5.d().f();
-            aba.f(303039, ClientConfigSocketResponse.class, false);
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, aba.a(TbConfig.GET_PAY_CONFIG, 303039));
+            zk5.d().f();
+            ifa.f(303039, ClientConfigSocketResponse.class, false);
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CLIENT_CONFIG, ifa.a(TbConfig.GET_PAY_CONFIG, 303039));
             tbHttpMessageTask.setResponsedClass(ClientConfigHttpProtoResponse.class);
             MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
@@ -279,7 +279,7 @@ public class LaunchStatic {
     public static void a() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65538, null) == null) && !Fresco.hasBeenInitialized()) {
-            Fresco.initialize(TbadkCoreApplication.getInst(), ve7.a());
+            Fresco.initialize(TbadkCoreApplication.getInst(), mg7.a());
         }
     }
 
@@ -288,8 +288,8 @@ public class LaunchStatic {
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
             try {
                 MutiProcessManager mutiProcessManager = MutiProcessManager.getInstance();
-                mutiProcessManager.registerForeverListener(SyncDataEvent.class, new yp5());
-                mutiProcessManager.registerForeverListener(AICapacityStatusUpdateEvent.class, new ep5());
+                mutiProcessManager.registerForeverListener(SyncDataEvent.class, new pq5());
+                mutiProcessManager.registerForeverListener(AICapacityStatusUpdateEvent.class, new vp5());
             } catch (Exception e) {
                 e.printStackTrace();
             }

@@ -1,88 +1,111 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ClientHello;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ServerHello;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
-/* loaded from: classes6.dex */
-public class lu3 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+/* loaded from: classes7.dex */
+public final class lu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Bdtls$ClientHello a;
+    public Bdtls$ServerHello b;
+    public byte[] c;
 
-    /* JADX DEBUG: Multi-variable search result rejected for r1v6, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static hu3 a(byte[] bArr) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public lu3() {
+        this(null, null, null, 7, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            hu3 hu3Var = null;
-            if (bArr == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((Bdtls$ClientHello) objArr[0], (Bdtls$ServerHello) objArr[1], (byte[]) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ByteBuffer wrap = ByteBuffer.wrap(bArr);
-            byte b = wrap.get();
-            byte b2 = wrap.get();
-            if (b == -27 && b2 == -89) {
-                hu3Var = new hu3();
-                wrap.get();
-                wrap.get();
-                hu3Var.r(wrap.get());
-                hu3Var.p(wrap.get());
-                int i = wrap.getShort();
-                hu3Var.q(i);
-                int i2 = wrap.getInt();
-                hu3Var.k(i2);
-                hu3Var.l(wrap.getLong());
-                byte[] bArr2 = new byte[i];
-                wrap.get(bArr2, 0, i);
-                hu3Var.o(bArr2);
-                if (i2 > 0) {
-                    byte[] bArr3 = new byte[i2];
-                    wrap.get(bArr3, 0, i2);
-                    hu3Var.j(bArr3);
-                }
-            }
-            return hu3Var;
         }
-        return (hu3) invokeL.objValue;
     }
 
-    public static byte[] b(hu3 hu3Var) {
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hu3Var)) == null) {
-            if (hu3Var == null) {
-                return null;
-            }
-            ByteBuffer allocate = ByteBuffer.allocate(hu3Var.h() + 20 + hu3Var.b());
-            allocate.put((byte) -27);
-            allocate.put((byte) -89);
-            if (hu3Var.e() != null && hu3Var.e().length == 2) {
-                allocate.put(hu3Var.e()[0]);
-                allocate.put(hu3Var.e()[1]);
-                allocate.put(hu3Var.i());
-                allocate.put(hu3Var.g());
-                if (hu3Var.f() != null && hu3Var.f().length != 0) {
-                    int length = hu3Var.f().length;
-                    allocate.put((byte) ((length >> 8) & 255));
-                    allocate.put((byte) (length & 255));
-                    if (hu3Var.a() != null && hu3Var.a().length != 0) {
-                        allocate.putInt(hu3Var.a().length);
-                    } else {
-                        allocate.putInt(0);
-                    }
-                    allocate.putLong(hu3Var.c());
-                    if (hu3Var.f() != null) {
-                        allocate.put(hu3Var.f());
-                    }
-                    if (hu3Var.a() != null) {
-                        allocate.put(hu3Var.a());
-                    }
-                    return allocate.array();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof lu3) {
+                    lu3 lu3Var = (lu3) obj;
+                    return Intrinsics.areEqual(this.a, lu3Var.a) && Intrinsics.areEqual(this.b, lu3Var.b) && Intrinsics.areEqual(this.c, lu3Var.c);
                 }
+                return false;
             }
-            return null;
+            return true;
         }
-        return (byte[]) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Bdtls$ClientHello bdtls$ClientHello = this.a;
+            int hashCode = (bdtls$ClientHello != null ? bdtls$ClientHello.hashCode() : 0) * 31;
+            Bdtls$ServerHello bdtls$ServerHello = this.b;
+            int hashCode2 = (hashCode + (bdtls$ServerHello != null ? bdtls$ServerHello.hashCode() : 0)) * 31;
+            byte[] bArr = this.c;
+            return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "HandshakeParams(clientHello=" + this.a + ", serverHello=" + this.b + ", encodeDHPublicKey=" + Arrays.toString(this.c) + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public lu3(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdtls$ClientHello, bdtls$ServerHello, bArr};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = bdtls$ClientHello;
+        this.b = bdtls$ServerHello;
+        this.c = bArr;
+    }
+
+    public /* synthetic */ lu3(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i & 1) != 0 ? null : bdtls$ClientHello, (i & 2) != 0 ? null : bdtls$ServerHello, (i & 4) != 0 ? null : bArr);
+    }
+
+    public final void a(Bdtls$ServerHello bdtls$ServerHello) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bdtls$ServerHello) == null) {
+            this.b = bdtls$ServerHello;
+        }
     }
 }

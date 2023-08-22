@@ -12,7 +12,7 @@ import com.huawei.hms.support.api.client.SubAppInfo;
 import com.huawei.hms.support.api.entity.auth.Scope;
 import java.lang.ref.WeakReference;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ClientSettings {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

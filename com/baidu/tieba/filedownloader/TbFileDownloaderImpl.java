@@ -1,11 +1,13 @@
 package com.baidu.tieba.filedownloader;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.utils.Constant;
 import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.dy9;
-import com.baidu.tieba.ic7;
-import com.baidu.tieba.jc7;
+import com.baidu.tieba.i2a;
+import com.baidu.tieba.yd7;
+import com.baidu.tieba.zd7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,13 +23,14 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\u0018\u0000 \u00122\u00020\u0001:\u0001\u0012B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0010\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\n\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\f\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\r\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\u000e\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0018\u0010\u000f\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0018\u0010\u0010\u001a\u00020\u00112\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016¨\u0006\u0013"}, d2 = {"Lcom/baidu/tieba/filedownloader/TbFileDownloaderImpl;", "Lcom/baidu/tieba/filedownloader/interfaces/IFileDownloader;", "()V", "addGlobalCallback", "", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/tieba/filedownloader/interfaces/IStatusCallback;", "cancel", "data", "Lcom/baidu/tbadk/download/DownloadData;", "getProgress", "", "getStatus", DownloadStatisticConstants.UBC_TYPE_PAUSE, "removeGlobalCallback", DownloadStatisticConstants.UBC_TYPE_RESUME, "start", "", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+import kotlin.text.StringsKt__StringsJVMKt;
+@Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0002\b\u0002\u0018\u0000 \u00142\u00020\u0001:\u0001\u0014B\u0007\b\u0002¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0010\u0010\u0007\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\n\u001a\u00020\u000b2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\f\u001a\u00020\r2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\u000e\u001a\u00020\r2\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\u000f\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\tH\u0016J\u0010\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0018\u0010\u0011\u001a\u00020\u00042\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016J\u0018\u0010\u0012\u001a\u00020\u00132\u0006\u0010\b\u001a\u00020\t2\u0006\u0010\u0005\u001a\u00020\u0006H\u0016¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/filedownloader/TbFileDownloaderImpl;", "Lcom/baidu/tieba/filedownloader/interfaces/IFileDownloader;", "()V", "addGlobalCallback", "", WebChromeClient.KEY_ARG_CALLBACK, "Lcom/baidu/tieba/filedownloader/interfaces/IStatusCallback;", "cancel", "data", "Lcom/baidu/tbadk/download/DownloadData;", "getFilePath", "", "getProgress", "", "getStatus", DownloadStatisticConstants.UBC_TYPE_PAUSE, "removeGlobalCallback", DownloadStatisticConstants.UBC_TYPE_RESUME, "start", "", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class TbFileDownloaderImpl implements ic7 {
+public final class TbFileDownloaderImpl implements yd7 {
     public static /* synthetic */ Interceptable $ic;
     public static final a a;
     public static final Lazy<TbFileDownloaderImpl> b;
-    public static final dy9 c;
+    public static final i2a c;
     public transient /* synthetic */ FieldHolder $fh;
 
     public /* synthetic */ TbFileDownloaderImpl(DefaultConstructorMarker defaultConstructorMarker) {
@@ -82,7 +85,7 @@ public final class TbFileDownloaderImpl implements ic7 {
         }
         a = new a(null);
         b = LazyKt__LazyJVMKt.lazy(LazyThreadSafetyMode.SYNCHRONIZED, (Function0) TbFileDownloaderImpl$Companion$sInstance$2.INSTANCE);
-        dy9 o = dy9.o();
+        i2a o = i2a.o();
         Intrinsics.checkNotNullExpressionValue(o, "getInstance()");
         c = o;
     }
@@ -101,8 +104,8 @@ public final class TbFileDownloaderImpl implements ic7 {
         }
     }
 
-    @Override // com.baidu.tieba.ic7
-    public void a(jc7 callback) {
+    @Override // com.baidu.tieba.yd7
+    public void a(zd7 callback) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
@@ -110,64 +113,102 @@ public final class TbFileDownloaderImpl implements ic7 {
         }
     }
 
-    @Override // com.baidu.tieba.ic7
-    public void c(DownloadData data) {
+    @Override // com.baidu.tieba.yd7
+    public void d(DownloadData data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             c.k(data);
         }
     }
 
-    @Override // com.baidu.tieba.ic7
-    public int d(DownloadData data) {
+    @Override // com.baidu.tieba.yd7
+    public int e(DownloadData data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, data)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, data)) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
-            return dy9.q(data);
+            return i2a.q(data);
         }
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.ic7
-    public void e(DownloadData data) {
+    @Override // com.baidu.tieba.yd7
+    public void f(DownloadData data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             c.i(data.getUrl(), data.getId());
         }
     }
 
-    @Override // com.baidu.tieba.ic7
-    public int f(DownloadData data) {
+    @Override // com.baidu.tieba.yd7
+    public int g(DownloadData data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, data)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, data)) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             return c.l(data.getId(), data.getName());
         }
         return invokeL.intValue;
     }
 
-    @Override // com.baidu.tieba.ic7
-    public void g(jc7 callback) {
+    @Override // com.baidu.tieba.yd7
+    public void i(zd7 callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, callback) == null) {
             Intrinsics.checkNotNullParameter(callback, "callback");
             c.w(callback);
         }
     }
 
-    @Override // com.baidu.tieba.ic7
-    public boolean b(DownloadData data, jc7 callback) {
+    @Override // com.baidu.tieba.yd7
+    public void b(DownloadData data, zd7 callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data, callback) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            c.y(data, callback);
+        }
+    }
+
+    @Override // com.baidu.tieba.yd7
+    public boolean c(DownloadData data, zd7 callback) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data, callback)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, data, callback)) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
             Intrinsics.checkNotNullParameter(callback, "callback");
             return c.y(data, callback);
         }
         return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.yd7
+    public String h(DownloadData data) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            String id = data.getId();
+            if (id != null && !StringsKt__StringsJVMKt.isBlank(id)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                StringBuilder sb = new StringBuilder();
+                String id2 = data.getId();
+                Intrinsics.checkNotNullExpressionValue(id2, "data.id");
+                sb.append(StringsKt__StringsJVMKt.replace$default(id2, ".", "_", false, 4, (Object) null));
+                sb.append(Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                String m = i2a.m(sb.toString());
+                Intrinsics.checkNotNullExpressionValue(m, "getFilePath(fileName)");
+                return m;
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
     }
 }

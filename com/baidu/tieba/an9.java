@@ -1,78 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.person.holder.PersonInfoUserPicsHolder;
+import android.text.TextUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class an9 extends p56<cn9, PersonInfoUserPicsHolder> {
+public class an9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View.OnClickListener a;
-    public TbPageContext b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public an9(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lm
-    /* renamed from: s */
-    public PersonInfoUserPicsHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static boolean a(BdTypeRecyclerView bdTypeRecyclerView) {
         InterceptResult invokeL;
+        List<bn> data;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d07df, viewGroup, false), this.b);
-            personInfoUserPicsHolder.e.d(this.a);
-            return personInfoUserPicsHolder;
-        }
-        return (PersonInfoUserPicsHolder) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        t(i, view2, viewGroup, (cn9) obj, (PersonInfoUserPicsHolder) viewHolder);
-        return view2;
-    }
-
-    public View t(int i, View view2, ViewGroup viewGroup, cn9 cn9Var, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, cn9Var, personInfoUserPicsHolder})) == null) {
-            if (cn9Var != null && personInfoUserPicsHolder != null) {
-                personInfoUserPicsHolder.c();
-                personInfoUserPicsHolder.b(cn9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bdTypeRecyclerView)) == null) {
+            if (bdTypeRecyclerView != null && (data = bdTypeRecyclerView.getData()) != null && data.size() > 0) {
+                for (int i = 0; i < data.size(); i++) {
+                    bn bnVar = data.get(i);
+                    if ((bnVar instanceof zfa) && bnVar.getType() == zfa.W0) {
+                        return true;
+                    }
+                }
             }
-            return view2;
+            return false;
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static int b(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bdTypeRecyclerView, str)) == null) {
+            if (bdTypeRecyclerView != null && !TextUtils.isEmpty(str)) {
+                List<bn> data = bdTypeRecyclerView.getData();
+                int headerViewsCount = bdTypeRecyclerView.getHeaderViewsCount();
+                if (data != null && data.size() > 0) {
+                    int size = data.size();
+                    for (int i = 0; i < size; i++) {
+                        bn bnVar = data.get(i);
+                        if ((bnVar instanceof zfa) && bnVar.getType() == zfa.W0 && str.equals(((zfa) bnVar).S())) {
+                            return i + headerViewsCount;
+                        }
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static void c(BdTypeRecyclerView bdTypeRecyclerView, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65538, null, bdTypeRecyclerView, str) != null) || bdTypeRecyclerView == null) {
+            return;
+        }
+        int b = b(bdTypeRecyclerView, str);
+        if (bdTypeRecyclerView.getLayoutManager() != null) {
+            bdTypeRecyclerView.getLayoutManager().scrollToPosition(b);
+        }
     }
 }

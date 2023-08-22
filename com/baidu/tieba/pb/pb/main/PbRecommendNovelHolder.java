@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.d35;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.s25;
-import com.baidu.tieba.x25;
+import com.baidu.tieba.y25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,13 +42,13 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
     public TbImageView i;
     public LinearLayout j;
     public View k;
-    public x25 l;
+    public d35 l;
     public b m;
     public View.OnClickListener n;
 
     /* loaded from: classes7.dex */
     public interface b {
-        void a(x25 x25Var);
+        void a(d35 d35Var);
     }
 
     /* loaded from: classes7.dex */
@@ -89,9 +89,9 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
                 PbRecommendNovelHolder pbRecommendNovelHolder = this.a;
                 if (view2 == pbRecommendNovelHolder.h) {
                     String str = pbRecommendNovelHolder.l.i1;
-                    s25 s25Var = new s25();
+                    y25 y25Var = new y25();
                     TbPageContext tbPageContext = (TbPageContext) l9.a(this.a.a.getPageActivity());
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, s25Var));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001417, y25Var));
                     TiebaStatic.log(new StatisticItem("c11387").param("obj_source", 6).param("obj_locate", "0").param("obj_param1", str));
                     TiebaStatic.log(new StatisticItem("c11442").param("obj_id", this.a.l.i1).param("obj_locate", "3"));
                 } else if (view2 == pbRecommendNovelHolder.j) {
@@ -127,37 +127,37 @@ public class PbRecommendNovelHolder extends TypeAdapter.ViewHolder {
         this.n = new a(this);
         this.a = tbPageContext;
         this.m = bVar;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b4);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b3);
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09199f);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919af);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09199b);
-        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919a9);
-        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919a7);
-        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919aa);
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919ae);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924e2);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0924e1);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919c2);
+        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919d2);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919be);
+        this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919cc);
+        this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0919ca);
+        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919cd);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0919d1);
         this.i = tbImageView;
         tbImageView.setDefaultResource(R.drawable.transparent_bg);
         this.i.setDefaultBgResource(R.drawable.transparent_bg);
-        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091e5e);
+        this.k = view2.findViewById(R.id.obfuscated_res_0x7f091e81);
         this.h.setOnClickListener(this.n);
         this.j.setOnClickListener(this.n);
         this.c.setOnClickListener(this.n);
     }
 
-    public void e(x25 x25Var) {
+    public void e(d35 d35Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, x25Var) != null) || x25Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, d35Var) != null) || d35Var == null) {
             return;
         }
-        this.l = x25Var;
-        this.b.setText(x25Var.f1);
-        this.c.setText(x25Var.g1);
-        this.i.startLoad(x25Var.n1, 10, false);
-        this.d.startLoad(x25Var.j1, 10, false);
-        this.h.setText(x25Var.m1);
-        this.e.setText(x25Var.k1);
-        List<String> list = x25Var.l1;
+        this.l = d35Var;
+        this.b.setText(d35Var.f1);
+        this.c.setText(d35Var.g1);
+        this.i.startLoad(d35Var.n1, 10, false);
+        this.d.startLoad(d35Var.j1, 10, false);
+        this.h.setText(d35Var.m1);
+        this.e.setText(d35Var.k1);
+        List<String> list = d35Var.l1;
         if (list != null) {
             int size = list.size();
             if (size != 1) {

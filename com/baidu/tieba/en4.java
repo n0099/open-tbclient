@@ -1,60 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class en4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = true;
-    public static String b = "0";
-    public static long c;
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile en4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740094, "Lcom/baidu/tieba/en4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public en4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947740094, "Lcom/baidu/tieba/en4;");
-                return;
-            }
-        }
-        hi4 b2 = ji4.b();
-        if (b2 != null) {
-            b = b2.i().getString("key_h2_heart_beat_version", "0");
         }
     }
 
-    public static long a(int i) {
-        InterceptResult invokeI;
+    public static en4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            hi4 b2 = ji4.b();
-            if (b2 != null) {
-                return b2.i().getInt("key_h2_heart_beat_timespan", i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (en4.class) {
+                    if (a == null) {
+                        a = new en4();
+                    }
+                }
             }
-            return i;
+            return a;
         }
-        return invokeI.longValue;
+        return (en4) invokeV.objValue;
     }
 
-    public static long b(int i) {
-        InterceptResult invokeI;
+    public void b(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            hi4 b2 = ji4.b();
-            if (b2 != null) {
-                return b2.i().getInt("key_h2_heart_beat_timeout", i);
-            }
-            return i;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeI.longValue;
+        String optString = jSONObject.optString("version");
+        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && oi4.b() != null && oi4.b().i() != null) {
+            JSONArray optJSONArray = optJSONObject.optJSONArray(AlbumActivityConfig.FROM_WEB_VIEW);
+            JSONArray optJSONArray2 = optJSONObject.optJSONArray("js");
+            boolean z2 = true;
+            if (optJSONArray != null) {
+                z = oi4.b().o(false, optJSONArray);
+            } else {
+                z = true;
+            }
+            if (optJSONArray2 != null) {
+                z2 = oi4.b().o(true, optJSONArray2);
+            }
+            if (z && z2) {
+                oi4.b().i().putString("key_online_description_fix_version", optString);
+            }
+        }
     }
 }

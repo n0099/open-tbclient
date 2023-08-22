@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.a98;
+import com.baidu.tieba.ta8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.TopicList.TopicListResIdl;
 public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a98 ranklistData;
+    public ta8 ranklistData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseHttpHotRanklistMessage() {
@@ -35,13 +35,13 @@ public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public a98 getHotRanklistData() {
+    public ta8 getHotRanklistData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.ranklistData;
         }
-        return (a98) invokeV.objValue;
+        return (ta8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -64,9 +64,9 @@ public class ResponseHttpHotRanklistMessage extends TbHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            a98 a98Var = new a98();
-            this.ranklistData = a98Var;
-            a98Var.b(topicListResIdl.data);
+            ta8 ta8Var = new ta8();
+            this.ranklistData = ta8Var;
+            ta8Var.b(topicListResIdl.data);
         }
     }
 }

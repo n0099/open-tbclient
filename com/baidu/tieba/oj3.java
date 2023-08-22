@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.storage.swankv.AshmemFileDescriptor;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"BDThrowableCheck"})
 /* loaded from: classes7.dex */
-public class oj3 extends y63 {
+public class oj3 extends nj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,26 +28,49 @@ public class oj3 extends y63 {
         }
     }
 
-    public static void e(@NonNull AshmemFileDescriptor ashmemFileDescriptor) {
+    @Override // com.baidu.tieba.nj3
+    @SuppressLint({"BDThrowableCheck"})
+    public Bundle c(mj3 mj3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, ashmemFileDescriptor) != null) || !ProcessUtils.isMainProcess()) {
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-        bundle.putParcelable("result", ashmemFileDescriptor);
-        s73.a(bundle, oj3.class);
-    }
-
-    @Override // com.baidu.tieba.y63
-    public void b(@NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            bundle.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
-            AshmemFileDescriptor ashmemFileDescriptor = (AshmemFileDescriptor) bundle.getParcelable("result");
-            if (ashmemFileDescriptor != null) {
-                sj3.b(ashmemFileDescriptor);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mj3Var)) == null) {
+            Bundle bundle = new Bundle();
+            lj3 b = rj3.b(mj3Var.a);
+            if (b == null) {
+                if (!nj3.a) {
+                    return bundle;
+                }
+                throw new IllegalArgumentException("illegal sp.");
             }
+            int i = mj3Var.b;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                if (nj3.a) {
+                                    throw new IllegalArgumentException("wrong info params.");
+                                }
+                            } else {
+                                bundle.putFloat("result_value", b.getFloat(mj3Var.c, Float.parseFloat(mj3Var.d)));
+                            }
+                        } else {
+                            bundle.putString("result_value", b.getString(mj3Var.c, mj3Var.d));
+                        }
+                    } else {
+                        bundle.putBoolean("result_value", b.getBoolean(mj3Var.c, Boolean.parseBoolean(mj3Var.d)));
+                    }
+                } else {
+                    bundle.putLong("result_value", b.getLong(mj3Var.c, Long.parseLong(mj3Var.d)));
+                }
+            } else {
+                bundle.putInt("result_value", b.getInt(mj3Var.c, Integer.parseInt(mj3Var.d)));
+            }
+            if (nj3.a) {
+                Log.d("SwanAppSpDelegation", "Get: " + mj3Var);
+            }
+            return bundle;
         }
+        return (Bundle) invokeL.objValue;
     }
 }

@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.og7;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.xe7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -57,7 +57,7 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public void setMoveNumber(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            String string = getContext().getString(R.string.obfuscated_res_0x7f0f0846);
+            String string = getContext().getString(R.string.obfuscated_res_0x7f0f084e);
             if (i > 0) {
                 string = string + String.format(Locale.CHINA, "(%d)", Integer.valueOf(i));
             }
@@ -111,10 +111,10 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0389, this);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090d26);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d2d);
-            this.d = findViewById(R.id.obfuscated_res_0x7f090d2e);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d038e, this);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f090d33);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090d3a);
+            this.d = findViewById(R.id.obfuscated_res_0x7f090d3b);
             this.b.setOnClickListener(this);
             this.c.setOnClickListener(this);
             c();
@@ -163,15 +163,15 @@ public class FrsMoveAreaBottomMenuView extends RelativeLayout implements View.On
                 d();
             } else if (view2 == this.b) {
                 this.e = null;
-                xe7.h().n();
+                og7.h().n();
             } else if (view2 == this.c) {
-                if (this.a != null && this.e == null && !ListUtils.isEmpty(xe7.h().i())) {
+                if (this.a != null && this.e == null && !ListUtils.isEmpty(og7.h().i())) {
                     FrsMoveAreaChooseView frsMoveAreaChooseView = new FrsMoveAreaChooseView(this.a);
                     this.e = frsMoveAreaChooseView;
                     frsMoveAreaChooseView.setOnClickListener(this);
                     ((ViewGroup) getParent()).addView(this.e, -1, -1);
                 } else if (this.e == null && getContext() != null) {
-                    new BdTopToast(getContext()).setIcon(false).setContent(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0844)).show((ViewGroup) getParent());
+                    new BdTopToast(getContext()).setIcon(false).setContent(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f084c)).show((ViewGroup) getParent());
                 }
             } else {
                 FrsMoveAreaChooseView frsMoveAreaChooseView2 = this.e;

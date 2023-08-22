@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
 import java.util.List;
 import java.util.Random;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class b3 {
     public static /* synthetic */ Interceptable $ic;
     public static volatile b3 b;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -56,7 +56,7 @@ public class b3 {
                         long currentTimeMillis = System.currentTimeMillis();
                         long a3 = a.a(f3.R, 1) * 3600000;
                         long a4 = a.a(f3.S, 5) * 60000;
-                        int a5 = a.a(f3.f1212T, 0);
+                        int a5 = a.a(f3.f1215T, 0);
                         if (a2 > 0 && currentTimeMillis - a2 < WeaponHI.ii * 3600000 && WeaponHI.isList != null) {
                             int hours = new Date(currentTimeMillis).getHours();
                             List<Integer> list = WeaponHI.isList;

@@ -3,17 +3,17 @@ package com.baidu.tieba.immessagecenter.msgtab.ui.vm;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
+import com.baidu.tieba.b8c;
+import com.baidu.tieba.g8c;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.ui.model.MsgTabNotifyModel;
 import com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel;
-import com.baidu.tieba.m1c;
-import com.baidu.tieba.np8;
-import com.baidu.tieba.ps8;
-import com.baidu.tieba.q1c;
-import com.baidu.tieba.qs8;
-import com.baidu.tieba.ts8;
-import com.baidu.tieba.y5c;
+import com.baidu.tieba.nt8;
+import com.baidu.tieba.nw8;
+import com.baidu.tieba.occ;
+import com.baidu.tieba.ow8;
+import com.baidu.tieba.rw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u0001B\u0005¢\u0006\u0002\u0010\u0004J\u0010\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\u0003H\u0014J\b\u0010\n\u001a\u00020\u0002H\u0014J\b\u0010\u000b\u001a\u00020\bH\u0016J\b\u0010\f\u001a\u00020\bH\u0016J\b\u0010\r\u001a\u00020\u000eH\u0014R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\u000f"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/vm/NotifyTabViewModel;", "Lcom/baidu/tieba/immessagecenter/arch/vm/BaseViewModel;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterNotifyTabUiState;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterNotifyTabUiIntent;", "()V", "model", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/model/MsgTabNotifyModel;", "handleUiIntent", "", "intent", "initUiState", "onAttachedUi", "onDetachedUi", "registerSubscribe", "Lrx/subscriptions/CompositeSubscription;", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
+public final class NotifyTabViewModel extends BaseViewModel<ow8, nw8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MsgTabNotifyModel d;
@@ -36,7 +36,7 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
     /* renamed from: m */
-    public void h(ps8 intent) {
+    public void h(nw8 intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, intent) == null) {
             Intrinsics.checkNotNullParameter(intent, "intent");
@@ -59,7 +59,7 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
         this.d = new MsgTabNotifyModel();
     }
 
-    @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel, com.baidu.tieba.yf8
+    @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel, com.baidu.tieba.yj8
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -68,7 +68,7 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel, com.baidu.tieba.yf8
+    @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel, com.baidu.tieba.yj8
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -80,26 +80,26 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
     /* renamed from: n */
-    public qs8 j() {
+    public ow8 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return qs8.b.a;
+            return ow8.b.a;
         }
-        return (qs8) invokeV.objValue;
+        return (ow8) invokeV.objValue;
     }
 
     public static final void o(NotifyTabViewModel this$0, final List list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, list) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            final qs8 e = this$0.e();
-            if (e instanceof qs8.d) {
-                this$0.b(new Function1<qs8, qs8>(list, e) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$1$1
+            final ow8 e = this$0.e();
+            if (e instanceof ow8.d) {
+                this$0.b(new Function1<ow8, ow8>(list, e) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$1$1
                     public static /* synthetic */ Interceptable $ic;
-                    public final /* synthetic */ qs8 $cache;
+                    public final /* synthetic */ ow8 $cache;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ List<np8> $it;
+                    public final /* synthetic */ List<nt8> $it;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -125,23 +125,23 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final qs8 invoke(qs8 emitUiState) {
+                    public final ow8 invoke(ow8 emitUiState) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, emitUiState)) == null) {
                             Intrinsics.checkNotNullParameter(emitUiState, "$this$emitUiState");
-                            List<np8> it = this.$it;
+                            List<nt8> it = this.$it;
                             Intrinsics.checkNotNullExpressionValue(it, "it");
-                            return new qs8.d(it, ((qs8.d) this.$cache).b());
+                            return new ow8.d(it, ((ow8.d) this.$cache).b());
                         }
-                        return (qs8) invokeL.objValue;
+                        return (ow8) invokeL.objValue;
                     }
                 });
             } else {
-                this$0.b(new Function1<qs8, qs8>(list) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$1$2
+                this$0.b(new Function1<ow8, ow8>(list) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$1$2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ List<np8> $it;
+                    public final /* synthetic */ List<nt8> $it;
 
                     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                     {
@@ -166,16 +166,16 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final qs8 invoke(qs8 emitUiState) {
+                    public final ow8 invoke(ow8 emitUiState) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, emitUiState)) == null) {
                             Intrinsics.checkNotNullParameter(emitUiState, "$this$emitUiState");
-                            List<np8> it = this.$it;
+                            List<nt8> it = this.$it;
                             Intrinsics.checkNotNullExpressionValue(it, "it");
-                            return new qs8.d(it, CollectionsKt__CollectionsKt.emptyList());
+                            return new ow8.d(it, CollectionsKt__CollectionsKt.emptyList());
                         }
-                        return (qs8) invokeL.objValue;
+                        return (ow8) invokeL.objValue;
                     }
                 });
             }
@@ -186,11 +186,11 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65539, null, this$0, list) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            final qs8 e = this$0.e();
-            if (e instanceof qs8.d) {
-                this$0.b(new Function1<qs8, qs8>(e, list) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$3$1
+            final ow8 e = this$0.e();
+            if (e instanceof ow8.d) {
+                this$0.b(new Function1<ow8, ow8>(e, list) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$3$1
                     public static /* synthetic */ Interceptable $ic;
-                    public final /* synthetic */ qs8 $cache;
+                    public final /* synthetic */ ow8 $cache;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ List<ImMessageCenterShowItemData> $it;
 
@@ -218,21 +218,21 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final qs8 invoke(qs8 emitUiState) {
+                    public final ow8 invoke(ow8 emitUiState) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, emitUiState)) == null) {
                             Intrinsics.checkNotNullParameter(emitUiState, "$this$emitUiState");
-                            List<np8> a = ((qs8.d) this.$cache).a();
+                            List<nt8> a = ((ow8.d) this.$cache).a();
                             List<ImMessageCenterShowItemData> it = this.$it;
                             Intrinsics.checkNotNullExpressionValue(it, "it");
-                            return new qs8.d(a, it);
+                            return new ow8.d(a, it);
                         }
-                        return (qs8) invokeL.objValue;
+                        return (ow8) invokeL.objValue;
                     }
                 });
             } else {
-                this$0.b(new Function1<qs8, qs8>(list) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$3$2
+                this$0.b(new Function1<ow8, ow8>(list) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$3$2
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ List<ImMessageCenterShowItemData> $it;
@@ -260,7 +260,7 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final qs8 invoke(qs8 emitUiState) {
+                    public final ow8 invoke(ow8 emitUiState) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, emitUiState)) == null) {
@@ -268,9 +268,9 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
                             List emptyList = CollectionsKt__CollectionsKt.emptyList();
                             List<ImMessageCenterShowItemData> it = this.$it;
                             Intrinsics.checkNotNullExpressionValue(it, "it");
-                            return new qs8.d(emptyList, it);
+                            return new ow8.d(emptyList, it);
                         }
-                        return (qs8) invokeL.objValue;
+                        return (ow8) invokeL.objValue;
                     }
                 });
             }
@@ -281,7 +281,7 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, this$0, bool) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.b(new Function1<qs8, qs8>(bool) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$4$1
+            this$0.b(new Function1<ow8, ow8>(bool) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$4$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Boolean $it;
@@ -309,16 +309,16 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function1
-                public final qs8 invoke(qs8 emitUiState) {
+                public final ow8 invoke(ow8 emitUiState) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, emitUiState)) == null) {
                         Intrinsics.checkNotNullParameter(emitUiState, "$this$emitUiState");
                         Boolean it = this.$it;
                         Intrinsics.checkNotNullExpressionValue(it, "it");
-                        return new qs8.a(it.booleanValue());
+                        return new ow8.a(it.booleanValue());
                     }
-                    return (qs8) invokeL.objValue;
+                    return (ow8) invokeL.objValue;
                 }
             });
         }
@@ -328,8 +328,8 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, pair) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            ts8.a.h(((Boolean) pair.getFirst()).booleanValue());
-            this$0.b(new Function1<qs8, qs8>(pair) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$5$1
+            rw8.a.h(((Boolean) pair.getFirst()).booleanValue());
+            this$0.b(new Function1<ow8, ow8>(pair) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.NotifyTabViewModel$registerSubscribe$1$5$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Pair<Boolean, Boolean> $it;
@@ -357,7 +357,7 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function1
-                public final qs8 invoke(qs8 emitUiState) {
+                public final ow8 invoke(ow8 emitUiState) {
                     InterceptResult invokeL;
                     boolean z;
                     Interceptable interceptable2 = $ic;
@@ -368,9 +368,9 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
                         } else {
                             z = false;
                         }
-                        return new qs8.c(z);
+                        return new ow8.c(z);
                     }
-                    return (qs8) invokeL.objValue;
+                    return (ow8) invokeL.objValue;
                 }
             });
         }
@@ -387,16 +387,16 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
     }
 
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
-    public y5c l() {
+    public occ l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            y5c y5cVar = new y5c();
-            y5cVar.a(this.d.l().H(new m1c() { // from class: com.baidu.tieba.yr8
+            occ occVar = new occ();
+            occVar.a(this.d.l().H(new b8c() { // from class: com.baidu.tieba.xv8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m1c
+                @Override // com.baidu.tieba.b8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -404,21 +404,21 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
                     }
                 }
             }));
-            y5cVar.a(this.d.n().p(new q1c() { // from class: com.baidu.tieba.zr8
+            occVar.a(this.d.n().p(new g8c() { // from class: com.baidu.tieba.yv8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.q1c
+                @Override // com.baidu.tieba.g8c
                 public final Object call(Object obj) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, obj)) == null) ? NotifyTabViewModel.p((List) obj) : invokeL.objValue;
                 }
-            }).H(new m1c() { // from class: com.baidu.tieba.hs8
+            }).H(new b8c() { // from class: com.baidu.tieba.fw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m1c
+                @Override // com.baidu.tieba.b8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -426,11 +426,11 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
                     }
                 }
             }));
-            y5cVar.a(this.d.j().H(new m1c() { // from class: com.baidu.tieba.gs8
+            occVar.a(this.d.j().H(new b8c() { // from class: com.baidu.tieba.ew8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m1c
+                @Override // com.baidu.tieba.b8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -438,11 +438,11 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
                     }
                 }
             }));
-            y5cVar.a(NotificationChangedMonitor.c.a().f().H(new m1c() { // from class: com.baidu.tieba.es8
+            occVar.a(NotificationChangedMonitor.c.a().f().H(new b8c() { // from class: com.baidu.tieba.cw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m1c
+                @Override // com.baidu.tieba.b8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -450,8 +450,8 @@ public final class NotifyTabViewModel extends BaseViewModel<qs8, ps8> {
                     }
                 }
             }));
-            return y5cVar;
+            return occVar;
         }
-        return (y5c) invokeV.objValue;
+        return (occ) invokeV.objValue;
     }
 }

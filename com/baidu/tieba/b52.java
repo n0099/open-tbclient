@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class b52 extends e42 {
+public class b52 extends j42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public m42 a;
+    public RectF a;
 
     public b52() {
         Interceptable interceptable = $ic;
@@ -27,26 +29,30 @@ public class b52 extends e42 {
         }
     }
 
-    @Override // com.baidu.tieba.e42
-    public void a(f42 f42Var, Canvas canvas) {
-        m42 m42Var;
+    @Override // com.baidu.tieba.j42
+    public void a(k42 k42Var, Canvas canvas) {
+        RectF rectF;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, f42Var, canvas) == null) && (m42Var = this.a) != null && m42Var.d()) {
-            if (this.a.c()) {
-                f42Var.b.setShader(this.a.b());
-                return;
-            }
-            f42Var.e.setColor(this.a.a());
-            f42Var.b.setColor(this.a.a());
-            f42Var.b.setShader(null);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, k42Var, canvas) == null) && (rectF = this.a) != null) {
+            k42Var.f.addRect(rectF, Path.Direction.CW);
         }
     }
 
-    @Override // com.baidu.tieba.e42
+    @Override // com.baidu.tieba.j42
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = new m42(jSONArray);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = uo3.g((float) jSONArray.optDouble(0));
+                    int g2 = uo3.g((float) jSONArray.optDouble(1));
+                    this.a = new RectF(g, g2, g + uo3.g((float) jSONArray.optDouble(2)), g2 + uo3.g((float) jSONArray.optDouble(3)));
+                }
+            } catch (Exception e) {
+                if (nr1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

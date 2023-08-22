@@ -1,9 +1,21 @@
 package com.baidu.tieba;
+
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes8.dex */
 public interface xqb {
-    void a(int i, double d);
+    void onAdClicked(Ssp.Pid pid);
 
-    void b();
+    void onAdClose(Ssp.Pid pid);
 
-    void onFinished();
+    void onAdLoad(Ssp.Pid pid);
+
+    void onAdLoadError(Ssp.Pid pid, int i, String str);
+
+    void onAdLoaded(Ssp.Pid pid, double d);
+
+    void onAdShow(Ssp.Pid pid, double d);
+
+    void onAdShowError(Ssp.Pid pid, int i, String str);
+
+    void onRewardedVideo(Ssp.Pid pid, boolean z, int i);
 }

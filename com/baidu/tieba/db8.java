@@ -1,153 +1,189 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkSettings;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.ya8;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class db8 {
+public class db8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static db8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public final List<fb8> b;
+    public LayoutInflater c;
 
     /* loaded from: classes5.dex */
-    public static class a implements ya8.c {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        @Override // com.baidu.tieba.ya8.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
 
-        public a() {
+    /* loaded from: classes5.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public TextView b;
+        public View c;
+        public View d;
+
+        public b(db8 db8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {db8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = 3;
+        }
+
+        public /* synthetic */ b(db8 db8Var, a aVar) {
+            this(db8Var);
         }
     }
 
-    public db8() {
+    public db8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = new ArrayList();
+        this.c = LayoutInflater.from(tbPageContext.getPageActivity());
+    }
+
+    public final void a(b bVar, View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(1048576, this, bVar, view2, i) == null) && bVar != null && bVar.a != i) {
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            SkinManager.setBackgroundColor(bVar.d, R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(bVar.c, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(bVar.b, R.color.CAM_X0105, 1);
+            bVar.a = i;
         }
     }
 
-    public static synchronized db8 b() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.clear();
+            notifyDataSetChanged();
+        }
+    }
+
+    public List<fb8> d() {
         InterceptResult invokeV;
-        db8 db8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (db8.class) {
-                if (a == null) {
-                    a = new db8();
-                }
-                db8Var = a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b.size();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: c */
+    public fb8 getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return this.b.get(i);
+        }
+        return (fb8) invokeI.objValue;
+    }
+
+    public void e(String str, List<fb8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
+            this.a = str;
+            this.b.clear();
+            if (list != null) {
+                this.b.addAll(list);
             }
-            return db8Var;
-        }
-        return (db8) invokeV.objValue;
-    }
-
-    public static void d(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, ya8.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            ya8.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
+            notifyDataSetChanged();
         }
     }
 
-    public long[] a(GroupMsgData groupMsgData) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, groupMsgData)) == null) {
-            if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                long j = 0;
-                long groupId = groupMsgData.getGroupInfo().getGroupId();
-                Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
-                while (it.hasNext()) {
-                    ChatMessage next = it.next();
-                    if (next.getMsgId() > j) {
-                        j = next.getMsgId();
-                    }
-                }
-                return new long[]{groupId, j};
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            fb8 item = getItem(i);
+            if (item == null) {
+                return view2;
             }
-            return null;
-        }
-        return (long[]) invokeL.objValue;
-    }
-
-    public long c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            TbadkSettings inst = TbadkSettings.getInst();
-            return inst.loadLong("tb_group_msg_" + j, -1L);
-        }
-        return invokeJ.longValue;
-    }
-
-    public void e(GroupMsgData groupMsgData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, groupMsgData) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-            Iterator<ChatMessage> it = groupMsgData.getListMessage().iterator();
-            while (it.hasNext()) {
-                ChatMessage next = it.next();
-                if (!TextUtils.isEmpty(next.getStat())) {
-                    TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp().getApplicationContext(), "push_noti:" + next.getStat(), "taskId:" + next.getTaskId() + ";link:" + next.getLink() + ";uid:" + TbadkCoreApplication.getCurrentAccount());
-                }
-                if (!TextUtils.isEmpty(next.getLink()) && !TextUtils.isEmpty(next.getStat())) {
-                    TiebaStatic.pushMsg(next.getMsgId(), 1, next.getLink(), next.getStat());
-                }
-                CustomMessage customMessage = new CustomMessage(2012100);
-                customMessage.setData(new r25(next.getMsgId(), next.getTaskId(), next.getLink(), next.getContent(), next.getStat(), next.getServiceId()));
-                MessageManager.getInstance().sendMessage(customMessage);
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = this.c.inflate(R.layout.obfuscated_res_0x7f0d040d, (ViewGroup) null);
+                bVar = new b(this, null);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918b7);
+                bVar.c = view2.findViewById(R.id.divider_line_top);
+                bVar.d = view2.findViewById(R.id.divider_line_bottom);
+                view2.setTag(bVar);
             }
-            if (groupMsgData.getListMessage().size() > 0) {
-                TiebaStatic.saveAndUploadMsg();
+            View view3 = bVar.c;
+            if (i == 0) {
+                i2 = 0;
+            } else {
+                i2 = 8;
             }
+            view3.setVisibility(i2);
+            bVar.b.setText(StringHelper.highLightText(fw5.a(StringHelper.cutStringWithEllipsisNew(item.b(), 18)), this.a, R.color.CAM_X0302));
+            a(bVar, view2, TbadkCoreApplication.getInst().getSkinType());
+            return view2;
         }
-    }
-
-    public void f(String str, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) && !TextUtils.isEmpty(str) && j > 0) {
-            TbadkSettings inst = TbadkSettings.getInst();
-            inst.saveLong("tb_group_msg_" + str, j);
-        }
+        return (View) invokeILL.objValue;
     }
 }

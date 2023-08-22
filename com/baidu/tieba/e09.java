@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
+import com.baidu.tieba.impersonal.data.VoiceMsgContent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class e09 extends d09<String> {
+public final class e09 extends yz8<AudioMsg, VoiceMsgContent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,45 +30,75 @@ public final class e09 extends d09<String> {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e09(String key) {
-        super(key);
+    @Override // com.baidu.tieba.yz8
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    public e09() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {key};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        Intrinsics.checkNotNullParameter(key, "key");
-        e(c() + "_match_last_text");
     }
 
-    public final boolean f(String text) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yz8
+    /* renamed from: h */
+    public AudioMsg e(VoiceMsgContent voiceMsgContent) {
+        InterceptResult invokeL;
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceMsgContent)) == null) {
+            String str2 = (voiceMsgContent == null || (str2 = voiceMsgContent.b()) == null) ? "" : "";
+            if (voiceMsgContent != null) {
+                i = voiceMsgContent.a();
+            } else {
+                i = 0;
+            }
+            AudioMsg audioMsg = new AudioMsg(str2, i, 2);
+            if (voiceMsgContent != null) {
+                str = voiceMsgContent.f();
+            } else {
+                str = null;
+            }
+            audioMsg.setRemoteUrl(str);
+            return audioMsg;
+        }
+        return (AudioMsg) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.yz8
+    /* renamed from: i */
+    public VoiceMsgContent g(AudioMsg sdkMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, text)) == null) {
-            Intrinsics.checkNotNullParameter(text, "text");
-            return !TextUtils.equals(text, a(""));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            VoiceMsgContent voiceMsgContent = new VoiceMsgContent();
+            String localUrl = sdkMsg.getLocalUrl();
+            Intrinsics.checkNotNullExpressionValue(localUrl, "sdkMsg.localUrl");
+            voiceMsgContent.i(localUrl);
+            String remoteUrl = sdkMsg.getRemoteUrl();
+            Intrinsics.checkNotNullExpressionValue(remoteUrl, "sdkMsg.remoteUrl");
+            voiceMsgContent.k(remoteUrl);
+            voiceMsgContent.h(sdkMsg.getDuration());
+            return voiceMsgContent;
         }
-        return invokeL.booleanValue;
-    }
-
-    public final void update(String text) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, text) == null) {
-            Intrinsics.checkNotNullParameter(text, "text");
-            if (f(text)) {
-                d(text);
-            }
-        }
+        return (VoiceMsgContent) invokeL.objValue;
     }
 }

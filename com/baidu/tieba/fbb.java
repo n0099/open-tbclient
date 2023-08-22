@@ -1,123 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.dbb;
+import com.baidu.tieba.gbb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.validation.utils.ValidationLog;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class fbb {
+public final class fbb implements dbb.a {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dbb.a
+    public final void U() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                String str = Build.VERSION.RELEASE;
-                b = str;
-                return str == null ? "" : str;
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dbb.a
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (TextUtils.isEmpty(d)) {
-                try {
-                    PackageManager packageManager = context.getPackageManager();
-                    String charSequence = packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
-                    d = charSequence;
-                    return charSequence;
-                } catch (Throwable unused) {
-                    return null;
-                }
-            }
-            return d;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(Context context, String str) {
-        InterceptResult invokeLL;
+    public fbb() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            StringBuilder sb = new StringBuilder(str);
-            sb.append(" ");
-            sb.append("Sapi_");
-            sb.append(d());
-            sb.append("_");
-            sb.append("Android_");
-            sb.append(b(context));
-            sb.append("_");
-            sb.append(e(context));
-            sb.append("_");
-            sb.append(f());
-            sb.append("_");
-            sb.append(a());
-            sb.append("_Sapi");
-            ValidationLog.e(sb.toString(), new Object[0]);
-            return sb.toString();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.dbb.a
+    public final void a(Activity activity) {
+        gbb gbbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(c)) {
-                c = "1.0.5";
-                return "1.0.5";
-            }
-            return c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+            gbbVar = gbb.a.a;
+            gbbVar.c(new WeakReference<>(activity));
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String e(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.dbb.a
+    public final void onActivityDestroyed(Activity activity) {
+        gbb gbbVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (TextUtils.isEmpty(e)) {
-                try {
-                    String str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-                    e = str;
-                    return str;
-                } catch (Throwable unused) {
-                    return null;
-                }
-            }
-            return e;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            gbbVar = gbb.a.a;
+            gbbVar.d(activity);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                String str = Build.MODEL;
-                a = str;
-                return str == null ? "" : str;
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
     }
 }

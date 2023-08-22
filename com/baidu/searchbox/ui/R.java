@@ -19,27 +19,27 @@ public final class R {
 
     /* loaded from: classes4.dex */
     public static final class drawable {
-        public static final int d20_close = 0x7f080565;
-        public static final int d20_close_pressed = 0x7f080566;
-        public static final int d20_loading = 0x7f080567;
-        public static final int d20_loading_animation = 0x7f080568;
-        public static final int d20_loading_bg = 0x7f080569;
-        public static final int d20_selector_close = 0x7f08056a;
-        public static final int loading_progress = 0x7f080f67;
-        public static final int loading_progress_animation = 0x7f080f68;
+        public static final int d20_close = 0x7f080567;
+        public static final int d20_close_pressed = 0x7f080568;
+        public static final int d20_loading = 0x7f080569;
+        public static final int d20_loading_animation = 0x7f08056a;
+        public static final int d20_loading_bg = 0x7f08056b;
+        public static final int d20_selector_close = 0x7f08056c;
+        public static final int loading_progress = 0x7f080f78;
+        public static final int loading_progress_animation = 0x7f080f79;
     }
 
     /* loaded from: classes4.dex */
     public static final class id {
-        public static final int close = 0x7f09072f;
-        public static final int loading_bar = 0x7f091631;
-        public static final int message = 0x7f091740;
-        public static final int root_container = 0x7f091f79;
+        public static final int close = 0x7f090733;
+        public static final int loading_bar = 0x7f091648;
+        public static final int message = 0x7f091757;
+        public static final int root_container = 0x7f091f9e;
     }
 
     /* loaded from: classes4.dex */
     public static final class layout {
-        public static final int d20_loading_dialog = 0x7f0d0242;
+        public static final int d20_loading_dialog = 0x7f0d0245;
     }
 
     /* loaded from: classes4.dex */

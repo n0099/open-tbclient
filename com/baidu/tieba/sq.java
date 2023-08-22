@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.rq;
-/* loaded from: classes7.dex */
-public interface sq<T extends rq> {
-    void a(T t);
+import com.baidu.bdtask.model.response.TaskResponseData;
+/* loaded from: classes8.dex */
+public interface sq {
+    void a(TaskResponseData taskResponseData);
+
+    void b(tq tqVar);
+
+    void c(String str, int i);
 }

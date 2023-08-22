@@ -1,72 +1,124 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.LinearLayout;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tieba.location.editortool.PbLocationInfoContainer;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class yz8 extends xh5 {
+public abstract class yz8<SdkMsg extends ChatMsg, T> implements b09<SdkMsg, cy8<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yz8(Context context) {
-        super(context, (String) null, 8);
+    public abstract int c();
+
+    public abstract SdkMsg e(T t);
+
+    public abstract T g(SdkMsg sdkmsg);
+
+    public yz8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.o = false;
-        this.n = 3;
-        this.m = new PbLocationInfoContainer(context);
-        this.p = new int[]{20, 19};
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yz8(Context context, boolean z) {
-        super(context, (String) null, 8);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.b09
+    /* renamed from: d */
+    public SdkMsg b(cy8<T> msg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            SdkMsg e = e(msg.f());
+            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.m.a())));
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", c());
+            jSONObject.put("from", "android");
+            e.setContentExtra(jSONObject.toString());
+            return e;
         }
-        this.o = false;
-        this.n = 3;
-        this.m = new PbLocationInfoContainer(context);
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f0703e5));
-        ((LinearLayout.LayoutParams) layoutParams).leftMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070207);
-        ((LinearLayout.LayoutParams) layoutParams).rightMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070207);
-        ((LinearLayout.LayoutParams) layoutParams).bottomMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070394);
-        ((LinearLayout.LayoutParams) layoutParams).topMargin = BdUtilHelper.getDimens(getContext(), R.dimen.obfuscated_res_0x7f070394);
-        ((PbLocationInfoContainer) this.m).setLayoutParams(layoutParams);
-        this.p = new int[]{20, 19};
+        return (SdkMsg) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.b09
+    /* renamed from: f */
+    public cy8<T> a(SdkMsg msg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            cy8<T> cy8Var = new cy8<>();
+            cy8Var.i(g(msg));
+            cy8Var.c(msg.getMsgId());
+            String msgKey = msg.getMsgKey();
+            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
+            cy8Var.d(msgKey);
+            cy8Var.e().l(msg.getContacterUk());
+            cy8Var.e().k(cgb.c(msg.getSenderUid(), 0L));
+            cy8Var.e().i(msg.getStatus());
+            cy8Var.j(msg);
+            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
+            cy8Var.e().h(isSelf);
+            if (!isSelf) {
+                cy8Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
+                cy8Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
+            } else {
+                cy8Var.e().g(TbadkCoreApplication.getCurrentPortrait());
+                cy8Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
+            }
+            if (!StringUtils.isNull(msg.getContentExtra())) {
+                try {
+                    JSONObject jSONObject = new JSONObject(msg.getContentExtra());
+                    cy8Var.e().j(jSONObject.optInt("type"));
+                    cy8Var.e().e(jSONObject.optString("from"));
+                } catch (JSONException e) {
+                    if (!TbadkApplication.getInst().isDebugMode()) {
+                        e.printStackTrace();
+                    } else {
+                        throw e;
+                    }
+                }
+            }
+            String msgContent = msg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
+            } else {
+                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
+            }
+            if (!di.isEmpty(msgContent)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(msgContent);
+                    by8 g = cy8Var.g();
+                    String optString = jSONObject2.optString("origin_msg_key");
+                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
+                    g.b(optString);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            }
+            return cy8Var;
+        }
+        return (cy8) invokeL.objValue;
     }
 }

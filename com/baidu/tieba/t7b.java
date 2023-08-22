@@ -1,341 +1,419 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.record.EncoderParams;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.extractor.ogg.OpusReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
+import com.baidu.turbonet.net.TurbonetEngine;
 import java.io.IOException;
-import java.nio.ByteBuffer;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.net.URL;
+import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.Headers;
+import okhttp3.Interceptor;
+import okhttp3.MediaType;
+import okhttp3.Protocol;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import okhttp3.ResponseBody;
+import okhttp3.internal.Version;
+import okhttp3.internal.http.RealResponseBody;
+import okio.BufferedSink;
+import okio.BufferedSource;
+import okio.Okio;
 /* loaded from: classes8.dex */
-public class t7b {
+public class t7b implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
+    public static Field c;
+    public static boolean d;
+    public static Constructor<RealResponseBody> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
-    public int d;
+    public CookieJar a;
+    public TurbonetEngine b;
 
-    public t7b(String str) {
+    /* loaded from: classes8.dex */
+    public class a implements w7b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a8b a;
+
+        public a(t7b t7bVar, a8b a8bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t7bVar, a8bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a8bVar;
+        }
+
+        @Override // com.baidu.tieba.w7b
+        public void a(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                this.a.disconnect();
+            }
+        }
+
+        @Override // com.baidu.tieba.w7b
+        public void onComplete(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+                this.a.disconnect();
+            }
+        }
+
+        @Override // com.baidu.tieba.w7b
+        public void b(Exception exc, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
+                this.a.disconnect();
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements w7b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ z6b a;
+        public final /* synthetic */ t7b b;
+
+        public b(t7b t7bVar, z6b z6bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t7bVar, z6bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = t7bVar;
+            this.a = z6bVar;
+        }
+
+        @Override // com.baidu.tieba.w7b
+        public void a(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                z6b z6bVar = this.a;
+                z6bVar.e = j;
+                z6bVar.c();
+                z6b z6bVar2 = this.a;
+                z6bVar2.c = -12;
+                z6bVar2.d(this.b.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.w7b
+        public void onComplete(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+                z6b z6bVar = this.a;
+                z6bVar.e = j;
+                z6bVar.c();
+                z6b z6bVar2 = this.a;
+                z6bVar2.c = 0;
+                z6bVar2.d(this.b.b);
+            }
+        }
+
+        @Override // com.baidu.tieba.w7b
+        public void b(Exception exc, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc, j) == null) {
+                z6b z6bVar = this.a;
+                z6bVar.e = j;
+                z6bVar.c();
+                this.a.a(exc);
+                this.a.d(this.b.b);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948135530, "Lcom/baidu/tieba/t7b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948135530, "Lcom/baidu/tieba/t7b;");
+                return;
+            }
+        }
+        try {
+            Field declaredField = RealResponseBody.class.getDeclaredField("source");
+            c = declaredField;
+            declaredField.setAccessible(true);
+        } catch (NoSuchFieldException e2) {
+            Log.e("tn_OkHttp3Intercept", "Can not find source field from RealResponseBody.", e2);
+            c = null;
+        }
+        try {
+            boolean c2 = u7b.c();
+            d = c2;
+            if (c2) {
+                e = RealResponseBody.class.getConstructor(String.class, Long.TYPE, BufferedSource.class);
+                Log.d("tn_OkHttp3Intercept", "found okhttp 3.9+");
+                return;
+            }
+            e = RealResponseBody.class.getConstructor(Headers.class, BufferedSource.class);
+            Log.d("tn_OkHttp3Intercept", "found okhttp 3.8-");
+        } catch (IllegalArgumentException e3) {
+            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e3);
+            e = null;
+        } catch (NoSuchMethodException e4) {
+            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e4);
+            e = null;
+        } catch (NoSuchElementException e5) {
+            Log.e("tn_OkHttp3Intercept", "severe error: found unsupported okhttp version", e5);
+            e = null;
+        }
+    }
+
+    public t7b(o7b o7bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {o7bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 88200L;
-        this.b = str;
+        this.a = CookieJar.NO_COOKIES;
+        TurbonetEngine b2 = o7bVar.b();
+        this.b = b2;
+        if (b2 != null) {
+            return;
+        }
+        throw new NullPointerException("TurbonetEngine is null.");
     }
 
-    public final void a(byte[] bArr, int i) {
+    public final String b(List<Cookie> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, bArr, i) == null) {
-            int[] iArr = {96000, 88200, 64000, OpusReader.SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
-            int i2 = 0;
-            while (true) {
-                if (i2 < 13) {
-                    if (iArr[i2] == this.c) {
-                        break;
-                    }
-                    i2++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (i > 0) {
+                    sb.append("; ");
+                }
+                Cookie cookie = list.get(i);
+                sb.append(cookie.name());
+                sb.append('=');
+                sb.append(cookie.value());
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final Response c(Interceptor.Chain chain, Request request) throws IOException {
+        InterceptResult invokeLL;
+        RealResponseBody realResponseBody;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chain, request)) == null) {
+            if (c == null) {
+                return chain.proceed(request);
+            }
+            z6b z6bVar = new z6b(request.url().toString());
+            z6bVar.b = request.method();
+            Request.Builder newBuilder = request.newBuilder();
+            RequestBody body = request.body();
+            if (body != null) {
+                MediaType contentType = body.contentType();
+                if (contentType != null) {
+                    newBuilder.header("Content-Type", contentType.toString());
+                }
+                long contentLength = body.contentLength();
+                if (contentLength != -1) {
+                    newBuilder.header("Content-Length", Long.toString(contentLength));
+                    newBuilder.removeHeader("Transfer-Encoding");
                 } else {
-                    i2 = 4;
-                    break;
+                    newBuilder.header("Transfer-Encoding", "chunked");
+                    newBuilder.removeHeader("Content-Length");
                 }
             }
-            bArr[0] = -1;
-            bArr[1] = -7;
-            bArr[2] = (byte) (64 + (i2 << 2) + 0);
-            bArr[3] = (byte) (128 + (i >> 11));
-            bArr[4] = (byte) ((i & 2047) >> 3);
-            bArr[5] = (byte) (((i & 7) << 5) + 31);
-            bArr[6] = -4;
+            if (request.header("User-Agent") == null) {
+                newBuilder.header("User-Agent", Version.userAgent());
+            }
+            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
+            if (!loadForRequest.isEmpty()) {
+                newBuilder.header("Cookie", b(loadForRequest));
+            }
+            Response proceed = chain.proceed(newBuilder.build());
+            z6bVar.b();
+            z6bVar.d = proceed.code();
+            ResponseBody body2 = proceed.body();
+            if (body2 instanceof RealResponseBody) {
+                realResponseBody = (RealResponseBody) body2;
+            } else {
+                realResponseBody = null;
+            }
+            if (this.a != CookieJar.NO_COOKIES) {
+                List<Cookie> parseAll = Cookie.parseAll(request.url(), proceed.headers());
+                if (!parseAll.isEmpty()) {
+                    this.a.saveFromResponse(request.url(), parseAll);
+                }
+            }
+            if (realResponseBody != null) {
+                try {
+                    c.set(realResponseBody, Okio.buffer(Okio.source(new v7b(body2.source().inputStream(), new b(this, z6bVar)))));
+                } catch (IllegalAccessException e2) {
+                    Log.e("tn_OkHttp3Intercept", "Can not set ProxyInputStream to Okio's InputStream", e2);
+                }
+            }
+            return proceed;
         }
+        return (Response) invokeLL.objValue;
     }
 
-    @TargetApi(16)
-    public final MediaCodec b() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            MediaCodec createEncoderByType = MediaCodec.createEncoderByType("audio/mp4a-latm");
-            MediaFormat mediaFormat = new MediaFormat();
-            mediaFormat.setString("mime", "audio/mp4a-latm");
-            mediaFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);
-            mediaFormat.setInteger("channel-count", this.d);
-            mediaFormat.setInteger("sample-rate", this.c);
-            mediaFormat.setInteger("aac-profile", 2);
-            createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-            return createEncoderByType;
-        }
-        return (MediaCodec) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:101:0x0223 A[Catch: Exception -> 0x021f, TRY_LEAVE, TryCatch #1 {Exception -> 0x021f, blocks: (B:97:0x021b, B:101:0x0223), top: B:109:0x021b }] */
-    /* JADX WARN: Removed duplicated region for block: B:109:0x021b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x0210 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:123:0x0189 A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:126:0x01bf A[SYNTHETIC] */
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(String str) {
-        Throwable th;
-        FileInputStream fileInputStream;
-        FileOutputStream fileOutputStream;
-        ByteBuffer[] byteBufferArr;
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
+        Protocol protocol;
+        InputStream errorStream;
         long j;
-        long j2;
-        long j3;
-        long j4;
-        int dequeueInputBuffer;
-        boolean z;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            MediaCodec mediaCodec = null;
-            try {
-                try {
-                    if (this.c == 0) {
-                        this.c = OpusReader.SAMPLE_RATE;
-                    }
-                    if (this.d == 0) {
-                        this.d = 1;
-                    }
-                    this.a = (this.c * 16) / 8;
-                    fileInputStream = new FileInputStream(this.b);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chain)) == null) {
+            Request request = chain.request();
+            if (e != null && !this.b.c() && (!d || chain.call() != null)) {
+                a8b a8bVar = new a8b(new URL(request.url().toString()), this.b);
+                a8bVar.q();
+                if (d && chain.call().isCanceled()) {
+                    a8bVar.disconnect();
+                    return c(chain, request);
                 }
-            } catch (Exception e2) {
-                e = e2;
-                fileInputStream = null;
-                fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream = null;
-                fileOutputStream = null;
-            }
-            try {
-                fileOutputStream = new FileOutputStream(str);
+                if (d) {
+                    a8bVar.setReadTimeout(chain.readTimeoutMillis());
+                    a8bVar.setConnectTimeout(chain.connectTimeoutMillis());
+                }
+                Headers headers = request.headers();
+                for (String str : headers.names()) {
+                    a8bVar.addRequestProperty(str, headers.get(str));
+                }
+                List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
+                if (loadForRequest != null && !loadForRequest.isEmpty()) {
+                    a8bVar.addRequestProperty("Cookie", b(loadForRequest));
+                }
+                a8bVar.setRequestMethod(request.method());
                 try {
+                    if (request.body() != null) {
+                        if (request.body().contentType() != null) {
+                            a8bVar.setRequestProperty("Content-Type", request.body().contentType().toString());
+                        }
+                        a8bVar.setDoOutput(true);
+                        OutputStream outputStream = a8bVar.getOutputStream();
+                        BufferedSink buffer = Okio.buffer(Okio.sink(outputStream));
+                        request.body().writeTo(buffer);
+                        buffer.flush();
+                        outputStream.close();
+                    }
+                    int responseCode = a8bVar.getResponseCode();
+                    if (d && chain.call().isCanceled()) {
+                        a8bVar.disconnect();
+                        return c(chain, request);
+                    }
+                    String str2 = a8bVar.z().d().toString();
                     try {
-                        mediaCodec = b();
-                        mediaCodec.start();
-                        ByteBuffer[] inputBuffers = mediaCodec.getInputBuffers();
-                        ByteBuffer[] outputBuffers = mediaCodec.getOutputBuffers();
-                        MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                        byte[] bArr = new byte[4096];
-                        ByteBuffer[] byteBufferArr2 = outputBuffers;
-                        long j5 = 0;
-                        long j6 = 0;
-                        boolean z2 = false;
-                        int i2 = 0;
-                        boolean z3 = false;
-                        boolean z4 = false;
-                        int i3 = 0;
-                        while (!z3) {
-                            ByteBuffer[] byteBufferArr3 = byteBufferArr2;
-                            if (!z4 && (dequeueInputBuffer = mediaCodec.dequeueInputBuffer(10000L)) >= 0) {
-                                ByteBuffer byteBuffer = inputBuffers[dequeueInputBuffer];
-                                byteBuffer.clear();
-                                int remaining = byteBuffer.remaining();
-                                if (remaining != bArr.length) {
-                                    bArr = new byte[remaining];
-                                }
-                                byte[] bArr2 = bArr;
-                                if (!z2 && (i2 = fileInputStream.read(bArr2)) == -1) {
-                                    i = i2;
-                                    z = true;
-                                } else {
-                                    z = z2;
-                                    i = i2;
-                                }
-                                if (z) {
-                                    j = j5;
-                                    mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                    byteBufferArr = inputBuffers;
-                                    bArr = bArr2;
-                                    z2 = z;
-                                    i2 = i;
-                                    j2 = 10000;
-                                    z4 = true;
-                                } else {
-                                    j = j5;
-                                    byteBuffer.put(bArr2, 0, i);
-                                    int i4 = i3 + i;
-                                    byteBufferArr = inputBuffers;
-                                    mediaCodec.queueInputBuffer(dequeueInputBuffer, 0, i, j6, 0);
-                                    i3 = i4;
-                                    j6 = (long) (((i4 / 2.0d) * 1000000.0d) / this.a);
-                                    z2 = z;
-                                    i2 = i;
-                                    j2 = 10000;
-                                    bArr = bArr2;
-                                }
-                            } else {
-                                byteBufferArr = inputBuffers;
-                                j = j5;
-                                j2 = 10000;
+                        protocol = Protocol.get(str2);
+                    } catch (IOException unused) {
+                        Log.e("tn_OkHttp3Intercept", "Unexpected protocol: " + str2);
+                        protocol = Protocol.HTTP_1_1;
+                    }
+                    Response.Builder builder = new Response.Builder();
+                    builder.request(request).protocol(protocol).code(responseCode).message(a8bVar.getResponseMessage());
+                    Headers.Builder builder2 = new Headers.Builder();
+                    for (Map.Entry<String, List<String>> entry : a8bVar.getHeaderFields().entrySet()) {
+                        for (String str3 : entry.getValue()) {
+                            if (entry.getKey() != null && !entry.getKey().isEmpty() && entry.getValue() != null) {
+                                builder.addHeader(entry.getKey(), str3);
+                                builder2.add(entry.getKey(), str3);
                             }
-                            int dequeueOutputBuffer = mediaCodec.dequeueOutputBuffer(bufferInfo, j2);
-                            if (dequeueOutputBuffer >= 0) {
-                                if ((bufferInfo.flags & 2) != 0) {
-                                    j9b.b("audio encoder: codec config buffer");
-                                    mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                    j3 = j;
-                                    j5 = j3;
-                                    byteBufferArr2 = byteBufferArr3;
-                                } else {
-                                    if (bufferInfo.size != 0) {
-                                        ByteBuffer byteBuffer2 = byteBufferArr3[dequeueOutputBuffer];
-                                        byteBuffer2.position(bufferInfo.offset);
-                                        byteBuffer2.limit(bufferInfo.offset + bufferInfo.size);
-                                        j9b.b(String.format(" writing audio sample : size=%s , presentationTimeUs=%s", Integer.valueOf(bufferInfo.size), Long.valueOf(bufferInfo.presentationTimeUs)));
-                                        j4 = j;
-                                        if (j4 < bufferInfo.presentationTimeUs) {
-                                            long j7 = bufferInfo.presentationTimeUs;
-                                            int i5 = bufferInfo.size;
-                                            int i6 = i5 + 7;
-                                            byteBuffer2.position(bufferInfo.offset);
-                                            byteBuffer2.limit(bufferInfo.offset + i5);
-                                            byte[] bArr3 = new byte[i6];
-                                            a(bArr3, i6);
-                                            byteBuffer2.get(bArr3, 7, i5);
-                                            fileOutputStream.write(bArr3, 0, i6);
-                                            j9b.b(i6 + " bytes written.");
-                                            j5 = j7;
-                                            mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                            byteBufferArr2 = byteBufferArr3;
-                                            if ((bufferInfo.flags & 4) == 0) {
-                                                inputBuffers = byteBufferArr;
-                                                z3 = true;
-                                            }
-                                        } else {
-                                            j9b.b("error sample! its presentationTimeUs should not lower than before. lastPTS = " + j4 + ", bufferPTS = " + bufferInfo.presentationTimeUs);
-                                        }
-                                    } else {
-                                        j4 = j;
-                                    }
-                                    j5 = j4;
-                                    mediaCodec.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                    byteBufferArr2 = byteBufferArr3;
-                                    if ((bufferInfo.flags & 4) == 0) {
-                                    }
-                                }
-                            } else {
-                                j3 = j;
-                                if (dequeueOutputBuffer == -3) {
-                                    j5 = j3;
-                                    byteBufferArr2 = mediaCodec.getOutputBuffers();
-                                    inputBuffers = byteBufferArr;
-                                } else {
-                                    if (dequeueOutputBuffer == -2) {
-                                        j9b.b("format change : " + mediaCodec.getOutputFormat());
-                                    }
-                                    j5 = j3;
-                                    byteBufferArr2 = byteBufferArr3;
-                                }
-                            }
-                            inputBuffers = byteBufferArr;
-                        }
-                        j9b.b("acc encode done");
-                        if (mediaCodec != null) {
-                            try {
-                                mediaCodec.release();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                        fileInputStream.close();
-                        fileOutputStream.close();
-                    } catch (Exception e4) {
-                        e = e4;
-                        e.printStackTrace();
-                        if (mediaCodec != null) {
-                            try {
-                                mediaCodec.release();
-                            } catch (Exception e5) {
-                                e5.printStackTrace();
-                            }
-                        }
-                        if (fileInputStream != null) {
-                            fileInputStream.close();
-                        }
-                        if (fileOutputStream != null) {
-                            fileOutputStream.close();
                         }
                     }
-                } catch (Throwable th3) {
-                    th = th3;
-                    if (mediaCodec != null) {
+                    Headers build = builder2.build();
+                    if (this.a != CookieJar.NO_COOKIES) {
+                        List<Cookie> parseAll = Cookie.parseAll(request.url(), build);
+                        if (!parseAll.isEmpty()) {
+                            this.a.saveFromResponse(request.url(), parseAll);
+                        }
+                    }
+                    if (responseCode >= 200 && responseCode < 400) {
+                        errorStream = a8bVar.getInputStream();
+                    } else {
+                        errorStream = a8bVar.getErrorStream();
+                    }
+                    BufferedSource buffer2 = Okio.buffer(Okio.source(new v7b(errorStream, new a(this, a8bVar))));
+                    if (builder2.get("Content-Length") == null) {
+                        j = -1L;
+                    } else {
                         try {
-                            mediaCodec.release();
-                        } catch (Exception e6) {
-                            e6.printStackTrace();
+                            j = Long.valueOf(builder2.get("Content-Length"));
+                        } catch (NumberFormatException e2) {
+                            Log.e("tn_OkHttp3Intercept", "invalid content length: " + builder2.get("Content-Length").toString(), e2);
+                            j = 0L;
                         }
                     }
-                    if (fileInputStream != null) {
-                        try {
-                            fileInputStream.close();
-                        } catch (Exception e7) {
-                            e7.printStackTrace();
-                            throw th;
+                    try {
+                        if (d) {
+                            builder.body(e.newInstance(builder2.get("Content-Type"), j, buffer2));
+                        } else {
+                            builder.body(e.newInstance(builder2.build(), buffer2));
                         }
+                    } catch (Exception e3) {
+                        Log.e("tn_OkHttp3Intercept", "unexpected error:" + e3.toString());
                     }
-                    if (fileOutputStream != null) {
-                        fileOutputStream.close();
+                    String responseMessage = a8bVar.getResponseMessage();
+                    if (responseMessage == null) {
+                        responseMessage = "";
                     }
-                    throw th;
+                    return builder.message(responseMessage).build();
+                } catch (IOException e4) {
+                    Log.e("tn_OkHttp3Intercept", "Write data or build connection caught exception: " + e4.toString());
+                    a8bVar.disconnect();
+                    return c(chain, request);
                 }
-            } catch (Exception e8) {
-                e = e8;
-                fileOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                fileOutputStream = null;
-                if (mediaCodec != null) {
-                }
-                if (fileInputStream != null) {
-                }
-                if (fileOutputStream != null) {
-                }
-                throw th;
             }
+            return c(chain, request);
         }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c = i;
-        }
+        return (Response) invokeL.objValue;
     }
 }

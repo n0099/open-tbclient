@@ -1,11 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.content.res.Resources;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes8.dex */
-public interface th6 {
-    public static final ServiceReference a = new ServiceReference("Frames", "ISafetyConfig");
+public class th6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean a();
-
-    String b();
+    public static int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            return (int) (i * Resources.getSystem().getDisplayMetrics().density);
+        }
+        return invokeI.intValue;
+    }
 }

@@ -1,72 +1,153 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class fac {
+public final class fac implements u7c {
     public static /* synthetic */ Interceptable $ic;
-    public static final fac a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947758849, "Lcom/baidu/tieba/fac;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947758849, "Lcom/baidu/tieba/fac;");
-                return;
-            }
-        }
-        a = new fac();
-    }
+    public List<u7c> a;
+    public volatile boolean b;
 
     public fac() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u7c
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.u7c
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
+            synchronized (this) {
+                if (this.b) {
+                    return;
+                }
+                this.b = true;
+                List<u7c> list = this.a;
+                this.a = null;
+                c(list);
+            }
+        }
+    }
+
+    public fac(u7c u7cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {u7cVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        LinkedList linkedList = new LinkedList();
+        this.a = linkedList;
+        linkedList.add(u7cVar);
     }
 
-    @TargetApi(17)
-    public final boolean a(Context context) {
-        InterceptResult invokeL;
+    public static void c(Collection<u7c> collection) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (context != null && (context instanceof Activity)) {
-                Activity activity = (Activity) context;
-                if (activity.isFinishing()) {
-                    RLog.warn("ViewUtils", "activity is finishing");
-                    return false;
-                } else if (Build.VERSION.SDK_INT >= 17 && activity.isDestroyed()) {
-                    return false;
-                } else {
-                    return true;
+        if ((interceptable != null && interceptable.invokeL(65539, null, collection) != null) || collection == null) {
+            return;
+        }
+        ArrayList arrayList = null;
+        for (u7c u7cVar : collection) {
+            try {
+                u7cVar.unsubscribe();
+            } catch (Throwable th) {
+                if (arrayList == null) {
+                    arrayList = new ArrayList();
+                }
+                arrayList.add(th);
+            }
+        }
+        z7c.d(arrayList);
+    }
+
+    public void a(u7c u7cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, u7cVar) != null) || u7cVar.isUnsubscribed()) {
+            return;
+        }
+        if (!this.b) {
+            synchronized (this) {
+                if (!this.b) {
+                    List list = this.a;
+                    if (list == null) {
+                        list = new LinkedList();
+                        this.a = list;
+                    }
+                    list.add(u7cVar);
+                    return;
                 }
             }
-            RLog.warn("ViewUtils", "mContext is null or not activity");
-            return false;
         }
-        return invokeL.booleanValue;
+        u7cVar.unsubscribe();
+    }
+
+    public fac(u7c... u7cVarArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {u7cVarArr};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = new LinkedList(Arrays.asList(u7cVarArr));
+    }
+
+    public void b(u7c u7cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u7cVar) == null) && !this.b) {
+            synchronized (this) {
+                List<u7c> list = this.a;
+                if (!this.b && list != null) {
+                    boolean remove = list.remove(u7cVar);
+                    if (remove) {
+                        u7cVar.unsubscribe();
+                    }
+                }
+            }
+        }
     }
 }

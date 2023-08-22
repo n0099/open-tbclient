@@ -17,7 +17,7 @@ import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmClassName;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.ChainedMemberScope;
 import kotlin.reflect.jvm.internal.impl.resolve.scopes.MemberScope;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class PackagePartScopeCache {
     public final ConcurrentHashMap<ClassId, MemberScope> cache = new ConcurrentHashMap<>();
     public final ReflectKotlinClassFinder kotlinClassFinder;

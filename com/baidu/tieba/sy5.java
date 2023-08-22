@@ -1,61 +1,85 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.oy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class sy5 {
+public class sy5 implements oy5.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public long d;
-    public boolean e;
+    public Bitmap a;
+    public ImageView b;
+    public int c;
+    public ListView d;
 
-    public sy5() {
+    public sy5(ListView listView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {listView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.c = -16777216;
+        this.d = listView;
+    }
+
+    @Override // com.baidu.tieba.oy5.j
+    public void a(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            ((ImageView) view2).setImageDrawable(null);
+            this.a.recycle();
+            this.a = null;
         }
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (!(obj instanceof sy5)) {
-                return false;
-            }
-            sy5 sy5Var = (sy5) obj;
-            if (sy5Var.d == this.d && sy5Var.c.equals(this.c) && sy5Var.b.equals(this.b) && sy5Var.e == this.e && sy5Var.a == this.a) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.c = i;
         }
-        return invokeL.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.oy5.j
+    public View b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "[HotForumInfoData:rank=" + this.a + ",forumAvatar=" + this.b + ",forumName=" + this.c + ",forumId=" + this.d + ",isLiked=" + this.e + "," + PreferencesUtil.RIGHT_MOUNT;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            ListView listView = this.d;
+            View childAt = listView.getChildAt((i + listView.getHeaderViewsCount()) - this.d.getFirstVisiblePosition());
+            if (childAt == null) {
+                return null;
+            }
+            childAt.setPressed(false);
+            childAt.setDrawingCacheEnabled(true);
+            this.a = Bitmap.createBitmap(childAt.getDrawingCache());
+            childAt.setDrawingCacheEnabled(false);
+            if (this.b == null) {
+                this.b = new ImageView(this.d.getContext());
+            }
+            this.b.setBackgroundColor(this.c);
+            this.b.setPadding(0, 0, 0, 0);
+            this.b.setImageBitmap(this.a);
+            this.b.setLayoutParams(new ViewGroup.LayoutParams(childAt.getWidth(), childAt.getHeight()));
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (View) invokeI.objValue;
     }
 }

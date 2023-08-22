@@ -27,14 +27,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.de5;
-import com.baidu.tieba.hc8;
+import com.baidu.tieba.bf8;
 import com.baidu.tieba.im.forum.detail.BarEmotionResponseMessage;
 import com.baidu.tieba.im.forum.detail.ForumDetailModel;
 import com.baidu.tieba.im.message.MemoryModifyLastMsgMessage;
 import com.baidu.tieba.im.message.SettingChangeMessage;
 import com.baidu.tieba.im.settingcache.OfficialSettingCache;
-import com.baidu.tieba.m45;
+import com.baidu.tieba.ke5;
+import com.baidu.tieba.s45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,7 +51,7 @@ import tbclient.SimpleThreadInfo;
 public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> implements ForumDetailModel.f, BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hc8 a;
+    public bf8 a;
     public ForumDetailModel b;
     public RecommendForumInfo c;
     public List<SimpleThreadInfo> d;
@@ -66,18 +66,18 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public String m;
 
     /* loaded from: classes6.dex */
-    public class a implements m45.e {
+    public class a implements s45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m45 a;
+        public final /* synthetic */ s45 a;
         public final /* synthetic */ ForumDetailActivity b;
 
-        public a(ForumDetailActivity forumDetailActivity, m45 m45Var) {
+        public a(ForumDetailActivity forumDetailActivity, s45 s45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {forumDetailActivity, m45Var};
+                Object[] objArr = {forumDetailActivity, s45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -88,13 +88,13 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                 }
             }
             this.b = forumDetailActivity;
-            this.a = m45Var;
+            this.a = s45Var;
         }
 
-        @Override // com.baidu.tieba.m45.e
-        public void onClick(m45 m45Var) {
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
                 this.a.dismiss();
             }
         }
@@ -273,12 +273,12 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                 if (!forumDetailActivity.l) {
                     if (z) {
                         forumDetailActivity.a.D();
-                        this.a.a.O();
+                        this.a.a.N();
                         this.a.b.W(this.a.k);
                         return;
                     }
                     forumDetailActivity.a.A();
-                    this.a.a.P(R.string.refresh_view_title_text);
+                    this.a.a.O(R.string.refresh_view_title_text);
                 }
             }
         }
@@ -313,7 +313,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && BdUtilHelper.isNetOk()) {
                 this.a.a.D();
-                this.a.a.O();
+                this.a.a.N();
                 this.a.b.W(this.a.k);
             }
         }
@@ -340,63 +340,63 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onResume();
             this.a.F();
         }
     }
 
-    public String z1() {
+    public String y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.m;
         }
         return (String) invokeV.objValue;
     }
 
-    public void D1(boolean z) {
+    public void B1(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             new e(this, z).execute(new Void[0]);
             MessageManager.getInstance().dispatchResponsedMessage(new SettingChangeMessage(2));
+        }
+    }
+
+    public void C1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a.I(this.c, z);
         }
     }
 
     public void E1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.a.I(this.c, z);
-        }
-    }
-
-    public void F1(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             this.a.K(z);
         }
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.f
-    public void G0(BarEmotionResponseMessage barEmotionResponseMessage) {
+    public void F0(BarEmotionResponseMessage barEmotionResponseMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, barEmotionResponseMessage) == null) && barEmotionResponseMessage != null) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, barEmotionResponseMessage) == null) && barEmotionResponseMessage != null) {
             this.a.G(barEmotionResponseMessage.data);
             this.g = barEmotionResponseMessage.data;
         }
     }
 
-    public void I1(boolean z) {
+    public void G1(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.a.Q(this.c, z);
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.a.P(this.c, z);
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             super.onChangeSkinType(i);
             this.a.onChangeSkinType(i);
         }
@@ -405,58 +405,40 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onUserChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
             super.onUserChanged(z);
-            B1();
+            A1();
         }
     }
 
     public final void A1() {
-        List<SimpleThreadInfo> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.A();
-            this.a.D();
-            if (this.c == null && ((list = this.d) == null || list.size() <= 0)) {
-                this.l = false;
-                this.a.P(R.string.no_data_common_txt);
-                return;
-            }
-            this.l = true;
-            this.d = y1(this.d);
-            this.a.H(this.c, this.e, this.f, this.h, this.i, this.j);
-            this.a.M(this.d);
-        }
-    }
-
-    public final void B1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (BdUtilHelper.isNetOk()) {
-                this.a.O();
+                this.a.N();
                 this.b.W(this.k);
                 this.b.V(this.k);
                 return;
             }
             this.a.A();
-            this.a.P(R.string.refresh_view_title_text);
-            showToast(R.string.obfuscated_res_0x7f0f0e21);
+            this.a.O(R.string.refresh_view_title_text);
+            showToast(R.string.obfuscated_res_0x7f0f0e29);
         }
     }
 
-    public void x1() {
+    public void w1() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || TextUtils.isEmpty(this.k)) {
+        if ((interceptable != null && interceptable.invokeV(1048595, this) != null) || TextUtils.isEmpty(this.k)) {
             return;
         }
         MessageManager.getInstance().dispatchResponsedMessage(new MemoryModifyLastMsgMessage(new MemoryModifyLastMsgMessage.ModifyData(String.valueOf(this.k), 4, null, 1)));
         sendMessage(new CustomMessage(2001151, String.valueOf(this.k)));
     }
 
-    public final void G1() {
+    public final void F1() {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             String stringExtra = getIntent().getStringExtra("from_type");
             this.m = stringExtra;
             if (StringUtils.isNull(stringExtra)) {
@@ -483,12 +465,12 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.f
-    public void L0(boolean z) {
+    public void I0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             if (z) {
-                showToast(R.string.obfuscated_res_0x7f0f1483);
-                D1(true);
+                showToast(R.string.obfuscated_res_0x7f0f1491);
+                B1(true);
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "like_add ", "like_add", 1, new Object[0]);
                 return;
             }
@@ -497,9 +479,9 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.f
-    public void N0(ForumDetailSocketResponse forumDetailSocketResponse) {
+    public void K0(ForumDetailSocketResponse forumDetailSocketResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, forumDetailSocketResponse) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, forumDetailSocketResponse) == null) {
             this.c = forumDetailSocketResponse.getForumInfo();
             this.d = forumDetailSocketResponse.getThreadInfoList();
             boolean z = true;
@@ -511,7 +493,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             this.h = forumDetailSocketResponse.getApplyInfo();
             this.i = forumDetailSocketResponse.getPrivateApplyInfo();
             this.j = forumDetailSocketResponse.getManagerElectionTab();
-            A1();
+            z1();
         }
     }
 
@@ -521,22 +503,22 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.a.A();
             if (TextUtils.isEmpty(str)) {
-                showToast(R.string.obfuscated_res_0x7f0f0e21);
+                showToast(R.string.obfuscated_res_0x7f0f0e29);
             } else {
                 showToast(str);
             }
             if (BdUtilHelper.isNetOk()) {
-                this.a.P(R.string.no_data_common_txt);
+                this.a.O(R.string.no_data_common_txt);
             } else {
-                this.a.P(R.string.refresh_view_title_text);
+                this.a.O(R.string.refresh_view_title_text);
             }
         }
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.f
-    public void i1(ForumDetailHttpResponse forumDetailHttpResponse) {
+    public void f1(ForumDetailHttpResponse forumDetailHttpResponse) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, forumDetailHttpResponse) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, forumDetailHttpResponse) == null) {
             this.c = forumDetailHttpResponse.getForumInfo();
             this.d = forumDetailHttpResponse.getThreadInfoList();
             boolean z = true;
@@ -548,17 +530,17 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
             this.h = forumDetailHttpResponse.getApplyInfo();
             this.i = forumDetailHttpResponse.getPrivateApplyInfo();
             this.j = forumDetailHttpResponse.getManagerElectionTab();
-            A1();
+            z1();
         }
     }
 
     @Override // com.baidu.tieba.im.forum.detail.ForumDetailModel.f
-    public void n1(boolean z) {
+    public void l1(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             if (z) {
-                showToast(R.string.obfuscated_res_0x7f0f1483);
-                D1(false);
+                showToast(R.string.obfuscated_res_0x7f0f1491);
+                B1(false);
                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "like_cancel ", "like_canel", 1, new Object[0]);
                 return;
             }
@@ -566,10 +548,10 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
         }
     }
 
-    public final List<SimpleThreadInfo> y1(List<SimpleThreadInfo> list) {
+    public final List<SimpleThreadInfo> x1(List<SimpleThreadInfo> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, list)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, list)) == null) {
             if (list == null) {
                 return null;
             }
@@ -590,19 +572,19 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-    public void b0(View view2, BdSwitchView.SwitchState switchState) {
+    public void U(View view2, BdSwitchView.SwitchState switchState) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, view2, switchState) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, view2, switchState) == null) {
             if (switchState == BdSwitchView.SwitchState.OFF) {
                 this.b.subscribeBar(false, this.k);
-            } else if (de5.d().z() && de5.d().w()) {
+            } else if (ke5.d().z() && ke5.d().w()) {
                 this.b.subscribeBar(true, this.k);
             } else {
-                m45 m45Var = new m45(getActivity());
-                m45Var.setMessageId(R.string.error_open_personal_single_alloff);
-                m45Var.setNegativeButton(getResources().getString(R.string.signallforum_signnow), new a(this, m45Var));
-                m45Var.create(getPageContext());
-                m45Var.show();
+                s45 s45Var = new s45(getActivity());
+                s45Var.setMessageId(R.string.error_open_personal_single_alloff);
+                s45Var.setNegativeButton(getResources().getString(R.string.signallforum_signnow), new a(this, s45Var));
+                s45Var.create(getPageContext());
+                s45Var.show();
                 this.mHandler.postDelayed(new b(this), 500L);
             }
         }
@@ -612,7 +594,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public void onActivityResult(int i, int i2, Intent intent) {
         BarEmotionResponseMessage.ForumEmotionData forumEmotionData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048590, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048589, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i2 == -1 && i == 11003 && (forumEmotionData = this.g) != null && forumEmotionData.forum_pkg_status == 1 && !TextUtils.isEmpty(forumEmotionData.url) && this.c != null) {
                 Activity pageActivity = getPageContext().getPageActivity();
@@ -625,16 +607,16 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     public void onClick(View view2) {
         ManagerElectionTab managerElectionTab;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, view2) == null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f090351) {
+            if (id == R.id.obfuscated_res_0x7f090353) {
                 RecommendForumInfo recommendForumInfo = this.c;
                 if (recommendForumInfo != null && recommendForumInfo.forum_id != null) {
                     sendMessage(new CustomMessage(2002001, new ForumMemberActivityConfig(getActivity(), String.valueOf(this.c.forum_id), this.c.forum_name)));
                 }
-            } else if (id == R.id.obfuscated_res_0x7f09034a) {
-                this.a.N();
-            } else if (id == R.id.obfuscated_res_0x7f09034e) {
+            } else if (id == R.id.obfuscated_res_0x7f09034c) {
+                this.a.M();
+            } else if (id == R.id.obfuscated_res_0x7f090350) {
                 if (!TbadkCoreApplication.isLogin()) {
                     TbadkCoreApplication.getInst().login(null, new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11003)));
                     return;
@@ -644,7 +626,7 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     Activity pageActivity = getPageContext().getPageActivity();
                     sendMessage(new CustomMessage(2002001, new CommonEmotionManagerActivityConfig(pageActivity, this.g.url + "?forum_id=" + this.c.forum_id)));
                 }
-            } else if (id == R.id.obfuscated_res_0x7f090350) {
+            } else if (id == R.id.obfuscated_res_0x7f090352) {
                 RecommendForumInfo recommendForumInfo2 = this.c;
                 if (recommendForumInfo2 != null) {
                     if (recommendForumInfo2.is_private_forum.intValue() == 0) {
@@ -654,11 +636,11 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
                     }
                     UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "mo/q/pribawuindex?fid=" + this.c.forum_id + "&fn=" + this.c.forum_name + "&nomenu=1"});
                 }
-            } else if (id == R.id.obfuscated_res_0x7f09034c) {
+            } else if (id == R.id.obfuscated_res_0x7f09034e) {
                 if (this.c != null) {
                     UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{TbConfig.TIEBA_ADDRESS + "mo/q/pritousu/complainforum?fid=" + this.c.forum_id + "&nomenu=1"});
                 }
-            } else if (id == R.id.obfuscated_res_0x7f090353) {
+            } else if (id == R.id.obfuscated_res_0x7f090355) {
                 new StatisticItem(TbadkCoreStatisticKey.KEY_BAR_ENTRANCE_DETAIL).eventStat();
                 if (this.c != null && (managerElectionTab = this.j) != null) {
                     int intValue = managerElectionTab.new_manager_status.intValue();
@@ -687,17 +669,35 @@ public class ForumDetailActivity extends BaseActivity<ForumDetailActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02ef);
-            hc8 hc8Var = new hc8(this);
-            this.a = hc8Var;
-            hc8Var.z().addNetworkChangeListener(new f(this));
+            setContentView(R.layout.obfuscated_res_0x7f0d02f2);
+            bf8 bf8Var = new bf8(this);
+            this.a = bf8Var;
+            bf8Var.z().addNetworkChangeListener(new f(this));
             this.a.J(new g(this));
             this.b = new ForumDetailModel(this);
             this.k = getIntent().getStringExtra("forum_id");
-            B1();
-            G1();
+            A1();
+            F1();
+        }
+    }
+
+    public final void z1() {
+        List<SimpleThreadInfo> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.a.A();
+            this.a.D();
+            if (this.c == null && ((list = this.d) == null || list.size() <= 0)) {
+                this.l = false;
+                this.a.O(R.string.no_data_common_txt);
+                return;
+            }
+            this.l = true;
+            this.d = x1(this.d);
+            this.a.H(this.c, this.e, this.f, this.h, this.i, this.j);
+            this.a.L(this.d);
         }
     }
 }

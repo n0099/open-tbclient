@@ -8,11 +8,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ay8;
-import com.baidu.tieba.by8;
+import com.baidu.tieba.c29;
+import com.baidu.tieba.d29;
+import com.baidu.tieba.e29;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.zx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,8 +23,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class PlayPicInfoCard extends BaseCardInfo implements zx8<PlayPicInfoCard> {
+/* loaded from: classes7.dex */
+public class PlayPicInfoCard extends BaseCardInfo implements c29<PlayPicInfoCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int descOnPic;
@@ -35,14 +35,14 @@ public class PlayPicInfoCard extends BaseCardInfo implements zx8<PlayPicInfoCard
     public final double ratio;
     public final int showDot;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String a;
         public String b;
-        public by8 c;
-        public ay8 d;
+        public e29 c;
+        public d29 d;
 
         public boolean b() {
             InterceptResult invokeV;
@@ -71,17 +71,17 @@ public class PlayPicInfoCard extends BaseCardInfo implements zx8<PlayPicInfoCard
             if (jSONObject != null) {
                 this.a = jSONObject.optString("lbText");
                 this.b = jSONObject.optString("lbScheme");
-                by8 by8Var = new by8();
-                this.c = by8Var;
-                by8Var.d = jSONObject.optString("rText");
+                e29 e29Var = new e29();
+                this.c = e29Var;
+                e29Var.d = jSONObject.optString("rText");
                 this.c.c = jSONObject.optInt("rIconType");
                 this.c.a = jSONObject.optString("rIcon");
                 this.c.b = jSONObject.optString("rIconN");
                 JSONObject optJSONObject = jSONObject.optJSONObject("cb");
                 if (optJSONObject != null) {
-                    ay8 ay8Var = new ay8(optJSONObject);
-                    this.d = ay8Var;
-                    if (!ay8Var.j()) {
+                    d29 d29Var = new d29(optJSONObject);
+                    this.d = d29Var;
+                    if (!d29Var.j()) {
                         this.d = null;
                     }
                 }
@@ -98,7 +98,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements zx8<PlayPicInfoCard
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -127,7 +127,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements zx8<PlayPicInfoCard
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -248,7 +248,7 @@ public class PlayPicInfoCard extends BaseCardInfo implements zx8<PlayPicInfoCard
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zx8
+    @Override // com.baidu.tieba.c29
     public void doLoad(PlayPicInfoCard playPicInfoCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, playPicInfoCard, tbPageContext) == null) && playPicInfoCard != null && tbPageContext != null) {

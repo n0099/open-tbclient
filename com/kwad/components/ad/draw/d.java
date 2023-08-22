@@ -12,7 +12,7 @@ import com.kwad.sdk.core.network.f;
 import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.utils.bd;
 import java.util.ArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class d {
     public static void loadDrawAd(KsScene ksScene, @NonNull final KsLoadManager.DrawAdListener drawAdListener) {
         boolean a = m.oF().a(ksScene, "loadDrawAd");

@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.aw2;
+import com.baidu.tieba.lh3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class ph3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ph3 b;
+    public static final boolean a;
+    public static final int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(String str, String str2);
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,59 +33,76 @@ public class ph3 {
                 return;
             }
         }
-        boolean z = ir1.a;
+        a = nr1.a;
+        b = ku2.g0().u() * 1024;
     }
 
-    public ph3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static ph3 a() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (ph3.class) {
-                    if (b == null) {
-                        b = new ph3();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b > 0) {
+                return true;
             }
-            return b;
+            return false;
         }
-        return (ph3) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void b(String str) {
-        a aVar;
+    public static boolean a(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (ProcessUtils.isMainProcess() && (aVar = this.a) != null) {
-                aVar.a("swanLauncherTag", str);
-            } else {
-                c("swanLauncherTag", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || str.getBytes().length <= b) {
+                return false;
             }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void c(String str, String str2) {
-        t73 y;
+    public static boolean b(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && (y = xa3.K().y()) != null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("statTag", str);
-            bundle.putString("statisticData", str2);
-            y.W(bundle, oh3.class);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!c()) {
+                return false;
+            }
+            boolean a2 = a(str);
+            if (a2) {
+                d(str);
+            }
+            return a2;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(@NonNull String str) {
+        db3 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || (b0 = db3.b0()) == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            aw2.a W = b0.W();
+            SwanCoreVersion coreVersion = qw2.T().getCoreVersion();
+            int k = b0.k();
+            jSONObject.putOpt("scheme", W.W());
+            jSONObject.putOpt("swanjs", ik3.i(coreVersion, k));
+            if (str != null && str.length() > 1024) {
+                jSONObject.putOpt("params", str.substring(0, 1024));
+            }
+            lh3.b bVar = new lh3.b(10020);
+            bVar.j(xo3.n().e());
+            bVar.i(jSONObject.toString());
+            bVar.h(b0.getAppId());
+            bVar.m();
+            d82.k("SwanAppParamChecker", "10020, params: " + str);
+        } catch (JSONException e) {
+            if (a) {
+                e.printStackTrace();
+            }
         }
     }
 }

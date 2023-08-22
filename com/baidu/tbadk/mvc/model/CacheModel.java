@@ -13,11 +13,11 @@ import com.baidu.tbadk.mvc.message.ReadCacheMessage;
 import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
 import com.baidu.tbadk.mvc.message.WriteCacheMessage;
 import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
-import com.baidu.tieba.eq5;
-import com.baidu.tieba.fq5;
-import com.baidu.tieba.nq5;
-import com.baidu.tieba.oq5;
-import com.baidu.tieba.ps5;
+import com.baidu.tieba.er5;
+import com.baidu.tieba.fr5;
+import com.baidu.tieba.gt5;
+import com.baidu.tieba.vq5;
+import com.baidu.tieba.wq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes4.dex */
-public abstract class CacheModel<T extends eq5, ActivityType> extends BdBaseModel<ActivityType> {
+public abstract class CacheModel<T extends vq5, ActivityType> extends BdBaseModel<ActivityType> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public CacheModelCallback<T> callback;
@@ -205,14 +205,14 @@ public abstract class CacheModel<T extends eq5, ActivityType> extends BdBaseMode
         this.isWriting = false;
     }
 
-    public final void loadSingleCache(fq5 fq5Var) {
+    public final void loadSingleCache(wq5 wq5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, fq5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, wq5Var) == null) {
             this.isReading = true;
             checkReadListener();
             ReadCacheMessage<T> readCacheMessage = new ReadCacheMessage<>(getReadCacheCmd());
             readCacheMessage.setTag(getUniqueId());
-            readCacheMessage.setRequestData(fq5Var);
+            readCacheMessage.setRequestData(wq5Var);
             readCacheMessage.setNeedUid(isUidNeed());
             processReadCacheMessage(readCacheMessage);
             checkReadTask();
@@ -299,7 +299,7 @@ public abstract class CacheModel<T extends eq5, ActivityType> extends BdBaseMode
     private void checkReadTask() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65542, this) == null) && !this.hadCheckReadTask && MessageManager.getInstance().findTask(getReadCacheCmd()) == null) {
-            MessageManager.getInstance().registerTask(new ps5(getReadCacheCmd(), new nq5(getReadCacheCmd(), getCacheTableName(), getCacheDataClassName())));
+            MessageManager.getInstance().registerTask(new gt5(getReadCacheCmd(), new er5(getReadCacheCmd(), getCacheTableName(), getCacheDataClassName())));
             this.hadCheckReadTask = true;
         }
     }
@@ -321,7 +321,7 @@ public abstract class CacheModel<T extends eq5, ActivityType> extends BdBaseMode
     private void checkWriteTask() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65544, this) == null) && !this.hadCheckWriteTask && MessageManager.getInstance().findTask(getWriteCacheCmd()) == null) {
-            MessageManager.getInstance().registerTask(new ps5(getWriteCacheCmd(), new oq5(getWriteCacheCmd(), getCacheTableName(), getCacheDataClassName())));
+            MessageManager.getInstance().registerTask(new gt5(getWriteCacheCmd(), new fr5(getWriteCacheCmd(), getCacheTableName(), getCacheDataClassName())));
             this.hadCheckWriteTask = true;
         }
     }

@@ -13,8 +13,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.dla;
-import com.baidu.tieba.es6;
+import com.baidu.tieba.mpa;
+import com.baidu.tieba.pt6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ import javax.microedition.khronos.opengles.GL10;
 public class PicGLSurfaceView extends AspectGLSurfaceView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public es6.c e;
+    public pt6.c e;
     public boolean f;
     public int g;
     public int h;
@@ -158,7 +158,7 @@ public class PicGLSurfaceView extends AspectGLSurfaceView {
                     if (this.b.getContext() != null) {
                         bitmap = BitmapHelper.getClipBitmap(bitmap, (BdUtilHelper.getEquipmentHeight(context) * 1.0f) / BdUtilHelper.getEquipmentWidth(context));
                     }
-                    this.c.i = FileHelper.saveFileAsPic(dla.i, str, bitmap, 80, Bitmap.CompressFormat.JPEG);
+                    this.c.i = FileHelper.saveFileAsPic(mpa.i, str, bitmap, 80, Bitmap.CompressFormat.JPEG);
                     return null;
                 } finally {
                     if (bitmap != null && !bitmap.isRecycled()) {
@@ -212,7 +212,7 @@ public class PicGLSurfaceView extends AspectGLSurfaceView {
     }
 
     public final void l(PicGLSurfaceView picGLSurfaceView, Bitmap bitmap) {
-        es6.c cVar;
+        pt6.c cVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, picGLSurfaceView, bitmap) == null) {
             this.i = null;
@@ -233,7 +233,7 @@ public class PicGLSurfaceView extends AspectGLSurfaceView {
         }
     }
 
-    public void m(es6.c cVar) {
+    public void m(pt6.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.e = cVar;

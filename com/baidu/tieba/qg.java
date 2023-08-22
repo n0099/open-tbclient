@@ -53,7 +53,7 @@ public class qg {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, tgVar)) == null) {
-            if (!(tgVar instanceof hh) && !(tgVar instanceof gh) && !(tgVar instanceof fh)) {
+            if (!(tgVar instanceof ih) && !(tgVar instanceof hh) && !(tgVar instanceof fh)) {
                 return false;
             }
             return true;

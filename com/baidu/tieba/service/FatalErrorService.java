@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ci;
-import com.baidu.tieba.yh;
+import com.baidu.tieba.ai;
+import com.baidu.tieba.ei;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FatalErrorService extends BdBaseService {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String ERROR_TYPE_KEY = "errortype";
@@ -54,7 +54,7 @@ public class FatalErrorService extends BdBaseService {
         return (IBinder) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a extends BdAsyncTask<String, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -126,16 +126,16 @@ public class FatalErrorService extends BdBaseService {
                     b(fileWriter, "imei", TbadkCoreApplication.getInst().getImei());
                     b(fileWriter, "uname", this.a.getStringExtra("uname"));
                     fileWriter.append("\n##TIEBA_NATIVE_END##\n");
-                    ci.h(fileWriter);
+                    ei.h(fileWriter);
                 } catch (Exception e2) {
                     e = e2;
                     fileWriter2 = fileWriter;
                     e.printStackTrace();
-                    ci.h(fileWriter2);
+                    ei.h(fileWriter2);
                 } catch (Throwable th2) {
                     th = th2;
                     fileWriter2 = fileWriter;
-                    ci.h(fileWriter2);
+                    ei.h(fileWriter2);
                     throw th;
                 }
             }
@@ -290,7 +290,7 @@ public class FatalErrorService extends BdBaseService {
                                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(1024);
                                     try {
                                         if (z) {
-                                            yh.a(fileInputStream, byteArrayOutputStream);
+                                            ai.a(fileInputStream, byteArrayOutputStream);
                                         } else {
                                             byte[] bArr = new byte[1024];
                                             while (true) {

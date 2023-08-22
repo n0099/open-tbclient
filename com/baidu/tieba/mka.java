@@ -1,25 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class mka {
+public class mka extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MainTabActivity a;
 
-    public static final void a(String str) {
-        ne<byte[]> d;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mka(MainTabActivity mainTabActivity) {
+        super(2921654);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && (d = l45.d(str, TbadkCoreApplication.getCurrentAccount())) != null) {
-            d.g("0", null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = mainTabActivity;
     }
 
-    public static final void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            a("tb.rec_frs_update");
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            fj5 fj5Var = null;
+            if (customResponsedMessage.getData() instanceof fj5) {
+                fj5Var = (fj5) customResponsedMessage.getData();
+            }
+            if (fj5Var != null && fj5Var.b() == 0) {
+                MainTabActivity mainTabActivity = this.a;
+                new ej5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f09237b), fj5Var).m();
+            }
         }
     }
 }

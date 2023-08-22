@@ -1,44 +1,38 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.pm.Signature;
+import android.os.IBinder;
+import android.os.Parcel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.b50;
-import com.baidu.tieba.e50;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.s50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.heytap.openid.IOpenID;
+import java.security.MessageDigest;
 /* loaded from: classes8.dex */
-public class t50 extends e50 {
+public class t50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b50.a d;
-    public a e;
 
     /* loaded from: classes8.dex */
-    public class a {
+    public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public boolean b;
-        public y40 c;
-        public String d;
-        public String e;
-        public final /* synthetic */ t50 f;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ s50.a b;
 
-        public a(t50 t50Var) {
+        public a(Context context, s50.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {t50Var};
+                Object[] objArr = {context, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,177 +42,114 @@ public class t50 extends e50 {
                     return;
                 }
             }
-            this.f = t50Var;
-            this.b = true;
-            this.c = new y40();
+            this.a = context;
+            this.b = aVar;
         }
 
-        public String a() {
-            InterceptResult invokeV;
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Signature[] signatureArr;
+            String str;
+            Parcel obtain;
+            Parcel obtain2;
+            MessageDigest messageDigest;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.e;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.b) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("form_id", this.d);
-                        jSONObject.put("lst_fe_ts", this.a);
-                        jSONObject.put("c_form_ver", 1);
-                        jSONObject.put("flags", this.c.d());
-                        jSONObject.put(Config.SSAID, this.e);
-                        this.f.d.i("cache.dat", jSONObject.toString(), true);
-                        this.b = false;
-                        return true;
-                    } catch (Exception unused) {
-                    }
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                String g = this.f.d.g("cache.dat", true);
-                if (!TextUtils.isEmpty(g)) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(g);
-                        this.d = jSONObject.optString("form_id");
-                        this.a = jSONObject.getLong("lst_fe_ts");
-                        jSONObject.getInt("c_form_ver");
-                        this.e = jSONObject.getString(Config.SSAID);
-                        this.c.b(jSONObject.getLong("flags"));
-                        return true;
-                    } catch (Exception unused) {
-                        return false;
-                    }
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void e(String str) {
-            String str2;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || (str2 = this.e) == str) {
+            if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
                 return;
             }
-            if (str == null || !str.equals(str2)) {
-                this.e = str;
-                this.b = true;
-            }
-        }
-
-        public void f(String str) {
-            String str2;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || (str2 = this.d) == str) {
-                return;
-            }
-            if (str == null || !str.equals(str2)) {
-                this.d = str;
-                this.b = true;
-            }
-        }
-
-        public void g(long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeJ(1048582, this, j) == null) && this.a != j) {
-                this.a = j;
-                this.b = true;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948132058, "Lcom/baidu/tieba/t50;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948132058, "Lcom/baidu/tieba/t50;");
-                return;
-            }
-        }
-        boolean z = u50.a;
-    }
-
-    @Override // com.baidu.tieba.e50
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e.b();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t50() {
-        super(Config.SSAID);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = new a(this);
-    }
-
-    @Override // com.baidu.tieba.e50
-    public void f(e50.c cVar) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            this.d = this.a.f(e());
+            iBinder.queryLocalInterface(IOpenID.Stub.DESCRIPTOR);
+            String packageName = this.a.getPackageName();
             try {
-                str = ApiReplaceUtil.Overload.getString(this.b.a.getContentResolver(), HttpRequest.ANDROID_ID);
-            } catch (Throwable unused) {
-                str = null;
+                signatureArr = this.a.getPackageManager().getPackageInfo(packageName, 64).signatures;
+            } catch (Exception e) {
+                this.b.a(false, null);
+                e.printStackTrace();
+                signatureArr = null;
             }
-            if (str == null) {
-                str = "0";
-            }
-            this.e.d();
-            if (TextUtils.isEmpty(this.e.b()) || !TextUtils.equals(str, this.e.a())) {
-                this.e.e(str);
+            try {
                 try {
-                    this.e.f(e50.b("A30", new v40("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).c(str.getBytes("UTF-8"))));
-                } catch (Exception unused2) {
+                    if (signatureArr != null && signatureArr.length > 0) {
+                        byte[] byteArray = signatureArr[0].toByteArray();
+                        try {
+                            messageDigest = MessageDigest.getInstance("SHA1");
+                        } catch (Exception e2) {
+                            this.b.a(false, null);
+                            e2.printStackTrace();
+                        }
+                        if (messageDigest != null) {
+                            byte[] digest = messageDigest.digest(byteArray);
+                            StringBuilder sb = new StringBuilder();
+                            for (byte b : digest) {
+                                sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
+                            }
+                            str = sb.toString();
+                            obtain = Parcel.obtain();
+                            obtain2 = Parcel.obtain();
+                            obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
+                            obtain.writeString(packageName);
+                            obtain.writeString(str);
+                            obtain.writeString("OUID");
+                            iBinder.transact(1, obtain, obtain2, 0);
+                            obtain2.readException();
+                            String readString = obtain2.readString();
+                            obtain.recycle();
+                            obtain2.recycle();
+                            this.b.a(true, readString);
+                            return;
+                        }
+                    }
+                    obtain.writeInterfaceToken(IOpenID.Stub.DESCRIPTOR);
+                    obtain.writeString(packageName);
+                    obtain.writeString(str);
+                    obtain.writeString("OUID");
+                    iBinder.transact(1, obtain, obtain2, 0);
+                    obtain2.readException();
+                    String readString2 = obtain2.readString();
+                    obtain.recycle();
+                    obtain2.recycle();
+                    this.b.a(true, readString2);
+                    return;
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                    this.b.a(false, null);
+                    obtain.recycle();
+                    obtain2.recycle();
+                    return;
                 }
-                this.e.g(System.currentTimeMillis());
+            } catch (Throwable th) {
+                obtain.recycle();
+                obtain2.recycle();
+                throw th;
             }
-            this.e.c();
+            str = null;
+            obtain = Parcel.obtain();
+            obtain2 = Parcel.obtain();
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
+    }
+
+    public static void a(Context context, s50.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            if (context == null) {
+                aVar.a(false, null);
+                return;
+            }
+            try {
+                a aVar2 = new a(context, aVar);
+                Intent intent = new Intent();
+                intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
+                intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
+                context.bindService(intent, aVar2, 1);
+            } catch (Throwable unused) {
+                aVar.a(false, null);
+            }
         }
     }
 }

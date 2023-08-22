@@ -1,52 +1,113 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
+import tbclient.GiftInfo;
+import tbclient.User;
 /* loaded from: classes7.dex */
-public class ov9 implements ck1 {
+public class ov9 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId h;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
+    public List<bn> g;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948045847, "Lcom/baidu/tieba/ov9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948045847, "Lcom/baidu/tieba/ov9;");
+                return;
+            }
+        }
+        h = BdUniqueId.gen();
+    }
 
     public ov9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ck1
-    public Object get() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new mp7());
-            arrayList.add(new np7());
-            arrayList.add(new d58());
-            arrayList.add(new fp8());
-            arrayList.add(new gp8());
-            arrayList.add(new hp8());
-            arrayList.add(new ip8());
-            arrayList.add(new kp8());
-            arrayList.add(new sk9());
-            arrayList.add(new uk9());
-            arrayList.add(new vk9());
-            arrayList.add(new wk9());
-            arrayList.add(new wxa());
-            arrayList.add(new xxa());
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return h;
         }
-        return invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return !ListUtils.isEmpty(this.g);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(User user) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, user) == null) && user != null && !ListUtils.isEmpty(user.gift_list)) {
+            this.c = String.valueOf(user.id);
+            this.d = user.name;
+            this.e = user.name_show;
+            this.f = user.sex.intValue();
+            String str = this.c;
+            if (str != null && str.equals(TbadkCoreApplication.getCurrentAccount())) {
+                this.a = true;
+            } else {
+                this.a = false;
+            }
+            if (user.sex.intValue() == 2) {
+                this.b = false;
+            } else {
+                this.b = true;
+            }
+            Integer num = user.gift_num;
+            if (num != null) {
+                num.intValue();
+            }
+            this.g = new ArrayList();
+            for (GiftInfo giftInfo : user.gift_list) {
+                if (giftInfo != null) {
+                    wv9 wv9Var = new wv9();
+                    wv9Var.c(giftInfo);
+                    this.g.add(wv9Var);
+                }
+            }
+        }
     }
 }

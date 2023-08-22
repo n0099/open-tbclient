@@ -1,6 +1,11 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.ITaskModelData;
+import com.baidu.bdtask.model.guide.TaskGuideData;
+import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.bdtask.model.meter.TaskMeterData;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.bdtask.model.rule.TaskRuleData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,63 +15,102 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class vt extends mt<TaskRuleData> {
+public final class vt extends pt<TaskInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final rt a;
 
-    public String b() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "rule" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "info" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vt(ot otVar) {
-        super(otVar);
+    public vt(rt rtVar) {
+        super(rtVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {otVar};
+            Object[] objArr = {rtVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ot) newInitContext.callArgs[0]);
+                super((rt) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = rtVar;
+    }
+
+    public final <T extends ITaskModelData> T b(rt rtVar, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rtVar, str, str2)) == null) {
+            return rtVar.a(str).a(str2);
+        }
+        return (T) invokeLLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mt
-    /* renamed from: c */
-    public TaskRuleData a(String str) {
+    @Override // com.baidu.tieba.pt
+    /* renamed from: d */
+    public TaskInfo a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(str);
-                String version = jSONObject.optString("ver");
-                String upgrade = jSONObject.optString("url");
-                long optLong = jSONObject.optLong("expire");
-                int optInt = jSONObject.optInt("stay", Integer.MAX_VALUE);
-                int optInt2 = jSONObject.optInt("repeat", Integer.MAX_VALUE);
-                boolean optBoolean = jSONObject.optBoolean(TaskRuleData.keyUniq);
-                boolean optBoolean2 = jSONObject.optBoolean(TaskRuleData.keyPersist);
-                int optInt3 = jSONObject.optInt(TaskRuleData.keyNoClickTimes, -1);
-                boolean optBoolean3 = jSONObject.optBoolean("auto", true);
-                int optInt4 = jSONObject.optInt(TaskRuleData.keyPersistOnFail, 0);
-                Intrinsics.checkExpressionValueIsNotNull(version, "version");
-                Intrinsics.checkExpressionValueIsNotNull(upgrade, "upgrade");
-                return new TaskRuleData(version, upgrade, optLong, optInt, optInt2, optBoolean, optBoolean2, optBoolean3, optInt3, optInt4);
+                String id = jSONObject.optString("id");
+                String aid = jSONObject.optString("aid");
+                int optInt = jSONObject.optInt("type");
+                String token = jSONObject.optString("token");
+                int optInt2 = jSONObject.optInt(TaskInfo.keyBehavior, 0);
+                String actTaskId = jSONObject.optString(TaskInfo.keyActTaskId);
+                String fingerprint = jSONObject.optString(TaskInfo.keyFingerprint);
+                rt rtVar = this.a;
+                String optString = jSONObject.optString("rule");
+                Intrinsics.checkExpressionValueIsNotNull(optString, "infoObj.optString(TaskRuleData.key)");
+                TaskRuleData taskRuleData = (TaskRuleData) b(rtVar, "rule", optString);
+                if (taskRuleData != null) {
+                    rt rtVar2 = this.a;
+                    String optString2 = jSONObject.optString("guide");
+                    Intrinsics.checkExpressionValueIsNotNull(optString2, "infoObj.optString(TaskGuideData.key)");
+                    TaskGuideData taskGuideData = (TaskGuideData) b(rtVar2, "guide", optString2);
+                    if (taskGuideData != null) {
+                        rt rtVar3 = this.a;
+                        String optString3 = jSONObject.optString(TaskMeterData.key);
+                        Intrinsics.checkExpressionValueIsNotNull(optString3, "infoObj.optString(TaskMeterData.key)");
+                        TaskMeterData taskMeterData = (TaskMeterData) b(rtVar3, TaskMeterData.key, optString3);
+                        if (taskMeterData != null) {
+                            rt rtVar4 = this.a;
+                            String optString4 = jSONObject.optString("response");
+                            Intrinsics.checkExpressionValueIsNotNull(optString4, "infoObj.optString(TaskResponseData.key)");
+                            TaskResponseData taskResponseData = (TaskResponseData) b(rtVar4, "response", optString4);
+                            if (taskResponseData != null) {
+                                Intrinsics.checkExpressionValueIsNotNull(id, "id");
+                                Intrinsics.checkExpressionValueIsNotNull(aid, "aid");
+                                Intrinsics.checkExpressionValueIsNotNull(token, "token");
+                                Intrinsics.checkExpressionValueIsNotNull(actTaskId, "actTaskId");
+                                Intrinsics.checkExpressionValueIsNotNull(fingerprint, "fingerprint");
+                                return new TaskInfo(id, aid, optInt, token, optInt2, actTaskId, fingerprint, taskRuleData, taskGuideData, taskMeterData, taskResponseData);
+                            }
+                            return null;
+                        }
+                        return null;
+                    }
+                    return null;
+                }
+                return null;
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
             }
         }
-        return (TaskRuleData) invokeL.objValue;
+        return (TaskInfo) invokeL.objValue;
     }
 }

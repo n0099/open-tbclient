@@ -8,11 +8,11 @@ import com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
-import com.baidu.tieba.c10;
-import com.baidu.tieba.hk1;
-import com.baidu.tieba.lk1;
-import com.baidu.tieba.s80;
-import com.baidu.tieba.ybb;
+import com.baidu.tieba.f10;
+import com.baidu.tieba.mk1;
+import com.baidu.tieba.nib;
+import com.baidu.tieba.qk1;
+import com.baidu.tieba.v80;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
 import com.baidu.yalog.LoggerManager;
 /* loaded from: classes4.dex */
@@ -37,23 +37,23 @@ public class YaLogInitManager {
         if (z && this.mApp != null && !TextUtils.isEmpty(str)) {
             CloudControlBlCPManager.getInstance().registerConnectStateListener(this.mApp);
             FetchConnManager.getInstance().init();
-            s80.a(this.mApp, str, c10.a().getDeviceId(), 1);
+            v80.a(this.mApp, str, f10.a().getDeviceId(), 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        ybb ybbVar;
-        if (z && (ybbVar = (ybb) ServiceManager.getService(ybb.a)) != null) {
-            ybbVar.retry();
+        nib nibVar;
+        if (z && (nibVar = (nib) ServiceManager.getService(nib.a)) != null) {
+            nibVar.retry();
         }
     }
 
     public void initYaLogBaseContext(Application application) {
         if (application != null) {
             AppRuntimeInit.onApplicationattachBaseContext(application);
-            lk1.b(application);
-            if (hk1.g()) {
+            qk1.b(application);
+            if (mk1.g()) {
                 VoyagerIPCManager.b();
             }
             this.mApp = application;
@@ -61,7 +61,7 @@ public class YaLogInitManager {
     }
 
     public void initYaLog(boolean z, final boolean z2, final boolean z3, final String str) {
-        if (!hk1.g()) {
+        if (!mk1.g()) {
             return;
         }
         if (z) {

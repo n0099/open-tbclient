@@ -1,71 +1,78 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
-import com.baidu.tieba.newinterest.model.InterestSelectionStyleAModel;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class la9<V> implements va9<V> {
+/* loaded from: classes7.dex */
+public class la9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InterestSelectionStyleAModel a;
-    public ea9 b;
-    public BaseInterestSelectionFragment c;
+    public View a;
+    public ImageView b;
+    public Context c;
+    public TextView d;
 
-    public la9(BaseInterestSelectionFragment baseInterestSelectionFragment, ea9 ea9Var) {
+    public la9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseInterestSelectionFragment, ea9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = baseInterestSelectionFragment;
-        this.b = ea9Var;
-        this.a = new InterestSelectionStyleAModel(ea9Var, this);
     }
 
-    @Override // com.baidu.tieba.va9
-    public void a(V v) {
-        BaseInterestSelectionFragment baseInterestSelectionFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, v) == null) && (baseInterestSelectionFragment = this.c) != null) {
-            baseInterestSelectionFragment.J1();
-        }
-    }
-
+    @SuppressLint({"ResourceAsColor"})
     public void b() {
-        InterestSelectionStyleAModel interestSelectionStyleAModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
-            interestSelectionStyleAModel.onDestroy();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundResource(this.b, R.drawable.tail_tool_add_button_bg);
+            SkinManager.setImageResource(this.b, R.drawable.icon_tail_post_add);
+            SkinManager.setViewTextColor(this.d, R.color.CAM_X0109, 1);
         }
     }
 
-    public void c() {
-        InterestSelectionStyleAModel interestSelectionStyleAModel;
+    public View a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
-            interestSelectionStyleAModel.S();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            this.c = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0968, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.d = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f092438);
+            this.b = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f092437);
+            return this.a;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void c(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.b.setOnClickListener(onClickListener);
         }
     }
 
-    @Override // com.baidu.tieba.va9
-    public void onError(int i, String str) {
-        BaseInterestSelectionFragment baseInterestSelectionFragment;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (baseInterestSelectionFragment = this.c) != null) {
-            baseInterestSelectionFragment.K1(str);
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.d.setText(String.format(this.c.getString(R.string.obfuscated_res_0x7f0f15da), Integer.valueOf(i)));
         }
     }
 }

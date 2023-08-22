@@ -11,7 +11,7 @@ import com.huawei.hms.api.ConnectionResult;
 import com.huawei.hms.api.HuaweiApiAvailability;
 import com.huawei.hms.common.HuaweiApi;
 import com.huawei.hms.support.log.HMSLog;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AvailabilityException extends Exception {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

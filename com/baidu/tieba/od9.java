@@ -1,251 +1,131 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.widget.ImageView.BdImage;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.nb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ExcPbPage.ExcellentPbThreadInfo;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 /* loaded from: classes7.dex */
 public class od9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public TextView c;
-    public ImageView d;
-    public TextView e;
-    public TextView f;
-    public c g;
-    public boolean h;
-    public long i;
-    public Animation j;
-    public boolean k;
 
-    /* loaded from: classes7.dex */
-    public interface c {
-        void a(long j, String str);
-
-        void b(boolean z);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ od9 a;
-
-        public a(od9 od9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {od9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static Bitmap a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Bitmap bitmap = null;
+            try {
+                File file = new File(str);
+                if (file.exists()) {
+                    if (c(file)) {
+                        BdImage bdImage = nb.a.b().get(str);
+                        if (bdImage != null) {
+                            bitmap = bdImage.getRawBitmap();
+                        }
+                    } else {
+                        BitmapFactory.Options options = new BitmapFactory.Options();
+                        options.inJustDecodeBounds = true;
+                        BitmapFactory.decodeFile(str, options);
+                        bitmap = BitmapHelper.loadResizedBitmap(str, options.outWidth, options.outHeight);
+                    }
                 }
+            } catch (OutOfMemoryError unused) {
             }
-            this.a = od9Var;
+            return bitmap;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.k || !ViewHelper.checkUpIsLogin(this.a.a)) {
-                return;
-            }
-            this.a.k = true;
-            this.a.d.startAnimation(this.a.g());
-            if (this.a.g != null) {
-                this.a.g.b(this.a.h);
-            }
-        }
+        return (Bitmap) invokeL.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ExcellentPbThreadInfo a;
-        public final /* synthetic */ od9 b;
-
-        public b(od9 od9Var, ExcellentPbThreadInfo excellentPbThreadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {od9Var, excellentPbThreadInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static boolean c(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            boolean z = false;
+            try {
+                try {
+                    try {
+                        fileInputStream = new FileInputStream(file);
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                } catch (FileNotFoundException e) {
+                    e = e;
+                } catch (IOException e2) {
+                    e = e2;
                 }
+            } catch (Exception e3) {
+                e3.printStackTrace();
             }
-            this.b = od9Var;
-            this.a = excellentPbThreadInfo;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.g != null) {
-                c cVar = this.b.g;
-                long longValue = this.a.forum.forum_id.longValue();
-                cVar.a(longValue, this.a.thread_id + "");
+            try {
+                byte[] bArr = new byte[7];
+                if (fileInputStream.read(bArr, 0, 6) == 6) {
+                    z = BdUtilHelper.isGif(bArr);
+                }
+                fileInputStream.close();
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+                return z;
+            } catch (IOException e5) {
+                e = e5;
+                fileInputStream2 = fileInputStream;
+                e.printStackTrace();
+                if (fileInputStream2 != null) {
+                    fileInputStream2.close();
+                }
+                return z;
+            } catch (Throwable th2) {
+                th = th2;
+                fileInputStream2 = fileInputStream;
+                if (fileInputStream2 != null) {
+                    try {
+                        fileInputStream2.close();
+                    } catch (Exception e6) {
+                        e6.printStackTrace();
+                    }
+                }
+                throw th;
             }
-        }
-    }
-
-    public od9(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            if (0 != 0) {
+                fileInputStream2.close();
             }
+            return z;
         }
-        this.i = 0L;
-        this.k = false;
-        this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0201, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090713);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090715);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090716);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090714);
+        return invokeL.booleanValue;
     }
 
-    public void i(c cVar) {
+    public static Bitmap b(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        Bitmap g;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.g = cVar;
-        }
-    }
-
-    public void j(int i) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (textView = this.c) != null) {
-            textView.setText(i);
-        }
-    }
-
-    public void k(View.OnClickListener onClickListener) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) && (textView = this.f) != null) {
-            textView.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            o(z);
-            if (z) {
-                this.i++;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
+            BdImage c = new hm5().c(imageFileInfo, true);
+            if (c != null) {
+                g = c.getRawBitmap();
             } else {
-                this.i--;
+                g = hm5.g(imageFileInfo, true);
             }
-            l(this.i);
-        }
-    }
-
-    public final void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.h = z;
-            if (z) {
-                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f08048e);
-            } else {
-                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f08048d);
+            if (g == null) {
+                return a(imageFileInfo.getFilePath());
             }
-            this.d.setVisibility(0);
+            return g;
         }
-    }
-
-    public final Animation g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.j == null) {
-                this.j = AnimationUtils.loadAnimation(this.a, R.anim.praise_animation_scale3);
-            }
-            return this.j;
-        }
-        return (Animation) invokeV.objValue;
-    }
-
-    public View h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.k = false;
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048581, this, j) != null) || j < 0) {
-            return;
-        }
-        this.i = j;
-        TextView textView = this.e;
-        if (textView != null) {
-            textView.setVisibility(0);
-            this.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0450, StringHelper.numFormatOver10000(j)));
-        }
-        TextView textView2 = this.e;
-        if (textView2 != null && textView2.getVisibility() == 8) {
-            this.e.setVisibility(0);
-        }
-    }
-
-    public void update(ExcellentPbThreadInfo excellentPbThreadInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, excellentPbThreadInfo) != null) || excellentPbThreadInfo == null) {
-            return;
-        }
-        j(R.string.obfuscated_res_0x7f0f044c);
-        l(excellentPbThreadInfo.zan.zansum.longValue());
-        o(excellentPbThreadInfo.zan.is_zan.booleanValue());
-        this.d.setOnClickListener(new a(this));
-        k(new b(this, excellentPbThreadInfo));
+        return (Bitmap) invokeL.objValue;
     }
 }

@@ -19,7 +19,7 @@ public final class t {
         if (com.kwad.b.kwai.a.QL.booleanValue() && !BX) {
             BX = true;
             View inflate = Wrapper.wrapInflaterIfNeed(LayoutInflater.from(context)).inflate(i, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09130b)).setText(str);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091321)).setText(str);
             Toast toast = new Toast(context.getApplicationContext());
             toast.setGravity(17, 0, 0);
             toast.setDuration(0);
@@ -40,7 +40,7 @@ public final class t {
     }
 
     public static void b(Context context, String str, long j) {
-        a(context, str, R.layout.obfuscated_res_0x7f0d0488, 0L);
+        a(context, str, R.layout.obfuscated_res_0x7f0d048f, 0L);
     }
 
     public static void c(Context context, String str, int i) {
@@ -48,13 +48,13 @@ public final class t {
     }
 
     public static void c(Context context, String str, long j) {
-        a(context, str, R.layout.obfuscated_res_0x7f0d04ea, 0L);
+        a(context, str, R.layout.obfuscated_res_0x7f0d04f1, 0L);
     }
 
     public static void d(Context context, String str, int i) {
         if (com.kwad.b.kwai.a.QL.booleanValue()) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0487, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09130b)).setText(str);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d048e, (ViewGroup) null);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091321)).setText(str);
             Toast toast = new Toast(context);
             toast.setGravity(17, 0, 0);
             toast.setDuration(0);
@@ -64,6 +64,6 @@ public final class t {
     }
 
     public static void z(Context context, String str) {
-        c(context, str, (int) R.layout.obfuscated_res_0x7f0d0488);
+        c(context, str, (int) R.layout.obfuscated_res_0x7f0d048f);
     }
 }

@@ -15,7 +15,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmClassName;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.IncompatibleVersionErrorData;
 import kotlin.reflect.jvm.internal.impl.serialization.deserialization.descriptors.DeserializedContainerSource;
 import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class JvmPackagePartSource implements DeserializedContainerSource {
     public final JvmClassName className;
     public final JvmClassName facadeClassName;

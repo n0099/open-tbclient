@@ -1,158 +1,194 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
+import android.annotation.TargetApi;
+import android.media.MediaCodec;
+import android.media.MediaCrypto;
+import android.media.MediaFormat;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.Surface;
+import androidx.annotation.RequiresApi;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lfb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTImage;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import java.util.ArrayList;
-import java.util.List;
+import com.faceunity.encoder.VideoEncoderCore;
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.io.IOException;
+import java.nio.ByteBuffer;
+@TargetApi(16)
 /* loaded from: classes7.dex */
-public class nfb extends BaseFunNativeAd {
+public class nfb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final yfb b;
-    public final lfb c;
+    public Surface a;
+    public mfb b;
+    public MediaCodec c;
+    public MediaCodec.BufferInfo d;
+    public int e;
+    public boolean f;
+    public Bundle g;
+    public long h;
+    public int i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nfb(yfb yfbVar, String str, Ssp.Pid pid, lfb lfbVar) {
-        super(str, pid);
+    @TargetApi(18)
+    public nfb(int i, int i2, int i3, boolean z, mfb mfbVar) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yfbVar, str, pid, lfbVar};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), mfbVar};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = yfbVar;
-        this.c = lfbVar;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public ChannelNativeAds getChannelNativeAds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ChannelNativeAds.createCsj(this.b.a);
+        this.g = new Bundle();
+        this.h = 0L;
+        this.i = 10000;
+        String str = MimeTypes.VIDEO_H265;
+        str = (!z || igb.m(MimeTypes.VIDEO_H265) == null) ? "video/avc" : "video/avc";
+        this.d = new MediaCodec.BufferInfo();
+        MediaFormat createVideoFormat = MediaFormat.createVideoFormat(str, i, i2);
+        createVideoFormat.setInteger("color-format", 2130708361);
+        createVideoFormat.setInteger("bitrate", i3);
+        createVideoFormat.setInteger("frame-rate", 30);
+        createVideoFormat.setInteger("i-frame-interval", 5);
+        MediaCodec createEncoderByType = MediaCodec.createEncoderByType(str);
+        this.c = createEncoderByType;
+        createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
+        this.a = this.c.createInputSurface();
+        this.c.start();
+        this.g.putInt("request-sync", 0);
+        if (Build.VERSION.SDK_INT >= 19) {
+            this.c.setParameters(this.g);
         }
-        return (ChannelNativeAds) invokeV.objValue;
+        this.e = -1;
+        this.f = false;
+        this.b = mfbVar;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getDescription() {
+    public Surface a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((TTNativeAd) this.b.a).getDescription();
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (Surface) invokeV.objValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.i = i;
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getIconUrl() {
-        InterceptResult invokeV;
+    @RequiresApi(api = 18)
+    public void c(boolean z) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            TTImage icon = ((TTNativeAd) this.b.a).getIcon();
-            if (icon == null) {
-                return null;
-            }
-            return icon.getImageUrl();
+        if (interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String source = ((TTNativeAd) this.b.a).getSource();
-            if (TextUtils.isEmpty(source)) {
-                return ((TTNativeAd) this.b.a).getTitle();
-            }
-            return source;
+        if (z) {
+            this.c.signalEndOfInputStream();
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public View getVideoView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ((TTNativeAd) this.b.a).getAdView();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public List<String> getImageUrls() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<TTImage> imageList = ((TTNativeAd) this.b.a).getImageList();
-            if (imageList != null && !imageList.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                for (TTImage tTImage : imageList) {
-                    arrayList.add(tTImage.getImageUrl());
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public FunNativeAd.InteractionType getInteractionType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int interactionType = ((TTNativeAd) this.b.a).getInteractionType();
-            if (interactionType != 2 && interactionType != 3) {
-                if (interactionType != 4) {
-                    if (interactionType != 5) {
-                        return FunNativeAd.InteractionType.TYPE_UNKNOW;
+        while (true) {
+            ByteBuffer[] outputBuffers = this.c.getOutputBuffers();
+            while (true) {
+                int dequeueOutputBuffer = this.c.dequeueOutputBuffer(this.d, this.i);
+                if (dequeueOutputBuffer == -1) {
+                    if (!z) {
+                        return;
                     }
-                    return FunNativeAd.InteractionType.TYPE_DIAL;
+                } else if (dequeueOutputBuffer == -3) {
+                    break;
+                } else if (dequeueOutputBuffer == -2) {
+                    if (this.f) {
+                        throw new RuntimeException("format changed twice");
+                    }
+                    MediaFormat outputFormat = this.c.getOutputFormat();
+                    yfb.c(VideoEncoderCore.TAG, "encoder output format changed: " + outputFormat);
+                    this.e = this.b.a(outputFormat);
+                    if (!this.b.c()) {
+                        synchronized (this.b) {
+                            while (!this.b.e()) {
+                                try {
+                                    this.b.wait(100L);
+                                } catch (InterruptedException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }
+                    }
+                    this.f = true;
+                } else if (dequeueOutputBuffer < 0) {
+                    yfb.l(VideoEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
+                } else {
+                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
+                    if (byteBuffer == null) {
+                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                    }
+                    MediaCodec.BufferInfo bufferInfo = this.d;
+                    if ((bufferInfo.flags & 2) != 0) {
+                        bufferInfo.size = 0;
+                    }
+                    MediaCodec.BufferInfo bufferInfo2 = this.d;
+                    if (bufferInfo2.size != 0) {
+                        if (!this.f) {
+                            throw new RuntimeException("muxer hasn't started");
+                        }
+                        byteBuffer.position(bufferInfo2.offset);
+                        MediaCodec.BufferInfo bufferInfo3 = this.d;
+                        byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
+                        this.b.b(this.e, byteBuffer, this.d);
+                    }
+                    this.c.releaseOutputBuffer(dequeueOutputBuffer, false);
+                    if (Build.VERSION.SDK_INT >= 19 && System.currentTimeMillis() - this.h >= 500) {
+                        this.c.setParameters(this.g);
+                        this.h = System.currentTimeMillis();
+                    }
+                    if ((this.d.flags & 4) != 0) {
+                        if (z) {
+                            return;
+                        }
+                        yfb.l(VideoEncoderCore.TAG, "reached end of stream unexpectedly");
+                        return;
+                    }
                 }
-                return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
             }
-            return FunNativeAd.InteractionType.TYPE_BROWSE;
         }
-        return (FunNativeAd.InteractionType) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
-    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
-            lfb lfbVar = this.c;
-            yfb yfbVar = this.b;
-            lfbVar.k(context, yfbVar, this.mSid, viewGroup, list, list2, new lfb.b(lfbVar, yfbVar), funAdInteractionListener);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MediaCodec mediaCodec = this.c;
+            if (mediaCodec != null) {
+                mediaCodec.stop();
+                this.c.release();
+                this.c = null;
+            }
+            mfb mfbVar = this.b;
+            if (mfbVar != null) {
+                try {
+                    mfbVar.d();
+                } catch (IllegalStateException e) {
+                    yfb.g(e);
+                }
+                this.b = null;
+            }
+        }
+    }
+
+    public synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+            }
         }
     }
 }

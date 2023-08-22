@@ -9,10 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class qf4 extends kf4<kx2> {
+public class qf4 extends pf4<px2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,7 +28,7 @@ public class qf4 extends kf4<kx2> {
                 return;
             }
         }
-        boolean z = ir1.a;
+        boolean z = nr1.a;
     }
 
     public qf4() {
@@ -46,7 +45,7 @@ public class qf4 extends kf4<kx2> {
         }
     }
 
-    public static qf4 d() {
+    public static qf4 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -55,39 +54,25 @@ public class qf4 extends kf4<kx2> {
         return (qf4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kf4
-    public boolean b(Context context, kx2 kx2Var, hx2 hx2Var, ya3 ya3Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.pf4
+    public boolean b(Context context, px2 px2Var, mx2 mx2Var, db3 db3Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, kx2Var, hx2Var, ya3Var, jSONObject)) == null) {
-            return e(context, kx2Var, hx2Var, ya3Var, jSONObject);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, px2Var, mx2Var, db3Var, jSONObject)) == null) {
+            return d(context, px2Var, mx2Var, db3Var);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final boolean e(Context context, kx2 kx2Var, hx2 hx2Var, ya3 ya3Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public final boolean d(Context context, px2 px2Var, mx2 mx2Var, db3 db3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, kx2Var, hx2Var, ya3Var, jSONObject)) == null) {
-            y72.i("map", "GetScaleAction start");
-            gx1 A = lw2.T().A(kx2Var.c);
-            if (!(A instanceof ex1)) {
-                y72.c("map", "WebViewManager is null");
-                return false;
-            }
-            ig4 d = hf4.b().c((ex1) A).d(kx2Var.b);
-            if (d == null) {
-                y72.c("map", "can not find map by id " + kx2Var.b);
-                return false;
-            }
-            try {
-                jSONObject.put("scale", d.l.getMap().getMapStatus().zoom);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            y72.i("map", "GetScaleAction end");
-            return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, px2Var, mx2Var, db3Var)) == null) {
+            d82.i("map", "MapCreateAction start");
+            boolean a = mf4.b().a(context, px2Var);
+            d82.i("map", "MapCreateAction end");
+            return a;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -3,14 +3,14 @@ package com.huawei.hms.hatool;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tpb;
-import com.baidu.tieba.vpb;
+import com.baidu.tieba.iwb;
+import com.baidu.tieba.kwb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class d0 {
     public static /* synthetic */ Interceptable $ic;
     public static d0 c;
@@ -77,12 +77,12 @@ public class d0 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            String d = e() ? tpb.d("analytics_keystore", str) : "";
+            String d = e() ? iwb.d("analytics_keystore", str) : "";
             if (TextUtils.isEmpty(d)) {
                 y.c("hmsSdk", "deCrypt work key first");
                 d = d.a(str, d());
                 if (TextUtils.isEmpty(d)) {
-                    d = vpb.d(16);
+                    d = kwb.d(16);
                     c(b(d));
                 } else if (e()) {
                     c(b(d));
@@ -97,13 +97,13 @@ public class d0 {
     public final String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? e() ? tpb.g("analytics_keystore", str) : d.b(str, d()) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? e() ? iwb.g("analytics_keystore", str) : d.b(str, d()) : (String) invokeL.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            String d = vpb.d(16);
+            String d = kwb.d(16);
             if (c(b(d))) {
                 this.a = d;
             }
@@ -116,7 +116,7 @@ public class d0 {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             String a = g0.a(b.i(), "Privacy_MY", "PrivacyData", "");
             if (TextUtils.isEmpty(a)) {
-                String d = vpb.d(16);
+                String d = kwb.d(16);
                 c(b(d));
                 return d;
             }

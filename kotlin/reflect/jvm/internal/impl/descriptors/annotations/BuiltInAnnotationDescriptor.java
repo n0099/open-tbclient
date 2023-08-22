@@ -14,7 +14,7 @@ import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.SimpleType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class BuiltInAnnotationDescriptor implements AnnotationDescriptor {
     public final Map<Name, ConstantValue<?>> allValueArguments;
     public final KotlinBuiltIns builtIns;

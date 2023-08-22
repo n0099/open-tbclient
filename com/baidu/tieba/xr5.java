@@ -1,198 +1,238 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.BdStatsItem;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.downloads.DownloadConstants;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.searchbox.fluency.utils.FpsConstants;
-import com.baidu.tbadk.performanceLog.PerformanceLogger;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import android.content.Context;
+import android.content.Intent;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdPageContextSupport;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.GuildActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class xr5 extends PerformanceLogger {
+public class xr5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public xr5() {
+    public static StatisticItem a(StatisticItem statisticItem, TbPageTag tbPageTag) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void a(ur5 ur5Var) {
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, ur5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", "time");
-        String str2 = "0";
-        if (!ur5Var.s) {
-            str = "0";
-        } else {
-            str = "1";
-        }
-        logItem.append("ishttp", str);
-        if (ur5Var.b) {
-            str2 = "1";
-        }
-        logItem.append("issuccess", str2);
-        logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-        logItem.append("wt", String.valueOf(ur5Var.p));
-        logItem.append("qt", String.valueOf(ur5Var.f));
-        logItem.append("connt", String.valueOf(ur5Var.g));
-        logItem.append("rwt", String.valueOf(ur5Var.h));
-        logItem.append("fbt", String.valueOf(ur5Var.i));
-        logItem.append("abt", String.valueOf(ur5Var.j));
-        logItem.append("dect", String.valueOf(ur5Var.k));
-        logItem.append("parset", String.valueOf(ur5Var.l));
-        logItem.append("tqt", String.valueOf(ur5Var.n));
-        logItem.append("rendert", String.valueOf(ur5Var.o));
-        logItem.append("ss", String.valueOf(ur5Var.q));
-        logItem.append("hs", String.valueOf(ur5Var.r));
-        if (ur5Var.s && (i = ur5Var.t) != 0) {
-            logItem.append("salno", String.valueOf(i));
-            long j = ur5Var.u;
-            if (j != 0) {
-                logItem.append("scosttime", String.valueOf(j));
-            }
-        }
-        if (ur5Var.s) {
-            logItem.append("hrtn", String.valueOf(ur5Var.w));
-            logItem.append("hrtt", String.valueOf(ur5Var.x));
-        }
-        int i2 = ur5Var.v;
-        if (i2 != 0) {
-            logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
-        }
-        if (ur5Var.y) {
-            logItem.append("pt", "1");
-        } else {
-            logItem.append("sysct", String.valueOf(ur5Var.c));
-            logItem.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(ur5Var.e));
-            logItem.append("lt", String.valueOf(ur5Var.d));
-            logItem.append("df", String.valueOf(ur5Var.m));
-        }
-        if (ur5Var.s) {
-            logItem.append("c_logid", String.valueOf(ur5Var.A));
-            long j2 = ur5Var.z;
-            if (j2 != 0) {
-                logItem.append(PushConstants.SEQ_ID, String.valueOf(j2 & 4294967295L));
-            }
-        } else {
-            logItem.append(PushConstants.SEQ_ID, String.valueOf(ur5Var.z & 4294967295L));
-        }
-        HashMap<String, String> hashMap = ur5Var.E;
-        if (hashMap != null && !hashMap.isEmpty()) {
-            for (Map.Entry<String, String> entry : ur5Var.E.entrySet()) {
-                logItem.append(entry.getKey(), entry.getValue());
-            }
-        }
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
-    }
-
-    public void b(ur5 ur5Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ur5Var, i) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow() || ur5Var.D <= 0) {
-            return;
-        }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", "time");
-        logItem.append("pct", String.valueOf(ur5Var.D));
-        if (i != 0) {
-            if (i != 40) {
-                return;
-            }
-            logItem.append("pct_type", String.valueOf(101));
-        } else {
-            logItem.append("pct_type", String.valueOf(100));
-        }
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
-    }
-
-    public void c(ur5 ur5Var, boolean z) {
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, ur5Var, z) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        if (!z || ur5Var.B > 0) {
-            if (!z && ur5Var.C <= 0) {
-                return;
-            }
-            BdStatsItem logItem = PerformanceLogger.getLogItem();
-            logItem.append("action", "time");
-            if (z) {
-                logItem.append("put", String.valueOf(ur5Var.B));
-            } else {
-                logItem.append("pdt", String.valueOf(ur5Var.C));
-            }
-            String str2 = "1";
-            if (ur5Var.s) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            logItem.append("ishttp", str);
-            if (!ur5Var.b) {
-                str2 = "0";
-            }
-            logItem.append("issuccess", str2);
-            logItem.append(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-            logItem.append("qt", String.valueOf(ur5Var.f));
-            logItem.append("connt", String.valueOf(ur5Var.g));
-            logItem.append("rwt", String.valueOf(ur5Var.h));
-            logItem.append("dect", String.valueOf(ur5Var.k));
-            logItem.append("parset", String.valueOf(ur5Var.l));
-            logItem.append("rendert", String.valueOf(ur5Var.o));
-            logItem.append("ss", String.valueOf(ur5Var.q));
-            logItem.append("hs", String.valueOf(ur5Var.r));
-            if (ur5Var.s && (i = ur5Var.t) != 0) {
-                logItem.append("salno", String.valueOf(i));
-                long j = ur5Var.u;
-                if (j != 0) {
-                    logItem.append("scosttime", String.valueOf(j));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, statisticItem, tbPageTag)) == null) {
+            if (tbPageTag != null && statisticItem != null) {
+                if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
+                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+                    }
+                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
                 }
+                statisticItem.param("sort_tab", tbPageTag.sortType);
+                return statisticItem;
             }
-            int i2 = ur5Var.v;
-            if (i2 != 0) {
-                logItem.append(DownloadConstants.DOWNLOAD_FEEDBACK_EXTRA_KEY_ERR_CODE, Integer.valueOf(i2));
-            }
-            BdStatisticsManager.getInstance().performance(this.subType, logItem);
+            return null;
         }
+        return (StatisticItem) invokeLL.objValue;
     }
 
-    public void d(or5 or5Var) {
+    public static StatisticItem h(Context context, StatisticItem statisticItem) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, or5Var) != null) || or5Var == null || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, statisticItem)) == null) {
+            if (context != null && statisticItem != null) {
+                TbPageTag l = l(context);
+                if (l != null) {
+                    if (!TextUtils.isEmpty(l.locatePage)) {
+                        if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                            statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+                        }
+                        statisticItem.param(TiebaStatic.Params.OBJ_TAB, l.locatePage);
+                    }
+                    statisticItem.param("sort_tab", l.sortType);
+                }
+                return statisticItem;
+            }
+            return null;
         }
-        BdStatsItem logItem = PerformanceLogger.getLogItem();
-        logItem.append("action", FpsTracer.UBC_KEY_FLUENCY);
-        logItem.append(FpsConstants.REPORT_FPS, String.valueOf(or5Var.b()));
-        BdStatisticsManager.getInstance().performance(this.subType, logItem);
-        BdStatsItem logItem2 = PerformanceLogger.getLogItem();
-        logItem2.append("action", "mem");
-        logItem2.append("memp", String.valueOf(PerformanceLoggerHelper.getInstance().getCurrentUsedMemory()));
-        BdStatisticsManager.getInstance().performance(this.subType, logItem2);
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem b(Context context, StatisticItem statisticItem) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, statisticItem)) == null) {
+            if (context != null && statisticItem != null) {
+                return c(statisticItem, j(context));
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem c(StatisticItem statisticItem, wr5 wr5Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, statisticItem, wr5Var)) == null) {
+            if (wr5Var != null && statisticItem != null) {
+                return d(statisticItem, wr5Var.b(), wr5Var.a());
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem e(Context context, StatisticItem statisticItem) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, statisticItem)) == null) {
+            if (context != null && statisticItem != null) {
+                return f(statisticItem, j(context));
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem f(StatisticItem statisticItem, wr5 wr5Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, statisticItem, wr5Var)) == null) {
+            if (wr5Var != null && statisticItem != null) {
+                return g(statisticItem, wr5Var.b(), wr5Var.a());
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    public static StatisticItem d(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
+            if (statisticItem == null) {
+                return null;
+            }
+            if (tbPageTag2 != null) {
+                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
+                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+                    }
+                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag2.locatePage);
+                }
+                statisticItem.param("sort_tab", tbPageTag2.sortType);
+            }
+            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
+                statisticItem.param(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLLL.objValue;
+    }
+
+    public static StatisticItem g(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
+            if (statisticItem == null) {
+                return null;
+            }
+            if (tbPageTag2 != null) {
+                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PAGE, tbPageTag2.locatePage);
+                }
+                statisticItem.param("sort_tab", tbPageTag2.sortType);
+            }
+            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
+                if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
+                    statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLLL.objValue;
+    }
+
+    public static StatisticItem i(Context context, ThreadData threadData, String str) {
+        InterceptResult invokeLLL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, threadData, str)) == null) {
+            if (context != null && threadData != null && !StringUtils.isNull(str)) {
+                StatisticItem statisticItem = new StatisticItem(str);
+                statisticItem.param("tid", threadData.getId()).param("fid", threadData.getFid()).param("thread_type", threadData.getThreadType()).param("card_type", threadData.getRecomCardType()).param("nid", threadData.getNid());
+                if (threadData.getBaijiahaoData() != null && !di.isEmpty(threadData.getBaijiahaoData().oriUgcVid)) {
+                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
+                }
+                StatisticItem param = statisticItem.param("weight", threadData.mRecomWeight).param("ab_tag", threadData.mRecomAbTag).param("extra", threadData.mRecomExtra);
+                if (threadData.isSubPb) {
+                    str2 = "2";
+                } else {
+                    str2 = "1";
+                }
+                param.param("obj_type", str2).param("source", threadData.mRecomSource);
+                h(context, statisticItem);
+                return statisticItem;
+            }
+            return null;
+        }
+        return (StatisticItem) invokeLLL.objValue;
+    }
+
+    public static wr5 j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            if (context == null) {
+                return null;
+            }
+            BdPageContextSupport<?> b = l9.b(context);
+            if (!(b instanceof vr5)) {
+                return null;
+            }
+            return ((vr5) b).getTbPageInfo();
+        }
+        return (wr5) invokeL.objValue;
+    }
+
+    public static TbPageTag k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            wr5 j = j(context);
+            if (j == null) {
+                return null;
+            }
+            return j.a();
+        }
+        return (TbPageTag) invokeL.objValue;
+    }
+
+    public static TbPageTag m(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, intent)) == null) {
+            if (intent != null) {
+                return (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
+            }
+            return null;
+        }
+        return (TbPageTag) invokeL.objValue;
+    }
+
+    public static TbPageTag l(Context context) {
+        InterceptResult invokeL;
+        BdPageContextSupport<?> b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            if (context != null && (b = l9.b(context)) != null && b.getPageContext() != null && b.getPageContext().getPageActivity() != null) {
+                return m(b.getPageContext().getPageActivity().getIntent());
+            }
+            return null;
+        }
+        return (TbPageTag) invokeL.objValue;
     }
 }

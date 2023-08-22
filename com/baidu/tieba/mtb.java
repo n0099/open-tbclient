@@ -1,54 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes7.dex */
-public class mtb {
+public final class mtb<TResult> implements jub<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public lub a;
+    public Executor b;
+    public final Object c;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public mtb(Executor executor, lub lubVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                return b;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, lubVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (context == null) {
-                return "";
-            }
-            try {
-                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).packageName;
-            } catch (Throwable unused) {
-                b = null;
-            }
-            return b;
         }
-        return (String) invokeL.objValue;
+        this.c = new Object();
+        this.a = lubVar;
+        this.b = executor;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jub
+    public final void a(vtb<TResult> vtbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            if (context == null) {
-                return "";
-            }
-            try {
-                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-            return a;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, vtbVar) == null) && !vtbVar.f()) {
+            vtbVar.e();
+            this.b.execute(new ktb(this, vtbVar));
         }
-        return (String) invokeL.objValue;
     }
 }

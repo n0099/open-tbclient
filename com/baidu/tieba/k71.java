@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h71;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,80 +13,88 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class k71 {
+public abstract class k71 {
     public static /* synthetic */ Interceptable $ic;
-    public static final k71 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<Integer, h71.b> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947865892, "Lcom/baidu/tieba/k71;")) != null) {
+    public abstract void b(CharSequence charSequence);
+
+    @TargetApi(11)
+    /* loaded from: classes6.dex */
+    public static class a extends k71 {
+        public static /* synthetic */ Interceptable $ic;
+        public static ClipboardManager a;
+        public static ClipData b;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-706637881, "Lcom/baidu/tieba/k71$a;")) == null) {
+                return;
+            }
             Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
                 $ic = interceptable;
             }
             if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947865892, "Lcom/baidu/tieba/k71;");
-                return;
+                classClinitInterceptable.invokePostClinit(-706637881, "Lcom/baidu/tieba/k71$a;");
             }
         }
-        b = new k71();
+
+        @SuppressLint({"ServiceCast"})
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            a = (ClipboardManager) sj0.b().getSystemService(GrowthConstant.UBC_VALUE_TYPE_CLIP_BOARD);
+        }
+
+        @Override // com.baidu.tieba.k71
+        public void b(CharSequence charSequence) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
+                ClipData newPlainText = ClipData.newPlainText("text/plain", charSequence);
+                b = newPlainText;
+                try {
+                    a.setPrimaryClip(newPlainText);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 
     public k71() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-    }
-
-    public static k71 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (k71) invokeV.objValue;
-    }
-
-    public void a(int i, h71.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bVar) == null) {
-            synchronized (k71.class) {
-                this.a.put(Integer.valueOf(i), bVar);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public h71.b c(int i) {
-        InterceptResult invokeI;
+    public static k71 a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return this.a.get(Integer.valueOf(i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return new a();
         }
-        return (h71.b) invokeI.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            synchronized (k71.class) {
-                this.a.remove(Integer.valueOf(i));
-            }
-        }
+        return (k71) invokeL.objValue;
     }
 }

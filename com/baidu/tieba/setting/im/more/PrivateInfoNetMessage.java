@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetPrivateInfo.GetPrivateInfoReqIdl;
 import tbclient.GetPrivateInfo.ReqData;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class PrivateInfoNetMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

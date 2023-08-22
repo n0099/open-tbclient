@@ -6,10 +6,10 @@ public class go extends gm {
     public int a;
 
     /* renamed from: a  reason: collision with other field name */
-    public a f446a;
+    public a f447a;
 
     /* renamed from: a  reason: collision with other field name */
-    public b f447a;
+    public b f448a;
     public String b;
 
     /* loaded from: classes10.dex */
@@ -35,12 +35,12 @@ public class go extends gm {
 
     public go(Bundle bundle) {
         super(bundle);
-        this.f447a = b.available;
+        this.f448a = b.available;
         this.b = null;
         this.a = Integer.MIN_VALUE;
-        this.f446a = null;
+        this.f447a = null;
         if (bundle.containsKey("ext_pres_type")) {
-            this.f447a = b.valueOf(bundle.getString("ext_pres_type"));
+            this.f448a = b.valueOf(bundle.getString("ext_pres_type"));
         }
         if (bundle.containsKey("ext_pres_status")) {
             this.b = bundle.getString("ext_pres_status");
@@ -49,22 +49,22 @@ public class go extends gm {
             this.a = bundle.getInt("ext_pres_prio");
         }
         if (bundle.containsKey("ext_pres_mode")) {
-            this.f446a = a.valueOf(bundle.getString("ext_pres_mode"));
+            this.f447a = a.valueOf(bundle.getString("ext_pres_mode"));
         }
     }
 
     public go(b bVar) {
-        this.f447a = b.available;
+        this.f448a = b.available;
         this.b = null;
         this.a = Integer.MIN_VALUE;
-        this.f446a = null;
+        this.f447a = null;
         a(bVar);
     }
 
     @Override // com.xiaomi.push.gm
     public Bundle a() {
         Bundle a2 = super.a();
-        b bVar = this.f447a;
+        b bVar = this.f448a;
         if (bVar != null) {
             a2.putString("ext_pres_type", bVar.toString());
         }
@@ -76,7 +76,7 @@ public class go extends gm {
         if (i != Integer.MIN_VALUE) {
             a2.putInt("ext_pres_prio", i);
         }
-        a aVar = this.f446a;
+        a aVar = this.f447a;
         if (aVar != null && aVar != a.available) {
             a2.putString("ext_pres_mode", aVar.toString());
         }
@@ -85,7 +85,7 @@ public class go extends gm {
 
     @Override // com.xiaomi.push.gm
     /* renamed from: a */
-    public String mo527a() {
+    public String mo529a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<presence");
         if (p() != null) {
@@ -113,9 +113,9 @@ public class go extends gm {
             sb.append(gx.a(k()));
             sb.append("\"");
         }
-        if (this.f447a != null) {
+        if (this.f448a != null) {
             sb.append(" type=\"");
-            sb.append(this.f447a);
+            sb.append(this.f448a);
             sb.append("\"");
         }
         sb.append(">");
@@ -129,16 +129,16 @@ public class go extends gm {
             sb.append(this.a);
             sb.append("</priority>");
         }
-        a aVar = this.f446a;
+        a aVar = this.f447a;
         if (aVar != null && aVar != a.available) {
             sb.append("<show>");
-            sb.append(this.f446a);
+            sb.append(this.f447a);
             sb.append("</show>");
         }
         sb.append(o());
-        gq m528a = m528a();
-        if (m528a != null) {
-            sb.append(m528a.m531a());
+        gq m530a = m530a();
+        if (m530a != null) {
+            sb.append(m530a.m533a());
         }
         sb.append("</presence>");
         return sb.toString();
@@ -153,14 +153,14 @@ public class go extends gm {
     }
 
     public void a(a aVar) {
-        this.f446a = aVar;
+        this.f447a = aVar;
     }
 
     public void a(b bVar) {
         if (bVar == null) {
             throw new NullPointerException("Type cannot be null");
         }
-        this.f447a = bVar;
+        this.f448a = bVar;
     }
 
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gm.a(Ljava/lang/String;)Lcom/xiaomi/push/gj; */

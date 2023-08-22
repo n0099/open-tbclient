@@ -1,175 +1,144 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.BDAbstractLocationListener;
-import com.baidu.location.BDLocation;
-import com.baidu.location.LocationClient;
-import com.baidu.location.LocationClientOption;
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
 import com.baidu.mapapi.map.Marker;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.MyLocationData;
-import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.map.TextureMapView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class ng4 {
+public class ng4 extends s62<TextureMapView, px2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public BaiduMap b;
-    public Marker c;
-    public BitmapDescriptor d;
-    public b e;
-    public LocationClient f;
-    public BDLocation g;
-    public boolean h;
+    public String i;
+    public String j;
+    public boolean k;
+    @NonNull
+    public TextureMapView l;
+    public Context m;
+    public List<mg4> n;
+    public List<lg4> o;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(BDLocation bDLocation);
-    }
-
-    /* loaded from: classes7.dex */
-    public class a extends BDAbstractLocationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ng4 a;
-
-        public a(ng4 ng4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ng4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ng4Var;
-        }
-
-        @Override // com.baidu.location.BDAbstractLocationListener
-        public void onReceiveLocation(BDLocation bDLocation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
-                if (bDLocation == null) {
-                    this.a.m();
-                    return;
-                }
-                this.a.b.setMyLocationData(new MyLocationData.Builder().direction(bDLocation.getDirection()).latitude(bDLocation.getLatitude()).longitude(bDLocation.getLongitude()).accuracy(bDLocation.getRadius()).satellitesNum(bDLocation.getSatelliteNumber()).build());
-                if (this.a.c != null) {
-                    this.a.c.remove();
-                    this.a.c = null;
-                }
-                MarkerOptions icon = new MarkerOptions().position(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())).zIndex(66).icon(this.a.d);
-                ng4 ng4Var = this.a;
-                ng4Var.c = (Marker) ng4Var.b.addOverlay(icon);
-                if (this.a.g == null) {
-                    this.a.b.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(bDLocation.getLatitude(), bDLocation.getLongitude())));
-                    if (this.a.e != null) {
-                        this.a.e.a(bDLocation);
-                    }
-                }
-                this.a.g = bDLocation;
-            }
-        }
-    }
-
-    public ng4(Context context, BaiduMap baiduMap) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ng4(@NonNull Context context, @NonNull px2 px2Var) {
+        super(context, px2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, baiduMap};
+            Object[] objArr = {context, px2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (t62) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = false;
-        this.a = context;
-        this.b = baiduMap;
+        this.n = new ArrayList();
+        this.o = new ArrayList();
+        this.i = px2Var.c;
+        this.j = px2Var.b;
+        String str = px2Var.d;
+        this.m = context;
+        this.l = new TextureMapView(context);
+        this.k = px2Var.r;
     }
 
-    public void k(b bVar) {
+    public static ng4 K(Context context, px2 px2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (z) {
-                l();
-            } else {
-                m();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, px2Var)) == null) {
+            if (context != null && px2Var != null && px2Var.isValid()) {
+                return new ng4(context, px2Var);
             }
+            return null;
+        }
+        return (ng4) invokeLL.objValue;
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (mg4 mg4Var : this.n) {
+                this.l.removeView(mg4Var.e);
+            }
+            this.n.clear();
+            for (lg4 lg4Var : this.o) {
+                this.l.removeView(lg4Var.b);
+            }
+            this.o.clear();
+            this.l.getMap().clear();
         }
     }
 
-    public BDLocation i() {
-        InterceptResult invokeV;
+    public lg4 G(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            for (lg4 lg4Var : this.o) {
+                if (lg4Var.b == view2) {
+                    return lg4Var;
+                }
+            }
+            return null;
         }
-        return (BDLocation) invokeV.objValue;
+        return (lg4) invokeL.objValue;
     }
 
-    public final void l() {
+    @Nullable
+    public mg4 H(Marker marker) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.h) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, marker)) == null) {
+            for (mg4 mg4Var : this.n) {
+                if (marker == mg4Var.b) {
+                    return mg4Var;
+                }
+            }
+            return null;
         }
-        j();
-        LocationClient locationClient = this.f;
-        if (locationClient != null && !locationClient.isStarted()) {
-            this.f.start();
-            this.h = true;
-        }
+        return (mg4) invokeL.objValue;
     }
 
-    public final void m() {
-        LocationClient locationClient;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.s62
+    @NonNull
+    /* renamed from: J */
+    public TextureMapView v(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.h && (locationClient = this.f) != null && locationClient.isStarted()) {
-            this.f.stop();
-            this.h = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            return this.l;
         }
+        return (TextureMapView) invokeL.objValue;
     }
 
-    public final void j() {
+    public List<mg4> I(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.f == null) {
-            LocationClient locationClient = new LocationClient(this.a.getApplicationContext());
-            this.f = locationClient;
-            locationClient.registerLocationListener(new a(this));
-            LocationClientOption locationClientOption = new LocationClientOption();
-            locationClientOption.setOpenGps(true);
-            locationClientOption.setCoorType(CoordType.GCJ02.name());
-            locationClientOption.setScanSpan(1000);
-            this.f.setLocOption(locationClientOption);
-            this.d = BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f0801ac);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            ArrayList arrayList = new ArrayList(1);
+            for (mg4 mg4Var : this.n) {
+                xx2 xx2Var = mg4Var.a;
+                if (xx2Var != null && TextUtils.equals(str, xx2Var.a)) {
+                    arrayList.add(mg4Var);
+                }
+            }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 }

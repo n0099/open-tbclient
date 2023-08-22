@@ -1,51 +1,24 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class d13 extends a13 {
+public final class d13 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final d13 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-912523451, "Lcom/baidu/tieba/d13$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-912523451, "Lcom/baidu/tieba/d13$b;");
-                    return;
-                }
-            }
-            a = new d13(null);
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
     public d13() {
         Interceptable interceptable = $ic;
@@ -61,79 +34,110 @@ public class d13 extends a13 {
         }
     }
 
-    public static d13 g() {
+    @Nullable
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b(this);
         }
-        return (d13) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public /* synthetic */ d13(a aVar) {
-        this();
+    @NonNull
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.clone();
+        }
+        return invokeV.objValue;
     }
 
-    public boolean j(PMSAppInfo pMSAppInfo) {
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(d13 d13Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) {
-            return TextUtils.equals(c(pMSAppInfo), "1");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, d13Var)) == null) {
+            if (d13Var == null || TextUtils.isEmpty(d13Var.a)) {
+                return null;
+            }
+            if (TextUtils.isEmpty(d13Var.b)) {
+                return d13Var.a;
+            }
+            return d13Var.a + "?" + d13Var.b;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public JSONObject k(PMSAppInfo pMSAppInfo) {
+    public static String c(d13 d13Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
-            JSONObject b2 = b(pMSAppInfo);
-            if (b2 != null && b2.length() > 0) {
-                return b2.optJSONObject("topPages");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, d13Var)) == null) {
+            if (d13Var == null || TextUtils.isEmpty(d13Var.d)) {
+                return null;
             }
-            return null;
+            if (TextUtils.isEmpty(d13Var.b)) {
+                return d13Var.d;
+            }
+            return d13Var.d + "?" + d13Var.b;
         }
-        return (JSONObject) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public boolean h(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
+    public static d13 d(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
-            JSONObject d = d(pMSAppInfo);
-            if (d != null && d.length() > 0) {
-                boolean optBoolean = d.optBoolean("is_opti");
-                if (a13.c) {
-                    Log.d("SwanAppExtInfo", "is opt pkg  - " + optBoolean);
-                }
-                return optBoolean;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            d13 d13Var = new d13();
+            d13Var.a = vo3.f(str);
+            d13Var.b = vo3.o(str);
+            d13Var.c = str2;
+            d13Var.d = ve3.b(d13Var.a);
+            return d13Var;
         }
-        return invokeL.booleanValue;
+        return (d13) invokeLL.objValue;
     }
 
-    public boolean i(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        boolean z;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
-            JSONObject b2 = b(pMSAppInfo);
-            if (b2 != null && b2.has(PrefetchEvent.MODULE)) {
-                z = b2.optBoolean(PrefetchEvent.MODULE);
-            } else {
-                JSONObject a2 = a(pMSAppInfo);
-                if (a2 != null && a2.optBoolean(PrefetchEvent.MODULE)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-            }
-            if (a13.c) {
-                Log.d("SwanAppExtInfo", "is prefetch on - " + z);
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
         }
-        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "SwanAppPageParam{mPage='" + this.a + "', mParams='" + this.b + "', mBaseUrl='" + this.c + "', mRoutePage='" + this.d + "', mRoutType='" + this.e + "', mRouteId='" + this.f + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

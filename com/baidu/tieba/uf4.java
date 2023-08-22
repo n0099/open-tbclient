@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.tieba.hg4;
+import com.baidu.mapapi.map.MapStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,50 +10,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class uf4 extends kf4<nx2> {
+public class uf4 extends pf4<px2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public class a implements hg4.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nx2 a;
-        public final /* synthetic */ hx2 b;
-
-        public a(uf4 uf4Var, nx2 nx2Var, hx2 hx2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uf4Var, nx2Var, hx2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nx2Var;
-            this.b = hx2Var;
-        }
-
-        @Override // com.baidu.tieba.hg4.b
-        public void onAnimationEnd() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (!TextUtils.isEmpty(this.a.y)) {
-                    this.b.c(this.a.y, null);
-                }
-                y72.i("map", "TranslateMarkerAction animation end");
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -70,7 +30,7 @@ public class uf4 extends kf4<nx2> {
                 return;
             }
         }
-        boolean z = ir1.a;
+        boolean z = nr1.a;
     }
 
     public uf4() {
@@ -87,7 +47,7 @@ public class uf4 extends kf4<nx2> {
         }
     }
 
-    public static uf4 e() {
+    public static uf4 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -96,57 +56,47 @@ public class uf4 extends kf4<nx2> {
         return (uf4) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kf4
-    /* renamed from: d */
-    public boolean b(Context context, nx2 nx2Var, hx2 hx2Var, ya3 ya3Var, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.pf4
+    public boolean b(Context context, px2 px2Var, mx2 mx2Var, db3 db3Var, JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, nx2Var, hx2Var, ya3Var, jSONObject)) == null) {
-            return f(context, nx2Var, hx2Var, ya3Var);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, px2Var, mx2Var, db3Var, jSONObject)) == null) {
+            return e(context, px2Var, mx2Var, db3Var, jSONObject);
         }
         return invokeLLLLL.booleanValue;
     }
 
-    public final boolean f(Context context, nx2 nx2Var, hx2 hx2Var, ya3 ya3Var) {
-        InterceptResult invokeLLLL;
+    public final boolean e(Context context, px2 px2Var, mx2 mx2Var, db3 db3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, nx2Var, hx2Var, ya3Var)) == null) {
-            y72.i("map", "TranslateMarkerAction start");
-            gx1 A = lw2.T().A(nx2Var.c);
-            if (!(A instanceof ex1)) {
-                y72.c("map", "WebViewManager is null");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, px2Var, mx2Var, db3Var, jSONObject)) == null) {
+            d82.i("map", "GetRegionAction start");
+            lx1 A = qw2.T().A(px2Var.c);
+            if (!(A instanceof jx1)) {
+                d82.c("map", "WebViewManager is null");
                 return false;
             }
-            ig4 d = hf4.b().c((ex1) A).d(nx2Var.b);
+            ng4 d = mf4.b().c((jx1) A).d(px2Var.b);
             if (d == null) {
-                y72.c("map", "can not find map by id " + nx2Var.b);
+                d82.c("map", "can not find map by id " + px2Var.b);
                 return false;
             }
-            return g(nx2Var, d, hx2Var);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean g(nx2 nx2Var, ig4 ig4Var, hx2 hx2Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, nx2Var, ig4Var, hx2Var)) == null) {
-            if (!nx2Var.isValid()) {
-                return false;
+            MapStatus mapStatus = d.l.getMap().getMapStatus();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
+                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
+                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
+                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
+                jSONObject.put("southwest", jSONObject3);
+                jSONObject.put("northeast", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            rx2 rx2Var = nx2Var.A;
-            LatLng latLng = new LatLng(rx2Var.a, rx2Var.b);
-            List<hg4> I = ig4Var.I(nx2Var.z);
-            y72.i("map", "TranslateMarkerAction animation start");
-            if (I != null) {
-                for (hg4 hg4Var : I) {
-                    hg4Var.c(ig4Var, latLng, nx2Var, new a(this, nx2Var, hx2Var));
-                }
-            }
-            y72.i("map", "TranslateMarkerAction end");
+            d82.i("map", "GetRegionAction end");
             return true;
         }
-        return invokeLLL.booleanValue;
+        return invokeLLLLL.booleanValue;
     }
 }

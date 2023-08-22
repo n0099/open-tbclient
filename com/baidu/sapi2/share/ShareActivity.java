@@ -29,7 +29,7 @@ public class ShareActivity extends Activity {
             public void onBdussInvalidate(String str) {
                 Intent intent = new Intent();
                 Bundle bundle = new Bundle();
-                bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.7.5");
+                bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.7.5.1");
                 bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, ShareActivity.this.getPackageName());
                 bundle.putString(ShareLoginModel.INVALIDATE_BDUSS, str);
                 intent.putExtras(bundle);
@@ -44,7 +44,7 @@ public class ShareActivity extends Activity {
                 if (sapiAccount != null) {
                     bundle.putParcelable(ShareLoginModel.SHARE_ACCOUNT_INFO, sapiAccount);
                 }
-                bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.7.5");
+                bundle.putString(ShareLoginModel.AUTH_PASS_SDK_VERSION, "9.7.5.1");
                 bundle.putString(ShareLoginModel.AUTH_APP_PKG_NAME, ShareActivity.this.getPackageName());
                 if (SapiContext.getInstance().shareLivingunameEnable()) {
                     intent.putExtra(ShareLoginModel.FACE_LOGIN_UIDS, SapiContext.getInstance().getV2FaceLivingUnames());

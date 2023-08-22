@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TipsSysMsg;
-import com.baidu.tieba.zm8;
+import com.baidu.tieba.yq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -54,8 +54,8 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
                     return;
                 }
             }
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09255c);
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916c2);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09258b);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0916d9);
         }
     }
 
@@ -83,24 +83,24 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: P */
+    /* renamed from: O */
     public Holder J(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03e5, viewGroup, false));
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ea, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public void R(long j) {
+    public void Q(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             this.k = j;
         }
     }
 
-    public void S(long j) {
+    public void R(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
             this.l = j;
@@ -110,8 +110,8 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: Q */
-    public View M(int i, @NonNull ViewGroup viewGroup, @NonNull TipsSysMsg tipsSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: P */
+    public View L(int i, @NonNull ViewGroup viewGroup, @NonNull TipsSysMsg tipsSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, tipsSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
@@ -119,7 +119,7 @@ public class TipsAdapter extends BaseSysAdapter<TipsSysMsg, Holder> {
             EMManager.from(holder.a).setTextColor(R.color.CAM_X0101).setTextSize(R.dimen.T_X09);
             holder.a.setText(tipsSysMsg.getTips());
             if (-7014 == tipsSysMsg.getSysMsgType()) {
-                zm8.d("c15095", 1, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
+                yq8.d("c15095", 1, this.k, this.l, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

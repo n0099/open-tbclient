@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
 public interface fx6 {
-    void dispatchTouchEvent(MotionEvent motionEvent);
-
-    void onBackPressed();
+    static {
+        new ServiceReference("download", "DOWNLOAD");
+    }
 }

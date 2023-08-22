@@ -1,13 +1,7 @@
 package com.baidu.tieba;
-
-import java.util.Iterator;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface m0c {
-    String d(String str);
+    void onPlayerCachePositionUpdate(e1c e1cVar, long j);
 
-    boolean e(String str);
-
-    Iterator<String> g();
-
-    byte[] getContent();
+    void onPlayerCacheWriteToDiskCompleted(e1c e1cVar, String str);
 }

@@ -1,29 +1,55 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public interface ir2 extends kr2 {
+public class ir2 extends xo2<or2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
+    @Override // com.baidu.tieba.xo2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "unsubscribeRemoteStream" : (String) invokeV.objValue;
     }
 
-    void W(long j);
+    public ir2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    int getVideoHeight();
-
-    int getVideoWidth();
-
-    void m(String str);
-
-    void o(@NonNull a aVar);
-
-    void onSurfaceChanged(int i, int i2);
-
-    void s(int i, int i2, int i3, int i4);
-
-    void setSurface(Surface surface);
-
-    void z(int i);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xo2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull or2 or2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, or2Var) == null) {
+            String str = command.what;
+            d(or2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof Long) {
+                long longValue = ((Long) obj).longValue();
+                if (mr2.a(longValue)) {
+                    or2Var.j(longValue);
+                }
+            }
+        }
+    }
 }

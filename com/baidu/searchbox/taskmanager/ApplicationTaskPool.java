@@ -40,6 +40,7 @@ import com.baidu.searchbox.task.async.privacy.NightPluginTask;
 import com.baidu.searchbox.task.sync.appcreate.InitAccountTask;
 import com.baidu.searchbox.task.sync.appcreate.InitAdvertDbTask;
 import com.baidu.searchbox.task.sync.appcreate.InitAppSettingTask;
+import com.baidu.searchbox.task.sync.appcreate.InitAutoRestartDownloadTask;
 import com.baidu.searchbox.task.sync.appcreate.InitBDPlayerTask;
 import com.baidu.searchbox.task.sync.appcreate.InitBearTask;
 import com.baidu.searchbox.task.sync.appcreate.InitCertVerifyTask;
@@ -194,6 +195,7 @@ public class ApplicationTaskPool extends BaseTaskPool {
             arrayList.add(new InitDiskStatTask());
             arrayList.add(new InitFlutterNpsPluginTask());
             arrayList.add(new InitMonitorTask());
+            arrayList.add(new InitAutoRestartDownloadTask());
         }
         return arrayList;
     }

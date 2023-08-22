@@ -1,42 +1,64 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public interface qu {
-    @CallSuper
-    void a(SubTaskState subTaskState);
+    public static final a a = a.b;
 
-    boolean b(TaskInfo taskInfo, int i);
+    void a(String str, String str2, String str3);
 
     /* loaded from: classes7.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
+        public static ServiceReference a;
+        public static final /* synthetic */ a b;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public static boolean b(qu quVar, TaskInfo taskInfo, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, quVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(261677420, "Lcom/baidu/tieba/qu$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(261677420, "Lcom/baidu/tieba/qu$a;");
+                    return;
+                }
+            }
+            b = new a();
+            a = new ServiceReference("bdptask", "yalog");
         }
 
-        public static void a(qu quVar, SubTaskState subTaskState) {
+        public a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65536, null, quVar, subTaskState) == null) && !quVar.b(subTaskState.getTaskInfo(), subTaskState.getTaskStatus().getCurStatusCode())) {
-                quVar.a(subTaskState);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
             }
         }
 
-        @CallSuper
-        public static void c(qu quVar, SubTaskState subTaskState) {
+        public final ServiceReference a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65538, null, quVar, subTaskState) == null) {
-                tu.c.b(subTaskState);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return a;
             }
+            return (ServiceReference) invokeV.objValue;
         }
     }
 }

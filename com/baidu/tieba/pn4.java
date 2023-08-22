@@ -1,14 +1,23 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class pn4 extends gm4 {
+public class pn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, qn4> a;
+    public static HashMap<String, qn4> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     public pn4() {
@@ -25,14 +34,106 @@ public class pn4 extends gm4 {
         }
     }
 
-    @Override // com.baidu.tieba.gm4, com.baidu.tieba.jm4
-    public void b(JSONObject jSONObject, ti4 ti4Var, @Nullable ti4 ti4Var2, @Nullable ti4 ti4Var3) {
-        JSONObject optJSONObject;
-        mn4 a;
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, ti4Var, ti4Var2, ti4Var3) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (a = mn4.a(optJSONObject)) != null) {
-            nn4.e().i(a);
-            nn4.e().j(a.k);
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return oi4.c().a("SwanDownloadApiStrategy").getString("version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public static qn4 a(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (a == null) {
+                synchronized (pn4.class) {
+                    if (a == null) {
+                        HashMap<String, qn4> hashMap = new HashMap<>();
+                        a = hashMap;
+                        e(hashMap, "download_api_ctrl");
+                    }
+                }
+            }
+            return c(str, a);
+        }
+        return (qn4) invokeL.objValue;
+    }
+
+    @NonNull
+    public static qn4 b(@Nullable String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (b == null) {
+                synchronized (pn4.class) {
+                    if (b == null) {
+                        HashMap<String, qn4> hashMap = new HashMap<>();
+                        b = hashMap;
+                        e(hashMap, "preload_api_ctrl");
+                    }
+                }
+            }
+            return c(str, b);
+        }
+        return (qn4) invokeL.objValue;
+    }
+
+    public static void f(@Nullable JSONObject jSONObject) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        JSONObject optJSONObject = jSONObject.optJSONObject("data");
+        fr4 a2 = oi4.c().a("SwanDownloadApiStrategy");
+        a2.putString("version", optString);
+        if (optJSONObject != null) {
+            str = optJSONObject.toString();
+        } else {
+            str = null;
+        }
+        a2.putString("data", str);
+    }
+
+    @NonNull
+    public static qn4 c(@Nullable String str, @NonNull HashMap<String, qn4> hashMap) {
+        InterceptResult invokeLL;
+        qn4 qn4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, hashMap)) == null) {
+            if (!TextUtils.isEmpty(str) && (qn4Var = hashMap.get(str)) != null) {
+                return qn4Var;
+            }
+            qn4 qn4Var2 = hashMap.get("default");
+            if (qn4Var2 != null) {
+                return qn4Var2;
+            }
+            return qn4.a();
+        }
+        return (qn4) invokeLL.objValue;
+    }
+
+    public static void e(@NonNull HashMap<String, qn4> hashMap, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, hashMap, str) == null) {
+            try {
+                JSONObject optJSONObject = new JSONObject(oi4.c().a("SwanDownloadApiStrategy").getString("data", "{}")).optJSONObject(str);
+                if (optJSONObject != null) {
+                    Iterator<String> keys = optJSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!TextUtils.isEmpty(next)) {
+                            hashMap.put(next, qn4.b(optJSONObject.optJSONObject(next)));
+                        }
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

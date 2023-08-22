@@ -7,15 +7,15 @@ public final class al implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ Intent f52a;
+    public final /* synthetic */ Intent f53a;
 
     public al(Context context, Intent intent) {
         this.a = context;
-        this.f52a = intent;
+        this.f53a = intent;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        PushMessageHandler.b(this.a, this.f52a);
+        PushMessageHandler.b(this.a, this.f53a);
     }
 }

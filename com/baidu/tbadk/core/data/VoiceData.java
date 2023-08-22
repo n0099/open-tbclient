@@ -9,6 +9,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
+import org.json.JSONException;
 import org.json.JSONObject;
 import tbclient.Voice;
 /* loaded from: classes4.dex */
@@ -174,6 +175,23 @@ public class VoiceData {
             if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
                 this.voiceUrl = str;
             }
+        }
+
+        public JSONObject toJsonForWrite() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("duration", this.duration);
+                    jSONObject2.put("voiceId", this.voiceId);
+                    jSONObject.put("voice", jSONObject2);
+                } catch (JSONException unused) {
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
         }
     }
 

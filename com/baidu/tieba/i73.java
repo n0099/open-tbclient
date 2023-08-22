@@ -1,7 +1,13 @@
 package com.baidu.tieba;
 
-import java.util.concurrent.TimeUnit;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
-public interface i73 {
-    public static final long o0 = TimeUnit.SECONDS.toMillis(5);
+public interface i73<T> {
+    long a();
+
+    String b();
+
+    boolean c();
+
+    void onEvent(@NonNull T t);
 }

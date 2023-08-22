@@ -1,122 +1,159 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.recapp.widget.CountDownTextView;
+import com.baidu.adp.lib.util.DeviceInfoHelper;
+import com.baidu.tieba.privacy.PrivacyParamType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.util.Base64Encoder;
+import java.util.HashMap;
+import kotlin.TuplesKt;
+import kotlin.collections.MapsKt__MapsKt;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.Charsets;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes6.dex */
-public class hz9 {
+public final class hz9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final hz9 a;
+    public static final HashMap<String, String> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final View b;
-    public AdvertAppInfo c;
-    public xx8 d;
-    public TbPageContext e;
-    public AdCard f;
-    public View.OnClickListener g;
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947841154, "Lcom/baidu/tieba/hz9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947841154, "Lcom/baidu/tieba/hz9;");
+                return;
+            }
         }
+        a = new hz9();
+        b = MapsKt__MapsKt.hashMapOf(TuplesKt.to("TBBRAND", "DNARBBT"));
     }
 
-    public void c(sy9 sy9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sy9Var) == null) {
-        }
-    }
-
-    public void j(CountDownTextView.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
-        }
-    }
-
-    public hz9(View view2, String str) {
+    public hz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = view2;
-        this.a = str;
-    }
-
-    public final <T> T a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (T) this.b.findViewById(i);
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public void f(AdvertAppInfo advertAppInfo) {
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) {
-            this.c = advertAppInfo;
-            if (advertAppInfo != null && (iLegoAdvert = advertAppInfo.h) != null && (iLegoAdvert instanceof AdCard)) {
-                this.f = (AdCard) iLegoAdvert;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public void g(xx8 xx8Var) {
+    @JvmStatic
+    public static final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xx8Var) == null) {
-            this.d = xx8Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (PrivacyParamType.d()) {
+                return true;
+            }
+            if (PrivacyParamType.b() != 1 && PrivacyParamType.b() != 2) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void h(TbPageContext<?> tbPageContext) {
+    @JvmStatic
+    public static final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, tbPageContext) == null) {
-            this.e = tbPageContext;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (PrivacyParamType.d() || PrivacyParamType.b() != 1) {
+                return "0";
+            }
+            return "1";
         }
+        return (String) invokeV.objValue;
     }
 
-    public void i(View.OnClickListener onClickListener) {
+    @JvmStatic
+    public static final String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
-            this.g = onClickListener;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String model = DeviceInfoHelper.getModel();
+            Intrinsics.checkNotNullExpressionValue(model, "getModel()");
+            return a(model);
         }
+        return (String) invokeV.objValue;
     }
 
-    public void d() {
+    @JvmStatic
+    public static final String a(String str) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setVisibility(0);
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.v(this.c.j).q(String.valueOf(this.c.position + 1)).p(this.c.g).z(String.valueOf(303));
-            q31.e(clogBuilder);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return "";
+            }
+            if (PrivacyParamType.d()) {
+                return str;
+            }
+            int b2 = PrivacyParamType.b();
+            if (b2 != 1) {
+                if (b2 == 2) {
+                    return "";
+                }
+                return str;
+            }
+            byte[] bytes = str.getBytes(Charsets.UTF_8);
+            Intrinsics.checkNotNullExpressionValue(bytes, "this as java.lang.String).getBytes(charset)");
+            byte[] B64Encode = Base64Encoder.B64Encode(bytes);
+            if (B64Encode == null) {
+                return "";
+            }
+            return new String(B64Encode, Charsets.UTF_8);
         }
+        return (String) invokeL.objValue;
     }
 
-    public void e() {
+    @JvmStatic
+    public static final String d(String key) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.setVisibility(8);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, key)) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            if (PrivacyParamType.d()) {
+                return key;
+            }
+            int b2 = PrivacyParamType.b();
+            if (b2 != 1) {
+                if (b2 == 2) {
+                    return "";
+                }
+                return key;
+            }
+            String str = b.get(key);
+            if (str != null) {
+                return str;
+            }
+            return key;
         }
+        return (String) invokeL.objValue;
     }
 }

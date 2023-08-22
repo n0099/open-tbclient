@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.load.kotlin;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.types.Variance;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeMappingMode {
     public final TypeMappingMode genericArgumentMode;
     public final TypeMappingMode genericContravariantArgumentMode;
@@ -30,7 +30,7 @@ public final class TypeMappingMode {
     @JvmField
     public static final TypeMappingMode VALUE_FOR_ANNOTATION = new TypeMappingMode(false, false, true, false, false, new TypeMappingMode(false, false, true, false, false, GENERIC_ARGUMENT, false, null, null, 475, null), false, null, null, 472, null);
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 
@@ -42,7 +42,7 @@ public final class TypeMappingMode {
         }
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }

@@ -140,10 +140,10 @@ public final class xe {
     }
 
     public final void b() {
-        gk1<ue> gk1Var;
+        lk1<ue> lk1Var;
         List<ue> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (gk1Var = new af().a) != null && (list = gk1Var.getList()) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lk1Var = new af().a) != null && (list = lk1Var.getList()) != null) {
             for (ue ueVar : list) {
             }
         }

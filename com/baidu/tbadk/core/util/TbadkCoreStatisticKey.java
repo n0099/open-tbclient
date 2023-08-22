@@ -160,6 +160,7 @@ public class TbadkCoreStatisticKey {
     public static final String KEY_HOMEPAGE_REC_FORUM_CARD_SHOW = "c15349";
     public static final String KEY_HOME_LIVE_ICON_CLICK = "c14695";
     public static final String KEY_HOME_LIVE_ICON_SHOW = "c14694";
+    public static final String KEY_HOME_WRITE_TEST_ICON_CLICK = "c15363";
     public static final String KEY_IMAGE_VIEWER_DOWNLOAD_DIALOG_SUCCESS = "c14047";
     public static final String KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_CLICK = "c14723";
     public static final String KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_SHOW = "c14722";

@@ -1,93 +1,64 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.appframework.AppFrameworkConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes8.dex */
-public class v52 extends o62 {
+public class v52 extends j42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean j;
+    public Path a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948191702, "Lcom/baidu/tieba/v52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948191702, "Lcom/baidu/tieba/v52;");
-                return;
-            }
-        }
-        boolean z = ir1.a;
-    }
-
-    @Override // com.baidu.tieba.o62, com.baidu.tieba.x03
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v52(String str) {
-        super("canvas", "canvasId");
+    public v52() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        this.j = false;
-        try {
-            a(new JSONObject(str));
-        } catch (JSONException e) {
-            y72.d("Canvas", "parsing CanvasBasicthis occurs exception", e);
         }
     }
 
-    @Override // com.baidu.tieba.o62, com.baidu.tieba.x03
-    public void a(JSONObject jSONObject) throws JSONException {
-        boolean z;
+    @Override // com.baidu.tieba.j42
+    public void a(k42 k42Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            super.a(jSONObject);
-            if (!TextUtils.equals(jSONObject.optString("hide"), "1") && !jSONObject.optBoolean("hide")) {
-                z = false;
-            } else {
-                z = true;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, k42Var, canvas) == null) && this.a != null) {
+            int alpha = k42Var.c.getAlpha();
+            k42Var.c(k42Var.c);
+            canvas.drawPath(this.a, k42Var.c);
+            k42Var.c.setAlpha(alpha);
+        }
+    }
+
+    @Override // com.baidu.tieba.j42
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = uo3.g((float) jSONArray.optDouble(0));
+                    int g2 = uo3.g((float) jSONArray.optDouble(1));
+                    int g3 = uo3.g((float) jSONArray.optDouble(2));
+                    int g4 = uo3.g((float) jSONArray.optDouble(3));
+                    Path path = new Path();
+                    this.a = path;
+                    path.addRect(new RectF(g, g2, g + g3, g2 + g4), Path.Direction.CW);
+                }
+            } catch (Exception e) {
+                if (nr1.a) {
+                    e.printStackTrace();
+                }
             }
-            this.f = z;
-            this.j = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
-            this.g = !TextUtils.equals(jSONObject.optString(AppFrameworkConstants.VALUE_GESTURE_BACK), "0");
         }
     }
 }

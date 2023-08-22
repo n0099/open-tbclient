@@ -1,97 +1,306 @@
 package com.baidu.tieba;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.view.View;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.util.DialogUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.botpanel.BotItemViewHolderFactory;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.RelativeMemeDetail;
+import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.TagAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class jp8 {
+public class jp8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
+    public final HeadImageView b;
+    public final TextView c;
+    public final RecyclerView d;
+    public final hp8 e;
+    public long f;
+    public long g;
+    public Boolean h;
+    public final CustomMessageListener i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947891095, "Lcom/baidu/tieba/jp8;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jp8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jp8 jp8Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jp8Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jp8Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
+                this.a.k();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements kp8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kp8 a;
+        public final /* synthetic */ jp8 b;
+
+        public b(jp8 jp8Var, kp8 kp8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jp8Var, kp8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = jp8Var;
+            this.a = kp8Var;
+        }
+
+        @Override // com.baidu.tieba.kp8
+        public void a(AbilityItem abilityItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, abilityItem) == null) {
+                if (!"pic_gen_commit".equals(abilityItem.getType())) {
+                    this.b.j();
+                    oc8.b(2, this.b.f, this.b.g);
+                } else {
+                    oc8.b(3, this.b.f, this.b.g);
+                }
+                if (this.a != null && this.b.h.booleanValue()) {
+                    this.a.a(abilityItem);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ RelativeMemeDetail a;
+        public final /* synthetic */ jp8 b;
+
+        public c(jp8 jp8Var, RelativeMemeDetail relativeMemeDetail) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jp8Var, relativeMemeDetail};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = jp8Var;
+            this.a = relativeMemeDetail;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.b.a.setVisibility(0);
+                this.b.c.setText(this.a.getTitle());
+                this.b.b.startLoad(this.a.getPortrait(), 12, false);
+                this.b.k();
+                this.b.e.h(this.a.getAbilityItems());
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jp8 a;
+
+        public d(jp8 jp8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jp8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jp8Var;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationCancel(animator);
+                this.a.a.setVisibility(8);
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                this.a.a.setVisibility(8);
+            }
+        }
+    }
+
+    public jp8(View view2, kp8 kp8Var) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, kp8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947891095, "Lcom/baidu/tieba/jp8;");
+        this.h = Boolean.TRUE;
+        this.i = new a(this, 2001304);
+        this.a = view2;
+        HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090439);
+        this.b = headImageView;
+        headImageView.setIsRound(true);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090449);
+        RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09043b);
+        this.d = recyclerView;
+        recyclerView.addItemDecoration(new BotItemViewHolderFactory.BotThinkItemDecoration());
+        this.d.setLayoutManager(new LinearLayoutManager(view2.getContext(), 0, false));
+        this.e = new hp8();
+        this.d.setAdapter(new TagAdapter(new BotItemViewHolderFactory(new b(this, kp8Var)), this.e, view2.getContext()));
+        MessageManager.getInstance().registerListener(this.i);
+    }
+
+    public void n(Boolean bool) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bool) == null) {
+            this.h = bool;
         }
     }
 
-    @JvmStatic
-    public static final boolean a() {
-        InterceptResult invokeV;
+    public void o(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 4);
-            }
-            return uv9.d.a().b("agree_message_bar");
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.g = j;
         }
-        return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final boolean b() {
-        InterceptResult invokeV;
+    public void p(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 3);
-            }
-            return uv9.d.a().b("at_message_bar");
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.f = j;
         }
-        return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final boolean c() {
-        InterceptResult invokeV;
+    public void q(RelativeMemeDetail relativeMemeDetail) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 5);
-            }
-            return uv9.d.a().b("fan_message_bar");
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, relativeMemeDetail) == null) && relativeMemeDetail != null) {
+            m(relativeMemeDetail);
+            oc8.b(1, this.f, this.g);
         }
-        return invokeV.booleanValue;
     }
 
-    @JvmStatic
-    public static final boolean d() {
+    @NonNull
+    public hp8 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 0);
-            }
-            return uv9.d.a().b("im");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return invokeV.booleanValue;
+        return (hp8) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final boolean e() {
-        InterceptResult invokeV;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (TbSingleton.getInstance().getPushStrategyConfig().d()) {
-                return DialogUtil.showPushPermissionDialog(TbadkCoreApplication.getInst(), 6);
-            }
-            return uv9.d.a().b("reply_message_bar");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            rq8.b(this.a, new d(this), 60L);
         }
-        return invokeV.booleanValue;
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            EMManager.from(this.a).setCorner(R.string.J_X13).setBackGroundColor(R.color.CAM_X0207);
+            EMManager.from(this.c).setTextColor(R.color.CAM_X0107);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.i);
+        }
+    }
+
+    public final void m(RelativeMemeDetail relativeMemeDetail) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, relativeMemeDetail) == null) {
+            if (this.a.getVisibility() != 0) {
+                rq8.c(this.a, new c(this, relativeMemeDetail));
+                return;
+            }
+            this.c.setText(relativeMemeDetail.getTitle());
+            this.b.startLoad(relativeMemeDetail.getPortrait(), 12, false);
+            this.e.h(relativeMemeDetail.getAbilityItems());
+        }
     }
 }

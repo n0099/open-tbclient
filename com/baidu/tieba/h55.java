@@ -1,110 +1,72 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class h55 {
+public abstract class h55 implements Comparable<h55> {
     public static /* synthetic */ Interceptable $ic;
-    public static final h55 c;
-    public static final h55 d;
-    public static final h55 e;
-    public static final h55 f;
-    public static final h55 g;
-    public static final h55 h;
-    public static final h55 i;
-    public static final h55 j;
-    public static final h55 k;
-    public static final h55 l;
-    public static final h55 m;
-    public static final h55 n;
-    public static final h55 o;
-    public static final h55 p;
-    public static final h55 q;
-    public static final h55 r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final boolean b;
+    public int a;
+    public Activity b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774721, "Lcom/baidu/tieba/h55;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947774721, "Lcom/baidu/tieba/h55;");
-                return;
-            }
-        }
-        c = new h55("sync_finish", false);
-        d = new h55("main_page_load_finish", false);
-        e = new h55("pb_load_finish", false);
-        f = new h55("frs_load_finish", false);
-        g = new h55("main_page_recommend", true);
-        h = new h55("main_page_common_tab", true);
-        i = new h55("main_page_hot_topic", true);
-        j = new h55("main_page_concern", true);
-        k = new h55("main_page_enter_forum", true);
-        l = new h55("main_page_message", true);
-        m = new h55("main_page_person_info", true);
-        n = new h55("write_page", true);
-        o = new h55("pb_page", true);
-        p = new h55("frs_page", true);
-        q = new h55("main_page_idle", false);
-        r = new h55("splash_close", false);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void callback(boolean z);
     }
 
-    public h55(String str, boolean z) {
+    public abstract void b();
+
+    public abstract void d(a aVar);
+
+    public abstract void e();
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public h55(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = z;
+        this.a = Integer.MIN_VALUE;
+        this.b = activity;
     }
 
-    public static h55 a(String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(h55 h55Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new h55("main_page_common_tab_" + str, true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, h55Var)) == null) {
+            return this.a - h55Var.a;
         }
-        return (h55) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            i55.j();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
     }
 }

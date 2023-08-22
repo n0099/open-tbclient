@@ -1,115 +1,190 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.searchbox.http.request.GetRequest;
+import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidubce.AbstractBceClient;
 import java.util.Map;
+import okhttp3.MediaType;
+import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes6.dex */
 public class gk4 {
     public static /* synthetic */ Interceptable $ic;
+    public static CookieManager a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String a = hr4.a(hr4.a(hr4.a(hr4.a(hr4.a(hr4.a(hr4.a(hr4.a(hr4.a(hr4.a(hr4.a(str, "cuid", ji4.b().g()), "uuid", ji4.b().e()), "ut", ji4.b().I()), "ua", hr4.b(ji4.b().h())), "host_app", ji4.b().c()), "host_app_ver", ji4.b().h()), "host_os", zq4.f()), "host_os_ver", zq4.g()), "network", zq4.e()), "sdk_ver", ji4.b().b()), "ut_score", String.valueOf(ji4.b().a()));
-            String q = ji4.b().q();
-            if (!TextUtils.isEmpty(q)) {
-                return hr4.a(a, "sid", q);
-            }
-            return a;
-        }
-        return (String) invokeL.objValue;
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(Map<String, String> map, byte[] bArr, String str);
     }
 
-    public static String b(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (map != null) {
-                for (String str2 : map.keySet()) {
-                    if (!TextUtils.isEmpty(map.get(str2))) {
-                        str = hr4.a(str, str2, map.get(str2));
-                    }
+    /* loaded from: classes6.dex */
+    public static class a implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ kk4 b;
+
+        public a(Map map, kk4 kk4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, kk4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return str;
+            this.a = map;
+            this.b = kk4Var;
         }
-        return (String) invokeLL.objValue;
+
+        @Override // com.baidu.tieba.gk4.c
+        public void a(Map<String, String> map, byte[] bArr, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
+                PostByteRequest.PostByteRequestBuilder postByteRequest = hi4.g().postByteRequest();
+                pi4.a(postByteRequest, this.a);
+                postByteRequest.url(lk4.j(str, this.a)).content(bArr).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
+                if (map != null) {
+                    postByteRequest.addHeaders(map);
+                }
+                if (!TextUtils.isEmpty(gk4.b)) {
+                    postByteRequest.userAgent(gk4.b);
+                }
+                postByteRequest.cookieManager(gk4.a).enableStat(true).build().executeStat(this.b);
+            }
+        }
     }
 
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return h() + "/getopenbundleid";
+    /* loaded from: classes6.dex */
+    public static class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ kk4 b;
+
+        public b(Map map, kk4 kk4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, kk4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = map;
+            this.b = kk4Var;
         }
-        return (String) invokeV.objValue;
+
+        @Override // com.baidu.tieba.gk4.c
+        public void a(Map<String, String> map, byte[] bArr, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, map, bArr, str) == null) {
+                GetRequest.GetRequestBuilder requestSubFrom = hi4.g().getRequest().url(lk4.j(str, this.a)).requestSubFrom(10);
+                if (!TextUtils.isEmpty(gk4.b)) {
+                    requestSubFrom.userAgent(gk4.b);
+                }
+                if (map != null) {
+                    requestSubFrom.addHeaders(map);
+                }
+                requestSubFrom.cookieManager(gk4.a).enableStat(true).build().executeStat(this.b);
+            }
+        }
     }
 
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return h() + "/fetchpkglist";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947796793, "Lcom/baidu/tieba/gk4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947796793, "Lcom/baidu/tieba/gk4;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        a = oi4.b().f();
+        uh4 b2 = vh4.b();
+        if (b2 != null && hi4.g().c()) {
+            b = b2.getUserAgent();
+        }
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDThrowableCheck"})
+    @Deprecated
+    public static void a(String str, Map<String, String> map, Map<String, String> map2, kk4<String> kk4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return h() + "/getpkg";
+        if ((interceptable != null && interceptable.invokeLLLL(65537, null, str, map, map2, kk4Var) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (String) invokeV.objValue;
+        if (kk4Var != null) {
+            kk4Var.onStart();
+        }
+        mi4 b2 = oi4.b();
+        if (PMSConstants.a(b2)) {
+            b2.m(lk4.j(str, map), null, new b(map, kk4Var));
+            return;
+        }
+        GetRequest.GetRequestBuilder requestSubFrom = hi4.g().getRequest().url(lk4.j(str, map)).requestSubFrom(10);
+        if (!TextUtils.isEmpty(b)) {
+            requestSubFrom.userAgent(b);
+        }
+        if (map2 != null) {
+            requestSubFrom.addHeaders(map2);
+        }
+        requestSubFrom.cookieManager(a).enableStat(true).build().executeStat(kk4Var);
     }
 
-    public static String f() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDThrowableCheck"})
+    @Deprecated
+    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, kk4<String> kk4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return h() + "/getplugin";
+        if ((interceptable != null && interceptable.invokeLLLLL(65538, null, str, map, map2, jSONObject, kk4Var) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return h() + "/updatecore";
+        if (kk4Var != null) {
+            kk4Var.onStart();
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return ji4.b().E();
+        mi4 b2 = oi4.b();
+        if (PMSConstants.a(b2)) {
+            b2.m(lk4.j(str, map), jSONObject.toString(), new a(map, kk4Var));
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return a(str);
+        di4 postStringRequest = hi4.g().postStringRequest();
+        pi4.a(postStringRequest, map);
+        postStringRequest.url(lk4.j(str, map)).content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6).requestSubFrom(10);
+        if (map2 != null) {
+            postStringRequest.addHeaders(map2);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String j(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, map)) == null) {
-            return b(a(str), map);
+        if (!TextUtils.isEmpty(b)) {
+            postStringRequest.userAgent(b);
         }
-        return (String) invokeLL.objValue;
+        postStringRequest.cookieManager(a).enableStat(true).build().executeStat(kk4Var);
     }
 }

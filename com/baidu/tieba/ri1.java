@@ -1,197 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qi1;
+import android.content.res.ColorStateList;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import java.util.List;
+import com.baidubce.auth.NTLMEngineImpl;
 /* loaded from: classes7.dex */
-public class ri1 extends BaseAdapter {
+public class ri1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<qi1.a> a;
-    public Context b;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public static ColorStateList a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            int i2 = i - (-805306368);
+            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842912, 16842919}, new int[]{-16842912, 16842919}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-520093696), LaunchTaskConstants.OTHER_PROCESS, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH});
         }
-        return invokeI.longValue;
+        return (ColorStateList) invokeI.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-        public ImageView e;
-        public LinearLayout f;
-        public LinearLayout g;
-        public TextView h;
-        public ImageView i;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907f9);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907f8);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09214c);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09064a);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907fa);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907f6);
-            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0907f3);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907f7);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092156);
-        }
-    }
-
-    public ri1(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = context;
-    }
-
-    public final String a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return new DecimalFormat("0").format((j * 1.0d) / 100.0d);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public qi1.a getItem(int i) {
+    public static ColorStateList b(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            int i2 = i - (-1728053248);
+            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842919, -16842912}, new int[]{16842919, 16842912}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-1442840576), -4539718, i2, i2, i | (-16777216), -1118482});
         }
-        return (qi1.a) invokeI.objValue;
-    }
-
-    public void c(List<qi1.a> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<qi1.a> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            qi1.a item = getItem(i);
-            if (item == null) {
-                return view2;
-            }
-            boolean z2 = false;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0231, (ViewGroup) null, false);
-                view2.setTag(new a(view2));
-            }
-            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
-                a aVar = (a) view2.getTag();
-                if (item.a == -1) {
-                    aVar.g.setVisibility(8);
-                    aVar.f.setVisibility(0);
-                    aVar.h.setText(item.d);
-                    ImageView imageView = aVar.i;
-                    if (item.h == 1) {
-                        z2 = true;
-                    }
-                    imageView.setSelected(z2);
-                } else {
-                    aVar.g.setVisibility(0);
-                    aVar.f.setVisibility(8);
-                    aVar.a.setText(item.d);
-                    if (TextUtils.isEmpty(item.e)) {
-                        aVar.b.setVisibility(8);
-                    } else {
-                        aVar.b.setVisibility(0);
-                        aVar.b.setText(item.e);
-                    }
-                    ImageView imageView2 = aVar.c;
-                    if (item.h == 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    imageView2.setSelected(z);
-                    SpannableString spannableString = new SpannableString("￥" + a(item.g.longValue()));
-                    spannableString.setSpan(new AbsoluteSizeSpan(sh1.a(this.b, 14.0f)), 0, 1, 33);
-                    aVar.d.setText(spannableString);
-                }
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (ColorStateList) invokeI.objValue;
     }
 }

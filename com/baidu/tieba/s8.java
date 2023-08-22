@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class s8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,7 +86,7 @@ public class s8 {
             if (!TextUtils.isEmpty(str)) {
                 String[] split = str.split("_");
                 if (split.length == 2) {
-                    return new s8(h20.d(split[0]), h20.d(split[1]), -1L, true);
+                    return new s8(k20.d(split[0]), k20.d(split[1]), -1L, true);
                 }
                 return null;
             }

@@ -1,85 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.net.Uri;
+import android.view.View;
+import android.widget.ImageView;
+import com.baidu.android.util.media.WebpUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.z47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.sina.weibo.sdk.utils.ResourceManager;
 import java.util.List;
-import tbclient.GetMemberInfo.MemberGodInfo;
-import tbclient.User;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes8.dex */
-public class yc7 implements ym {
+public final class yc7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948325436, "Lcom/baidu/tieba/yc7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static final void a(View imageView, String iconUrl) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, imageView, iconUrl) == null) {
+            Intrinsics.checkNotNullParameter(imageView, "imageView");
+            Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+            z47.e a = z47.a().a();
+            boolean z = false;
+            if (StringsKt__StringsJVMKt.startsWith$default(iconUrl, "local://icon/", false, 2, null)) {
+                if (!(imageView instanceof ImageView)) {
+                    return;
+                }
+                Uri parse = Uri.parse(iconUrl);
+                List<String> pathSegments = parse.getPathSegments();
+                if (pathSegments.size() > 0) {
+                    int identifier = w47.a.getResources().getIdentifier(pathSegments.get(pathSegments.size() - 1), ResourceManager.DRAWABLE, w47.a.getPackageName());
+                    String queryParameter = parse.getQueryParameter("type");
+                    String queryParameter2 = parse.getQueryParameter("color");
+                    if ((queryParameter2 == null || queryParameter2.length() == 0) ? true : true) {
+                        SkinManager.setImageResource((ImageView) imageView, identifier);
+                        return;
+                    }
+                    int identifier2 = w47.a.getResources().getIdentifier(queryParameter2, "color", w47.a.getPackageName());
+                    if (Intrinsics.areEqual(queryParameter, WebpUtils.TYPE_IMG_WEBP)) {
+                        ((ImageView) imageView).setImageDrawable(WebPManager.getPureDrawable(identifier, SkinManager.getColor(identifier2), WebPManager.ResourceStateType.NORMAL));
+                    } else if (Intrinsics.areEqual(queryParameter, "svg")) {
+                        ((ImageView) imageView).setImageDrawable(SvgManager.getInstance().getPureDrawable(identifier, identifier2, null));
+                    } else {
+                        SkinManager.setImageResource((ImageView) imageView, identifier);
+                    }
+                }
+            } else if (a != null) {
+                a.f(imageView, iconUrl);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948325436, "Lcom/baidu/tieba/yc7;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public yc7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.ym
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public void c(MemberGodInfo memberGodInfo) {
-        List<User> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, memberGodInfo) == null) && memberGodInfo != null && (list = memberGodInfo.forum_god_list) != null && list.size() > 0) {
-            b(memberGodInfo.forum_god_num.intValue());
         }
     }
 }

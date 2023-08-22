@@ -260,7 +260,7 @@ public class FocusCircleView extends View {
             this.a.setColor(Color.parseColor("#ffffffff"));
             this.a.setStrokeWidth(this.b);
             setAlpha(0.0f);
-            this.f = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f0804a8), 180);
+            this.f = BitmapHelper.resizeBitmap(BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f0804a9), 180);
         }
     }
 }

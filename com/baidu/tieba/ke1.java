@@ -1,7 +1,24 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface ke1 {
-    void onProgress(long j, long j2);
 
-    void onResult(int i, String str);
+import com.baidu.nps.interfa.ISharePrefsWrapper;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
+/* loaded from: classes6.dex */
+public class ke1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    @Inject(force = false)
+    public static ISharePrefsWrapper a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new ee1();
+        }
+        return (ISharePrefsWrapper) invokeV.objValue;
+    }
 }

@@ -11,10 +11,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.af6;
 import com.baidu.tieba.ala.personcenter.privilege.AlaPersonCenterPrivilegeActivity;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
-import com.baidu.tieba.hg7;
-import com.baidu.tieba.yd6;
+import com.baidu.tieba.yh7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,16 +60,16 @@ public class AlaPersonCenterActivityStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof hg7)) {
+            if (!(data instanceof yh7)) {
                 return;
             }
-            hg7 hg7Var = (hg7) data;
-            yd6 yd6Var = new yd6();
-            yd6Var.c(hg7Var.c());
-            yd6Var.d(hg7Var.d());
-            yd6Var.b(hg7Var.b());
-            yd6Var.e(hg7Var.e());
-            yd6Var.a(hg7Var);
+            yh7 yh7Var = (yh7) data;
+            af6 af6Var = new af6();
+            af6Var.c(yh7Var.c());
+            af6Var.d(yh7Var.d());
+            af6Var.b(yh7Var.b());
+            af6Var.e(yh7Var.e());
+            af6Var.a(yh7Var);
         }
     }
 

@@ -1,42 +1,73 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.net.Uri;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
-public class zh2 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class zh2 extends ad3 {
     public static /* synthetic */ Interceptable $ic;
-    public static Uri a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull SQLiteDatabase sQLiteDatabase) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zh2(ac3 ac3Var) {
+        super(ac3Var, "/swanAPI/getRegionData");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS user_behavior(_id INTEGER PRIMARY KEY AUTOINCREMENT,appKey varchar(100) NOT NULL,launch_type INT NOT NULL,source varchar(100),ext TEXT,time BIGINT);");
-            } catch (Exception e) {
-                y72.d("SwanLaunchBehaviorTable", "createTable", e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ac3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @NonNull
-    public static synchronized Uri b() {
-        InterceptResult invokeV;
-        Uri uri;
+    @Override // com.baidu.tieba.ad3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (zh2.class) {
-                if (a == null) {
-                    a = xh2.c.buildUpon().appendPath("user_behavior").build();
-                }
-                uri = a;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
+            if (db3Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-            return uri;
+            String b = on3.b(context, "aiapps/pickerRegion.js");
+            if (TextUtils.isEmpty(b)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty regionData");
+                return false;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(b);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("content", jSONArray);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            } catch (JSONException e) {
+                if (ad3.b) {
+                    e.printStackTrace();
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exec fail");
+                return false;
+            }
         }
-        return (Uri) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

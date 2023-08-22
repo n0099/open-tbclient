@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,123 +13,91 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.UserGrowth;
-import tbclient.UserTaskInfo;
 /* loaded from: classes8.dex */
-public class xg5 {
+public class xg5 implements bn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId l;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public double d;
-    public List<zg5> e;
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public int e;
+    public String f;
+    public String g;
+    public List<wg5> h;
+    public String i;
+    public boolean j;
+    public int k;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948299427, "Lcom/baidu/tieba/xg5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948299427, "Lcom/baidu/tieba/xg5;");
+                return;
+            }
+        }
+        l = BdUniqueId.gen();
+    }
 
     public xg5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.e = new ArrayList();
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public long b() {
+    @Override // com.baidu.tieba.bn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            return l;
         }
-        return invokeV.longValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.longValue;
-    }
-
-    public List<zg5> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public double e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = jSONObject.optInt("level_id");
-        this.b = jSONObject.optLong("score");
-        this.c = jSONObject.optLong("target_score");
-        this.d = jSONObject.optDouble("tmoney");
-        this.e.clear();
-        JSONArray optJSONArray = jSONObject.optJSONArray("task_info");
-        if (optJSONArray == null) {
-            return;
-        }
-        int length = optJSONArray.length();
-        for (int i = 0; i < length; i++) {
-            JSONObject jSONObject2 = null;
-            try {
-                jSONObject2 = optJSONArray.getJSONObject(i);
-            } catch (JSONException e) {
-                BdLog.e(e);
+        this.a = jSONObject.optString("user_id");
+        this.b = jSONObject.optString("name_show");
+        this.c = jSONObject.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+        this.d = jSONObject.optInt("user_gender");
+        this.e = jSONObject.optInt("user_age", 0);
+        this.f = jSONObject.optString("user_constellation");
+        this.g = jSONObject.optString("distance");
+        JSONArray optJSONArray = jSONObject.optJSONArray("favorite_forum_list");
+        if (optJSONArray != null && optJSONArray.length() != 0) {
+            this.h = new ArrayList();
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                wg5 wg5Var = new wg5();
+                wg5Var.a(optJSONArray.optJSONObject(i));
+                this.h.add(wg5Var);
             }
-            zg5 zg5Var = new zg5();
-            zg5Var.h(jSONObject2);
-            this.e.add(zg5Var);
         }
-    }
-
-    public void g(UserGrowth userGrowth) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, userGrowth) != null) || userGrowth == null) {
-            return;
+        this.i = jSONObject.optString("user_slogan");
+        boolean z = true;
+        if (jSONObject.optInt("is_friend", 0) != 1) {
+            z = false;
         }
-        this.a = userGrowth.level_id.intValue();
-        this.b = userGrowth.score.longValue();
-        this.c = userGrowth.target_score.longValue();
-        this.d = userGrowth.tmoney.doubleValue();
-        this.e.clear();
-        for (UserTaskInfo userTaskInfo : userGrowth.task_info) {
-            zg5 zg5Var = new zg5();
-            zg5Var.i(userTaskInfo);
-            this.e.add(zg5Var);
-        }
+        this.j = z;
+        this.k = jSONObject.optInt("active_status", 0);
     }
 }

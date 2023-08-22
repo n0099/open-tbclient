@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
 import com.baidu.tieba.ae;
-import com.baidu.tieba.bi;
+import com.baidu.tieba.di;
+import com.baidu.tieba.hw5;
 import com.baidu.tieba.lf;
 import com.baidu.tieba.nf;
-import com.baidu.tieba.qv5;
 import com.baidu.tieba.zg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -221,7 +221,7 @@ public class ImageLogger {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Boolean.valueOf(z), str2, bool, nfVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && BdUtilHelper.isNetOk() && nfVar != null) {
             String str9 = "";
-            boolean a = qv5.a(str2);
+            boolean a = hw5.a(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();
@@ -339,7 +339,7 @@ public class ImageLogger {
             if (str11 != null) {
                 logItem.append("tracecode2", str11);
             }
-            if (!bi.isEmpty(nfVar.k)) {
+            if (!di.isEmpty(nfVar.k)) {
                 logItem.append("httpDnsIp", nfVar.k);
             } else {
                 logItem.append("httpDnsIp", nfVar.l);

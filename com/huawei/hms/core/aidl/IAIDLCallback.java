@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IAIDLCallback extends IInterface {
     void call(DataBuffer dataBuffer) throws RemoteException;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Stub extends Binder implements IAIDLCallback {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String DESCRIPTOR = "com.huawei.hms.core.aidl.IAIDLCallback";
@@ -29,7 +29,7 @@ public interface IAIDLCallback extends IInterface {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class a implements IAIDLCallback {
             public static /* synthetic */ Interceptable $ic;
             public static IAIDLCallback b;

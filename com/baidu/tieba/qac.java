@@ -1,164 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
-import java.util.List;
-import tv.athena.revenue.payui.model.ImageLoaderSupplier;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import rx.internal.util.atomic.LinkedQueueNode;
 /* loaded from: classes7.dex */
-public class qac extends BaseAdapter {
+public abstract class qac<E> extends oac<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public List<GiftBagItemInfo> b;
-    public PayUIKitConfig c;
+    public LinkedQueueNode<E> producerNode;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-
-        public a(qac qacVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948086550, "Lcom/baidu/tieba/qac;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qacVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948086550, "Lcom/baidu/tieba/qac;");
+                return;
             }
         }
+        a = rbc.a(qac.class, "producerNode");
     }
 
-    public qac(Context context, List<GiftBagItemInfo> list, PayUIKitConfig payUIKitConfig) {
+    public qac() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, list, payUIKitConfig};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = context;
-        this.b = list;
-        this.c = payUIKitConfig;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public GiftBagItemInfo getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<GiftBagItemInfo> list = this.b;
-            if (list != null && !list.isEmpty() && i >= 0 && i < this.b.size()) {
-                return this.b.get(i);
-            }
-            return null;
-        }
-        return (GiftBagItemInfo) invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public final LinkedQueueNode<E> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (LinkedQueueNode) rbc.a.f(this, a);
         }
-        return invokeV.intValue;
+        return (LinkedQueueNode) invokeV.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        int i2;
+    public final void b(LinkedQueueNode<E> linkedQueueNode) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                ContextThemeWrapper contextThemeWrapper = new ContextThemeWrapper(this.a, dac.a.a(this.c));
-                if (getCount() <= 2) {
-                    i2 = R.layout.pay_ui_item_pay_gift_bag_big;
-                } else {
-                    i2 = R.layout.pay_ui_item_pay_gift_bag_small;
-                }
-                view2 = LayoutInflater.from(contextThemeWrapper).inflate(i2, (ViewGroup) null);
-                aVar = new a(this);
-                aVar.a = (TextView) view2.findViewById(R.id.tv_gift_name);
-                aVar.c = (ImageView) view2.findViewById(R.id.img_gift);
-                aVar.b = (TextView) view2.findViewById(R.id.tv_num);
-                aVar.d = (TextView) view2.findViewById(R.id.tv_type);
-                view2.setTag(aVar);
-            } else {
-                aVar = (a) view2.getTag();
-            }
-            GiftBagItemInfo item = getItem(i);
-            if (TextUtils.isEmpty(item.name)) {
-                aVar.a.setVisibility(4);
-            } else {
-                aVar.a.setVisibility(0);
-                aVar.a.setText(item.name);
-            }
-            if (!TextUtils.isEmpty(item.countDisplay) && !StringUtil.NULL_STRING.equals(item.countDisplay)) {
-                aVar.b.setVisibility(0);
-                aVar.b.setText(item.countDisplay);
-            } else {
-                aVar.b.setVisibility(4);
-            }
-            if (!TextUtils.isEmpty(item.typeName) && !StringUtil.NULL_STRING.equals(item.typeName)) {
-                aVar.d.setVisibility(0);
-                aVar.d.setText(item.typeName);
-            } else {
-                aVar.d.setVisibility(4);
-            }
-            PayUIKitConfig payUIKitConfig = this.c;
-            if (payUIKitConfig != null && payUIKitConfig.imageLoaderSupplier != null) {
-                this.c.imageLoaderSupplier.onLoad(this.a, aVar.c, new ImageLoaderSupplier.ImageParam(item.imgUrl, -1, -1));
-            } else {
-                RLog.error("PayGiftListAdapter", "getView error mPayUIKitConfig null", new Object[0]);
-            }
-            return view2;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linkedQueueNode) == null) {
+            this.producerNode = linkedQueueNode;
         }
-        return (View) invokeILL.objValue;
     }
 }

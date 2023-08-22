@@ -64,8 +64,8 @@ import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.searchbox.wordscommand.util.CommandUtil;
 import com.baidu.searchbox.wordscommand.util.InvokeParamsSpUtil;
 import com.baidu.searchbox.wordscommand.util.SimpleLifecycleCallback;
-import com.baidu.tieba.k80;
-import com.baidu.tieba.l80;
+import com.baidu.tieba.n80;
+import com.baidu.tieba.o80;
 import com.facebook.common.executors.UiThreadImmediateExecutorService;
 import com.facebook.common.references.CloseableReference;
 import com.facebook.datasource.DataSource;
@@ -291,12 +291,12 @@ public class WordCommandManager {
     }
 
     private void addDispatcherEvent(String str) {
-        k80.c("external_dispatch_start", String.valueOf(this.mUBCDispatchStartTime));
-        k80.c(CommandUBCHelper.COMMAND_UBC_TIME_START, String.valueOf(this.mUBCShareTokenStartTime));
-        k80.c(CommandUBCHelper.COMMAND_UBC_CONTENT, this.mUBCClipboardString);
-        k80.c("launch_scheme", str);
-        k80.b("external_dispatch_end");
-        k80.b(CommandUBCHelper.COMMAND_UBC_TIME_END);
+        n80.c("external_dispatch_start", String.valueOf(this.mUBCDispatchStartTime));
+        n80.c(CommandUBCHelper.COMMAND_UBC_TIME_START, String.valueOf(this.mUBCShareTokenStartTime));
+        n80.c(CommandUBCHelper.COMMAND_UBC_CONTENT, this.mUBCClipboardString);
+        n80.c("launch_scheme", str);
+        n80.b("external_dispatch_end");
+        n80.b(CommandUBCHelper.COMMAND_UBC_TIME_END);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -409,8 +409,8 @@ public class WordCommandManager {
                     });
                     return;
                 }
-                k80.b(CommandUBCHelper.COMMAND_UBC_TIME_SERVER_ERROR);
-                k80.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_SERVER);
+                n80.b(CommandUBCHelper.COMMAND_UBC_TIME_SERVER_ERROR);
+                n80.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_SERVER);
             }
         });
     }
@@ -1068,15 +1068,15 @@ public class WordCommandManager {
         if (context != null && commandContent != null) {
             if (commandContent.isRepeat) {
                 CommandUBCHelper.ubcStatisticsWithValue(CommandUBCHelper.WORD_COMMAND_PARSE_DIALOG, "repeat", CommandUBCHelper.COMMAND_UBC_STATISTICS_SOURCE_VALUE_SERVER, sDecodeCommandActivityId, null);
-                k80.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_REPEAT);
+                n80.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_REPEAT);
                 if (AppConfig.isDebug()) {
                     Log.d("WordCommandManager", "重复了，度口令不跳转了");
                 }
             } else if (shouldDismissCommandDialog(commandContent)) {
-                k80.b("external_dispatch_end");
-                k80.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_REPEAT);
+                n80.b("external_dispatch_end");
+                n80.c(CommandUBCHelper.COMMAND_UBC_ERROR_TYPE, CommandUBCHelper.COMMAND_UBC_ERROR_TYPE_REPEAT);
             } else {
-                l80.d(CommandUBCHelper.COMMAND_UBC_SHARE_TOKEN);
+                o80.d(CommandUBCHelper.COMMAND_UBC_SHARE_TOKEN);
                 if (!commandContent.mShowable) {
                     IWordCommandApp.Impl.get().schemeInvoke(commandContent.scheme);
                 } else {
@@ -1106,11 +1106,11 @@ public class WordCommandManager {
             TextView textView2 = (TextView) inflate.findViewById(com.baidu.tieba.R.id.word_command_content_title);
             textView.setText(mOneselfShareString);
             textView2.setText(this.mTitleString);
-            textView.setTextColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0601c5));
+            textView.setTextColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0601cb));
             textView.setBackground(ResourcesCompat.getDrawable(context.getResources(), com.baidu.tieba.R.drawable.word_command_message_textview_bg, null));
-            textView2.setBackgroundColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06018c));
-            textView2.setTextColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06018b));
-            new BdAlertDialog.Builder(context).setView(inflate).setButton(new BdAlertDialog.ButtonItem(context.getText(com.baidu.tieba.R.string.word_command_build_negative_bt), new BuildDialogCancelListener())).setButton(new BdAlertDialog.ButtonItem(context.getText(com.baidu.tieba.R.string.word_command_build_positive_bt), (int) com.baidu.tieba.R.color.obfuscated_res_0x7f0601e6, new BuildDialogConfirmListener(mOneselfShareString))).setonKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.searchbox.wordscommand.WordCommandManager.1
+            textView2.setBackgroundColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060192));
+            textView2.setTextColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060191));
+            new BdAlertDialog.Builder(context).setView(inflate).setButton(new BdAlertDialog.ButtonItem(context.getText(com.baidu.tieba.R.string.word_command_build_negative_bt), new BuildDialogCancelListener())).setButton(new BdAlertDialog.ButtonItem(context.getText(com.baidu.tieba.R.string.word_command_build_positive_bt), (int) com.baidu.tieba.R.color.obfuscated_res_0x7f0601ec, new BuildDialogConfirmListener(mOneselfShareString))).setonKeyListener(new DialogInterface.OnKeyListener() { // from class: com.baidu.searchbox.wordscommand.WordCommandManager.1
                 @Override // android.content.DialogInterface.OnKeyListener
                 public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
                     if (i == 4) {
@@ -1134,10 +1134,10 @@ public class WordCommandManager {
         View inflate = LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.parse_box_word_command_dialog, (ViewGroup) null);
         TextView textView = (TextView) inflate.findViewById(com.baidu.tieba.R.id.word_command_content_message);
         TextView textView2 = (TextView) inflate.findViewById(com.baidu.tieba.R.id.word_command_content_title);
-        textView.setTextColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0601ba));
-        textView2.setBackgroundColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06018c));
+        textView.setTextColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f0601c0));
+        textView2.setBackgroundColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060192));
         ((BdBaseImageView) inflate.findViewById(com.baidu.tieba.R.id.word_command_banner_circular_arc)).setBackground(ResourcesCompat.getDrawable(context.getResources(), com.baidu.tieba.R.drawable.word_command_banner_circular_arc, null));
-        textView2.setTextColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f06018b));
+        textView2.setTextColor(context.getResources().getColor(com.baidu.tieba.R.color.obfuscated_res_0x7f060191));
         textView.setText(commandContent.tips);
         textView2.setText(commandContent.title);
         ((SimpleDraweeView) inflate.findViewById(com.baidu.tieba.R.id.word_command_content_img)).setImageURI(commandContent.imgUrl);
@@ -1148,9 +1148,9 @@ public class WordCommandManager {
             view2.setButton(new BdDialog.BottomItem(commandContent.btnCancle, new ParseDialogCancelListener()));
         }
         if (TextUtils.isEmpty(commandContent.btnSure)) {
-            view2.setButton(new BdDialog.BottomItem(context.getString(com.baidu.tieba.R.string.word_command_parse_positive_bt), (int) com.baidu.tieba.R.color.obfuscated_res_0x7f0601e6, new ParseDialogConfirmListener(commandContent.scheme)));
+            view2.setButton(new BdDialog.BottomItem(context.getString(com.baidu.tieba.R.string.word_command_parse_positive_bt), (int) com.baidu.tieba.R.color.obfuscated_res_0x7f0601ec, new ParseDialogConfirmListener(commandContent.scheme)));
         } else {
-            view2.setButton(new BdDialog.BottomItem(commandContent.btnSure, (int) com.baidu.tieba.R.color.obfuscated_res_0x7f0601e6, new ParseDialogConfirmListener(commandContent.scheme)));
+            view2.setButton(new BdDialog.BottomItem(commandContent.btnSure, (int) com.baidu.tieba.R.color.obfuscated_res_0x7f0601ec, new ParseDialogConfirmListener(commandContent.scheme)));
         }
         view2.setOnDismissListener(onDismissListener);
         view2.setonShowListener(onShowListener);

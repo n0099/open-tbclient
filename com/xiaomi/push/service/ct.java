@@ -7,15 +7,15 @@ public class ct implements u.a {
     public final /* synthetic */ XMPushService.j a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ XMPushService f974a;
+    public final /* synthetic */ XMPushService f975a;
 
     public ct(XMPushService xMPushService, XMPushService.j jVar) {
-        this.f974a = xMPushService;
+        this.f975a = xMPushService;
         this.a = jVar;
     }
 
     @Override // com.xiaomi.push.service.u.a
     public void a() {
-        this.f974a.a(this.a);
+        this.f975a.a(this.a);
     }
 }

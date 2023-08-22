@@ -18,7 +18,7 @@ import com.baidu.live.feed.search.holder.LiveSearchResultViewHolder;
 import com.baidu.live.feed.search.holder.ShowAllViewHolder;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fd0;
+import com.baidu.tieba.id0;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.ArrayList;
@@ -89,7 +89,7 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
         public View noMoreView;
 
         /* renamed from: view  reason: collision with root package name */
-        public final View f1044view;
+        public final View f1045view;
 
         @Metadata(bv = {1, 0, 3}, d1 = {"\u0000\f\n\u0002\u0018\u0002\n\u0002\u0010\b\n\u0002\b\b\b\u0086\u0003\u0018\u0000B\t\b\u0002¢\u0006\u0004\b\u0007\u0010\bR\u0016\u0010\u0002\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0002\u0010\u0003R\u0016\u0010\u0004\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0004\u0010\u0003R\u0016\u0010\u0005\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0005\u0010\u0003R\u0016\u0010\u0006\u001a\u00020\u00018\u0006@\u0006X\u0086T¢\u0006\u0006\n\u0004\b\u0006\u0010\u0003¨\u0006\t"}, d2 = {"Lcom/baidu/live/feed/search/adapter/LiveRecommendMoreAdapter$MoreFooterHolder$Companion;", "", "STATUS_ERROR", "I", "STATUS_GONE", "STATUS_LOADING", "STATUS_NO_MORE", "<init>", "()V", "lib-live-feed-search_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
         /* loaded from: classes3.dex */
@@ -104,14 +104,14 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
 
         public MoreFooterHolder(View view2) {
             super(view2);
-            this.f1044view = view2;
-            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0915e5);
+            this.f1045view = view2;
+            View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f0915fc);
             Intrinsics.checkExpressionValueIsNotNull(findViewById, "view.findViewById(R.id.l…mend_more_footer_loading)");
             this.loadingView = findViewById;
-            View findViewById2 = this.f1044view.findViewById(R.id.obfuscated_res_0x7f0915e6);
+            View findViewById2 = this.f1045view.findViewById(R.id.obfuscated_res_0x7f0915fd);
             Intrinsics.checkExpressionValueIsNotNull(findViewById2, "view.findViewById(R.id.l…mmend_more_footer_nomore)");
             this.noMoreView = findViewById2;
-            View findViewById3 = this.f1044view.findViewById(R.id.obfuscated_res_0x7f0915e3);
+            View findViewById3 = this.f1045view.findViewById(R.id.obfuscated_res_0x7f0915fa);
             Intrinsics.checkExpressionValueIsNotNull(findViewById3, "view.findViewById(R.id.l…ommend_more_footer_error)");
             this.errorView = (TextView) findViewById3;
         }
@@ -129,7 +129,7 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
         }
 
         public final View getView() {
-            return this.f1044view;
+            return this.f1045view;
         }
 
         public final void setErrorView(TextView textView) {
@@ -535,12 +535,12 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         if (i == 1) {
-            View view2 = View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05e6, null);
+            View view2 = View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05ed, null);
             Context context = this.context;
             Intrinsics.checkExpressionValueIsNotNull(view2, "view");
             return new LiveSearchResultViewHolder(context, view2, this.scene);
         } else if (i == 2) {
-            return new ShowAllViewHolder(this.context, View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05e8, null), this.scene);
+            return new ShowAllViewHolder(this.context, View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05ef, null), this.scene);
         } else if (i == 3) {
             Live4Ratio5ItemView live4Ratio5ItemView = new Live4Ratio5ItemView(this.context);
             live4Ratio5ItemView.setScene(this.scene);
@@ -554,9 +554,9 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
             live16Ratio9ItemView.setScene(this.scene);
             return new LiveFeedBaseHolder(live16Ratio9ItemView);
         } else if (i == 7) {
-            return new LiveSearchNullDataViewHolder(View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05e7, null));
+            return new LiveSearchNullDataViewHolder(View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05ee, null));
         } else {
-            View view3 = View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05e5, null);
+            View view3 = View.inflate(this.context, R.layout.obfuscated_res_0x7f0d05ec, null);
             Intrinsics.checkExpressionValueIsNotNull(view3, "view");
             return new MoreFooterHolder(view3);
         }
@@ -643,28 +643,28 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
                 liveSearchResultViewHolder.e().setVisibility(0);
                 liveSearchResultViewHolder.e().setText("已关注");
                 liveSearchResultViewHolder.e().setTypeface(Typeface.DEFAULT);
-                liveSearchResultViewHolder.e().setTextColor(fd0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
-                fd0 f = fd0.f();
+                liveSearchResultViewHolder.e().setTextColor(id0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_8585852"));
+                id0 f = id0.f();
                 Intrinsics.checkExpressionValueIsNotNull(f, "UIModeUtils.getInstance()");
                 String r = f.r();
                 if (Intrinsics.areEqual(r, "day")) {
-                    liveSearchResultViewHolder.e().setBackgroundResource(R.drawable.obfuscated_res_0x7f080f30);
+                    liveSearchResultViewHolder.e().setBackgroundResource(R.drawable.obfuscated_res_0x7f080f41);
                 } else if (Intrinsics.areEqual(r, "night")) {
-                    liveSearchResultViewHolder.e().setBackgroundResource(R.drawable.obfuscated_res_0x7f080f31);
+                    liveSearchResultViewHolder.e().setBackgroundResource(R.drawable.obfuscated_res_0x7f080f42);
                 }
             }
         } else {
             liveSearchResultViewHolder.e().setVisibility(0);
             liveSearchResultViewHolder.e().setText("关注");
             liveSearchResultViewHolder.e().setTypeface(Typeface.DEFAULT_BOLD);
-            liveSearchResultViewHolder.e().setTextColor(fd0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
-            fd0 f2 = fd0.f();
+            liveSearchResultViewHolder.e().setTextColor(id0.f().a(liveSearchResultViewHolder.getContext(), this.scene, "color_white3"));
+            id0 f2 = id0.f();
             Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
             String r2 = f2.r();
             if (Intrinsics.areEqual(r2, "day")) {
-                liveSearchResultViewHolder.e().setBackgroundResource(R.drawable.obfuscated_res_0x7f080f2e);
+                liveSearchResultViewHolder.e().setBackgroundResource(R.drawable.obfuscated_res_0x7f080f3f);
             } else if (Intrinsics.areEqual(r2, "night")) {
-                liveSearchResultViewHolder.e().setBackgroundResource(R.drawable.obfuscated_res_0x7f080f2f);
+                liveSearchResultViewHolder.e().setBackgroundResource(R.drawable.obfuscated_res_0x7f080f40);
             }
         }
         liveSearchResultViewHolder.g().setVisibility(8);
@@ -679,7 +679,7 @@ public final class LiveRecommendMoreAdapter extends RecyclerView.Adapter<Recycle
         if (bool.booleanValue()) {
             liveSearchResultViewHolder.g().setVisibility(0);
             liveSearchResultViewHolder.f().setVisibility(0);
-            fd0 f3 = fd0.f();
+            id0 f3 = id0.f();
             Intrinsics.checkExpressionValueIsNotNull(f3, "UIModeUtils.getInstance()");
             String r3 = f3.r();
             if (Intrinsics.areEqual(r3, "day")) {

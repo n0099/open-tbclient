@@ -9,9 +9,9 @@ public class cm implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        this.a.f861a = true;
+        this.a.f862a = true;
         try {
-            com.xiaomi.channel.commonutils.logger.b.m178a("try to trigger the wifi digest broadcast.");
+            com.xiaomi.channel.commonutils.logger.b.m180a("try to trigger the wifi digest broadcast.");
             Object systemService = this.a.getApplicationContext().getSystemService("MiuiWifiService");
             if (systemService != null) {
                 com.xiaomi.push.bj.b(systemService, "sendCurrentWifiDigestInfo", new Object[0]);

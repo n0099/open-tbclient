@@ -1,78 +1,132 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.pay.PayResult;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes8.dex */
-public class x76 extends ActivityDelegation implements kr1 {
+public class x76 extends xk1<l81> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public a86 b;
-    public Activity c;
-    public Map<String, String> d;
-    public CustomMessageListener e;
 
     /* loaded from: classes8.dex */
-    public class a extends CustomMessageListener {
+    public class a implements l81 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x76 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(x76 x76Var, int i) {
-            super(i);
+        @Override // com.baidu.tieba.l81
+        public int[] b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? new int[]{R.drawable.nad_web_back} : (int[]) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.l81
+        public int[] c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new int[]{R.drawable.nad_web_close} : (int[]) invokeV.objValue;
+        }
+
+        /* renamed from: com.baidu.tieba.x76$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class View$OnClickListenerC0523a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ m81 a;
+
+            public View$OnClickListenerC0523a(a aVar, m81 m81Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, m81Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = m81Var;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                m81 m81Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (m81Var = this.a) != null) {
+                    m81Var.i();
+                }
+            }
+        }
+
+        /* loaded from: classes8.dex */
+        public class b implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ m81 a;
+
+            public b(a aVar, m81 m81Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, m81Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = m81Var;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                m81 m81Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (m81Var = this.a) != null) {
+                    m81Var.k();
+                }
+            }
+        }
+
+        public a(x76 x76Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {x76Var, Integer.valueOf(i)};
+                Object[] objArr = {x76Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = x76Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.tieba.l81
+        public void a(View view2, m81 m81Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                Object data = customResponsedMessage.getData();
-                if (!(data instanceof PayResult)) {
-                    return;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, m81Var) == null) {
+                int intValue = ((Integer) view2.getTag()).intValue();
+                if (intValue == R.drawable.nad_web_back) {
+                    view2.setOnClickListener(new View$OnClickListenerC0523a(this, m81Var));
+                } else if (intValue == R.drawable.nad_web_close) {
+                    view2.setOnClickListener(new b(this, m81Var));
                 }
-                PayResult payResult = (PayResult) data;
-                if (getTag() != payResult.tag && !payResult.isWx) {
-                    return;
-                }
-                this.a.mResult.putInt("result_code", payResult.type);
-                this.a.mResult.putString("result_msg", payResult.message);
-                if (this.a.b != null) {
-                    this.a.b.a(this.a.mResult);
-                }
-                this.a.finish();
             }
         }
     }
@@ -87,85 +141,19 @@ public class x76 extends ActivityDelegation implements kr1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = BdUniqueId.gen();
-        this.e = new a(this, 2921393);
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = null;
-            MessageManager.getInstance().unRegisterListener(this.e);
-            super.finish();
-        }
-    }
-
-    public void d(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.c = activity;
-        }
-    }
-
-    public void e(a86 a86Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a86Var) == null) {
-            this.b = a86Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.kr1
-    public void onResult(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.mResult.putInt("result_code", i);
-            this.mResult.putString("result_msg", "");
-            finish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xk1
+    /* renamed from: a */
+    public l81 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.e.setTag(this.a);
-            MessageManager.getInstance().registerListener(this.e);
-            int i = this.mParams.getInt("type");
-            String string = this.mParams.getString("orderInfo");
-            PayResult payResult = new PayResult();
-            payResult.tag = this.a;
-            payResult.type = i;
-            payResult.message = string;
-            payResult.params = (Map) this.mParams.getSerializable("params");
-            payResult.orderinfo = this.d;
-            if (getAgent() != null) {
-                payResult.context = getAgent();
-            } else {
-                Activity activity = this.c;
-                if (activity != null) {
-                    payResult.context = activity;
-                } else {
-                    payResult.context = TbadkCoreApplication.getInst().getCurrentActivity();
-                }
-            }
-            CustomMessage customMessage = new CustomMessage(2921393, payResult);
-            customMessage.setTag(this.a);
-            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
-            Bundle bundle = this.mResult;
-            int i2 = 1;
-            if (sendMessage) {
-                i2 = 0;
-            }
-            bundle.putInt("result_code", i2);
-            Bundle bundle2 = this.mResult;
-            bundle2.putString("result_msg", "" + sendMessage);
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return invokeV.booleanValue;
+        return (l81) invokeV.objValue;
     }
 }

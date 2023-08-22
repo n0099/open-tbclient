@@ -48,7 +48,7 @@ public class c {
     public static final List<ab> S;
 
     /* renamed from: T  reason: collision with root package name */
-    public static int f1224T;
+    public static int f1227T;
     public static boolean U;
     public static boolean V;
     public static r W;
@@ -143,7 +143,7 @@ public class c {
     }
 
     public static int D() {
-        return f1224T;
+        return f1227T;
     }
 
     @NonNull
@@ -858,7 +858,7 @@ public class c {
                 D = true;
             }
             if (downloaderBuilder.getDownloadExpSwitch() != 0) {
-                f1224T = downloaderBuilder.getDownloadExpSwitch();
+                f1227T = downloaderBuilder.getDownloadExpSwitch();
             }
             if (downloaderBuilder.getDownloadSetting() != null) {
                 a(downloaderBuilder.getDownloadSetting());

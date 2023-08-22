@@ -1,51 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.LoggerManager;
+import android.util.Pair;
+import java.util.AbstractMap;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ecb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public fk1<LoggerManager.c> a;
+public interface ecb {
+    void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, List<AbstractMap.SimpleEntry<String, String>> list);
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dk1 b = dk1.b();
-            this.a = b;
-            b.a(new fcb());
-        }
-    }
-
-    public ecb() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b();
-    }
-
-    public LoggerManager.c a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
-        }
-        return (LoggerManager.c) invokeV.objValue;
-    }
+    void b(int i, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, LinkedList<Pair<String, Object>> linkedList);
 }

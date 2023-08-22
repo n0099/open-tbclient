@@ -1,102 +1,102 @@
 package org.chromium.native_test;
 
-import com.baidu.tieba.yxb;
+import com.baidu.tieba.n4c;
 /* loaded from: classes2.dex */
 public final class R {
 
     /* loaded from: classes2.dex */
-    public static final class anim extends yxb.a {
+    public static final class anim extends n4c.a {
     }
 
     /* loaded from: classes2.dex */
-    public static final class animator extends yxb.b {
+    public static final class animator extends n4c.b {
     }
 
     /* loaded from: classes2.dex */
-    public static final class array extends yxb.c {
+    public static final class array extends n4c.c {
     }
 
     /* loaded from: classes2.dex */
-    public static final class attr extends yxb.d {
+    public static final class attr extends n4c.d {
     }
 
     /* loaded from: classes2.dex */
-    public static final class bool extends yxb.e {
+    public static final class bool extends n4c.e {
     }
 
     /* loaded from: classes2.dex */
-    public static final class color extends yxb.f {
+    public static final class color extends n4c.f {
     }
 
     /* loaded from: classes2.dex */
-    public static final class dimen extends yxb.g {
+    public static final class dimen extends n4c.g {
     }
 
     /* loaded from: classes2.dex */
-    public static final class drawable extends yxb.h {
+    public static final class drawable extends n4c.h {
     }
 
     /* loaded from: classes2.dex */
-    public static final class font extends yxb.i {
+    public static final class font extends n4c.i {
     }
 
     /* loaded from: classes2.dex */
-    public static final class fraction extends yxb.j {
+    public static final class fraction extends n4c.j {
     }
 
     /* loaded from: classes2.dex */
-    public static final class id extends yxb.k {
+    public static final class id extends n4c.k {
     }
 
     /* loaded from: classes2.dex */
-    public static final class integer extends yxb.l {
+    public static final class integer extends n4c.l {
     }
 
     /* loaded from: classes2.dex */
-    public static final class interpolator extends yxb.m {
+    public static final class interpolator extends n4c.m {
     }
 
     /* loaded from: classes2.dex */
-    public static final class layout extends yxb.n {
+    public static final class layout extends n4c.n {
     }
 
     /* loaded from: classes2.dex */
-    public static final class menu extends yxb.o {
+    public static final class menu extends n4c.o {
     }
 
     /* loaded from: classes2.dex */
-    public static final class mipmap extends yxb.p {
+    public static final class mipmap extends n4c.p {
     }
 
     /* loaded from: classes2.dex */
-    public static final class plurals extends yxb.q {
+    public static final class plurals extends n4c.q {
     }
 
     /* loaded from: classes2.dex */
-    public static final class raw extends yxb.r {
+    public static final class raw extends n4c.r {
     }
 
     /* loaded from: classes2.dex */
-    public static final class string extends yxb.s {
+    public static final class string extends n4c.s {
     }
 
     /* loaded from: classes2.dex */
-    public static final class style extends yxb.t {
+    public static final class style extends n4c.t {
     }
 
     /* loaded from: classes2.dex */
-    public static final class styleable extends yxb.u {
+    public static final class styleable extends n4c.u {
     }
 
     /* loaded from: classes2.dex */
-    public static final class transition extends yxb.v {
+    public static final class transition extends n4c.v {
     }
 
     /* loaded from: classes2.dex */
-    public static final class xml extends yxb.w {
+    public static final class xml extends n4c.w {
     }
 
     public static void onResourcesLoaded(int i) {
-        yxb.a(i);
+        n4c.a(i);
     }
 }

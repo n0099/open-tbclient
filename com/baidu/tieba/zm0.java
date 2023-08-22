@@ -1,10 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.jn0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,120 +9,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.Map;
-import java.util.Set;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes8.dex */
-public final class zm0 {
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes9.dex */
+public class zm0 implements hn0, Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<Activity, Set<Object>> a;
-    public static final zm0 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentLinkedQueue<jn0.b<?>> a;
+    public final AtomicBoolean b;
 
-    /* loaded from: classes8.dex */
-    public static final class a implements Application.ActivityLifecycleCallbacks {
+    /* loaded from: classes9.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final zm0 a;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityCreated(Activity activity, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityPaused(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityResumed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, outState) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                Intrinsics.checkNotNullParameter(outState, "outState");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStarted(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityStopped(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-227360273, "Lcom/baidu/tieba/zm0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-227360273, "Lcom/baidu/tieba/zm0$a;");
+                    return;
                 }
             }
-        }
-
-        @Override // android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-                Intrinsics.checkNotNullParameter(activity, "activity");
-                zm0.b.e(activity);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948364620, "Lcom/baidu/tieba/zm0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948364620, "Lcom/baidu/tieba/zm0;");
-                return;
-            }
-        }
-        b = new zm0();
-        a = new LinkedHashMap();
-        Context b2 = pj0.b();
-        if (b2 != null) {
-            if (!(b2 instanceof Application)) {
-                b2 = null;
-            }
-            Application application = (Application) b2;
-            if (application != null) {
-                application.registerActivityLifecycleCallbacks(new a());
-            }
+            a = new zm0();
         }
     }
 
@@ -133,58 +45,53 @@ public final class zm0 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
+    }
+
+    public static hn0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (hn0) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
+        }
+        while (true) {
+            jn0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
+                return;
             }
         }
     }
 
-    public final <T extends cn0> void b(Activity activity, Object event, int i, fn0<T> subscriber) {
+    @Override // com.baidu.tieba.hn0
+    public <T extends fn0> void a(kn0 kn0Var, in0<T> in0Var, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(1048576, this, activity, event, i, subscriber) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            Intrinsics.checkNotNullParameter(event, "event");
-            Intrinsics.checkNotNullParameter(subscriber, "subscriber");
-            bn0.a().c(event, i, subscriber);
-            d(activity, subscriber);
-        }
-    }
-
-    public final <T extends cn0> void c(Activity activity, Object event, fn0<T> subscriber) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, event, subscriber) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            Intrinsics.checkNotNullParameter(event, "event");
-            Intrinsics.checkNotNullParameter(subscriber, "subscriber");
-            b(activity, event, 0, subscriber);
-        }
-    }
-
-    public final void d(Activity activity, Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, obj) == null) {
-            if (!a.containsKey(activity) || a.get(activity) == null) {
-                a.put(activity, new LinkedHashSet());
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, kn0Var, in0Var, t) == null) {
+            this.a.offer(new jn0.b<>(kn0Var, in0Var, t));
+            if (this.b.compareAndSet(false, true)) {
+                u41.c(this, "AsyncDeliver", 3);
             }
-            Set<Object> set = a.get(activity);
-            if (set != null) {
-                set.add(obj);
-            }
-        }
-    }
-
-    public final void e(Activity activity) {
-        Set<Object> set;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (set = a.get(activity)) != null) {
-            for (Object obj : set) {
-                bn0.a().unregister(obj);
-            }
-            a.remove(activity);
         }
     }
 }

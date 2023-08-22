@@ -1,26 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface f81 {
-    public static final f81 a = new a();
-
-    boolean a(Context context, String str, String str2, @Nullable hj0 hj0Var);
+public class f81 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    @NonNull
+    public List<a> c;
 
     /* loaded from: classes5.dex */
-    public class a implements f81 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public int[] a;
+        public String b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -36,38 +44,87 @@ public interface f81 {
             }
         }
 
-        @Override // com.baidu.tieba.f81
-        public boolean a(Context context, String str, String str2, @Nullable hj0 hj0Var) {
-            InterceptResult invokeLLLL;
+        @Nullable
+        public static a a(@Nullable JSONObject jSONObject) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, str2, hj0Var)) == null) {
-                if (str != null) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("refer", str2);
-                    hashMap.put("from_web_view", Boolean.TRUE);
-                    return yi0.e(str, context, hashMap, hj0Var);
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
                 }
-                return false;
+                a aVar = new a();
+                aVar.a = b(jSONObject.optString("range"));
+                aVar.b = jSONObject.optString("color");
+                return aVar;
             }
-            return invokeLLLL.booleanValue;
+            return (a) invokeL.objValue;
+        }
+
+        @Nullable
+        public static int[] b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                String[] split = str.split("_");
+                if (split.length != 2) {
+                    return null;
+                }
+                try {
+                    int parseInt = Integer.parseInt(split[0]);
+                    int parseInt2 = Integer.parseInt(split[1]);
+                    if (parseInt < 0 || parseInt >= parseInt2) {
+                        return null;
+                    }
+                    return new int[]{parseInt, parseInt2};
+                } catch (NumberFormatException unused) {
+                    return null;
+                }
+            }
+            return (int[]) invokeL.objValue;
         }
     }
 
-    @Autowired
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @NonNull
-        @Inject(force = false)
-        public static f81 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return f81.a;
+    public f81() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return (f81) invokeV.objValue;
         }
+        this.c = new ArrayList();
+    }
+
+    @Nullable
+    public static f81 a(@Nullable JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            f81 f81Var = new f81();
+            try {
+                f81Var.a = jSONObject.optString("text");
+                f81Var.b = jSONObject.optString("color");
+                JSONArray optJSONArray = jSONObject.optJSONArray("highlight");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        d31.b(f81Var.c, a.a(optJSONArray.getJSONObject(i)));
+                    }
+                }
+            } catch (JSONException unused) {
+            }
+            return f81Var;
+        }
+        return (f81) invokeL.objValue;
     }
 }

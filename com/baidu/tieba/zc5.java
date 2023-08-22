@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+/* loaded from: classes9.dex */
 public class zc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public List<ad5> a;
 
     public zc5() {
         Interceptable interceptable = $ic;
@@ -32,75 +29,40 @@ public class zc5 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a(JSONArray jSONArray) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static zc5 g(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            zc5 zc5Var = new zc5();
-            if (jSONObject != null) {
-                zc5Var.a = jSONObject.optString("source");
-                zc5Var.b = jSONObject.optString("show_text");
-                zc5Var.c = jSONObject.optString("show_link");
-                zc5Var.d = jSONObject.optString("show_image");
-                zc5Var.e = jSONObject.optString("show_time");
-                zc5Var.f = jSONObject.optString("show_max");
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+            this.a = new ArrayList();
+            try {
+                if (jSONArray == null) {
+                    SharedPrefHelper.getInstance().putString("key_index_tab_info_list", "[]");
+                    return;
+                }
+                JSONArray jSONArray2 = new JSONArray(SharedPrefHelper.getInstance().getString("key_index_tab_info_list", "[]"));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    ad5 ad5Var = new ad5();
+                    ad5 ad5Var2 = new ad5();
+                    ad5Var.i(jSONArray.getJSONObject(i));
+                    for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                        ad5Var2.i(jSONArray2.getJSONObject(i2));
+                        if (ad5Var.c != null && ad5Var.c.equals(ad5Var2.c)) {
+                            if (!TextUtils.isEmpty(ad5Var2.e) && ad5Var2.e.equals(ad5Var.e)) {
+                                z = false;
+                                ad5Var.f = z;
+                            }
+                            z = true;
+                            ad5Var.f = z;
+                        }
+                    }
+                    if (!ad5Var.f()) {
+                        this.a.add(ad5Var);
+                    }
+                }
+                SharedPrefHelper.getInstance().putString("key_index_tab_info_list", jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            return zc5Var;
         }
-        return (zc5) invokeL.objValue;
     }
 }

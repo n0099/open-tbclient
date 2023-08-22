@@ -33,19 +33,19 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.WriteData;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h55;
+import com.baidu.tieba.ei7;
 import com.baidu.tieba.homepage.GetMyPostHttpResponseMessage;
 import com.baidu.tieba.homepage.GetMyPostSocketResponseMessage;
 import com.baidu.tieba.homepage.RequestGetMyPostNetMessage;
 import com.baidu.tieba.homepage.concern.ConcernPageView;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.m45;
-import com.baidu.tieba.ng7;
-import com.baidu.tieba.q25;
+import com.baidu.tieba.in5;
+import com.baidu.tieba.n55;
+import com.baidu.tieba.s45;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
 import com.baidu.tieba.tbadkCore.writeModel.WriteMsgHolder;
-import com.baidu.tieba.tm5;
+import com.baidu.tieba.w25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,7 +59,7 @@ import tbclient.GetMyPost.User_Info;
 import tbclient.ThreadInfo;
 import tbclient.User;
 /* loaded from: classes6.dex */
-public class ConcernFragment extends BaseFragment implements ng7 {
+public class ConcernFragment extends BaseFragment implements ei7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ConcernPageView a;
@@ -74,17 +74,10 @@ public class ConcernFragment extends BaseFragment implements ng7 {
     public final CustomMessageListener j;
     public final NetMessageListener k;
 
-    @Override // com.baidu.tieba.ng7
-    public void M() {
+    @Override // com.baidu.tieba.ei7
+    public void O() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ng7
-    public void g0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
@@ -92,7 +85,14 @@ public class ConcernFragment extends BaseFragment implements ng7 {
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) ? "a038" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "a038" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ei7
+    public void m0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        }
     }
 
     /* loaded from: classes6.dex */
@@ -186,10 +186,10 @@ public class ConcernFragment extends BaseFragment implements ng7 {
                     SafeHandler.getInst().postDelayed(new a(this, j2, j, j3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
                     WriteData writeData = postWriteCallBackData.writeDataForVideo;
-                    q25 q25Var = new q25();
-                    q25Var.parseFromWriteData(writeData);
+                    w25 w25Var = new w25();
+                    w25Var.parseFromWriteData(writeData);
                     if (this.a.a != null && this.a.a.L()) {
-                        this.a.a.I(q25Var);
+                        this.a.a.I(w25Var);
                     }
                 }
             }
@@ -287,10 +287,10 @@ public class ConcernFragment extends BaseFragment implements ng7 {
                     SafeHandler.getInst().postDelayed(new a(this, j2, j, j3), 1000L);
                 } else if (!StringUtils.isNull(postWriteCallBackData.getVideoid())) {
                     WriteData writeData = postWriteCallBackData.writeDataForVideo;
-                    q25 q25Var = new q25();
-                    q25Var.parseFromWriteData(writeData);
+                    w25 w25Var = new w25();
+                    w25Var.parseFromWriteData(writeData);
                     if (this.a.a != null && this.a.a.L()) {
-                        this.a.a.I(q25Var);
+                        this.a.a.I(w25Var);
                     }
                 }
             }
@@ -364,17 +364,17 @@ public class ConcernFragment extends BaseFragment implements ng7 {
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(m45 m45Var) {
+        public void onNavigationButtonClick(s45 s45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(m45 m45Var) {
+        public void onPositiveButtonClick(s45 s45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m45Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s45Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
@@ -464,26 +464,26 @@ public class ConcernFragment extends BaseFragment implements ng7 {
                         if (!(responsedMessage instanceof GetMyPostHttpResponseMessage)) {
                             GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostHttpResponseMessage.getErrorString())) {
-                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e21);
+                                errorString2 = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e29);
                             } else {
                                 errorString2 = getMyPostHttpResponseMessage.getErrorString();
                             }
                             if (!z && getMyPostHttpResponseMessage.getError() != 0) {
                                 return;
                             }
-                            this.a.M1(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
+                            this.a.Y1(getMyPostHttpResponseMessage.getError(), errorString2, getMyPostHttpResponseMessage.getResponseData());
                             return;
                         } else if (responsedMessage instanceof GetMyPostSocketResponseMessage) {
                             GetMyPostSocketResponseMessage getMyPostSocketResponseMessage = (GetMyPostSocketResponseMessage) responsedMessage;
                             if (StringUtils.isNull(getMyPostSocketResponseMessage.getErrorString())) {
-                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e21);
+                                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0e29);
                             } else {
                                 errorString = getMyPostSocketResponseMessage.getErrorString();
                             }
                             if (!z && getMyPostSocketResponseMessage.getError() != 0) {
                                 return;
                             }
-                            this.a.M1(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
+                            this.a.Y1(getMyPostSocketResponseMessage.getError(), errorString, getMyPostSocketResponseMessage.getResponseData());
                             return;
                         } else {
                             return;
@@ -547,7 +547,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
         SpeedStatsManager.getInstance().addStatsTimeStamp(5021);
     }
 
-    public void O1(ConcernPageView.s sVar) {
+    public void a2(ConcernPageView.s sVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, sVar) == null) {
             this.b = sVar;
@@ -555,7 +555,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
         }
     }
 
-    public void P1(ScrollFragmentTabHost scrollFragmentTabHost) {
+    public void b2(ScrollFragmentTabHost scrollFragmentTabHost) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, scrollFragmentTabHost) == null) {
             this.c = scrollFragmentTabHost;
@@ -569,7 +569,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             super.onChangeSkinType(i);
             ConcernPageView concernPageView = this.a;
             if (concernPageView != null && concernPageView.L()) {
@@ -578,8 +578,8 @@ public class ConcernFragment extends BaseFragment implements ng7 {
         }
     }
 
-    @Override // com.baidu.tieba.ng7
-    public void C() {
+    @Override // com.baidu.tieba.ei7
+    public void D() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.e && (concernPageView = this.a) != null && concernPageView.L()) {
@@ -587,15 +587,15 @@ public class ConcernFragment extends BaseFragment implements ng7 {
         }
     }
 
-    public void L1() {
+    public void X1() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (concernPageView = this.a) != null && concernPageView.L()) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (concernPageView = this.a) != null && concernPageView.L()) {
             this.a.A();
         }
     }
 
-    public void Q1() {
+    public void c2() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (concernPageView = this.a) != null && concernPageView.L()) {
@@ -603,23 +603,11 @@ public class ConcernFragment extends BaseFragment implements ng7 {
         }
     }
 
-    @Override // com.baidu.tieba.ng7
-    public void k0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            changeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            ConcernPageView concernPageView = this.a;
-            if (concernPageView != null && concernPageView.L()) {
-                this.a.S(TbadkCoreApplication.getInst().getSkinType());
-            }
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment
     public void notifyColourHeaderData() {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (concernPageView = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (concernPageView = this.a) != null) {
             concernPageView.Q();
         }
     }
@@ -627,7 +615,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.a.V();
             super.onDestroyView();
         }
@@ -636,7 +624,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDetach() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.f);
             MessageManager.getInstance().unRegisterListener(this.h);
             super.onDetach();
@@ -646,17 +634,17 @@ public class ConcernFragment extends BaseFragment implements ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             super.onPause();
             this.a.setTabInForeBackgroundState(true);
-            YunDialogManager.onHidden(h55.j);
+            YunDialogManager.onHidden(n55.j);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5024);
             super.onResume();
             ConcernPageView concernPageView = this.a;
@@ -667,7 +655,19 @@ public class ConcernFragment extends BaseFragment implements ng7 {
         }
     }
 
-    public final void M1(int i, String str, GetMyPostResIdl getMyPostResIdl) {
+    @Override // com.baidu.tieba.ei7
+    public void q0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            changeSkinType(TbadkCoreApplication.getInst().getSkinType());
+            ConcernPageView concernPageView = this.a;
+            if (concernPageView != null && concernPageView.L()) {
+                this.a.S(TbadkCoreApplication.getInst().getSkinType());
+            }
+        }
+    }
+
+    public final void Y1(int i, String str, GetMyPostResIdl getMyPostResIdl) {
         User_Info user_Info;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, getMyPostResIdl) == null) {
@@ -677,10 +677,10 @@ public class ConcernFragment extends BaseFragment implements ng7 {
             }
             DataRes dataRes = getMyPostResIdl.data;
             if (dataRes != null && dataRes.thread_info != null) {
-                q25 q25Var = new q25();
+                w25 w25Var = new w25();
                 ThreadInfo.Builder builder = new ThreadInfo.Builder(getMyPostResIdl.data.thread_info);
                 User.Builder builder2 = new User.Builder(builder.author);
-                N1(builder2, getMyPostResIdl.data.user_info);
+                Z1(builder2, getMyPostResIdl.data.user_info);
                 User user = builder.author;
                 if (user == null || TextUtils.isEmpty(user.name)) {
                     builder.author = builder2.build(true);
@@ -691,8 +691,8 @@ public class ConcernFragment extends BaseFragment implements ng7 {
                 }
                 builder.fname = WriteMsgHolder.getLastForumName();
                 builder.fid = Long.valueOf(JavaTypesHelper.toLong(WriteMsgHolder.getLastForumName(), 0L));
-                q25Var.parserProtobuf(builder.build(true));
-                this.a.J(q25Var, true);
+                w25Var.parserProtobuf(builder.build(true));
+                this.a.J(w25Var, true);
             }
         }
     }
@@ -701,7 +701,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048593, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048592, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(5022);
             if (this.a == null) {
                 this.a = new ConcernPageView(getContext());
@@ -727,7 +727,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
         return (View) invokeLLL.objValue;
     }
 
-    public final void N1(User.Builder builder, User_Info user_Info) {
+    public final void Z1(User.Builder builder, User_Info user_Info) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048580, this, builder, user_Info) != null) || user_Info == null) {
             return;
@@ -751,7 +751,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
         builder.new_god_data = user_Info.new_god_data;
     }
 
-    public void R1(tbclient.Userlike.DataRes dataRes, boolean z) {
+    public void d2(tbclient.Userlike.DataRes dataRes, boolean z) {
         ConcernPageView concernPageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataRes, z) == null) && (concernPageView = this.a) != null) {
@@ -759,7 +759,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
         }
     }
 
-    public void S1(String str, int i) {
+    public void e2(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048585, this, str, i) == null) {
             this.a.l0(str, i);
@@ -771,7 +771,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (super.getCurrentPageSourceKeyList() != null) {
                 arrayList = new ArrayList(super.getCurrentPageSourceKeyList());
             } else {
@@ -788,7 +788,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDestroy();
             MessageManager.getInstance().unRegisterListener(this.i);
             MessageManager.getInstance().unRegisterListener(this.j);
@@ -797,14 +797,14 @@ public class ConcernFragment extends BaseFragment implements ng7 {
                 this.a.U();
             }
             this.d = true;
-            tm5.e().b();
+            in5.e().b();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onActivityCreated(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, bundle) == null) {
             super.onActivityCreated(bundle);
             this.i.setTag(getBaseFragmentActivity().getUniqueId());
             this.i.setSelfListener(true);
@@ -822,7 +822,7 @@ public class ConcernFragment extends BaseFragment implements ng7 {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
                 if (!this.e) {
@@ -856,17 +856,17 @@ public class ConcernFragment extends BaseFragment implements ng7 {
                     concernPageView3.setViewForeground();
                 }
                 if (getContext() != null) {
-                    YunDialogManager.onShow(getContext(), h55.j);
+                    YunDialogManager.onShow(getContext(), n55.j);
                     return;
                 }
                 return;
             }
-            YunDialogManager.onHidden(h55.j);
+            YunDialogManager.onHidden(n55.j);
             ConcernPageView concernPageView4 = this.a;
             if (concernPageView4 != null) {
                 concernPageView4.Z();
             }
-            L1();
+            X1();
         }
     }
 }

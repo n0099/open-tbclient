@@ -18,13 +18,13 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b37;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
-import com.baidu.tieba.n17;
-import com.baidu.tieba.tm8;
-import com.baidu.tieba.yi8;
-import com.baidu.tieba.yj8;
+import com.baidu.tieba.sq8;
+import com.baidu.tieba.xm8;
+import com.baidu.tieba.xn8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,7 +84,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
     }
 
     /* loaded from: classes6.dex */
-    public class a implements n17.i {
+    public class a implements b37.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TextMsg a;
@@ -109,11 +109,11 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
             this.b = textView;
         }
 
-        @Override // com.baidu.tieba.n17.i
+        @Override // com.baidu.tieba.b37.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                tm8.a(spannableStringBuilder);
+                sq8.a(spannableStringBuilder);
                 this.a.setCacheText(spannableStringBuilder);
                 this.b.setText(spannableStringBuilder);
             }
@@ -121,7 +121,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
     }
 
     /* loaded from: classes6.dex */
-    public class b implements yi8 {
+    public class b implements xm8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ViewGroup a;
@@ -152,21 +152,21 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
             this.d = i;
         }
 
-        @Override // com.baidu.tieba.yi8
+        @Override // com.baidu.tieba.xm8
         public void a(Drawable drawable) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
                 this.a.setBackground(drawable);
-                yj8.o(false, this.b, this.c, this.d);
+                xn8.o(false, this.b, this.c, this.d);
             }
         }
 
-        @Override // com.baidu.tieba.yi8
+        @Override // com.baidu.tieba.xm8
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 this.e.i0(this.a, this.c);
-                yj8.o(true, this.b, this.c, this.d);
+                xn8.o(true, this.b, this.c, this.d);
             }
         }
     }
@@ -195,7 +195,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
     public final void d0(@NonNull ViewGroup viewGroup, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, viewGroup, textView) == null) {
-            View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f090ea8);
+            View findViewById = viewGroup.findViewById(R.id.obfuscated_res_0x7f090eb5);
             if (findViewById != null) {
                 if (findViewById.getVisibility() == 0) {
                     textView.getLayoutParams().width = -1;
@@ -213,7 +213,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
     /* renamed from: f0 */
-    public Holder O(@NonNull ViewGroup viewGroup) {
+    public Holder N(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
@@ -226,7 +226,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
     /* renamed from: g0 */
-    public Holder Q(@NonNull ViewGroup viewGroup) {
+    public Holder P(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
@@ -240,7 +240,7 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
             TextView textView = new TextView(context);
-            textView.setId(R.id.obfuscated_res_0x7f090eb1);
+            textView.setId(R.id.obfuscated_res_0x7f090ebe);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
@@ -283,17 +283,17 @@ public class TextAdapter extends BaseChatAdapter<TextMsg, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     /* renamed from: h0 */
-    public void V(int i, @NonNull ViewGroup viewGroup, @NonNull TextMsg textMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    public void U(int i, @NonNull ViewGroup viewGroup, @NonNull TextMsg textMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), viewGroup, textMsg, holder, list, Integer.valueOf(i2)}) == null) {
             TextView textView = (TextView) holder.getView();
-            tm8.b(textMsg.getAtUserInfoList());
+            sq8.b(textMsg.getAtUserInfoList());
             if (textMsg.getCacheText() != null) {
                 textView.setText(textMsg.getCacheText());
             } else {
-                n17.e(getContext(), textMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, textMsg, textView));
+                b37.e(getContext(), textMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, textMsg, textView));
             }
-            yj8.t(this.mType, textMsg, viewGroup, new b(this, viewGroup, textView, textMsg, i2));
+            xn8.t(this.mType, textMsg, viewGroup, new b(this, viewGroup, textView, textMsg, i2));
             e0(textView, textMsg);
             d0(viewGroup, textView);
         }

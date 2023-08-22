@@ -108,7 +108,7 @@ public class AccessibilityDelegateCompat {
     }
 
     public static List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> getActionList(View view2) {
-        List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view2.getTag(R.id.obfuscated_res_0x7f092370);
+        List<AccessibilityNodeInfoCompat.AccessibilityActionCompat> list = (List) view2.getTag(R.id.obfuscated_res_0x7f09239e);
         if (list == null) {
             return Collections.emptyList();
         }
@@ -137,7 +137,7 @@ public class AccessibilityDelegateCompat {
 
     private boolean performClickableSpanAction(int i, View view2) {
         WeakReference weakReference;
-        SparseArray sparseArray = (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f092371);
+        SparseArray sparseArray = (SparseArray) view2.getTag(R.id.obfuscated_res_0x7f09239f);
         if (sparseArray != null && (weakReference = (WeakReference) sparseArray.get(i)) != null) {
             ClickableSpan clickableSpan = (ClickableSpan) weakReference.get();
             if (isSpanStillValid(clickableSpan, view2)) {

@@ -12,9 +12,9 @@ public final class R {
     /* loaded from: classes9.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int emui_color_gray_1 = 0x7f06073b;
-        public static final int emui_color_gray_10 = 0x7f06073c;
-        public static final int emui_color_gray_7 = 0x7f06073d;
+        public static final int emui_color_gray_1 = 0x7f060741;
+        public static final int emui_color_gray_10 = 0x7f060742;
+        public static final int emui_color_gray_7 = 0x7f060743;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -35,7 +35,7 @@ public final class R {
     /* loaded from: classes9.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int enable_service_text = 0x7f090a0b;
+        public static final int enable_service_text = 0x7f090a17;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -56,7 +56,7 @@ public final class R {
     /* loaded from: classes9.dex */
     public static final class layout {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int activity_endisable_service = 0x7f0d0036;
+        public static final int activity_endisable_service = 0x7f0d0037;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -77,12 +77,12 @@ public final class R {
     /* loaded from: classes9.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int hms_apk_not_installed_hints = 0x7f0f09c9;
-        public static final int hms_bindfaildlg_message = 0x7f0f09ca;
-        public static final int hms_bindfaildlg_title = 0x7f0f09cb;
-        public static final int hms_confirm = 0x7f0f09cc;
-        public static final int hms_is_spoof = 0x7f0f09cd;
-        public static final int hms_spoof_hints = 0x7f0f09d3;
+        public static final int hms_apk_not_installed_hints = 0x7f0f09d3;
+        public static final int hms_bindfaildlg_message = 0x7f0f09d4;
+        public static final int hms_bindfaildlg_title = 0x7f0f09d5;
+        public static final int hms_confirm = 0x7f0f09d6;
+        public static final int hms_is_spoof = 0x7f0f09d7;
+        public static final int hms_spoof_hints = 0x7f0f09db;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

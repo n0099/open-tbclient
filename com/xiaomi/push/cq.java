@@ -13,13 +13,13 @@ import org.json.JSONObject;
 public class cq {
 
     /* renamed from: a  reason: collision with other field name */
-    public long f183a;
+    public long f184a;
 
     /* renamed from: a  reason: collision with other field name */
-    public String f184a;
+    public String f185a;
 
     /* renamed from: b  reason: collision with other field name */
-    public String f186b;
+    public String f187b;
     public String c;
     public String d;
     public String e;
@@ -29,42 +29,42 @@ public class cq {
     public String i;
 
     /* renamed from: a  reason: collision with other field name */
-    public ArrayList<cz> f185a = new ArrayList<>();
+    public ArrayList<cz> f186a = new ArrayList<>();
     public double a = 0.1d;
     public String j = "s.mi1.cc";
     public long b = 86400000;
 
     public cq(String str) {
-        this.f184a = "";
+        this.f185a = "";
         if (TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("the host is empty");
         }
-        this.f183a = System.currentTimeMillis();
-        this.f185a.add(new cz(str, -1));
-        this.f184a = cu.m342a();
-        this.f186b = str;
+        this.f184a = System.currentTimeMillis();
+        this.f186a.add(new cz(str, -1));
+        this.f185a = cu.m344a();
+        this.f187b = str;
     }
 
     private synchronized void c(String str) {
-        Iterator<cz> it = this.f185a.iterator();
+        Iterator<cz> it = this.f186a.iterator();
         while (it.hasNext()) {
-            if (TextUtils.equals(it.next().f202a, str)) {
+            if (TextUtils.equals(it.next().f203a, str)) {
                 it.remove();
             }
         }
     }
 
     public synchronized cq a(JSONObject jSONObject) {
-        this.f184a = jSONObject.optString("net");
+        this.f185a = jSONObject.optString("net");
         this.b = jSONObject.getLong("ttl");
         this.a = jSONObject.getDouble("pct");
-        this.f183a = jSONObject.getLong("ts");
+        this.f184a = jSONObject.getLong("ts");
         this.d = jSONObject.optString("city");
         this.c = jSONObject.optString("prv");
         this.g = jSONObject.optString(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE);
         this.e = jSONObject.optString("isp");
         this.f = jSONObject.optString("ip");
-        this.f186b = jSONObject.optString("host");
+        this.f187b = jSONObject.optString("host");
         this.h = jSONObject.optString("xf");
         JSONArray jSONArray = jSONObject.getJSONArray("fbs");
         for (int i = 0; i < jSONArray.length(); i++) {
@@ -86,7 +86,7 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized ArrayList<String> m333a() {
+    public synchronized ArrayList<String> m335a() {
         return a(false);
     }
 
@@ -95,12 +95,12 @@ public class cq {
             throw new IllegalArgumentException("the url is empty.");
         }
         URL url = new URL(str);
-        if (TextUtils.equals(url.getHost(), this.f186b)) {
+        if (TextUtils.equals(url.getHost(), this.f187b)) {
             ArrayList<String> arrayList = new ArrayList<>();
             Iterator<String> it = a(true).iterator();
             while (it.hasNext()) {
                 cs a = cs.a(it.next(), url.getPort());
-                arrayList.add(new URL(url.getProtocol(), a.m341a(), a.a(), url.getFile()).toString());
+                arrayList.add(new URL(url.getProtocol(), a.m343a(), a.a(), url.getFile()).toString());
             }
             return arrayList;
         }
@@ -110,18 +110,18 @@ public class cq {
     public synchronized ArrayList<String> a(boolean z) {
         ArrayList<String> arrayList;
         String substring;
-        int size = this.f185a.size();
+        int size = this.f186a.size();
         cz[] czVarArr = new cz[size];
-        this.f185a.toArray(czVarArr);
+        this.f186a.toArray(czVarArr);
         Arrays.sort(czVarArr);
         arrayList = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             cz czVar = czVarArr[i];
             if (z) {
-                substring = czVar.f202a;
+                substring = czVar.f203a;
             } else {
-                int indexOf = czVar.f202a.indexOf(":");
-                substring = indexOf != -1 ? czVar.f202a.substring(0, indexOf) : czVar.f202a;
+                int indexOf = czVar.f203a.indexOf(":");
+                substring = indexOf != -1 ? czVar.f203a.substring(0, indexOf) : czVar.f203a;
             }
             arrayList.add(substring);
         }
@@ -129,22 +129,22 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized JSONObject m334a() {
+    public synchronized JSONObject m336a() {
         JSONObject jSONObject;
         jSONObject = new JSONObject();
-        jSONObject.put("net", this.f184a);
+        jSONObject.put("net", this.f185a);
         jSONObject.put("ttl", this.b);
         jSONObject.put("pct", this.a);
-        jSONObject.put("ts", this.f183a);
+        jSONObject.put("ts", this.f184a);
         jSONObject.put("city", this.d);
         jSONObject.put("prv", this.c);
         jSONObject.put(MapBundleKey.OfflineMapKey.OFFLINE_CITY_TYPE, this.g);
         jSONObject.put("isp", this.e);
         jSONObject.put("ip", this.f);
-        jSONObject.put("host", this.f186b);
+        jSONObject.put("host", this.f187b);
         jSONObject.put("xf", this.h);
         JSONArray jSONArray = new JSONArray();
-        Iterator<cz> it = this.f185a.iterator();
+        Iterator<cz> it = this.f186a.iterator();
         while (it.hasNext()) {
             jSONArray.put(it.next().a());
         }
@@ -165,12 +165,12 @@ public class cq {
     }
 
     public synchronized void a(cz czVar) {
-        c(czVar.f202a);
-        this.f185a.add(czVar);
+        c(czVar.f203a);
+        this.f186a.add(czVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m335a(String str) {
+    public synchronized void m337a(String str) {
         a(new cz(str));
     }
 
@@ -199,13 +199,13 @@ public class cq {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public synchronized void a(String str, cp cpVar) {
-        Iterator<cz> it = this.f185a.iterator();
+        Iterator<cz> it = this.f186a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;
             }
             cz next = it.next();
-            if (TextUtils.equals(str, next.f202a)) {
+            if (TextUtils.equals(str, next.f203a)) {
                 break;
             }
         }
@@ -213,7 +213,7 @@ public class cq {
 
     public synchronized void a(String[] strArr) {
         int i;
-        int size = this.f185a.size() - 1;
+        int size = this.f186a.size() - 1;
         while (true) {
             i = 0;
             if (size < 0) {
@@ -222,8 +222,8 @@ public class cq {
             int length = strArr.length;
             while (true) {
                 if (i < length) {
-                    if (TextUtils.equals(this.f185a.get(size).f202a, strArr[i])) {
-                        this.f185a.remove(size);
+                    if (TextUtils.equals(this.f186a.get(size).f203a, strArr[i])) {
+                        this.f186a.remove(size);
                         break;
                     }
                     i++;
@@ -231,7 +231,7 @@ public class cq {
             }
             size--;
         }
-        Iterator<cz> it = this.f185a.iterator();
+        Iterator<cz> it = this.f186a.iterator();
         int i2 = 0;
         while (it.hasNext()) {
             cz next = it.next();
@@ -246,12 +246,12 @@ public class cq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m336a() {
-        return TextUtils.equals(this.f184a, cu.m342a());
+    public boolean m338a() {
+        return TextUtils.equals(this.f185a, cu.m344a());
     }
 
     public boolean a(cq cqVar) {
-        return TextUtils.equals(this.f184a, cqVar.f184a);
+        return TextUtils.equals(this.f185a, cqVar.f185a);
     }
 
     public void b(String str) {
@@ -267,7 +267,7 @@ public class cq {
     }
 
     public boolean b() {
-        return System.currentTimeMillis() - this.f183a < this.b;
+        return System.currentTimeMillis() - this.f184a < this.b;
     }
 
     public boolean c() {
@@ -276,16 +276,16 @@ public class cq {
             j = 864000000;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        long j2 = this.f183a;
-        return currentTimeMillis - j2 > j || (currentTimeMillis - j2 > this.b && this.f184a.startsWith("WIFI-"));
+        long j2 = this.f184a;
+        return currentTimeMillis - j2 > j || (currentTimeMillis - j2 > this.b && this.f185a.startsWith("WIFI-"));
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f184a);
+        sb.append(this.f185a);
         sb.append("\n");
         sb.append(a());
-        Iterator<cz> it = this.f185a.iterator();
+        Iterator<cz> it = this.f186a.iterator();
         while (it.hasNext()) {
             sb.append("\n");
             sb.append(it.next().toString());

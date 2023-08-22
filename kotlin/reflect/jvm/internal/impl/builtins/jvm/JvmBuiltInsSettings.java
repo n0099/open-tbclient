@@ -83,7 +83,7 @@ import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.TypeSubstitutor;
 import kotlin.reflect.jvm.internal.impl.utils.DFS;
 import kotlin.reflect.jvm.internal.impl.utils.SmartSet;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JvmBuiltInsSettings implements AdditionalClassPartsProvider, PlatformDependentDeclarationFilter {
     public static final Set<String> BLACK_LIST_CONSTRUCTOR_SIGNATURES;
     public static final Set<String> BLACK_LIST_METHOD_SIGNATURES;
@@ -102,7 +102,7 @@ public class JvmBuiltInsSettings implements AdditionalClassPartsProvider, Platfo
     public static final Companion Companion = new Companion(null);
     public static final Set<String> DROP_LIST_METHOD_SIGNATURES = SetsKt___SetsKt.plus(SignatureBuildingComponents.INSTANCE.inJavaUtil("Collection", "toArray()[Ljava/lang/Object;", "toArray([Ljava/lang/Object;)[Ljava/lang/Object;"), "java/lang/annotation/Annotation.annotationType()Ljava/lang/Class;");
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public enum JDKMemberStatus {
         BLACK_LIST,
         WHITE_LIST,
@@ -110,7 +110,7 @@ public class JvmBuiltInsSettings implements AdditionalClassPartsProvider, Platfo
         DROP
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
 
@@ -141,7 +141,7 @@ public class JvmBuiltInsSettings implements AdditionalClassPartsProvider, Platfo
         return ((Boolean) this.isAdditionalBuiltInsFeatureSupported$delegate.getValue()).booleanValue();
     }
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class Companion {
         public Companion() {
         }
@@ -346,14 +346,14 @@ public class JvmBuiltInsSettings implements AdditionalClassPartsProvider, Platfo
                     Intrinsics.checkExpressionValueIsNotNull(it, "it");
                     TypeConstructor typeConstructor = it.getTypeConstructor();
                     Intrinsics.checkExpressionValueIsNotNull(typeConstructor, "it.typeConstructor");
-                    Collection<KotlinType> mo2103getSupertypes = typeConstructor.mo2103getSupertypes();
-                    Intrinsics.checkExpressionValueIsNotNull(mo2103getSupertypes, "it.typeConstructor.supertypes");
+                    Collection<KotlinType> mo2105getSupertypes = typeConstructor.mo2105getSupertypes();
+                    Intrinsics.checkExpressionValueIsNotNull(mo2105getSupertypes, "it.typeConstructor.supertypes");
                     ArrayList arrayList = new ArrayList();
-                    for (KotlinType kotlinType : mo2103getSupertypes) {
-                        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
+                    for (KotlinType kotlinType : mo2105getSupertypes) {
+                        ClassifierDescriptor mo2104getDeclarationDescriptor = kotlinType.getConstructor().mo2104getDeclarationDescriptor();
                         LazyJavaClassDescriptor lazyJavaClassDescriptor = null;
-                        if (mo2102getDeclarationDescriptor != null) {
-                            classifierDescriptor = mo2102getDeclarationDescriptor.getOriginal();
+                        if (mo2104getDeclarationDescriptor != null) {
+                            classifierDescriptor = mo2104getDeclarationDescriptor.getOriginal();
                         } else {
                             classifierDescriptor = null;
                         }
@@ -550,9 +550,9 @@ public class JvmBuiltInsSettings implements AdditionalClassPartsProvider, Platfo
             Intrinsics.checkExpressionValueIsNotNull(valueParameters, "valueParameters");
             Object single = CollectionsKt___CollectionsKt.single((List<? extends Object>) valueParameters);
             Intrinsics.checkExpressionValueIsNotNull(single, "valueParameters.single()");
-            ClassifierDescriptor mo2102getDeclarationDescriptor = ((ValueParameterDescriptor) single).getType().getConstructor().mo2102getDeclarationDescriptor();
-            if (mo2102getDeclarationDescriptor != null) {
-                fqNameUnsafe = DescriptorUtilsKt.getFqNameUnsafe(mo2102getDeclarationDescriptor);
+            ClassifierDescriptor mo2104getDeclarationDescriptor = ((ValueParameterDescriptor) single).getType().getConstructor().mo2104getDeclarationDescriptor();
+            if (mo2104getDeclarationDescriptor != null) {
+                fqNameUnsafe = DescriptorUtilsKt.getFqNameUnsafe(mo2104getDeclarationDescriptor);
             } else {
                 fqNameUnsafe = null;
             }

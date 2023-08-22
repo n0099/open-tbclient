@@ -1,31 +1,23 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class h41 {
+public final class h41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Cursor cursor, j41... j41VarArr) {
+    public static <T> T a(Class<T> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, cursor, j41VarArr) == null) {
-            int i = 0;
-            for (j41 j41Var : j41VarArr) {
-                for (Column column : j41Var.b().c()) {
-                    g41.h(column, cursor, i);
-                    i++;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cls)) == null) {
+            try {
+                return cls.getConstructor(new Class[0]).newInstance(new Object[0]);
+            } catch (Exception e) {
+                throw new RuntimeException(cls + " can't init new instance by default constructor.", e);
             }
         }
-    }
-
-    public static void b(j41 j41Var, Cursor cursor) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, j41Var, cursor) == null) {
-            g41.i(cursor, j41Var.b().c());
-        }
+        return (T) invokeL.objValue;
     }
 }

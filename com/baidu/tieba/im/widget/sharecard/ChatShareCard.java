@@ -36,11 +36,12 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g16;
 import com.baidu.tieba.im.data.ShareForumMsgData;
 import com.baidu.tieba.im.data.ShareThreadMsgData;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
-import com.baidu.tieba.ne8;
-import com.baidu.tieba.o06;
+import com.baidu.tieba.im.db.pojo.PbContentPojo;
+import com.baidu.tieba.mi8;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -57,13 +58,13 @@ import java.util.List;
 /* loaded from: classes6.dex */
 public class ChatShareCard extends LinearLayout implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final int W;
-    public static final int a0;
-    public static final int b0;
     public static final int c0;
     public static final int d0;
     public static final int e0;
     public static final int f0;
+    public static final int g0;
+    public static final int h0;
+    public static final int i0;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView A;
     public TextView B;
@@ -86,11 +87,14 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
     public ShareThreadMsgData S;
 
     /* renamed from: T  reason: collision with root package name */
-    public ShareForumMsgData f1117T;
+    public ShareForumMsgData f1133T;
     public short U;
     public int V;
+    public long W;
     public short a;
+    public long a0;
     public LinearLayout b;
+    public String b0;
     public BarImageView c;
     public TextView d;
     public TextView e;
@@ -139,14 +143,14 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 return;
             }
         }
-        W = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1);
+        c0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1);
         BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        a0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds410);
-        b0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds595);
-        c0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds540);
-        d0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1);
-        e0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds340);
-        f0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds548);
+        d0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds410);
+        e0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds595);
+        f0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds540);
+        g0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1);
+        h0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds340);
+        i0 = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds548);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -185,6 +189,40 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         return (List) invokeL.objValue;
     }
 
+    public final List<PbContentPojo> j(ShareThreadMsgData shareThreadMsgData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, shareThreadMsgData)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(shareThreadMsgData.getRich_abstract())) {
+                for (PbContentPojo pbContentPojo : shareThreadMsgData.getRich_abstract()) {
+                    if (!StringUtils.isNull(pbContentPojo.link)) {
+                        arrayList.add(pbContentPojo);
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final boolean r(ShareThreadMsgData shareThreadMsgData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, shareThreadMsgData)) == null) {
+            if (!ListUtils.isEmpty(shareThreadMsgData.getRich_abstract())) {
+                for (PbContentPojo pbContentPojo : shareThreadMsgData.getRich_abstract()) {
+                    if (!StringUtils.isNull(pbContentPojo.link)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ChatShareCard(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
@@ -204,12 +242,12 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 return;
             }
         }
-        o();
+        q();
     }
 
-    public final void n(PlayVoiceBntNew playVoiceBntNew, ShareThreadMsgData shareThreadMsgData) {
+    public final void o(PlayVoiceBntNew playVoiceBntNew, ShareThreadMsgData shareThreadMsgData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, playVoiceBntNew, shareThreadMsgData) == null) && shareThreadMsgData != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048590, this, playVoiceBntNew, shareThreadMsgData) == null) && shareThreadMsgData != null) {
             if (shareThreadMsgData.getDuring_time() > 0) {
                 VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
                 voiceModel.setDuration(shareThreadMsgData.getDuring_time() / 1000);
@@ -227,7 +265,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
     private void setStrokeWith(TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, tbImageView) == null) {
-            tbImageView.setBorderWidth(d0);
+            tbImageView.setBorderWidth(g0);
             tbImageView.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             tbImageView.setBorderSurroundContent(true);
             tbImageView.setDrawBorder(true);
@@ -246,10 +284,10 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         return invokeL.booleanValue;
     }
 
-    public final short m(ShareThreadMsgData shareThreadMsgData) {
+    public final short n(ShareThreadMsgData shareThreadMsgData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, shareThreadMsgData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, shareThreadMsgData)) == null) {
             int thread_type = shareThreadMsgData.getThread_type();
             if (thread_type == 40) {
                 return (short) 2;
@@ -262,11 +300,44 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         return invokeL.shortValue;
     }
 
+    public void setChatRoomId(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048597, this, j) == null) {
+            this.W = j;
+        }
+    }
+
     public void setCurrentCardType(short s) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Short.valueOf(s)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048598, this, new Object[]{Short.valueOf(s)}) == null) {
             this.a = s;
         }
+    }
+
+    public void setFid(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            this.a0 = j;
+        }
+    }
+
+    public void setFname(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            this.b0 = str;
+        }
+    }
+
+    public final boolean t(ShareThreadMsgData shareThreadMsgData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, shareThreadMsgData)) == null) {
+            if (shareThreadMsgData.getDuring_time() != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public void a(OrmObject ormObject) {
@@ -281,7 +352,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 this.b.setVisibility(0);
                 if (ormObject instanceof ShareForumMsgData) {
                     ShareForumMsgData shareForumMsgData = (ShareForumMsgData) ormObject;
-                    this.f1117T = shareForumMsgData;
+                    this.f1133T = shareForumMsgData;
                     b(shareForumMsgData);
                     return;
                 }
@@ -291,37 +362,84 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         }
         this.g.setVisibility(0);
         this.b.setVisibility(8);
+        p();
         if (ormObject instanceof ShareThreadMsgData) {
             ShareThreadMsgData shareThreadMsgData = (ShareThreadMsgData) ormObject;
             this.S = shareThreadMsgData;
-            short m = m(shareThreadMsgData);
-            this.U = m;
-            if (m == 1) {
+            short n = n(shareThreadMsgData);
+            this.U = n;
+            if (n == 1) {
                 c(shareThreadMsgData);
-            } else if (m == 2) {
+            } else if (n == 2) {
                 e(shareThreadMsgData);
-            } else if (m == 3) {
+            } else if (n == 3) {
                 d(shareThreadMsgData);
             }
         }
     }
 
-    public final void k(ShareThreadMsgData shareThreadMsgData) {
+    public final void c(ShareThreadMsgData shareThreadMsgData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, shareThreadMsgData) == null) {
-            if (!StringUtils.isNull(shareThreadMsgData.getForum_avatar()) && !StringUtils.isNull(shareThreadMsgData.getAuthor_name_show())) {
-                this.R.setVisibility(0);
-                this.R.setText(String.format(getContext().getString(R.string.thread_come_from), shareThreadMsgData.getAuthor_name_show()));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareThreadMsgData) == null) {
+            m(shareThreadMsgData);
+            k(this.l, this.k, shareThreadMsgData, e0, true, false, true);
+            if (shareThreadMsgData.getMedia_list() != null && shareThreadMsgData.getMedia_list().size() > 0) {
+                this.m.setVisibility(0);
+                this.n.setVisibility(8);
+                this.z.setVisibility(8);
+                f(shareThreadMsgData.getMedia_list(), new TbImageView[]{this.o, this.p, this.q, this.r, this.s}, this.y);
+            } else {
+                this.m.setVisibility(8);
+            }
+            o(this.Q, shareThreadMsgData);
+            l(shareThreadMsgData);
+        }
+    }
+
+    public final void e(ShareThreadMsgData shareThreadMsgData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, shareThreadMsgData) == null) {
+            m(shareThreadMsgData);
+            k(this.l, this.k, shareThreadMsgData, e0, false, false, true);
+            if (!StringUtils.isNull(shareThreadMsgData.getThumbnail_url())) {
+                this.m.setVisibility(0);
+                this.n.setVisibility(0);
+                this.z.setVisibility(8);
+                this.p.setVisibility(8);
+                this.o.setVisibility(8);
+                this.q.setVisibility(8);
+                this.r.setVisibility(8);
+                this.s.setVisibility(8);
+                g(shareThreadMsgData, this.n, new TbImageView[]{this.t, this.u}, this.v, this.x, this.w);
+            } else {
+                this.m.setVisibility(8);
+            }
+            o(this.Q, shareThreadMsgData);
+            l(shareThreadMsgData);
+        }
+    }
+
+    public final void m(ShareThreadMsgData shareThreadMsgData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, shareThreadMsgData) == null) {
+            if (!StringUtils.isNull(shareThreadMsgData.getForum_avatar())) {
+                this.i.setVisibility(8);
+                this.h.setVisibility(0);
+                this.h.startLoad(shareThreadMsgData.getForum_avatar(), 10, false);
+                this.j.setText(shareThreadMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f077c));
                 return;
             }
-            this.R.setVisibility(8);
+            this.i.setVisibility(0);
+            this.h.setVisibility(8);
+            this.i.k(shareThreadMsgData.getAuthor_portrait(), 12, false);
+            this.j.setText(shareThreadMsgData.getAuthor_name_show());
         }
     }
 
     public final void b(ShareForumMsgData shareForumMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareForumMsgData) == null) {
-            this.d.setText(shareForumMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f0774));
+            this.d.setText(shareForumMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f077c));
             if (!StringUtils.isNull(shareForumMsgData.getSlogan())) {
                 this.e.setVisibility(0);
                 this.e.setText(String.format(getContext().getString(R.string.forum_slogan), shareForumMsgData.getSlogan()));
@@ -330,6 +448,61 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             }
             this.f.setText(String.format(getContext().getString(R.string.attention_and_post), StringHelper.numberUniformFormatExtraWithRoundInt(shareForumMsgData.getMember_count()), StringHelper.numberUniformFormatExtraWithRoundInt(shareForumMsgData.getThread_count())));
             this.c.startLoad(shareForumMsgData.getAvatar(), 10, false);
+        }
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            if (!StringUtils.isNull(str) && str.endsWith("MsgleftView")) {
+                SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_left);
+            } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
+                SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
+            }
+            EMManager.from(this.d).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105);
+            EMManager.from(this.e).setTextColor(R.color.CAM_X0107);
+            EMManager.from(this.f).setTextColor(R.color.CAM_X0109);
+            EMManager.from(this.j).setTextColor(R.color.CAM_X0107);
+            EMManager.from(this.R).setTextColor(R.color.CAM_X0109);
+            EMManager.from(this.z).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0204);
+            EMManager.from(this.y).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0607);
+            EMManager.from(this.O).setCorner(R.string.J_X01).setBackGroundColor(R.color.CAM_X0607);
+        }
+    }
+
+    public final void d(ShareThreadMsgData shareThreadMsgData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, shareThreadMsgData) == null) {
+            m(shareThreadMsgData);
+            k(this.l, this.k, shareThreadMsgData, e0, false, false, true);
+            if (shareThreadMsgData.getOrigin_thread_info() != null) {
+                this.m.setVisibility(8);
+                this.z.setVisibility(0);
+                ShareThreadMsgData origin_thread_info = shareThreadMsgData.getOrigin_thread_info();
+                k(this.B, this.A, origin_thread_info, f0, false, true, false);
+                if (n(origin_thread_info) == 2) {
+                    if (!StringUtils.isNull(origin_thread_info.getThumbnail_url())) {
+                        this.C.setVisibility(0);
+                        this.D.setVisibility(0);
+                        this.G.setVisibility(8);
+                        this.H.setVisibility(8);
+                        this.I.setVisibility(8);
+                        this.J.setVisibility(8);
+                        this.K.setVisibility(8);
+                        g(origin_thread_info, this.D, new TbImageView[]{this.E, this.F}, this.L, this.N, this.M);
+                    } else {
+                        this.C.setVisibility(8);
+                    }
+                } else if (h(origin_thread_info.getMedia_list()).size() > 0) {
+                    this.C.setVisibility(0);
+                    this.D.setVisibility(8);
+                    f(origin_thread_info.getMedia_list(), new TbImageView[]{this.G, this.H, this.I, this.J, this.K}, this.O);
+                } else {
+                    this.C.setVisibility(8);
+                }
+                o(this.P, origin_thread_info);
+            }
+            l(shareThreadMsgData);
         }
     }
 
@@ -354,126 +527,15 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                         MessageManager.getInstance().sendMessage(new CustomMessage(2004001, pbActivityConfig));
                     }
                 }
-                ne8.d("c15286", 1, this.V);
+                mi8.d("c15286", 1, this.V, this.a0, this.b0, this.W);
                 return;
             }
-            if (this.f1117T != null) {
+            if (this.f1133T != null) {
                 FrsActivityConfig frsActivityConfig = new FrsActivityConfig(getContext());
-                frsActivityConfig.createNormalCfg(this.f1117T.getForum_name(), "");
+                frsActivityConfig.createNormalCfg(this.f1133T.getForum_name(), "");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2003000, frsActivityConfig));
             }
-            ne8.d("c15286", 2, this.V);
-        }
-    }
-
-    public final void c(ShareThreadMsgData shareThreadMsgData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareThreadMsgData) == null) {
-            l(shareThreadMsgData);
-            j(this.l, this.k, shareThreadMsgData, b0);
-            if (shareThreadMsgData.getMedia_list() != null && shareThreadMsgData.getMedia_list().size() > 0) {
-                this.m.setVisibility(0);
-                this.n.setVisibility(8);
-                this.z.setVisibility(8);
-                f(shareThreadMsgData.getMedia_list(), new TbImageView[]{this.o, this.p, this.q, this.r, this.s}, this.y);
-            } else {
-                this.m.setVisibility(8);
-            }
-            n(this.Q, shareThreadMsgData);
-            k(shareThreadMsgData);
-        }
-    }
-
-    public final void e(ShareThreadMsgData shareThreadMsgData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, shareThreadMsgData) == null) {
-            l(shareThreadMsgData);
-            j(this.l, this.k, shareThreadMsgData, b0);
-            if (!StringUtils.isNull(shareThreadMsgData.getThumbnail_url())) {
-                this.m.setVisibility(0);
-                this.n.setVisibility(0);
-                this.z.setVisibility(8);
-                this.p.setVisibility(8);
-                this.o.setVisibility(8);
-                this.q.setVisibility(8);
-                this.r.setVisibility(8);
-                this.s.setVisibility(8);
-                g(shareThreadMsgData, this.n, new TbImageView[]{this.t, this.u}, this.v, this.x, this.w);
-            } else {
-                this.m.setVisibility(8);
-            }
-            n(this.Q, shareThreadMsgData);
-            k(shareThreadMsgData);
-        }
-    }
-
-    public final void l(ShareThreadMsgData shareThreadMsgData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, shareThreadMsgData) == null) {
-            if (!StringUtils.isNull(shareThreadMsgData.getForum_avatar())) {
-                this.i.setVisibility(8);
-                this.h.setVisibility(0);
-                this.h.startLoad(shareThreadMsgData.getForum_avatar(), 10, false);
-                this.j.setText(shareThreadMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f0774));
-                return;
-            }
-            this.i.setVisibility(0);
-            this.h.setVisibility(8);
-            this.i.k(shareThreadMsgData.getAuthor_portrait(), 12, false);
-            this.j.setText(shareThreadMsgData.getAuthor_name_show());
-        }
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            if (!StringUtils.isNull(str) && str.endsWith("MsgleftView")) {
-                SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_left);
-            } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
-                SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
-            }
-            EMManager.from(this.d).setTextStyle(R.string.F_X02).setTextColor(R.color.CAM_X0105);
-            EMManager.from(this.e).setTextColor(R.color.CAM_X0107);
-            EMManager.from(this.f).setTextColor(R.color.CAM_X0109);
-            EMManager.from(this.j).setTextColor(R.color.CAM_X0107);
-            EMManager.from(this.R).setTextColor(R.color.CAM_X0109);
-            EMManager.from(this.z).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0204);
-        }
-    }
-
-    public final void d(ShareThreadMsgData shareThreadMsgData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, shareThreadMsgData) == null) {
-            l(shareThreadMsgData);
-            j(this.l, this.k, shareThreadMsgData, b0);
-            if (shareThreadMsgData.getOrigin_thread_info() != null) {
-                this.m.setVisibility(8);
-                this.z.setVisibility(0);
-                ShareThreadMsgData origin_thread_info = shareThreadMsgData.getOrigin_thread_info();
-                j(this.B, this.A, origin_thread_info, c0);
-                if (m(origin_thread_info) == 2) {
-                    if (!StringUtils.isNull(origin_thread_info.getThumbnail_url())) {
-                        this.C.setVisibility(0);
-                        this.D.setVisibility(0);
-                        this.G.setVisibility(8);
-                        this.H.setVisibility(8);
-                        this.I.setVisibility(8);
-                        this.J.setVisibility(8);
-                        this.K.setVisibility(8);
-                        g(origin_thread_info, this.D, new TbImageView[]{this.E, this.F}, this.L, this.N, this.M);
-                    } else {
-                        this.C.setVisibility(8);
-                    }
-                } else if (h(origin_thread_info.getMedia_list()).size() > 0) {
-                    this.C.setVisibility(0);
-                    this.D.setVisibility(8);
-                    f(origin_thread_info.getMedia_list(), new TbImageView[]{this.G, this.H, this.I, this.J, this.K}, this.O);
-                } else {
-                    this.C.setVisibility(8);
-                }
-                n(this.P, origin_thread_info);
-            }
-            k(shareThreadMsgData);
+            mi8.d("c15286", 2, this.V, this.a0, this.b0, this.W);
         }
     }
 
@@ -563,8 +625,8 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             String thumbnail_url = shareThreadMsgData.getThumbnail_url();
             if (shareThreadMsgData.getThumbnail_height() > shareThreadMsgData.getThumbnail_width()) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) relativeLayout.getLayoutParams();
-                layoutParams.width = a0;
-                layoutParams.height = f0;
+                layoutParams.width = d0;
+                layoutParams.height = i0;
                 relativeLayout.setLayoutParams(layoutParams);
                 tbImageViewArr[0].setVisibility(0);
                 tbImageViewArr[1].setVisibility(8);
@@ -576,7 +638,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             } else {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) relativeLayout.getLayoutParams();
                 layoutParams2.width = -1;
-                layoutParams2.height = e0;
+                layoutParams2.height = h0;
                 relativeLayout.setLayoutParams(layoutParams2);
                 tbImageViewArr[0].setVisibility(8);
                 tbImageViewArr[1].setVisibility(0);
@@ -592,38 +654,95 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
         }
     }
 
-    public final void j(TextView textView, TextView textView2, ShareThreadMsgData shareThreadMsgData, int i) {
+    public final void k(TextView textView, TextView textView2, ShareThreadMsgData shareThreadMsgData, int i, boolean z, boolean z2, boolean z3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(1048585, this, textView, textView2, shareThreadMsgData, i) == null) && shareThreadMsgData != null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{textView, textView2, shareThreadMsgData, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) && shareThreadMsgData != null) {
             ThreadData threadData = new ThreadData();
             if (this.U == 2) {
                 threadData.threadType = 40;
                 threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));
                 threadData.setTitle(shareThreadMsgData.title);
-            } else if (!StringUtils.isNull(o06.H(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
-                threadData.setRichAbstractList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract()));
-            } else if (!ListUtils.isEmpty(shareThreadMsgData.getRich_title())) {
-                threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));
-                threadData.setTitle(shareThreadMsgData.title);
             } else {
-                threadData.setTitle(shareThreadMsgData.title);
+                if (z && !t(shareThreadMsgData)) {
+                    threadData.setTitle(shareThreadMsgData.title);
+                }
+                if (!StringUtils.isNull(g16.H(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
+                    if (r(shareThreadMsgData) && !t(shareThreadMsgData) && z3) {
+                        threadData.setRichAbstractList(ShareThreadMsgData.parseContent(j(shareThreadMsgData)));
+                    } else {
+                        threadData.setRichAbstractList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract()));
+                    }
+                } else if (!ListUtils.isEmpty(shareThreadMsgData.getRich_title())) {
+                    threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));
+                    threadData.setTitle(shareThreadMsgData.title);
+                } else {
+                    threadData.setTitle(shareThreadMsgData.title);
+                }
             }
             threadData.praserTimeConsumingInfo();
             ThreadCardUtils.setTitle(textView2, threadData, false);
-            ThreadCardUtils.setAbstract(textView, textView2, threadData, i, false, true);
+            if (s(shareThreadMsgData, z2)) {
+                ThreadCardUtils.setAbstract(textView, textView2, threadData, i, false, true);
+            }
         }
     }
 
-    public final void o() {
+    public final void l(ShareThreadMsgData shareThreadMsgData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, shareThreadMsgData) == null) {
+            if (!StringUtils.isNull(shareThreadMsgData.getForum_avatar()) && !StringUtils.isNull(shareThreadMsgData.getAuthor_name_show())) {
+                this.R.setVisibility(0);
+                this.R.setText(String.format(getContext().getString(R.string.thread_come_from), shareThreadMsgData.getAuthor_name_show()));
+                return;
+            }
+            this.R.setVisibility(8);
+        }
+    }
+
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.k.setVisibility(8);
+            this.l.setVisibility(8);
+            this.m.setVisibility(8);
+            this.n.setVisibility(8);
+            this.o.setVisibility(8);
+            this.p.setVisibility(8);
+            this.q.setVisibility(8);
+            this.r.setVisibility(8);
+            this.s.setVisibility(8);
+            this.t.setVisibility(8);
+            this.u.setVisibility(8);
+            this.y.setVisibility(8);
+            this.z.setVisibility(8);
+            this.A.setVisibility(8);
+            this.B.setVisibility(8);
+            this.C.setVisibility(8);
+            this.D.setVisibility(8);
+            this.E.setVisibility(8);
+            this.F.setVisibility(8);
+            this.G.setVisibility(8);
+            this.H.setVisibility(8);
+            this.I.setVisibility(8);
+            this.J.setVisibility(8);
+            this.K.setVisibility(8);
+            this.O.setVisibility(8);
+            this.P.setVisibility(8);
+            this.Q.setVisibility(8);
+            this.R.setVisibility(8);
+        }
+    }
+
+    public final void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             LayoutInflater.from(getContext()).inflate(R.layout.layout_chat_share_card, (ViewGroup) this, true);
             setOnClickListener(this);
             this.b = (LinearLayout) findViewById(R.id.share_forum_container);
             BarImageView barImageView = (BarImageView) findViewById(R.id.img_forum);
             this.c = barImageView;
             barImageView.setShowOval(true);
-            this.c.setStrokeWith(W);
+            this.c.setStrokeWith(c0);
             this.c.setStrokeColorResId(R.color.CAM_X0401);
             this.c.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.c.setPlaceHolder(1);
@@ -634,7 +753,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             BarImageView barImageView2 = (BarImageView) findViewById(R.id.img_forum_header);
             this.h = barImageView2;
             barImageView2.setShowOval(true);
-            this.h.setStrokeWith(W);
+            this.h.setStrokeWith(c0);
             this.h.setStrokeColorResId(R.color.CAM_X0401);
             this.h.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.h.setPlaceHolder(1);
@@ -707,7 +826,19 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             this.N = (TextView) findViewById(R.id.original_video_duration);
             this.O = (TextView) findViewById(R.id.original_img_num);
             this.P = (PlayVoiceBntNew) findViewById(R.id.original_thread_voice);
-            p("");
+            u("");
         }
+    }
+
+    public final boolean s(ShareThreadMsgData shareThreadMsgData, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048596, this, shareThreadMsgData, z)) == null) {
+            if (this.U != 2 && !r(shareThreadMsgData) && shareThreadMsgData.getDuring_time() == 0 && !shareThreadMsgData.isIs_share_thread() && !z) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLZ.booleanValue;
     }
 }

@@ -1,62 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes8.dex */
-public class zn4 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+/* loaded from: classes9.dex */
+public class zn4 extends lm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(int i) {
-        InterceptResult invokeI;
+    public zn4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            SharedPreferences a = ho4.a();
-            return a.getLong("latest_update_time" + i, 0L);
-        }
-        return invokeI.longValue;
-    }
-
-    public static long b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            SharedPreferences a = ho4.a();
-            return a.getLong("max_age" + i, 0L);
-        }
-        return invokeI.longValue;
-    }
-
-    public static boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if ((System.currentTimeMillis() - a(i)) / 1000 > b(i)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void d(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            SharedPreferences.Editor edit = ho4.a().edit();
-            edit.putLong("latest_update_time" + i, j).apply();
         }
     }
 
-    public static void e(int i, long j) {
+    @Override // com.baidu.tieba.lm4, com.baidu.tieba.om4
+    public void a(JSONArray jSONArray, yi4 yi4Var, @Nullable yi4 yi4Var2, @Nullable yi4 yi4Var3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (j <= 0 || j >= 259200) {
-                j = 0;
-            }
-            ho4.a().edit().putLong("max_age" + i, j).apply();
+        if (interceptable == null || interceptable.invokeLLLL(1048576, this, jSONArray, yi4Var, yi4Var2, yi4Var3) == null) {
+            wn4.a().c(jSONArray, yi4Var, yi4Var2, yi4Var3);
         }
     }
 }

@@ -1,15 +1,35 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.data.ThreadRecommendInfoData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.ThreadRecommendInfo;
 /* loaded from: classes8.dex */
-public interface u97<V extends View, M> {
-    @NonNull
-    View a(@NonNull ViewGroup viewGroup);
+public final class u97 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(@NonNull V v, @NonNull M m);
+    public static final void a(ThreadRecommendInfo threadRecommendInfo, List<jb7<? extends Object>> mutableList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, threadRecommendInfo, mutableList) == null) {
+            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            mutableList.add(new f67(b(threadRecommendInfo)));
+        }
+    }
 
-    @NonNull
-    String c();
+    public static final ThreadRecommendInfoData b(ThreadRecommendInfo threadRecommendInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadRecommendInfo)) == null) {
+            Intrinsics.checkNotNullParameter(threadRecommendInfo, "<this>");
+            ThreadRecommendInfoData threadRecommendInfoData = new ThreadRecommendInfoData();
+            threadRecommendInfoData.parseProto(threadRecommendInfo);
+            return threadRecommendInfoData;
+        }
+        return (ThreadRecommendInfoData) invokeL.objValue;
+    }
 }

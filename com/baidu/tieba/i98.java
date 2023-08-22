@@ -1,163 +1,227 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import tbclient.NewHottopic.PkItem;
+import tbclient.NewHottopic.PkModule;
 /* loaded from: classes6.dex */
 public class i98 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final g98 a;
-    public View b;
-    public BdTypeRecyclerView c;
-    public PbListView d;
+    public long a;
+    public long b;
+    public long c;
+    public a d;
+    public a e;
+    public int f;
 
     /* loaded from: classes6.dex */
-    public interface a {
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public String b;
+        public String c;
+        public String d;
+        public boolean e;
+        public long f;
+        public String g;
+
+        public a(i98 i98Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i98Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    public i98(a aVar, View view2, TbPageContext tbPageContext) {
+    public i98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, view2, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = view2;
-        BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f090cd2);
-        this.c = bdTypeRecyclerView;
-        bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(bdTypeRecyclerView.getContext()));
-        this.c.setFadingEdgeLength(0);
-        this.c.setOverScrollMode(2);
-        PbListView pbListView = new PbListView(tbPageContext.getPageActivity());
-        this.d = pbListView;
-        pbListView.a();
-        this.d.s(R.color.CAM_X0205);
-        this.d.w(BdUtilHelper.getDimens(tbPageContext.getPageActivity(), R.dimen.tbds182));
-        this.d.B();
-        this.d.L(R.dimen.tbfontsize33);
-        this.d.F(R.color.CAM_X0110);
-        this.c.setNextPage(this.d);
-        this.d.P(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-        this.d.g();
-        this.d.H(tbPageContext.getResources().getString(R.string.list_no_more));
-        c();
-        this.a = new g98(tbPageContext, this.c);
-    }
-
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            BdTypeRecyclerView bdTypeRecyclerView = this.c;
-            if (bdTypeRecyclerView == null) {
-                return false;
-            }
-            return !ListUtils.isEmpty(bdTypeRecyclerView.getData());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.scrollToPosition(0);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new pf7());
-            this.c.setData(arrayList);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int skinType = TbadkCoreApplication.getInst().getSkinType();
-            PbListView pbListView = this.d;
-            if (pbListView != null) {
-                pbListView.J(SkinManager.getColor(R.color.CAM_X0107));
-                this.d.e(skinType);
-            }
-            BdTypeRecyclerView bdTypeRecyclerView = this.c;
-            if (bdTypeRecyclerView != null && bdTypeRecyclerView.getAdapter() != null) {
-                this.c.getAdapter().notifyDataSetChanged();
             }
         }
     }
 
-    public void e(List<ym> list) {
+    public void a(PkModule pkModule) {
+        String str;
+        boolean z;
+        String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || ListUtils.isEmpty(list)) {
-            return;
-        }
-        this.c.setData(list);
-    }
-
-    public void f(TbPageTag tbPageTag) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tbPageTag) == null) {
-            this.a.a(tbPageTag);
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            if (z) {
-                this.c.setVisibility(0);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            this.b = pkModule.pk_id.longValue();
+            this.c = pkModule.user_pk_id.longValue();
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.a = pkModule.agree.pk_num.longValue();
+            a aVar2 = this.d;
+            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16c8);
             } else {
-                this.c.setVisibility(8);
+                str = pkModule.agree.pk_desc;
             }
+            aVar2.b = str;
+            a aVar3 = this.d;
+            PkItem pkItem = pkModule.agree;
+            aVar3.c = pkItem.last_username;
+            aVar3.d = pkItem.pk_icon;
+            boolean z2 = true;
+            if (pkItem.has_clicked.longValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            aVar3.e = z;
+            this.d.f = pkModule.agree.pk_index.longValue();
+            this.d.g = pkModule.agree.pk_icon_after;
+            a aVar4 = new a(this);
+            this.e = aVar4;
+            aVar4.a = pkModule.disagree.pk_num.longValue();
+            a aVar5 = this.e;
+            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
+                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16c7);
+            } else {
+                str2 = pkModule.disagree.pk_desc;
+            }
+            aVar5.b = str2;
+            a aVar6 = this.e;
+            PkItem pkItem2 = pkModule.disagree;
+            aVar6.c = pkItem2.last_username;
+            aVar6.d = pkItem2.pk_icon;
+            if (pkItem2.has_clicked.longValue() != 1) {
+                z2 = false;
+            }
+            aVar6.e = z2;
+            this.e.f = pkModule.disagree.pk_index.longValue();
+            this.e.g = pkModule.disagree.pk_icon_after;
         }
     }
 
-    public void h(boolean z) {
+    public void b(tbclient.NewTopicList.PkModule pkModule) {
+        String str;
+        boolean z;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            rf7 rf7Var = new rf7();
-            rf7Var.a = 401;
-            rf7Var.b = z;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, rf7Var));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            this.b = pkModule.pk_id.longValue();
+            this.c = pkModule.user_pk_id.longValue();
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.a = pkModule.agree.pk_num.longValue();
+            a aVar2 = this.d;
+            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16c8);
+            } else {
+                str = pkModule.agree.pk_desc;
+            }
+            aVar2.b = str;
+            a aVar3 = this.d;
+            tbclient.NewTopicList.PkItem pkItem = pkModule.agree;
+            aVar3.c = pkItem.last_username;
+            aVar3.d = pkItem.pk_icon;
+            boolean z2 = true;
+            if (pkItem.has_clicked.longValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            aVar3.e = z;
+            this.d.f = pkModule.agree.pk_index.longValue();
+            this.d.g = pkModule.agree.pk_icon_after;
+            a aVar4 = new a(this);
+            this.e = aVar4;
+            aVar4.a = pkModule.disagree.pk_num.longValue();
+            a aVar5 = this.e;
+            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
+                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16c7);
+            } else {
+                str2 = pkModule.disagree.pk_desc;
+            }
+            aVar5.b = str2;
+            a aVar6 = this.e;
+            tbclient.NewTopicList.PkItem pkItem2 = pkModule.disagree;
+            aVar6.c = pkItem2.last_username;
+            aVar6.d = pkItem2.pk_icon;
+            if (pkItem2.has_clicked.longValue() != 1) {
+                z2 = false;
+            }
+            aVar6.e = z2;
+            this.e.f = pkModule.disagree.pk_index.longValue();
+            this.e.g = pkModule.disagree.pk_icon_after;
+        }
+    }
+
+    public void c(tbclient.PkModule pkModule) {
+        String str;
+        boolean z;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
+            this.b = pkModule.pk_id.longValue();
+            this.c = pkModule.user_pk_id.longValue();
+            a aVar = new a(this);
+            this.d = aVar;
+            aVar.a = pkModule.agree.pk_num.longValue();
+            a aVar2 = this.d;
+            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
+                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16c8);
+            } else {
+                str = pkModule.agree.pk_desc;
+            }
+            aVar2.b = str;
+            a aVar3 = this.d;
+            tbclient.PkItem pkItem = pkModule.agree;
+            aVar3.c = pkItem.last_username;
+            aVar3.d = pkItem.pk_icon;
+            boolean z2 = true;
+            if (pkItem.has_clicked.longValue() == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            aVar3.e = z;
+            this.d.f = pkModule.agree.pk_index.longValue();
+            this.d.g = pkModule.agree.pk_icon_after;
+            a aVar4 = new a(this);
+            this.e = aVar4;
+            aVar4.a = pkModule.disagree.pk_num.longValue();
+            a aVar5 = this.e;
+            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
+                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16c7);
+            } else {
+                str2 = pkModule.disagree.pk_desc;
+            }
+            aVar5.b = str2;
+            a aVar6 = this.e;
+            tbclient.PkItem pkItem2 = pkModule.disagree;
+            aVar6.c = pkItem2.last_username;
+            aVar6.d = pkItem2.pk_icon;
+            if (pkItem2.has_clicked.longValue() != 1) {
+                z2 = false;
+            }
+            aVar6.e = z2;
+            this.e.f = pkModule.disagree.pk_index.longValue();
+            this.e.g = pkModule.disagree.pk_icon_after;
         }
     }
 }

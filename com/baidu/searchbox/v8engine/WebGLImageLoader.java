@@ -11,7 +11,7 @@ import com.baidu.searchbox.v8engine.filesystem.V8FileSystemDelegatePolicy;
 import com.baidu.searchbox.v8engine.util.BitmapReferenceMap;
 import com.baidu.searchbox.v8engine.util.DeviceInfo;
 import com.baidu.smallgame.sdk.Log;
-import com.baidu.tieba.jo1;
+import com.baidu.tieba.oo1;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -272,7 +272,7 @@ public class WebGLImageLoader {
         ImageBitmapBean imageBitmapBean = null;
         if (obj instanceof String) {
             String str2 = (String) obj;
-            if (jo1.b(str2)) {
+            if (oo1.b(str2)) {
                 decodeStream = BitmapFactory.decodeFile(str2, options);
                 if (decodeStream == null) {
                     decodeStream = BitmapFactory.decodeFile(str2);

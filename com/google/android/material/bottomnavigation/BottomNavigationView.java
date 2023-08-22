@@ -78,7 +78,7 @@ public class BottomNavigationView extends FrameLayout {
 
     private void addCompatibilityTopDivider(Context context) {
         View view2 = new View(context);
-        view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606ee));
+        view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0606f4));
         view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702af)));
         addView(view2);
     }

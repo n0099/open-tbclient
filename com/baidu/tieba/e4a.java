@@ -1,19 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.TbConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class e4a implements h10 {
+public abstract class e4a implements nb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract String b();
+
+    @Override // com.baidu.tieba.nb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c13696" : (String) invokeV.objValue;
+    }
 
     public e4a() {
         Interceptable interceptable = $ic;
@@ -29,13 +39,27 @@ public class e4a implements h10 {
         }
     }
 
-    @Override // com.baidu.tieba.h10
-    public String getAppVersion() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.nb7
+    public Map<String, String> a(a77 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TbConfig.getVersion();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount == null) {
+                currentAccount = "";
+            }
+            hashMap.put("uid", currentAccount);
+            String str = a.get("is_video_work");
+            if (str == null) {
+                str = "0";
+            }
+            hashMap.put("obj_source", str);
+            hashMap.put(TiebaStatic.Params.IS_FOLLOW, b());
+            return hashMap;
         }
-        return (String) invokeV.objValue;
+        return (Map) invokeL.objValue;
     }
 }

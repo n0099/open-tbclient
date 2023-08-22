@@ -23,10 +23,10 @@ import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.R;
 import com.baidu.tieba.dg;
 import com.baidu.tieba.eg;
-import com.baidu.tieba.qv5;
-import com.baidu.tieba.tv5;
+import com.baidu.tieba.hw5;
+import com.baidu.tieba.kw5;
 import com.baidu.tieba.ub;
-import com.baidu.tieba.vh;
+import com.baidu.tieba.xh;
 import com.baidu.tieba.yb;
 import com.baidu.tieba.yf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -216,7 +216,7 @@ public class BigImageLoaderProc implements eg<BdImage> {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && qv5.a(str)) {
+            if (str != null && hw5.a(str)) {
                 String[] split2 = str.split("/");
                 if (split2.length > 3) {
                     try {
@@ -243,7 +243,7 @@ public class BigImageLoaderProc implements eg<BdImage> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str != null && qv5.a(str)) {
+            if (str != null && hw5.a(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
                 int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -338,9 +338,9 @@ public class BigImageLoaderProc implements eg<BdImage> {
             }
             if (bitmap == null) {
                 if (booleanValue && str.startsWith("/")) {
-                    bitmap = vh.d().c(str);
+                    bitmap = xh.d().c(str);
                     if (bitmap != null && bArr == null) {
-                        bArr = vh.d().a(bitmap, 100);
+                        bArr = xh.d().a(bitmap, 100);
                     }
                 } else {
                     bArr = getFromLocalData(str, dgVar);
@@ -380,8 +380,8 @@ public class BigImageLoaderProc implements eg<BdImage> {
             } else {
                 str3 = TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + TbImageHelper.getInstance().getUrlQuality());
             }
-            tv5.e(booleanValue, str3, str);
-            Pair<Boolean, String> d = tv5.d(str3);
+            kw5.e(booleanValue, str3, str);
+            Pair<Boolean, String> d = kw5.d(str3);
             if (((Boolean) d.first).booleanValue()) {
                 str4 = (String) d.second;
                 z = true;
@@ -412,7 +412,7 @@ public class BigImageLoaderProc implements eg<BdImage> {
             if (webClient.IsRequestSuccess() || webClient.responseCode == 302) {
                 bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                 if (z && bitmap == null) {
-                    tv5.b(str4);
+                    kw5.b(str4);
                     downloadImageBytes = webClient.downloadImageBytes(str3, !booleanValue);
                     needCache = webClient.needCache();
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {

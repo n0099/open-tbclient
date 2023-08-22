@@ -1,15 +1,20 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.FutureTask;
 /* loaded from: classes7.dex */
-public class nm5 implements lm5 {
+public class nm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<FutureTask<Boolean>> a;
+    public List<mm5> b;
+    public ErrorData c;
 
     public nm5() {
         Interceptable interceptable = $ic;
@@ -25,19 +30,31 @@ public class nm5 implements lm5 {
         }
     }
 
-    @Override // com.baidu.tieba.lm5
-    public void a(View view2, View view3, boolean z) {
+    public void a(ErrorData errorData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            LinearLayout linearLayout = (LinearLayout) view2;
-            if (z) {
-                linearLayout.addView(view3, 0);
-            } else {
-                linearLayout.addView(view3);
-            }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.gravity = 1;
-            view3.setLayoutParams(layoutParams);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, errorData) != null) || this.c != null) {
+            return;
+        }
+        this.c = errorData;
+        for (FutureTask<Boolean> futureTask : this.a) {
+            futureTask.cancel(true);
+        }
+        for (mm5 mm5Var : this.b) {
+            mm5Var.a();
+        }
+    }
+
+    public void b(List<mm5> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.b = list;
+        }
+    }
+
+    public void c(List<FutureTask<Boolean>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.a = list;
         }
     }
 }

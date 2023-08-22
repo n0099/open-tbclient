@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.m25;
+import com.baidu.tieba.s25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -72,27 +72,27 @@ public class ReloginManager {
                 int error = getError();
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (statusCode == 200 && error == 0) {
-                    m25 m25Var = new m25();
-                    m25Var.e(jSONObject);
-                    String userId = m25Var.c().getUserId();
+                    s25 s25Var = new s25();
+                    s25Var.e(jSONObject);
+                    String userId = s25Var.c().getUserId();
                     if (userId != null && userId.length() > 0) {
                         AccountData accountData = new AccountData();
-                        String userName = m25Var.c().getUserName();
-                        String password = m25Var.c().getPassword();
+                        String userName = s25Var.c().getUserName();
+                        String password = s25Var.c().getPassword();
                         accountData.setAccount(userName);
                         if (password != null) {
                             accountData.setPassword(password);
                         } else {
                             accountData.setPassword(currentAccountObj.getPassword());
                         }
-                        accountData.setID(m25Var.c().getUserId());
-                        accountData.setBDUSS(m25Var.c().getBDUSS());
-                        accountData.setPortrait(m25Var.c().getPortrait());
+                        accountData.setID(s25Var.c().getUserId());
+                        accountData.setBDUSS(s25Var.c().getBDUSS());
+                        accountData.setPortrait(s25Var.c().getPortrait());
                         accountData.setIsActive(1);
-                        if (m25Var.a() != null) {
-                            accountData.setTbs(m25Var.a().getTbs());
+                        if (s25Var.a() != null) {
+                            accountData.setTbs(s25Var.a().getTbs());
                         }
-                        accountData.setGrowthSwitch(m25Var.b());
+                        accountData.setGrowthSwitch(s25Var.b());
                         Logger.addLog("account", -1L, 0, "relogin_manager_save_account_to_db", 0, "", new Object[0]);
                         AccountStorage.saveAccountData(accountData);
                         Logger.addLog("account", -1L, 0, "relogin_manager_save_account_to_application", 0, "", new Object[0]);
@@ -100,7 +100,7 @@ public class ReloginManager {
                         TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                         return;
                     }
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0e21));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0e29));
                 }
             }
         }

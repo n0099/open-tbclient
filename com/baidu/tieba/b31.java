@@ -1,247 +1,104 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.rotation.NadSensorAbsHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.StringWriter;
-import java.io.Writer;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class b31 {
+public final class b31 extends NadSensorAbsHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float g;
+    public int h;
 
-    public static void h(String str) {
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
         }
+        return invokeV.intValue;
     }
 
-    public static void i(Exception exc) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b31(Context context, z21 listener) {
+        super(context, listener);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, exc) == null) {
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            return j(str).replaceAll("\"\\{", "\\{").replaceAll("\\}\"", "\\}");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Map<String, String> b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                String optString = jSONObject.optString(next);
-                if (!TextUtils.isEmpty(next) && !TextUtils.isEmpty(optString)) {
-                    hashMap.put(next, optString);
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @NonNull
-    public static JSONObject c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new JSONObject();
-            }
-            try {
-                return new JSONObject(str);
-            } catch (Exception e) {
-                h(e.getMessage());
-                return new JSONObject();
-            }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                StringWriter stringWriter = new StringWriter(str.length());
-                k(stringWriter, str);
-                return stringWriter.toString();
-            } catch (IOException e) {
-                h(e.getMessage());
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void d(JSONObject jSONObject, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65539, null, jSONObject, str, i) == null) {
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                try {
-                    jSONObject.put(str, i);
-                    return;
-                } catch (Exception e) {
-                    i(e);
-                    return;
-                }
-            }
-            h("json或key值不合法！");
-        }
-    }
-
-    public static <T> void f(JSONObject jSONObject, String str, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, jSONObject, str, t) == null) {
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                try {
-                    jSONObject.put(str, t);
-                    return;
-                } catch (Exception e) {
-                    i(e);
-                    return;
-                }
-            }
-            h("json或key值不合法！");
-        }
-    }
-
-    public static void g(JSONObject jSONObject, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65542, null, jSONObject, str, z) == null) {
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                try {
-                    jSONObject.put(str, z);
-                    return;
-                } catch (Exception e) {
-                    i(e);
-                    return;
-                }
-            }
-            h("json或key值不合法！");
-        }
-    }
-
-    public static void e(JSONObject jSONObject, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{jSONObject, str, Long.valueOf(j)}) == null) {
-            if (jSONObject != null && !TextUtils.isEmpty(str)) {
-                try {
-                    jSONObject.put(str, j);
-                    return;
-                } catch (Exception e) {
-                    i(e);
-                    return;
-                }
-            }
-            h("json或key值不合法！");
-        }
-    }
-
-    public static void k(Writer writer, String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, writer, str) == null) {
-            if (writer != null) {
-                if (str != null) {
-                    int length = str.length();
-                    StringBuilder sb = new StringBuilder(4);
-                    boolean z = false;
-                    boolean z2 = false;
-                    for (int i = 0; i < length; i++) {
-                        char charAt = str.charAt(i);
-                        if (z2) {
-                            sb.append(charAt);
-                            if (sb.length() == 4) {
-                                try {
-                                    writer.write((char) Integer.parseInt(sb.toString(), 16));
-                                    sb.setLength(0);
-                                    z = false;
-                                    z2 = false;
-                                } catch (NumberFormatException e) {
-                                    h(e.getMessage());
-                                }
-                            }
-                        } else if (z) {
-                            if (charAt != '\"') {
-                                if (charAt != '\'') {
-                                    if (charAt != '\\') {
-                                        if (charAt != 'b') {
-                                            if (charAt != 'f') {
-                                                if (charAt != 'n') {
-                                                    if (charAt != 'r') {
-                                                        if (charAt != 't') {
-                                                            if (charAt != 'u') {
-                                                                writer.write(charAt);
-                                                            } else {
-                                                                z = false;
-                                                                z2 = true;
-                                                            }
-                                                        } else {
-                                                            writer.write(9);
-                                                        }
-                                                    } else {
-                                                        writer.write(13);
-                                                    }
-                                                } else {
-                                                    writer.write(10);
-                                                }
-                                            } else {
-                                                writer.write(12);
-                                            }
-                                        } else {
-                                            writer.write(8);
-                                        }
-                                    } else {
-                                        writer.write(92);
-                                    }
-                                } else {
-                                    writer.write(39);
-                                }
-                            } else {
-                                writer.write(34);
-                            }
-                            z = false;
-                        } else if (charAt == '\\') {
-                            z = true;
-                        } else {
-                            writer.write(charAt);
-                        }
-                    }
-                    if (z) {
-                        writer.write(92);
-                        return;
-                    }
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, listener};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (z21) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            throw new IllegalArgumentException("The Writer must not be null");
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        Intrinsics.checkNotNullParameter(listener, "listener");
+        this.g = 1.0f;
+    }
+
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int c = c().c();
+            if (c >= 0 && 66 >= c) {
+                return 1;
+            }
+            if ((67 <= c && 199 >= c) || c < 200) {
+                return 2;
+            }
+            return 3;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public void i(SensorEvent sensorEvent) {
+        Sensor sensor;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sensorEvent) == null) && sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 1) {
+            float[] fArr = sensorEvent.values;
+            float f = fArr[0];
+            if (Math.pow(f, 2.0d) + Math.pow(fArr[1], 2.0d) + Math.pow(fArr[2], 2.0d) < Math.pow(c().b(), 2.0d)) {
+                return;
+            }
+            if (this.g * f >= 0) {
+                this.g = f;
+                return;
+            }
+            this.g = f;
+            int i = this.h + 1;
+            this.h = i;
+            if (i >= c().a()) {
+                b().h();
+            }
+        }
+    }
+
+    @Override // com.baidu.nadcore.rotation.NadSensorAbsHelper
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.o();
+            this.h = 0;
+            this.g = 1.0f;
         }
     }
 }

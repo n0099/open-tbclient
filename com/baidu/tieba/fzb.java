@@ -1,28 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import org.chromium.base.UnownedUserData;
-import org.chromium.base.UnownedUserDataHost;
-/* compiled from: UnownedUserData.java */
+import android.graphics.Bitmap;
+import android.os.Bundle;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class fzb {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fzb {
+    void b(Bundle bundle);
 
-    public static boolean $default$informOnDetachmentFromHost(UnownedUserData unownedUserData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, unownedUserData)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    void c(Bitmap bitmap);
 
-    public static void $default$onDetachedFromHost(UnownedUserData unownedUserData, UnownedUserDataHost unownedUserDataHost) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, unownedUserData, unownedUserDataHost) == null) {
-        }
-    }
+    void d(String str);
 }

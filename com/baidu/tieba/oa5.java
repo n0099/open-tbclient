@@ -1,71 +1,32 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import android.graphics.Typeface;
-import android.text.style.ReplacementSpan;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.safe.BdCloseHelper;
+import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.DataOutputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class oa5 extends ReplacementSpan {
+public class oa5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public RectF b;
-    public final int c;
-    public final int d;
-    public final int e;
-    public final int f;
-    public final int g;
-    public final int h;
-    public final int i;
-    public final float j;
-    public final int k;
-    public int l;
-    public int m;
-    public float n;
-    public boolean o;
-    public final int p;
-    public final int q;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public static class a extends BdAsyncTask<String, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes7.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-        public int g;
-        public float h;
-        public int i;
-        public int j;
-        public int k;
-        public float l;
-        public boolean m;
-        public int n;
-        public int o;
-
-        public b() {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,275 +36,136 @@ public class oa5 extends ReplacementSpan {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = R.dimen.T_X10;
-            this.b = SkinManager.getColor(R.color.CAM_X0101);
-            this.e = SkinManager.getColor(R.color.CAM_X0302);
-            this.k = 0;
-            this.m = false;
         }
 
-        public b A(int i) {
-            InterceptResult invokeI;
+        /* JADX DEBUG: Method merged with bridge method */
+        /* JADX WARN: Type inference failed for: r2v0, types: [int] */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public Integer doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            HttpURLConnection httpURLConnection;
+            DataOutputStream dataOutputStream;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                this.d = i;
-                return this;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                HttpURLConnection httpURLConnection2 = null;
+                if (strArr != null) {
+                    ?? length = strArr.length;
+                    try {
+                        if (length != 0) {
+                            try {
+                                httpURLConnection = (HttpURLConnection) new URL("https://appc.baidu.com/appsrv?action=appdistributionlog&native_api=1").openConnection();
+                                try {
+                                    httpURLConnection.setRequestMethod("POST");
+                                    httpURLConnection.setDoOutput(true);
+                                    httpURLConnection.setDoInput(true);
+                                    httpURLConnection.setConnectTimeout(jb.d().c().b());
+                                    httpURLConnection.setReadTimeout(jb.d().b().b());
+                                    httpURLConnection.setRequestProperty("Content-Type", "application/json");
+                                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
+                                    httpURLConnection.connect();
+                                    try {
+                                        dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
+                                        try {
+                                            dataOutputStream.write(strArr[0].getBytes("UTF-8"));
+                                            dataOutputStream.flush();
+                                            BdCloseHelper.close((OutputStream) dataOutputStream);
+                                            httpURLConnection.getResponseCode();
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            BdCloseHelper.close((OutputStream) dataOutputStream);
+                                            throw th;
+                                        }
+                                    } catch (Throwable th2) {
+                                        th = th2;
+                                        dataOutputStream = null;
+                                    }
+                                } catch (Exception e) {
+                                    e = e;
+                                    e.printStackTrace();
+                                    BdCloseHelper.close(httpURLConnection);
+                                    return null;
+                                }
+                            } catch (Exception e2) {
+                                e = e2;
+                                httpURLConnection = null;
+                            } catch (Throwable th3) {
+                                th = th3;
+                                BdCloseHelper.close(httpURLConnection2);
+                                throw th;
+                            }
+                            BdCloseHelper.close(httpURLConnection);
+                            return null;
+                        }
+                    } catch (Throwable th4) {
+                        th = th4;
+                        httpURLConnection2 = length;
+                    }
+                }
+                return null;
             }
-            return (b) invokeI.objValue;
-        }
-
-        public b B(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-                this.a = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public void C(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-                this.m = z;
-            }
-        }
-
-        public b D(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-                this.b = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b E(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.n = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b q(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                this.e = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public void r(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
-                this.l = f;
-            }
-        }
-
-        public void s(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-                this.k = i;
-            }
-        }
-
-        public void t(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-                this.j = i;
-            }
-        }
-
-        public b u(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-                this.i = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b v(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-                this.o = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b w(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-                this.g = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b x(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-                this.c = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public b y(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048590, this, f)) == null) {
-                this.h = f;
-                return this;
-            }
-            return (b) invokeF.objValue;
-        }
-
-        public b z(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-                this.f = i;
-                return this;
-            }
-            return (b) invokeI.objValue;
-        }
-
-        public oa5 p() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return new oa5(this, null);
-            }
-            return (oa5) invokeV.objValue;
+            return (Integer) invokeL.objValue;
         }
     }
 
-    public oa5(b bVar) {
+    public static void a(DownloadData downloadData, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLI(65536, null, downloadData, i) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
+            ItemDownloadExtraData itemDownloadExtraData = (ItemDownloadExtraData) downloadData.getExtra();
+            if (di.isEmpty(itemDownloadExtraData.shouzhuSource)) {
+                itemDownloadExtraData.shouzhuSource = pa5.f().g(itemDownloadExtraData.pkgName);
+            }
+            c(downloadData, i);
+            b(itemDownloadExtraData.pkgName, itemDownloadExtraData.appName, itemDownloadExtraData.shouzhuScene, itemDownloadExtraData.shouzhuCategory, itemDownloadExtraData.shouzhuSource, i);
+        }
+    }
+
+    public static void c(DownloadData downloadData, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, downloadData, i) == null) {
+            if (i != 100 && i != 200) {
+                if (i != 300) {
+                    if (i != 400) {
+                        if (i != 500) {
+                            if (i != 600) {
+                                if (i != 700 && i != 800) {
+                                    if (i == 900) {
+                                        pa5.f().k(downloadData);
+                                        return;
+                                    }
+                                    return;
+                                }
+                                pa5.f().e(downloadData);
+                                return;
+                            }
+                        }
+                    }
+                    pa5.f().j(downloadData);
+                    return;
+                }
+                pa5.f().d(downloadData);
                 return;
             }
+            pa5.f();
         }
-        this.c = bVar.a;
-        this.d = bVar.b;
-        this.g = bVar.e;
-        this.e = bVar.c;
-        this.f = bVar.d;
-        this.i = bVar.g;
-        this.h = bVar.f;
-        this.j = bVar.h;
-        this.k = bVar.i;
-        this.l = bVar.j;
-        this.m = bVar.k;
-        this.n = bVar.l;
-        this.o = bVar.m;
-        this.p = bVar.n;
-        this.q = bVar.o;
     }
 
-    public /* synthetic */ oa5(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public final void a(Canvas canvas, CharSequence charSequence, int i, int i2, float f, float f2, Paint paint) {
-        int i3;
+    public static void b(String str, String str2, int i, int i2, String str3, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), paint}) == null) {
-            if (this.m != 0) {
-                paint.setStyle(Paint.Style.STROKE);
-                paint.setColor(this.m);
-                paint.setStrokeWidth(this.l);
-                paint.setAlpha((int) (this.n * 255.0f));
-            } else {
-                paint.setStyle(Paint.Style.FILL);
-                paint.setColor(this.g);
-            }
-            paint.setAntiAlias(true);
-            Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
-            if (z65.b(charSequence.subSequence(i, i2))) {
-                z65.a(fontMetricsInt, (int) paint.getTextSize());
-            }
-            RectF rectF = new RectF(this.i + f, (fontMetricsInt.ascent + f2) - this.p, (this.a + f) - this.h, ((fontMetricsInt.descent + f2) - this.k) + this.q);
-            this.b = rectF;
-            float f3 = this.j;
-            canvas.drawRoundRect(rectF, f3, f3, paint);
-            paint.setAlpha(255);
-            if (this.m != 0 && (i3 = this.g) != 0) {
-                paint.setColor(i3);
-                paint.setStyle(Paint.Style.FILL);
-                int i4 = this.l;
-                RectF rectF2 = new RectF(i4 + f + this.i, ((fontMetricsInt.ascent + f2) + i4) - this.p, ((f + this.a) - this.h) - i4, (((f2 + fontMetricsInt.descent) - this.k) - i4) + this.q);
-                float f4 = this.j;
-                canvas.drawRoundRect(rectF2, f4, f4, paint);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, Integer.valueOf(i3)}) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("pkgname", str);
+                jSONObject.put("appname", str2);
+                jSONObject.put("host", 4);
+                jSONObject.put("scene", i);
+                jSONObject.put("category", i2);
+                jSONObject.put("event", i3);
+                jSONObject.put("source", str3);
+                new a().execute(jSONObject.toString());
+            } catch (JSONException unused) {
             }
         }
-    }
-
-    public final void b(Canvas canvas, CharSequence charSequence, int i, int i2, float f, float f2, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), paint}) == null) {
-            paint.setColor(this.d);
-            paint.setStyle(Paint.Style.FILL);
-            paint.setTextSize(BdUtilHelper.getDimens(TbadkApplication.getInst(), this.c));
-            Paint.FontMetrics fontMetrics = paint.getFontMetrics();
-            float centerY = this.b.centerY();
-            float f3 = fontMetrics.descent;
-            float f4 = (centerY + ((f3 - fontMetrics.ascent) / 2.0f)) - f3;
-            float f5 = f + this.e;
-            if (this.o) {
-                paint.setTypeface(Typeface.defaultFromStyle(1));
-            } else {
-                paint.setTypeface(Typeface.defaultFromStyle(0));
-            }
-            canvas.drawText(charSequence.subSequence(i, i2).toString(), f5, f4, paint);
-        }
-    }
-
-    @Override // android.text.style.ReplacementSpan
-    public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            float f2 = i4;
-            a(canvas, charSequence, i, i2, f, f2, paint);
-            b(canvas, charSequence, i, i2, f, f2, paint);
-        }
-    }
-
-    @Override // android.text.style.ReplacementSpan
-    public int getSize(@NonNull Paint paint, CharSequence charSequence, int i, int i2, @Nullable Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            float textSize = paint.getTextSize();
-            paint.setTextSize(BdUtilHelper.getDimens(TbadkApplication.getInst(), this.c));
-            this.a = ((int) paint.measureText(charSequence, i, i2)) + this.e + this.f + this.h + this.i;
-            paint.setTextSize(textSize);
-            return this.a;
-        }
-        return invokeCommon.intValue;
     }
 }

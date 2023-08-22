@@ -4,21 +4,10 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
 /* loaded from: classes8.dex */
-public abstract class t2b {
+public class t2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a();
-
-    public abstract String b() throws IOException;
-
-    public abstract int c();
-
-    public abstract String d();
-
-    public abstract boolean e();
 
     public t2b() {
         Interceptable interceptable = $ic;

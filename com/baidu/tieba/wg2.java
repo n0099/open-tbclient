@@ -1,26 +1,17 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.nio.channels.Channels;
 /* loaded from: classes8.dex */
-public class wg2 extends tg2 {
+public class wg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public File b;
 
     static {
         InterceptResult invokeClinit;
@@ -35,104 +26,51 @@ public class wg2 extends tg2 {
                 return;
             }
         }
-        c = ir1.a;
+        a = nr1.a;
     }
 
-    public wg2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = o();
-    }
-
-    @Override // com.baidu.tieba.tg2
-    public String i() {
+    @NonNull
+    public static ug2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.b.exists()) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ug2 b = b(c());
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "prelink strategy - " + b.getClass().getSimpleName());
             }
-            File file = new File(this.b, "preset_list.json");
-            if (!file.exists()) {
-                return null;
-            }
-            return cr4.E(file);
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (ug2) invokeV.objValue;
     }
 
-    public final File o() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return new File(Environment.getExternalStorageDirectory().getPath(), "baidu/swan_preset/");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            ku2.g0().getSwitch("swan_prelink_policy_when_prefetch", 0);
+            if (a) {
+                Log.d("PrelinkStrategyFactory", "swan_prelink_policy_when_prefetch = 0");
+            }
+            return 0;
         }
-        return (File) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.tg2
-    public boolean e(ug2 ug2Var) {
-        InterceptResult invokeL;
+    public static ug2 b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ug2Var)) == null) {
-            if (ug2Var == null || !this.b.exists()) {
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i == 0) {
+                return new sg2();
             }
-            File file = this.b;
-            File file2 = new File(file, ug2Var.g + File.separator + ug2Var.q);
-            if (!file2.exists()) {
-                return false;
+            if (i > 0) {
+                return new vg2(i);
             }
-            try {
-                if (!d(Channels.newChannel(new FileInputStream(file2)), ug2Var.m)) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "校验签名失败");
-                    }
-                    return false;
-                }
-                File j = j(ug2Var.h, ug2Var.g, ug2Var.i);
-                if (j == null) {
-                    if (c) {
-                        Log.e("SdCardPresetController", "获取解压路径失败");
-                    }
-                    return false;
-                }
-                return n(new BufferedInputStream(new FileInputStream(file2)), j);
-            } catch (IOException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-                return false;
+            if (i == -1) {
+                return new tg2();
             }
+            return new sg2();
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tg2
-    public String f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (!this.b.exists()) {
-                return null;
-            }
-            File file = this.b;
-            File file2 = new File(file, str + File.separator + "app_info.json");
-            if (!file2.exists()) {
-                return null;
-            }
-            return cr4.E(file2);
-        }
-        return (String) invokeL.objValue;
+        return (ug2) invokeI.objValue;
     }
 }

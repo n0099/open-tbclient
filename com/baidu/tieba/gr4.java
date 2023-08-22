@@ -4,85 +4,46 @@ import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class gr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
+    public static String a(JSONObject jSONObject, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, jSONObject, str, str2)) == null) {
+            if (jSONObject != null) {
+                return jSONObject.optString(str, str2);
             }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                try {
-                    i = inputStream.read(bArr, 0, 1024);
-                } catch (IOException unused) {
-                    i = 0;
-                }
-                if (i != -1) {
-                    byteArrayOutputStream.write(bArr, 0, i);
-                } else {
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    cr4.d(byteArrayOutputStream);
-                    return byteArray;
-                }
-            }
-        } else {
-            return (byte[]) invokeL.objValue;
+            return str2;
         }
+        return (String) invokeLLL.objValue;
     }
 
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
+    public static JSONObject b(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            try {
-                byte[] a = a(inputStream);
-                if (a != null) {
-                    String str = new String(a);
-                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                        str = str.substring(1);
-                    }
-                    cr4.d(inputStream);
-                    return str;
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                cr4.d(inputStream);
-                throw th;
-            }
-            cr4.d(inputStream);
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return "";
+                str = "NA";
+            }
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
             }
             try {
-                return URLEncoder.encode(str, "utf-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
+                if (TextUtils.isEmpty(a(jSONObject, "pre_source", null))) {
+                    jSONObject.put("pre_source", str);
+                }
+                if (TextUtils.isEmpty(a(jSONObject, "pre_appid", null))) {
+                    jSONObject.put("pre_appid", "NA");
+                }
+            } catch (JSONException unused) {
             }
+            return jSONObject;
         }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeLL.objValue;
     }
 }

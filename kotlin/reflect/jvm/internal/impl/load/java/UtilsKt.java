@@ -15,7 +15,7 @@ import kotlin.reflect.jvm.internal.impl.utils.NumbersKt;
 import kotlin.text.StringsKt__StringNumberConversionsJVMKt;
 import kotlin.text.StringsKt__StringNumberConversionsKt;
 import kotlin.text.StringsKt___StringsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class UtilsKt {
     /* JADX WARN: Code restructure failed: missing block: B:38:0x00ae, code lost:
         if (kotlin.reflect.jvm.internal.impl.builtins.KotlinBuiltIns.isString(r4) != false) goto L19;
@@ -28,18 +28,18 @@ public final class UtilsKt {
     */
     public static final JavaDefaultValue lexicalCastFrom(KotlinType kotlinType, String str) {
         Object obj;
-        ClassifierDescriptor mo2102getDeclarationDescriptor = kotlinType.getConstructor().mo2102getDeclarationDescriptor();
-        if (mo2102getDeclarationDescriptor instanceof ClassDescriptor) {
-            ClassDescriptor classDescriptor = (ClassDescriptor) mo2102getDeclarationDescriptor;
+        ClassifierDescriptor mo2104getDeclarationDescriptor = kotlinType.getConstructor().mo2104getDeclarationDescriptor();
+        if (mo2104getDeclarationDescriptor instanceof ClassDescriptor) {
+            ClassDescriptor classDescriptor = (ClassDescriptor) mo2104getDeclarationDescriptor;
             if (classDescriptor.getKind() == ClassKind.ENUM_CLASS) {
                 MemberScope unsubstitutedInnerClassesScope = classDescriptor.getUnsubstitutedInnerClassesScope();
                 Name identifier = Name.identifier(str);
                 Intrinsics.checkExpressionValueIsNotNull(identifier, "Name.identifier(value)");
-                ClassifierDescriptor mo2104getContributedClassifier = unsubstitutedInnerClassesScope.mo2104getContributedClassifier(identifier, NoLookupLocation.FROM_BACKEND);
-                if (!(mo2104getContributedClassifier instanceof ClassDescriptor)) {
+                ClassifierDescriptor mo2106getContributedClassifier = unsubstitutedInnerClassesScope.mo2106getContributedClassifier(identifier, NoLookupLocation.FROM_BACKEND);
+                if (!(mo2106getContributedClassifier instanceof ClassDescriptor)) {
                     return null;
                 }
-                ClassDescriptor classDescriptor2 = (ClassDescriptor) mo2104getContributedClassifier;
+                ClassDescriptor classDescriptor2 = (ClassDescriptor) mo2106getContributedClassifier;
                 if (classDescriptor2.getKind() != ClassKind.ENUM_ENTRY) {
                     return null;
                 }

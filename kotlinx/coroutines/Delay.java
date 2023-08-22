@@ -21,7 +21,7 @@ public interface Delay {
     DisposableHandle invokeOnTimeout(long j, Runnable runnable, CoroutineContext coroutineContext);
 
     /* renamed from: scheduleResumeAfterDelay */
-    void mo2343scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation);
+    void mo2345scheduleResumeAfterDelay(long j, CancellableContinuation<? super Unit> cancellableContinuation);
 
     @Metadata(k = 3, mv = {1, 6, 0}, xi = 48)
     /* loaded from: classes2.dex */
@@ -33,7 +33,7 @@ public interface Delay {
             }
             CancellableContinuationImpl cancellableContinuationImpl = new CancellableContinuationImpl(IntrinsicsKt__IntrinsicsJvmKt.intercepted(continuation), 1);
             cancellableContinuationImpl.initCancellability();
-            delay.mo2343scheduleResumeAfterDelay(j, cancellableContinuationImpl);
+            delay.mo2345scheduleResumeAfterDelay(j, cancellableContinuationImpl);
             Object result = cancellableContinuationImpl.getResult();
             if (result == IntrinsicsKt__IntrinsicsKt.getCOROUTINE_SUSPENDED()) {
                 DebugProbesKt.probeCoroutineSuspended(continuation);

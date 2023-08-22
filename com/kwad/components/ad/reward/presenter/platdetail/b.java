@@ -56,7 +56,7 @@ public final class b extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091434);
+        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09144a);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

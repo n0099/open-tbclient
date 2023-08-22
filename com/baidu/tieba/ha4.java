@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,14 +9,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ha4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ga4 a;
+    @V8JavascriptField
+    public Object data;
 
-    public ha4(@NonNull gi2 gi2Var) {
+    public ha4(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {gi2Var};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,22 +27,6 @@ public class ha4 {
                 return;
             }
         }
-        this.a = new ga4(gi2Var);
-    }
-
-    @JavascriptInterface
-    public void removeUserCloudStorage(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
-            this.a.removeUserCloudStorage(jsObject);
-        }
-    }
-
-    @JavascriptInterface
-    public void setUserCloudStorage(JsObject jsObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-            this.a.setUserCloudStorage(jsObject);
-        }
+        this.data = obj;
     }
 }

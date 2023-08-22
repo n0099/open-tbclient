@@ -1,52 +1,26 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Message;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class t53 implements cw2 {
+public class t53 implements v53 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Runnable, String> c;
+    public List<Long> a;
+    public long b;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final t53 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-450762951, "Lcom/baidu/tieba/t53$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-450762951, "Lcom/baidu/tieba/t53$b;");
-                    return;
-                }
-            }
-            a = new t53(null);
-        }
+    @Override // com.baidu.tieba.v53
+    public String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "PageUpdateRender" : (String) invokeV.objValue;
     }
 
     public t53() {
@@ -62,60 +36,38 @@ public class t53 implements cw2 {
                 return;
             }
         }
-        this.c = new ConcurrentHashMap();
+        this.a = new ArrayList();
+        this.b = -1L;
     }
 
-    public static t53 b() {
+    @Override // com.baidu.tieba.v53
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (t53) invokeV.objValue;
-    }
-
-    public /* synthetic */ t53(a aVar) {
-        this();
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (cw2.a) {
-                Log.e("SwanPerformance", "main process launch start，appId = " + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<Long> list = this.a;
+            if (list != null && list.size() > 0 && this.b >= 0) {
+                return this.b - ((Long) Collections.min(this.a)).longValue();
             }
-            System.currentTimeMillis();
+            return -1L;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.v53
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            this.b = j;
         }
     }
 
-    public final void a() {
+    @Override // com.baidu.tieba.v53
+    public void c(long j) {
+        List<Long> list;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c.isEmpty()) {
-            return;
+        if ((interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) && (list = this.a) != null) {
+            list.add(Long.valueOf(j));
         }
-        if (cw2.a) {
-            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.c.size());
-        }
-        for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-            if (entry != null) {
-                ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
-            }
-        }
-        this.c.clear();
-    }
-
-    public void c(Message message) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) != null) || message == null || (obj = message.obj) == null || !(obj instanceof Bundle)) {
-            return;
-        }
-        Bundle bundle = (Bundle) obj;
-        boolean z = bundle.getBoolean("is_timeout", false);
-        String string = bundle.getString("app_id", null);
-        if (cw2.a) {
-            Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
-        }
-        a();
     }
 }

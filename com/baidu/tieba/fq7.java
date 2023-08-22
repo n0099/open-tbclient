@@ -1,201 +1,168 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fq7 extends cq7 {
+public class fq7 implements CustomMessageTask.CustomRunnable<ThreadData>, ho6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView i;
-    public kr6 j;
-    public ImageView k;
-    public MessageRedDotView l;
-    public ImageView m;
-    public TextView n;
-    public ImageView o;
+    public ms7 a;
+    public TbPageTag b;
+    public BdUniqueId c;
+    public int d;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-796040672, "Lcom/baidu/tieba/fq7$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-796040672, "Lcom/baidu/tieba/fq7$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[LogicField.values().length];
-            a = iArr;
-            try {
-                iArr[LogicField.SEARCH_BTN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[LogicField.MESSAGE_ICON_CONTROLLER.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[LogicField.MESSAGE_BTN.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[LogicField.MESSAGE_RED_DOT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[LogicField.SHARE_BTN.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[LogicField.FOLD_TITLE.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[LogicField.GROUP_BTN.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
+    @Override // com.baidu.tieba.ho6
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 
-    public fq7() {
+    @Override // com.baidu.tieba.ho6
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+        }
+    }
+
+    public fq7(ms7 ms7Var, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ms7Var, tbPageTag, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.a = ms7Var;
+        this.b = tbPageTag;
+        this.c = bdUniqueId;
     }
 
-    @Override // com.baidu.tieba.cq7
-    public void k() {
+    public final void b(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.setContentPaddingTop(BdUtilHelper.getDimens(this.c.getContext(), R.dimen.tbds24));
-            m();
-            o();
-            n();
-            p();
-            l();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
+            TiebaStatic.log(d(threadData, "c13615"));
         }
     }
 
-    @Override // com.baidu.tieba.cq7, com.baidu.tieba.eq7
-    @Nullable
-    public <T> T a(@NonNull LogicField logicField) {
+    public final void c(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
+            co6.b().a(d(threadData, "c13614"));
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    @NonNull
+    public final StatisticItem d(@NonNull ThreadData threadData, String str) {
+        InterceptResult invokeLL;
+        long j;
+        int i;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, threadData, str)) == null) {
+            if (threadData.getThreadAlaInfo().user_info != null) {
+                j = threadData.getThreadAlaInfo().user_info.ala_id;
+            } else {
+                j = 0;
+            }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("fid", threadData.getFid());
+            statisticItem.param("ab_tag", threadData.mRecomAbTag);
+            if (threadData.getThreadAlaInfo().isChushou) {
+                i = 2;
+            } else {
+                i = 1;
+            }
+            statisticItem.param("obj_type", i);
+            statisticItem.param("tid", threadData.getTid());
+            statisticItem.param("liveid", threadData.getThreadAlaInfo().live_id);
+            statisticItem.param(TiebaStatic.Params.STAR_ID, j);
+            statisticItem.param("extra", threadData.mRecomExtra);
+            statisticItem.param("source_from", threadData.mRecomSource);
+            statisticItem.param("nid", threadData.getAuthor().getAlaInfo().mYyExtData.feedId);
+            statisticItem.param("cuid", TbadkCoreApplication.getInst().getCuid());
+            int i2 = this.d;
+            if (i2 == 14) {
+                statisticItem.param("obj_locate", 1);
+            } else if (i2 == 13) {
+                statisticItem.param("obj_locate", 2);
+            }
+            if (threadData.getAuthor() != null && threadData.getAuthor().getAlaInfo() != null) {
+                statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(threadData.getAuthor().getAlaInfo()));
+                if (threadData.getAuthor().getAlaInfo().mYyExtData != null) {
+                    TiebaStaticHelper.addYYParam(statisticItem, threadData.getAuthor().getAlaInfo().mYyExtData);
+                    str2 = TiebaStatic.YYValues.YY_LIVE;
+                } else {
+                    str2 = "";
+                }
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+            }
+            return statisticItem;
+        }
+        return (StatisticItem) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<ThreadData> customMessage) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            switch (a.a[logicField.ordinal()]) {
-                case 1:
-                    return (T) this.i;
-                case 2:
-                    return (T) this.j;
-                case 3:
-                    return (T) this.k;
-                case 4:
-                    return (T) this.l;
-                case 5:
-                    return (T) this.m;
-                case 6:
-                    return (T) this.n;
-                case 7:
-                    return (T) this.o;
-                default:
-                    return (T) super.a(logicField);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage.getData() instanceof ThreadData)) {
+                ThreadData data = customMessage.getData();
+                if (customMessage.getCmd() == 2921018) {
+                    b(data);
+                    ns7.k().h(this.a, data, 1);
+                    ls7.e(data, 1, this.c, this.a, this.b);
+                } else if (customMessage.getCmd() == 2921016) {
+                    b(data);
+                    ns7.k().h(this.a, data, 2);
+                    ls7.e(data, 2, this.c, this.a, this.b);
+                } else if (customMessage.getCmd() == 2921019) {
+                    b(data);
+                    ns7.k().h(this.a, data, 4);
+                    ls7.e(data, 1, this.c, this.a, this.b);
+                } else if (customMessage.getCmd() == 2921017) {
+                    c(data);
+                    ns7.k().c(this.a, data);
+                    ls7.p(data, this.c, this.a, this.b);
+                }
             }
+            return null;
         }
-        return (T) invokeL.objValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.n = this.e.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, "", null, false);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -1);
-            int dimension = (int) this.b.getResources().getDimension(R.dimen.obfuscated_res_0x7f0701d5);
-            layoutParams.setMargins(0, dimension, dimension, dimension);
-            this.n.setLayoutParams(layoutParams);
-            this.n.setPadding(0, 0, this.b.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701d5), 0);
-            this.n.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.o = new ImageView(this.e.getContext());
-            int dimens = BdUtilHelper.getDimens(this.e.getContext(), R.dimen.tbds102);
-            ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(dimens, dimens);
-            marginLayoutParams.rightMargin = BdUtilHelper.getDimens(this.e.getContext(), R.dimen.tbds24);
-            this.o.setLayoutParams(marginLayoutParams);
-            this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.o, this.d);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.o, R.drawable.ic_icon_pure_topbar_group40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            kr6 kr6Var = new kr6(this.b);
-            this.j = kr6Var;
-            this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, kr6Var.c(), (View.OnClickListener) null);
-            this.k = this.j.b();
-            MessageRedDotView a2 = this.j.a();
-            this.l = a2;
-            a2.setShadowEnabled(false);
-            this.j.c().setOnClickListener(this.d);
-            this.j.g(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, true);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.i = (ImageView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03a3, (View.OnClickListener) null);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.i, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            this.i.setOnClickListener(this.d);
-        }
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.m = (ImageView) this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d03a4, (View.OnClickListener) null);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.m, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            this.m.setOnClickListener(this.d);
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

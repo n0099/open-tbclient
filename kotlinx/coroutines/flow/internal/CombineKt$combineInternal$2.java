@@ -271,12 +271,12 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
                 byte[] bArr2 = (byte[]) this.L$2;
                 channel2 = (Channel) this.L$1;
                 ResultKt.throwOnFailure(obj);
-                obj2 = ((ChannelResult) obj).m2313unboximpl();
+                obj2 = ((ChannelResult) obj).m2315unboximpl();
                 objArr2 = (Object[]) this.L$0;
                 combineKt$combineInternal$22 = this;
                 b = r23;
                 bArr = bArr2;
-                indexedValue = (IndexedValue) ChannelResult.m2306getOrNullimpl(obj2);
+                indexedValue = (IndexedValue) ChannelResult.m2308getOrNullimpl(obj2);
                 if (indexedValue != null) {
                     return Unit.INSTANCE;
                 }
@@ -291,7 +291,7 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
                         break;
                     }
                     bArr[index] = b;
-                    indexedValue = (IndexedValue) ChannelResult.m2306getOrNullimpl(channel2.mo2295tryReceivePtdJZtk());
+                    indexedValue = (IndexedValue) ChannelResult.m2308getOrNullimpl(channel2.mo2297tryReceivePtdJZtk());
                 } while (indexedValue != null);
                 if (i == 0) {
                     Object[] objArr4 = (Object[]) combineKt$combineInternal$22.$arrayFactory.invoke();
@@ -363,7 +363,7 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
         combineKt$combineInternal$2.I$0 = length;
         combineKt$combineInternal$2.I$1 = b3;
         combineKt$combineInternal$2.label = 1;
-        obj2 = channel.mo2294receiveCatchingJP2dKIU(combineKt$combineInternal$2);
+        obj2 = channel.mo2296receiveCatchingJP2dKIU(combineKt$combineInternal$2);
         if (obj2 == coroutine_suspended) {
             return coroutine_suspended;
         }
@@ -372,7 +372,7 @@ public final class CombineKt$combineInternal$2 extends SuspendLambda implements 
         channel2 = channel;
         b = b3;
         i = length;
-        indexedValue = (IndexedValue) ChannelResult.m2306getOrNullimpl(obj2);
+        indexedValue = (IndexedValue) ChannelResult.m2308getOrNullimpl(obj2);
         if (indexedValue != null) {
         }
     }

@@ -8,14 +8,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.common.internal.Preconditions;
 import com.huawei.hms.support.api.client.Result;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ResultConvert<R extends Result, S extends Result> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public abstract PendingResult onSuccess(Result result);
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class FailPendingResult extends EmptyPendingResult {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

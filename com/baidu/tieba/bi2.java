@@ -1,27 +1,25 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.ContentResolver;
 import android.content.ContentValues;
+import android.content.SharedPreferences;
 import android.database.ContentObserver;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.apps.env.SwanAppDeleteInfo;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
 import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.md3;
-import com.baidu.tieba.sk2;
+import com.baidu.tieba.xk2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,109 +27,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.common.internal.Sets;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicLong;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import rx.schedulers.Schedulers;
 /* loaded from: classes5.dex */
-public class bi2 implements sk2 {
+public class bi2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    @Nullable
-    public static AtomicLong b;
+    public static final Set<String> b;
     public static final String[] c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements m1c<Cursor> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ md3.c a;
-
-        public a(md3.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.m1c
-        public void call(Cursor cursor) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, cursor) == null) {
-                if (cursor == null || !cursor.moveToFirst()) {
-                    if (bi2.a) {
-                        Log.d("SwanAppHistoryHelper", "historyList == null || historyList.size() == 0");
-                    }
-                    az2.a(cursor);
-                    this.a.a(null);
-                    return;
-                }
-                this.a.a(bi2.k(cursor));
-            }
-        }
     }
 
     /* loaded from: classes5.dex */
-    public static class b implements q1c<String, Cursor> {
+    public static class b extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.q1c
-        public Cursor call(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return bi2.m();
-            }
-            return (Cursor) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public vh2 b;
+        public ai2 b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
+        public b() {
             super(null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -148,6 +73,32 @@ public class bi2 implements sk2 {
             }
         }
 
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public long b;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
         public /* synthetic */ c(a aVar) {
             this();
         }
@@ -157,7 +108,7 @@ public class bi2 implements sk2 {
     public static abstract class d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ko2 a;
+        public c a;
 
         public d() {
             Interceptable interceptable = $ic;
@@ -172,7 +123,7 @@ public class bi2 implements sk2 {
                     return;
                 }
             }
-            this.a = new ko2();
+            this.a = new c(null);
         }
 
         public /* synthetic */ d(a aVar) {
@@ -210,20 +161,100 @@ public class bi2 implements sk2 {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, dVar2)) == null) {
-                return Long.compare(dVar2.a.e, dVar.a.e);
+                return Long.compare(dVar2.a.b, dVar.a.b);
             }
             return invokeLL.intValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class f extends d {
+    public static class f extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public f() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                int i = AppRuntime.getAppContext().getSharedPreferences("aiapps_favorite", 0).getInt("aiapps_user_fav_count", 0);
+                if (bi2.a) {
+                    Log.v("SwanAppFavoriteHelper", "delegate读取到的收藏次数：" + i);
+                }
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("fav_count", i);
+                return bundle2;
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class g extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public g() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                SharedPreferences sharedPreferences = AppRuntime.getAppContext().getSharedPreferences("aiapps_favorite", 0);
+                int i = sharedPreferences.getInt("aiapps_user_fav_count", 0);
+                if (bi2.a) {
+                    Log.v("SwanAppFavoriteHelper", "delegate当前收藏次数：" + i);
+                }
+                SharedPreferences.Editor edit = sharedPreferences.edit();
+                int i2 = i + 1;
+                edit.putInt("aiapps_user_fav_count", i2);
+                edit.commit();
+                if (bi2.a) {
+                    Log.v("SwanAppFavoriteHelper", "delegate写入新收藏次数" + i2);
+                }
+                Bundle bundle2 = new Bundle();
+                bundle2.putInt("fav_count", i2);
+                return bundle2;
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class h extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public PMSAppInfo b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f() {
+        public h() {
             super(null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -240,7 +271,7 @@ public class bi2 implements sk2 {
             }
         }
 
-        public /* synthetic */ f(a aVar) {
+        public /* synthetic */ h(a aVar) {
             this();
         }
     }
@@ -258,882 +289,818 @@ public class bi2 implements sk2 {
                 return;
             }
         }
-        a = ir1.a;
-        c = new String[]{"_id", SwanAppDbControl.SwanAppTable.app_id.name(), SwanAppDbControl.SwanAppTable.app_key.name(), SwanAppDbControl.SwanAppTable.version.name(), SwanAppDbControl.SwanAppTable.description.name(), SwanAppDbControl.SwanAppTable.error_code.name(), SwanAppDbControl.SwanAppTable.error_detail.name(), SwanAppDbControl.SwanAppTable.error_msg.name(), SwanAppDbControl.SwanAppTable.resume_date.name(), SwanAppDbControl.SwanAppTable.icon.name(), SwanAppDbControl.SwanAppTable.icon_url.name(), SwanAppDbControl.SwanAppTable.max_swan_version.name(), SwanAppDbControl.SwanAppTable.min_swan_version.name(), SwanAppDbControl.SwanAppTable.name.name(), SwanAppDbControl.SwanAppTable.service_category.name(), SwanAppDbControl.SwanAppTable.subject_info.name(), SwanAppDbControl.SwanAppTable.bear_info.name(), SwanAppDbControl.SwanAppTable.sign.name(), SwanAppDbControl.SwanAppTable.type.name(), SwanAppDbControl.SwanAppTable.is_have_zip.name(), SwanAppDbControl.SwanAppTable.app_open_url.name(), SwanAppDbControl.SwanAppTable.app_download_url.name(), SwanAppDbControl.SwanAppTable.target_swan_version.name(), SwanAppDbControl.SwanAppTable.app_zip_size.name(), SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), SwanAppDbControl.SwanAppTable.version_code.name(), SwanAppDbControl.SwanAppTable.app_category.name(), SwanAppDbControl.SwanAppTable.orientation.name(), SwanAppDbControl.SwanAppTable.max_age.name(), SwanAppDbControl.SwanAppTable.create_time.name(), SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), "app_from", "visit_time", SwanAppDbControl.SwanAppTable.pay_protected.name(), "customer_service", "global_notice", "global_private", "pa_number", "brand", SwanAppDbControl.SwanAppTable.quick_app_key.name()};
+        a = nr1.a;
+        b = Sets.newHashSet("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
+        c = new String[]{"_id", SwanAppDbControl.SwanAppTable.app_id.name(), SwanAppDbControl.SwanAppTable.app_key.name(), SwanAppDbControl.SwanAppTable.version.name(), SwanAppDbControl.SwanAppTable.description.name(), SwanAppDbControl.SwanAppTable.error_code.name(), SwanAppDbControl.SwanAppTable.error_detail.name(), SwanAppDbControl.SwanAppTable.error_msg.name(), SwanAppDbControl.SwanAppTable.resume_date.name(), SwanAppDbControl.SwanAppTable.icon.name(), SwanAppDbControl.SwanAppTable.icon_url.name(), SwanAppDbControl.SwanAppTable.max_swan_version.name(), SwanAppDbControl.SwanAppTable.min_swan_version.name(), SwanAppDbControl.SwanAppTable.name.name(), SwanAppDbControl.SwanAppTable.service_category.name(), SwanAppDbControl.SwanAppTable.subject_info.name(), SwanAppDbControl.SwanAppTable.bear_info.name(), SwanAppDbControl.SwanAppTable.sign.name(), SwanAppDbControl.SwanAppTable.type.name(), SwanAppDbControl.SwanAppTable.is_have_zip.name(), SwanAppDbControl.SwanAppTable.app_open_url.name(), SwanAppDbControl.SwanAppTable.app_download_url.name(), SwanAppDbControl.SwanAppTable.target_swan_version.name(), SwanAppDbControl.SwanAppTable.app_zip_size.name(), SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), SwanAppDbControl.SwanAppTable.version_code.name(), SwanAppDbControl.SwanAppTable.app_category.name(), SwanAppDbControl.SwanAppTable.orientation.name(), SwanAppDbControl.SwanAppTable.max_age.name(), SwanAppDbControl.SwanAppTable.create_time.name(), SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), "favorite_time", SwanAppDbControl.SwanAppTable.pay_protected.name(), "customer_service", "global_notice", "global_private", "pa_number", "brand", SwanAppDbControl.SwanAppTable.quick_app_key.name()};
     }
 
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            AppRuntime.getAppContext().getContentResolver().delete(ai2.a(), null, null);
-        }
-    }
-
-    public static Cursor m() {
+    /* JADX WARN: Removed duplicated region for block: B:18:0x008b  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x010e  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0149  */
+    /* JADX WARN: Removed duplicated region for block: B:43:0x018b  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x01b0 A[LOOP:3: B:45:0x01aa->B:47:0x01b0, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x01c2  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x022f A[LOOP:5: B:55:0x0229->B:57:0x022f, LOOP_END] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Cursor s() {
         InterceptResult invokeV;
+        Cursor query;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return n(null, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            HashMap hashMap = new HashMap();
+            Cursor query2 = AppRuntime.getAppContext().getContentResolver().query(d(), null, null, null, "favorite_time DESC");
+            if (query2 != null && query2.moveToFirst()) {
+                do {
+                    ai2 ai2Var = new ai2();
+                    SwanAppDbControl.f(AppRuntime.getAppContext()).s(query2, ai2Var);
+                    if (!TextUtils.isEmpty(ai2Var.a)) {
+                        b bVar = new b(null);
+                        bVar.b = ai2Var;
+                        c cVar = bVar.a;
+                        cVar.a = ai2Var.a;
+                        cVar.b = query2.getLong(query2.getColumnIndex("favorite_time"));
+                        hashMap.put(bVar.a.a, bVar);
+                        if (a) {
+                            Log.v("favorite_migrate_pms", "Aps&Favotite == " + ai2Var.a);
+                        }
+                    }
+                } while (query2.moveToNext());
+                hr4.d(query2);
+                if (a) {
+                }
+                query = AppRuntime.getAppContext().getContentResolver().query(e(), null, null, null, null);
+                HashMap hashMap2 = new HashMap();
+                if (query == null) {
+                }
+                hr4.d(query);
+                if (a) {
+                }
+                ArrayList<d> arrayList = new ArrayList();
+                while (r2.hasNext()) {
+                }
+                if (a) {
+                }
+                while (r1.hasNext()) {
+                }
+                if (a) {
+                }
+                ArrayList<d> arrayList2 = new ArrayList(hashMap.values());
+                Collections.sort(arrayList2, new e(null));
+                MatrixCursor matrixCursor = new MatrixCursor(c, 50);
+                int i = 0;
+                while (r1.hasNext()) {
+                }
+                return matrixCursor;
+            }
+            hr4.d(query2);
+            if (a) {
+                Log.d("favorite_migrate_pms", "^ Aps & Favorite 查询到 " + hashMap.size() + " 条收藏");
+            }
+            query = AppRuntime.getAppContext().getContentResolver().query(e(), null, null, null, null);
+            HashMap hashMap22 = new HashMap();
+            if (query == null && query.moveToFirst()) {
+                do {
+                    c cVar2 = new c(null);
+                    cVar2.a = query.getString(query.getColumnIndex("app_id"));
+                    cVar2.b = query.getLong(query.getColumnIndex("favorite_time"));
+                    hashMap22.put(cVar2.a, cVar2);
+                    if (a) {
+                        Log.v("favorite_migrate_pms", "Favotite == " + cVar2.a);
+                    }
+                } while (query.moveToNext());
+                hr4.d(query);
+                if (a) {
+                }
+                ArrayList<d> arrayList3 = new ArrayList();
+                while (r2.hasNext()) {
+                }
+                if (a) {
+                }
+                while (r1.hasNext()) {
+                }
+                if (a) {
+                }
+                ArrayList<d> arrayList22 = new ArrayList(hashMap.values());
+                Collections.sort(arrayList22, new e(null));
+                MatrixCursor matrixCursor2 = new MatrixCursor(c, 50);
+                int i2 = 0;
+                while (r1.hasNext()) {
+                }
+                return matrixCursor2;
+            }
+            hr4.d(query);
+            if (a) {
+                Log.d("favorite_migrate_pms", "^ Favorite 库查询到 " + hashMap22.size() + " 条收藏");
+            }
+            ArrayList<d> arrayList32 = new ArrayList();
+            for (PMSAppInfo pMSAppInfo : new ArrayList(aj4.i().v().values())) {
+                if (a) {
+                    Log.v("favorite_migrate_pms", "Pms == " + pMSAppInfo.appId);
+                }
+                if (hashMap22.containsKey(pMSAppInfo.appId)) {
+                    h hVar = new h(null);
+                    hVar.a = (c) hashMap22.get(pMSAppInfo.appId);
+                    hVar.b = pMSAppInfo;
+                    arrayList32.add(hVar);
+                }
+            }
+            if (a) {
+                Log.d("favorite_migrate_pms", "^ Pms & Favorite 查询到 " + arrayList32.size() + " 条收藏");
+            }
+            for (d dVar : arrayList32) {
+                hashMap.put(dVar.a.a, dVar);
+            }
+            if (a) {
+                Log.d("favorite_migrate_pms", "合并后有 " + hashMap.size() + " 条收藏");
+                Iterator it = hashMap.values().iterator();
+                while (it.hasNext()) {
+                    Log.v("favorite_migrate_pms", "Migrate == " + ((d) it.next()).a.a);
+                }
+            }
+            ArrayList<d> arrayList222 = new ArrayList(hashMap.values());
+            Collections.sort(arrayList222, new e(null));
+            MatrixCursor matrixCursor22 = new MatrixCursor(c, 50);
+            int i22 = 0;
+            for (d dVar2 : arrayList222) {
+                c(matrixCursor22, i22, dVar2);
+                i22++;
+            }
+            return matrixCursor22;
         }
         return (Cursor) invokeV.objValue;
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    @WorkerThread
-    public static boolean c(@NonNull ContentResolver contentResolver, @Nullable ko2 ko2Var, sk2.b bVar) {
-        InterceptResult invokeLLL;
-        String uri;
+    public static Uri d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, contentResolver, ko2Var, bVar)) == null) {
-            if (ko2Var == null || TextUtils.isEmpty(ko2Var.a)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return ci2.c.buildUpon().appendPath("favorite_and_aps").build();
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public static Uri e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return ci2.c.buildUpon().appendPath("favorite").build();
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public static Uri f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return ci2.c.buildUpon().appendPath("favorite_with_aps_pms").build();
+        }
+        return (Uri) invokeV.objValue;
+    }
+
+    public static Cursor k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            u();
+            return AppRuntime.getAppContext().getContentResolver().query(e(), null, null, null, "sort_index");
+        }
+        return (Cursor) invokeV.objValue;
+    }
+
+    public static void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65556, null) == null) {
+            if (a) {
+                Log.d("SwanAppFavoriteHelper", "记录用户在小程序框架菜单中点击收藏");
+            }
+            q73.c(g.class, null);
+        }
+    }
+
+    public static boolean b(@NonNull SwanFavorItemData swanFavorItemData, int i, wm2 wm2Var) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65538, null, swanFavorItemData, i, wm2Var)) == null) {
+            if (i < 0) {
+                if (wm2Var != null) {
+                    wm2Var.b(false);
+                }
                 return false;
             }
-            if (a) {
-                Log.d("SwanAppHistoryHelper", "addHistory: " + ko2Var.c + " / " + ko2Var.a);
-            }
-            if (TextUtils.equals(String.valueOf(1), ko2Var.g)) {
-                String str = ko2Var.a;
-                tk2 m = tk2.m(bVar);
-                m.i(1);
-                h(contentResolver, str, m.k());
-            }
-            Uri a2 = ai2.a();
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("app_id", ko2Var.a);
-            contentValues.put("visit_time", Long.valueOf(ko2Var.e));
-            contentValues.put("app_from", ko2Var.i);
-            contentValues.put("app_name", ko2Var.c);
-            contentValues.put(GameGuideConfigInfo.KEY_APP_KEY, ko2Var.b);
-            contentValues.put("version_code", ko2Var.j);
-            contentValues.put("app_icon", ko2Var.d);
-            contentValues.put("frame_type", Integer.valueOf(ko2Var.f));
-            contentValues.put("app_type", ko2Var.g);
-            contentValues.put("pay_protected", Integer.valueOf(ko2Var.h));
-            contentValues.put("sync_state", (Integer) 0);
-            try {
-                Uri insert = AppRuntime.getAppContext().getContentResolver().insert(a2, contentValues);
-                if (a) {
-                    if (insert == null) {
-                        uri = "NULL";
-                    } else {
-                        uri = insert.toString();
+            List<SwanFavorItemData> j = j();
+            if (j.size() == 0) {
+                if (h(swanFavorItemData, 1)) {
+                    if (wm2Var != null) {
+                        wm2Var.c();
                     }
-                    Log.d("SwanAppHistoryHelper", "Add history: newUri - " + uri);
+                    p();
+                    return true;
                 }
-                if (e()) {
-                    String str2 = ko2Var.a;
-                    tk2 m2 = tk2.m(bVar);
-                    m2.i(2);
-                    t(contentResolver, str2, m2.k());
+                if (wm2Var != null) {
+                    wm2Var.b(false);
                 }
-                if (insert == null) {
+                return false;
+            } else if (j.size() + 1 == i) {
+                if (h(swanFavorItemData, j.get(j.size() - 1).getIndex() + 1)) {
+                    if (wm2Var != null) {
+                        wm2Var.c();
+                    }
+                    p();
+                    return true;
+                }
+                if (wm2Var != null) {
+                    wm2Var.b(false);
+                }
+                return false;
+            } else {
+                int i2 = 0;
+                while (i2 < j.size()) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        swanFavorItemData.setIndex(j.get(i2).getIndex());
+                        if (!h(swanFavorItemData, swanFavorItemData.getIndex())) {
+                            if (wm2Var != null) {
+                                wm2Var.b(false);
+                            }
+                            return false;
+                        }
+                    }
+                    i2 = i3;
+                }
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                int i4 = 0;
+                while (i4 < j.size()) {
+                    int i5 = i4 + 1;
+                    if (i5 >= i) {
+                        int index = j.get(i4).getIndex() + 1;
+                        j.get(i4).setIndex(index);
+                        arrayList.add(j.get(i4).getAppKey());
+                        arrayList2.add(Integer.valueOf(index));
+                    }
+                    i4 = i5;
+                }
+                boolean w = w(arrayList, arrayList2);
+                if (!w) {
+                    if (wm2Var != null) {
+                        wm2Var.b(false);
+                    }
                     return false;
                 }
-                return true;
-            } catch (Exception e2) {
-                l92.f(a2.toString(), ko2Var.a, e2.toString());
-                if (!a) {
-                    return false;
+                if (wm2Var != null) {
+                    wm2Var.c();
                 }
-                Log.e("SwanAppHistoryHelper", "encounter error while adding swan history" + e2.toString());
-                throw new RuntimeException("encounter error while adding swan history, only throw in debug mode", e2);
+                p();
+                return w;
             }
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public static boolean g(@NonNull String str, xm2 xm2Var, xk2.b bVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, str, xm2Var, bVar)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (xm2Var != null) {
+                    xm2Var.c(false);
+                }
+                return false;
+            }
+            yk2 m = yk2.m(bVar);
+            m.i(3);
+            xk2.b k = m.k();
+            if (AppRuntime.getAppContext().getContentResolver().delete(e(), "app_id = ?", new String[]{str}) > 0) {
+                if (a) {
+                    Log.d("SwanAppFavoriteHelper", "删除收藏，检查是否需要清理包");
+                }
+                if (!TextUtils.equals(str, "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
+                    if (ProcessUtils.isMainProcess()) {
+                        nj2 d2 = pj2.c().d();
+                        if (d2 != null) {
+                            d2.e(str, true, k);
+                        }
+                    } else if (gi2.i(AppRuntime.getAppContext().getContentResolver()).contains(str) || !TextUtils.equals(cb3.K().q().O(), str)) {
+                        y73.Q().a0(8, new SwanAppDeleteInfo(str).setPurgerScenes(yk2.m(k).c()));
+                    }
+                }
+                if (a) {
+                    Log.d("SwanAppFavoriteHelper", "取消收藏成功： " + str);
+                }
+                p();
+                if (xm2Var != null) {
+                    xm2Var.b();
+                }
+            } else if (xm2Var != null) {
+                xm2Var.c(false);
+            }
+            return true;
         }
         return invokeLLL.booleanValue;
     }
 
-    public static void d(MatrixCursor matrixCursor, int i, d dVar) {
+    public static void c(MatrixCursor matrixCursor, int i, d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, matrixCursor, i, dVar) == null) {
-            if (dVar instanceof c) {
-                c cVar = (c) dVar;
-                matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), cVar.b.a).add(SwanAppDbControl.SwanAppTable.app_key.name(), cVar.b.b).add(SwanAppDbControl.SwanAppTable.version.name(), cVar.b.q).add(SwanAppDbControl.SwanAppTable.description.name(), cVar.b.c).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(cVar.b.d)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), cVar.b.e).add(SwanAppDbControl.SwanAppTable.error_msg.name(), cVar.b.f).add(SwanAppDbControl.SwanAppTable.resume_date.name(), cVar.b.g).add(SwanAppDbControl.SwanAppTable.icon.name(), cVar.b.h).add(SwanAppDbControl.SwanAppTable.icon_url.name(), cVar.b.i).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), cVar.b.j).add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), cVar.b.k).add(SwanAppDbControl.SwanAppTable.name.name(), cVar.b.l).add(SwanAppDbControl.SwanAppTable.service_category.name(), cVar.b.m).add(SwanAppDbControl.SwanAppTable.subject_info.name(), cVar.b.n).add(SwanAppDbControl.SwanAppTable.bear_info.name(), cVar.b.o).add(SwanAppDbControl.SwanAppTable.sign.name(), cVar.b.p).add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(cVar.b.r)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), Integer.valueOf(cVar.b.s)).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), cVar.b.t).add(SwanAppDbControl.SwanAppTable.app_download_url.name(), cVar.b.u).add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), cVar.b.v).add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(cVar.b.w)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(cVar.b.x)).add(SwanAppDbControl.SwanAppTable.version_code.name(), cVar.b.A).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(cVar.b.y)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(cVar.b.z)).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(cVar.b.B)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(cVar.b.C)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), Integer.valueOf(cVar.b.D ? 1 : 0)).add("app_from", cVar.a.i).add("visit_time", Long.valueOf(cVar.a.e)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(cVar.b.E)).add(SwanAppDbControl.SwanAppTable.quick_app_key.name(), cVar.b.F);
+        if (interceptable == null || interceptable.invokeLIL(65539, null, matrixCursor, i, dVar) == null) {
+            if (dVar instanceof b) {
+                b bVar = (b) dVar;
+                matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), bVar.b.a).add(SwanAppDbControl.SwanAppTable.app_key.name(), bVar.b.b).add(SwanAppDbControl.SwanAppTable.version.name(), bVar.b.q).add(SwanAppDbControl.SwanAppTable.description.name(), bVar.b.c).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(bVar.b.d)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), bVar.b.e).add(SwanAppDbControl.SwanAppTable.error_msg.name(), bVar.b.f).add(SwanAppDbControl.SwanAppTable.resume_date.name(), bVar.b.g).add(SwanAppDbControl.SwanAppTable.icon.name(), bVar.b.h).add(SwanAppDbControl.SwanAppTable.icon_url.name(), bVar.b.i).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), bVar.b.j).add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), bVar.b.k).add(SwanAppDbControl.SwanAppTable.name.name(), bVar.b.l).add(SwanAppDbControl.SwanAppTable.service_category.name(), bVar.b.m).add(SwanAppDbControl.SwanAppTable.subject_info.name(), bVar.b.n).add(SwanAppDbControl.SwanAppTable.bear_info.name(), bVar.b.o).add(SwanAppDbControl.SwanAppTable.sign.name(), bVar.b.p).add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(bVar.b.r)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), Integer.valueOf(bVar.b.s)).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), bVar.b.t).add(SwanAppDbControl.SwanAppTable.app_download_url.name(), bVar.b.u).add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), bVar.b.v).add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(bVar.b.w)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(bVar.b.x)).add(SwanAppDbControl.SwanAppTable.version_code.name(), bVar.b.A).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(bVar.b.y)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(bVar.b.z)).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(bVar.b.B)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(bVar.b.C)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), Integer.valueOf(bVar.b.D ? 1 : 0)).add("favorite_time", Long.valueOf(bVar.a.b)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(bVar.b.E)).add(SwanAppDbControl.SwanAppTable.quick_app_key.name(), bVar.b.F);
                 return;
             }
-            f fVar = (f) dVar;
-            matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), fVar.a.a).add(SwanAppDbControl.SwanAppTable.app_key.name(), fVar.b.appKey).add(SwanAppDbControl.SwanAppTable.version.name(), Long.valueOf(fVar.b.versionCode)).add(SwanAppDbControl.SwanAppTable.description.name(), fVar.b.description).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(fVar.b.appStatus)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), fVar.b.statusDetail).add(SwanAppDbControl.SwanAppTable.error_msg.name(), fVar.b.statusDesc).add(SwanAppDbControl.SwanAppTable.resume_date.name(), fVar.b.resumeDate).add(SwanAppDbControl.SwanAppTable.icon.name(), "").add(SwanAppDbControl.SwanAppTable.icon_url.name(), fVar.a.d).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.name.name(), fVar.a.c).add(SwanAppDbControl.SwanAppTable.service_category.name(), fVar.b.serviceCategory).add(SwanAppDbControl.SwanAppTable.subject_info.name(), fVar.b.subjectInfo).add(SwanAppDbControl.SwanAppTable.bear_info.name(), fVar.b.bearInfo).add(SwanAppDbControl.SwanAppTable.sign.name(), "").add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(fVar.b.type)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), 0).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), "").add(SwanAppDbControl.SwanAppTable.app_download_url.name(), "").add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(fVar.b.pkgSize)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(fVar.b.pendingErrCode)).add(SwanAppDbControl.SwanAppTable.version_code.name(), fVar.b.versionName).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(fVar.b.appCategory)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(fVar.b.getOrientation())).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(fVar.b.maxAge)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(fVar.b.createTime)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), 0).add("app_from", fVar.a.i).add("visit_time", Long.valueOf(fVar.a.e)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(fVar.b.payProtected)).add("customer_service", Integer.valueOf(fVar.b.customerService)).add("global_notice", Integer.valueOf(fVar.b.globalNotice)).add("global_private", Integer.valueOf(fVar.b.globalPrivate)).add("pa_number", fVar.b.paNumber).add("brand", fVar.b.brandsInfo).add(SwanAppDbControl.SwanAppTable.quick_app_key.name(), fVar.b.quickAppKey);
+            h hVar = (h) dVar;
+            matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), hVar.b.appId).add(SwanAppDbControl.SwanAppTable.app_key.name(), hVar.b.appKey).add(SwanAppDbControl.SwanAppTable.version.name(), Long.valueOf(hVar.b.versionCode)).add(SwanAppDbControl.SwanAppTable.description.name(), hVar.b.description).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(hVar.b.appStatus)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), hVar.b.statusDetail).add(SwanAppDbControl.SwanAppTable.error_msg.name(), hVar.b.statusDesc).add(SwanAppDbControl.SwanAppTable.resume_date.name(), hVar.b.resumeDate).add(SwanAppDbControl.SwanAppTable.icon.name(), "").add(SwanAppDbControl.SwanAppTable.icon_url.name(), hVar.b.iconUrl).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.name.name(), hVar.b.appName).add(SwanAppDbControl.SwanAppTable.service_category.name(), hVar.b.serviceCategory).add(SwanAppDbControl.SwanAppTable.subject_info.name(), hVar.b.subjectInfo).add(SwanAppDbControl.SwanAppTable.bear_info.name(), hVar.b.bearInfo).add(SwanAppDbControl.SwanAppTable.sign.name(), "").add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(hVar.b.type)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), 0).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), "").add(SwanAppDbControl.SwanAppTable.app_download_url.name(), "").add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(hVar.b.pkgSize)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(hVar.b.pendingErrCode)).add(SwanAppDbControl.SwanAppTable.version_code.name(), hVar.b.versionName).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(hVar.b.appCategory)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(hVar.b.getOrientation())).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(hVar.b.maxAge)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(hVar.b.createTime)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), 0).add("favorite_time", Long.valueOf(hVar.a.b)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(hVar.b.payProtected)).add("customer_service", Integer.valueOf(hVar.b.customerService)).add("global_notice", Integer.valueOf(hVar.b.globalNotice)).add("global_private", Integer.valueOf(hVar.b.globalPrivate)).add("pa_number", hVar.b.paNumber).add("brand", hVar.b.brandsInfo).add(SwanAppDbControl.SwanAppTable.quick_app_key.name(), hVar.b.quickAppKey);
         }
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    public static boolean h(@NonNull SwanFavorItemData swanFavorItemData, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (b != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                if (currentTimeMillis - b.get() <= 86400000) {
-                    return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, swanFavorItemData, i)) == null) {
+            Uri e2 = e();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("app_id", swanFavorItemData.getAppKey());
+            contentValues.put("sort_index", Integer.valueOf(i));
+            contentValues.put("favorite_time", Long.valueOf(System.currentTimeMillis()));
+            contentValues.put("app_name", swanFavorItemData.getAppName());
+            contentValues.put("app_icon", swanFavorItemData.getIconUrl());
+            contentValues.put("app_type", Integer.valueOf(swanFavorItemData.getAppType()));
+            contentValues.put("frame_type", Integer.valueOf(swanFavorItemData.getAppFrameType()));
+            contentValues.put("pay_protected", Integer.valueOf(swanFavorItemData.getPayProtected()));
+            contentValues.put("is_new_favor", Integer.valueOf(swanFavorItemData.getIsNewFavor()));
+            if (AppRuntime.getAppContext().getContentResolver().insert(e2, contentValues) != null) {
+                if (a) {
+                    Log.d("SwanAppFavoriteHelper", "数据库收藏成功： " + swanFavorItemData.getAppKey());
                 }
-                b.set(currentTimeMillis);
-                mj3.a().putLong("key_check_delete_swan_history", currentTimeMillis);
+                lj3 a2 = rj3.a();
+                a2.putString("favorite_guide_count_" + swanFavorItemData.getAppKey(), "-1");
                 return true;
             }
-            synchronized (mj3.class) {
-                if (b != null) {
-                    return false;
-                }
-                b = new AtomicLong(mj3.a().getLong("key_check_delete_swan_history", 0L));
-                return e();
-            }
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeLI.booleanValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x004f  */
-    /* JADX WARN: Removed duplicated region for block: B:35:0x006d  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x007d  */
-    /* JADX WARN: Removed duplicated region for block: B:38:0x007f  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x00a1  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x00c1  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean g(ContentResolver contentResolver, String str, String str2, String str3, String str4, boolean z, sk2.b bVar) {
-        InterceptResult invokeCommon;
-        char c2;
-        int i;
-        int delete;
-        boolean z2;
-        ij2 d2;
+    public static boolean i(List<SwanFavorItemData> list, HashMap<String, Integer> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{contentResolver, str, str2, str3, str4, Boolean.valueOf(z), bVar})) == null) {
-            switch (str4.hashCode()) {
-                case 48:
-                    if (str4.equals("0")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 49:
-                    if (str4.equals("1")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 50:
-                    if (str4.equals("2")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 51:
-                    if (str4.equals("3")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 == 3) {
-                            i = 3;
-                        }
-                    } else {
-                        i = 2;
-                    }
-                } else {
-                    i = 1;
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    if (TextUtils.isEmpty(str2)) {
-                        return false;
-                    }
-                    delete = contentResolver.delete(ai2.a(), "app_key=? AND app_type=? AND version_code=?", new String[]{str2, String.valueOf(i), str3});
-                } else {
-                    delete = contentResolver.delete(ai2.a(), "app_id=?", new String[]{str});
-                }
-                if (delete <= 0) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                if (z && z2 && (d2 = kj2.c().d()) != null) {
-                    tk2 m = tk2.m(bVar);
-                    m.i(4);
-                    d2.e(str, true, m.k());
-                }
-                if (a) {
-                    Log.d("SwanAppHistoryHelper", "deleteHistory: " + str + " isSuccess: " + z2);
-                }
-                if (z2) {
-                    lo2.j("DEL", str, System.currentTimeMillis(), str2, String.valueOf(i), str3, null);
-                }
-                return z2;
-            }
-            i = 0;
-            if (!TextUtils.isEmpty(str)) {
-            }
-            if (delete <= 0) {
-            }
-            if (z) {
-                tk2 m2 = tk2.m(bVar);
-                m2.i(4);
-                d2.e(str, true, m2.k());
-            }
-            if (a) {
-            }
-            if (z2) {
-            }
-            return z2;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static void h(@NonNull ContentResolver contentResolver, @Nullable String str, sk2.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, contentResolver, str, bVar) == null) {
-            if (a) {
-                Log.d("SwanAppHistoryHelper", "start deleteOtherDevHistory: ");
-            }
-            if (TextUtils.isEmpty(str)) {
-                return;
-            }
-            String a2 = a32.a(str);
-            if (TextUtils.isEmpty(a2)) {
-                return;
-            }
-            List<String> s = s(contentResolver, str);
-            if (s != null && s.size() != 0) {
-                ij2 d2 = kj2.c().d();
-                if (d2 != null) {
-                    if (a) {
-                        Log.d("SwanAppHistoryHelper", "deleteOtherDevHistory: delete other dev SwanApp");
-                    }
-                    d2.g(s, false, false, bVar);
-                }
-                if (a) {
-                    Log.d("SwanAppHistoryHelper", "deleteOtherDevHistory: delete other dev history");
-                }
-                contentResolver.delete(ai2.a(), "app_id LIKE ? AND app_id != ?", new String[]{a2 + "_dev%", str});
-            } else if (a) {
-                Log.d("SwanAppHistoryHelper", "deleteOtherDevHistory finish because: other dev history is empty");
-            }
-        }
-    }
-
-    @NonNull
-    public static Set<String> i(@NonNull ContentResolver contentResolver) {
-        InterceptResult invokeL;
-        StringBuilder sb;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, contentResolver)) == null) {
-            HashSet hashSet = new HashSet();
-            Cursor cursor = null;
-            try {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, list, hashMap)) == null) {
+            if (list != null && list.size() > 0) {
+                SQLiteDatabase writableDatabase = SwanAppDbControl.f(ku2.c()).h().getWritableDatabase();
                 try {
-                    cursor = contentResolver.query(ai2.a(), null, null, null, null);
-                } catch (Exception e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                    if (a && cursor != null) {
-                        sb = new StringBuilder();
-                    }
-                }
-                if (cursor != null && cursor.moveToFirst()) {
-                    do {
-                        hashSet.add(cursor.getString(cursor.getColumnIndex("app_id")));
-                    } while (cursor.moveToNext());
-                    if (a) {
-                        sb = new StringBuilder();
-                        sb.append("getAllHistoryIdsSet: Cursor count: ");
-                        sb.append(cursor.getCount());
-                        Log.d("SwanAppHistoryHelper", sb.toString());
-                    }
-                    cr4.d(cursor);
-                    return hashSet;
-                }
-                if (a && cursor != null) {
-                    sb = new StringBuilder();
-                    sb.append("getAllHistoryIdsSet: Cursor count: ");
-                    sb.append(cursor.getCount());
-                    Log.d("SwanAppHistoryHelper", sb.toString());
-                }
-                cr4.d(cursor);
-                return hashSet;
-            } catch (Throwable th) {
-                if (a && cursor != null) {
-                    Log.d("SwanAppHistoryHelper", "getAllHistoryIdsSet: Cursor count: " + cursor.getCount());
-                }
-                cr4.d(cursor);
-                throw th;
-            }
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    public static Set<String> q(SQLiteDatabase sQLiteDatabase) {
-        InterceptResult invokeL;
-        StringBuilder sb;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, sQLiteDatabase)) == null) {
-            HashSet hashSet = new HashSet();
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = sQLiteDatabase.query("ai_apps_history", null, null, null, null, null, null);
-                } catch (Exception e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                    if (a && cursor != null) {
-                        sb = new StringBuilder();
-                    }
-                }
-                if (cursor != null && cursor.moveToFirst()) {
-                    do {
-                        hashSet.add(cursor.getString(cursor.getColumnIndex("app_id")));
-                    } while (cursor.moveToNext());
-                    if (a) {
-                        sb = new StringBuilder();
-                        sb.append("getAllHistoryIdsSet: Cursor count: ");
-                        sb.append(cursor.getCount());
-                        Log.d("SwanAppHistoryHelper", sb.toString());
-                    }
-                    az2.a(cursor);
-                    return hashSet;
-                }
-                if (a && cursor != null) {
-                    sb = new StringBuilder();
-                    sb.append("getAllHistoryIdsSet: Cursor count: ");
-                    sb.append(cursor.getCount());
-                    Log.d("SwanAppHistoryHelper", sb.toString());
-                }
-                az2.a(cursor);
-                return hashSet;
-            } catch (Throwable th) {
-                if (a && cursor != null) {
-                    Log.d("SwanAppHistoryHelper", "getAllHistoryIdsSet: Cursor count: " + cursor.getCount());
-                }
-                az2.a(cursor);
-                throw th;
-            }
-        }
-        return (Set) invokeL.objValue;
-    }
-
-    public static void j(md3.c cVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65546, null, cVar) != null) || cVar == null) {
-            return;
-        }
-        y0c.n("").J(Schedulers.io()).p(new b()).s(i1c.b()).H(new a(cVar));
-    }
-
-    @NonNull
-    public static JSONObject k(Cursor cursor) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, cursor)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            do {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    String string = cursor.getString(cursor.getColumnIndex("app_id"));
-                    if (!TextUtils.isEmpty(string)) {
-                        jSONObject.put("appid", string);
-                    }
-                    String string2 = cursor.getString(cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY));
-                    if (!TextUtils.isEmpty(string2)) {
-                        jSONObject.put("appKey", string2);
-                    }
-                    jSONObject.put("version", cursor.getInt(cursor.getColumnIndex("version_code")));
-                    int i = cursor.getInt(cursor.getColumnIndex("frame_type"));
-                    jSONObject.put("frameType", i);
-                    int i2 = cursor.getInt(cursor.getColumnIndex("app_type"));
-                    String str2 = "1";
-                    if (i2 != 0) {
-                        if (i2 != 1) {
-                            if (i2 != 2) {
-                                if (i2 == 3) {
-                                    str2 = "3";
-                                }
-                            } else {
-                                str2 = "2";
-                            }
-                        } else {
-                            str2 = "0";
-                        }
-                    }
-                    jSONObject.put("type", str2);
-                    if (TextUtils.isEmpty(string)) {
-                        string = "";
-                    }
-                    if (i == 1) {
-                        str = String.format(md3.d, string);
-                    } else {
-                        str = md3.c + string + "\"}";
-                    }
-                    jSONObject.put("scheme", str);
-                    String string3 = cursor.getString(cursor.getColumnIndex("visit_time"));
-                    if (!TextUtils.isEmpty(string3)) {
-                        jSONObject.put("dataStamp", string3);
-                        jSONObject.put("dateStamp", string3);
-                    }
-                    String string4 = cursor.getString(cursor.getColumnIndex("app_icon"));
-                    if (!TextUtils.isEmpty(string4)) {
-                        jSONObject.put(GameAssistConstKt.KEY_ICONURL, string4);
-                    }
-                    jSONObject.put("payProtected", cursor.getInt(cursor.getColumnIndex("pay_protected")));
-                    String string5 = cursor.getString(cursor.getColumnIndex("app_name"));
-                    if (!TextUtils.isEmpty(string5)) {
-                        jSONObject.put("title", string5);
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-                jSONArray.put(jSONObject);
-            } while (cursor.moveToNext());
-            az2.a(cursor);
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("history", jSONArray);
-            } catch (JSONException e3) {
-                e3.printStackTrace();
-            }
-            if (a) {
-                Log.d("SwanAppHistoryHelper", "historyCursorToJson : " + jSONObject2.toString());
-            }
-            return jSONObject2;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static void l(List<ko2> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, null, list) == null) && list != null && list.size() > 0) {
-            SQLiteDatabase e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e();
-            e2.beginTransaction();
-            try {
-                try {
-                    for (ko2 ko2Var : list) {
+                    writableDatabase.beginTransaction();
+                    int i = 0;
+                    while (i < list.size()) {
                         ContentValues contentValues = new ContentValues();
-                        contentValues.put("app_id", ko2Var.a);
-                        contentValues.put("visit_time", Long.valueOf(ko2Var.e));
-                        contentValues.put("app_from", ko2Var.i);
-                        contentValues.put("app_name", ko2Var.c);
-                        contentValues.put(GameGuideConfigInfo.KEY_APP_KEY, ko2Var.b);
-                        contentValues.put("version_code", ko2Var.j);
-                        contentValues.put("app_icon", ko2Var.d);
-                        contentValues.put("app_type", ko2Var.g);
-                        contentValues.put("frame_type", Integer.valueOf(ko2Var.f));
-                        contentValues.put("pay_protected", Integer.valueOf(ko2Var.h));
-                        contentValues.put("sync_state", (Integer) 1);
-                        e2.insertWithOnConflict("ai_apps_history", null, contentValues, 5);
-                    }
-                    e2.setTransactionSuccessful();
-                } catch (Exception e3) {
-                    if (a) {
-                        e3.printStackTrace();
-                    }
-                }
-                e2.endTransaction();
-                AppRuntime.getAppContext().getContentResolver().notifyChange(ai2.a(), (ContentObserver) null, false);
-            } catch (Throwable th) {
-                e2.endTransaction();
-                throw th;
-            }
-        }
-    }
-
-    public static Cursor n(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, strArr)) == null) {
-            return AppRuntime.getAppContext().getContentResolver().query(ai2.a(), null, str, strArr, "visit_time desc  LIMIT 200");
-        }
-        return (Cursor) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0090  */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0159  */
-    /* JADX WARN: Removed duplicated region for block: B:34:0x0194  */
-    /* JADX WARN: Removed duplicated region for block: B:48:0x01e1  */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0206 A[LOOP:3: B:50:0x0200->B:52:0x0206, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0218  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x0274  */
-    /* JADX WARN: Removed duplicated region for block: B:65:0x0282  */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x02ae A[LOOP:5: B:67:0x02a8->B:69:0x02ae, LOOP_END] */
-    @Deprecated
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static Cursor o(@NonNull String str, int i) {
-        InterceptResult invokeLI;
-        Cursor query;
-        List<d> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, str, i)) == null) {
-            HashMap hashMap = new HashMap();
-            Cursor p = p(AppRuntime.getAppContext().getContentResolver(), str);
-            if (p != null && p.moveToFirst()) {
-                do {
-                    vh2 vh2Var = new vh2();
-                    SwanAppDbControl.f(AppRuntime.getAppContext()).s(p, vh2Var);
-                    if (!TextUtils.isEmpty(vh2Var.a)) {
-                        c cVar = new c(null);
-                        cVar.b = vh2Var;
-                        ko2 ko2Var = cVar.a;
-                        ko2Var.a = vh2Var.a;
-                        ko2Var.a = p.getString(p.getColumnIndex("app_from"));
-                        cVar.a.e = p.getLong(p.getColumnIndex("visit_time"));
-                        hashMap.put(cVar.a.a, cVar);
-                        if (a) {
-                            Log.v("history_migrate_pms", "Aps&History == " + vh2Var.a);
+                        SwanFavorItemData swanFavorItemData = list.get(i);
+                        contentValues.put("app_id", swanFavorItemData.getAppKey());
+                        i++;
+                        contentValues.put("sort_index", Integer.valueOf(i));
+                        contentValues.put("favorite_time", Long.valueOf(swanFavorItemData.getCreateTime()));
+                        contentValues.put("app_name", swanFavorItemData.getAppName());
+                        contentValues.put("app_icon", swanFavorItemData.getIconUrl());
+                        contentValues.put("app_type", Integer.valueOf(swanFavorItemData.getAppType()));
+                        contentValues.put("frame_type", Integer.valueOf(swanFavorItemData.getAppFrameType()));
+                        contentValues.put("pay_protected", Integer.valueOf(swanFavorItemData.getPayProtected()));
+                        contentValues.put("is_new_favor", hashMap.get(swanFavorItemData.getAppKey()));
+                        if (writableDatabase.insertWithOnConflict("ai_apps_favorites", null, contentValues, 5) < 0) {
+                            if (writableDatabase != null) {
+                                try {
+                                    writableDatabase.endTransaction();
+                                } catch (Exception unused) {
+                                }
+                            }
+                            return false;
                         }
                     }
-                } while (p.moveToNext());
-                cr4.d(p);
-                if (a) {
-                }
-                query = AppRuntime.getAppContext().getContentResolver().query(ai2.a(), null, null, null, null);
-                HashMap hashMap2 = new HashMap();
-                if (query == null) {
-                }
-                cr4.d(query);
-                if (a) {
-                }
-                ArrayList<d> arrayList2 = new ArrayList();
-                while (r2.hasNext()) {
-                }
-                if (a) {
-                }
-                while (r13.hasNext()) {
-                }
-                if (a) {
-                }
-                arrayList = new ArrayList(hashMap.values());
-                Collections.sort(arrayList, new e(null));
-                int i2 = 0;
-                if (i > 0) {
-                }
-                MatrixCursor matrixCursor = new MatrixCursor(c, 50);
-                while (r13.hasNext()) {
-                }
-                return matrixCursor;
-            }
-            cr4.d(p);
-            if (a) {
-                Log.d("history_migrate_pms", "^ Aps & History 查询到 " + hashMap.size() + " 个历史记录");
-            }
-            query = AppRuntime.getAppContext().getContentResolver().query(ai2.a(), null, null, null, null);
-            HashMap hashMap22 = new HashMap();
-            if (query == null && query.moveToFirst()) {
-                do {
-                    ko2 ko2Var2 = new ko2();
-                    ko2Var2.a = query.getString(query.getColumnIndex("app_id"));
-                    ko2Var2.i = query.getString(query.getColumnIndex("app_from"));
-                    ko2Var2.e = query.getLong(query.getColumnIndex("visit_time"));
-                    ko2Var2.c = query.getString(query.getColumnIndex("app_name"));
-                    ko2Var2.b = query.getString(query.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY));
-                    ko2Var2.j = query.getString(query.getColumnIndex("version_code"));
-                    ko2Var2.d = query.getString(query.getColumnIndex("app_icon"));
-                    ko2Var2.f = query.getInt(query.getColumnIndex("frame_type"));
-                    hashMap22.put(ko2Var2.a, ko2Var2);
                     if (a) {
-                        Log.v("history_migrate_pms", "History == " + ko2Var2.a);
+                        Log.d("SwanAppFavoriteHelper", "批量数据库收藏成功");
                     }
-                } while (query.moveToNext());
-                cr4.d(query);
-                if (a) {
-                }
-                ArrayList<d> arrayList22 = new ArrayList();
-                while (r2.hasNext()) {
-                }
-                if (a) {
-                }
-                while (r13.hasNext()) {
-                }
-                if (a) {
-                }
-                arrayList = new ArrayList(hashMap.values());
-                Collections.sort(arrayList, new e(null));
-                int i22 = 0;
-                if (i > 0) {
-                    arrayList = arrayList.subList(0, i);
-                    if (a) {
+                    writableDatabase.setTransactionSuccessful();
+                    if (writableDatabase != null) {
+                        try {
+                            writableDatabase.endTransaction();
+                            return true;
+                        } catch (Exception unused2) {
+                            return true;
+                        }
                     }
-                }
-                MatrixCursor matrixCursor2 = new MatrixCursor(c, 50);
-                while (r13.hasNext()) {
-                }
-                return matrixCursor2;
-            }
-            cr4.d(query);
-            if (a) {
-                Log.d("history_migrate_pms", "^ History 库查询到 " + hashMap22.size() + " 个历史记录");
-            }
-            ArrayList<d> arrayList222 = new ArrayList();
-            for (PMSAppInfo pMSAppInfo : new ArrayList(vi4.i().v().values())) {
-                if (a) {
-                    Log.v("history_migrate_pms", "Pms == " + pMSAppInfo.appId);
-                }
-                String str2 = pMSAppInfo.appName;
-                if (str2 != null && str2.contains(str) && hashMap22.containsKey(pMSAppInfo.appId)) {
-                    f fVar = new f(null);
-                    fVar.a = (ko2) hashMap22.get(pMSAppInfo.appId);
-                    fVar.b = pMSAppInfo;
-                    arrayList222.add(fVar);
+                    return true;
+                } catch (Exception unused3) {
+                    if (writableDatabase != null) {
+                        try {
+                            writableDatabase.endTransaction();
+                        } catch (Exception unused4) {
+                        }
+                    }
+                } catch (Throwable th) {
+                    if (writableDatabase != null) {
+                        try {
+                            writableDatabase.endTransaction();
+                        } catch (Exception unused5) {
+                        }
+                    }
+                    throw th;
                 }
             }
-            if (a) {
-                Log.d("history_migrate_pms", "^ Pms & History 查询到 " + arrayList222.size() + " 个历史记录");
-            }
-            for (d dVar : arrayList222) {
-                hashMap.put(dVar.a.a, dVar);
-            }
-            if (a) {
-                Log.d("history_migrate_pms", "合并后有 " + hashMap.size() + " 个历史记录");
-                Iterator it = hashMap.values().iterator();
-                while (it.hasNext()) {
-                    Log.v("history_migrate_pms", "Migrate == " + ((d) it.next()).a.a);
-                }
-            }
-            arrayList = new ArrayList(hashMap.values());
-            Collections.sort(arrayList, new e(null));
-            int i222 = 0;
-            if (i > 0 && i < arrayList.size()) {
-                arrayList = arrayList.subList(0, i);
-                if (a) {
-                    Log.d("history_migrate_pms", "Limit限制 " + i + " 条");
-                }
-            }
-            MatrixCursor matrixCursor22 = new MatrixCursor(c, 50);
-            for (d dVar2 : arrayList) {
-                d(matrixCursor22, i222, dVar2);
-                i222++;
-            }
-            return matrixCursor22;
+            return false;
         }
-        return (Cursor) invokeLI.objValue;
+        return invokeLL.booleanValue;
     }
 
-    @Nullable
-    public static Cursor p(@NonNull ContentResolver contentResolver, @NonNull String str) {
-        InterceptResult invokeLL;
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, contentResolver, str)) == null) {
-            try {
-                cursor = contentResolver.query(ai2.b(), null, SwanAppDbControl.SwanAppTable.name.name() + " LIKE ? ", new String[]{"%" + str + "%"}, "visit_time desc  LIMIT 200");
-            } catch (Exception e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-                cursor = null;
-            }
-            if (a && cursor != null) {
-                Log.d("SwanAppHistoryHelper", "queryHistoryByKeyword: keyword[" + str + "]  Cursor count: " + cursor.getCount());
-            }
-            return cursor;
-        }
-        return (Cursor) invokeLL.objValue;
-    }
-
-    public static List<ko2> r() {
+    @NonNull
+    public static List<SwanFavorItemData> j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            ContentResolver contentResolver = AppRuntime.getAppContext().getContentResolver();
-            Cursor query = contentResolver.query(ai2.a(), null, "sync_state=?", new String[]{String.valueOf(0)}, "visit_time asc  LIMIT 200");
-            if (query != null && query.moveToFirst()) {
-                ArrayList arrayList = new ArrayList();
-                do {
-                    ko2 ko2Var = new ko2();
-                    ko2Var.a = query.getString(query.getColumnIndex("app_id"));
-                    ko2Var.e = query.getLong(query.getColumnIndex("visit_time"));
-                    arrayList.add(ko2Var);
-                } while (query.moveToNext());
-                az2.a(query);
-                return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            Cursor k = k();
+            if (k == null) {
+                return new ArrayList(0);
             }
-            az2.a(query);
-            return null;
+            ArrayList arrayList = new ArrayList(k.getCount());
+            try {
+                try {
+                    if (k.getCount() > 0) {
+                        k.moveToFirst();
+                        do {
+                            SwanFavorItemData l = l(k);
+                            if (!TextUtils.isEmpty(l.getAppKey()) && !TextUtils.isEmpty(l.getAppName())) {
+                                arrayList.add(l);
+                            }
+                        } while (k.moveToNext());
+                    }
+                } catch (Exception e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
+                }
+                return arrayList;
+            } finally {
+                hr4.d(k);
+            }
         }
         return (List) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x0089 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v2 */
-    /* JADX WARN: Type inference failed for: r1v3 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
-    @Nullable
-    public static List<String> s(@NonNull ContentResolver contentResolver, @Nullable String str) {
-        InterceptResult invokeLL;
-        Cursor cursor;
+    public static void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, contentResolver, str)) == null) {
-            ?? r1 = 0;
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
+        if (interceptable == null || interceptable.invokeV(65557, null) == null) {
+            int i = 1;
+            if (!rj3.a().getBoolean("key_first_sort", true)) {
+                return;
+            }
+            rj3.a().putBoolean("key_first_sort", false);
+            Cursor query = AppRuntime.getAppContext().getContentResolver().query(e(), null, null, null, "favorite_time DESC");
+            if (query != null) {
                 try {
-                    String a2 = a32.a(str);
-                    if (TextUtils.isEmpty(a2)) {
-                        cr4.d(null);
-                        return null;
-                    }
-                    cursor = contentResolver.query(ai2.a(), null, "app_id LIKE ? AND app_id != ?", new String[]{a2 + "_dev%", str}, "visit_time desc  LIMIT 200");
-                    if (cursor != null) {
-                        try {
-                            if (cursor.moveToFirst()) {
-                                ArrayList arrayList = new ArrayList();
-                                do {
-                                    String string = cursor.getString(cursor.getColumnIndex("app_id"));
-                                    if (!TextUtils.isEmpty(string)) {
-                                        arrayList.add(string);
-                                    }
-                                } while (cursor.moveToNext());
-                                cr4.d(cursor);
-                                return arrayList;
-                            }
-                        } catch (Exception e2) {
-                            e = e2;
-                            if (a) {
-                                e.printStackTrace();
-                            }
-                            cr4.d(cursor);
-                            return null;
+                    try {
+                        query.moveToFirst();
+                        ArrayList arrayList = new ArrayList();
+                        ArrayList arrayList2 = new ArrayList();
+                        do {
+                            arrayList.add(query.getString(query.getColumnIndex("app_id")));
+                            arrayList2.add(Integer.valueOf(i));
+                            i++;
+                        } while (query.moveToNext());
+                        w(arrayList, arrayList2);
+                    } catch (Exception e2) {
+                        if (a) {
+                            e2.printStackTrace();
                         }
                     }
-                    cr4.d(cursor);
-                    return null;
-                } catch (Exception e3) {
-                    e = e3;
-                    cursor = null;
-                } catch (Throwable th) {
-                    th = th;
-                    cr4.d(r1);
-                    throw th;
+                } finally {
+                    hr4.d(query);
                 }
-            } catch (Throwable th2) {
-                th = th2;
-                r1 = contentResolver;
             }
-        } else {
-            return (List) invokeLL.objValue;
         }
     }
 
-    @WorkerThread
-    public static void t(@NonNull ContentResolver contentResolver, @Nullable String str, sk2.b bVar) {
-        int i;
-        Cursor query;
+    public static SwanFavorItemData l(@NonNull Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65556, null, contentResolver, str, bVar) == null) {
-            Cursor cursor = null;
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, cursor)) == null) {
+            SwanFavorItemData swanFavorItemData = new SwanFavorItemData();
+            swanFavorItemData.setIndex(cursor.getInt(cursor.getColumnIndex("sort_index")));
+            swanFavorItemData.setAppKey(cursor.getString(cursor.getColumnIndex("app_id")));
+            swanFavorItemData.setAppName(cursor.getString(cursor.getColumnIndex("app_name")));
+            swanFavorItemData.setIconUrl(cursor.getString(cursor.getColumnIndex("app_icon")));
+            swanFavorItemData.setAppType(cursor.getInt(cursor.getColumnIndex("app_type")));
+            swanFavorItemData.setAppFrameType(cursor.getInt(cursor.getColumnIndex("frame_type")));
+            swanFavorItemData.setPayProtected(cursor.getInt(cursor.getColumnIndex("pay_protected")));
+            swanFavorItemData.setIsNewFavor(cursor.getInt(cursor.getColumnIndex("is_new_favor")));
+            if (a) {
+                Log.v("favorite_migrate_pms", "Favotite == " + swanFavorItemData.getAppKey());
             }
-            try {
-                try {
-                    query = contentResolver.query(ai2.a(), null, "app_id != ?", new String[]{str, String.valueOf(200)}, "visit_time DESC limit ?,-1");
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                ArrayList arrayList = new ArrayList();
-                if (query != null) {
-                    while (query.moveToNext()) {
-                        String string = query.getString(query.getColumnIndex("app_id"));
-                        if (!TextUtils.isEmpty(string)) {
-                            arrayList.add(string);
+            if (TextUtils.isEmpty(swanFavorItemData.getAppName()) || TextUtils.isEmpty(swanFavorItemData.getIconUrl())) {
+                List<ai2> r = r();
+                if (r.size() > 0) {
+                    Iterator<ai2> it = r.iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        ai2 next = it.next();
+                        if (TextUtils.equals(swanFavorItemData.getAppKey(), next.a)) {
+                            swanFavorItemData.setAppKey(next.a);
+                            swanFavorItemData.setAppName(next.l);
+                            swanFavorItemData.setIconUrl(next.i);
+                            swanFavorItemData.setAppFrameType(next.y);
+                            swanFavorItemData.setAppType(next.r);
+                            swanFavorItemData.setPayProtected(next.E);
+                            v(swanFavorItemData);
+                            break;
                         }
                     }
                 }
-                if (a) {
-                    Log.i("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp size=" + arrayList.size() + ", appId=" + str);
-                }
-                if (arrayList.isEmpty()) {
-                    cr4.d(query);
+            }
+            return swanFavorItemData;
+        }
+        return (SwanFavorItemData) invokeL.objValue;
+    }
+
+    public static void q(List<SwanFavorItemData> list) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, list) == null) {
+            Cursor k = k();
+            if (list != null && list.size() > 0) {
+                if (k == null) {
                     return;
                 }
-                ij2 d2 = kj2.c().d();
-                if (d2 != null) {
-                    d2.f(arrayList, false, bVar);
-                }
-                StringBuilder sb = new StringBuilder();
-                int size = arrayList.size();
-                for (i = 0; i < size; i++) {
-                    sb.append('\'');
-                    sb.append((String) arrayList.get(i));
-                    sb.append('\'');
-                    if (i < size - 1) {
-                        sb.append(",");
-                    }
-                }
-                String str2 = "app_id in (" + sb.toString() + SmallTailInfo.EMOTION_SUFFIX;
-                int delete = contentResolver.delete(ai2.a(), str2, null);
-                if (a) {
-                    Log.i("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp delete result=" + delete + ", query=" + str2);
-                }
-                cr4.d(query);
-            } catch (Exception e3) {
-                e = e3;
-                cursor = query;
-                if (a) {
-                    Log.e("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp error", e);
-                }
-                cr4.d(cursor);
-            } catch (Throwable th2) {
-                th = th2;
-                cursor = query;
-                cr4.d(cursor);
-                throw th;
-            }
-        }
-    }
-
-    public static void u(ContentResolver contentResolver, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65557, null, contentResolver, str, i) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("sync_state", Integer.valueOf(i));
-            contentResolver.update(ai2.a(), contentValues, "app_id=?", new String[]{str});
-        }
-    }
-
-    public static void v(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, null, sQLiteDatabase) == null) {
-            sQLiteDatabase.beginTransaction();
-            try {
-                for (String str : q(sQLiteDatabase)) {
-                    PMSAppInfo u = vi4.i().u(str);
-                    if (u != null) {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("app_name", u.appName);
-                        contentValues.put("app_icon", u.iconUrl);
-                        contentValues.put("frame_type", Integer.valueOf(u.appCategory));
-                        contentValues.put("app_type", String.valueOf(u.type));
-                        contentValues.put("sync_state", (Integer) 0);
-                        if (sQLiteDatabase.updateWithOnConflict("ai_apps_history", contentValues, "app_id=?", new String[]{str}, 5) <= 0) {
-                            if (a) {
-                                Log.e("SwanAppHistoryHelper", "updatePMSDataToHistoryTable: 更新失败");
+                boolean z2 = false;
+                try {
+                    try {
+                        boolean moveToFirst = k.moveToFirst();
+                        HashMap hashMap = new HashMap();
+                        do {
+                            z = true;
+                            if (!moveToFirst) {
+                                break;
                             }
-                            return;
+                            String string = k.getString(k.getColumnIndex("app_id"));
+                            String string2 = k.getString(k.getColumnIndex("app_icon"));
+                            String string3 = k.getString(k.getColumnIndex("app_name"));
+                            int i = k.getInt(k.getColumnIndex("pay_protected"));
+                            hashMap.put(string, Integer.valueOf(k.getInt(k.getColumnIndex("is_new_favor"))));
+                            if (!m(list, string, string3, string2, i)) {
+                                z2 = true;
+                            }
+                        } while (k.moveToNext());
+                        if (z2 || k.getCount() == list.size()) {
+                            z = z2;
+                        }
+                        if (z) {
+                            AppRuntime.getAppContext().getContentResolver().delete(e(), null, null);
+                            i(list, hashMap);
+                            p();
+                        }
+                    } catch (Exception e2) {
+                        if (a) {
+                            e2.printStackTrace();
                         }
                     }
+                } finally {
+                    hr4.d(k);
                 }
-                sQLiteDatabase.setTransactionSuccessful();
-            } finally {
-                sQLiteDatabase.endTransaction();
+            } else if (k != null && k.getCount() > 0) {
+                AppRuntime.getAppContext().getContentResolver().delete(e(), null, null);
+                p();
             }
         }
+    }
+
+    public static boolean m(List<SwanFavorItemData> list, String str, String str2, String str3, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, null, new Object[]{list, str, str2, str3, Integer.valueOf(i)})) == null) {
+            if (list != null && list.size() > 0) {
+                for (SwanFavorItemData swanFavorItemData : list) {
+                    if (TextUtils.equals(str, swanFavorItemData.getAppKey()) && TextUtils.equals(str2, swanFavorItemData.getAppName()) && TextUtils.equals(str3, swanFavorItemData.getIconUrl()) && i == swanFavorItemData.getPayProtected()) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:8:0x0024, code lost:
+        if (r0.getCount() > 0) goto L9;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x004c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean n(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            boolean z = true;
+            boolean z2 = false;
+            try {
+                Cursor query = AppRuntime.getAppContext().getContentResolver().query(e(), null, "app_id = ?", new String[]{str}, null);
+                if (query != null) {
+                }
+                z = false;
+                if (query != null) {
+                    try {
+                        query.close();
+                    } catch (Exception e2) {
+                        e = e2;
+                        z2 = z;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        z = z2;
+                        if (a) {
+                        }
+                        return z;
+                    }
+                }
+            } catch (Exception e3) {
+                e = e3;
+            }
+            if (a) {
+                Log.d("SwanAppFavoriteHelper", "小程序： " + str + "是否在收藏列表中：" + z);
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void v(@NonNull SwanFavorItemData swanFavorItemData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65558, null, swanFavorItemData) != null) || TextUtils.isEmpty(swanFavorItemData.getAppKey())) {
+            return;
+        }
+        Uri e2 = e();
+        String[] strArr = {swanFavorItemData.getAppKey()};
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("app_name", swanFavorItemData.getAppName());
+        contentValues.put("app_icon", swanFavorItemData.getIconUrl());
+        contentValues.put("app_type", Integer.valueOf(swanFavorItemData.getAppType()));
+        contentValues.put("frame_type", Integer.valueOf(swanFavorItemData.getAppFrameType()));
+        contentValues.put("pay_protected", Integer.valueOf(swanFavorItemData.getPayProtected()));
+        if (AppRuntime.getAppContext().getContentResolver().update(e2, contentValues, "app_id = ?", strArr) > 0 && a) {
+            Log.d("SwanAppFavoriteHelper", "更新收藏");
+        }
+    }
+
+    public static boolean o(String str, int i, wm2 wm2Var) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65551, null, str, i, wm2Var)) == null) {
+            if (!TextUtils.isEmpty(str) && i >= 1) {
+                List<SwanFavorItemData> j = j();
+                if (j.size() < i) {
+                    if (wm2Var != null) {
+                        wm2Var.b(false);
+                    }
+                    return false;
+                }
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                int i2 = 0;
+                while (i2 < j.size()) {
+                    int i3 = i2 + 1;
+                    if (i3 == i) {
+                        arrayList.add(str);
+                        arrayList2.add(Integer.valueOf(j.get(i2).getIndex()));
+                        if (!w(arrayList, arrayList2)) {
+                            if (wm2Var != null) {
+                                wm2Var.b(false);
+                            }
+                            return false;
+                        }
+                    }
+                    i2 = i3;
+                }
+                arrayList.clear();
+                arrayList2.clear();
+                int i4 = 0;
+                while (i4 < j.size()) {
+                    int i5 = i4 + 1;
+                    if (i5 >= i && !TextUtils.equals(j.get(i4).getAppKey(), str)) {
+                        arrayList2.add(Integer.valueOf(j.get(i4).getIndex() + 1));
+                        arrayList.add(j.get(i4).getAppKey());
+                    }
+                    i4 = i5;
+                }
+                boolean w = w(arrayList, arrayList2);
+                if (!w) {
+                    if (wm2Var != null) {
+                        wm2Var.b(false);
+                    }
+                    return false;
+                }
+                if (wm2Var != null) {
+                    wm2Var.c();
+                }
+                p();
+                return w;
+            }
+            if (wm2Var != null) {
+                wm2Var.b(false);
+            }
+            return false;
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public static void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65552, null) == null) {
+            AppRuntime.getAppContext().getContentResolver().notifyChange(e(), (ContentObserver) null, false);
+            AppRuntime.getAppContext().getContentResolver().notifyChange(d(), (ContentObserver) null, false);
+            AppRuntime.getAppContext().getContentResolver().notifyChange(f(), (ContentObserver) null, false);
+        }
+    }
+
+    @NonNull
+    public static List<ai2> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Cursor s = s();
+            if (s != null) {
+                try {
+                    try {
+                        if (s.getCount() > 0) {
+                            s.moveToFirst();
+                            do {
+                                ai2 ai2Var = new ai2();
+                                SwanAppDbControl.f(AppRuntime.getAppContext()).s(s, ai2Var);
+                                if (!TextUtils.isEmpty(ai2Var.a)) {
+                                    arrayList.add(ai2Var);
+                                }
+                            } while (s.moveToNext());
+                        }
+                    } catch (Exception e2) {
+                        if (a) {
+                            e2.printStackTrace();
+                        }
+                    }
+                } finally {
+                    hr4.d(s);
+                }
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static boolean w(List<String> list, List<Integer> list2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, list, list2)) == null) {
+            if (list != null && list.size() > 0 && list2 != null && list2.size() > 0) {
+                SQLiteDatabase writableDatabase = SwanAppDbControl.f(ku2.c()).h().getWritableDatabase();
+                writableDatabase.beginTransaction();
+                for (int i = 0; i < list.size(); i++) {
+                    try {
+                        String[] strArr = {list.get(i)};
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("sort_index", list2.get(i));
+                        if (writableDatabase.update("ai_apps_favorites", contentValues, "app_id = ?", strArr) <= 0) {
+                            if (writableDatabase != null) {
+                                try {
+                                    writableDatabase.endTransaction();
+                                } catch (Exception unused) {
+                                }
+                            }
+                            return false;
+                        }
+                    } catch (Exception unused2) {
+                        if (writableDatabase != null) {
+                            try {
+                                writableDatabase.endTransaction();
+                            } catch (Exception unused3) {
+                            }
+                        }
+                    } catch (Throwable th) {
+                        if (writableDatabase != null) {
+                            try {
+                                writableDatabase.endTransaction();
+                            } catch (Exception unused4) {
+                            }
+                        }
+                        throw th;
+                    }
+                }
+                writableDatabase.setTransactionSuccessful();
+                if (writableDatabase != null) {
+                    try {
+                        writableDatabase.endTransaction();
+                    } catch (Exception unused5) {
+                    }
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

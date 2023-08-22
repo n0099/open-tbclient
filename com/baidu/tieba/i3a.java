@@ -1,72 +1,135 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class i3a extends f3a {
+public class i3a extends m3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public HeadImageView h;
+    public TextView i;
+    public TextView j;
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x2a a;
+        public final /* synthetic */ i3a b;
+
+        public a(i3a i3aVar, x2a x2aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i3aVar, x2aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i3aVar;
+            this.a = x2aVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                Context context = this.b.b.getContext();
+                x2a x2aVar = this.a;
+                String str2 = x2aVar.d;
+                String str3 = x2aVar.f;
+                AdvertAppInfo advertAppInfo = this.b.c;
+                if (advertAppInfo != null) {
+                    str = advertAppInfo.g;
+                } else {
+                    str = "";
+                }
+                s1a.a(context, str2, str3, str, this.a.j);
+                ClogBuilder clogBuilder = new ClogBuilder();
+                clogBuilder.v(this.b.c.j).q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g).z(String.valueOf(302));
+                t31.e(clogBuilder);
+                i3a i3aVar = this.b;
+                if (i3aVar.d != null) {
+                    b29.c(i3aVar.c);
+                }
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i3a(Context context) {
-        super(context);
+    public i3a(View view2, String str) {
+        super(view2, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {view2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((View) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        k();
     }
 
-    @Override // com.baidu.tieba.l3a
-    public void a(ShareEntity shareEntity, m3a m3aVar) {
-        String str;
+    @Override // com.baidu.tieba.m3a
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, m3aVar) == null) {
-            if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getContent())) {
-                if (TextUtils.isEmpty(shareEntity.getContent())) {
-                    str = shareEntity.getTitle() + shareEntity.getLinkUrl();
-                } else {
-                    str = shareEntity.getContent() + shareEntity.getLinkUrl();
-                }
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.SEND");
-                intent.putExtra("android.intent.extra.TEXT", str);
-                intent.setType("text/plain");
-                Context context = this.b;
-                if (o3a.startActivity(context, Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f13b6)))) {
-                    if (m3aVar != null) {
-                        m3aVar.X0(0, 1);
-                        return;
-                    }
-                    return;
-                } else if (m3aVar != null) {
-                    m3aVar.X0(0, 2);
-                    return;
-                } else {
-                    return;
-                }
-            }
-            BdUtilHelper.showToast(d(), (int) R.string.obfuscated_res_0x7f0f1385);
-            if (m3aVar != null) {
-                m3aVar.X0(0, 2);
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.b();
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0620, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0101, 1);
+            SkinManager.setBackgroundResource(this.j, R.drawable.obfuscated_res_0x7f0814d2, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    @Override // com.baidu.tieba.m3a
+    public void c(x2a x2aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x2aVar) == null) {
+            super.c(x2aVar);
+            this.h.startLoad(x2aVar.c, 10, false);
+            this.i.setText(x2aVar.b);
+            this.j.setText(x2aVar.e);
+            this.b.setOnClickListener(new a(this, x2aVar));
+            b();
+        }
+    }
+
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            HeadImageView headImageView = (HeadImageView) a(R.id.obfuscated_res_0x7f092870);
+            this.h = headImageView;
+            headImageView.setDefaultResource(R.drawable.icon_default_avatar100);
+            this.h.setDefaultBgResource(R.color.CAM_X0205);
+            this.h.setIsRound(true);
+            this.i = (TextView) a(R.id.user_name);
+            this.j = (TextView) a(R.id.obfuscated_res_0x7f09006a);
         }
     }
 }

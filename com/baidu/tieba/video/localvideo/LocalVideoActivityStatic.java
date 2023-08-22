@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.atomData.EditVideoActivityConfig;
 import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cla;
-import com.baidu.tieba.cma;
-import com.baidu.tieba.fr6;
-import com.baidu.tieba.ml;
-import com.baidu.tieba.nl;
+import com.baidu.tieba.lpa;
+import com.baidu.tieba.lqa;
+import com.baidu.tieba.os6;
+import com.baidu.tieba.pl;
+import com.baidu.tieba.ql;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -155,9 +155,9 @@ public class LocalVideoActivityStatic {
             arrayList.add("com.baidu.tieba.resloader.face_beautification.mp3");
             arrayList.add("com.baidu.tieba.resloader.v3.mp3");
             RequestParams requestParams = new RequestParams();
-            requestParams.setRunType(nl.a);
+            requestParams.setRunType(ql.a);
             requestParams.setRunNode("aps");
-            requestParams.addChannel(new ml(arrayList, new a(this, customResponsedMessage)));
+            requestParams.addChannel(new pl(arrayList, new a(this, customResponsedMessage)));
             PmsManager.getInstance().execute(requestParams);
         }
     }
@@ -182,12 +182,12 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<fr6> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<os6> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof cla)) {
-                    return new CustomResponsedMessage<>(2921466, new cma((cla) customMessage.getData()));
+                if (customMessage != null && (customMessage.getData() instanceof lpa)) {
+                    return new CustomResponsedMessage<>(2921466, new lqa((lpa) customMessage.getData()));
                 }
                 return null;
             }

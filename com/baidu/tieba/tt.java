@@ -1,79 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.meter.TaskMeterData;
-import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.bdtask.ctrl.model.TaskStatus;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.bdtask.model.ui.TaskUIData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class tt extends mt<TaskMeterData> {
+public final class tt {
     public static /* synthetic */ Interceptable $ic;
+    public static final tt a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ot a;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? TaskMeterData.key : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tt(ot otVar) {
-        super(otVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {otVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ot) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448318253, "Lcom/baidu/tieba/tt;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448318253, "Lcom/baidu/tieba/tt;");
                 return;
             }
         }
-        this.a = otVar;
+        a = new tt();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mt
-    /* renamed from: c */
-    public TaskMeterData a(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
-        int optInt;
+    public tt() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            try {
-                jSONObject = new JSONObject(str);
-                optInt = jSONObject.optInt(TaskResponseData.keyUiType);
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                mt a = this.a.a(TaskUIData.key);
-                String optString = jSONObject.optString(TaskUIData.key);
-                Intrinsics.checkExpressionValueIsNotNull(optString, "guide.optString(TaskUIData.key)");
-                TaskUIData taskUIData = (TaskUIData) a.a(optString);
-                if (taskUIData == null) {
-                    taskUIData = new TaskUIData(null, null, 0, null, null, null, null, null, null, 0, null, null, 4095, null);
-                }
-                return new TaskMeterData(optInt, taskUIData);
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                return new TaskMeterData(0, null, 3, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        return (TaskMeterData) invokeL.objValue;
+    }
+
+    public final st a(TaskStatus taskStatus, TaskInfo taskInfo) {
+        InterceptResult invokeLL;
+        int i;
+        TaskUIData taskUIData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskStatus, taskInfo)) == null) {
+            if (taskStatus.isFinished()) {
+                taskUIData = taskInfo.getResponse().getUi();
+                i = taskInfo.getResponse().getUiType();
+            } else if (taskStatus.isRunning()) {
+                taskUIData = taskInfo.getTaskMeter().getUi();
+                i = taskInfo.getTaskMeter().getUiType();
+            } else if (taskStatus.isInited() | taskStatus.isRegistered()) {
+                taskUIData = taskInfo.getTaskGuide().getUi();
+                i = taskInfo.getTaskGuide().getUiType();
+            } else {
+                i = -1;
+                taskUIData = null;
+            }
+            return new st(i, taskUIData);
+        }
+        return (st) invokeLL.objValue;
     }
 }

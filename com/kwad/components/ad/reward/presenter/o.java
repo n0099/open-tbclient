@@ -324,12 +324,12 @@ public final class o extends a implements com.kwad.components.ad.reward.d.e, e.a
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.qA = findViewById(R.id.obfuscated_res_0x7f09130c);
-        this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091434);
-        this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091401);
-        this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f09127d);
-        this.qD = findViewById(R.id.obfuscated_res_0x7f09132c);
-        this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09130d);
+        this.qA = findViewById(R.id.obfuscated_res_0x7f091322);
+        this.qB = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f09144a);
+        this.ln = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091417);
+        this.px = (ImageView) findViewById(R.id.obfuscated_res_0x7f091293);
+        this.qD = findViewById(R.id.obfuscated_res_0x7f091342);
+        this.qE = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091323);
     }
 
     @Override // com.kwad.components.ad.reward.e.a

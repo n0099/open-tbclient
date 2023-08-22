@@ -50,12 +50,12 @@ public final class BotSkillMenuItemViewBinding implements ViewBinding {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090443);
+            TbImage tbImage = (TbImage) view2.findViewById(R.id.obfuscated_res_0x7f090445);
             if (tbImage != null) {
                 RelativeLayout relativeLayout = (RelativeLayout) view2;
                 return new BotSkillMenuItemViewBinding(relativeLayout, tbImage, relativeLayout);
             }
-            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f090443)));
+            throw new NullPointerException("Missing required view with ID: ".concat(view2.getResources().getResourceName(R.id.obfuscated_res_0x7f090445)));
         }
         return (BotSkillMenuItemViewBinding) invokeL.objValue;
     }
@@ -65,7 +65,7 @@ public final class BotSkillMenuItemViewBinding implements ViewBinding {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, layoutInflater, viewGroup, z)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d017a, viewGroup, false);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d017d, viewGroup, false);
             if (z) {
                 viewGroup.addView(inflate);
             }

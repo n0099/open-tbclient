@@ -1,7 +1,7 @@
 package com.huawei.hms.hatool;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vpb;
+import com.baidu.tieba.kwb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,14 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class x {
     public static /* synthetic */ Interceptable $ic;
     public static x b;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -124,7 +124,7 @@ public class x {
             } else if (System.currentTimeMillis() - b2 <= com.heytap.mcssdk.constant.a.g) {
                 return;
             }
-            String d = vpb.d(16);
+            String d = kwb.d(16);
             String a2 = e.a(b3, d);
             this.a.a(b2);
             this.a.b(d);

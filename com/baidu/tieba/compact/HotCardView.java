@@ -7,9 +7,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ez7;
-import com.baidu.tieba.o97;
-import com.baidu.tieba.uy7;
+import com.baidu.tieba.cb7;
+import com.baidu.tieba.p08;
+import com.baidu.tieba.z08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,10 +18,10 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000*\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u00020\u00012\u00020\u0002B\r\u0012\u0006\u0010\u0003\u001a\u00020\u0004¢\u0006\u0002\u0010\u0005J\b\u0010\b\u001a\u00020\tH\u0016J\u000e\u0010\n\u001a\u00020\t2\u0006\u0010\u000b\u001a\u00020\fR\u000e\u0010\u0006\u001a\u00020\u0007X\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006\r"}, d2 = {"Lcom/baidu/tieba/compact/HotCardView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "(Landroid/content/Context;)V", "recommendHotCardLayout", "Lcom/baidu/tieba/homepage/concern/view/RecommendHotCardLayout;", "onChangeSkin", "", "setData", "data", "Lcom/baidu/tieba/homepage/concern/data/RecommendHotCardData;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
-public final class HotCardView extends FrameLayout implements o97 {
+public final class HotCardView extends FrameLayout implements cb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ez7 a;
+    public z08 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotCardView(Context context) {
@@ -50,12 +50,12 @@ public final class HotCardView extends FrameLayout implements o97 {
         } else {
             tbPageContext = null;
         }
-        ez7 ez7Var = new ez7(tbPageContext);
-        this.a = ez7Var;
-        addView(ez7Var.h(), new FrameLayout.LayoutParams(-1, -1));
+        z08 z08Var = new z08(tbPageContext);
+        this.a = z08Var;
+        addView(z08Var.h(), new FrameLayout.LayoutParams(-1, -1));
     }
 
-    @Override // com.baidu.tieba.o97
+    @Override // com.baidu.tieba.cb7
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -63,7 +63,7 @@ public final class HotCardView extends FrameLayout implements o97 {
         }
     }
 
-    public final void setData(uy7 data) {
+    public final void setData(p08 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");

@@ -31,7 +31,7 @@ public final class a implements View.OnClickListener {
         if (viewGroup == null) {
             return;
         }
-        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912f3);
+        ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f091309);
         this.pV = viewGroup2;
         if (viewGroup2 == null) {
             return;
@@ -40,9 +40,9 @@ public final class a implements View.OnClickListener {
     }
 
     private void initView() {
-        this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912f0);
-        this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912f1);
-        ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f0912f2);
+        this.mTitle = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091306);
+        this.CO = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091307);
+        ImageView imageView = (ImageView) this.pV.findViewById(R.id.obfuscated_res_0x7f091308);
         this.CP = imageView;
         imageView.setOnClickListener(this);
         this.CO.setOnClickListener(this);

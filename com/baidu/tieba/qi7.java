@@ -1,93 +1,130 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import androidx.core.app.NotificationManagerCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.coreExtra.util.PushOpenUtil;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class qi7 implements ck7 {
+public class qi7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public rf5 a;
+    public FrsActivity b;
+    public Map<String, Date> c;
+    public boolean d;
 
-    @Override // com.baidu.tieba.ck7
-    public boolean e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public qi7() {
+    public qi7(FrsActivity frsActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ck7
-    public void a(au7 au7Var, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, au7Var, frsViewData) == null) && au7Var != null && frsViewData != null) {
-            ArrayList<ym> threadList = frsViewData.getThreadList();
-            if (ListUtils.isEmpty(threadList)) {
                 return;
             }
-            ArrayList arrayList = new ArrayList();
-            Iterator<ym> it = threadList.iterator();
-            while (it.hasNext()) {
-                ym next = it.next();
-                if (next.getType() == ThreadData.TYPE_TOP) {
-                    arrayList.add(next);
+        }
+        this.c = new HashMap();
+        this.d = false;
+        this.b = frsActivity;
+    }
+
+    public void a() {
+        rf5 rf5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (rf5Var = this.a) != null) {
+            rf5Var.q();
+        }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            rf5 rf5Var = this.a;
+            if (rf5Var != null && rf5Var.t()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public Date c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.c == null) {
+                this.c = new HashMap();
+            } else {
+                this.c = TbSingleton.getInstance().getHasShowTip();
+            }
+            Date date = new Date(System.currentTimeMillis());
+            Map<String, Date> map = this.c;
+            if (map != null && map.containsKey(str)) {
+                if (TimeHelper.getDayDifference(this.c.get(str), date) >= 1) {
+                    this.d = true;
                 }
+            } else {
+                this.d = true;
             }
-            frsViewData.setTopThreadList(arrayList);
+            return date;
         }
+        return (Date) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ck7
-    public void b(View view2) {
+    public void d(String str) {
+        FrsActivity frsActivity;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            view2.setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.ck7
-    public void c(au7 au7Var, nf7 nf7Var, FrsViewData frsViewData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, au7Var, nf7Var, frsViewData) == null) && au7Var != null && nf7Var != null && frsViewData != null) {
-            au7Var.N();
-            if (frsViewData != null && frsViewData.getForum() != null) {
-                nf7Var.h1(frsViewData.getForum().getFrsBannerData());
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (frsActivity = this.b) != null && frsActivity.getPageContext() != null) {
+            Date c = c(str);
+            boolean z = false;
+            if (!UbsABTestHelper.isPushPermissionForumFollowTestA() && !UbsABTestHelper.isPushPermissionForumFollowTestB()) {
+                i = 0;
+            } else {
+                i = 11;
             }
+            if ((!NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !ke5.d().n()) && this.d && jr7.a(i)) {
+                FrsActivity frsActivity2 = this.b;
+                if (frsActivity2 != null && frsActivity2.w1() != null) {
+                    z = this.b.w1().B;
+                }
+                HashMap hashMap = new HashMap();
+                if (z) {
+                    hashMap.put(PushOpenUtil.VIEW_PARAMS_KEY_STYLE, "short");
+                }
+                rf5 rf5Var = this.a;
+                if (rf5Var != null) {
+                    rf5Var.q();
+                }
+                rf5 showPushOpenView = PushOpenUtil.showPushOpenView(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
+                this.a = showPushOpenView;
+                if (showPushOpenView != null) {
+                    zz9.e().h("forum_follow");
+                }
+                this.c.put(str, c);
+                TbSingleton.getInstance().setHasShowTip(this.c);
+                return;
+            }
+            BdUtilHelper.showToastByTextCenter(TbadkCoreApplication.getInst(), R.string.push_like_tip_msg);
         }
-    }
-
-    @Override // com.baidu.tieba.ck7
-    public int d(int i, FrsRequestData frsRequestData) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, frsRequestData)) == null) {
-            return nt7.e(i, frsRequestData);
-        }
-        return invokeIL.intValue;
     }
 }

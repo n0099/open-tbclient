@@ -4,7 +4,7 @@ import java.util.Set;
 import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.collections.SetsKt___SetsKt;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class SignatureEnhancementKt {
     public static final JavaTypeQualifiers createJavaTypeQualifiers(NullabilityQualifier nullabilityQualifier, MutabilityQualifier mutabilityQualifier, boolean z, boolean z2) {
         if (z2 && nullabilityQualifier == NullabilityQualifier.NOT_NULL) {

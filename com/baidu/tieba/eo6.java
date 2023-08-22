@@ -1,238 +1,218 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.schemedispatch.forbid.InvokeStatisticKt;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
-import com.baidu.tieba.do6;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.HotTopicActivityConfig;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.OriginalForumInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
+import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.widget.layout.ConstrainImageGroup;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class eo6 {
+public class eo6 extends ln6<ThreadData> implements r46 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View i;
+    public TbPageContext<?> j;
+    public HeadImageView k;
+    public TextView l;
+    public TextView m;
+    public TextView n;
+    public ThreadData o;
+    public do6 p;
+    public ConstrainImageGroup q;
 
-    /* loaded from: classes5.dex */
-    public static class a implements go6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ do6.a a;
+    @Override // com.baidu.tieba.r46
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
+    }
 
-        public a(do6.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // com.baidu.tieba.ln6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.frs_hot_topic_card_layout : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eo6(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        View h = h();
+        h.setOnClickListener(this);
+        this.j = tbPageContext;
+        HeadImageView headImageView = (HeadImageView) h.findViewById(R.id.topic_icon);
+        this.k = headImageView;
+        headImageView.setIsRound(true);
+        this.k.setDefaultResource(R.drawable.pic_head_topic);
+        this.l = (TextView) h.findViewById(R.id.card_topic_name);
+        this.n = (TextView) h.findViewById(R.id.card_thread_title);
+        this.m = (TextView) h.findViewById(R.id.card_reply_time);
+        this.q = (ConstrainImageGroup) h.findViewById(R.id.card_img_layout);
+        this.i = h.findViewById(R.id.card_divider_line);
+        this.q.setImageMargin(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
+        d06 d06Var = new d06(3);
+        d06Var.d(1.0d);
+        this.q.setImageProcessor(d06Var);
+        this.q.setSinglePicUseStyleV10(true);
+        this.q.setFromCDN(true);
+        this.q.setClickable(false);
+    }
+
+    public void t(ag<TbImageView> agVar) {
+        ConstrainImageGroup constrainImageGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, agVar) == null) && (constrainImageGroup = this.q) != null) {
+            constrainImageGroup.setImageViewPool(agVar);
+        }
+    }
+
+    public void u(ag<ConstrainImageLayout> agVar) {
+        ConstrainImageGroup constrainImageGroup;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, agVar) == null) && (constrainImageGroup = this.q) != null) {
+            constrainImageGroup.setConstrainLayoutPool(agVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.ln6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            this.k.invalidate();
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0109);
+            SkinManager.setBackgroundResource(h(), R.drawable.addresslist_item_bg);
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0204);
+            this.q.b();
+            this.k.setDefaultBgResource(i);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, view2) != null) || this.o == null) {
+            return;
+        }
+        if (e() != null) {
+            e().b(view2, this.o, this.p);
+        }
+        if (view2 == h()) {
+            vn6.a(this.o.getTid());
+            vn6.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+            r();
+        }
+    }
+
+    public final void r() {
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (threadData = this.o) != null && threadData.getAuthor() != null && this.o.getAuthor().getName_show() != null) {
+            long fid = this.o.getFid();
+            OriginalForumInfo originalForumInfo = this.o.mOriginalForumInfo;
+            if (originalForumInfo != null) {
+                fid = JavaTypesHelper.toLong(originalForumInfo.id, 0L);
+            }
+            long j = fid;
+            String name_show = this.o.getAuthor().getName_show();
+            if (NewWebHotTopicPageSwitch.isOn()) {
+                rw5.f(this.j, null, name_show);
+                return;
+            }
+            HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
+            HotTopicActivityConfig createNormalConfig = hotTopicActivityConfig.createNormalConfig("", name_show + "", "3");
+            createNormalConfig.setExtra(j, this.o.getFirstClassName(), this.o.getSecondClassName(), JavaTypesHelper.toLong(this.o.getTid(), 0L));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createNormalConfig));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln6
+    /* renamed from: s */
+    public void i(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, threadData) == null) {
+            if (threadData == null) {
+                if (h() != null) {
+                    h().setVisibility(8);
                     return;
                 }
+                return;
             }
-            this.a = aVar;
-        }
-
-        @Override // com.baidu.tieba.go6
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.a(2, i);
+            this.o = threadData;
+            if (h() != null) {
+                h().setVisibility(0);
+                h().setOnClickListener(this);
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements go6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ do6.a a;
-
-        public b(do6.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (threadData.getAuthor() != null) {
+                this.l.setText(threadData.getAuthor().getName_show());
+            }
+            this.m.setText(StringHelper.getFormatTime(threadData.getLast_time_int() * 1000));
+            String str = threadData.getTopicUserName() + "：";
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
+            spannableStringBuilder.append((CharSequence) threadData.parseTitleOrAbstractForFrsNew(false, true));
+            spannableStringBuilder.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
+            this.n.setText(spannableStringBuilder);
+            ArrayList<MediaData> medias = threadData.getMedias();
+            if (h05.c().g() && ListUtils.getCount(medias) != 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < medias.size(); i++) {
+                    MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
+                    if (mediaData != null && mediaData.getType() == 3) {
+                        arrayList.add(mediaData);
+                    }
                 }
-            }
-            this.a = aVar;
-        }
-
-        @Override // com.baidu.tieba.go6
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.a(2, i);
-            }
-        }
-    }
-
-    public static boolean a(Context context, Uri uri, Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{context, uri, bundle, Boolean.valueOf(z)})) == null) {
-            return b(context, uri, null, bundle, z);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean b(Context context, Uri uri, do6 do6Var, Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{context, uri, do6Var, bundle, Boolean.valueOf(z)})) == null) {
-            do6.a aVar = new do6.a();
-            if (uri == null) {
-                if (do6Var != null) {
-                    do6Var.b(1, "Uri is empty.", aVar);
+                if (ListUtils.getCount(arrayList) > 0) {
+                    this.q.setVisibility(0);
+                    this.q.setImageMediaList(arrayList);
+                } else {
+                    this.q.setVisibility(8);
                 }
-                return false;
-            } else if (!InvokeStatisticKt.SCHEME_INVOKE_PAGE_DEEPLINK.equals(uri.getHost())) {
-                if (do6Var != null) {
-                    do6Var.b(2, "Uri host is not deeplink.", aVar);
-                }
-                return false;
             } else {
-                String queryParameter = uri.getQueryParameter(DeepLinkItem.DEEPLINK_APPURL_KEY);
-                String queryParameter2 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_MARKETURL_KEY);
-                String queryParameter3 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_WEBURL_KEY);
-                String queryParameter4 = uri.getQueryParameter("pkgName");
-                String queryParameter5 = uri.getQueryParameter(DeepLinkItem.DEEPLINK_MARKET_PKGNAME_KEY);
-                boolean booleanQueryParameter = uri.getBooleanQueryParameter(DeepLinkItem.DEEPLINK_IS_DESIGNATE_PKG, true);
-                if (e(context, queryParameter, queryParameter4, do6Var, booleanQueryParameter, aVar) || f(context, queryParameter2, queryParameter5, do6Var, booleanQueryParameter, aVar)) {
-                    return true;
-                }
-                return g(context, queryParameter3, bundle, do6Var, aVar, z);
+                this.q.setVisibility(8);
             }
+            vn6.l(this.n, this.o.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
+            j(this.j, TbadkCoreApplication.getInst().getSkinType());
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean c(Context context, String str, String str2, boolean z, go6 go6Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, Boolean.valueOf(z), go6Var})) == null) {
-            try {
-                Intent b2 = ho6.b(context, str, str2, z, go6Var);
-                if (b2 == null) {
-                    return false;
-                }
-                context.startActivity(b2);
-                return true;
-            } catch (Exception unused) {
-                if (go6Var != null) {
-                    go6Var.onFailed(-101);
-                }
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean d(Context context, String str, Bundle bundle, boolean z) {
-        InterceptResult invokeCommon;
-        TbPageContext<?> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{context, str, bundle, Boolean.valueOf(z)})) == null) {
-            String[] strArr = {str};
-            UrlManager urlManager = UrlManager.getInstance();
-            if (urlManager == null || (tbPageContext = (TbPageContext) l9.a(context)) == null) {
-                return false;
-            }
-            if (urlManager.UrlValidated(str)) {
-                urlManager.dealOneLink(tbPageContext, strArr, true);
-                return true;
-            }
-            return urlManager.dealOneLink(tbPageContext, strArr);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean e(Context context, String str, String str2, do6 do6Var, boolean z, do6.a aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{context, str, str2, do6Var, Boolean.valueOf(z), aVar})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                aVar.a(1, -4);
-                return false;
-            } else if (!c(context, str, str2, z, new a(aVar))) {
-                return false;
-            } else {
-                aVar.b(1);
-                if (do6Var != null) {
-                    do6Var.a(1, aVar);
-                }
-                return true;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean f(Context context, String str, String str2, do6 do6Var, boolean z, do6.a aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, str, str2, do6Var, Boolean.valueOf(z), aVar})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                aVar.a(2, -5);
-                return false;
-            } else if (!c(context, str, str2, z, new b(aVar))) {
-                return false;
-            } else {
-                aVar.b(2);
-                if (do6Var != null) {
-                    do6Var.a(2, aVar);
-                    return true;
-                }
-                return true;
-            }
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static boolean g(Context context, String str, Bundle bundle, do6 do6Var, do6.a aVar, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{context, str, bundle, do6Var, aVar, Boolean.valueOf(z)})) == null) {
-            if (TextUtils.isEmpty(str)) {
-                aVar.a(3, -6);
-                if (do6Var != null) {
-                    do6Var.b(-6, "Uri web url is empty", aVar);
-                }
-                return false;
-            } else if (d(context, str, bundle, z)) {
-                aVar.b(3);
-                if (do6Var != null) {
-                    do6Var.a(3, aVar);
-                    return true;
-                }
-                return true;
-            } else {
-                aVar.a(3, -7);
-                if (do6Var != null) {
-                    do6Var.b(-7, "Uri web url open failed", aVar);
-                }
-                return false;
-            }
-        }
-        return invokeCommon.booleanValue;
     }
 }

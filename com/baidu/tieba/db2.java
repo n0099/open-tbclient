@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import android.os.Looper;
+import androidx.annotation.StringRes;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,199 +11,129 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
 /* loaded from: classes5.dex */
 public class db2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static long a;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final eb2 a;
-    public boolean b;
-    public Timer c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947698709, "Lcom/baidu/tieba/db2;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947698709, "Lcom/baidu/tieba/db2;");
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class a extends TimerTask {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ db2 a;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int b;
 
-        public a(db2 db2Var) {
+        public a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {db2Var};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = db2Var;
+            this.a = i;
+            this.b = i2;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
+        @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (db2.d) {
-                    Log.d("JsErrorMonitor", ">> finish collecting jsError info.");
-                }
-                this.a.b = false;
+                db2.c(this.a, this.b);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final db2 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-867300713, "Lcom/baidu/tieba/db2$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-867300713, "Lcom/baidu/tieba/db2$b;");
-                    return;
-                }
-            }
-            a = new db2(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947698709, "Lcom/baidu/tieba/db2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947698709, "Lcom/baidu/tieba/db2;");
-                return;
-            }
-        }
-        d = ir1.a;
-    }
-
-    public db2() {
+    public static void d(@StringRes int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
+            if (Looper.getMainLooper() == Looper.myLooper()) {
+                c(i, i2);
+            } else {
+                xo3.a0(new a(i, i2));
             }
         }
-        this.b = true;
-        this.a = new eb2();
     }
 
-    public static db2 d() {
+    public static boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return b.a;
-        }
-        return (db2) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b < 2) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void g() {
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            h();
-            this.a.d();
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            b = 0;
+            a = 0L;
         }
     }
 
-    public final synchronized void h() {
+    public static void c(@StringRes int i, int i2) {
+        SwanAppActivity activity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.c != null) {
-                    this.c.cancel();
-                    this.c = null;
+        if ((interceptable == null || interceptable.invokeII(65539, null, i, i2) == null) && (activity = qw2.T().getActivity()) != null && !activity.isFinishing()) {
+            if (i2 != 1) {
+                va3.f(activity, i).G();
+            } else {
+                va3.f(activity, i).I();
+            }
+        }
+    }
+
+    public static void f(@StringRes int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            g(i, 0);
+        }
+    }
+
+    public static synchronized void g(@StringRes int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(65543, null, i, i2) == null) {
+            synchronized (db2.class) {
+                int i3 = b;
+                if (i3 != 0) {
+                    if (i3 == 1 && (a + 5000) - System.currentTimeMillis() < 0) {
+                        b = 2;
+                        d(i, i2);
+                        fb2.g("toast提示个数已达2个");
+                    }
+                } else {
+                    b = 1;
+                    a = System.currentTimeMillis();
+                    d(i, i2);
                 }
-            }
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b = false;
-            h();
-            if (d) {
-                Log.d("JsErrorMonitor", ">> stop to collect jsError info.");
-            }
-        }
-    }
-
-    public /* synthetic */ db2(a aVar) {
-        this();
-    }
-
-    public void e(bb2 bb2Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bb2Var) == null) && (z = this.b) && bb2Var != null && z) {
-            if (d) {
-                Log.d("JsErrorMonitor", ">> add jsError " + bb2Var.toString());
-            }
-            this.a.b(bb2Var);
-        }
-    }
-
-    @NonNull
-    public fb2 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            fb2 c = this.a.c();
-            if (d) {
-                Log.d("JsErrorMonitor", ">> jsError info: " + c.a());
-            }
-            return c;
-        }
-        return (fb2) invokeV.objValue;
-    }
-
-    public synchronized void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (d) {
-                    Log.d("JsErrorMonitor", ">> start to collect jsError info. ");
-                }
-                h();
-                Timer timer = new Timer();
-                this.c = timer;
-                timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
             }
         }
     }

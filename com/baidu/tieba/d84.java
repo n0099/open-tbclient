@@ -3,18 +3,18 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Callback;
-import okhttp3.Request;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class d84 implements ls1 {
+public class d84 implements is1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,21 +32,39 @@ public class d84 implements ls1 {
         }
     }
 
-    @Override // com.baidu.tieba.ls1
-    public HttpManager a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.is1
+    public List<ad3> a(ac3 ac3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return f94.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ac3Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new t64(ac3Var));
+            arrayList.add(new u64(ac3Var));
+            return arrayList;
         }
-        return (HttpManager) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ls1
-    public void call(HttpManager httpManager, Request request, Callback callback) {
+    @Override // com.baidu.tieba.is1
+    public List<ad3> c(ac3 ac3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpManager, request, callback) == null) && httpManager != null && (httpManager instanceof f94)) {
-            ((f94) httpManager).call(request, callback);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ac3Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new mb4(ac3Var));
+            arrayList.add(new lb4(ac3Var));
+            return arrayList;
         }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.is1
+    public List<ad3> b(ac3 ac3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ac3Var)) == null) {
+            return Arrays.asList(new g74(ac3Var), new v54(ac3Var), new e64(ac3Var), new r64(ac3Var));
+        }
+        return (List) invokeL.objValue;
     }
 }

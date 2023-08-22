@@ -3,258 +3,427 @@ package com.baidu.tieba;
 import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.NetMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.abtest.UsbAbTestSwitch;
-import com.baidu.tbadk.abtest.group.HomeGroupUbsABTest;
-import com.baidu.tbadk.abtest.group.IThreadCardUbsABTest;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.bigday.GetBigdayInfoHttpResMessage;
+import com.baidu.tbadk.core.bigday.GetBigdayInfoReqMessage;
+import com.baidu.tbadk.core.bigday.GetBigdayInfoSocketResMessage;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
+import com.baidu.tbadk.switchs.BigdaySwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import com.squareup.wire.Wire;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.GetBigday.BigdayInfo;
+import tbclient.GetBigday.GetBigdayResIdl;
 /* loaded from: classes7.dex */
-public abstract class q05 extends BaseCardInfo implements IThreadCardUbsABTest {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int BIG_IMG = 2;
-    public static final int CONTENT = 1;
-    public static final int HEAD_IMG = 4;
-    public static final int HEAD_VIDEO = 5;
-    public static final int USER_NAME = 3;
+public class q05 {
+    public static /* synthetic */ Interceptable $ic;
+    public static q05 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<String> feedBackReasonMap;
-    public int floorPosition;
-    public Map<BdUniqueId, UsbAbTestSwitch> mABTestMap;
-    public int objType;
+    public p05 a;
+    public p05 b;
+    public SparseArray<Long> c;
+    public ArrayList<p05> d;
+    public BdUniqueId e;
+    public boolean f;
+    public NetMessageListener g;
 
-    public abstract NegativeFeedBackData getNegFeedBackData();
-
-    public String getPbInputLocate() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948038035, "Lcom/baidu/tieba/q05;")) == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948038035, "Lcom/baidu/tieba/q05;");
+        }
     }
 
-    public abstract ThreadData getThreadData();
+    /* loaded from: classes7.dex */
+    public class a extends NetMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q05 a;
 
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNoName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return true;
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(q05 q05Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q05Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q05Var;
         }
-        return invokeV.booleanValue;
+
+        @Override // com.baidu.adp.framework.listener.NetMessageListener
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && !responsedMessage.hasError()) {
+                this.a.f = true;
+                ArrayList<p05> arrayList = null;
+                if (responsedMessage instanceof GetBigdayInfoSocketResMessage) {
+                    arrayList = ((GetBigdayInfoSocketResMessage) responsedMessage).bigdayInfos;
+                } else if (responsedMessage instanceof GetBigdayInfoHttpResMessage) {
+                    arrayList = ((GetBigdayInfoHttpResMessage) responsedMessage).bigdayInfos;
+                }
+                this.a.m(arrayList);
+            }
+        }
     }
 
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showWeakenName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return false;
+    /* loaded from: classes7.dex */
+    public class b extends BdAsyncTask<Void, Void, ArrayList<p05>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q05 a;
+
+        public b(q05 q05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q05Var;
         }
-        return invokeV.booleanValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ArrayList<p05> arrayList) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList) == null) {
+                super.onPostExecute(arrayList);
+                if (arrayList == null) {
+                    return;
+                }
+                this.a.l(arrayList);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ArrayList<p05> doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            byte[] bArr;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                ArrayList<p05> arrayList = new ArrayList<>();
+                r45.k();
+                ne<byte[]> i = r45.i("tb.bigday_datas");
+                if (i != null && (bArr = i.get("tb.bigday_datas")) != null) {
+                    try {
+                        GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
+                        if (getBigdayResIdl.data != null) {
+                            for (BigdayInfo bigdayInfo : getBigdayResIdl.data.bigday_list) {
+                                if (bigdayInfo != null) {
+                                    p05 p05Var = new p05();
+                                    p05Var.b(bigdayInfo);
+                                    if (p05Var.a()) {
+                                        arrayList.add(p05Var);
+                                    }
+                                }
+                            }
+                            return arrayList;
+                        }
+                        return arrayList;
+                    } catch (Exception unused) {
+                        return null;
+                    }
+                }
+                return arrayList;
+            }
+            return (ArrayList) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c extends DiskFileOperate implements rb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ArrayList<String> a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(String str, String str2, DiskFileOperate.Action action, ArrayList<p05> arrayList) {
+            super(str, str2, action);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, str2, action, arrayList};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new ArrayList<>();
+            Iterator<p05> it = arrayList.iterator();
+            while (it.hasNext()) {
+                p05 next = it.next();
+                if (next != null) {
+                    String genCacheKey = BdResourceLoader.getInstance().genCacheKey(next.a, 41);
+                    if (!StringUtils.isNULL(genCacheKey)) {
+                        String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(genCacheKey);
+                        if (!StringUtils.isNULL(nameMd5FromUrl)) {
+                            this.a.add(nameMd5FromUrl);
+                        }
+                    }
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.rb
+        public boolean compare(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                if (file != null && !StringUtils.isNULL(file.getName())) {
+                    return !this.a.contains(file.getName());
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
     }
 
     public q05() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.objType = 1;
-        this.floorPosition = -1;
-        this.mABTestMap = new HashMap();
-        this.feedBackReasonMap = null;
+        this.f = false;
+        this.g = new a(this, CmdConfigHttp.CMD_GET_BIGDAY_INFO, 309609);
+        ifa.h(309609, GetBigdayInfoSocketResMessage.class, false, false);
+        ifa.c(309609, CmdConfigHttp.CMD_GET_BIGDAY_INFO, "c/s/getBigday", GetBigdayInfoHttpResMessage.class, false, false, true, false);
+        MessageManager.getInstance().registerListener(this.g);
+        this.c = new SparseArray<>();
     }
 
-    public String getRecomReason() {
+    public static q05 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (getThreadData() == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (h == null) {
+                h = new q05();
             }
-            return getThreadData().getRecomReason();
+            return h;
         }
-        return (String) invokeV.objValue;
+        return (q05) invokeV.objValue;
     }
 
-    public boolean isFromFrs() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            return threadData.isFromFrs();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.g);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo
-    public boolean isHighLight() {
-        InterceptResult invokeV;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (getThreadData() != null && getThreadData().isHighLight()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            new b(this).execute(new Void[0]);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean isSelf() {
-        InterceptResult invokeV;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ThreadCardUtils.isSelf(getThreadData());
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.f = false;
+            GetBigdayInfoReqMessage getBigdayInfoReqMessage = new GetBigdayInfoReqMessage();
+            getBigdayInfoReqMessage.setTag(this.e);
+            MessageManager.getInstance().sendMessage(getBigdayInfoReqMessage);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean showCardEnterFourm() {
-        InterceptResult invokeV;
+    public final void d(ArrayList<p05> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            if (!threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isWorksInfo()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
+            ArrayList arrayList2 = new ArrayList();
+            ListUtils.addAll(arrayList2, 0, arrayList);
+            ListUtils.add(arrayList2, this.a);
+            ListUtils.add(arrayList2, this.b);
+            c cVar = new c(TbConfig.BIGDAY_IMAGE_CACHE_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES, arrayList2);
+            cVar.setOperateType(DiskFileOperate.OperateType.TRY_SUCCESS);
+            cVar.setSdCard(false);
+            cVar.setSavedCache(true);
+            ub.f().a(cVar);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean showCardGoodsFourm() {
-        InterceptResult invokeV;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
-            }
-            if (!threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isFromHomPage) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNewPicCut() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_B);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNewUI() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_A);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public boolean showNoReadState() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return UbsABTestHelper.isABTestByKeys(getCurUsbAbTestSwitchByKey(HomeGroupUbsABTest.ABTEST_GROUP_KEY), HomeGroupUbsABTest.SID_E);
-        }
-        return invokeV.booleanValue;
-    }
-
-    private UsbAbTestSwitch getCurUsbAbTestSwitchByKey(BdUniqueId bdUniqueId) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, bdUniqueId)) == null) {
-            if (bdUniqueId == null) {
-                return null;
-            }
-            return this.mABTestMap.get(bdUniqueId);
-        }
-        return (UsbAbTestSwitch) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tbadk.abtest.group.IThreadCardUbsABTest
-    public void setABTest(BdUniqueId bdUniqueId, UsbAbTestSwitch usbAbTestSwitch) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048583, this, bdUniqueId, usbAbTestSwitch) != null) || bdUniqueId == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || ListUtils.isEmpty(this.d)) {
             return;
         }
-        this.mABTestMap.put(bdUniqueId, usbAbTestSwitch);
+        Iterator<p05> it = this.d.iterator();
+        while (it.hasNext()) {
+            p05 next = it.next();
+            if (!BigdayImageLoaderProc.isImageFileExist(next.a)) {
+                BdResourceLoader.getInstance().loadResource(next.a, 41, null, this.e);
+            }
+        }
     }
 
-    public boolean showCardBottomOpWeight() {
-        InterceptResult invokeV;
+    public final p05 g(List<p05> list, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null) {
-                return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, list, i)) == null) {
+            if (!ListUtils.isEmpty(list)) {
+                for (p05 p05Var : list) {
+                    if (p05Var.a() && p05Var.e == i) {
+                        long currentTimeMillis = System.currentTimeMillis() / 1000;
+                        long j = p05Var.f;
+                        if (j > currentTimeMillis) {
+                            this.c.put(i, Long.valueOf(j));
+                            return null;
+                        } else if (p05Var.g >= currentTimeMillis) {
+                            return p05Var;
+                        }
+                    }
+                }
+                return null;
             }
-            if (!threadData.isFromHomPage && !threadData.isFromConcern && !threadData.isFromPersonPolymeric && !threadData.isFromVideoTab && !threadData.isFromEnterFroumTabFeed && !threadData.isFromFeedTab) {
-                return false;
-            }
-            return true;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (p05) invokeLI.objValue;
     }
 
-    public boolean showFollowBtn() {
-        InterceptResult invokeV;
-        boolean z;
+    public p05 h(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            ThreadData threadData = getThreadData();
-            if (threadData == null || threadData.getAuthor() == null || threadData.isFromLocal || ThreadCardUtils.isSelf(threadData)) {
-                return false;
-            }
-            if (!threadData.isBjhDynamicThread() && !threadData.isBJHArticleThreadType() && !threadData.isBJHVideoThreadType()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if ((!threadData.isFromHomPage || (!z && !threadData.isWorksInfo())) && ((!threadData.isFromVideoTab || (!z && !threadData.isWorksInfo())) && (!threadData.isFromFrs() || (!z && !threadData.isWorksInfo())))) {
-                if (!threadData.isFromFeedTab) {
-                    return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (i == 1) {
+                if (this.a == null && this.c.get(i, 0L).longValue() != 0 && this.c.get(i, 0L).longValue() < currentTimeMillis) {
+                    this.a = g(this.d, 1);
                 }
-                if (!z && !threadData.isWorksInfo()) {
-                    return false;
+                p05 p05Var = this.a;
+                if (p05Var != null && (currentTimeMillis < p05Var.f || currentTimeMillis > p05Var.g)) {
+                    this.a = g(this.d, 1);
+                }
+                p05 p05Var2 = this.a;
+                if (p05Var2 != null && BigdayImageLoaderProc.isImageFileExist(p05Var2.a)) {
+                    return this.a;
+                }
+            } else if (i == 3) {
+                if (this.b == null && this.c.get(i, 0L).longValue() != 0 && this.c.get(i, 0L).longValue() < currentTimeMillis) {
+                    this.a = g(this.d, 3);
+                }
+                p05 p05Var3 = this.b;
+                if (p05Var3 != null && (currentTimeMillis < p05Var3.f || currentTimeMillis > p05Var3.g)) {
+                    this.b = g(this.d, 3);
+                }
+                p05 p05Var4 = this.b;
+                if (p05Var4 != null && BigdayImageLoaderProc.isImageFileExist(p05Var4.a)) {
+                    return this.b;
                 }
             }
-            return true;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (p05) invokeI.objValue;
+    }
+
+    public final void l(ArrayList<p05> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, arrayList) != null) || ListUtils.isEmpty(arrayList) || this.f) {
+            return;
+        }
+        this.a = g(arrayList, 1);
+        this.b = g(arrayList, 3);
+        this.d = arrayList;
+        f();
+        p05 p05Var = this.a;
+        if (p05Var != null && BigdayImageLoaderProc.isImageFileExist(p05Var.a) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > SharedPrefHelper.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.a));
+        }
+    }
+
+    public final void m(ArrayList<p05> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
+            p05 g = g(arrayList, 1);
+            p05 g2 = g(arrayList, 3);
+            d(arrayList);
+            this.d = arrayList;
+            if (g != null && g.a()) {
+                this.a = g;
+            }
+            if (g2 != null && g2.a()) {
+                this.b = g2;
+            }
+            f();
+            p05 p05Var = this.a;
+            if (p05Var != null && BigdayImageLoaderProc.isImageFileExist(p05Var.a) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > SharedPrefHelper.getInstance().getLong("key_bigday_next_showtime_home", 0L)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, this.a));
+            }
+        }
+    }
+
+    public void n(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bdUniqueId) == null) {
+            this.e = bdUniqueId;
+        }
     }
 }

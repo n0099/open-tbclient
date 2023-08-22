@@ -1,119 +1,58 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.webkit.URLUtil;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.download.model.Downloads;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.xml.sax.Attributes;
 /* loaded from: classes6.dex */
-public class kk6 {
+public class kk6 extends hk6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Set<ck6> a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hk6
+    public void a(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONObject)) == null) {
-            HashSet hashSet = new HashSet();
-            if (jSONObject == null) {
-                return hashSet;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject(PrefetchEvent.MODULE);
-            if (optJSONObject == null) {
-                return hashSet;
-            }
-            Iterator<String> keys = optJSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                if (optJSONObject2 != null) {
-                    String str = null;
-                    JSONObject optJSONObject3 = optJSONObject2.optJSONObject("since");
-                    if (optJSONObject3 != null) {
-                        str = optJSONObject3.optString("android", "");
-                    }
-                    if (TextUtils.isEmpty(str)) {
-                        str = com.kuaishou.weapon.p0.q1.e;
-                    }
-                    ck6 ck6Var = new ck6(next, optJSONObject2.optString("method", "GET"), str);
-                    JSONObject optJSONObject4 = optJSONObject2.optJSONObject(Downloads.Impl.RequestHeaders.URI_SEGMENT);
-                    if (optJSONObject4 != null) {
-                        Iterator<String> keys2 = optJSONObject4.keys();
-                        while (keys2.hasNext()) {
-                            String next2 = keys2.next();
-                            if (!TextUtils.isEmpty(next2)) {
-                                ck6Var.a(next2, optJSONObject4.optString(next2));
-                            }
-                        }
-                    }
-                    hashSet.add(ck6Var);
-                }
-            }
-            return hashSet;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
         }
-        return (Set) invokeL.objValue;
     }
 
-    public static void b(String str) {
-        JSONArray jSONArray;
+    public kk6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            bk6.c().b();
-            try {
-                jSONArray = new JSONArray(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONArray = null;
-            }
-            if (fl6.c(jSONArray)) {
-                return;
-            }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    String optString = optJSONObject.optString("url", "");
-                    if (!TextUtils.isEmpty(optString)) {
-                        Set<ck6> a = a(optJSONObject);
-                        ak6 ak6Var = new ak6();
-                        if (!fl6.a(a)) {
-                            ak6Var.a = a;
-                            ak6Var.d = optString;
-                            bk6.c().a(optString, ak6Var);
-                        } else {
-                            bk6.c().a(optString, ak6Var);
-                        }
-                    }
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Nullable
-    public static List<Pair<String, Long>> c(@NonNull String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.hk6
+    public void b(boolean z, String str, Attributes attributes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            pl6 pl6Var = (pl6) ServiceManager.getService(pl6.a);
-            if (pl6Var != null && URLUtil.isNetworkUrl(str)) {
-                return pl6Var.a(str);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
+            String value = attributes.getValue("", "src");
+            if (!TextUtils.isEmpty(value)) {
+                String str2 = "http";
+                if (!value.startsWith("http")) {
+                    StringBuilder sb = new StringBuilder();
+                    if (z) {
+                        str2 = "https";
+                    }
+                    sb.append(str2);
+                    sb.append(":");
+                    sb.append(value);
+                    value = sb.toString();
+                }
+                lk6.g().b(value, value, new HashMap());
             }
-            return null;
         }
-        return (List) invokeL.objValue;
     }
 }

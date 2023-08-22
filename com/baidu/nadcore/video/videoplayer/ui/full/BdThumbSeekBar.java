@@ -17,11 +17,11 @@ import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.player.widget.BdThumbSeekBarView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ac1;
-import com.baidu.tieba.u71;
+import com.baidu.tieba.fc1;
+import com.baidu.tieba.z71;
 /* loaded from: classes3.dex */
 public class BdThumbSeekBar extends View {
-    public static final int y = u71.d(0.0f);
+    public static final int y = z71.d(0.0f);
     public static final BdSeekBarStyle z = BdSeekBarStyle.LINE;
     public BdSeeBarStatus a;
     public final int b;
@@ -159,7 +159,7 @@ public class BdThumbSeekBar extends View {
         this.x = true;
         this.c = context;
         setClickable(true);
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ac1.NadBdThumbSeekBar);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, fc1.NadBdThumbSeekBar);
         int i3 = obtainStyledAttributes.getInt(0, 0);
         obtainStyledAttributes.recycle();
         if (i3 != 1) {
@@ -190,7 +190,7 @@ public class BdThumbSeekBar extends View {
             if (this.k == null) {
                 this.k = BitmapFactory.decodeResource(context.getResources(), R.drawable.nad_videoplayer_new_player_seekbar_thumb);
             }
-            this.l = u71.a(0.0f);
+            this.l = z71.a(0.0f);
         }
         if (this.m == null) {
             f(1.5f);

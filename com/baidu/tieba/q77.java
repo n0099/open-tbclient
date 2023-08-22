@@ -3,62 +3,64 @@ package com.baidu.tieba;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.BaseTextColor;
-import tbclient.FeedContentColor;
-import tbclient.FeedContentText;
+import tbclient.FeedLayout;
 /* loaded from: classes7.dex */
 public final class q77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final t57 a(BaseTextColor baseTextColor) {
-        InterceptResult invokeL;
+    public static final void a(p77 p77Var, FeedLayout feedLayout) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseTextColor)) == null) {
-            Intrinsics.checkNotNullParameter(baseTextColor, "<this>");
-            Integer type = baseTextColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new t57(type.intValue(), baseTextColor.day, baseTextColor.night);
+        if (interceptable == null || interceptable.invokeLL(65536, null, p77Var, feedLayout) == null) {
+            Intrinsics.checkNotNullParameter(p77Var, "<this>");
+            Intrinsics.checkNotNullParameter(feedLayout, "feedLayout");
+            p77Var.a().b(oa7.a.a(feedLayout.business_info));
+            p77Var.c().b(oa7.a.a(feedLayout.log_info));
         }
-        return (t57) invokeL.objValue;
     }
 
-    public static final t57 b(FeedContentColor feedContentColor) {
-        InterceptResult invokeL;
+    public static final Map<String, String> c(p77 p77Var, String statStrategyKey) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, feedContentColor)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentColor, "<this>");
-            Integer type = feedContentColor.type;
-            Intrinsics.checkNotNullExpressionValue(type, "type");
-            return new t57(type.intValue(), feedContentColor.day, feedContentColor.night);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, p77Var, statStrategyKey)) == null) {
+            Intrinsics.checkNotNullParameter(p77Var, "<this>");
+            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
+            HashMap hashMap = new HashMap();
+            nb7 nb7Var = p77Var.e().get(statStrategyKey);
+            if (nb7Var != null) {
+                hashMap.putAll(nb7Var.a(p77Var.a()));
+            }
+            return hashMap;
         }
-        return (t57) invokeL.objValue;
+        return (Map) invokeLL.objValue;
     }
 
-    public static final f77 c(FeedContentText feedContentText) {
-        InterceptResult invokeL;
-        t57 t57Var;
+    public static final r87 b(p77 p77Var, String statStrategyKey) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, feedContentText)) == null) {
-            Intrinsics.checkNotNullParameter(feedContentText, "<this>");
-            String str = feedContentText.text;
-            if (str == null) {
-                str = "";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, p77Var, statStrategyKey)) == null) {
+            Intrinsics.checkNotNullParameter(p77Var, "<this>");
+            Intrinsics.checkNotNullParameter(statStrategyKey, "statStrategyKey");
+            nb7 nb7Var = p77Var.e().get(statStrategyKey);
+            if (nb7Var instanceof ob7) {
+                statStrategyKey = ((ob7) nb7Var).c(p77Var.a());
             }
-            FeedContentColor feedContentColor = feedContentText.color;
-            t57 t57Var2 = null;
-            if (feedContentColor != null) {
-                t57Var = b(feedContentColor);
-            } else {
-                t57Var = null;
+            r87 r87Var = new r87(null, null, null, null, null, 31, null);
+            nb7 nb7Var2 = p77Var.e().get(statStrategyKey);
+            if (nb7Var2 != null) {
+                r87Var = new r87(nb7Var2.getKey(), nb7Var2.a(p77Var.a()), p77Var.c().a(), null, null, 24, null);
+                if (nb7Var2 instanceof lb7) {
+                    r87Var.g(((lb7) nb7Var2).b());
+                }
+                if (nb7Var2 instanceof z77) {
+                    r87Var.f(((z77) nb7Var2).d());
+                }
             }
-            FeedContentColor feedContentColor2 = feedContentText.bg_color;
-            if (feedContentColor2 != null) {
-                t57Var2 = b(feedContentColor2);
-            }
-            return new f77(str, t57Var, t57Var2);
+            return r87Var;
         }
-        return (f77) invokeL.objValue;
+        return (r87) invokeLL.objValue;
     }
 }

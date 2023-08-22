@@ -1,99 +1,111 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k37;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.List;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class g67 implements j67 {
+public final class g67 extends j67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final Map<String, JSONObject> c;
-    public final k37.g d;
+    public final n87 d;
+    public final String e;
+    public final String f;
+    public final List<r87> g;
+    public final List<r87> h;
+    public final List<r87> i;
 
-    public g67(String spaceName, String uid) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g67(n87 replyData, String headSchema, String schema, List<r87> userHeadClickStatList, List<r87> userNameClickStatList, List<r87> cardClickStatList) {
+        super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spaceName, uid};
+            Object[] objArr = {replyData, headSchema, schema, userHeadClickStatList, userNameClickStatList, cardClickStatList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(spaceName, "spaceName");
-        Intrinsics.checkNotNullParameter(uid, "uid");
-        this.a = spaceName;
-        this.b = uid;
-        this.c = new LinkedHashMap();
-        k37.g d = k37.a().d();
-        this.d = d;
-        Map<String, JSONObject> b = d.b(this.a, this.b);
-        Intrinsics.checkNotNullExpressionValue(b, "cacheResolver.getCache(spaceName, uid)");
-        this.c.putAll(b);
+        Intrinsics.checkNotNullParameter(replyData, "replyData");
+        Intrinsics.checkNotNullParameter(headSchema, "headSchema");
+        Intrinsics.checkNotNullParameter(schema, "schema");
+        Intrinsics.checkNotNullParameter(userHeadClickStatList, "userHeadClickStatList");
+        Intrinsics.checkNotNullParameter(userNameClickStatList, "userNameClickStatList");
+        Intrinsics.checkNotNullParameter(cardClickStatList, "cardClickStatList");
+        this.d = replyData;
+        this.e = headSchema;
+        this.f = schema;
+        this.g = userHeadClickStatList;
+        this.h = userNameClickStatList;
+        this.i = cardClickStatList;
     }
 
-    @Override // com.baidu.tieba.j67
-    public void a(String key, Map<String, String> valueMap) {
+    public final List<r87> h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, key, valueMap) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(valueMap, "valueMap");
-            if (this.c.get(key) == null) {
-                this.c.put(key, new JSONObject());
-            }
-            try {
-                for (String str : valueMap.keySet()) {
-                    JSONObject jSONObject = this.c.get(key);
-                    if (jSONObject != null) {
-                        jSONObject.put(str, valueMap.get(str));
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            JSONObject jSONObject2 = this.c.get(key);
-            if (jSONObject2 == null) {
-                jSONObject2 = new JSONObject();
-            }
-            b(key, jSONObject2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.i;
         }
+        return (List) invokeV.objValue;
     }
 
-    public final void b(String str, JSONObject jSONObject) {
+    public final String i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            this.d.a(this.a, this.b, str, jSONObject);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j67
-    public String getValue(String key, String subKey) {
-        InterceptResult invokeLL;
+    public final n87 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, key, subKey)) == null) {
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(subKey, "subKey");
-            JSONObject jSONObject = this.c.get(key);
-            if (jSONObject != null) {
-                return jSONObject.optString(subKey);
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
         }
-        return (String) invokeLL.objValue;
+        return (n87) invokeV.objValue;
+    }
+
+    public final String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final List<r87> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.g;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final List<r87> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.h;
+        }
+        return (List) invokeV.objValue;
     }
 }

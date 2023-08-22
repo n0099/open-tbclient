@@ -1,83 +1,43 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public class itb implements dtb {
+public final class itb<TResult> implements jub<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public kub<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    public itb() {
+    public itb(Executor executor, kub<TResult> kubVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, kubVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new Object();
+        this.a = kubVar;
+        this.b = executor;
     }
 
-    @Override // com.baidu.tieba.dtb
-    public void d(String str, String str2) {
+    @Override // com.baidu.tieba.jub
+    public final void a(vtb<TResult> vtbVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            Log.d(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.dtb
-    public void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            Log.e(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.dtb
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            Log.i(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.dtb
-    public void w(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            Log.w(str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.dtb
-    public void e(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th) == null) {
-            Log.e(str, str2, th);
-        }
-    }
-
-    @Override // com.baidu.tieba.dtb
-    public void i(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
-            Log.i(str, str2, th);
-        }
-    }
-
-    @Override // com.baidu.tieba.dtb
-    public void w(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, th) == null) {
-            Log.w(str, str2, th);
+        if (interceptable == null || interceptable.invokeL(1048576, this, vtbVar) == null) {
+            this.b.execute(new gtb(this, vtbVar));
         }
     }
 }

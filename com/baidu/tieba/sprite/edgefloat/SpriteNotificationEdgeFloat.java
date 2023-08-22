@@ -8,7 +8,7 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.h6a;
+import com.baidu.tieba.maa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000H\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001BC\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010\u0007\u001a\u00020\u0005\u0012\u0006\u0010\b\u001a\u00020\t\u0012\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000b\u0012\u0006\u0010\r\u001a\u00020\u000e¢\u0006\u0002\u0010\u000fJ\u0006\u0010\u001b\u001a\u00020\u001cJ\u0006\u0010\u001d\u001a\u00020\u001cJ\u0006\u0010\u001e\u001a\u00020\u001cR\u001b\u0010\u0010\u001a\u00020\u00118BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0014\u0010\u0015\u001a\u0004\b\u0012\u0010\u0013R\u001b\u0010\u0016\u001a\u00020\u00178BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001a\u0010\u0015\u001a\u0004\b\u0018\u0010\u0019¨\u0006\u001f"}, d2 = {"Lcom/baidu/tieba/sprite/edgefloat/SpriteNotificationEdgeFloat;", "", "activity", "Landroid/app/Activity;", NotificationCompat.WearableExtender.KEY_GRAVITY, "", "startX", "startY", "canDrag", "", "pageSupportList", "", "", "view", "Landroid/view/View;", "(Landroid/app/Activity;IIIZLjava/util/List;Landroid/view/View;)V", "edgeFloat", "Lcom/baidu/tieba/edgefloat/EdgeFloat;", "getEdgeFloat", "()Lcom/baidu/tieba/edgefloat/EdgeFloat;", "edgeFloat$delegate", "Lkotlin/Lazy;", "tipContainer", "Landroid/widget/FrameLayout;", "getTipContainer", "()Landroid/widget/FrameLayout;", "tipContainer$delegate", "hide", "", "release", "show", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class SpriteNotificationEdgeFloat {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -86,9 +86,8 @@ public final class SpriteNotificationEdgeFloat {
                 return (FrameLayout) invokeV.objValue;
             }
         });
-        this.b = LazyKt__LazyJVMKt.lazy(new Function0<EdgeFloat>(this, view2, activity, i, i2, i3, z, pageSupportList) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteNotificationEdgeFloat$edgeFloat$2
+        this.b = LazyKt__LazyJVMKt.lazy(new Function0<EdgeFloat>(this, view2, i, i2, i3, z, pageSupportList) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteNotificationEdgeFloat$edgeFloat$2
             public static /* synthetic */ Interceptable $ic;
-            public final /* synthetic */ Activity $activity;
             public final /* synthetic */ boolean $canDrag;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int $gravity;
@@ -105,7 +104,7 @@ public final class SpriteNotificationEdgeFloat {
                 if (interceptable2 != null) {
                     InitContext newInitContext2 = TitanRuntime.newInitContext();
                     newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {this, view2, activity, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), pageSupportList};
+                    Object[] objArr2 = {this, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), pageSupportList};
                     interceptable2.invokeUnInit(65536, newInitContext2);
                     int i6 = newInitContext2.flag;
                     if ((i6 & 1) != 0) {
@@ -118,7 +117,6 @@ public final class SpriteNotificationEdgeFloat {
                 }
                 this.this$0 = this;
                 this.$view = view2;
-                this.$activity = activity;
                 this.$gravity = i;
                 this.$startX = i2;
                 this.$startY = i3;
@@ -139,15 +137,14 @@ public final class SpriteNotificationEdgeFloat {
                 }
                 c = this.this$0.c();
                 c.addView(this.$view);
-                h6a h6aVar = new h6a(this.$activity);
                 c2 = this.this$0.c();
-                h6aVar.M(c2);
-                h6aVar.y(this.$gravity);
-                h6aVar.I(this.$startX);
-                h6aVar.J(this.$startY);
-                h6aVar.d(this.$canDrag);
-                h6aVar.D(this.$pageSupportList);
-                return h6aVar.c();
+                maa maaVar = new maa(c2);
+                maaVar.x(this.$gravity);
+                maaVar.H(this.$startX);
+                maaVar.I(this.$startY);
+                maaVar.d(this.$canDrag);
+                maaVar.C(this.$pageSupportList);
+                return maaVar.c();
             }
         });
     }
@@ -173,7 +170,7 @@ public final class SpriteNotificationEdgeFloat {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b().k();
+            b().j();
         }
     }
 
@@ -187,7 +184,7 @@ public final class SpriteNotificationEdgeFloat {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            b().D();
+            b().C();
         }
     }
 }

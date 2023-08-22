@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
-import cn.com.chinatelecom.gateway.lib.PreCodeListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class kp1 implements PreCodeListener {
+public class kp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
+    public int a;
+    public int b;
+    public int c;
+    public String d;
 
     public kp1() {
         Interceptable interceptable = $ic;
@@ -25,15 +26,7 @@ public abstract class kp1 implements PreCodeListener {
                 return;
             }
         }
-        this.a = System.currentTimeMillis();
-    }
-
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
+        this.c = -1;
+        this.d = "";
     }
 }

@@ -1,9 +1,16 @@
 package com.baidu.tieba;
 
+import android.app.AppOpsManager;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,12 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
+import java.util.Calendar;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class s34 extends e34 {
+public class s34 extends j34 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,12 +41,12 @@ public class s34 extends e34 {
                 return;
             }
         }
-        c = ir1.a;
+        c = nr1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public s34() {
-        super("ReservationGame");
+        super("GetAppUseDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,88 +62,76 @@ public class s34 extends e34 {
         }
     }
 
-    @Override // com.baidu.tieba.e34
-    public y22 a(@NonNull JSONObject jSONObject, @NonNull co2 co2Var) {
+    @Override // com.baidu.tieba.j34
+    public d32 a(@NonNull JSONObject jSONObject, @NonNull ho2 ho2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, co2Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ho2Var)) == null) {
             if (jSONObject == null) {
-                co2Var.onFail(202, "params may be error");
+                ho2Var.onFail(202, "params may be error");
                 return null;
             }
             if (c) {
-                Log.e("ReservationGameAction", "params is " + jSONObject.toString());
+                Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
             }
-            String optString = jSONObject.optString("apkId");
-            int optInt = jSONObject.optInt("isReservation");
+            String optString = jSONObject.optString("packageName");
             if (TextUtils.isEmpty(optString)) {
-                co2Var.onFail(31023, "reservation apk id is empty");
-                return null;
-            } else if (optInt == 0) {
-                co2Var.onFail(31024, "reservation status error");
-                return null;
+                ho2Var.onFail(202, "params may be error");
             } else {
-                String string = mj3.a().getString("reservation_apk_ids", "");
-                if (optInt != 1) {
-                    if (optInt == 2) {
-                        if (b(string, optString)) {
-                            co2Var.onSuccess(null);
-                        } else {
-                            co2Var.onFail(31025, "reservation cancel fail");
-                        }
-                    }
-                } else {
-                    d(string, optString);
-                    co2Var.onSuccess(null);
-                }
-                return null;
+                b(optString, ho2Var);
             }
+            return null;
         }
-        return (y22) invokeLL.objValue;
+        return (d32) invokeLL.objValue;
     }
 
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void b(String str, @NonNull ho2 ho2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, ho2Var) == null) {
+            try {
+                if (c()) {
+                    PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 0);
+                    if (packageInfo != null) {
+                        List<UsageStats> queryUsageStats = ((UsageStatsManager) AppRuntime.getAppContext().getSystemService("usagestats")).queryUsageStats(3, packageInfo.firstInstallTime, Calendar.getInstance().getTimeInMillis());
+                        if (queryUsageStats.size() == 0) {
+                            ho2Var.onFail(101, "noPermission");
+                            return;
+                        }
+                        for (UsageStats usageStats : queryUsageStats) {
+                            if (TextUtils.equals(usageStats.getPackageName(), str)) {
+                                JSONObject jSONObject = new JSONObject();
+                                JSONObject jSONObject2 = new JSONObject();
+                                jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
+                                jSONObject.put("data", jSONObject2);
+                                ho2Var.onSuccess(jSONObject);
+                                return;
+                            }
+                        }
+                        ho2Var.onFail(31016, "no package info");
+                        return;
+                    }
+                    ho2Var.onFail(31016, "no package info");
+                    return;
+                }
+                ho2Var.onFail(101, "noPermission");
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                ho2Var.onFail(31011, "app is not installed");
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (((AppOpsManager) AppRuntime.getAppContext().getSystemService("appops")).checkOpNoThrow("android:get_usage_stats", Process.myUid(), AppRuntime.getAppContext().getPackageName()) == 0) {
                 return true;
             }
-            ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(str.split(",")));
-            boolean remove = arrayList.remove(str2);
-            if (remove) {
-                c(arrayList);
-            }
-            return remove;
+            return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public final void c(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < arrayList.size(); i++) {
-                stringBuffer.append(arrayList.get(i));
-                if (i < arrayList.size() - 1) {
-                    stringBuffer.append(",");
-                }
-            }
-            mj3.a().putString("reservation_apk_ids", stringBuffer.toString());
-        }
-    }
-
-    public final void d(String str, String str2) {
-        HashSet hashSet;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str)) {
-                hashSet = new HashSet();
-            } else {
-                hashSet = new HashSet(Arrays.asList(str.split(",")));
-            }
-            hashSet.add(str2);
-            c(new ArrayList<>(hashSet));
-        }
+        return invokeV.booleanValue;
     }
 }

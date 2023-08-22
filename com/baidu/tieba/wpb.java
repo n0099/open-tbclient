@@ -1,67 +1,58 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.io.UnsupportedEncodingException;
-import java.util.Locale;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
+import com.kwad.sdk.core.response.model.AdInfo;
 /* loaded from: classes8.dex */
-public final class wpb {
+public class wpb extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wpb(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            if (bArr != null && bArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (byte b : bArr) {
-                    String hexString = Integer.toHexString(b & 255);
-                    if (hexString.length() == 1) {
-                        sb.append(TransactionIdCreater.FILL_BYTE);
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return "";
         }
-        return (String) invokeL.objValue;
     }
 
-    public static byte[] b(String str) {
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
         InterceptResult invokeL;
+        Object findField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new byte[0];
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
             try {
-                String upperCase = str.toUpperCase(Locale.ENGLISH);
-                int length = upperCase.length() / 2;
-                byte[] bArr = new byte[length];
-                try {
-                    byte[] bytes = upperCase.getBytes("UTF-8");
-                    for (int i = 0; i < length; i++) {
-                        StringBuilder sb = new StringBuilder();
-                        sb.append("0x");
-                        int i2 = i * 2;
-                        sb.append(new String(new byte[]{bytes[i2]}, "UTF-8"));
-                        bArr[i] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i2 + 1]}, "UTF-8")).byteValue());
-                    }
-                    return bArr;
-                } catch (UnsupportedEncodingException | NumberFormatException e) {
-                    zpb.c("HexUtil", "hex string 2 byte array exception : " + e.getMessage());
-                    return new byte[0];
+                qqb qqbVar = (qqb) obj;
+                if (qqbVar == null || (findField = ReflectionUtils.findField("com.kwad.sdk.core.response.model.AdInfo", qqbVar.a)) == null) {
+                    return null;
                 }
-            } catch (Throwable th) {
-                zpb.c("HexUtil", "hex string toUpperCase exception : " + th.getMessage());
-                return new byte[0];
+                return dqb.a((AdInfo) findField);
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
-        return (byte[]) invokeL.objValue;
+        return (RippedAd) invokeL.objValue;
     }
 }

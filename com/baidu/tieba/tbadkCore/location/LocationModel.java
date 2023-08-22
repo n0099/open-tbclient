@@ -14,9 +14,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.mutiprocess.location.LocationEvent;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.qca;
+import com.baidu.tieba.ifa;
 import com.baidu.tieba.tbadkCore.location.LocationData;
+import com.baidu.tieba.yga;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -89,7 +89,7 @@ public class LocationModel extends BdBaseModel {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: a */
+        /* renamed from: g */
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) {
@@ -179,7 +179,7 @@ public class LocationModel extends BdBaseModel {
     public static void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            aba.h(303017, LocationSocketResponsedMessage.class, false, false);
+            ifa.h(303017, LocationSocketResponsedMessage.class, false, false);
         }
     }
 
@@ -226,8 +226,8 @@ public class LocationModel extends BdBaseModel {
     public void V(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            qca.a().e(z);
-            SharedPrefHelper.getInstance().putBoolean("no_longer_show_address", qca.a().c());
+            yga.a().e(z);
+            SharedPrefHelper.getInstance().putBoolean("no_longer_show_address", yga.a().c());
         }
     }
 
@@ -241,7 +241,7 @@ public class LocationModel extends BdBaseModel {
     public void U(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-            LocationData b2 = qca.a().b();
+            LocationData b2 = yga.a().b();
             if (b2 != null) {
                 b2.setFormatted_address(str);
                 b2.setSn(str2);
@@ -297,8 +297,8 @@ public class LocationModel extends BdBaseModel {
                 return;
             }
             Q(locationData);
-            qca.a().f(System.currentTimeMillis());
-            qca.a().d(locationData);
+            yga.a().f(System.currentTimeMillis());
+            yga.a().d(locationData);
             c cVar2 = this.a;
             if (cVar2 != null) {
                 cVar2.a(locationData);

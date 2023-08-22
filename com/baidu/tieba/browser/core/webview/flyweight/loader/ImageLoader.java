@@ -1,16 +1,20 @@
 package com.baidu.tieba.browser.core.webview.flyweight.loader;
 
 import android.text.TextUtils;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.bddownload.core.Util;
-import com.baidu.tieba.aj6;
-import com.baidu.tieba.ak6;
 import com.baidu.tieba.browser.log.HybridLog;
-import com.baidu.tieba.kl6;
+import com.baidu.tieba.dk6;
+import com.baidu.tieba.fl6;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.sj6;
+import com.baidu.tieba.pm6;
+import com.baidu.tieba.vk6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,13 +23,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidubce.http.Headers;
+import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
 public class ImageLoader {
     public static /* synthetic */ Interceptable $ic;
-    public static final aj6 a;
+    public static final dk6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -41,7 +46,7 @@ public class ImageLoader {
                 return;
             }
         }
-        a = new aj6();
+        a = new dk6();
     }
 
     public static WebResourceResponse a(String str, Map<String, String> map, Pair<InputStream, Long> pair) {
@@ -49,7 +54,6 @@ public class ImageLoader {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, map, pair)) == null) {
-            String b = kl6.b(str);
             HashMap<String, String> hashMap = new HashMap<String, String>() { // from class: com.baidu.tieba.browser.core.webview.flyweight.loader.ImageLoader.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -79,7 +83,7 @@ public class ImageLoader {
             } else {
                 i = 200;
             }
-            WebResourceResponse webResourceResponse = new WebResourceResponse(b, "UTF-8", pair.first);
+            WebResourceResponse webResourceResponse = new WebResourceResponse(str, "UTF-8", pair.first);
             webResourceResponse.setStatusCodeAndReasonPhrase(i, "OK");
             webResourceResponse.setResponseHeaders(hashMap);
             return webResourceResponse;
@@ -87,18 +91,37 @@ public class ImageLoader {
         return (WebResourceResponse) invokeLLL.objValue;
     }
 
-    public static String b(String str, String str2) {
+    public static WebResourceResponse b(String str, Map<String, String> map, Pair<InputStream, Long> pair) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, map, pair)) == null) {
+            return a(pm6.b(str), map, pair);
+        }
+        return (WebResourceResponse) invokeLLL.objValue;
+    }
+
+    @NonNull
+    public static WebResourceResponse f(@NonNull byte[] bArr, String str, @NonNull WebResourceRequest webResourceRequest) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, bArr, str, webResourceRequest)) == null) {
+            return a(str, webResourceRequest.getRequestHeaders(), new Pair(new ByteArrayInputStream(bArr), Long.valueOf(bArr.length)));
+        }
+        return (WebResourceResponse) invokeLLL.objValue;
+    }
+
+    public static String c(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            ak6 f = sj6.e().f(str);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            fl6 f = vk6.e().f(str);
             if (f == null) {
-                f = sj6.e().f(kl6.c(str2));
+                f = vk6.e().f(pm6.c(str2));
             }
             if (f == null) {
                 return null;
             }
-            String c = kl6.c(str2);
+            String c = pm6.c(str2);
             String str3 = "";
             for (String str4 : f.f) {
                 if (c.endsWith(str4)) {
@@ -110,22 +133,43 @@ public class ImageLoader {
         return (String) invokeLL.objValue;
     }
 
-    public static WebResourceResponse c(String str, String str2, Map<String, String> map) {
+    public static WebResourceResponse d(String str, String str2, Map<String, String> map) {
         InterceptResult invokeLLL;
         Pair<InputStream, Long> a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, map)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, map)) == null) {
             try {
-                String b = b(str, str2);
-                if (!TextUtils.isEmpty(b) && (a2 = a.a(b)) != null && a2.first != null) {
+                String c = c(str, str2);
+                if (!TextUtils.isEmpty(c) && (a2 = a.a(c)) != null && a2.first != null) {
                     TbLog hybridLog = HybridLog.getInstance();
-                    hybridLog.i("Offline", "返回离线包图片数据:" + b + " originUrl：" + str + " url：" + str2);
-                    return a(str2, map, a2);
+                    hybridLog.i("Offline", "返回离线包图片数据:" + c + " originUrl：" + str + " url：" + str2);
+                    return b(str2, map, a2);
                 }
             } catch (Exception e) {
                 BdLog.e(e);
             }
             return null;
+        }
+        return (WebResourceResponse) invokeLLL.objValue;
+    }
+
+    @Nullable
+    public static WebResourceResponse e(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, str, str2, map)) == null) {
+            try {
+                Pair<InputStream, Long> a2 = a.a(str);
+                if (a2 != null && a2.first != null) {
+                    TbLog hybridLog = HybridLog.getInstance();
+                    hybridLog.i("Offline", "返回图片数据:" + str + " url：" + str2);
+                    return b(str2, map, a2);
+                }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
+            }
         }
         return (WebResourceResponse) invokeLLL.objValue;
     }

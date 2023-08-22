@@ -2,16 +2,15 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.cmic.sso.sdk.auth.TokenListener;
 /* loaded from: classes5.dex */
-public class fp1 {
+public abstract class fp1 implements TokenListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public String d;
+    public final long a;
 
     public fp1() {
         Interceptable interceptable = $ic;
@@ -26,7 +25,15 @@ public class fp1 {
                 return;
             }
         }
-        this.c = -1;
-        this.d = "";
+        this.a = System.currentTimeMillis();
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
     }
 }

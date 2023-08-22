@@ -9,12 +9,12 @@ public class FTOSPushHelper {
     public static long a;
 
     /* renamed from: a  reason: collision with other field name */
-    public static volatile boolean f34a;
+    public static volatile boolean f35a;
 
     public static void a(Context context) {
         AbstractPushManager a2 = f.a(context).a(e.ASSEMBLE_PUSH_FTOS);
         if (a2 != null) {
-            com.xiaomi.channel.commonutils.logger.b.m178a("ASSEMBLE_PUSH :  register fun touch os when network change!");
+            com.xiaomi.channel.commonutils.logger.b.m180a("ASSEMBLE_PUSH :  register fun touch os when network change!");
             a2.register();
         }
     }
@@ -31,11 +31,11 @@ public class FTOSPushHelper {
     }
 
     public static boolean getNeedRegister() {
-        return f34a;
+        return f35a;
     }
 
     public static boolean hasNetwork(Context context) {
-        return i.m245a(context);
+        return i.m247a(context);
     }
 
     public static void notifyFTOSNotificationClicked(Context context, Map<String, String> map) {
@@ -55,10 +55,10 @@ public class FTOSPushHelper {
     }
 
     public static void setNeedRegister(boolean z) {
-        f34a = z;
+        f35a = z;
     }
 
     public static void uploadToken(Context context, String str) {
-        i.m244a(context, e.ASSEMBLE_PUSH_FTOS, str);
+        i.m246a(context, e.ASSEMBLE_PUSH_FTOS, str);
     }
 }

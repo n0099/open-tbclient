@@ -6,12 +6,12 @@ import android.os.Binder;
 import android.os.IBinder;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.tieba.cz3;
-import com.baidu.tieba.ty3;
+import com.baidu.tieba.hz3;
+import com.baidu.tieba.yy3;
 /* loaded from: classes4.dex */
 public class AdDownloadService extends Service {
     public a mBinder = new a();
-    public cz3 mDownloadManager;
+    public hz3 mDownloadManager;
 
     /* loaded from: classes4.dex */
     public class a extends Binder {
@@ -52,15 +52,15 @@ public class AdDownloadService extends Service {
 
     @Override // android.app.Service
     public void onCreate() {
-        this.mDownloadManager = ty3.m(AppRuntime.getAppContext(), null);
+        this.mDownloadManager = yy3.m(AppRuntime.getAppContext(), null);
         super.onCreate();
     }
 
     @Override // android.app.Service
     public void onDestroy() {
-        cz3 cz3Var = this.mDownloadManager;
-        if (cz3Var != null) {
-            cz3Var.destroy();
+        hz3 hz3Var = this.mDownloadManager;
+        if (hz3Var != null) {
+            hz3Var.destroy();
             this.mDownloadManager = null;
         }
         super.onDestroy();

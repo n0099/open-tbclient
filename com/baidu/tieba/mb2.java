@@ -1,81 +1,22 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.s13;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public final class mb2 extends hb2<lb2> {
+public abstract class mb2<T> extends Handler {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final s13 a;
-    public final t13 b;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lb2 a;
-        public final /* synthetic */ mb2 b;
+    public abstract void a(@NonNull T t);
 
-        public a(mb2 mb2Var, lb2 lb2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mb2Var, lb2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mb2Var;
-            this.a = lb2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Bitmap p;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (p = po3.p()) != null) {
-                Message.obtain(this.b, 2, lb2.a(this.a.b, p)).sendToTarget();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947966828, "Lcom/baidu/tieba/mb2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947966828, "Lcom/baidu/tieba/mb2;");
-                return;
-            }
-        }
-        c = ir1.a;
-    }
+    public abstract void b(@NonNull T t);
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public mb2(Looper looper) {
@@ -85,110 +26,33 @@ public final class mb2 extends hb2<lb2> {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {looper};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = s13.a.a("simple_parser");
-        this.b = (t13) s13.a.a("hsv_parser");
     }
 
-    public final boolean e(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: com.baidu.tieba.mb2<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    @Override // android.os.Handler
+    public void handleMessage(@NonNull Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return TextUtils.equals(so3.B(), str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void f(lb2 lb2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, lb2Var) != null) || lb2Var == null) {
-            return;
-        }
-        if (c) {
-            Log.d("WhitePageHandler", ">> start to get capture.");
-        }
-        so3.e0(new a(this, lb2Var));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hb2
-    /* renamed from: c */
-    public void a(lb2 lb2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lb2Var) != null) || lb2Var == null) {
-            return;
-        }
-        if (!e(lb2Var.b)) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> stop to capture, page is not top, webViewId =" + lb2Var.b);
-                return;
-            }
-            return;
-        }
-        f(lb2Var);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hb2
-    /* renamed from: d */
-    public void b(lb2 lb2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, lb2Var) != null) || lb2Var == null) {
-            return;
-        }
-        if (!e(lb2Var.b)) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> stop to parse capture, page is not top, webViewId = " + lb2Var.b);
-                return;
-            }
-            return;
-        }
-        Bitmap bitmap = lb2Var.d;
-        ga2 f = h13.f();
-        View B = lw2.T().B(lb2Var.b);
-        if (bitmap != null && f != null && B != null) {
-            if (c) {
-                Log.d("WhitePageHandler", ">> start parsing capture");
-            }
-            Rect b = h13.b(bitmap, f, B);
-            this.a.c(h13.d(f));
-            if (!h13.h() && this.a.a(bitmap, b)) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is full white screen.");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
+            int i = message.what;
+            if (i != 1) {
+                if (i == 2) {
+                    b(message.obj);
+                    return;
                 }
-                yb2 yb2Var = new yb2();
-                yb2Var.e(SceneType.SCENE_WHITE_SCREEN_L1);
-                yb2Var.d(lb2Var.b);
                 return;
             }
-            double d = this.b.d(bitmap, b);
-            yb2 yb2Var2 = new yb2();
-            if (h13.g() && d >= 0.5d) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
-                }
-                yb2Var2.e(SceneType.SCENE_WHITE_SCREEN_L3);
-                yb2Var2.d(lb2Var.b);
-            } else if (d >= 0.7d) {
-                if (c) {
-                    Log.d("WhitePageHandler", ">> capture is part white screen ratio: " + d);
-                }
-                yb2Var2.e(SceneType.SCENE_WHITE_SCREEN_L2);
-                yb2Var2.d(lb2Var.b);
-            } else {
-                nb2.b().a();
-            }
-        } else if (c) {
-            Log.d("WhitePageHandler", ">> stop to parse capture, capture or fragment or webView is null.");
+            a(message.obj);
         }
     }
 }

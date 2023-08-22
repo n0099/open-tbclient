@@ -1,83 +1,78 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.UUID;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class yub {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public TreeMap<String, String> a;
 
-    public yub() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948344067, "Lcom/baidu/tieba/yub;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948344067, "Lcom/baidu/tieba/yub;");
                 return;
             }
         }
-        this.a = new TreeMap<>();
+        a = "0123456789ABCDEF".toCharArray();
     }
 
-    public void a(String str) {
+    public static byte[] a(char[] cArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    this.a.put(next, (String) jSONObject.get(next));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
+            if ((cArr.length & 1) == 0) {
+                byte[] bArr = new byte[cArr.length >> 1];
+                int i = 0;
+                int i2 = 0;
+                while (i < cArr.length) {
+                    int digit = Character.digit(cArr[i], 16);
+                    if (digit == -1) {
+                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i);
+                    }
+                    int i3 = i + 1;
+                    int digit2 = Character.digit(cArr[i3], 16);
+                    if (digit2 == -1) {
+                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i3);
+                    }
+                    i = i3 + 1;
+                    bArr[i2] = (byte) (((digit << 4) | digit2) & 255);
+                    i2++;
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
+                return bArr;
             }
+            throw new IllegalArgumentException("Odd number of characters.");
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    public yub b(String str, String str2) {
-        InterceptResult invokeLL;
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            String replace = UUID.randomUUID().toString().replace("-", "");
-            this.a.remove("urlPropUid");
-            this.a.put("urlPropUid", replace);
-            Log.i("UrlProperty", "setRoomIDAndUserID roomID=" + str + ",userID=" + str2 + ",randUid=" + replace);
-            return this;
-        }
-        return (yub) invokeLL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            for (Map.Entry<String, String> entry : this.a.entrySet()) {
-                try {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (byte b : bArr) {
+                sb.append(a[(b >> 4) & 15]);
+                sb.append(a[b & 15]);
             }
-            return jSONObject.toString();
+            return sb.toString();
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

@@ -1,32 +1,35 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class i9b {
+public abstract class i9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(MediaMetadataRetriever mediaMetadataRetriever) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, mediaMetadataRetriever) == null) && mediaMetadataRetriever != null) {
-            try {
-                mediaMetadataRetriever.release();
-            } catch (Exception e) {
-                j9b.g(e);
-            }
-        }
-    }
+    public abstract void a();
 
-    public static void b(Closeable closeable) {
+    public abstract String b() throws IOException;
+
+    public abstract int c();
+
+    public abstract String d();
+
+    public abstract boolean e();
+
+    public i9b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Throwable th) {
-                j9b.d(th.getMessage());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }

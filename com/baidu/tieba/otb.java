@@ -2,21 +2,21 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class otb {
+public class otb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public HashMap<String, Object> b;
+    public final /* synthetic */ vtb a;
+    public final /* synthetic */ qtb b;
 
-    public otb() {
+    public otb(qtb qtbVar, vtb vtbVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {qtbVar, vtbVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,15 +26,21 @@ public class otb {
                 return;
             }
         }
-        this.b = new HashMap<>();
+        this.b = qtbVar;
+        this.a = vtbVar;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SubProcessData{cmd='" + this.a + "', data=" + this.b + '}';
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.b.c) {
+                Object obj = this.b.a;
+                if (obj != null) {
+                    this.a.d();
+                    ((ztb) obj).a.countDown();
+                }
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

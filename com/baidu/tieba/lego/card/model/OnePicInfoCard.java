@@ -1,7 +1,7 @@
 package com.baidu.tieba.lego.card.model;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.by8;
+import com.baidu.tieba.e29;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,12 +13,12 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class OnePicInfoCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String desc;
-    public final List<by8> iconList;
+    public final List<e29> iconList;
     public final String pic;
     public final int tBgColor;
     public final int tBgColorN;
@@ -58,12 +58,12 @@ public class OnePicInfoCard extends BaseCardInfo {
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             if (optJSONObject != null) {
-                by8 by8Var = new by8();
-                by8Var.c = optJSONObject.optInt("type");
-                by8Var.a = optJSONObject.optString("url");
-                by8Var.b = optJSONObject.optString("urlNight");
-                by8Var.d = optJSONObject.optString("content", "");
-                this.iconList.add(by8Var);
+                e29 e29Var = new e29();
+                e29Var.c = optJSONObject.optInt("type");
+                e29Var.a = optJSONObject.optString("url");
+                e29Var.b = optJSONObject.optString("urlNight");
+                e29Var.d = optJSONObject.optString("content", "");
+                this.iconList.add(e29Var);
             }
         }
     }
@@ -77,7 +77,7 @@ public class OnePicInfoCard extends BaseCardInfo {
         return (String) invokeV.objValue;
     }
 
-    public List<by8> getIconList() {
+    public List<e29> getIconList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

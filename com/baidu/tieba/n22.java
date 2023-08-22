@@ -1,18 +1,31 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.graphics.Point;
+import android.graphics.Rect;
+import android.os.Build;
+import android.util.DisplayMetrics;
 import android.util.Log;
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
+import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.download.apkcheck.ApkCheckUBCManagerKt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.connect.common.Constants;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class n22 extends l22 {
+public class n22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
+    public static JSONObject b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -28,34 +41,138 @@ public class n22 extends l22 {
                 return;
             }
         }
-        b = ir1.a;
+        a = nr1.a;
     }
 
-    public n22() {
+    public static synchronized void f() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            synchronized (n22.class) {
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "release cache system info");
+                }
+                b = null;
             }
         }
     }
 
-    @Override // com.baidu.tieba.m22
-    public void a() {
+    public static JSONObject a(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (BasePendingOperation basePendingOperation : this.a) {
-                if (b) {
-                    Log.d("MainThreadOperation", "  *************** 【Execute pending module】:" + basePendingOperation.b() + " params:" + basePendingOperation.c());
-                }
-                so3.e0(basePendingOperation);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (a) {
+                Log.d("SystemInfoCacheHelper", "start create System Info");
             }
-            this.a.clear();
+            WindowManager windowManager = (WindowManager) context.getSystemService(ApkCheckUBCManagerKt.VALUE_WINDOW);
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            windowManager.getDefaultDisplay().getSize(new Point());
+            windowManager.getDefaultDisplay().getRectSize(new Rect());
+            Configuration configuration = context.getResources().getConfiguration();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("brand", Build.BRAND);
+                jSONObject.put("model", Build.MODEL);
+                jSONObject.put("pixelRatio", displayMetrics.density);
+                jSONObject.put("devicePixelRatio", displayMetrics.density);
+                jSONObject.put("language", c(configuration));
+                jSONObject.put("version", xo3.D());
+                jSONObject.put("system", "Android " + Build.VERSION.RELEASE);
+                jSONObject.put(Constants.PARAM_PLATFORM, "android");
+                jSONObject.put("fontSizeSetting", ku2.o().r());
+                jSONObject.put("swanNativeVersion", or1.a());
+                jSONObject.put("host", ku2.n().a());
+                jSONObject.put("statusBarHeight", uo3.O(uo3.t()));
+                jSONObject.put("navigationBarHeight", uo3.O(uo3.j()));
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "end create System Info");
+                }
+                return jSONObject;
+            } catch (JSONException e) {
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "crate system info error : ");
+                    e.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @Nullable
+    public static synchronized JSONObject b(Context context) {
+        InterceptResult invokeL;
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            synchronized (n22.class) {
+                if (b == null && context != null) {
+                    if (a) {
+                        Log.d("SystemInfoCacheHelper", "need create system info");
+                    }
+                    b = a(context);
+                }
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "return cache system info");
+                }
+                jSONObject = b;
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    @SuppressLint({"ObsoleteSdkInt"})
+    public static String c(Configuration configuration) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, configuration)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i < 21) {
+                return configuration.locale.toString();
+            }
+            if (i < 24) {
+                return configuration.locale.toLanguageTag();
+            }
+            return configuration.getLocales().toLanguageTags();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(int i) {
+        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && (jSONObject = b) != null) {
+            try {
+                jSONObject.put("fontSizeSetting", i);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Nullable
+    public static synchronized void e(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, context) == null) {
+            synchronized (n22.class) {
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "start pre cache system info");
+                }
+                if (!ku2.g0().s()) {
+                    return;
+                }
+                if (b == null && context != null) {
+                    if (a) {
+                        Log.d("SystemInfoCacheHelper", "need create system info");
+                    }
+                    b = a(context);
+                }
+                if (a) {
+                    Log.d("SystemInfoCacheHelper", "end pre cache system info");
+                }
+            }
         }
     }
 }

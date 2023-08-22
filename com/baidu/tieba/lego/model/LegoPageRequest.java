@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.Lego.DataReq;
 import tbclient.Lego.LegoReqIdl;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class LegoPageRequest extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

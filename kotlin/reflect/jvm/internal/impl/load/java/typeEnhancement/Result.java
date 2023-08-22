@@ -1,7 +1,7 @@
 package kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement;
 
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class Result {
     public final int subtreeSize;
     public final KotlinType type;

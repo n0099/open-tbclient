@@ -1,56 +1,87 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.annotations.SerializedName;
+import java.lang.reflect.Field;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.collections.MapsKt__MapsKt;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class cg8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final cg8 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947673909, "Lcom/baidu/tieba/cg8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static final void a(Class<?> cls, TbBaseMsg tbBaseMsg, Map<String, Object> map, Map<String, Object> map2, boolean z) {
+        boolean z2;
+        String name;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{cls, tbBaseMsg, map, map2, Boolean.valueOf(z)}) != null) || !TbBaseMsg.class.isAssignableFrom(cls)) {
+            return;
+        }
+        Field[] declaredFields = cls.getDeclaredFields();
+        Intrinsics.checkNotNullExpressionValue(declaredFields, "clazz.declaredFields");
+        for (Field field : declaredFields) {
+            if (z && field.getAnnotation(bg8.class) != null) {
+                map.remove(field.getName());
+                z2 = true;
+            } else {
+                z2 = false;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947673909, "Lcom/baidu/tieba/cg8;");
-                return;
+            if (!z2 && field.getAnnotation(ag8.class) != null) {
+                SerializedName serializedName = (SerializedName) field.getAnnotation(SerializedName.class);
+                if (serializedName == null || (name = serializedName.value()) == null) {
+                    name = field.getName();
+                    Intrinsics.checkNotNullExpressionValue(name, "it.name");
+                }
+                map.remove(name);
+                field.setAccessible(true);
+                map2.put(name, field.get(tbBaseMsg));
             }
         }
-        a = new cg8();
+        Class<? super Object> superclass = cls.getSuperclass();
+        if (superclass != null) {
+            a(superclass, tbBaseMsg, map, map2, z);
+        }
     }
 
-    public cg8() {
+    public static final Map<String, Object> b(Map<String, ? extends Object> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "<this>");
+            Map<String, Object> mutableMap = MapsKt__MapsKt.toMutableMap(map);
+            Map<? extends String, ? extends Object> map2 = (Map) mutableMap.remove("content");
+            if (map2 != null) {
+                mutableMap.putAll(map2);
             }
+            return mutableMap;
         }
+        return (Map) invokeL.objValue;
     }
 
-    public final void a(String tag, Exception exception) {
+    public static final <TbMsg extends TbBaseMsg> Map<String, Object> c(TbMsg tbmsg, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, tag, exception) == null) {
-            Intrinsics.checkNotNullParameter(tag, "tag");
-            Intrinsics.checkNotNullParameter(exception, "exception");
-            Log.e("lt-log", "IMExceptionMonitor-report-" + tag + "-exception:" + exception.getMessage());
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, tbmsg, z)) == null) {
+            Intrinsics.checkNotNullParameter(tbmsg, "<this>");
+            Map<String, Object> mutableMap = MapsKt__MapsKt.toMutableMap(DataExt.toMap(tbmsg));
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            mutableMap.put("content", linkedHashMap);
+            a(tbmsg.getClass(), tbmsg, mutableMap, linkedHashMap, z);
+            return mutableMap;
         }
+        return (Map) invokeLZ.objValue;
+    }
+
+    public static /* synthetic */ Map d(TbBaseMsg tbBaseMsg, boolean z, int i, Object obj) {
+        if ((i & 1) != 0) {
+            z = true;
+        }
+        return c(tbBaseMsg, z);
     }
 }

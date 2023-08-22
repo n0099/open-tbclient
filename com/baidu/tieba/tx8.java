@@ -1,64 +1,61 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import android.util.SparseIntArray;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public abstract class tx8 {
+public final class tx8 extends rx8<zx8> implements jb7<tx8> {
     public static /* synthetic */ Interceptable $ic;
-    public static final SparseIntArray a;
-    public static final SparseArray<BdUniqueId> b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
 
-    public abstract <T> ly8 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i);
-
-    public abstract ICardInfo b(JSONObject jSONObject, int i) throws CardParseException;
-
-    public abstract void c();
-
-    public abstract String d();
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948196693, "Lcom/baidu/tieba/tx8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948196693, "Lcom/baidu/tieba/tx8;");
-                return;
-            }
-        }
-        a = new SparseIntArray();
-        b = new SparseArray<>();
+    public tx8 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (tx8) invokeV.objValue;
     }
 
-    public tx8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tx8(cy8<zx8> data, String templateName) {
+        super(data);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, templateName};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((cy8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c();
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(templateName, "templateName");
+        this.d = templateName;
+    }
+
+    @Override // com.baidu.tieba.jb7
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.jb7
+    public /* bridge */ /* synthetic */ tx8 b() {
+        i();
+        return this;
     }
 }

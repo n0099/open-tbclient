@@ -1,51 +1,95 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
 import org.json.JSONObject;
-@Service
-/* loaded from: classes8.dex */
-public final class zy7 implements ue5 {
+/* loaded from: classes9.dex */
+public final class zy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, a> a;
 
-    public zy7() {
+    /* loaded from: classes9.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final long b;
+
+        public a(String frsCustomCounts, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {frsCustomCounts, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(frsCustomCounts, "frsCustomCounts");
+            this.a = frsCustomCounts;
+            this.b = j;
+        }
+
+        public final JSONObject a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.putOpt("frs_csm", this.a);
+                jSONObject.putOpt("last_time", Long.valueOf(this.b));
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
+        }
+    }
+
+    public zy7(Map<String, a> frsVisitedDataMap) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsVisitedDataMap};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(frsVisitedDataMap, "frsVisitedDataMap");
+        this.a = frsVisitedDataMap;
     }
 
-    @Override // com.baidu.tieba.ue5
-    public void parseJson(JSONObject json) {
-        int i;
+    public final JSONObject a() {
+        InterceptResult invokeV;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            try {
-                JSONObject optJSONObject = json.optJSONObject("click_back_card");
-                if (optJSONObject != null) {
-                    i = optJSONObject.optInt("show_times");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            for (String str : this.a.keySet()) {
+                a aVar = this.a.get(str);
+                if (aVar != null) {
+                    jSONObject = aVar.a();
                 } else {
-                    i = 0;
+                    jSONObject = null;
                 }
-                SharedPrefHelper.getInstance().putInt("key_recom_topic_card_show_times", i);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                jSONObject2.put(str, jSONObject);
             }
+            return jSONObject2;
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

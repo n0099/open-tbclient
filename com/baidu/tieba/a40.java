@@ -1,53 +1,68 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class a40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d40[] a;
 
-    public a40() {
+    public static String a(Map<String, String> map) {
+        InterceptResult invokeL;
+        String encode;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
+            if (map == null) {
+                return "";
             }
+            StringBuilder sb = new StringBuilder();
+            for (String str : map.keySet()) {
+                if (sb.length() > 0) {
+                    sb.append("&");
+                }
+                String str2 = map.get(str);
+                if (str != null) {
+                    try {
+                        encode = URLEncoder.encode(str, "UTF-8");
+                    } catch (UnsupportedEncodingException e) {
+                        throw new RuntimeException("This method requires UTF-8 encoding support", e);
+                    }
+                } else {
+                    encode = "";
+                }
+                sb.append(encode);
+                sb.append("=");
+                sb.append(str2 != null ? URLEncoder.encode(str2, "UTF-8") : "");
+            }
+            return sb.toString();
         }
-        this.a = new d40[]{new e40(8, 0), new f40(0, 1), new f40(1, 1), new e40(7, 1)};
+        return (String) invokeL.objValue;
     }
 
-    public byte[] a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
-            return (byte[]) invokeL.objValue;
-        }
-        c40 c40Var = new c40();
-        byte[] b = b40.b(bArr, bArr.length + ((this.a.length + 1) * c40.b));
-        b40.a(b, c40Var.b(), bArr.length);
-        int i = 0;
-        while (true) {
-            d40[] d40VarArr = this.a;
-            if (i >= d40VarArr.length) {
-                return Arrays.copyOf(c40Var.b(), c40.b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            d40 d40Var = d40VarArr[i];
-            i++;
-            int length = bArr.length + (c40.b * i);
-            c40Var.a(d40Var.b(b, 0, length), d40Var.a(), d40Var.c(), d40Var.d());
-            b40.a(b, c40Var.b(), length);
+            String a = a(map);
+            if (TextUtils.isEmpty(a)) {
+                return str;
+            }
+            if (!str.contains("?")) {
+                return str + "?" + a;
+            }
+            if (str.lastIndexOf("?") == str.length() - 1) {
+                return str + a;
+            }
+            return str + "&" + a;
         }
+        return (String) invokeLL.objValue;
     }
 }

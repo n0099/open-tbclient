@@ -12,7 +12,6 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
 /* loaded from: classes4.dex */
 public class NightPluginTask extends LaunchTask {
     public BdUniqueId tag = BdUniqueId.gen();
@@ -50,7 +49,7 @@ public class NightPluginTask extends LaunchTask {
         MessageManager.getInstance().registerListener(this.mNightInstallListener);
         if (PermissionUtil.isBrowseMode()) {
             MessageManager.getInstance().runTask(2001281, String.class);
-        } else if (FixNpsAnrSwitch.getIsOn() && BdUtilHelper.getNumActivities() > 1) {
+        } else if (BdUtilHelper.getNumActivities() > 1) {
             SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.2
                 @Override // java.lang.Runnable
                 public void run() {

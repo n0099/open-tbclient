@@ -1,102 +1,301 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorBar;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FestivalTipData;
+import tbclient.IconUrlInfo;
 /* loaded from: classes8.dex */
-public class tua {
+public final class tua {
     public static /* synthetic */ Interceptable $ic;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public lr6 b;
+    public final String a;
+    public final b b;
+    public final String c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948195081, "Lcom/baidu/tieba/tua;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948195081, "Lcom/baidu/tieba/tua;");
+                return;
+            }
+        }
+        d = new a(null);
+    }
+
+    @JvmStatic
+    public static final tua a(FestivalTipData festivalTipData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, festivalTipData)) == null) ? d.a(festivalTipData) : (tua) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof tua) {
+                tua tuaVar = (tua) obj;
+                return Intrinsics.areEqual(this.a, tuaVar.a) && Intrinsics.areEqual(this.b, tuaVar.b) && Intrinsics.areEqual(this.c, tuaVar.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "FestivalTipViewData(text=" + this.a + ", iconUrl=" + this.b + ", jumpUrl=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
 
     /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tua a;
 
-        public a(tua tuaVar) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tuaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = tuaVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @JvmStatic
+        public final tua a(FestivalTipData festivalTipData) {
+            InterceptResult invokeL;
+            b bVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.b.h();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, festivalTipData)) == null) {
+                Intrinsics.checkNotNullParameter(festivalTipData, "festivalTipData");
+                String str = festivalTipData.text;
+                String str2 = "";
+                if (str == null) {
+                    str = "";
+                }
+                IconUrlInfo iconUrlInfo = festivalTipData.icon_url;
+                if (iconUrlInfo != null) {
+                    String str3 = iconUrlInfo.day;
+                    if (str3 == null) {
+                        str3 = "";
+                    } else {
+                        Intrinsics.checkNotNullExpressionValue(str3, "it.day ?: \"\"");
+                    }
+                    String str4 = iconUrlInfo.night;
+                    if (str4 == null) {
+                        str4 = "";
+                    } else {
+                        Intrinsics.checkNotNullExpressionValue(str4, "it.night ?: \"\"");
+                    }
+                    String str5 = iconUrlInfo.dark;
+                    if (str5 == null) {
+                        str5 = "";
+                    } else {
+                        Intrinsics.checkNotNullExpressionValue(str5, "it.dark ?: \"\"");
+                    }
+                    bVar = new b(str3, str4, str5);
+                } else {
+                    bVar = new b(null, null, null, 7, null);
+                }
+                String str6 = festivalTipData.jump_url;
+                if (str6 != null) {
+                    str2 = str6;
+                }
+                return new tua(str, bVar, str2);
             }
+            return (tua) invokeL.objValue;
         }
     }
 
-    public tua(TbPageContext tbPageContext) {
+    /* loaded from: classes8.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final String b;
+        public final String c;
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public b() {
+            this(null, null, null, 7, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr = newInitContext.callArgs;
+                    this((String) objArr[0], (String) objArr[1], (String) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj instanceof b) {
+                    b bVar = (b) obj;
+                    return Intrinsics.areEqual(this.a, bVar.a) && Intrinsics.areEqual(this.b, bVar.b) && Intrinsics.areEqual(this.c, bVar.c);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return "IconUrl(dayUrl=" + this.a + ", nightUrl=" + this.b + ", darkUrl=" + this.c + ')';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public b(String dayUrl, String nightUrl, String darkUrl) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dayUrl, nightUrl, darkUrl};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(dayUrl, "dayUrl");
+            Intrinsics.checkNotNullParameter(nightUrl, "nightUrl");
+            Intrinsics.checkNotNullParameter(darkUrl, "darkUrl");
+            this.a = dayUrl;
+            this.b = nightUrl;
+            this.c = darkUrl;
+        }
+
+        public /* synthetic */ b(String str, String str2, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
+            this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? "" : str2, (i & 4) != 0 ? "" : str3);
+        }
+
+        public final String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public tua(String text, b iconUrl, String jumpUrl) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {text, iconUrl, jumpUrl};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        Intrinsics.checkNotNullParameter(text, "text");
+        Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+        Intrinsics.checkNotNullParameter(jumpUrl, "jumpUrl");
+        this.a = text;
+        this.b = iconUrl;
+        this.c = jumpUrl;
     }
 
-    public void b() {
-        lr6 lr6Var;
+    public final b b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lr6Var = this.b) != null) {
-            lr6Var.h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (b) invokeV.objValue;
     }
 
-    public void c(EditorTools editorTools) {
-        EditorBar editorBar;
-        View s;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) != null) || editorTools == null || (editorBar = editorTools.a) == null || this.a == null || (s = editorBar.s(26)) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        if (this.b == null) {
-            lr6 lr6Var = new lr6(this.a, s);
-            this.b = lr6Var;
-            lr6Var.L(R.drawable.bg_tip_blue_down);
-            this.b.o(32);
-            this.b.l(2);
-            this.b.m(new a(this));
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070359);
-            int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-            int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.b.E(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
-            this.b.Q(0);
-            this.b.R(-dimensionPixelSize3);
-            this.b.n(3000);
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        this.b.T(this.a.getResources().getString(R.string.hot_topic_tip), "key_show_hottopic_tip");
+        return (String) invokeV.objValue;
     }
 }

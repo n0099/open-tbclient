@@ -1,72 +1,59 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Bundle;
+import android.os.RemoteException;
 import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class lsb {
+import com.google.ar.core.ArCoreApk;
+/* loaded from: classes7.dex */
+public final class lsb implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static lsb b;
     public transient /* synthetic */ FieldHolder $fh;
-    public dsb a;
+    public final /* synthetic */ Context a;
+    public final /* synthetic */ ArCoreApk.a b;
+    public final /* synthetic */ isb c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947954862, "Lcom/baidu/tieba/lsb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947954862, "Lcom/baidu/tieba/lsb;");
-        }
-    }
-
-    public lsb() {
+    public lsb(isb isbVar, Context context, ArCoreApk.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {isbVar, context, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.c = isbVar;
+        this.a = context;
+        this.b = aVar;
     }
 
-    public static lsb b() {
-        InterceptResult invokeV;
+    @Override // java.lang.Runnable
+    public final void run() {
+        com.google.a.b.a.a.a.a aVar;
+        Bundle l;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = new lsb();
-            }
-            return b;
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
         }
-        return (lsb) invokeV.objValue;
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            dsb dsbVar = this.a;
-            if (dsbVar != null) {
-                dsbVar.info("authsdk", str);
-            } else {
-                Log.i("authsdk", str);
-            }
+        try {
+            aVar = this.c.d;
+            String str = this.a.getApplicationInfo().packageName;
+            isb isbVar = this.c;
+            l = isb.l();
+            aVar.a(str, l, new com.google.ar.core.u(this));
+        } catch (RemoteException e) {
+            Log.e("ARCore-InstallService", "requestInfo threw", e);
+            this.b.a(ArCoreApk.Availability.UNKNOWN_ERROR);
         }
     }
 }

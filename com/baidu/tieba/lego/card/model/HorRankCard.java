@@ -7,7 +7,8 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.cy8;
+import com.baidu.tieba.f29;
+import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class HorRankCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -29,14 +30,14 @@ public class HorRankCard extends BaseCardInfo {
     public final int position;
     public List<a> rankInfoList;
     public final double ratio;
-    public final cy8 rightText;
+    public final f29 rightText;
     public final boolean scrollEnabled;
     public final boolean showLeft;
     public final boolean showSep;
     public final int titleColor;
     public final int titleColorNight;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -132,7 +133,7 @@ public class HorRankCard extends BaseCardInfo {
             a aVar = new a();
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             aVar.a = optJSONObject.optInt(MultiRatePlayUrlHelper.RANK);
-            aVar.b = optJSONObject.optString("picUrl");
+            aVar.b = optJSONObject.optString(AiBotChatDispatcher.AI_SINGLE_CHAT_PIC_URL);
             aVar.c = optJSONObject.optString("picIcon");
             aVar.d = optJSONObject.optString("title");
             aVar.e = optJSONObject.optString("subTitle");
@@ -152,7 +153,7 @@ public class HorRankCard extends BaseCardInfo {
             aVar.l = this;
             this.rankInfoList.add(aVar);
         }
-        this.rightText = cy8.a(jSONObject.optJSONObject("moreButton"));
+        this.rightText = f29.a(jSONObject.optJSONObject("moreButton"));
     }
 
     public double getDisplayNum() {
@@ -210,13 +211,13 @@ public class HorRankCard extends BaseCardInfo {
         return invokeV.doubleValue;
     }
 
-    public cy8 getRightText() {
+    public f29 getRightText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.rightText;
         }
-        return (cy8) invokeV.objValue;
+        return (f29) invokeV.objValue;
     }
 
     public int getTitleColor() {

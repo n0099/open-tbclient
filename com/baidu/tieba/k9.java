@@ -7,7 +7,7 @@ public interface k9 {
 
     boolean isScroll();
 
-    void onPreLoad(cn cnVar);
+    void onPreLoad(fn fnVar);
 
     void setIsScroll(boolean z);
 }

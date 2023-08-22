@@ -3,7 +3,7 @@ package com.baidu.tbadk.mutiprocess;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mutiprocess.IEvent;
-import com.baidu.tieba.uo5;
+import com.baidu.tieba.lp5;
 import com.baidu.tieba.y9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class ResponsedEventListener<T extends IEvent> extends y9 implements uo5<T> {
+public abstract class ResponsedEventListener<T extends IEvent> extends y9 implements lp5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean mSelfListener;

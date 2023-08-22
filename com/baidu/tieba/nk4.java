@@ -1,26 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tieba.mk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class nk4<T> {
+public class nk4 extends kk4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<T> a;
+    public final mk4.a a;
 
-    public nk4() {
+    public nk4(mk4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,81 +31,72 @@ public class nk4<T> {
                 return;
             }
         }
-        this.a = new ArrayList();
+        this.a = aVar;
     }
 
-    public synchronized T c() {
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback, com.baidu.tieba.mk4.a
+    public void onFail(Exception exc) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, exc) == null) && a()) {
+            this.a.onFail(exc);
+        }
+    }
+
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                T t = this.a.get(0);
-                this.a.remove(0);
-                return t;
+            if (this.a != null) {
+                return true;
             }
+            return false;
         }
-        return (T) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public synchronized T d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mk4.a
+    public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                return this.a.get(0);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && a()) {
+            this.a.onStart();
         }
-        return (T) invokeV.objValue;
     }
 
-    @NonNull
-    public Iterator<T> f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.mk4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.iterator();
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
+            this.a.b(str, str2, jSONObject);
         }
-        return (Iterator) invokeV.objValue;
     }
 
-    public T e(T t) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: c */
+    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
+        InterceptResult invokeLIL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t != null) {
-                for (int size = this.a.size() - 1; size >= 0; size--) {
-                    if (t.equals(this.a.get(size))) {
-                        return this.a.get(size);
-                    }
-                }
-                return null;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i, networkStatRecord)) == null) {
+            String str2 = "";
+            if (response == null || response.body() == null) {
+                str = "";
+            } else {
+                str2 = response.request().url().toString();
+                str = response.body().string();
             }
-            return null;
+            b(str2, str, networkStatRecord.toUBCJson());
+            return str;
         }
-        return (T) invokeL.objValue;
+        return (String) invokeLIL.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    public void onSuccess(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(",Queue Size:" + this.a.size());
-            synchronized (this) {
-                int i = 0;
-                for (T t : this.a) {
-                    sb.append(":[" + i + PreferencesUtil.RIGHT_MOUNT + t);
-                    i++;
-                }
-            }
-            return sb.toString();
+        if ((interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) && a()) {
+            this.a.onSuccess(str, i);
         }
-        return (String) invokeV.objValue;
     }
 }

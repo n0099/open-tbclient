@@ -7,26 +7,26 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-@Deprecated
 /* loaded from: classes8.dex */
-public class xc3 extends vc3 {
+public class xc3 extends ad3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xc3(vb3 vb3Var) {
-        super(vb3Var, "/swanAPI/ubcFlowJar");
+    public xc3(ac3 ac3Var) {
+        super(ac3Var, "/swanAPI/preventPullDownRefresh");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {vb3Var};
+            Object[] objArr = {ac3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,96 +40,57 @@ public class xc3 extends vc3 {
         }
     }
 
-    @Override // com.baidu.tieba.vc3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
+    @Override // com.baidu.tieba.ad3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
-            if (vc3.b) {
-                Log.d("SwanAppAction", "start ubc flor jar");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
+            if (ad3.b) {
+                Log.d("PreventPullDownRefresh", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (ya3Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+            JSONObject a = ad3.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                d82.c("preventPullDownRefresh", "none params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
                 return false;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String optString = optParamsAsJo.optString("flowId");
+            String optString = a.optString("slaveId");
             if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
+                d82.c("preventPullDownRefresh", "slaveId null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "slaveId null");
                 return false;
             }
-            char c = 65535;
-            switch (optString.hashCode()) {
-                case 53647:
-                    if (optString.equals("670")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 53648:
-                    if (optString.equals("671")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 55357:
-                    if (optString.equals("805")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 56506:
-                    if (optString.equals("967")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1508542:
-                    if (optString.equals("1153")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 1529139648:
-                    if (optString.equals("renderMonitorLog")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
+            qw2 T2 = qw2.T();
+            lx1 A = T2.A(optString);
+            if (!(A instanceof jx1)) {
+                d82.c("preventPullDownRefresh", "webViewManager not a SwanAppSlaveManager");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "webViewManager not a SwanAppSlaveManager");
+                return false;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                if (c != 5) {
-                                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
-                                    return false;
-                                }
-                                j22.C(optParamsAsJo);
-                            } else if (ya3Var.W().p0()) {
-                                h82.g(optParamsAsJo.optJSONArray("data"));
-                            } else {
-                                o82.i(optParamsAsJo.optJSONArray("data"));
-                            }
-                        } else {
-                            j22.D(optParamsAsJo);
-                        }
-                    } else {
-                        j22.E(optParamsAsJo.optJSONArray("data"));
-                    }
-                } else {
-                    j22.F(optParamsAsJo.optJSONArray("data"));
-                }
+            ma2 U = T2.U();
+            if (U == null) {
+                d82.c("PreventPullDownRefresh", "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            }
+            la2 o = U.o();
+            if (o == null) {
+                d82.c("PreventPullDownRefresh", "slave container is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (TextUtils.equals("7", o.P1().l())) {
+                d82.c("PreventPullDownRefresh", "this page is from showModalPage api");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
+                return false;
             } else {
-                j22.B(optParamsAsJo, ya3Var);
+                boolean optBoolean = a.optBoolean("prevent", false);
+                PullToRefreshBaseWebView f0 = ((jx1) A).f0();
+                if (f0 != null) {
+                    f0.setIsPreventPullToRefresh(optBoolean);
+                    return true;
+                }
+                return true;
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
         }
         return invokeLLLL.booleanValue;
     }

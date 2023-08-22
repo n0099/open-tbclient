@@ -1,6 +1,5 @@
 package com.baidu.tieba.downloadball;
 
-import android.app.Activity;
 import android.text.SpannableString;
 import android.text.TextUtils;
 import android.text.style.AbsoluteSizeSpan;
@@ -13,11 +12,11 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.edgefloat.foldclose.FoldCloseEdgeFloat;
-import com.baidu.tieba.fra;
-import com.baidu.tieba.nx9;
-import com.baidu.tieba.qqa;
+import com.baidu.tieba.mx6;
+import com.baidu.tieba.ova;
+import com.baidu.tieba.s1a;
 import com.baidu.tieba.view.progressball.ProgressBall;
-import com.baidu.tieba.zv6;
+import com.baidu.tieba.zua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +29,7 @@ import kotlin.Metadata;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000\\\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\t\u0018\u00002\u00020\u0001B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\b\u0010+\u001a\u00020,H\u0002J\b\u0010-\u001a\u00020,H\u0002J\b\u0010.\u001a\u00020,H\u0002J\b\u0010/\u001a\u00020,H\u0002J\u0006\u00100\u001a\u000201J\u0006\u00102\u001a\u000203J\u0006\u00104\u001a\u000203J\u000e\u00105\u001a\u0002012\u0006\u00106\u001a\u00020\u0011J\u000e\u00107\u001a\u0002012\u0006\u00108\u001a\u000203J\u001e\u00109\u001a\u0002012\u0006\u0010:\u001a\u00020\u00072\u0006\u0010;\u001a\u0002032\u0006\u00108\u001a\u000203R\u0017\u0010\u0005\u001a\b\u0012\u0004\u0012\u00020\u00070\u0006¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR\u0014\u0010\n\u001a\u00020\u000bX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\f\u0010\rR\u0014\u0010\u000e\u001a\u00020\u000bX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\rR\u001a\u0010\u0010\u001a\u00020\u0011X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R\u001b\u0010\u0016\u001a\u00020\u00178BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001a\u0010\u001b\u001a\u0004\b\u0018\u0010\u0019R(\u0010\u001e\u001a\u0004\u0018\u00010\u001d2\b\u0010\u001c\u001a\u0004\u0018\u00010\u001d@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001f\u0010 \"\u0004\b!\u0010\"R(\u0010#\u001a\u0004\u0018\u00010\u001d2\b\u0010\u001c\u001a\u0004\u0018\u00010\u001d@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b$\u0010 \"\u0004\b%\u0010\"R\u001b\u0010&\u001a\u00020'8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b*\u0010\u001b\u001a\u0004\b(\u0010)¨\u0006<"}, d2 = {"Lcom/baidu/tieba/downloadball/DownloadFloatBall;", "", "activity", "Landroid/app/Activity;", "(Landroid/app/Activity;)V", "PAGE_NO_SUPPORT_LIST", "", "", "getPAGE_NO_SUPPORT_LIST", "()Ljava/util/List;", "UNFOLD_TEXT_MAX_LENGHT", "", "getUNFOLD_TEXT_MAX_LENGHT", "()I", "UNFOLD_TEXT_MAX_LINES", "getUNFOLD_TEXT_MAX_LINES", "downloadBallData", "Lcom/baidu/tieba/downloadball/DownloadFloatBallData;", "getDownloadBallData", "()Lcom/baidu/tieba/downloadball/DownloadFloatBallData;", "setDownloadBallData", "(Lcom/baidu/tieba/downloadball/DownloadFloatBallData;)V", "foldCloseEdgeFloat", "Lcom/baidu/tieba/edgefloat/foldclose/FoldCloseEdgeFloat;", "getFoldCloseEdgeFloat", "()Lcom/baidu/tieba/edgefloat/foldclose/FoldCloseEdgeFloat;", "foldCloseEdgeFloat$delegate", "Lkotlin/Lazy;", "value", "Landroid/view/View$OnClickListener;", "onCloseClickListener", "getOnCloseClickListener", "()Landroid/view/View$OnClickListener;", "setOnCloseClickListener", "(Landroid/view/View$OnClickListener;)V", "onOtherClickListener", "getOnOtherClickListener", "setOnOtherClickListener", "progressBall", "Lcom/baidu/tieba/view/progressball/ProgressBall;", "getProgressBall", "()Lcom/baidu/tieba/view/progressball/ProgressBall;", "progressBall$delegate", "getDownloadingData", "Lcom/baidu/tieba/view/progressball/ProgressBallData;", "getFullProgressData", "getPauseData", "getProgressBallData", "hide", "", "isFolded", "", "isShowing", "setData", "data", "show", "isStart", "statistic", "key", "isClose", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000V\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\t\u0018\u00002\u00020\u0001B\u0005¢\u0006\u0002\u0010\u0002J\b\u0010)\u001a\u00020*H\u0002J\b\u0010+\u001a\u00020*H\u0002J\b\u0010,\u001a\u00020*H\u0002J\b\u0010-\u001a\u00020*H\u0002J\u0006\u0010.\u001a\u00020/J\u0006\u00100\u001a\u000201J\u0006\u00102\u001a\u000201J\u000e\u00103\u001a\u00020/2\u0006\u00104\u001a\u00020\u000fJ\u000e\u00105\u001a\u00020/2\u0006\u00106\u001a\u000201J\u001e\u00107\u001a\u00020/2\u0006\u00108\u001a\u00020\u00052\u0006\u00109\u001a\u0002012\u0006\u00106\u001a\u000201R\u0017\u0010\u0003\u001a\b\u0012\u0004\u0012\u00020\u00050\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0006\u0010\u0007R\u0014\u0010\b\u001a\u00020\tX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR\u0014\u0010\f\u001a\u00020\tX\u0086D¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000bR\u001a\u0010\u000e\u001a\u00020\u000fX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0010\u0010\u0011\"\u0004\b\u0012\u0010\u0013R\u001b\u0010\u0014\u001a\u00020\u00158BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\u0019\u001a\u0004\b\u0016\u0010\u0017R(\u0010\u001c\u001a\u0004\u0018\u00010\u001b2\b\u0010\u001a\u001a\u0004\u0018\u00010\u001b@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u001d\u0010\u001e\"\u0004\b\u001f\u0010 R(\u0010!\u001a\u0004\u0018\u00010\u001b2\b\u0010\u001a\u001a\u0004\u0018\u00010\u001b@FX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\"\u0010\u001e\"\u0004\b#\u0010 R\u001b\u0010$\u001a\u00020%8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b(\u0010\u0019\u001a\u0004\b&\u0010'¨\u0006:"}, d2 = {"Lcom/baidu/tieba/downloadball/DownloadFloatBall;", "", "()V", "PAGE_NO_SUPPORT_LIST", "", "", "getPAGE_NO_SUPPORT_LIST", "()Ljava/util/List;", "UNFOLD_TEXT_MAX_LENGHT", "", "getUNFOLD_TEXT_MAX_LENGHT", "()I", "UNFOLD_TEXT_MAX_LINES", "getUNFOLD_TEXT_MAX_LINES", "downloadBallData", "Lcom/baidu/tieba/downloadball/DownloadFloatBallData;", "getDownloadBallData", "()Lcom/baidu/tieba/downloadball/DownloadFloatBallData;", "setDownloadBallData", "(Lcom/baidu/tieba/downloadball/DownloadFloatBallData;)V", "foldCloseEdgeFloat", "Lcom/baidu/tieba/edgefloat/foldclose/FoldCloseEdgeFloat;", "getFoldCloseEdgeFloat", "()Lcom/baidu/tieba/edgefloat/foldclose/FoldCloseEdgeFloat;", "foldCloseEdgeFloat$delegate", "Lkotlin/Lazy;", "value", "Landroid/view/View$OnClickListener;", "onCloseClickListener", "getOnCloseClickListener", "()Landroid/view/View$OnClickListener;", "setOnCloseClickListener", "(Landroid/view/View$OnClickListener;)V", "onOtherClickListener", "getOnOtherClickListener", "setOnOtherClickListener", "progressBall", "Lcom/baidu/tieba/view/progressball/ProgressBall;", "getProgressBall", "()Lcom/baidu/tieba/view/progressball/ProgressBall;", "progressBall$delegate", "getDownloadingData", "Lcom/baidu/tieba/view/progressball/ProgressBallData;", "getFullProgressData", "getPauseData", "getProgressBallData", "hide", "", "isFolded", "", "isShowing", "setData", "data", "show", "isStart", "statistic", "key", "isClose", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes5.dex */
 public final class DownloadFloatBall {
     public static /* synthetic */ Interceptable $ic;
@@ -40,16 +39,14 @@ public final class DownloadFloatBall {
     public final List<String> c;
     public final Lazy d;
     public final Lazy e;
-    public zv6 f;
+    public mx6 f;
     public View.OnClickListener g;
     public View.OnClickListener h;
 
-    public DownloadFloatBall(final Activity activity) {
+    public DownloadFloatBall() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -59,14 +56,12 @@ public final class DownloadFloatBall {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(activity, "activity");
         this.a = 2;
         this.b = 2;
         this.c = CollectionsKt__CollectionsKt.listOf((Object[]) new String[]{"LogoActivity", "ImageViewerActivity", "InterestGuideActivity", "TBWebViewActivity", "NewWriteActivity", "NewSquareSearchActivity", "VideoPlayActivity", "FrsVideoTabPlayActivity", "VideoRecommentPlayActivity", "AlbumFloatActivity", "SelectForumActivity", "NewSubPbActivity", "PbCommentFloatActivity", "TbFileVideoActivity", "TbEditVideoActivity", "WorkPublishActivity", "SelectClassDialogActivity", "SelectTagActivity", "PbFullScreenEditorActivity", "GiftTabActivity", "AtListActivity", "TBWebContainerActivity"});
         this.d = LazyKt__LazyJVMKt.lazy(DownloadFloatBall$progressBall$2.INSTANCE);
-        this.e = LazyKt__LazyJVMKt.lazy(new Function0<FoldCloseEdgeFloat>(activity, this) { // from class: com.baidu.tieba.downloadball.DownloadFloatBall$foldCloseEdgeFloat$2
+        this.e = LazyKt__LazyJVMKt.lazy(new Function0<FoldCloseEdgeFloat>(this) { // from class: com.baidu.tieba.downloadball.DownloadFloatBall$foldCloseEdgeFloat$2
             public static /* synthetic */ Interceptable $ic;
-            public final /* synthetic */ Activity $activity;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ DownloadFloatBall this$0;
 
@@ -77,7 +72,7 @@ public final class DownloadFloatBall {
                 if (interceptable2 != null) {
                     InitContext newInitContext2 = TitanRuntime.newInitContext();
                     newInitContext2.initArgs = r2;
-                    Object[] objArr2 = {activity, this};
+                    Object[] objArr = {this};
                     interceptable2.invokeUnInit(65536, newInitContext2);
                     int i3 = newInitContext2.flag;
                     if ((i3 & 1) != 0) {
@@ -88,12 +83,11 @@ public final class DownloadFloatBall {
                         return;
                     }
                 }
-                this.$activity = activity;
                 this.this$0 = this;
             }
 
             /* loaded from: classes5.dex */
-            public static final class a implements qqa {
+            public static final class a implements zua {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ DownloadFloatBall a;
@@ -116,7 +110,7 @@ public final class DownloadFloatBall {
                     this.a = downloadFloatBall;
                 }
 
-                @Override // com.baidu.tieba.qqa
+                @Override // com.baidu.tieba.zua
                 public void a(boolean z) {
                     Interceptable interceptable = $ic;
                     if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -133,22 +127,44 @@ public final class DownloadFloatBall {
                 InterceptResult invokeV;
                 ProgressBall h;
                 Interceptable interceptable2 = $ic;
-                if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    Activity activity2 = this.$activity;
-                    h = this.this$0.h();
-                    FoldCloseEdgeFloat.a aVar = new FoldCloseEdgeFloat.a(activity2, h);
-                    aVar.d(this.this$0.f());
-                    FoldCloseEdgeFloat a2 = aVar.a();
-                    a2.m(new a(this.this$0));
-                    return a2;
+                if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
+                    return (FoldCloseEdgeFloat) invokeV.objValue;
                 }
-                return (FoldCloseEdgeFloat) invokeV.objValue;
+                h = this.this$0.h();
+                FoldCloseEdgeFloat.a aVar = new FoldCloseEdgeFloat.a(h);
+                aVar.c(this.this$0.f());
+                FoldCloseEdgeFloat a2 = aVar.a();
+                a2.m(new a(this.this$0));
+                return a2;
             }
         });
-        this.f = new zv6();
+        this.f = new mx6();
     }
 
-    public final void m(zv6 data) {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0037: INVOKE  (r4v1 int A[REMOVE]) = (r0v2 com.baidu.tieba.ova) type: VIRTUAL call: com.baidu.tieba.ova.e():int), ('%' char)] */
+    public final ova c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ova ovaVar = new ova();
+            String c = this.f.c();
+            if (c == null) {
+                c = "";
+            }
+            ovaVar.h(c);
+            ovaVar.j(R.drawable.progress_ball_dynamic);
+            ovaVar.l(Math.min(Math.max(this.f.f(), 0), 100));
+            StringBuilder sb = new StringBuilder();
+            sb.append(ovaVar.e());
+            sb.append('%');
+            ovaVar.m(new SpannableString(sb.toString()));
+            ovaVar.f().setSpan(new AbsoluteSizeSpan(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06)), 0, ovaVar.f().length() - 1, 17);
+            return ovaVar;
+        }
+        return (ova) invokeV.objValue;
+    }
+
+    public final void m(mx6 data) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, data) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -182,13 +198,13 @@ public final class DownloadFloatBall {
         q(TbadkCoreStatisticKey.DOWNLOAD_FLOAT_BALL_SHOW, false, z);
     }
 
-    public final zv6 b() {
+    public final mx6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.f;
         }
-        return (zv6) invokeV.objValue;
+        return (mx6) invokeV.objValue;
     }
 
     public final FoldCloseEdgeFloat d() {
@@ -243,68 +259,45 @@ public final class DownloadFloatBall {
         return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0037: INVOKE  (r4v1 int A[REMOVE]) = (r0v2 com.baidu.tieba.fra) type: VIRTUAL call: com.baidu.tieba.fra.e():int), ('%' char)] */
-    public final fra c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            fra fraVar = new fra();
-            String c = this.f.c();
-            if (c == null) {
-                c = "";
-            }
-            fraVar.h(c);
-            fraVar.j(R.drawable.progress_ball_dynamic);
-            fraVar.l(Math.min(Math.max(this.f.f(), 0), 100));
-            StringBuilder sb = new StringBuilder();
-            sb.append(fraVar.e());
-            sb.append('%');
-            fraVar.m(new SpannableString(sb.toString()));
-            fraVar.f().setSpan(new AbsoluteSizeSpan(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.T_X06)), 0, fraVar.f().length() - 1, 17);
-            return fraVar;
-        }
-        return (fra) invokeV.objValue;
-    }
-
-    public final fra e() {
+    public final ova e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            fra fraVar = new fra();
+            ova ovaVar = new ova();
             String c = this.f.c();
             if (c == null) {
                 c = "";
             }
-            fraVar.h(c);
-            fraVar.i(R.color.CAM_X0302);
-            fraVar.l(100);
-            fraVar.m(new SpannableString(this.f.b()));
-            return fraVar;
+            ovaVar.h(c);
+            ovaVar.i(R.color.CAM_X0302);
+            ovaVar.l(100);
+            ovaVar.m(new SpannableString(this.f.b()));
+            return ovaVar;
         }
-        return (fra) invokeV.objValue;
+        return (ova) invokeV.objValue;
     }
 
-    public final fra g() {
+    public final ova g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            fra fraVar = new fra();
+            ova ovaVar = new ova();
             String c = this.f.c();
             if (c == null) {
                 c = "";
             }
-            fraVar.h(c);
-            fraVar.i(R.color.CAM_X0305);
-            fraVar.l(Math.min(Math.max(this.f.f(), 0), 100));
-            fraVar.m(new SpannableString(this.f.b()));
-            return fraVar;
+            ovaVar.h(c);
+            ovaVar.i(R.color.CAM_X0305);
+            ovaVar.l(Math.min(Math.max(this.f.f(), 0), 100));
+            ovaVar.m(new SpannableString(this.f.b()));
+            return ovaVar;
         }
-        return (fra) invokeV.objValue;
+        return (ova) invokeV.objValue;
     }
 
-    public final fra i() {
+    public final ova i() {
         InterceptResult invokeV;
-        fra e;
+        ova e;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (this.f.a() == 7) {
@@ -321,7 +314,7 @@ public final class DownloadFloatBall {
             }
             return e;
         }
-        return (fra) invokeV.objValue;
+        return (ova) invokeV.objValue;
     }
 
     public final void q(String key, boolean z, boolean z2) {
@@ -332,7 +325,7 @@ public final class DownloadFloatBall {
             StatisticItem statisticItem = new StatisticItem(key);
             statisticItem.param("obj_source", this.f.d());
             int i2 = 2;
-            if (nx9.i(this.f.e())) {
+            if (s1a.i(this.f.e())) {
                 i = 4;
             } else {
                 if (!z2) {

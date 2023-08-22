@@ -2,7 +2,7 @@ package com.baidu.swan.webcompat.impl;
 
 import android.net.Uri;
 import com.baidu.searchbox.net.listener.DiaoqiJsonListener;
-import com.baidu.tieba.y72;
+import com.baidu.tieba.d82;
 import kotlin.Metadata;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
@@ -34,12 +34,12 @@ public final class WebCompatImpl$getWebCompatUrl$1 extends Lambda implements Fun
         if (str != null) {
             String substring = str.substring(length);
             Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.String).substring(startIndex)");
-            y72.i("WebCompatImpl", "getWebCompatUrl urlTransform path0=" + substring);
+            d82.i("WebCompatImpl", "getWebCompatUrl urlTransform path0=" + substring);
             int i = 0;
             if (substring.length() > 0 && '/' == substring.charAt(0)) {
                 i = 1;
             }
-            y72.i("WebCompatImpl", "getWebCompatUrl urlTransform headerSlashCount=" + i);
+            d82.i("WebCompatImpl", "getWebCompatUrl urlTransform headerSlashCount=" + i);
             if (i > 0) {
                 if (substring != null) {
                     substring = substring.substring(i);
@@ -48,7 +48,7 @@ public final class WebCompatImpl$getWebCompatUrl$1 extends Lambda implements Fun
                     throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
                 }
             }
-            y72.i("WebCompatImpl", "getWebCompatUrl urlTransform path1=" + substring);
+            d82.i("WebCompatImpl", "getWebCompatUrl urlTransform path1=" + substring);
             Uri.Builder scheme = new Uri.Builder().scheme("http");
             n = this.this$0.n();
             String builder = scheme.authority(n).appendPath(compatPath).appendEncodedPath(substring).toString();

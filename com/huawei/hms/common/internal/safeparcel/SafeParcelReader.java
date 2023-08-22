@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class SafeParcelReader {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int BIT16_MARK = 65535;
@@ -46,7 +46,7 @@ public class SafeParcelReader {
         return invokeII.booleanValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class ParseException extends RuntimeException {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

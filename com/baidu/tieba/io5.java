@@ -1,22 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: SecondFloorService.java */
 /* loaded from: classes6.dex */
-public interface io5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "GroupChatService");
+public final /* synthetic */ class io5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull Context context, long j, int i, String str);
-
-    void b(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z);
-
-    void c(@NonNull Context context, long j, String str, int i, String str2);
-
-    void d(@NonNull Context context, long j, String str, int i);
-
-    void e(@NonNull Context context, int i, long j, boolean z);
+    public static jo5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (jo5) ServiceManager.getService(jo5.a);
+        }
+        return (jo5) invokeV.objValue;
+    }
 }

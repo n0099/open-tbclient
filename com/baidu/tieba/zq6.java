@@ -1,63 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes8.dex */
-public final class zq6 implements z97 {
+/* loaded from: classes9.dex */
+public class zq6 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yq6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
 
-    @Override // com.baidu.tieba.z97
-    public String getKey() {
+    public static synchronized yq6 a() {
         InterceptResult invokeV;
+        yq6 yq6Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13692" : (String) invokeV.objValue;
-    }
-
-    public zq6(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (zq6.class) {
+                if (a == null) {
+                    a = new yq6();
+                }
+                yq6Var = a;
             }
+            return yq6Var;
         }
-        this.a = i;
-    }
-
-    @Override // com.baidu.tieba.z97
-    public Map<String, String> a(m57 businessInfo) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            HashMap hashMap = new HashMap();
-            if (JavaTypesHelper.toInt(businessInfo.a().get("is_video_work"), 0) == 1) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put("obj_source", str);
-            hashMap.put("obj_locate", String.valueOf(this.a));
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
+        return (yq6) invokeV.objValue;
     }
 }

@@ -6,6 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.searchbox.yy.gameassist.GameAssistConstKt;
+import com.baidu.tieba.im.dispatcher.AiBotChatDispatcher;
 import com.baidu.tieba.lego.card.exception.CardParseException;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +15,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class RankDetailTrendCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,7 +53,7 @@ public class RankDetailTrendCard extends BaseCardInfo {
         }
         this.rank = jSONObject.optInt(MultiRatePlayUrlHelper.RANK);
         this.ratio = jSONObject.optDouble(MapBundleKey.OfflineMapKey.OFFLINE_RATION, 1.0d);
-        this.picUrl = jSONObject.optString("picUrl");
+        this.picUrl = jSONObject.optString(AiBotChatDispatcher.AI_SINGLE_CHAT_PIC_URL);
         this.iconUrl = jSONObject.optString(GameAssistConstKt.KEY_ICONURL, "");
         this.picTrendType = jSONObject.optInt("picTrendType");
         this.picTrendUrl = jSONObject.optString("picTrendUrl");

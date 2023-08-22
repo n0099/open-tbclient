@@ -1,79 +1,39 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public class bw5<KEY> {
+public class bw5 {
     public static /* synthetic */ Interceptable $ic;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<KEY> a;
 
-    public bw5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashSet();
-    }
-
-    public static <T> bw5<T> c() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new bw5<>();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return b(500);
         }
-        return (bw5) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public synchronized boolean a(@NonNull KEY key) {
-        InterceptResult invokeL;
+    public static boolean b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
-            synchronized (this) {
-                if (this.a.contains(key)) {
-                    return false;
-                }
-                this.a.add(key);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long j = a;
+            if (j > currentTimeMillis) {
+                a = currentTimeMillis;
+                return false;
+            } else if (currentTimeMillis - j < i) {
                 return true;
+            } else {
+                a = currentTimeMillis;
+                return false;
             }
         }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized boolean b(@NonNull KEY key) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key)) == null) {
-            synchronized (this) {
-                z = !this.a.contains(key);
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void d(@NonNull KEY key) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, key) == null) {
-            synchronized (this) {
-                this.a.remove(key);
-            }
-        }
+        return invokeI.booleanValue;
     }
 }

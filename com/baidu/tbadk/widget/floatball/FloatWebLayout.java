@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ly5;
-import com.baidu.tieba.py5;
-import com.baidu.tieba.qy5;
+import com.baidu.tieba.cz5;
+import com.baidu.tieba.gz5;
+import com.baidu.tieba.hz5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -45,7 +45,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public py5 i;
+    public gz5 i;
 
     /* loaded from: classes5.dex */
     public class a implements View.OnClickListener {
@@ -182,9 +182,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            py5 py5Var = this.i;
-            if (py5Var != null) {
-                py5Var.onPause();
+            gz5 gz5Var = this.i;
+            if (gz5Var != null) {
+                gz5Var.onPause();
             }
             this.a.setOnClickListener(null);
         }
@@ -247,9 +247,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            py5 py5Var = this.i;
-            if (py5Var != null) {
-                py5Var.onDestroy();
+            gz5 gz5Var = this.i;
+            if (gz5Var != null) {
+                gz5Var.onDestroy();
             }
         }
     }
@@ -333,9 +333,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            py5 py5Var = this.i;
-            if (py5Var != null) {
-                py5Var.n1(str, false);
+            gz5 gz5Var = this.i;
+            if (gz5Var != null) {
+                gz5Var.y1(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -357,7 +357,7 @@ public class FloatWebLayout extends FrameLayout {
             this.b = (SuspendIdleView) findViewById(R.id.suspended_view);
             this.c = (LinearLayout) findViewById(R.id.navigation_bar_group);
             this.d = (NavigationBar) findViewById(R.id.suspended_navigation_bar);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907b1);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0907b5);
             h(context);
             g(context);
             f(context, str);
@@ -371,9 +371,9 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
             if (BrowserHelper.allowedUseNewWebContainer(str)) {
-                this.i = new qy5(context, this.h, this);
+                this.i = new hz5(context, this.h, this);
             } else {
-                this.i = new ly5(context, this.h, this);
+                this.i = new cz5(context, this.h, this);
             }
             this.b.setContentViewTop(this.i);
         }

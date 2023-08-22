@@ -1,7 +1,64 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
-public interface y92 {
-    boolean n();
 
-    boolean t(boolean z);
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
+/* loaded from: classes8.dex */
+public class y92 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948284919, "Lcom/baidu/tieba/y92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948284919, "Lcom/baidu/tieba/y92;");
+                return;
+            }
+        }
+        boolean z = nr1.a;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            lx1 A = qw2.T().A(qw2.T().C());
+            if (A != null) {
+                d82.i("ConsoleMessageHelper", "send full San request");
+                A.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
+            }
+        }
+    }
+
+    public static void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            HashMap hashMap = new HashMap(1);
+            hashMap.put("data", str2);
+            qw2.T().m(qw2.T().q().a(), new el2(str, hashMap));
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a("sanFullData2Console", str);
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            a("sanIncData2Console", str);
+        }
+    }
 }

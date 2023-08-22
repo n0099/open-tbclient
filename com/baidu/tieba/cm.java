@@ -1,38 +1,26 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.pm.PackageInfo;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.adp.titan.TitanDownloadService;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.Closeables;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.launch.stats.AppBeforeCreateSpeedStats;
-import com.baidu.tieba.log.TbLog;
+import android.util.Log;
+import com.baidu.titan.sdk.internal.util.Files;
+import com.baidu.titan.sdk.loader.LoaderHead;
+import com.baidu.titan.sdk.loader.LoaderManager;
+import com.baidu.titan.sdk.pm.PatchInstallInfo;
+import com.baidu.titan.sdk.pm.PatchMetaInfo;
+import com.baidu.titan.sdk.pm.TitanPaths;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.gms.common.Scopes;
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class cm {
+public class cm implements xl {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile cm d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public int c;
 
     public cm() {
         Interceptable interceptable = $ic;
@@ -44,248 +32,81 @@ public class cm {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = -1L;
-        this.b = 0L;
-        this.c = 0;
-    }
-
-    public static synchronized cm d() {
-        InterceptResult invokeV;
-        cm cmVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (cm.class) {
-                if (d == null) {
-                    d = new cm();
-                }
-                cmVar = d;
-            }
-            return cmVar;
-        }
-        return (cm) invokeV.objValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a() > c()) {
-                return -1L;
-            }
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public final File f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            File file = new File(AppRuntime.getAppContext().getCacheDir(), "titan_sandbox_cache");
-            file.mkdirs();
-            return new File(file, "update_v3.profile");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                Context appContext = AppRuntime.getAppContext();
-                PackageInfo packageInfo = appContext.getPackageManager().getPackageInfo(appContext.getPackageName(), 0);
-                if (packageInfo != null) {
-                    TbLog defaultLog = DefaultLog.getInstance();
-                    defaultLog.d(TitanDownloadService.TAG, "cur host version code = " + packageInfo.versionCode);
-                    return packageInfo.versionCode;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public void g() {
-        DataInputStream dataInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            File f = f();
-            if (!f.exists()) {
-                return;
-            }
-            DataInputStream dataInputStream2 = null;
-            try {
-                try {
-                    dataInputStream = new DataInputStream(new FileInputStream(f));
-                } catch (IOException e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                this.a = dataInputStream.readLong();
-                this.b = dataInputStream.readLong();
-                this.c = dataInputStream.readInt();
-                Closeables.closeSafely(dataInputStream);
-            } catch (IOException e2) {
-                e = e2;
-                dataInputStream2 = dataInputStream;
-                e.printStackTrace();
-                Closeables.closeSafely(dataInputStream2);
-            } catch (Throwable th2) {
-                th = th2;
-                dataInputStream2 = dataInputStream;
-                Closeables.closeSafely(dataInputStream2);
-                throw th;
             }
         }
     }
 
-    public void h(int i) {
+    public JSONObject a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public JSONObject k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("updateVersion", this.a);
-                jSONObject.put("lastUpdateTime", this.b);
-                jSONObject.put("hostVersionCode", this.c);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                PatchInstallInfo currentPatchInfo = LoaderManager.getInstance().getCurrentPatchInfo();
+                if (currentPatchInfo != null) {
+                    jSONObject.put("info", PatchMetaInfo.createFromPatch(currentPatchInfo.getPatchFile()).toJson());
+                } else {
+                    jSONObject.put("error", "no-patch-loaded");
+                }
+            } catch (Exception e) {
+                try {
+                    jSONObject.put("error", Log.getStackTraceString(e));
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return "[updateVersion = " + this.a + ", lastUpdateTime = " + this.b + ", hostVersionCode = " + this.c + PreferencesUtil.RIGHT_MOUNT;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0067 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:30:0x0080 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.lang.String] */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v5, types: [java.io.File] */
-    /* JADX WARN: Type inference failed for: r2v9, types: [java.io.File] */
-    public void l() {
-        File file;
-        DataOutputStream dataOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            File file2 = TitanDownloadService.TAG;
-            DefaultLog.getInstance().d(TitanDownloadService.TAG, "updateToFile value = " + toString());
-            File f = f();
-            DataOutputStream dataOutputStream2 = null;
+            JSONObject jSONObject2 = new JSONObject();
             try {
-                try {
-                    file2 = File.createTempFile(AppBeforeCreateSpeedStats.TITAN_DETAILS, Scopes.PROFILE, f.getParentFile());
-                    try {
-                        dataOutputStream = new DataOutputStream(new FileOutputStream((File) file2));
-                    } catch (IOException e) {
-                        e = e;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    dataOutputStream.writeLong(this.a);
-                    dataOutputStream.writeLong(this.b);
-                    dataOutputStream.writeInt(this.c);
-                    dataOutputStream.close();
-                    f.delete();
-                    file2.renameTo(f);
-                    Closeables.closeSafely(dataOutputStream);
-                } catch (IOException e2) {
-                    e = e2;
-                    dataOutputStream2 = dataOutputStream;
-                    e.printStackTrace();
-                    Closeables.closeSafely(dataOutputStream2);
-                    if (file2 != null) {
-                        boolean exists = file2.exists();
-                        file = file2;
-                        if (!exists) {
-                            return;
+                File headFile = TitanPaths.getHeadFile();
+                if (headFile.exists()) {
+                    String fileStringContent = Files.getFileStringContent(headFile);
+                    jSONObject2.put("head", new JSONObject(fileStringContent));
+                    LoaderHead createFromJson = LoaderHead.createFromJson(fileStringContent);
+                    if (createFromJson != null) {
+                        PatchMetaInfo createFromPatch = PatchMetaInfo.createFromPatch(new PatchInstallInfo(TitanPaths.getPatchDir(createFromJson.patchHash)).getPatchFile());
+                        if (createFromPatch == null) {
+                            jSONObject2.put("error", "patch file damage");
+                        } else {
+                            context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
+                            if (createFromPatch.versionInfo != null) {
+                                jSONObject2.put("info", createFromPatch.toJson());
+                            } else {
+                                jSONObject2.put("error", "version info dismiss");
+                            }
                         }
-                        file.delete();
                     }
-                    return;
-                } catch (Throwable th2) {
-                    th = th2;
-                    dataOutputStream2 = dataOutputStream;
-                    Closeables.closeSafely(dataOutputStream2);
-                    if (file2 != 0 && file2.exists()) {
-                        file2.delete();
-                    }
-                    throw th;
+                } else {
+                    jSONObject2.put("error", "no-patch-installed");
                 }
-            } catch (IOException e3) {
-                e = e3;
-                file2 = null;
-            } catch (Throwable th3) {
-                th = th3;
-                file2 = 0;
-            }
-            if (file2 != 0) {
-                boolean exists2 = file2.exists();
-                file = file2;
-                if (!exists2) {
-                    return;
+            } catch (Exception e3) {
+                try {
+                    jSONObject2.put("error", Log.getStackTraceString(e3));
+                } catch (JSONException e4) {
+                    e4.printStackTrace();
                 }
-                file.delete();
             }
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                fm d = fm.d();
+                d.g();
+                jSONObject3.put("info", d.k());
+            } catch (Exception e5) {
+                try {
+                    jSONObject3.put("error", Log.getStackTraceString(e5));
+                } catch (JSONException e6) {
+                    e6.printStackTrace();
+                }
+            }
+            JSONObject jSONObject4 = new JSONObject();
+            try {
+                jSONObject4.put("load", jSONObject);
+                jSONObject4.put("install", jSONObject2);
+                jSONObject4.put(StickerDataChangeType.UPDATE, jSONObject3);
+            } catch (JSONException e7) {
+                e7.printStackTrace();
+            }
+            return jSONObject4;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.content.SharedPreferences;
+import android.content.res.Resources;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.DownloadManagerActivityConfig;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,215 +10,116 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class e06 extends NotificationHelper {
+public final class e06 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, b> b;
+    public static final e06 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SharedPreferences a;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-
-        public b() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947680574, "Lcom/baidu/tieba/e06;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947680574, "Lcom/baidu/tieba/e06;");
+                return;
             }
         }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final e06 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-884728417, "Lcom/baidu/tieba/e06$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-884728417, "Lcom/baidu/tieba/e06$c;");
-                    return;
-                }
-            }
-            a = new e06(null);
-        }
+        a = new e06();
     }
 
     public e06() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b = new HashMap();
-        this.a = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
-    }
-
-    public final PendingIntent d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                Class<?> cls = Class.forName("com.baidu.tieba.downloadmanager.DownloadManagerActivity");
-                Intent intent = new Intent();
-                intent.setClass(getContext(), cls);
-                intent.putExtra(DownloadManagerActivityConfig.CURRENT_TAB, 3);
-                return PendingIntent.getActivity(getContext(), 0, intent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (PendingIntent) invokeV.objValue;
-    }
-
-    public /* synthetic */ e06(a aVar) {
-        this();
-    }
-
-    public final int b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (g(str)) {
-                return b.get(str).a;
-            }
-            return str.hashCode();
-        }
-        return invokeL.intValue;
-    }
-
-    public final boolean g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return b.containsKey(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && g(str)) {
-            NotificationHelper.cancelNotification(getContext(), b(str));
-            b.remove(str);
-        }
-    }
-
-    public static e06 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c.a;
-        }
-        return (e06) invokeV.objValue;
-    }
-
-    private Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
-            return TbadkCoreApplication.getInst().getApplicationContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public synchronized void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this) {
-                if (g(str)) {
-                    return;
-                }
-                b bVar = new b(null);
-                bVar.a = b(str);
-                bVar.b = str2;
-                b.put(str, bVar);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final void e(DownloadData downloadData, boolean z) {
-        int i;
+    public final int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, downloadData, z) == null) && downloadData.getId() != null && g(downloadData.getId())) {
-            float length = ((float) downloadData.getLength()) / ((float) downloadData.getSize());
-            if (z) {
-                i = 100;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            return resources.getIdentifier("icon_forum_level_full_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
+        }
+        return invokeI.intValue;
+    }
+
+    public final int d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            Resources resources = TbadkCoreApplication.getInst().getResources();
+            return resources.getIdentifier("icon_forum_level_" + i, ResourceManager.DRAWABLE, TbadkCoreApplication.getInst().getPackageName());
+        }
+        return invokeI.intValue;
+    }
+
+    public final int b(int i, Boolean bool) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bool)) == null) {
+            if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
+                return a(i);
+            }
+            return d(i);
+        }
+        return invokeIL.intValue;
+    }
+
+    public final int c(int i) {
+        InterceptResult invokeI;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            boolean z4 = true;
+            if (1 <= i && i < 4) {
+                z = true;
             } else {
-                i = (int) (length * 100.0f);
+                z = false;
             }
-            b bVar = b.get(downloadData.getId());
-            if (bVar != null) {
-                NotificationHelper.showProgressNotification(getContext(), bVar.a, "", i, "", bVar.b, d(), false);
+            if (z) {
+                return R.color.CAM_X0309;
             }
-            if (!z) {
-                i(downloadData, i);
+            if (4 <= i && i < 10) {
+                z2 = true;
+            } else {
+                z2 = false;
             }
+            if (z2) {
+                return R.color.CAM_X0306;
+            }
+            if (10 <= i && i < 16) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            if (z3) {
+                return R.color.CAM_X0305;
+            }
+            if ((16 > i || i >= 19) ? false : false) {
+                return R.color.CAM_X0319;
+            }
+            if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                return 0;
+            }
+            throw new IllegalArgumentException("unsupported simple level " + i + ", check and replace!");
         }
-    }
-
-    public void f(List<DownloadData> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, list) == null) && list != null && list.size() != 0) {
-            for (DownloadData downloadData : list) {
-                if (downloadData != null) {
-                    int status = downloadData.getStatus();
-                    if (status != 0) {
-                        if (status == 1 || status == 5) {
-                            e(downloadData, false);
-                        }
-                    } else {
-                        e(downloadData, true);
-                    }
-                }
-            }
-        }
-    }
-
-    public final void i(DownloadData downloadData, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048583, this, downloadData, i) == null) && downloadData != null && g(downloadData.getId())) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putInt(downloadData.getId() + downloadData.getName(), i);
-            edit.apply();
-        }
+        return invokeI.intValue;
     }
 }

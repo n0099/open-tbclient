@@ -1,29 +1,145 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class e4b {
+public class e4b extends c4b {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public l3b V;
+    public k3b W;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685782, "Lcom/baidu/tieba/e4b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947685782, "Lcom/baidu/tieba/e4b;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public e4b(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull o2b o2bVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, o2bVar, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, o2bVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (o2b) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new String[]{"CREATE TABLE if not exists tb_ab_click_log (\n  _eventId varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _parameter varchar,\n  _timeStamp varchar,\n  _sessionId varchar,\n  _productLine varchar,\n  _pagerName varchar\n);", "CREATE TABLE if not exists tb_ab_netlog (\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _parameters varchar,\n  _timeStamp varchar,\n  _type varchar,\n  _url varchar,\n  _sessionId varchar\n);", "CREATE TABLE if not exists tb_ab_page_log (\n  _endTime varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _pagerName varchar,\n  _path varchar,\n  _startTime varchar,\n  _sessionId varchar\n);", "CREATE TABLE if not exists tb_ab_sessionlog (\n  _endTime varchar,\n  _id integer PRIMARY KEY AUTOINCREMENT,\n  _keepTime varchar,\n  _sessionId varchar,\n  _startTime varchar\n);"};
+    }
+
+    public final void A0(@NonNull List<p2b<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            for (p2b<?> p2bVar : list) {
+                if (p2bVar instanceof f2b) {
+                    this.D = (f2b) p2bVar;
+                } else if (p2bVar instanceof u1b) {
+                    this.E = (u1b) p2bVar;
+                } else if (p2bVar instanceof e2b) {
+                    this.F = (e2b) p2bVar;
+                } else if (p2bVar instanceof h2b) {
+                    this.G = (h2b) p2bVar;
+                } else if (p2bVar instanceof i2b) {
+                    this.H = (i2b) p2bVar;
+                } else if (p2bVar instanceof t1b) {
+                    this.I = (t1b) p2bVar;
+                }
+                if (p2bVar != null) {
+                    p2bVar.q(list);
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.c4b, com.baidu.tieba.d4b
+    public void L(@NonNull List<p2b<?>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.V == null) {
+            return;
+        }
+        if (this.W == null) {
+            this.W = new k3b(this.a, this, this.d, this.s, this.J, this.C, this.p);
+        }
+        list.addAll(this.W.a(this.V.d));
+        A0(list);
+    }
+
+    @Override // com.baidu.tieba.c4b, com.baidu.tieba.d4b
+    public void N(@NonNull EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editorTools) == null) {
+            editorTools.setBarMaxLauCount(5);
+            editorTools.setMoreButtonAtEnd(true);
+            editorTools.setBarLauncherType(1);
+            editorTools.F(true);
+            editorTools.G(false);
+            editorTools.setBackgroundColorId(R.color.CAM_X0201);
+            y0(editorTools);
+            u3b.m(this.a, editorTools, this.p.getCallFrom(), this);
+            editorTools.f();
+            super.N(editorTools);
+        }
+    }
+
+    @Override // com.baidu.tieba.c4b, com.baidu.tieba.d4b
+    public void U(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.U(bundle);
+            if (this.a.getPageActivity() == null) {
+                return;
+            }
+            l3b a = l3b.a(this.a.getPageActivity().getIntent().getStringExtra(WriteActivityConfig.DYNAMIC_PARAMS));
+            this.V = a;
+            if (a == null) {
+                this.e.Q0(9, true);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.c4b, com.baidu.tieba.d4b
+    public void O(@NonNull NavigationBar navigationBar) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, navigationBar) == null) {
+            super.O(navigationBar);
+            l3b l3bVar = this.V;
+            if (l3bVar != null) {
+                if (TextUtils.isEmpty(l3bVar.a)) {
+                    str = this.a.getString(R.string.obfuscated_res_0x7f0f1126);
+                } else {
+                    str = this.V.a;
+                }
+                navigationBar.setCenterTextTitle(str);
+            }
+        }
+    }
+
+    public final void y0(@NonNull EditorTools editorTools) {
+        l3b l3bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, editorTools) != null) || (l3bVar = this.V) == null) {
+            return;
+        }
+        for (String str : l3bVar.e) {
+            m3b.a(this.a, editorTools, this, str);
+        }
     }
 }

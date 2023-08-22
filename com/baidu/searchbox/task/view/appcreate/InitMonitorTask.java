@@ -5,9 +5,9 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.fna;
 import com.baidu.tieba.tracker.Tracker;
 import com.baidu.tieba.tracker.core.data.IEventNode;
-import com.baidu.tieba.wia;
 import com.baidu.ubc.UBCManager;
 import com.xiaomi.mipush.sdk.PushMessageHelper;
 import java.util.Iterator;
@@ -37,15 +37,15 @@ public final class InitMonitorTask extends LaunchTask {
             TbadkCoreApplication inst = TbadkCoreApplication.getInst();
             Intrinsics.checkNotNullExpressionValue(inst, "getInst()");
             a.e(inst);
-            Tracker.d.c(new wia() { // from class: com.baidu.searchbox.task.view.appcreate.InitMonitorTask$execute$1
+            Tracker.d.c(new fna() { // from class: com.baidu.searchbox.task.view.appcreate.InitMonitorTask$execute$1
                 public String moduleName = "";
 
-                @Override // com.baidu.tieba.wia
+                @Override // com.baidu.tieba.fna
                 public String getModuleName() {
                     return "pageMonitor";
                 }
 
-                @Override // com.baidu.tieba.wia
+                @Override // com.baidu.tieba.fna
                 public void onEventReport(String tid, IEventNode event) {
                     IEventNode iEventNode;
                     Intrinsics.checkNotNullParameter(tid, "tid");
@@ -67,7 +67,7 @@ public final class InitMonitorTask extends LaunchTask {
                 }
 
                 /* JADX WARN: Type inference failed for: r1v1, types: [T, java.lang.Object] */
-                @Override // com.baidu.tieba.wia
+                @Override // com.baidu.tieba.fna
                 public void onInit() {
                     objectRef.element = ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
                     UBCManager uBCManager = objectRef.element;
@@ -76,7 +76,7 @@ public final class InitMonitorTask extends LaunchTask {
                     }
                 }
 
-                @Override // com.baidu.tieba.wia
+                @Override // com.baidu.tieba.fna
                 public void setModuleName(String value) {
                     Intrinsics.checkNotNullParameter(value, "value");
                     this.moduleName = value;

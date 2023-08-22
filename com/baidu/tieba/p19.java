@@ -1,53 +1,25 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.live.interfaces.realauth.LiveRealAuthCallback;
-import com.baidu.searchbox.live.interfaces.service.LiveRealAuthService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.wallet.ICertification;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class p19 implements LiveRealAuthService {
+public class p19 implements hv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements ICertification.CertificationCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ LiveRealAuthCallback a;
-
-        public a(p19 p19Var, LiveRealAuthCallback liveRealAuthCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p19Var, liveRealAuthCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = liveRealAuthCallback;
-        }
-
-        @Override // com.baidu.tieba.wallet.ICertification.CertificationCallback
-        public void onResult(int i, Map<String, Object> map) {
-            LiveRealAuthCallback liveRealAuthCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, map) == null) && (liveRealAuthCallback = this.a) != null) {
-                liveRealAuthCallback.onRealAuthResult(i, map);
-            }
-        }
+    @Override // com.baidu.tieba.hv4
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? TbConfig.FOLLOW_ADDRESS : (String) invokeV.objValue;
     }
 
     public p19() {
@@ -64,12 +36,22 @@ public class p19 implements LiveRealAuthService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.LiveRealAuthService
-    public void doAuth(Map<String, ?> map, LiveRealAuthCallback liveRealAuthCallback) {
-        CustomResponsedMessage runTask;
+    @Override // com.baidu.tieba.hv4
+    public void b(HashMap<String, String> hashMap, iv4 iv4Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, map, liveRealAuthCallback) == null) && (runTask = MessageManager.getInstance().runTask(2921433, ICertification.class)) != null && runTask.getData() != null) {
-            ((ICertification) runTask.getData()).certification(TbadkCoreApplication.getInst(), map, new a(this, liveRealAuthCallback));
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap, iv4Var) == null) && iv4Var != null && hashMap != null && !hashMap.isEmpty()) {
+            UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
+            updateAttentionData.isSucc = iv4Var.a;
+            updateAttentionData.errorString = iv4Var.c;
+            updateAttentionData.isAttention = true;
+            if (hashMap.get("touid") == null) {
+                str = "";
+            } else {
+                str = hashMap.get("touid");
+            }
+            updateAttentionData.toUid = str;
+            MessageManager.getInstance().dispatchResponsedMessageToUI(new UpdateAttentionMessage(updateAttentionData));
         }
     }
 }

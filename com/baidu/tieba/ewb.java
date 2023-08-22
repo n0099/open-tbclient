@@ -1,66 +1,95 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.common.ConcurrentLinkedQueueX;
-import com.yy.transvod.player.core.TransVodProxy;
-import com.yy.transvod.player.mediacodec.MediaInfo;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import java.lang.ref.WeakReference;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
 /* loaded from: classes5.dex */
-public abstract class ewb extends jwb implements cwb {
+public final class ewb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int c;
-    public cwb d;
-    public dwb e;
-    public ConcurrentLinkedQueueX<MediaSample> f;
-    public WeakReference<gvb> g;
-    public String h;
-    public boolean i;
-    public boolean j;
-    public Object k;
 
-    @Override // com.baidu.tieba.cwb
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wvb a;
+        public final /* synthetic */ Callable b;
+
+        public a(ewb ewbVar, wvb wvbVar, Callable callable) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ewbVar, wvbVar, callable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wvbVar;
+            this.b = callable;
+        }
+
+        @Override // java.lang.Runnable
+        public final void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.setResult(this.b.call());
+                } catch (Exception e) {
+                    this.a.c(e);
+                }
+            }
         }
     }
 
-    public void f(MediaSample mediaSample) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, mediaSample) == null) {
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class b<TResult> implements Object, tvb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final CountDownLatch a;
 
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new CountDownLatch(1);
         }
-    }
 
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        @Override // com.baidu.tieba.tvb
+        public final void onFailure(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.countDown();
+            }
         }
-    }
 
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-        }
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+        public final void onSuccess(TResult tresult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
+                this.a.countDown();
+            }
         }
     }
 
@@ -74,140 +103,41 @@ public abstract class ewb extends jwb implements cwb {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = -1;
-        this.d = null;
-        this.e = null;
-        this.f = new ConcurrentLinkedQueueX<>();
-        this.g = new WeakReference<>(null);
-        this.h = null;
-        this.i = true;
-        this.j = false;
-        this.k = new Object();
-    }
-
-    public void d(String str, Object obj, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, obj, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            synchronized (this.k) {
-                if (this.d != null && z) {
-                    this.d.d(str, obj, i, z);
-                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.cwb
-    public void e(boolean z) {
+    public static <TResult> TResult b(vvb<TResult> vvbVar) throws ExecutionException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public final void k(cwb cwbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cwbVar) == null) {
-            synchronized (this.k) {
-                this.d = cwbVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, vvbVar)) == null) {
+            if (vvbVar.h()) {
+                return vvbVar.e();
             }
+            throw new ExecutionException(vvbVar.d());
+        }
+        return (TResult) invokeL.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && Looper.myLooper() == Looper.getMainLooper()) {
+            throw new IllegalStateException(str);
         }
     }
 
-    public final void m(int i) {
-        TransVodProxy i2;
+    public final <TResult> vvb<TResult> a(Executor executor, Callable<TResult> callable) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            int g = this.e.g();
-            if ((g == 6 || g == 7) && (i2 = this.e.i()) != null) {
-                i2.c(i);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, executor, callable)) == null) {
+            wvb wvbVar = new wvb();
+            try {
+                executor.execute(new a(this, wvbVar, callable));
+            } catch (Exception e) {
+                wvbVar.c(e);
             }
+            return wvbVar.b();
         }
-    }
-
-    public final void q(dwb dwbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, dwbVar) == null) {
-            this.e = dwbVar;
-        }
-    }
-
-    public void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.h = str;
-        }
-    }
-
-    public void s(gvb gvbVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, gvbVar) == null) {
-            this.g = new WeakReference<>(gvbVar);
-        }
-    }
-
-    public final void t(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void w(MediaSample mediaSample) {
-        ovb f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, mediaSample) == null) {
-            int g = this.e.g();
-            if ((g == 6 || g == 7) && (f = this.e.f()) != null) {
-                f.e(mediaSample);
-            }
-        }
-    }
-
-    public final void j(int i, int i2, MediaInfo mediaInfo) {
-        gvb gvbVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048580, this, i, i2, mediaInfo) == null) && mediaInfo != null) {
-            if ((i != mediaInfo.b || i2 != mediaInfo.c) && (gvbVar = this.g.get()) != null) {
-                Message obtain = Message.obtain();
-                obtain.what = SpeedStatsStampTable.HOME_VIEW_ON_LAYOUT_END_STAMP_KEY;
-                obtain.arg1 = mediaInfo.b;
-                obtain.arg2 = mediaInfo.c;
-                gvbVar.a(obtain, this.a);
-            }
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c = -1;
-            synchronized (this.k) {
-                this.d = null;
-            }
-        }
-    }
-
-    public final void n(MediaSample mediaSample) {
-        nvb h;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, mediaSample) == null) && (h = this.e.h()) != null && mediaSample.g != null) {
-            h.d(mediaSample, this.g.get(), this.h);
-            mediaSample.g.p = null;
-            mediaSample.I = null;
-            mediaSample.J = null;
-        }
-    }
-
-    public final void v(MediaSample mediaSample, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048592, this, mediaSample, i, str) == null) {
-            int g = this.e.g();
-            if (g == 6 || g == 7) {
-                this.e.f();
-            }
-        }
+        return (vvb) invokeLL.objValue;
     }
 }

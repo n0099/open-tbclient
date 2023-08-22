@@ -1,55 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.db.pojo.ChatSysNotifyPojo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
+import com.baidu.tieba.im.lib.socket.msg.data.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.Set;
+import kotlin.collections.SetsKt__SetsJVMKt;
+import kotlin.collections.SetsKt__SetsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class ob8 {
+public abstract class ob8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int[] a;
+    public nb8 a;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public abstract void c(AbilityItem abilityItem, TbBaseMsg tbBaseMsg, Object obj);
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ob8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-552201306, "Lcom/baidu/tieba/ob8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-552201306, "Lcom/baidu/tieba/ob8$b;");
-                    return;
-                }
-            }
-            a = new ob8(null);
-        }
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     public ob8() {
@@ -62,155 +45,47 @@ public class ob8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new int[]{1, 2, 3, 4};
-        a();
-    }
-
-    public final void c() {
-        int[] iArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            for (int i : this.a) {
-                ContentValues contentValues = new ContentValues();
-                contentValues.put("scene", Integer.valueOf(i));
-                ub8.d().insert("tb_chat_sys_notify", null, contentValues);
             }
         }
     }
 
-    public /* synthetic */ ob8(a aVar) {
-        this();
-    }
-
-    public static ob8 b() {
+    public Set<String> f() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (ob8) invokeV.objValue;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !d() && ub8.d().c("CREATE TABLE IF NOT EXISTS tb_chat_sys_notify(scene INTEGER, content TEXT DEFAULT '没有最新消息', unread_num INTEGER DEFAULT 0);")) {
-            c();
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            new LinkedList();
-            Cursor cursor = null;
-            boolean z = false;
-            try {
-                try {
-                    cursor = ub8.d().e("select * from sqlite_master where type='table'", null);
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.isExistsTable", new Object[0]);
-                    e.printStackTrace();
-                }
-                if (cursor == null) {
-                    return false;
-                }
-                cursor.moveToFirst();
-                while (true) {
-                    if (!cursor.moveToNext()) {
-                        break;
-                    } else if ("tb_chat_sys_notify".equals(cursor.getString(cursor.getColumnIndex("name")))) {
-                        z = true;
-                        break;
-                    }
-                }
-                return z;
-            } finally {
-                ci.a(null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String e = e();
+            if (e.length() == 0) {
+                z = true;
+            } else {
+                z = false;
             }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<ChatSysNotifyPojo> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = ub8.d().e("select * from tb_chat_sys_notify", null);
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            ChatSysNotifyPojo chatSysNotifyPojo = new ChatSysNotifyPojo();
-                            chatSysNotifyPojo.setType(cursor.getInt(cursor.getColumnIndex("scene")));
-                            chatSysNotifyPojo.setUnread(cursor.getInt(cursor.getColumnIndex("unread_num")));
-                            chatSysNotifyPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            arrayList.add(chatSysNotifyPojo);
-                        }
-                    }
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.queryAll", new Object[0]);
-                    e.printStackTrace();
-                }
-                return arrayList;
-            } finally {
-                ci.a(cursor);
+            if (z) {
+                return SetsKt__SetsKt.emptySet();
             }
+            return SetsKt__SetsJVMKt.setOf(e);
         }
-        return (List) invokeV.objValue;
+        return (Set) invokeV.objValue;
     }
 
-    public ChatSysNotifyPojo f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            ChatSysNotifyPojo chatSysNotifyPojo = new ChatSysNotifyPojo();
-            chatSysNotifyPojo.setType(i);
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = ub8.d().e("select * from tb_chat_sys_notify where scene=?", new String[]{String.valueOf(i)});
-                    if (cursor != null) {
-                        cursor.moveToFirst();
-                        chatSysNotifyPojo.setUnread(cursor.getInt(cursor.getColumnIndex("unread_num")));
-                        chatSysNotifyPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                    }
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "ChatSysNotifyDao.queryByScene", new Object[0]);
-                    e.printStackTrace();
-                }
-                return chatSysNotifyPojo;
-            } finally {
-                ci.a(cursor);
+    public static /* synthetic */ void b(ob8 ob8Var, AbilityItem abilityItem, TbBaseMsg tbBaseMsg, int i, Object obj) {
+        if (obj == null) {
+            if ((i & 2) != 0) {
+                tbBaseMsg = null;
             }
+            ob8Var.a(abilityItem, tbBaseMsg);
+            return;
         }
-        return (ChatSysNotifyPojo) invokeI.objValue;
+        throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: doDefaultHandle");
     }
 
-    public void g(int i, int i2) {
+    public final void a(AbilityItem abilityItem, TbBaseMsg tbBaseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048581, this, i, i2) == null) {
-            h(i, "", i2);
-        }
-    }
-
-    public synchronized void h(int i, @Nullable String str, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            synchronized (this) {
-                ContentValues contentValues = new ContentValues();
-                if (!StringUtils.isNull(str)) {
-                    contentValues.put("content", str);
-                }
-                if (i2 >= 0) {
-                    contentValues.put("unread_num", Integer.valueOf(i2));
-                }
-                ub8.d().update("tb_chat_sys_notify", contentValues, "scene=?", new String[]{String.valueOf(i)});
+        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, tbBaseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            nb8 nb8Var = this.a;
+            if (nb8Var != null) {
+                nb8Var.b(abilityItem, tbBaseMsg);
             }
         }
     }

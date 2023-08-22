@@ -1,92 +1,177 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.entity.AdElementInfo;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes8.dex */
-public class u04 extends t04 {
+public final class u04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean G;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u04(Context context, AdElementInfo adElementInfo, uz3 uz3Var) {
-        super(context, adElementInfo, uz3Var);
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        StringBuilder sb;
+        StringBuilder sb2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, adElementInfo, uz3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (AdElementInfo) objArr2[1], (uz3) objArr2[2]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
+            String str4 = str2 + "=";
+            int indexOf = str.indexOf("?");
+            String str5 = null;
+            if (indexOf < 0) {
+                int indexOf2 = str.indexOf("#");
+                if (indexOf2 < 0) {
+                    sb2 = new StringBuilder(str);
+                } else {
+                    str5 = str.substring(indexOf2);
+                    sb2 = new StringBuilder(str.substring(0, indexOf2));
+                }
+                sb2.append("?");
+                sb2.append(str4);
+                sb2.append(str3);
+                if (str5 != null) {
+                    sb2.append(str5);
+                }
+                return sb2.toString();
+            }
+            if (str.indexOf("&" + str4, indexOf) < 0) {
+                if (str.indexOf("?" + str4, indexOf) < 0) {
+                    int indexOf3 = str.indexOf("#");
+                    if (indexOf3 < 0) {
+                        sb = new StringBuilder(str);
+                    } else {
+                        str5 = str.substring(indexOf3);
+                        str = str.substring(0, indexOf3);
+                        sb = new StringBuilder(str);
+                    }
+                    if (!str.endsWith("&") && !str.endsWith("?")) {
+                        sb.append("&");
+                    }
+                    sb.append(str4);
+                    sb.append(str3);
+                    if (str5 != null) {
+                        sb.append(str5);
+                    }
+                    return sb.toString();
+                }
+                return str;
+            }
+            return str;
         }
-        this.G = false;
+        return (String) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.t04
-    public void C(RelativeLayout relativeLayout, AdElementInfo adElementInfo) {
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, relativeLayout, adElementInfo) == null) {
-            int videoWidth = adElementInfo.getVideoWidth();
-            int videoHeight = adElementInfo.getVideoHeight();
-            this.n = qz3.b().k();
-            this.o = qz3.b().j();
-            if (videoWidth < videoHeight) {
-                this.G = true;
-                int i = this.n;
-                int i2 = (int) (((i - videoWidth) / 2) * 0.8d);
-                int i3 = (int) (((i - videoWidth) / 2) * 0.1d);
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(i2, i2);
-                layoutParams.leftMargin = (this.n - i2) - i3;
-                layoutParams.addRule(15);
-                layoutParams.removeRule(13);
-                layoutParams.removeRule(12);
-                layoutParams.bottomMargin = 0;
-                relativeLayout.setLayoutParams(layoutParams);
-                relativeLayout.setBackgroundColor(this.w.getColor(R.color.obfuscated_res_0x7f0608fa));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                String e = e(map);
+                if (!TextUtils.isEmpty(e)) {
+                    return str + "&" + e;
+                }
+                return str;
             }
+            return str;
         }
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.t04
-    public String q() {
-        InterceptResult invokeV;
+    public static String c(String str, Set<String> set) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.G) {
-                return "reward_banner_land_html";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, set)) == null) {
+            if (!TextUtils.isEmpty(str) && str.startsWith("http") && set != null && set.size() != 0) {
+                String str2 = null;
+                try {
+                    str2 = new URL(str).getQuery();
+                } catch (MalformedURLException unused) {
+                }
+                if (TextUtils.isEmpty(str2)) {
+                    return str;
+                }
+                CharSequence d = d(str2, set);
+                if (TextUtils.isEmpty(d)) {
+                    return str;
+                }
+                return str.replace(str2, d);
             }
-            return "reward_banner_html";
+            return str;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.t04
-    @SuppressLint({"InflateParams"})
-    public View u() {
-        InterceptResult invokeV;
+    public static String d(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return LayoutInflater.from(this.p).inflate(R.layout.obfuscated_res_0x7f0d071d, (ViewGroup) null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, set)) == null) {
+            if (TextUtils.isEmpty(str) || set == null || (split = str.split("&")) == null || split.length == 0) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length > 0 && !set.contains(split2[0])) {
+                    sb.append(str2);
+                    sb.append("&");
+                }
+            }
+            int length = sb.length();
+            if (length > 0) {
+                int i = length - 1;
+                if (sb.charAt(i) == '&') {
+                    sb.deleteCharAt(i);
+                }
+            }
+            return sb.toString();
         }
-        return (View) invokeV.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static String e(Map<String, String> map) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map)) == null) {
+            if (map == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                if (sb.length() > 0) {
+                    sb.append("&");
+                }
+                try {
+                    if (entry.getKey() == null) {
+                        str = "";
+                    } else {
+                        str = URLEncoder.encode(entry.getKey(), "UTF-8");
+                    }
+                    sb.append(str);
+                    sb.append("=");
+                    if (entry.getValue() == null) {
+                        str2 = "";
+                    } else {
+                        str2 = URLEncoder.encode(entry.getValue(), "UTF-8");
+                    }
+                    sb.append(str2);
+                } catch (UnsupportedEncodingException unused) {
+                }
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

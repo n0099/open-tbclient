@@ -1,178 +1,177 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
 import java.util.HashMap;
-import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class g02 {
+public class g02 extends gz1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String f;
-    public static final MediaType g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public Map<String, String> b;
-    public Map<String, String> c;
-    public boolean d;
-    public String e;
+    public View f;
+    public int g;
+    public ViewTreeObserver.OnGlobalLayoutListener h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740032, "Lcom/baidu/tieba/g02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947740032, "Lcom/baidu/tieba/g02;");
-                return;
-            }
-        }
-        boolean z = ir1.a;
-        f = String.format("%s/ma/call", s72.b());
-        g = f23.a;
-    }
-
-    public final void b() {
-        ya3 b0;
+    @Override // com.baidu.tieba.gz1
+    public String h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (b0 = ya3.b0()) == null) {
-            return;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "Keyboard" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gz1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "SoftKeyboardApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ g02 a;
+
+        public a(g02 g02Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {g02Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = g02Var;
         }
-        int k = b0.k();
-        String i = dk3.i(lw2.T().getCoreVersion(), k);
-        if (k == 0) {
-            this.c.put("swan_ver", i);
-        } else if (k == 1) {
-            this.c.put("game_ver", i);
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Rect rect = new Rect();
+                this.a.f.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.a.g == height) {
+                    return;
+                }
+                if (this.a.g - height > 180) {
+                    HashMap hashMap = new HashMap();
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("height", uo3.O(this.a.g - height));
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    hashMap.put("data", jSONObject.toString());
+                    qw2.T().u(new el2("keyboardHeightChange", hashMap));
+                    this.a.g = height;
+                } else if (height - this.a.g > 180) {
+                    HashMap hashMap2 = new HashMap();
+                    JSONObject jSONObject2 = new JSONObject();
+                    try {
+                        jSONObject2.put("height", 0);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    hashMap2.put("data", jSONObject2.toString());
+                    qw2.T().u(new el2("keyboardHeightChange", hashMap2));
+                    this.a.g = height;
+                }
+            }
         }
     }
 
-    public g02() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g02(@NonNull ez1 ez1Var) {
+        super(ez1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ez1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ez1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = f + "?";
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = false;
-        this.e = "";
-        d();
-        e();
     }
 
-    public final void a() {
-        ya3 b0;
-        PMSAppInfo f0;
+    public final void A() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (b0 = ya3.b0()) == null || (f0 = b0.W().f0()) == null) {
-            return;
-        }
-        this.c.put("app_ver", String.valueOf(f0.versionCode));
-    }
-
-    public final void e() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            Map<String, String> map = this.b;
-            if (SwanAppAllianceLoginHelper.d.f()) {
-                i = 2;
-            } else {
-                i = 0;
-            }
-            map.put("mnpunion", String.valueOf(i));
-            this.b.put("Referer", fo3.b());
-        }
-    }
-
-    public void c(@NonNull ResponseCallback<JSONObject> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, responseCallback) == null) {
-            if (!this.d) {
-                responseCallback.onFail(new InvalidParameterException("no service has been set"));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            SwanAppActivity activity = qw2.T().getActivity();
+            if (activity == null) {
+                d82.c("SoftKeyboardApi", "activity is null");
                 return;
             }
-            String b = qo3.b(this.a, this.c);
-            this.a = b;
-            this.a = u72.b(b);
-            bi4 bi4Var = new bi4(this.a, RequestBody.create(g, this.e), responseCallback);
-            bi4Var.c = this.b;
-            bi4Var.g = true;
-            y72.i("CallServiceRequest", "Start request cloud ability: " + this.c.get("service"));
-            ci4.g().e(bi4Var);
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (tu3.getContext() == null) {
-                y72.c("CallServiceRequest", Log.getStackTraceString(new AssertionError("Assertion failed: SwanConfigRuntime.getContext() == null")));
-                return;
-            }
-            this.c.put("host_os", zq4.f());
-            this.c.put("host_os_ver", zq4.g());
-            this.c.put("host_app", tu3.getContext().c());
-            this.c.put("host_app_ver", tu3.getContext().h());
-            this.c.put("sdk_ver", tu3.getContext().b());
-            this.c.put("ua", hr4.b(tu3.getContext().h()));
-            this.c.put("ut", u72.f());
-            this.c.put("network", zq4.e());
-            this.c.put("bundle_Id", xa3.K().getAppId());
-            this.c.put("cuid", tu3.getContext().g());
-            this.c.put("uuid", tu3.getContext().e());
-            Map<String, String> map = this.c;
-            map.put("sid", fu2.g0().k() + "");
-            this.c.put("source", "swan_sdk");
-            this.c.put("timestamp", String.valueOf(System.currentTimeMillis()));
-            b();
-            a();
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                this.e = "";
-            } else {
-                this.e = jSONObject.toString();
+            this.f = activity.getWindow().getDecorView();
+            Rect rect = new Rect();
+            this.f.getWindowVisibleDisplayFrame(rect);
+            this.g = rect.height();
+            if (this.h == null) {
+                this.h = new a(this);
+                this.f.getViewTreeObserver().addOnGlobalLayoutListener(this.h);
             }
         }
     }
 
-    public void g(String str) {
+    public void B() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TextUtils.isEmpty(str)) {
-            this.c.put("service", str);
-            this.d = true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.h != null) {
+                this.f.getViewTreeObserver().removeOnGlobalLayoutListener(this.h);
+            }
+            this.h = null;
+            this.g = 0;
         }
+    }
+
+    public d32 C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            q("#startKeyboardHeightChange", false);
+            if (db3.b0() == null) {
+                return new d32(1001, "swan app is null");
+            }
+            A();
+            return d32.f();
+        }
+        return (d32) invokeV.objValue;
+    }
+
+    public d32 D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            q("#stopKeyboardHeightChange", false);
+            if (db3.b0() == null) {
+                return new d32(1001, "swan app is null");
+            }
+            B();
+            return d32.f();
+        }
+        return (d32) invokeV.objValue;
     }
 }

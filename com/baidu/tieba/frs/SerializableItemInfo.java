@@ -1,15 +1,24 @@
 package com.baidu.tieba.frs;
 
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.ctrl.model.TaskProcess;
+import com.baidu.tieba.g29;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import tbclient.ItemInfo;
 import tbclient.ItemPoint;
 import tbclient.ItemTable;
@@ -143,59 +152,117 @@ public class SerializableItemInfo extends OrmObject implements Serializable {
         }
     }
 
+    public void parseJson(@NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+            this.id = Integer.valueOf(jSONObject.optInt("id"));
+            this.name = jSONObject.optString("name");
+            this.icon_url = jSONObject.optString("icon_url");
+            this.icon_size = jSONObject.optInt("icon_size");
+            JSONObject optJSONObject = jSONObject.optJSONObject("score");
+            if (optJSONObject != null) {
+                SerializableItemTableInfo serializableItemTableInfo = new SerializableItemTableInfo();
+                serializableItemTableInfo.parseJson(optJSONObject);
+                this.score = serializableItemTableInfo;
+            }
+            this.brief = jSONObject.optString(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF);
+            ArrayList arrayList = new ArrayList();
+            JSONArray optJSONArray = jSONObject.optJSONArray(TaskProcess.keyTags);
+            if (optJSONArray != null) {
+                int length = optJSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i);
+                    if (optJSONObject2 != null) {
+                        g29.a(arrayList, optJSONObject2.optString("tag"));
+                    }
+                }
+            }
+            this.tags = arrayList;
+            this.isSchool = jSONObject.optInt("is_school");
+            this.averageScore = jSONObject.optInt("average_score");
+        }
+    }
+
     public void setAverageScore(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Double.valueOf(d)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Double.valueOf(d)}) == null) {
             this.averageScore = d;
         }
     }
 
     public void setBrief(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.brief = str;
         }
     }
 
     public void setIconSize(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Double.valueOf(d)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Double.valueOf(d)}) == null) {
             this.icon_size = d;
         }
     }
 
     public void setIcon_url(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.icon_url = str;
         }
     }
 
     public void setId(Integer num) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, num) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, num) == null) {
             this.id = num;
         }
     }
 
     public void setName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.name = str;
         }
     }
 
     public void setScore(SerializableItemTableInfo serializableItemTableInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, serializableItemTableInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, serializableItemTableInfo) == null) {
             this.score = serializableItemTableInfo;
         }
     }
 
     public void setTags(List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
             this.tags = list;
         }
+    }
+
+    public String toJson() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("id", this.id);
+                jSONObject.put("name", this.name);
+                jSONObject.put("icon_url", this.icon_url);
+                jSONObject.put("icon_size", this.icon_size);
+                jSONObject.put("score", this.score);
+                jSONObject.put(DBTableDefine.GroupInfoColumns.COLUMN_BRIEF, this.brief);
+                JSONArray jSONArray = new JSONArray();
+                for (String str : this.tags) {
+                    jSONArray.put(str);
+                }
+                jSONObject.put(TaskProcess.keyTags, jSONArray);
+                jSONObject.put("is_school", this.isSchool);
+                jSONObject.put("average_score", this.averageScore);
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

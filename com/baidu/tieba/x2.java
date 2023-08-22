@@ -444,7 +444,7 @@ public class x2 extends t0 implements l2 {
     }
 
     @Override // com.baidu.tieba.l2
-    public void U0() {
+    public void c1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             g();
@@ -452,9 +452,9 @@ public class x2 extends t0 implements l2 {
     }
 
     @Override // com.baidu.tieba.l2
-    public void d0() {
+    public void j0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             k();
             Arrays.fill(this.q, -1);
             Arrays.fill(this.o, false);
@@ -464,7 +464,7 @@ public class x2 extends t0 implements l2 {
     @Override // com.baidu.tieba.l2
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             k();
             Arrays.fill(this.q, -1);
             Arrays.fill(this.o, false);
@@ -474,7 +474,7 @@ public class x2 extends t0 implements l2 {
     @Override // com.baidu.tieba.l2
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             g();
         }
     }
@@ -506,7 +506,7 @@ public class x2 extends t0 implements l2 {
         InterceptResult invokeV;
         int rotation;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             Context context = this.y;
             if (context instanceof Activity) {
                 rotation = ((Activity) context).getWindowManager().getDefaultDisplay().getRotation();
@@ -529,7 +529,7 @@ public class x2 extends t0 implements l2 {
 
     public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             SensorManager sensorManager = this.t;
             if (sensorManager != null) {
                 SensorEventListener sensorEventListener = this.J;
@@ -561,7 +561,7 @@ public class x2 extends t0 implements l2 {
     public int f(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             int length = this.q.length;
             for (int i2 = 0; i2 < length; i2++) {
                 if (this.q[i2] == i) {
@@ -579,10 +579,82 @@ public class x2 extends t0 implements l2 {
         return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.l2
-    public void f1() {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (this.H.h) {
+                SensorManager sensorManager = (SensorManager) this.y.getSystemService("sensor");
+                this.t = sensorManager;
+                if (sensorManager.getSensorList(1).isEmpty()) {
+                    this.u = false;
+                } else {
+                    e eVar = new e(this);
+                    this.J = eVar;
+                    this.u = this.t.registerListener(eVar, this.t.getSensorList(1).get(0), this.H.l);
+                }
+            } else {
+                this.u = false;
+            }
+            if (this.H.i) {
+                SensorManager sensorManager2 = (SensorManager) this.y.getSystemService("sensor");
+                this.t = sensorManager2;
+                if (!sensorManager2.getSensorList(4).isEmpty()) {
+                    e eVar2 = new e(this);
+                    this.K = eVar2;
+                    this.t.registerListener(eVar2, this.t.getSensorList(4).get(0), this.H.l);
+                }
+            }
+            this.C = false;
+            if (this.H.k) {
+                if (this.t == null) {
+                    this.t = (SensorManager) this.y.getSystemService("sensor");
+                }
+                List<Sensor> sensorList = this.t.getSensorList(11);
+                if (!sensorList.isEmpty()) {
+                    this.M = new e(this);
+                    Iterator<Sensor> it = sensorList.iterator();
+                    while (true) {
+                        if (!it.hasNext()) {
+                            break;
+                        }
+                        Sensor next = it.next();
+                        if (next.getVendor().equals("Google Inc.") && next.getVersion() == 3) {
+                            this.C = this.t.registerListener(this.M, next, this.H.l);
+                            break;
+                        }
+                    }
+                    if (!this.C) {
+                        this.C = this.t.registerListener(this.M, sensorList.get(0), this.H.l);
+                    }
+                }
+            }
+            if (this.H.j && !this.C) {
+                if (this.t == null) {
+                    this.t = (SensorManager) this.y.getSystemService("sensor");
+                }
+                Sensor defaultSensor = this.t.getDefaultSensor(2);
+                if (defaultSensor != null) {
+                    boolean z = this.u;
+                    this.B = z;
+                    if (z) {
+                        e eVar3 = new e(this);
+                        this.L = eVar3;
+                        this.B = this.t.registerListener(eVar3, defaultSensor, this.H.l);
+                    }
+                } else {
+                    this.B = false;
+                }
+            } else {
+                this.B = false;
+            }
+            x0.a.log("AndroidInput", "sensor listener setup");
+        }
+    }
+
+    @Override // com.baidu.tieba.l2
+    public void p1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             synchronized (this) {
                 if (this.F) {
                     this.F = false;
@@ -672,82 +744,10 @@ public class x2 extends t0 implements l2 {
         }
     }
 
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.H.h) {
-                SensorManager sensorManager = (SensorManager) this.y.getSystemService("sensor");
-                this.t = sensorManager;
-                if (sensorManager.getSensorList(1).isEmpty()) {
-                    this.u = false;
-                } else {
-                    e eVar = new e(this);
-                    this.J = eVar;
-                    this.u = this.t.registerListener(eVar, this.t.getSensorList(1).get(0), this.H.l);
-                }
-            } else {
-                this.u = false;
-            }
-            if (this.H.i) {
-                SensorManager sensorManager2 = (SensorManager) this.y.getSystemService("sensor");
-                this.t = sensorManager2;
-                if (!sensorManager2.getSensorList(4).isEmpty()) {
-                    e eVar2 = new e(this);
-                    this.K = eVar2;
-                    this.t.registerListener(eVar2, this.t.getSensorList(4).get(0), this.H.l);
-                }
-            }
-            this.C = false;
-            if (this.H.k) {
-                if (this.t == null) {
-                    this.t = (SensorManager) this.y.getSystemService("sensor");
-                }
-                List<Sensor> sensorList = this.t.getSensorList(11);
-                if (!sensorList.isEmpty()) {
-                    this.M = new e(this);
-                    Iterator<Sensor> it = sensorList.iterator();
-                    while (true) {
-                        if (!it.hasNext()) {
-                            break;
-                        }
-                        Sensor next = it.next();
-                        if (next.getVendor().equals("Google Inc.") && next.getVersion() == 3) {
-                            this.C = this.t.registerListener(this.M, next, this.H.l);
-                            break;
-                        }
-                    }
-                    if (!this.C) {
-                        this.C = this.t.registerListener(this.M, sensorList.get(0), this.H.l);
-                    }
-                }
-            }
-            if (this.H.j && !this.C) {
-                if (this.t == null) {
-                    this.t = (SensorManager) this.y.getSystemService("sensor");
-                }
-                Sensor defaultSensor = this.t.getDefaultSensor(2);
-                if (defaultSensor != null) {
-                    boolean z = this.u;
-                    this.B = z;
-                    if (z) {
-                        e eVar3 = new e(this);
-                        this.L = eVar3;
-                        this.B = this.t.registerListener(eVar3, defaultSensor, this.H.l);
-                    }
-                } else {
-                    this.B = false;
-                }
-            } else {
-                this.B = false;
-            }
-            x0.a.log("AndroidInput", "sensor listener setup");
-        }
-    }
-
     public final float[] h(float[] fArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, fArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, fArr)) == null) {
             float[] fArr2 = new float[fArr.length + 2];
             System.arraycopy(fArr, 0, fArr2, 0, fArr.length);
             return fArr2;
@@ -758,7 +758,7 @@ public class x2 extends t0 implements l2 {
     public final int[] i(int[] iArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, iArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, iArr)) == null) {
             int[] iArr2 = new int[iArr.length + 2];
             System.arraycopy(iArr, 0, iArr2, 0, iArr.length);
             return iArr2;
@@ -769,7 +769,7 @@ public class x2 extends t0 implements l2 {
     public final boolean[] j(boolean[] zArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, zArr)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, zArr)) == null) {
             boolean[] zArr2 = new boolean[zArr.length + 2];
             System.arraycopy(zArr, 0, zArr2, 0, zArr.length);
             return zArr2;
@@ -781,7 +781,7 @@ public class x2 extends t0 implements l2 {
     public boolean onGenericMotion(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, view2, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, view2, motionEvent)) == null) {
             if (this.O.a(motionEvent, this)) {
                 return true;
             }
@@ -800,7 +800,7 @@ public class x2 extends t0 implements l2 {
     public boolean onKey(View view2, int i, KeyEvent keyEvent) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048588, this, view2, i, keyEvent)) == null) {
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048587, this, view2, i, keyEvent)) == null) {
             int size = this.h.size();
             for (int i2 = 0; i2 < size; i2++) {
                 if (this.h.get(i2).onKey(view2, i, keyEvent)) {
@@ -887,7 +887,7 @@ public class x2 extends t0 implements l2 {
     public boolean onTouch(View view2, MotionEvent motionEvent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, view2, motionEvent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048590, this, view2, motionEvent)) == null) {
             if (this.P && view2 != null) {
                 view2.setFocusableInTouchMode(true);
                 view2.requestFocus();

@@ -26,7 +26,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class a {
     @SuppressLint({"StaticFieldLeak"})
     public static volatile a PJ;
@@ -151,7 +151,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* JADX WARN: Removed duplicated region for block: B:19:0x0045 A[Catch: all -> 0x005d, TryCatch #4 {, blocks: (B:7:0x001e, B:16:0x0034, B:17:0x003f, B:19:0x0045, B:21:0x004f, B:22:0x0057, B:24:0x0059, B:25:0x005c, B:15:0x0031), top: B:33:0x0004 }] */
+    /* JADX WARN: Removed duplicated region for block: B:19:0x0044 A[Catch: all -> 0x005c, TryCatch #4 {, blocks: (B:7:0x001e, B:16:0x0033, B:17:0x003e, B:19:0x0044, B:21:0x004e, B:22:0x0056, B:24:0x0058, B:25:0x005b, B:15:0x0030), top: B:33:0x0004 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */

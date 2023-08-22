@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ho7;
-import com.baidu.tieba.pu5;
+import com.baidu.tieba.cq7;
+import com.baidu.tieba.gv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import tbclient.GameCodeList;
 /* loaded from: classes5.dex */
-public class GameCodeListView extends ConstraintLayout implements pu5 {
+public class GameCodeListView extends ConstraintLayout implements gv5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -89,7 +89,7 @@ public class GameCodeListView extends ConstraintLayout implements pu5 {
         a(context);
     }
 
-    @Override // com.baidu.tieba.pu5
+    @Override // com.baidu.tieba.gv5
     public void onChangeSkinType(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i2) == null) {
@@ -172,25 +172,25 @@ public class GameCodeListView extends ConstraintLayout implements pu5 {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d037a, this);
-            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090dd8);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d037f, this);
+            EMTextView eMTextView = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090de5);
             this.a = eMTextView;
             eMTextView.setTextSize(0, j);
             EMTextView eMTextView2 = this.a;
             int i2 = f;
             eMTextView2.setPadding(i2, g, i2, h);
             this.a.setGravity(1);
-            this.a.setText(R.string.obfuscated_res_0x7f0f02a1);
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090dd7);
+            this.a.setText(R.string.obfuscated_res_0x7f0f02a2);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f090de4);
             this.b = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
             GameCodeAdapter gameCodeAdapter = new GameCodeAdapter(context);
             this.c = gameCodeAdapter;
             this.b.setAdapter(gameCodeAdapter);
-            EMTextView eMTextView3 = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090dd6);
+            EMTextView eMTextView3 = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090de3);
             this.d = eMTextView3;
             eMTextView3.setTextSize(0, k);
-            this.d.setText(R.string.obfuscated_res_0x7f0f03ce);
+            this.d.setText(R.string.obfuscated_res_0x7f0f03cf);
             ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) this.d.getLayoutParams();
             ((ViewGroup.MarginLayoutParams) layoutParams).topMargin = l;
             this.d.setLayoutParams(layoutParams);
@@ -200,10 +200,10 @@ public class GameCodeListView extends ConstraintLayout implements pu5 {
         }
     }
 
-    public void b(ho7 ho7Var) {
+    public void b(cq7 cq7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ho7Var) == null) {
-            this.c.o(ho7Var);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cq7Var) == null) {
+            this.c.o(cq7Var);
         }
     }
 

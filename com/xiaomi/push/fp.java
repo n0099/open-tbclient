@@ -31,13 +31,13 @@ public class fp {
                 return gu.a(this.a, fvVar);
             }
             if (name.equals("presence")) {
-                return gu.m536a(this.a);
+                return gu.m538a(this.a);
             }
             if (this.a.getName().equals("stream")) {
                 return null;
             }
             if (this.a.getName().equals("error")) {
-                throw new gg(gu.m537a(this.a));
+                throw new gg(gu.m539a(this.a));
             }
             if (!this.a.getName().equals("warning")) {
                 this.a.getName().equals("bind");

@@ -178,7 +178,7 @@ public class VrVideoView extends MovieView {
         if (cyberVRRenderProvider != null) {
             cyberVRRenderProvider.onDestroy();
             this.a = null;
-            this.f1040T = MovieView.i.PAUSED;
+            this.f1041T = MovieView.i.PAUSED;
         }
     }
 
@@ -196,18 +196,18 @@ public class VrVideoView extends MovieView {
     @Override // com.baidu.cyberplayer.sdk.vrplayer.MovieView
     public void pauseRender() {
         CyberVRRenderProvider cyberVRRenderProvider = this.a;
-        if (cyberVRRenderProvider != null && this.f1040T == MovieView.i.RESUMED) {
+        if (cyberVRRenderProvider != null && this.f1041T == MovieView.i.RESUMED) {
             cyberVRRenderProvider.onPause();
-            this.f1040T = MovieView.i.PAUSED;
+            this.f1041T = MovieView.i.PAUSED;
         }
     }
 
     @Override // com.baidu.cyberplayer.sdk.vrplayer.MovieView
     public void resumeRender() {
         CyberVRRenderProvider cyberVRRenderProvider = this.a;
-        if (cyberVRRenderProvider != null && this.f1040T == MovieView.i.PAUSED) {
+        if (cyberVRRenderProvider != null && this.f1041T == MovieView.i.PAUSED) {
             cyberVRRenderProvider.onResume();
-            this.f1040T = MovieView.i.RESUMED;
+            this.f1041T = MovieView.i.RESUMED;
         }
     }
 

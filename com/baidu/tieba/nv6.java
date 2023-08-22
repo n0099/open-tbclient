@@ -1,98 +1,83 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.sweetsqlite.IntegerColumn;
-import com.baidu.nadcore.sweetsqlite.LongColumn;
-import com.baidu.nadcore.sweetsqlite.StringColumn;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.List;
+import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
 public final class nv6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final nv6 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a extends c41 {
-        Cursor b(String str, String... strArr);
-
-        /* synthetic */ long insert(j41 j41Var);
-
-        /* synthetic */ boolean query(j41 j41Var, a41... a41VarArr);
-
-        @Override // com.baidu.tieba.c41
-        /* synthetic */ int update(j41 j41Var, a41... a41VarArr);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015963, "Lcom/baidu/tieba/nv6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
+    public static final <T, K extends Comparable<? super K>> int a(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, list, key, selector)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(selector, "selector");
+            int size = list.size() - 1;
+            if (list.isEmpty()) {
+                return -1;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948015963, "Lcom/baidu/tieba/nv6;");
-                return;
+            int i = 0;
+            while (i < size) {
+                int i2 = (i + size) >>> 1;
+                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
+                if (compareValues < 0) {
+                    i = i2 + 1;
+                } else if (compareValues > 0) {
+                    size = i2;
+                } else {
+                    return i2 - 1;
+                }
             }
+            return i;
         }
-        a = new nv6();
+        return invokeLLL.intValue;
     }
 
-    public nv6() {
+    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
+    public static final <T, K extends Comparable<? super K>> int b(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, list, key, selector)) == null) {
+            Intrinsics.checkNotNullParameter(list, "<this>");
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(selector, "selector");
+            int size = list.size() - 1;
+            if (list.isEmpty()) {
+                return -1;
             }
+            int i = 0;
+            while (i < size) {
+                int i2 = (i + size) >>> 1;
+                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
+                if (compareValues < 0) {
+                    i = i2 + 1;
+                } else if (compareValues > 0) {
+                    size = i2;
+                } else {
+                    return i2 - 1;
+                }
+            }
+            return size;
         }
+        return invokeLLL.intValue;
     }
 
-    public final a41 a(int i, int i2) {
-        InterceptResult invokeII;
+    public static final <T extends Comparable<? super T>> fu6<T> c(Collection<? extends T> collection) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
-            return new a41(i, "", "", i2, 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, collection)) == null) {
+            Intrinsics.checkNotNullParameter(collection, "<this>");
+            return new fu6<>(collection);
         }
-        return (a41) invokeII.objValue;
-    }
-
-    public final IntegerColumn b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return new IntegerColumn(a(2, i));
-        }
-        return (IntegerColumn) invokeI.objValue;
-    }
-
-    public final LongColumn c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return new LongColumn(a(3, i));
-        }
-        return (LongColumn) invokeI.objValue;
-    }
-
-    public final StringColumn d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return new StringColumn(a(4, i));
-        }
-        return (StringColumn) invokeI.objValue;
+        return (fu6) invokeL.objValue;
     }
 }

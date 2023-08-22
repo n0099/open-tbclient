@@ -233,7 +233,7 @@ public class HttpClient extends z9<HttpMessage, HttpMessageTask> {
                             String str7 = HttpClient.b;
                             netLog4.i(str7, " 解码失败 : " + e3.getMessage());
                             newInstance.setError(-1003);
-                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f06a2));
+                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f06a9));
                             BdLog.detailException(e3);
                         }
                     }

@@ -1,164 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
 import java.util.Map;
-import java.util.WeakHashMap;
 /* loaded from: classes8.dex */
-public class ws<K, V> implements Iterable<Map.Entry<K, V>> {
+public abstract class ws<T> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object j;
     public transient /* synthetic */ FieldHolder $fh;
-    public c<K, V> a;
-    public c<K, V> b;
-    public WeakHashMap<Object<K, V>, Boolean> c;
-    public int d;
+    public final Object a;
+    public zs<ys<T>, ws<T>.c> b;
+    public int c;
+    public volatile Object d;
+    public volatile Object e;
+    public int f;
+    public boolean g;
+    public boolean h;
+    public final Runnable i;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
     }
 
-    /* loaded from: classes8.dex */
-    public static class b<K, V> extends e<K, V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(c<K, V> cVar, c<K, V> cVar2) {
-            super(cVar, cVar2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, cVar2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((c) objArr2[0], (c) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ws.e
-        public c<K, V> a(c<K, V> cVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cVar)) == null) {
-                return cVar.c;
-            }
-            return (c) invokeL.objValue;
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
         }
     }
 
     /* loaded from: classes8.dex */
-    public static class c<K, V> implements Map.Entry<K, V> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final K a;
-        public final V b;
-        public c<K, V> c;
+        public final /* synthetic */ ws a;
 
-        public c(K k, V v) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k, v};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k;
-            this.b = v;
-        }
-
-        @Override // java.util.Map.Entry
-        public boolean equals(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                if (obj == this) {
-                    return true;
-                }
-                if (!(obj instanceof c)) {
-                    return false;
-                }
-                c cVar = (c) obj;
-                if (this.a.equals(cVar.a) && this.b.equals(cVar.b)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // java.util.Map.Entry
-        public K getKey() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (K) invokeV.objValue;
-        }
-
-        @Override // java.util.Map.Entry
-        public V getValue() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.b;
-            }
-            return (V) invokeV.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a + "=" + this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // java.util.Map.Entry
-        public V setValue(V v) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, v)) == null) {
-                throw new UnsupportedOperationException("An entry modification is not supported");
-            }
-            return (V) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements Object<K, V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public c<K, V> a;
-        public boolean b;
-        public final /* synthetic */ ws c;
-
-        public d(ws wsVar) {
+        public a(ws wsVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -173,73 +57,80 @@ public class ws<K, V> implements Iterable<Map.Entry<K, V>> {
                     return;
                 }
             }
-            this.c = wsVar;
-            this.b = true;
+            this.a = wsVar;
         }
 
-        public /* synthetic */ d(ws wsVar, a aVar) {
-            this(wsVar);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* renamed from: a */
-        public Map.Entry<K, V> next() {
-            InterceptResult invokeV;
-            c<K, V> cVar;
+        /* JADX DEBUG: Multi-variable search result rejected for r0v4, resolved type: com.baidu.tieba.ws */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // java.lang.Runnable
+        public void run() {
+            Object obj;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.b) {
-                    this.b = false;
-                    this.a = this.c.a;
-                } else {
-                    c<K, V> cVar2 = this.a;
-                    if (cVar2 != null) {
-                        cVar = cVar2.c;
-                    } else {
-                        cVar = null;
-                    }
-                    this.a = cVar;
-                }
-                return this.a;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
             }
-            return (Map.Entry) invokeV.objValue;
-        }
-
-        public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.b) {
-                    if (this.c.a != null) {
-                        return true;
-                    }
-                    return false;
-                }
-                c<K, V> cVar = this.a;
-                if (cVar != null && cVar.c != null) {
-                    return true;
-                }
-                return false;
+            synchronized (this.a.a) {
+                obj = this.a.e;
+                this.a.e = ws.j;
             }
-            return invokeV.booleanValue;
+            this.a.p(obj);
         }
     }
 
     /* loaded from: classes8.dex */
-    public static abstract class e<K, V> implements Object<K, V> {
+    public class b extends ws<T>.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public c<K, V> a;
-        public c<K, V> b;
 
-        public abstract c<K, V> a(c<K, V> cVar);
+        @Override // com.baidu.tieba.ws.c
+        public boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
-        public e(c<K, V> cVar, c<K, V> cVar2) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ws wsVar, ys<T> ysVar) {
+            super(wsVar, ysVar);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, cVar2};
+                Object[] objArr = {wsVar, ysVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((ws) objArr2[0], (ys) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public abstract class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ys<T> a;
+        public boolean b;
+        public int c;
+        public final /* synthetic */ ws d;
+
+        public abstract boolean b();
+
+        public c(ws wsVar, ys<T> ysVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wsVar, ysVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -249,192 +140,186 @@ public class ws<K, V> implements Iterable<Map.Entry<K, V>> {
                     return;
                 }
             }
-            this.a = cVar2;
-            this.b = cVar;
+            this.d = wsVar;
+            this.c = -1;
+            this.a = ysVar;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* renamed from: b */
-        public Map.Entry<K, V> next() {
-            InterceptResult invokeV;
+        public void a(boolean z) {
+            boolean z2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                c<K, V> cVar = this.b;
-                this.b = c();
-                return cVar;
+            if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || z == this.b) {
+                return;
             }
-            return (Map.Entry) invokeV.objValue;
+            this.b = z;
+            int i = 1;
+            if (this.d.c == 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            ws wsVar = this.d;
+            int i2 = wsVar.c;
+            if (!this.b) {
+                i = -1;
+            }
+            wsVar.c = i2 + i;
+            if (z2 && this.b) {
+                this.d.m();
+            }
+            if (this.d.c == 0 && !this.b) {
+                this.d.n();
+            }
+            if (!this.b) {
+                return;
+            }
+            this.d.j(this);
         }
+    }
 
-        public final c<K, V> c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                c<K, V> cVar = this.b;
-                c<K, V> cVar2 = this.a;
-                if (cVar != cVar2 && cVar2 != null) {
-                    return a(cVar);
-                }
-                return null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448321105, "Lcom/baidu/tieba/ws;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return (c) invokeV.objValue;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448321105, "Lcom/baidu/tieba/ws;");
+                return;
+            }
         }
+        j = new Object();
+    }
 
-        public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.b != null) {
-                    return true;
-                }
-                return false;
+    public T k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            T t = (T) this.d;
+            if (t != j) {
+                return t;
             }
-            return invokeV.booleanValue;
+            return null;
         }
+        return (T) invokeV.objValue;
     }
 
     public ws() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new WeakHashMap<>();
-        this.d = 0;
+        this.a = new Object();
+        this.b = new zs<>();
+        this.c = 0;
+        this.d = j;
+        this.e = j;
+        this.f = -1;
+        this.i = new a(this);
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Multi-variable search result rejected for r5v1, resolved type: com.baidu.tieba.ys<T> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public final void i(ws<T>.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, cVar) != null) || !cVar.b) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public ws<K, V>.d f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ws<K, V>.d dVar = new d(this, null);
-            this.c.put(dVar, Boolean.FALSE);
-            return dVar;
+        if (!cVar.b()) {
+            cVar.a(false);
+            return;
         }
-        return (d) invokeV.objValue;
-    }
-
-    @Override // java.lang.Iterable
-    public Iterator<Map.Entry<K, V>> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            b bVar = new b(this.a, this.b);
-            this.c.put(bVar, Boolean.FALSE);
-            return bVar;
+        int i = cVar.c;
+        int i2 = this.f;
+        if (i >= i2) {
+            return;
         }
-        return (Iterator) invokeV.objValue;
+        cVar.c = i2;
+        cVar.a.onChanged(this.d);
     }
 
-    public c<K, V> c(K k) {
-        InterceptResult invokeL;
+    public void l(ys<T> ysVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
-            c<K, V> cVar = this.a;
-            while (cVar != null && !cVar.a.equals(k)) {
-                cVar = cVar.c;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ysVar) == null) {
+            b bVar = new b(this, ysVar);
+            if (this.b.d(ysVar, bVar) != null) {
+                return;
             }
-            return cVar;
+            bVar.a(true);
         }
-        return (c) invokeL.objValue;
     }
 
-    public V d(K k, V v) {
-        InterceptResult invokeLL;
+    public void o(T t) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
-            c<K, V> c2 = c(k);
-            if (c2 != null) {
-                return c2.b;
-            }
-            e(k, v);
-            return null;
-        }
-        return (V) invokeLL.objValue;
-    }
-
-    public c<K, V> e(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, k, v)) == null) {
-            c<K, V> cVar = new c<>(k, v);
-            this.d++;
-            c<K, V> cVar2 = this.b;
-            if (cVar2 == null) {
-                this.a = cVar;
-                this.b = cVar;
-                return cVar;
-            }
-            cVar2.c = cVar;
-            this.b = cVar;
-            return cVar;
-        }
-        return (c) invokeLL.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof ws)) {
-                return false;
-            }
-            ws wsVar = (ws) obj;
-            if (a() != wsVar.a()) {
-                return false;
-            }
-            Iterator<Map.Entry<K, V>> it = iterator();
-            Iterator<Map.Entry<K, V>> it2 = wsVar.iterator();
-            while (it.hasNext() && it2.hasNext()) {
-                Map.Entry<K, V> next = it.next();
-                Map.Entry<K, V> next2 = it2.next();
-                if ((next == null && next2 != null) || (next != null && !next.equals(next2))) {
-                    return false;
+        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
+            synchronized (this.a) {
+                if (this.e == j) {
+                    z = true;
+                } else {
+                    z = false;
                 }
+                this.e = t;
             }
-            if (!it.hasNext() && !it2.hasNext()) {
-                return true;
+            if (!z) {
+                return;
             }
-            return false;
+            ht.c(this.i);
         }
-        return invokeL.booleanValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void p(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(PreferencesUtil.LEFT_MOUNT);
-            Iterator<Map.Entry<K, V>> it = iterator();
-            while (it.hasNext()) {
-                sb.append(it.next().toString());
-                if (it.hasNext()) {
-                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                }
-            }
-            sb.append(PreferencesUtil.RIGHT_MOUNT);
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
+            h("setValue");
+            this.f++;
+            this.d = t;
+            j(null);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65545, null, str) != null) || ht.b()) {
+            return;
+        }
+        throw new IllegalStateException("Cannot invoke " + str + " on a background thread");
+    }
+
+    public final void j(ws<T>.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+            if (this.g) {
+                this.h = true;
+                return;
+            }
+            this.g = true;
+            do {
+                this.h = false;
+                if (cVar != null) {
+                    i(cVar);
+                    cVar = null;
+                } else {
+                    zs<ys<T>, ws<T>.c>.d f = this.b.f();
+                    while (f.hasNext()) {
+                        i((c) ((Map.Entry) f.next()).getValue());
+                        if (this.h) {
+                            break;
+                        }
+                    }
+                }
+            } while (this.h);
+            this.g = false;
+        }
     }
 }

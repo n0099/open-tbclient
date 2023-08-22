@@ -13,8 +13,8 @@ import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.nadcore.component.api.IComponentPlugin;
 import com.baidu.nps.main.manager.Bundle;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.nj0;
-import com.baidu.tieba.oj0;
+import com.baidu.tieba.qj0;
+import com.baidu.tieba.rj0;
 import java.util.Iterator;
 import java.util.concurrent.CopyOnWriteArrayList;
 import kotlin.Metadata;
@@ -23,7 +23,7 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
 public class ComponentArchManager implements LifecycleObserver {
     public final CopyOnWriteArrayList<IComponentPlugin> a;
-    public final SimpleArrayMap<Class<? extends oj0>, oj0> b;
+    public final SimpleArrayMap<Class<? extends rj0>, rj0> b;
     public final Context c;
     public final Lifecycle d;
 
@@ -57,7 +57,7 @@ public class ComponentArchManager implements LifecycleObserver {
         this.a.add(component);
     }
 
-    public final void w(Class<? extends oj0> clazz, oj0 componentService) {
+    public final void w(Class<? extends rj0> clazz, rj0 componentService) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
         Intrinsics.checkNotNullParameter(componentService, "componentService");
         this.b.put(clazz, componentService);
@@ -130,7 +130,7 @@ public class ComponentArchManager implements LifecycleObserver {
         iComponentPlugin.n();
     }
 
-    public final void j(nj0 event) {
+    public final void j(qj0 event) {
         Intrinsics.checkNotNullParameter(event, "event");
         for (IComponentPlugin iComponentPlugin : this.a) {
             iComponentPlugin.t(event);
@@ -148,12 +148,12 @@ public class ComponentArchManager implements LifecycleObserver {
         }
     }
 
-    public <T extends oj0> T r(Class<T> clazz) {
+    public <T extends rj0> T r(Class<T> clazz) {
         Intrinsics.checkNotNullParameter(clazz, "clazz");
-        oj0 oj0Var = this.b.get(clazz);
-        if (!(oj0Var instanceof oj0)) {
-            oj0Var = null;
+        rj0 rj0Var = this.b.get(clazz);
+        if (!(rj0Var instanceof rj0)) {
+            rj0Var = null;
         }
-        return (T) oj0Var;
+        return (T) rj0Var;
     }
 }

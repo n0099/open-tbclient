@@ -45,22 +45,22 @@ import com.baidu.tbadk.coreExtra.model.ShareSuccessReplyToServerModel;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.df9;
-import com.baidu.tieba.dr9;
-import com.baidu.tieba.m45;
+import com.baidu.tieba.di;
+import com.baidu.tieba.dv9;
+import com.baidu.tieba.ij9;
+import com.baidu.tieba.iv9;
 import com.baidu.tieba.model.SetPrivacyModel;
-import com.baidu.tieba.p69;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.rate.RateManager;
 import com.baidu.tieba.redtip.PersonRedTipManager;
-import com.baidu.tieba.sp9;
+import com.baidu.tieba.s45;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tieba.ua9;
 import com.baidu.tieba.view.Thread2GroupShareView;
-import com.baidu.tieba.wt4;
-import com.baidu.tieba.yq9;
+import com.baidu.tieba.xt9;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -89,7 +89,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
     public ShareSuccessReplyToServerModel h;
     public boolean i;
     public String j;
-    public yq9 k;
+    public dv9 k;
     public long l;
     public String m;
     public String n;
@@ -100,10 +100,10 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
     public CustomMessageListener s;
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public VoiceManager.IPlayView g1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.IPlayView q1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, voiceModel)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, voiceModel)) == null) {
             return null;
         }
         return (VoiceManager.IPlayView) invokeL.objValue;
@@ -152,7 +152,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.getPageContext().getPageActivity() != null) {
-                    df9.a(this.b.a.getPageContext(), this.a).show();
+                    ij9.a(this.b.a.getPageContext(), this.a).show();
                 }
             }
         }
@@ -185,7 +185,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
     }
 
     /* loaded from: classes7.dex */
-    public class a implements m45.e {
+    public class a implements s45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Thread2GroupShareView a;
@@ -210,13 +210,13 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             this.a = thread2GroupShareView;
         }
 
-        @Override // com.baidu.tieba.m45.e
-        public void onClick(m45 m45Var) {
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
                 InputMethodManager inputMethodManager = (InputMethodManager) this.b.getActivity().getSystemService("input_method");
                 BdUtilHelper.hideSoftKeyPad(this.b.getActivity(), this.a.getChatMsgView());
-                m45Var.dismiss();
+                s45Var.dismiss();
             }
         }
     }
@@ -246,17 +246,17 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onNavigationButtonClick(m45 m45Var) {
+        public void onNavigationButtonClick(s45 s45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_NEG_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
 
         @Override // com.baidu.tieba.tbadkCore.util.AntiHelper.k
-        public void onPositiveButtonClick(m45 m45Var) {
+        public void onPositiveButtonClick(s45 s45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m45Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s45Var) == null) {
                 TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_POS_CLICK).param("obj_locate", TbadkCoreStatisticKey.AntiLocateValue.LOCATE_LIKE_PERSON));
             }
         }
@@ -380,7 +380,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             if (data instanceof String) {
                 String str = (String) data;
                 if (!TextUtils.isEmpty(str) && this.a.k != null) {
-                    dr9 o = this.a.k.o(true);
+                    iv9 o = this.a.k.o(true);
                     this.a.j = str;
                     if (o != null && (j = o.j()) != null) {
                         j.setName_show(str);
@@ -502,7 +502,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
     }
 
     /* loaded from: classes7.dex */
-    public class j implements m45.e {
+    public class j implements s45.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Thread2GroupShareView a;
@@ -537,15 +537,15 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
             this.f = shareFromPBMsgData;
         }
 
-        @Override // com.baidu.tieba.m45.e
-        public void onClick(m45 m45Var) {
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m45Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
                 if (this.g.getActivity() != null) {
                     BdUtilHelper.hideSoftKeyPad(this.g.getActivity(), this.a.getChatMsgView());
                     MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.g.getActivity(), this.b, this.c, this.d, this.e, 0, this.a.getLeaveMsg(), this.f.toChatMessageContent())));
                 }
-                m45Var.dismiss();
+                s45Var.dismiss();
                 ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                 if (shareItem != null && shareItem.getStats() != null) {
                     Bundle stats = shareItem.getStats();
@@ -581,11 +581,11 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         this.s = new f(this, 2001115);
     }
 
-    public final ShareFromPBMsgData R1() {
+    public final ShareFromPBMsgData d2() {
         InterceptResult invokeV;
         String uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
             if (shareItem == null) {
                 return null;
@@ -612,10 +612,10 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onPause();
-            VoiceManager z0 = z0();
-            this.e = z0;
-            if (z0 != null) {
-                z0.onPause();
+            VoiceManager G0 = G0();
+            this.e = G0;
+            if (G0 != null) {
+                G0.onPause();
             }
             if (this.l > 0) {
                 TiebaStatic.log(new StatisticItem("c12263").param(TiebaStatic.Params.OBJ_DURATION, String.valueOf((System.currentTimeMillis() - this.l) / 1000)).param("obj_type", 2));
@@ -624,13 +624,13 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
     }
 
-    public final void Q1(Intent intent) {
+    public final void c2(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) && intent != null) {
             try {
                 PostWriteCallBackData postWriteCallBackData = (PostWriteCallBackData) intent.getSerializableExtra("post_write_callback_data");
-                yq9 yq9Var = this.k;
-                if (yq9Var != null && !yq9Var.j(postWriteCallBackData)) {
+                dv9 dv9Var = this.k;
+                if (dv9Var != null && !dv9Var.j(postWriteCallBackData)) {
                     this.k.x(postWriteCallBackData);
                 }
             } catch (Exception e2) {
@@ -639,13 +639,13 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
     }
 
-    public final void S1(Intent intent) {
+    public final void e2(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, intent) == null) {
             long longExtra = intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L);
             String stringExtra = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME);
             String stringExtra2 = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT);
-            X1(R1(), longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2);
+            j2(d2(), longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2);
         }
     }
 
@@ -654,9 +654,9 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
             super.onChangeSkinType(i2);
-            yq9 yq9Var = this.k;
-            if (yq9Var != null) {
-                yq9Var.r(i2);
+            dv9 dv9Var = this.k;
+            if (dv9Var != null) {
+                dv9Var.r(i2);
             }
         }
     }
@@ -675,12 +675,92 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
     }
 
-    public final void T1(Bundle bundle) {
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public VoiceManager G0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.e == null) {
+                this.e = VoiceManager.instance();
+            }
+            return this.e;
+        }
+        return (VoiceManager) invokeV.objValue;
+    }
+
+    public final void g2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13576");
+            statisticItem.param("obj_type", this.b ? 1 : 0);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            super.onDestroy();
+            VoiceManager voiceManager = this.e;
+            if (voiceManager != null) {
+                voiceManager.onDestory(getPageContext());
+            }
+            this.e = null;
+            dv9 dv9Var = this.k;
+            if (dv9Var != null) {
+                dv9Var.s();
+            }
+            BdAsyncTask.removeAllTask(SetPrivacyModel.UNIQUE_ID_SET_PRIVACY_TASK);
+            BdAsyncTask.removeAllTask(ForumManageModel.UNIQUE_ID_DEL_POST_TASK);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onPrimary() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            super.onPrimary();
+            if (isAdded()) {
+                this.k.t(isPrimary());
+                PersonRedTipManager.getInstance().setIsPrimary(isPrimary());
+            }
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            super.onStart();
+            VoiceManager G0 = G0();
+            this.e = G0;
+            if (G0 != null) {
+                G0.onStart(getPageContext());
+            }
+        }
+    }
+
+    @Override // androidx.fragment.app.Fragment
+    public void onStop() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            super.onStop();
+            VoiceManager G0 = G0();
+            this.e = G0;
+            if (G0 != null) {
+                G0.onStop(getPageContext());
+            }
+        }
+    }
+
+    public final void f2(Bundle bundle) {
         boolean z;
         Map<String, String> paramPair;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             Intent intent = getActivity().getIntent();
             boolean z2 = true;
             if (intent != null) {
@@ -704,7 +784,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                             return;
                         }
                         if (uri2.startsWith("tbusercenter://")) {
-                            W1(decode);
+                            i2(decode);
                             Matcher matcher = Pattern.compile(".*fr=(.*)&portrait=([\\d]+).*").matcher(decode);
                             if (matcher.find()) {
                                 this.c = matcher.group(2);
@@ -768,89 +848,9 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
     }
 
-    public final void U1() {
+    public final void h2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13576");
-            statisticItem.param("obj_type", this.b ? 1 : 0);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            super.onDestroy();
-            VoiceManager voiceManager = this.e;
-            if (voiceManager != null) {
-                voiceManager.onDestory(getPageContext());
-            }
-            this.e = null;
-            yq9 yq9Var = this.k;
-            if (yq9Var != null) {
-                yq9Var.s();
-            }
-            BdAsyncTask.removeAllTask(SetPrivacyModel.UNIQUE_ID_SET_PRIVACY_TASK);
-            BdAsyncTask.removeAllTask(ForumManageModel.UNIQUE_ID_DEL_POST_TASK);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onPrimary() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            super.onPrimary();
-            if (isAdded()) {
-                this.k.t(isPrimary());
-                PersonRedTipManager.getInstance().setIsPrimary(isPrimary());
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            super.onStart();
-            VoiceManager z0 = z0();
-            this.e = z0;
-            if (z0 != null) {
-                z0.onStart(getPageContext());
-            }
-        }
-    }
-
-    @Override // androidx.fragment.app.Fragment
-    public void onStop() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            super.onStop();
-            VoiceManager z0 = z0();
-            this.e = z0;
-            if (z0 != null) {
-                z0.onStop(getPageContext());
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public VoiceManager z0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (this.e == null) {
-                this.e = VoiceManager.instance();
-            }
-            return this.e;
-        }
-        return (VoiceManager) invokeV.objValue;
-    }
-
-    public final void V1() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || TextUtils.isEmpty(this.m)) {
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || TextUtils.isEmpty(this.m)) {
             return;
         }
         StatisticItem statisticItem = new StatisticItem("c13541");
@@ -875,10 +875,10 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             super.onResume();
-            VoiceManager z0 = z0();
-            this.e = z0;
-            if (z0 != null) {
-                z0.onResume(getPageContext());
+            VoiceManager G0 = G0();
+            this.e = G0;
+            if (G0 != null) {
+                G0.onResume(getPageContext());
             }
             this.k.u();
             if (!this.b && this.d) {
@@ -899,16 +899,16 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
     }
 
-    public final void W1(String str) {
+    public final void i2(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             if (str.startsWith(ResourceConstants.CMT)) {
                 str = str.substring(2);
             }
             Map<String, String> paramPair = UrlManager.getParamPair(str);
             if (paramPair != null) {
                 StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SCHEME_JUMP_CALL_NATIVE);
-                wt4.b(statisticItem, paramPair);
+                zt4.b(statisticItem, paramPair);
                 statisticItem.param("obj_locate", paramPair.get("obj_locate"));
                 statisticItem.param("obj_type", 1);
                 statisticItem.param("tid", paramPair.get("tid"));
@@ -918,7 +918,7 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                 statisticItem.param("obj_id", paramPair.get(TiebaStatic.Params.BDID));
                 statisticItem.param("obj_name", TbadkCoreApplication.getInst().getStartType());
                 statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, 1);
-                if (!bi.isEmpty(paramPair.get(BasicVideoParserKt.EXT_LOG))) {
+                if (!di.isEmpty(paramPair.get(BasicVideoParserKt.EXT_LOG))) {
                     try {
                         JSONObject jSONObject = new JSONObject(paramPair.get(BasicVideoParserKt.EXT_LOG));
                         Iterator<String> keys = jSONObject.keys();
@@ -935,21 +935,21 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         }
     }
 
-    public final void X1(ShareFromPBMsgData shareFromPBMsgData, long j2, String str, String str2, String str3) {
+    public final void j2(ShareFromPBMsgData shareFromPBMsgData, long j2, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{shareFromPBMsgData, Long.valueOf(j2), str, str2, str3}) != null) || shareFromPBMsgData == null) {
+        if ((interceptable != null && interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{shareFromPBMsgData, Long.valueOf(j2), str, str2, str3}) != null) || shareFromPBMsgData == null) {
             return;
         }
-        m45 m45Var = new m45(getActivity());
+        s45 s45Var = new s45(getActivity());
         Thread2GroupShareView thread2GroupShareView = new Thread2GroupShareView(getActivity());
         thread2GroupShareView.setData(shareFromPBMsgData);
-        m45Var.setContentViewSize(1);
-        m45Var.setContentView(thread2GroupShareView);
-        m45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f137a, new j(this, thread2GroupShareView, j2, str, str2, str3, shareFromPBMsgData));
-        m45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03ce, new a(this, thread2GroupShareView));
-        m45Var.setCanceledOnTouchOutside(true);
-        m45Var.create(getPageContext()).show();
-        if (!bi.isEmpty(shareFromPBMsgData.getImageUrl())) {
+        s45Var.setContentViewSize(1);
+        s45Var.setContentView(thread2GroupShareView);
+        s45Var.setPositiveButton(R.string.obfuscated_res_0x7f0f1387, new j(this, thread2GroupShareView, j2, str, str2, str3, shareFromPBMsgData));
+        s45Var.setNegativeButton(R.string.obfuscated_res_0x7f0f03cf, new a(this, thread2GroupShareView));
+        s45Var.setCanceledOnTouchOutside(true);
+        s45Var.create(getPageContext()).show();
+        if (!di.isEmpty(shareFromPBMsgData.getImageUrl())) {
             thread2GroupShareView.c(shareFromPBMsgData.getImageUrl(), false);
         }
     }
@@ -959,9 +959,9 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.k = new yq9(this, this.g, getUniqueId(), this.a, this.b, this.f, this.c);
+            this.k = new dv9(this, this.g, getUniqueId(), this.a, this.b, this.f, this.c);
             this.h = new ShareSuccessReplyToServerModel();
-            sp9.d().k(System.currentTimeMillis() - sp9.d().a());
+            xt9.d().k(System.currentTimeMillis() - xt9.d().a());
         }
     }
 
@@ -983,24 +983,24 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, bundle) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            sp9.d().i();
-            sp9.d().j(currentTimeMillis);
+            xt9.d().i();
+            xt9.d().j(currentTimeMillis);
             super.onCreate(bundle);
-            VoiceManager z0 = z0();
-            this.e = z0;
-            if (z0 != null) {
-                z0.onCreate(getPageContext());
+            VoiceManager G0 = G0();
+            this.e = G0;
+            if (G0 != null) {
+                G0.onCreate(getPageContext());
             }
         }
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onActivityResult(int i2, int i3, Intent intent) {
-        yq9 yq9Var;
-        yq9 yq9Var2;
+        dv9 dv9Var;
+        dv9 dv9Var2;
         String str;
         ShareSuccessReplyToServerModel shareSuccessReplyToServerModel;
-        yq9 yq9Var3;
+        dv9 dv9Var3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048586, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
@@ -1018,15 +1018,15 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                                                 }
                                                 int intExtra = intent.getIntExtra("upload_image_type", 0);
                                                 if (intExtra == 1) {
-                                                    yq9 yq9Var4 = this.k;
-                                                    if (yq9Var4 != null) {
-                                                        yq9Var4.m().c().L().q();
+                                                    dv9 dv9Var4 = this.k;
+                                                    if (dv9Var4 != null) {
+                                                        dv9Var4.m().c().L().q();
                                                         this.k.a();
                                                         return;
                                                     }
                                                     return;
-                                                } else if (intExtra == 2 && (yq9Var3 = this.k) != null) {
-                                                    yq9Var3.i();
+                                                } else if (intExtra == 2 && (dv9Var3 = this.k) != null) {
+                                                    dv9Var3.i();
                                                     return;
                                                 } else {
                                                     return;
@@ -1051,40 +1051,40 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
                                                 return;
                                             }
                                             return;
-                                        } else if (intent != null && (this.k.m() instanceof p69)) {
-                                            ((p69) this.k.m()).resetData();
-                                            ((p69) this.k.m()).b();
+                                        } else if (intent != null && (this.k.m() instanceof ua9)) {
+                                            ((ua9) this.k.m()).resetData();
+                                            ((ua9) this.k.m()).b();
                                             return;
                                         } else {
                                             return;
                                         }
                                     }
-                                    S1(intent);
+                                    e2(intent);
                                     return;
                                 }
                                 RateManager.getInstance().notifyShare(getPageContext());
                                 return;
                             }
-                            Q1(intent);
+                            c2(intent);
                         } else if (intent == null) {
                         } else {
                             int intExtra4 = intent.getIntExtra("upload_image_type", 0);
                             if (intExtra4 == 1) {
-                                yq9 yq9Var5 = this.k;
-                                if (yq9Var5 != null) {
-                                    yq9Var5.m().c().L().q();
+                                dv9 dv9Var5 = this.k;
+                                if (dv9Var5 != null) {
+                                    dv9Var5.m().c().L().q();
                                     this.k.a();
                                 }
-                            } else if (intExtra4 == 2 && (yq9Var2 = this.k) != null) {
-                                yq9Var2.i();
+                            } else if (intExtra4 == 2 && (dv9Var2 = this.k) != null) {
+                                dv9Var2.i();
                             }
                         }
-                    } else if (intent != null && (yq9Var = this.k) != null) {
-                        yq9Var.m().c().L().A(intent);
+                    } else if (intent != null && (dv9Var = this.k) != null) {
+                        dv9Var.m().c().L().A(intent);
                     }
-                } else if (this.k.m() instanceof p69) {
-                    ((p69) this.k.m()).resetData();
-                    ((p69) this.k.m()).b();
+                } else if (this.k.m() instanceof ua9) {
+                    ((ua9) this.k.m()).resetData();
+                    ((ua9) this.k.m()).b();
                 }
             }
         }
@@ -1095,10 +1095,10 @@ public class PersonPolymericFragment extends BaseFragment implements VoiceManage
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048590, this, layoutInflater, viewGroup, bundle)) == null) {
-            T1(bundle);
-            V1();
-            U1();
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d032c, (ViewGroup) null);
+            f2(bundle);
+            h2();
+            g2();
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0330, (ViewGroup) null);
             if (this.a <= 0 && TbadkCoreApplication.getCurrentAccount() != null) {
                 this.a = JavaTypesHelper.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
             }

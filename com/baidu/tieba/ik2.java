@@ -1,48 +1,91 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.collection.ArraySet;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class ik2 extends fk2 {
+public class ik2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<Integer, Integer> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ik2(@NonNull ek2 ek2Var) {
-        super(ek2Var);
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ik2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-715843300, "Lcom/baidu/tieba/ik2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-715843300, "Lcom/baidu/tieba/ik2$a;");
+                    return;
+                }
+            }
+            a = new ik2();
+        }
+    }
+
+    public ik2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ek2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ek2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new ConcurrentHashMap();
     }
 
-    @Override // com.baidu.tieba.fk2
-    public void e() {
+    public static ik2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f(vi4.i().v().keySet());
-            d();
-            ArraySet<String> a = a();
-            ns1 ns1Var = this.b;
-            if (ns1Var != null) {
-                ns1Var.f();
-            }
-            c(a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
+        return (ik2) invokeV.objValue;
+    }
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.put(Integer.valueOf(i), Integer.valueOf(c(i) + 1));
+            d82.k("SwanRecoveryCounter", "addRecoveryCount level=" + i);
+        }
+    }
+
+    public int c(int i) {
+        InterceptResult invokeI;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            Integer num = this.a.get(Integer.valueOf(i));
+            if (num != null) {
+                i2 = num.intValue();
+            } else {
+                i2 = 0;
+            }
+            d82.k("SwanRecoveryCounter", "getRecoveryCount level=" + i + ";count=" + i2);
+            return i2;
+        }
+        return invokeI.intValue;
     }
 }

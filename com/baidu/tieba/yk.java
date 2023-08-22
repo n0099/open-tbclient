@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes8.dex */
-public class yk extends cl {
+public class yk implements IWebViewDataDirectoryManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.cl
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.nps.interfa.IWebViewDataDirectoryManager
+    public void setDataDirectorySuffix() {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "medialive" : (String) invokeV.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
     }
 
     public yk() {

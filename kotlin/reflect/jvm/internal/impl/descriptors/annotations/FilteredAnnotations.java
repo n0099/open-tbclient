@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import kotlin.jvm.functions.Function1;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class FilteredAnnotations implements Annotations {
     public final Annotations delegate;
     public final Function1<FqName, Boolean> fqNameFilter;
@@ -33,9 +33,9 @@ public final class FilteredAnnotations implements Annotations {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations
     /* renamed from: findAnnotation */
-    public AnnotationDescriptor mo2097findAnnotation(FqName fqName) {
+    public AnnotationDescriptor mo2099findAnnotation(FqName fqName) {
         if (this.fqNameFilter.invoke(fqName).booleanValue()) {
-            return this.delegate.mo2097findAnnotation(fqName);
+            return this.delegate.mo2099findAnnotation(fqName);
         }
         return null;
     }

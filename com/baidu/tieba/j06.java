@@ -1,25 +1,57 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class j06 {
+public abstract class j06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public r06 a;
 
-    public static void a(View view2, Runnable runnable) {
+    public abstract k06 b();
+
+    public abstract int c();
+
+    public abstract void e();
+
+    public abstract void f(m06 m06Var);
+
+    public abstract void g(String str);
+
+    public abstract void h(String str);
+
+    public abstract void i(String str);
+
+    public j06() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, view2, runnable) == null) {
-            view2.postDelayed(runnable, 16L);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(View view2, Drawable drawable) {
+    public r06 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, view2, drawable) == null) {
-            view2.setBackgroundDrawable(drawable);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (r06) invokeV.objValue;
+    }
+
+    public void a(r06 r06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, r06Var) == null) {
+            this.a = r06Var;
         }
     }
 }

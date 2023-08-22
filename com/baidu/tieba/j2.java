@@ -619,7 +619,7 @@ public class j2 extends s0 implements GLSurfaceView.Renderer {
                         th.printStackTrace();
                     }
                 }
-                this.d.mo6getInput().f1();
+                this.d.mo6getInput().p1();
                 this.l++;
                 this.d.getApplicationListener().render();
             }

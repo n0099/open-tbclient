@@ -8,14 +8,14 @@ public class az implements at {
     public static volatile az a;
 
     /* renamed from: a  reason: collision with other field name */
-    public int f129a = ay.a;
+    public int f130a = ay.a;
 
     /* renamed from: a  reason: collision with other field name */
-    public at f130a;
+    public at f131a;
 
     public az(Context context) {
-        this.f130a = ay.a(context);
-        com.xiaomi.channel.commonutils.logger.b.m178a("create id manager is: " + this.f129a);
+        this.f131a = ay.a(context);
+        com.xiaomi.channel.commonutils.logger.b.m180a("create id manager is: " + this.f130a);
     }
 
     public static az a(Context context) {
@@ -35,8 +35,8 @@ public class az implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo263a() {
-        return a(this.f130a.mo263a());
+    public String mo265a() {
+        return a(this.f131a.mo265a());
     }
 
     /* JADX DEBUG: Possible override for method com.xiaomi.push.at.a()Ljava/lang/String; */
@@ -52,9 +52,9 @@ public class az implements at {
         if (!TextUtils.isEmpty(b)) {
             map.put("udid", b);
         }
-        String mo263a = mo263a();
-        if (!TextUtils.isEmpty(mo263a)) {
-            map.put("oaid", mo263a);
+        String mo265a = mo265a();
+        if (!TextUtils.isEmpty(mo265a)) {
+            map.put("oaid", mo265a);
         }
         String c = c();
         if (!TextUtils.isEmpty(c)) {
@@ -64,13 +64,13 @@ public class az implements at {
         if (!TextUtils.isEmpty(d)) {
             map.put("aaid", d);
         }
-        map.put("oaid_type", String.valueOf(this.f129a));
+        map.put("oaid_type", String.valueOf(this.f130a));
     }
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo264a() {
-        return this.f130a.mo264a();
+    public boolean mo266a() {
+        return this.f131a.mo266a();
     }
 
     public String b() {

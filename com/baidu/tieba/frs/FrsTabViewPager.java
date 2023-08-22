@@ -118,7 +118,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
         }
     }
 
-    public final boolean c() {
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -130,10 +130,10 @@ public class FrsTabViewPager extends BdBaseViewPager {
         return invokeV.booleanValue;
     }
 
-    public void d() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            e(false);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            f(false);
         }
     }
 
@@ -141,25 +141,25 @@ public class FrsTabViewPager extends BdBaseViewPager {
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action != 0) {
                 if (action == 1) {
-                    e(false);
+                    f(false);
                 }
             } else {
-                e(true);
+                f(true);
             }
             return super.dispatchTouchEvent(motionEvent);
         }
         return invokeL.booleanValue;
     }
 
-    public void e(boolean z) {
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             a aVar = new a();
-            aVar.c(c());
+            aVar.c(d());
             aVar.d(z);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921369, aVar));
         }
@@ -171,7 +171,7 @@ public class FrsTabViewPager extends BdBaseViewPager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
             if (motionEvent.getAction() == 1) {
-                e(false);
+                f(false);
             }
             return super.onTouchEvent(motionEvent);
         }

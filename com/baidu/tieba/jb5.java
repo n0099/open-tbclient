@@ -1,268 +1,184 @@
 package com.baidu.tieba;
 
-import android.media.AudioRecord;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class jb5 implements mb5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int l = 8000;
-    public static int m = 2;
-    public static int n = 2;
-    public static int o = 1;
+public class jb5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public AudioRecord c;
-    public RandomAccessFile d;
-    public File e;
+    public List<bn> a;
+    public List<bn> b;
+    public boolean c;
+    public boolean d;
+    public int e;
     public int f;
     public int g;
-    public int h;
-    public int i;
-    public short j;
-    public short k;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947877548, "Lcom/baidu/tieba/jb5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947877548, "Lcom/baidu/tieba/jb5;");
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jb5 a;
-
-        public a(jb5 jb5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jb5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jb5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.h();
-            }
-        }
-    }
-
-    public jb5() {
+    public jb5(List<bn> list, boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, Boolean.valueOf(z), Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.b = false;
-        this.c = null;
-        this.e = null;
+        this.e = 2;
+        this.f = 2;
+        this.g = 1;
+        this.a = list;
+        this.d = z;
+        this.f = i;
+        j(list);
     }
 
-    @Override // com.baidu.tieba.mb5
-    public void a() {
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (!this.c) {
+                return i;
+            }
+            int size = this.b.size();
+            if (i == 0) {
+                return (size - 1) - this.g;
+            }
+            int i2 = this.g;
+            if (i == size - i2) {
+                return i2;
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (this.c) {
+                return i - this.g;
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.g = i;
+            j(this.a);
         }
     }
 
-    @Override // com.baidu.tieba.mb5
-    public boolean c() {
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.f = i;
+            j(this.a);
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.e = i;
+            j(this.a);
+        }
+    }
+
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+            List<bn> list = this.a;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.mb5
-    public boolean e() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            Thread thread = new Thread(new a(this));
-            thread.setPriority(10);
-            thread.setDaemon(true);
-            thread.start();
-            return true;
+            if (this.c) {
+                return this.g;
+            }
+            return 0;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.mb5
-    public boolean d(String str) {
-        InterceptResult invokeL;
+    public List<bn> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return g(o, l, m, n, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public boolean g(int i, int i2, int i3, int i4, String str) {
-        InterceptResult invokeCommon;
-        int i5;
-        int i6;
+    public final List<bn> f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), str})) == null) {
-            this.a = AudioRecord.getMinBufferSize(i2, i3, i4) + 2048;
-            this.g = i2;
-            this.h = i3;
-            this.i = i4;
-            AudioRecord audioRecord = this.c;
-            if (audioRecord != null) {
-                audioRecord.release();
-            }
-            this.c = new AudioRecord(i, this.g, this.h, this.i, this.a);
-            if (this.h == 12) {
-                i5 = 2;
-            } else {
-                i5 = 1;
-            }
-            this.j = (short) i5;
-            if (this.i == 2) {
-                i6 = 16;
-            } else {
-                i6 = 8;
-            }
-            this.k = (short) i6;
-            File file = new File(str);
-            this.e = file;
-            if (file.exists()) {
-                this.e.delete();
-            }
-            try {
-                this.e.createNewFile();
-                RandomAccessFile randomAccessFile = this.d;
-                if (randomAccessFile != null) {
-                    try {
-                        randomAccessFile.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            List<bn> list = this.a;
+            if (list != null) {
+                if (this.c) {
+                    if (list.size() > this.f && this.a.size() >= this.g) {
+                        arrayList.addAll(this.a.subList(0, this.f));
+                        List<bn> list2 = this.a;
+                        int i = this.f;
+                        arrayList.addAll(0, list2.subList(i - this.g, i));
+                        arrayList.addAll(this.a.subList(0, this.g));
+                    } else {
+                        arrayList.addAll(this.a);
+                        List<bn> list3 = this.a;
+                        arrayList.addAll(0, list3.subList(list3.size() - this.g, this.a.size()));
+                        arrayList.addAll(this.a.subList(0, this.g));
+                    }
+                } else if (list != null && list.size() > 0) {
+                    int size = this.a.size();
+                    int i2 = this.g;
+                    if (size >= i2) {
+                        arrayList.addAll(this.a.subList(0, i2));
                     }
                 }
-                try {
-                    this.d = new RandomAccessFile(this.e, "rw");
-                    i();
-                    f(this.e.getParent());
-                    return true;
-                } catch (FileNotFoundException e2) {
-                    e2.printStackTrace();
-                    return false;
-                }
-            } catch (IOException unused) {
-                this.e = null;
-                return false;
             }
+            return arrayList;
         }
-        return invokeCommon.booleanValue;
+        return (List) invokeV.objValue;
     }
 
-    public final void h() {
-        AudioRecord audioRecord;
+    public void j(List<bn> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (audioRecord = this.c) == null || this.e == null) {
-            return;
-        }
-        try {
-            this.b = true;
-            int i = this.a;
-            byte[] bArr = new byte[i];
-            audioRecord.startRecording();
-            while (this.b) {
-                this.c.read(bArr, 0, i);
-                this.d.write(bArr);
-                this.f += i;
+        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
+            if (list != null && list.size() >= this.e && list.size() <= this.f) {
+                this.c = true;
+            } else if (list.size() > this.f && this.d) {
+                this.c = true;
+            } else {
+                this.c = false;
             }
-            this.d.seek(4L);
-            this.d.writeInt(Integer.reverseBytes(this.f + 36));
-            this.d.seek(40L);
-            this.d.writeInt(Integer.reverseBytes(this.f));
-            this.d.close();
-            this.c.stop();
-            this.c.release();
-            this.b = false;
-        } catch (Throwable unused) {
-            if (this.e.exists()) {
-                this.e.delete();
-            }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                this.d.setLength(0L);
-                this.d.writeBytes("RIFF");
-                this.d.writeInt(0);
-                this.d.writeBytes("WAVE");
-                this.d.writeBytes("fmt ");
-                this.d.writeInt(Integer.reverseBytes(16));
-                this.d.writeShort(Short.reverseBytes((short) 1));
-                this.d.writeShort(Short.reverseBytes(this.j));
-                this.d.writeInt(Integer.reverseBytes(this.g));
-                this.d.writeInt(Integer.reverseBytes(((this.g * this.j) * this.k) / 8));
-                this.d.writeShort(Short.reverseBytes((short) ((this.j * this.k) / 8)));
-                this.d.writeShort(Short.reverseBytes(this.k));
-                this.d.writeBytes("data");
-                this.d.writeInt(0);
-            } catch (IOException e) {
-                if (this.e.exists()) {
-                    this.e.delete();
-                }
-                e.printStackTrace();
-            }
+            this.b = f();
         }
     }
 }

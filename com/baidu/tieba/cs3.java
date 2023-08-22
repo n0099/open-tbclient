@@ -1,226 +1,193 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.ecommerce.bean.AddressField;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.CookieManager;
+import com.baidu.webkit.sdk.CookieSyncManager;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.SimpleTimeZone;
+import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
 /* loaded from: classes5.dex */
-public class cs3 extends ActivityDelegation {
+public class cs3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface d {
-        void a(String str);
-
-        void failed();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685286, "Lcom/baidu/tieba/cs3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947685286, "Lcom/baidu/tieba/cs3;");
+                return;
+            }
+        }
+        a = nr1.a;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements kr1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cs3 a;
-
-        public a(cs3 cs3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cs3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cs3Var;
+    public static List<String> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE);
+            arrayList.add("hao123.com");
+            arrayList.add("nuomi.com");
+            arrayList.add("baifubao.com");
+            return arrayList;
         }
+        return (List) invokeV.objValue;
+    }
 
-        @Override // com.baidu.tieba.kr1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i != 0) {
-                    this.a.mResult.putString("errorMsg", "login failed");
-                    this.a.finish();
-                    return;
-                }
-                this.a.l();
+    public static String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return b(str, HttpRequest.BDUSS, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            return b(str, "PTOKEN", str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String b(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTime(new Date());
+            if (TextUtils.isEmpty(str3)) {
+                i = -8;
+            } else {
+                i = 8;
+            }
+            calendar.add(1, i);
+            return c(str, str2, str3, calendar.getTime(), false);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String c(String str, String str2, String str3, Date date, boolean z) {
+        InterceptResult invokeCommon;
+        String str4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, date, Boolean.valueOf(z)})) == null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
+            simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
+            StringBuilder sb = new StringBuilder();
+            sb.append(str2);
+            sb.append("=");
+            sb.append(str3);
+            sb.append(";domain=");
+            sb.append(str);
+            sb.append(";path=/;expires=");
+            sb.append(simpleDateFormat.format(date));
+            sb.append(";httponly");
+            if (z) {
+                str4 = ";secure";
+            } else {
+                str4 = "";
+            }
+            sb.append(str4);
+            return sb.toString();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static void f(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
+            CookieManager.getInstance().setCookie(str, str2);
+            if (z) {
+                CookieSyncManager.getInstance().sync();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cs3 a;
-
-        public b(cs3 cs3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cs3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void g(Context context, String str, List<String> list) {
+        String a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, list) == null) {
+            if (list == null) {
+                if (a) {
+                    Log.w("SwanAppCookieUtils", "bduss domains is invalid");
                     return;
                 }
+                return;
             }
-            this.a = cs3Var;
-        }
-
-        @Override // com.baidu.tieba.cs3.d
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            for (String str2 : list) {
                 if (TextUtils.isEmpty(str)) {
-                    this.a.mResult.putString("errorMsg", "addressId == null");
-                    this.a.finish();
+                    a2 = vo3.k(str2, HttpRequest.BDUSS, "deleted", 0L);
+                } else {
+                    a2 = a(str2, str);
                 }
-                this.a.m(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.cs3.d
-        public void failed() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.mResult.putString("errorMsg", "choose addressId failed");
-                this.a.finish();
+                f("http://www." + str2, a2, false);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c extends ResponseCallback<JSONObject> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cs3 a;
-
-        public c(cs3 cs3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cs3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void j(Context context, String str, List<String> list) {
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, list) == null) {
+            if (list == null) {
+                if (a) {
+                    Log.w("SwanAppCookieUtils", "ptoken domains is invalid");
                     return;
                 }
+                return;
             }
-            this.a = cs3Var;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.a.mResult.putString("errorMsg", exc.getMessage());
-                this.a.finish();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(JSONObject jSONObject, int i) {
-            JSONObject optJSONObject;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
-                if (jSONObject != null && jSONObject.optInt("errno", -1) == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                    this.a.mResult.putString("address_info", optJSONObject.toString());
-                    this.a.finish();
-                    return;
+            for (String str2 : list) {
+                if (TextUtils.isEmpty(str)) {
+                    d = vo3.k(str2, "PTOKEN", "deleted", 0L);
+                } else {
+                    d = d(str2, str);
                 }
-                this.a.mResult.putString("errorMsg", "GetAddressInfoResponse == null");
-                this.a.finish();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public JSONObject parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    return yn3.d(response.body().string());
-                }
-                return null;
-            }
-            return (JSONObject) invokeLI.objValue;
-        }
-    }
-
-    public cs3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                f("http://www." + str2, d, false);
             }
         }
     }
 
-    public static String k() {
-        InterceptResult invokeV;
+    public static void h(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return String.format("%s/ma/address/detail", "https://mbd.baidu.com");
+        if ((interceptable != null && interceptable.invokeL(65544, null, context) != null) || context == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        String i = er3.i(context);
+        String r = er3.r(context);
+        g(context, i, e());
+        j(context, r, e());
     }
 
-    public final void l() {
+    public static void i(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            zq3.d(getAgent(), new b(this));
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!zq3.E(getAgent())) {
-                zq3.L(getAgent(), null, new a(this));
-                return false;
-            }
-            l();
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void m(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            ci4.g().getRequest().url(u72.v(k())).addUrlParam(AddressField.KEY_ADDR_ID, str).cookieManager(fu2.q().a()).build().executeAsync(new c(this));
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+            h(context);
         }
     }
 }

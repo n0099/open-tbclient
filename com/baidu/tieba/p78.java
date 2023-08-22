@@ -1,36 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.ny;
+import com.baidu.tieba.yy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkItem;
-import tbclient.NewHottopic.PkModule;
 /* loaded from: classes7.dex */
-public class p78 {
+public class p78 extends om<c45, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public a d;
-    public a e;
-    public int f;
+    public BdUniqueId a;
+    public String b;
+    public TbPageContext<?> c;
+    public boolean d;
+    public hn e;
+    public jo6<ThreadData> f;
 
     /* loaded from: classes7.dex */
-    public class a {
+    public class a extends jo6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
-        public long f;
-        public String g;
+        public final /* synthetic */ p78 b;
 
         public a(p78 p78Var) {
             Interceptable interceptable = $ic;
@@ -44,184 +47,138 @@ public class p78 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.b = p78Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.jo6
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+                co6.b().d(true);
+                d78.k(view2, threadData, this.b.b);
             }
         }
     }
 
-    public p78() {
+    /* loaded from: classes7.dex */
+    public class b implements ln {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p78 a;
+
+        public b(p78 p78Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p78Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p78Var;
+        }
+
+        @Override // com.baidu.tieba.ln
+        public void b(View view2, bn bnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, bnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (bnVar instanceof c45) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                ThreadData threadData = ((c45) bnVar).t;
+                threadData.objType = 1;
+                if (this.a.f != null) {
+                    this.a.f.a(threadCardViewHolder.getView(), threadData);
+                }
+                ThreadCardUtils.jumpToPB((w05) threadData, view2.getContext(), 0, false);
+                threadCardViewHolder.b().p(new yy.a(1));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p78(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = true;
+        this.f = new a(this);
+        this.c = tbPageContext;
+        this.a = bdUniqueId2;
+        this.b = str;
+    }
+
+    public void y(hn hnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, hnVar) == null) {
+            this.e = hnVar;
         }
     }
 
-    public void a(PkModule pkModule) {
-        String str;
-        boolean z;
-        String str2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: u */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            this.b = pkModule.pk_id.longValue();
-            this.c = pkModule.user_pk_id.longValue();
-            a aVar = new a(this);
-            this.d = aVar;
-            aVar.a = pkModule.agree.pk_num.longValue();
-            a aVar2 = this.d;
-            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16ba);
-            } else {
-                str = pkModule.agree.pk_desc;
-            }
-            aVar2.b = str;
-            a aVar3 = this.d;
-            PkItem pkItem = pkModule.agree;
-            aVar3.c = pkItem.last_username;
-            aVar3.d = pkItem.pk_icon;
-            boolean z2 = true;
-            if (pkItem.has_clicked.longValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            aVar3.e = z;
-            this.d.f = pkModule.agree.pk_index.longValue();
-            this.d.g = pkModule.agree.pk_icon_after;
-            a aVar4 = new a(this);
-            this.e = aVar4;
-            aVar4.a = pkModule.disagree.pk_num.longValue();
-            a aVar5 = this.e;
-            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16b9);
-            } else {
-                str2 = pkModule.disagree.pk_desc;
-            }
-            aVar5.b = str2;
-            a aVar6 = this.e;
-            PkItem pkItem2 = pkModule.disagree;
-            aVar6.c = pkItem2.last_username;
-            aVar6.d = pkItem2.pk_icon;
-            if (pkItem2.has_clicked.longValue() != 1) {
-                z2 = false;
-            }
-            aVar6.e = z2;
-            this.e.f = pkModule.disagree.pk_index.longValue();
-            this.e.g = pkModule.disagree.pk_icon_after;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            ny.b bVar = new ny.b(this.c.getPageActivity(), false);
+            cy cyVar = new cy(this.c.getPageActivity());
+            cyVar.setFrom("index");
+            cyVar.y(this.d);
+            bVar.n(cyVar);
+            ny k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.e);
+            k.s(2);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.j(this.a);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    public void b(tbclient.NewTopicList.PkModule pkModule) {
-        String str;
-        boolean z;
-        String str2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.om
+    /* renamed from: x */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c45 c45Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            this.b = pkModule.pk_id.longValue();
-            this.c = pkModule.user_pk_id.longValue();
-            a aVar = new a(this);
-            this.d = aVar;
-            aVar.a = pkModule.agree.pk_num.longValue();
-            a aVar2 = this.d;
-            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16ba);
-            } else {
-                str = pkModule.agree.pk_desc;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c45Var, threadCardViewHolder})) == null) {
+            if (c45Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = c45Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.b().r(i);
+                threadCardViewHolder.f(c45Var.t);
+                threadCardViewHolder.b().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.b().q(this.f);
+                d78.r(c45Var, this.b);
+                return threadCardViewHolder.getView();
             }
-            aVar2.b = str;
-            a aVar3 = this.d;
-            tbclient.NewTopicList.PkItem pkItem = pkModule.agree;
-            aVar3.c = pkItem.last_username;
-            aVar3.d = pkItem.pk_icon;
-            boolean z2 = true;
-            if (pkItem.has_clicked.longValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            aVar3.e = z;
-            this.d.f = pkModule.agree.pk_index.longValue();
-            this.d.g = pkModule.agree.pk_icon_after;
-            a aVar4 = new a(this);
-            this.e = aVar4;
-            aVar4.a = pkModule.disagree.pk_num.longValue();
-            a aVar5 = this.e;
-            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16b9);
-            } else {
-                str2 = pkModule.disagree.pk_desc;
-            }
-            aVar5.b = str2;
-            a aVar6 = this.e;
-            tbclient.NewTopicList.PkItem pkItem2 = pkModule.disagree;
-            aVar6.c = pkItem2.last_username;
-            aVar6.d = pkItem2.pk_icon;
-            if (pkItem2.has_clicked.longValue() != 1) {
-                z2 = false;
-            }
-            aVar6.e = z2;
-            this.e.f = pkModule.disagree.pk_index.longValue();
-            this.e.g = pkModule.disagree.pk_icon_after;
+            return null;
         }
-    }
-
-    public void c(tbclient.PkModule pkModule) {
-        String str;
-        boolean z;
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            this.b = pkModule.pk_id.longValue();
-            this.c = pkModule.user_pk_id.longValue();
-            a aVar = new a(this);
-            this.d = aVar;
-            aVar.a = pkModule.agree.pk_num.longValue();
-            a aVar2 = this.d;
-            if (StringUtils.isNull(pkModule.agree.pk_desc)) {
-                str = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16ba);
-            } else {
-                str = pkModule.agree.pk_desc;
-            }
-            aVar2.b = str;
-            a aVar3 = this.d;
-            tbclient.PkItem pkItem = pkModule.agree;
-            aVar3.c = pkItem.last_username;
-            aVar3.d = pkItem.pk_icon;
-            boolean z2 = true;
-            if (pkItem.has_clicked.longValue() == 1) {
-                z = true;
-            } else {
-                z = false;
-            }
-            aVar3.e = z;
-            this.d.f = pkModule.agree.pk_index.longValue();
-            this.d.g = pkModule.agree.pk_icon_after;
-            a aVar4 = new a(this);
-            this.e = aVar4;
-            aVar4.a = pkModule.disagree.pk_num.longValue();
-            a aVar5 = this.e;
-            if (StringUtils.isNull(pkModule.disagree.pk_desc)) {
-                str2 = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f16b9);
-            } else {
-                str2 = pkModule.disagree.pk_desc;
-            }
-            aVar5.b = str2;
-            a aVar6 = this.e;
-            tbclient.PkItem pkItem2 = pkModule.disagree;
-            aVar6.c = pkItem2.last_username;
-            aVar6.d = pkItem2.pk_icon;
-            if (pkItem2.has_clicked.longValue() != 1) {
-                z2 = false;
-            }
-            aVar6.e = z2;
-            this.e.f = pkModule.disagree.pk_index.longValue();
-            this.e.g = pkModule.disagree.pk_icon_after;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

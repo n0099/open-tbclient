@@ -1,140 +1,183 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.funAd.strategy.FunAdSidConfigData;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class iv7 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile iv7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, FunAdSidConfigData> a;
 
-    public iv7() {
+    public static int d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        HashMap hashMap = new HashMap();
-        this.a = hashMap;
-        hashMap.clear();
-        this.a.putAll(c());
-    }
-
-    public final Map<String, FunAdSidConfigData> c() {
-        InterceptResult invokeV;
-        FunAdSidConfigData d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str : jv7.e().c()) {
-                if (!TextUtils.isEmpty(str) && (d = d(str)) != null) {
-                    hashMap.put(str, d);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 5) {
+                        if (i != 6) {
+                            if (i != 7) {
+                                return i != 8 ? -1 : 4;
+                            }
+                            return 3;
+                        }
+                        return 2;
+                    }
+                    return 0;
                 }
+                return 1;
             }
-            return hashMap;
+            return 0;
         }
-        return (Map) invokeV.objValue;
+        return invokeI.intValue;
     }
 
-    public static iv7 e() {
+    public static int f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i != 3) {
+                            return i != 4 ? -1 : 8;
+                        }
+                        return 7;
+                    }
+                    return 6;
+                }
+                return 3;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static int g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            return 1;
+                        }
+                        if (i != 4) {
+                            return -1;
+                        }
+                    }
+                    return 4;
+                }
+                return 3;
+            }
+            return 2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            try {
+                SharedPreferences.Editor edit = c().edit();
+                edit.clear();
+                edit.commit();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (iv7.class) {
-                    if (b == null) {
-                        b = new iv7();
+            return "pref_name_frs_sortType_" + TbadkCoreApplication.getCurrentAccount();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static SharedPreferences c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return TbadkCoreApplication.getInst().getSharedPreferences(b(), 0);
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public static int e(int i, FrsRequestData frsRequestData) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, frsRequestData)) == null) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 5) {
+                        if (i != 6) {
+                            if (i != 7) {
+                                if (i == 8 && frsRequestData != null) {
+                                    frsRequestData.setSortType(4);
+                                    frsRequestData.c0(0);
+                                }
+                            } else if (frsRequestData != null) {
+                                frsRequestData.setSortType(3);
+                                frsRequestData.c0(0);
+                            }
+                        } else if (frsRequestData != null) {
+                            frsRequestData.setSortType(2);
+                            frsRequestData.c0(0);
+                        }
+                    } else if (frsRequestData != null) {
+                        frsRequestData.setSortType(0);
+                        frsRequestData.c0(1);
                     }
+                } else if (frsRequestData != null) {
+                    frsRequestData.setSortType(1);
+                    frsRequestData.c0(0);
                 }
+            } else if (frsRequestData != null) {
+                frsRequestData.setSortType(0);
+                frsRequestData.c0(0);
             }
-            return b;
+            return 1;
         }
-        return (iv7) invokeV.objValue;
+        return invokeIL.intValue;
     }
 
-    public final FunAdSidConfigData a(JSONObject jSONObject) {
+    public static int h(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            FunAdSidConfigData funAdSidConfigData = new FunAdSidConfigData();
-            funAdSidConfigData.parserJson(jSONObject);
-            return funAdSidConfigData;
-        }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public FunAdSidConfigData b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a != null && !TextUtils.isEmpty(str) && this.a.containsKey(str)) {
-                return this.a.get(str);
-            }
-            return null;
-        }
-        return (FunAdSidConfigData) invokeL.objValue;
-    }
-
-    public final FunAdSidConfigData d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            JSONObject jSONObject = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String string = jv7.g().getString(str, "");
-            if (TextUtils.isEmpty(string)) {
-                return null;
+                return -1;
             }
             try {
-                jSONObject = new JSONObject(string);
-            } catch (JSONException e) {
-                BdLog.detailException(e);
+                return c().getInt(str, -1);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
             }
-            return a(jSONObject);
         }
-        return (FunAdSidConfigData) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public final void g(String str) {
-        FunAdSidConfigData funAdSidConfigData;
-        JSONObject json;
+    public static void i(String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || this.a == null || TextUtils.isEmpty(str) || !this.a.containsKey(str) || (funAdSidConfigData = this.a.get(str)) == null || (json = funAdSidConfigData.toJson()) == null) {
+        if ((interceptable != null && interceptable.invokeLI(65544, null, str, i) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        EditorHelper.putString(jv7.g(), str, json.toString());
-    }
-
-    public void f(String str, FunAdSidConfigData funAdSidConfigData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, str, funAdSidConfigData) == null) && this.a != null && !TextUtils.isEmpty(str)) {
-            this.a.put(str, funAdSidConfigData);
-            g(str);
+        try {
+            SharedPreferences.Editor edit = c().edit();
+            edit.putInt(str, i);
+            edit.apply();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

@@ -1,41 +1,86 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
 import java.io.File;
-/* loaded from: classes8.dex */
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URLConnection;
+import java.util.zip.GZIPInputStream;
+/* loaded from: classes9.dex */
 public class zs4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948370510, "Lcom/baidu/tieba/zs4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    @NonNull
+    public static String a(@NonNull File file) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            String canonicalPath = file.getCanonicalPath();
+            if (!canonicalPath.endsWith("/")) {
+                return canonicalPath + "/";
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948370510, "Lcom/baidu/tieba/zs4;");
-                return;
-            }
+            return canonicalPath;
         }
-        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
+        return (String) invokeL.objValue;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    @NonNull
+    public static String c(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new File(a + File.separator + "libzeuswebviewchromium.so").exists();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
+            if (guessContentTypeFromName == null) {
+                return "text/plain";
+            }
+            return guessContentTypeFromName;
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    @NonNull
+    public static InputStream e(@NonNull File file) throws FileNotFoundException, IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
+            return d(file.getPath(), new FileInputStream(file));
+        }
+        return (InputStream) invokeL.objValue;
+    }
+
+    @Nullable
+    public static File b(@NonNull File file, @NonNull String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
+            String a = a(file);
+            String canonicalPath = new File(file, str).getCanonicalPath();
+            if (canonicalPath.startsWith(a)) {
+                return new File(canonicalPath);
+            }
+            return null;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    @NonNull
+    public static InputStream d(@NonNull String str, @NonNull InputStream inputStream) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) {
+            if (str.endsWith(".svgz")) {
+                return new GZIPInputStream(inputStream);
+            }
+            return inputStream;
+        }
+        return (InputStream) invokeLL.objValue;
     }
 }

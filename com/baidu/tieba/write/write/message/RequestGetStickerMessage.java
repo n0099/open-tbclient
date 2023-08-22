@@ -19,7 +19,7 @@ public class RequestGetStickerMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1184common;
+    public CommonReq f1186common;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public RequestGetStickerMessage() {
@@ -46,7 +46,7 @@ public class RequestGetStickerMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1385common = this.f1184common;
+            builder.f1388common = this.f1186common;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
                 NetMessageHelper.bindCommonParamsToProtobufData(builder, true);
             }
@@ -60,7 +60,7 @@ public class RequestGetStickerMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, commonReq) == null) {
-            this.f1184common = commonReq;
+            this.f1186common = commonReq;
         }
     }
 }

@@ -6,7 +6,7 @@ import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.hz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -85,7 +85,7 @@ public final class PersonCenterH5Helper {
             JSONLikeSerializable lightEmotionJsonStr = TbSingleton.getInstance().getLightEmotionJsonStr();
             Intrinsics.checkNotNullExpressionValue(lightEmotionJsonStr, "getInstance().lightEmotionJsonStr");
             hashMap.put("interact_memes", lightEmotionJsonStr);
-            cz4 j = cz4.j(TbadkCoreApplication.getInst(), PERSON_CENTER_MAIN_URL);
+            hz4 j = hz4.j(TbadkCoreApplication.getInst(), PERSON_CENTER_MAIN_URL);
             j.f(hashMap);
             j.p();
             return true;

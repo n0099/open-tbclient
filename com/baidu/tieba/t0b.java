@@ -1,89 +1,80 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.turbonet.net.InlineExecutionProhibitedException;
-import java.util.concurrent.Executor;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public final class t0b implements Executor {
+public final class t0b extends BaseDraftBiz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
 
-    /* loaded from: classes8.dex */
-    public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Runnable a;
-        public Thread b;
-        public InlineExecutionProhibitedException c;
-
-        public a(Runnable runnable, Thread thread) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {runnable, thread};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = runnable;
-            this.b = thread;
-        }
-
-        public /* synthetic */ a(Runnable runnable, Thread thread, r0b r0bVar) {
-            this(runnable, thread);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (Thread.currentThread() == this.b) {
-                    this.c = new InlineExecutionProhibitedException();
-                } else {
-                    this.a.run();
-                }
-            }
-        }
-    }
-
-    public t0b(Executor executor) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t0b(TbPageContext<?> pageContext, TbWebView webView, WriteData writeData, a0b writePageState) {
+        super(pageContext, webView, writeData, writePageState);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
+            Object[] objArr = {pageContext, webView, writeData, writePageState};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (TbWebView) objArr2[1], (WriteData) objArr2[2], (a0b) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = executor;
+        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
+        Intrinsics.checkNotNullParameter(webView, "webView");
+        Intrinsics.checkNotNullParameter(writeData, "writeData");
+        Intrinsics.checkNotNullParameter(writePageState, "writePageState");
     }
 
-    @Override // java.util.concurrent.Executor
-    public void execute(Runnable runnable) {
+    @Override // com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz
+    public void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            a aVar = new a(runnable, Thread.currentThread(), null);
-            this.a.execute(aVar);
-            if (aVar.c != null) {
-                throw aVar.c;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.s();
+            if (TextUtils.isEmpty(k().getTopicId())) {
+                dfa.y(t(), k(), true);
+            } else {
+                dfa.F(k().getTopicId(), null);
             }
-            aVar.b = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (TextUtils.isEmpty(k().getTopicId())) {
+                dfa.n(t(), this);
+            } else {
+                dfa.u(k().getTopicId(), this);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.write.webwrite.hybirdlistener.draft.BaseDraftBiz
+    public void x() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && 13 != k().getType() && 14 != k().getType() && 12 != k().getType()) {
+            if (TextUtils.isEmpty(k().getTopicId())) {
+                dfa.x(t(), k());
+            } else {
+                dfa.F(k().getTopicId(), k());
+            }
         }
     }
 }

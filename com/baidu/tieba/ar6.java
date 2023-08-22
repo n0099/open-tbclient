@@ -1,28 +1,22 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.view.SingleLinkCardView;
+import com.baidu.tieba.y47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class ar6 implements z97 {
+public class ar6 implements y47.m {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, String> a;
-
-    @Override // com.baidu.tieba.z97
-    public String getKey() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW : (String) invokeV.objValue;
-    }
 
     public ar6() {
         Interceptable interceptable = $ic;
@@ -34,64 +28,57 @@ public final class ar6 implements z97 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.y47.r
+    public void a(@NonNull ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof SingleLinkCardView)) {
+            ((SingleLinkCardView) viewGroup).d();
+        }
+    }
+
+    @Override // com.baidu.tieba.y47.m
+    @NonNull
+    public ViewGroup create(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new SingleLinkCardView(context);
+        }
+        return (ViewGroup) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.y47.m
+    public void update(@NonNull ViewGroup viewGroup, @NonNull h67 h67Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, h67Var) == null) && (viewGroup instanceof SingleLinkCardView)) {
+            e87 d = h67Var.d();
+            if (d.i() == 6) {
+                PbGoodsData pbGoodsData = new PbGoodsData();
+                pbGoodsData.title = d.h();
+                pbGoodsData.picUrl = d.f();
+                pbGoodsData.price = d.c();
+                pbGoodsData.linkUrl = d.e();
+                pbGoodsData.sort = d.g();
+                pbGoodsData.linkFrom = d.d();
+                pbGoodsData.goodsUrlH5 = d.a();
+                ((SingleLinkCardView) viewGroup).a(pbGoodsData);
                 return;
             }
+            PbLinkData pbLinkData = new PbLinkData();
+            pbLinkData.title = d.h();
+            pbLinkData.linkUrl = d.e();
+            pbLinkData.picUrl = d.f();
+            pbLinkData.linkFrom = d.d();
+            pbLinkData.extTxt = d.c();
+            pbLinkData.sort = d.g();
+            pbLinkData.urlType = d.i();
+            pbLinkData.content1 = d.a();
+            pbLinkData.content2 = d.b();
+            ((SingleLinkCardView) viewGroup).a(pbLinkData);
         }
-        this.a = new HashMap<>();
-    }
-
-    @Override // com.baidu.tieba.z97
-    public Map<String, String> a(m57 businessInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
-            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
-            Map<String, String> a = businessInfo.a();
-            HashMap<String, String> hashMap = this.a;
-            String str = a.get("has_customstate");
-            String str2 = "";
-            if (str == null) {
-                str = "";
-            }
-            hashMap.put("obj_source", str);
-            if (Intrinsics.areEqual(a.get("has_customstate"), "1")) {
-                HashMap<String, String> hashMap2 = this.a;
-                String str3 = a.get("customstate_name");
-                if (str3 == null) {
-                    str3 = "";
-                }
-                hashMap2.put("obj_name", str3);
-            }
-            HashMap<String, String> hashMap3 = this.a;
-            String str4 = a.get("user_id");
-            if (str4 != null) {
-                str2 = str4;
-            }
-            hashMap3.put(TiebaStatic.Params.FRIEND_UID, str2);
-            return this.a;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public final ar6 b(String locate) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, locate)) == null) {
-            Intrinsics.checkNotNullParameter(locate, "locate");
-            this.a.put("obj_locate", locate);
-            return this;
-        }
-        return (ar6) invokeL.objValue;
-    }
-
-    public final ar6 d(String type) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, type)) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            this.a.put("obj_type", type);
-            return this;
-        }
-        return (ar6) invokeL.objValue;
     }
 }

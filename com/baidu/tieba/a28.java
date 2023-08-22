@@ -1,49 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.MoreTreasureTrove.DataRes;
-import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
-import tbclient.ThreadInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.RecomVertical.SubClassItem;
 /* loaded from: classes5.dex */
-public class a28 {
+public class a28 extends m15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public int d;
 
-    public static List<ym> a(List<ThreadInfo> list) {
-        InterceptResult invokeL;
+    public a28() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            ArrayList arrayList = new ArrayList(list.size());
-            for (ThreadInfo threadInfo : list) {
-                ThreadData threadData = new ThreadData();
-                threadData.parserProtobuf(threadInfo);
-                threadData.isFromLowFlowsPage = true;
-                arrayList.add(threadData);
-            }
-            return o08.a(arrayList);
         }
-        return (List) invokeL.objValue;
     }
 
-    public static List<ym> b(MoreTreasureTroveResIdl moreTreasureTroveResIdl) {
-        InterceptResult invokeL;
-        DataRes dataRes;
+    public void a(SubClassItem subClassItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, moreTreasureTroveResIdl)) == null) {
-            if (moreTreasureTroveResIdl != null && (dataRes = moreTreasureTroveResIdl.data) != null && !ListUtils.isEmpty(dataRes.hot_thread_info)) {
-                return a(moreTreasureTroveResIdl.data.hot_thread_info);
-            }
-            return null;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, subClassItem) != null) || subClassItem == null) {
+            return;
         }
-        return (List) invokeL.objValue;
+        this.a = subClassItem.sub_class_id.intValue();
+        this.b = subClassItem.sub_class_name;
+        this.c = subClassItem.sub_class_icon;
+        this.d = subClassItem.enable.intValue();
+    }
+
+    @Override // com.baidu.tieba.m15
+    public void parserJson(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optInt("sub_class_id");
+        this.b = jSONObject.optString("sub_class_name");
+        this.c = jSONObject.optString("sub_class_icon");
+        this.d = jSONObject.optInt("enable");
     }
 }

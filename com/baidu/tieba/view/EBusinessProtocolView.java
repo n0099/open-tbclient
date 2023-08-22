@@ -22,7 +22,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.y95;
+import com.baidu.tieba.fa5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -398,15 +398,15 @@ public class EBusinessProtocolView extends Dialog {
                     this.f.setVisibility(0);
                     this.e.setVisibility(0);
                     this.d.loadUrl(this.l);
-                    y95 y95Var = new y95();
-                    y95Var.r(R.color.CAM_X0107);
-                    this.e.setConfig(y95Var);
+                    fa5 fa5Var = new fa5();
+                    fa5Var.r(R.color.CAM_X0107);
+                    this.e.setConfig(fa5Var);
                     this.e.setTextSize(R.dimen.tbds42);
                     this.e.setText(this.a.getResources().getString(R.string.protocol_cancel));
                     this.f.setTextSize(R.dimen.tbds42);
-                    y95 y95Var2 = new y95();
-                    y95Var2.r(R.color.CAM_X0302);
-                    this.f.setConfig(y95Var2);
+                    fa5 fa5Var2 = new fa5();
+                    fa5Var2.r(R.color.CAM_X0302);
+                    this.f.setConfig(fa5Var2);
                     this.f.setTextSize(R.dimen.tbds42);
                     this.f.setText(this.a.getResources().getString(R.string.protocol_agree));
                     return;
@@ -418,10 +418,10 @@ public class EBusinessProtocolView extends Dialog {
             setCanceledOnTouchOutside(true);
             this.g.setText(this.k);
             this.h.setText(this.a.getResources().getString(R.string.tip_known));
-            y95 y95Var3 = new y95();
-            y95Var3.r(R.color.CAM_X0302);
+            fa5 fa5Var3 = new fa5();
+            fa5Var3.r(R.color.CAM_X0302);
             this.h.setTextSize(R.dimen.T_X08);
-            this.h.setConfig(y95Var3);
+            this.h.setConfig(fa5Var3);
         }
     }
 

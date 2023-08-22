@@ -12,9 +12,9 @@ import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrackConfig;
 import com.baidu.minivideo.effect.core.vlogedit.MediaTransition;
 import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import com.baidu.tieba.o9b;
-import com.baidu.tieba.v6b;
-import com.baidu.tieba.xg0;
+import com.baidu.tieba.ah0;
+import com.baidu.tieba.dgb;
+import com.baidu.tieba.kdb;
 import com.baidu.ugc.editvideo.data.MultiMediaDataTrack;
 import com.baidu.ugc.editvideo.record.entity.EffectInfo;
 import com.baidu.ugc.editvideo.record.entity.TemplateInfo;
@@ -70,7 +70,7 @@ public class InnerImportExportConfigUtil {
         HashMap hashMap2 = new HashMap();
         if (map != null) {
             for (Map.Entry<String, ShaderConfig> entry : map.entrySet()) {
-                if (!TextUtils.equals(entry.getKey(), xg0.b) && !TextUtils.equals(entry.getKey(), xg0.e) && (!TextUtils.equals(entry.getKey(), xg0.c) || !o9b.e(entry.getValue().textures))) {
+                if (!TextUtils.equals(entry.getKey(), ah0.b) && !TextUtils.equals(entry.getKey(), ah0.e) && (!TextUtils.equals(entry.getKey(), ah0.c) || !dgb.e(entry.getValue().textures))) {
                     ShaderConfig shaderConfig = (ShaderConfig) entry.getValue().clone();
                     if (!TextUtils.isEmpty(shaderConfig.resourcePath)) {
                         File file = new File(shaderConfig.resourcePath);
@@ -118,13 +118,13 @@ public class InnerImportExportConfigUtil {
             int i2 = 0;
             while (i2 < list.size()) {
                 MediaTrack mediaTrack2 = list2.get(i2);
-                if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT) || !xg0.m(mediaTrack2, "input_blank")) {
+                if (TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT) || !ah0.m(mediaTrack2, "input_blank")) {
                     if (!TextUtils.equals(str3, MediaTrackConfig.AE_IMPORT_DRAFT)) {
-                        if (xg0.m(mediaTrack2, "edit_sticker")) {
+                        if (ah0.m(mediaTrack2, "edit_sticker")) {
                             mediaTrack2.mediaSegments = null;
                             mediaTrack2.mediaTransitions = null;
                         }
-                        if (!o9b.e(mediaTrack2.mediaAEffectKeyData)) {
+                        if (!dgb.e(mediaTrack2.mediaAEffectKeyData)) {
                             for (MediaAEffectKeyData mediaAEffectKeyData : mediaTrack2.mediaAEffectKeyData) {
                                 mediaAEffectKeyData.calculateEffectKeys = null;
                             }
@@ -385,7 +385,7 @@ public class InnerImportExportConfigUtil {
             }
             file2.createNewFile();
             FileOutputStream fileOutputStream = new FileOutputStream(file2);
-            fileOutputStream.write(new v6b().a(mediaAEffect).getBytes());
+            fileOutputStream.write(new kdb().a(mediaAEffect).getBytes());
             fileOutputStream.flush();
             fileOutputStream.close();
             ShaderConfig shaderConfig2 = new ShaderConfig();
@@ -393,7 +393,7 @@ public class InnerImportExportConfigUtil {
             String str2 = shaderConfig.fragmentShader;
             String str3 = shaderConfig.vertexShader;
             if (!TextUtils.isEmpty(str2) && !str2.contains("default")) {
-                String f = xg0.f(context, parent, str2, "");
+                String f = ah0.f(context, parent, str2, "");
                 if (!TextUtils.isEmpty(f)) {
                     if (!str2.endsWith(".glsl")) {
                         str2 = str2 + ".glsl";
@@ -408,7 +408,7 @@ public class InnerImportExportConfigUtil {
                 }
             }
             if (!TextUtils.isEmpty(str3) && !str3.contains("default")) {
-                String j = xg0.j(context, parent, str3);
+                String j = ah0.j(context, parent, str3);
                 if (!TextUtils.isEmpty(j)) {
                     if (!str3.endsWith(".glsl")) {
                         str3 = str3 + ".glsl";
@@ -432,7 +432,7 @@ public class InnerImportExportConfigUtil {
                 shaderConfig2.textures = mediaTextureDates;
             }
             FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file, "shader_config.json"));
-            fileOutputStream4.write(new v6b().a(shaderConfig2).getBytes());
+            fileOutputStream4.write(new kdb().a(shaderConfig2).getBytes());
             fileOutputStream4.close();
             File file5 = new File(file.getParent(), mediaAEffect.name + ".zip");
             file5.createNewFile();
@@ -508,7 +508,7 @@ public class InnerImportExportConfigUtil {
         }
         mediaTrackConfig.shaderConfigMapDebug = null;
         List<String> transitionResourceList = getTransitionResourceList(file3, mediaTrackConfig, onExportListener);
-        if (o9b.e(transitionResourceList)) {
+        if (dgb.e(transitionResourceList)) {
             file3.delete();
         } else {
             mediaTrackConfig.transitionResourceList = transitionResourceList;
@@ -527,7 +527,7 @@ public class InnerImportExportConfigUtil {
             if (!file6.exists()) {
                 file6.createNewFile();
             }
-            String a = new v6b().a(templateInfo2);
+            String a = new kdb().a(templateInfo2);
             FileOutputStream fileOutputStream = new FileOutputStream(file6);
             fileOutputStream.write(a.getBytes());
             fileOutputStream.close();
@@ -570,7 +570,7 @@ public class InnerImportExportConfigUtil {
             }
             file2.createNewFile();
             FileOutputStream fileOutputStream = new FileOutputStream(file2);
-            fileOutputStream.write(new v6b().a(mediaTransition).getBytes());
+            fileOutputStream.write(new kdb().a(mediaTransition).getBytes());
             fileOutputStream.flush();
             fileOutputStream.close();
             ShaderConfig shaderConfig2 = new ShaderConfig();
@@ -578,7 +578,7 @@ public class InnerImportExportConfigUtil {
             String str3 = shaderConfig.fragmentShader;
             String str4 = shaderConfig.vertexShader;
             if (!TextUtils.isEmpty(str3) && !str3.contains("default")) {
-                String f = xg0.f(context, parent, str3, "");
+                String f = ah0.f(context, parent, str3, "");
                 if (!TextUtils.isEmpty(f)) {
                     if (!str3.endsWith(".glsl")) {
                         str3 = str3 + ".glsl";
@@ -593,7 +593,7 @@ public class InnerImportExportConfigUtil {
                 }
             }
             if (!TextUtils.isEmpty(str4) && !str4.contains("default")) {
-                String j = xg0.j(context, parent, str4);
+                String j = ah0.j(context, parent, str4);
                 if (!TextUtils.isEmpty(j)) {
                     if (!str4.endsWith(".glsl")) {
                         str4 = str4 + ".glsl";
@@ -617,7 +617,7 @@ public class InnerImportExportConfigUtil {
                 shaderConfig2.textures = mediaTextureDates;
             }
             FileOutputStream fileOutputStream4 = new FileOutputStream(new File(file, str2 + ".json"));
-            fileOutputStream4.write(new v6b().a(shaderConfig2).getBytes());
+            fileOutputStream4.write(new kdb().a(shaderConfig2).getBytes());
             fileOutputStream4.close();
             File file5 = new File(file.getParent(), mediaTransition.name + ".zip");
             file5.createNewFile();
@@ -658,7 +658,7 @@ public class InnerImportExportConfigUtil {
                     e = e;
                 }
                 try {
-                    fileOutputStream.write(new v6b().a(entry.getValue()).getBytes());
+                    fileOutputStream.write(new kdb().a(entry.getValue()).getBytes());
                     fileOutputStream.flush();
                     hashMap.put(key, file.getName() + File.separator + file2.getName());
                     try {
@@ -743,7 +743,7 @@ public class InnerImportExportConfigUtil {
                     if (!name.contains(".")) {
                         name = mediaTextureData.path + ".png";
                     }
-                    FileUtils.saveBitmap2PNG(file.getPath(), name, xg0.g(context, mediaTextureData.path), 100);
+                    FileUtils.saveBitmap2PNG(file.getPath(), name, ah0.g(context, mediaTextureData.path), 100);
                 }
                 mediaTextureData.path = name;
                 if (mediaTextureData.textureId == 0) {
@@ -754,8 +754,8 @@ public class InnerImportExportConfigUtil {
         return arrayList;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00fd A[Catch: IOException -> 0x0182, TryCatch #1 {IOException -> 0x0182, blocks: (B:27:0x00ae, B:29:0x00c0, B:31:0x00cb, B:32:0x00ce, B:36:0x00e7, B:38:0x00ed, B:40:0x00f3, B:42:0x00fd, B:44:0x0103, B:45:0x0112, B:47:0x011d, B:48:0x0120, B:49:0x012f, B:51:0x015a, B:52:0x015c), top: B:67:0x00ae }] */
-    /* JADX WARN: Removed duplicated region for block: B:51:0x015a A[Catch: IOException -> 0x0182, TryCatch #1 {IOException -> 0x0182, blocks: (B:27:0x00ae, B:29:0x00c0, B:31:0x00cb, B:32:0x00ce, B:36:0x00e7, B:38:0x00ed, B:40:0x00f3, B:42:0x00fd, B:44:0x0103, B:45:0x0112, B:47:0x011d, B:48:0x0120, B:49:0x012f, B:51:0x015a, B:52:0x015c), top: B:67:0x00ae }] */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x00fc A[Catch: IOException -> 0x0181, TryCatch #1 {IOException -> 0x0181, blocks: (B:27:0x00ad, B:29:0x00bf, B:31:0x00ca, B:32:0x00cd, B:36:0x00e6, B:38:0x00ec, B:40:0x00f2, B:42:0x00fc, B:44:0x0102, B:45:0x0111, B:47:0x011c, B:48:0x011f, B:49:0x012e, B:51:0x0159, B:52:0x015b), top: B:67:0x00ad }] */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x0159 A[Catch: IOException -> 0x0181, TryCatch #1 {IOException -> 0x0181, blocks: (B:27:0x00ad, B:29:0x00bf, B:31:0x00ca, B:32:0x00cd, B:36:0x00e6, B:38:0x00ec, B:40:0x00f2, B:42:0x00fc, B:44:0x0102, B:45:0x0111, B:47:0x011c, B:48:0x011f, B:49:0x012e, B:51:0x0159, B:52:0x015b), top: B:67:0x00ad }] */
     @NonNull
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -790,7 +790,7 @@ public class InnerImportExportConfigUtil {
                         if (!TextUtils.isEmpty(str2)) {
                             try {
                                 if (!str2.contains("default")) {
-                                    String f = xg0.f(context, parent, str2, next.getKey());
+                                    String f = ah0.f(context, parent, str2, next.getKey());
                                     if (!TextUtils.isEmpty(f)) {
                                         if (str2.endsWith(".glsl")) {
                                             hashMap = hashMap2;
@@ -817,7 +817,7 @@ public class InnerImportExportConfigUtil {
                                         fileOutputStream.close();
                                         str2 = str4;
                                         if (!TextUtils.isEmpty(str3) && !str3.contains("default")) {
-                                            j = xg0.j(context, parent, str3);
+                                            j = ah0.j(context, parent, str3);
                                             if (!TextUtils.isEmpty(j)) {
                                                 if (!str3.endsWith(".glsl")) {
                                                     str3 = str3 + ".glsl";
@@ -841,7 +841,7 @@ public class InnerImportExportConfigUtil {
                                             shaderConfig.textures = mediaTextureDates;
                                         }
                                         FileOutputStream fileOutputStream3 = new FileOutputStream(file3);
-                                        fileOutputStream3.write(new v6b().a(shaderConfig).getBytes());
+                                        fileOutputStream3.write(new kdb().a(shaderConfig).getBytes());
                                         fileOutputStream3.close();
                                         hashMap2 = hashMap;
                                         hashMap2.put(key, file3.getPath().replace(str, ""));
@@ -853,7 +853,7 @@ public class InnerImportExportConfigUtil {
                         }
                         hashMap = hashMap2;
                         if (!TextUtils.isEmpty(str3)) {
-                            j = xg0.j(context, parent, str3);
+                            j = ah0.j(context, parent, str3);
                             if (!TextUtils.isEmpty(j)) {
                             }
                         }
@@ -866,7 +866,7 @@ public class InnerImportExportConfigUtil {
                         if (mediaTextureDates.size() > 0) {
                         }
                         FileOutputStream fileOutputStream32 = new FileOutputStream(file3);
-                        fileOutputStream32.write(new v6b().a(shaderConfig).getBytes());
+                        fileOutputStream32.write(new kdb().a(shaderConfig).getBytes());
                         fileOutputStream32.close();
                         hashMap2 = hashMap;
                         hashMap2.put(key, file3.getPath().replace(str, ""));
@@ -911,7 +911,7 @@ public class InnerImportExportConfigUtil {
                     e = e;
                 }
                 try {
-                    fileOutputStream.write(new v6b().a(mediaTransition).getBytes());
+                    fileOutputStream.write(new kdb().a(mediaTransition).getBytes());
                     fileOutputStream.flush();
                     arrayList.add(file.getName() + File.separator + file2.getName());
                     try {

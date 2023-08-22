@@ -1,34 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes9.dex */
 public class z99 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public TextView b;
-    public View c;
-    public View d;
-    public LinearLayout e;
+    public List<String> a;
+    public String b;
 
-    public z99(TbPageContext tbPageContext) {
+    public z99(BdPageContext<?> bdPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {bdPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,78 +31,42 @@ public class z99 {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d029f, (ViewGroup) null, false);
-        this.d = inflate;
-        LinearLayout linearLayout = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0909c6);
-        this.e = linearLayout;
-        linearLayout.setVisibility(8);
-        this.a = this.d.findViewById(R.id.obfuscated_res_0x7f0909c9);
-        this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0909cf);
-        View findViewById = this.d.findViewById(R.id.obfuscated_res_0x7f0909c3);
-        this.c = findViewById;
-        findViewById.setVisibility(8);
+        this.b = "7a7c80";
+        ArrayList arrayList = new ArrayList();
+        this.a = arrayList;
+        arrayList.add("7a7c80");
+        this.a.add("f55925");
+        this.a.add("ff5460");
+        this.a.add("cc3314");
+        this.a.add("26bf85");
+        this.a.add("33aaff");
+        this.a.add("3385ff");
+        this.a.add("3668b2");
+        this.a.add("673699");
     }
 
-    public View a() {
+    public List<String> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            return this.a;
         }
-        return (View) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void c() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (r99.b().a()) {
-                this.c.setVisibility(0);
-            } else {
-                this.c.setVisibility(8);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            View view2 = this.a;
-            if (view2 != null) {
-                SkinManager.setBackgroundColor(view2, R.color.CAM_X0204, i);
-            }
-            LinearLayout linearLayout = this.e;
-            if (linearLayout != null) {
-                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0204, i);
-            }
-            TextView textView = this.b;
-            if (textView != null) {
-                SkinManager.setViewTextColor(textView, R.color.CAM_X0107, i);
-                SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204, i);
-            }
-            View view3 = this.c;
-            if (view3 != null) {
-                SkinManager.setViewTextColor(view3, R.color.CAM_X0107, i);
-                SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204, i);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    public void update(Integer num) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, num) != null) || num == null) {
-            return;
-        }
-        if (num.intValue() == 0) {
-            this.e.setVisibility(8);
-        } else {
-            this.b.setText(String.format(si.a(R.string.obfuscated_res_0x7f0f064d), num));
-            this.e.setVisibility(0);
-        }
-        if (r99.b().a()) {
-            this.c.setVisibility(0);
-        } else {
-            this.c.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.b = str;
         }
     }
 }

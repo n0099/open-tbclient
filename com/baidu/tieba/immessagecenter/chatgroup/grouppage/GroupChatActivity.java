@@ -29,8 +29,8 @@ import com.baidu.tbadk.core.util.TBAlertBuilderHelper;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.dimen.TbDimenManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kg5;
-import com.baidu.tieba.nv5;
+import com.baidu.tieba.ew5;
+import com.baidu.tieba.rg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
     public View b;
     public String c;
     public GroupChatFragment d;
-    public kg5 e;
+    public rg5 e;
     public boolean f;
     public CustomMessageListener g;
 
@@ -131,7 +131,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
     }
 
     @Deprecated
-    public GroupChatFragment t1() {
+    public GroupChatFragment s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
@@ -190,7 +190,7 @@ public class GroupChatActivity extends BaseFragmentActivity {
         }
     }
 
-    public static void y1(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z) {
+    public static void z1(@NonNull Context context, String str, long j, int i, String str2, @Nullable Bundle bundle, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{context, str, Long.valueOf(j), Integer.valueOf(i), str2, bundle, Boolean.valueOf(z)}) == null) {
             Intent intent = new Intent(context, GroupChatActivity.class);
@@ -260,22 +260,22 @@ public class GroupChatActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d003c);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090c35);
+            setContentView(R.layout.obfuscated_res_0x7f0d003d);
+            this.b = findViewById(R.id.obfuscated_res_0x7f090c42);
             if (bundle == null) {
                 this.d = new GroupChatFragment();
                 Intent intent = getIntent();
                 if (intent != null) {
                     this.d.setArguments(intent.getExtras());
                 }
-                nv5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c35, this.d);
+                ew5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090c42, this.d);
             } else {
-                this.d = (GroupChatFragment) nv5.b(getSupportFragmentManager(), GroupChatFragment.class);
+                this.d = (GroupChatFragment) ew5.b(getSupportFragmentManager(), GroupChatFragment.class);
             }
             if (getIntent() != null) {
                 this.c = getIntent().getStringExtra(IntentConfig.BACK_SCHEME);
                 if (getIntent().getBooleanExtra("show_chat_list_after_finish", false)) {
-                    this.e = new kg5(getIntent().getLongExtra("roomId", 0L), true);
+                    this.e = new rg5(getIntent().getLongExtra("roomId", 0L), true);
                 }
             }
             registerListener(this.g);

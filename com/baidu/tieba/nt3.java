@@ -1,50 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.wifi.WifiManager;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.db.TableDefine;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import androidx.transition.Transition;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.mobstat.Config;
+import com.baidu.payment.PaymentManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tieba.aw2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes7.dex */
-public class nt3 {
+public class nt3 implements nw1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public a b;
-    public c c;
-    public b d;
-    public JSONObject e;
+    public PaymentManager a;
 
     /* loaded from: classes7.dex */
-    public static class a {
+    public class a extends nh1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public int c;
-        public int d;
-        public String e;
-        public String f;
-        public int g;
-        public int h;
-        public String i;
+        public final /* synthetic */ long a;
 
-        public a() {
+        public a(nt3 nt3Var, long j) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nt3Var, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = j;
+        }
+
+        @Override // com.baidu.tieba.nh1
+        public void a(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                if (nt3.b) {
+                    Log.d("RebateInfoManager", "requestBatchRebateInfo onResult: " + i + " " + str);
+                }
+                hr4.j(nt3.d());
+                hr4.N(String.valueOf(this.a), nt3.d());
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends nh1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(nt3 nt3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nt3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,173 +86,125 @@ public class nt3 {
                 }
             }
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-
-        public b() {
+        @Override // com.baidu.tieba.nh1
+        public void a(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && nt3.b) {
+                Log.d("RebateInfoManager", "requestSingleRebateInfo onResult: " + i + " " + str);
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public double b;
-        public double c;
-
-        public c() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948013948, "Lcom/baidu/tieba/nt3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948013948, "Lcom/baidu/tieba/nt3;");
+                return;
             }
         }
+        b = nr1.a;
     }
 
-    public nt3(@NonNull Context context, @NonNull JSONObject jSONObject) {
+    public nt3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, jSONObject};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a aVar = new a();
-        c cVar = new c();
-        b bVar = new b();
-        String g0 = ya3.g0();
-        String str = "";
-        this.a = TextUtils.isEmpty(g0) ? "" : g0;
-        this.b = aVar;
-        this.c = cVar;
-        this.d = bVar;
-        this.e = jSONObject;
-        String r = so3.r();
-        aVar.a = "0".equals(r) ? "" : r;
-        String a2 = a();
-        aVar.b = "0".equals(a2) ? "" : a2;
-        aVar.c = 2;
-        aVar.d = pt3.e(context) ? 3 : 2;
-        String i3 = u72.i();
-        aVar.e = "NUL".equals(i3) ? "" : i3;
-        String g = u72.g();
-        aVar.f = "NUL".equals(g) ? "" : g;
-        aVar.g = po3.n(context);
-        aVar.h = po3.o(context);
-        String b2 = b();
-        if (!TextUtils.isEmpty(b2) && !Config.DEF_MAC_ID.equals(b2)) {
-            str = b2;
-        }
-        aVar.i = str;
-        bVar.a = pt3.c();
-        bVar.b = pt3.d(context);
+        this.a = new PaymentManager();
     }
 
-    public String a() {
+    public static /* synthetic */ File d() {
+        return e();
+    }
+
+    public static File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String a2 = dw3.b.a(AppRuntime.getAppContext());
-            if (TextUtils.isEmpty(a2)) {
-                return "0";
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return new File(AppRuntime.getAppContext().getFilesDir().getPath(), "rebate_info_timestamp");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nw1
+    public boolean a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        db3 b0;
+        aw2.a W;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
+            if (!lf3.l() || (b0 = db3.b0()) == null || (W = b0.W()) == null) {
+                return false;
             }
-            return a2;
+            f(str, jq4.g().u(AppRuntime.getAppContext()), ku2.h0().i(ku2.c()), er3.i(b0.getApplicationContext()), str2, str3, ku2.n().a(), W.T());
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.nw1
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return c().toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        String str;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                str = ApiReplaceUtil.getMacAddress(((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo());
-            } catch (Exception unused) {
-                str = null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            String E = hr4.E(e());
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (!TextUtils.isEmpty(E)) {
+                try {
+                    if (currentTimeMillis - Long.parseLong(E) < 86400) {
+                        if (b) {
+                            Log.d("RebateInfoManager", "requestBatchRebateInfo: 相邻请求时间需要大于一天");
+                            return;
+                        }
+                        return;
+                    }
+                } catch (NumberFormatException e) {
+                    if (b) {
+                        e.printStackTrace();
+                        return;
+                    }
+                    return;
+                }
             }
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            return str;
+            this.a.p(new a(this, currentTimeMillis));
         }
-        return (String) invokeV.objValue;
     }
 
-    @NonNull
-    public JSONObject c() {
-        InterceptResult invokeV;
+    public final void f(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, str4, str5, str6, str7, str8}) == null) {
             JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            JSONObject jSONObject4 = new JSONObject();
             try {
-                jSONObject.put("app_id", this.a);
-                jSONObject2.put("deviceid", this.b.a);
-                jSONObject2.put("androidid", this.b.b);
-                jSONObject2.put("os_type", this.b.c);
-                jSONObject2.put(HttpConstants.DEVICE_TYPE, this.b.d);
-                jSONObject2.put("device_vendor", this.b.e);
-                jSONObject2.put("device_model", this.b.f);
-                jSONObject2.put("screen_height", this.b.g);
-                jSONObject2.put("screen_width", this.b.h);
-                jSONObject2.put("mac", this.b.i);
-                jSONObject.put(Config.DEVICE_PART, jSONObject2);
-                jSONObject3.put("coord_type", this.c.a);
-                jSONObject3.put("latitude", this.c.b);
-                jSONObject3.put("longitude", this.c.c);
-                jSONObject.put(TableDefine.DB_TABLE_USERINFO, jSONObject3);
-                jSONObject4.put("network", this.d.a);
-                jSONObject4.put("operator", this.d.b);
-                jSONObject.put("network", jSONObject4);
-                jSONObject.put("data", this.e);
+                jSONObject.put("masterId", str);
+                if (!TextUtils.isEmpty(str2)) {
+                    jSONObject.put("userPassId", str2);
+                }
+                jSONObject.put("cuid", str3);
+                jSONObject.put("bduss", str4);
+                jSONObject.put(Transition.MATCH_ITEM_ID_STR, str5);
+                jSONObject.put("businessId", str6);
+                jSONObject.put("naid", str7);
+                jSONObject.put("scene", str8);
+                this.a.o(jSONObject, new b(this));
             } catch (JSONException e) {
-                e.printStackTrace();
+                if (b) {
+                    e.printStackTrace();
+                }
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

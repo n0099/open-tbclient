@@ -1,63 +1,147 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
+import com.baidu.swan.apps.publisher.draft.DraftData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class o83 {
+public final class o83 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public o83() {
+    public static final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            File file = new File(b(), "publisher_draft");
+            if (file.exists()) {
+                file.delete();
             }
         }
     }
 
-    public static int a(Context context, int i) {
-        InterceptResult invokeLI;
+    public static final String b() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            return c(context).getInt("softinput.height", i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            db3 M = db3.M();
+            if (M != null) {
+                str = M.b;
+            } else {
+                str = null;
+            }
+            String v = li3.v(str);
+            Intrinsics.checkNotNullExpressionValue(v, "StorageUtil.getSwanAppStoreDirectory(appId)");
+            return v;
         }
-        return invokeLI.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean b(Context context, int i) {
-        InterceptResult invokeLI;
+    /* JADX WARN: Removed duplicated region for block: B:32:0x005b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static final DraftData c() {
+        InterceptResult invokeV;
+        ObjectInputStream objectInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
-            return c(context).edit().putInt("softinput.height", i).commit();
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static SharedPreferences c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (a == null) {
-                synchronized (o83.class) {
-                    if (a == null) {
-                        a = new lj3("swan.publisher", false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File file = new File(b(), "publisher_draft");
+            ObjectInputStream objectInputStream2 = null;
+            try {
+                try {
+                    if (file.exists()) {
+                        objectInputStream = new ObjectInputStream(new FileInputStream(file));
+                        try {
+                            Object readObject = objectInputStream.readObject();
+                            if (readObject != null) {
+                                DraftData draftData = (DraftData) readObject;
+                                if (System.currentTimeMillis() - draftData.getTimeStamp() > 432000000) {
+                                    objectInputStream.close();
+                                    return null;
+                                }
+                                objectInputStream.close();
+                                return draftData;
+                            }
+                            throw new NullPointerException("null cannot be cast to non-null type com.baidu.swan.apps.publisher.draft.DraftData");
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (objectInputStream != null) {
+                                objectInputStream.close();
+                            }
+                            return null;
+                        }
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    objectInputStream2 = "publisher_draft";
+                    if (objectInputStream2 != null) {
+                        objectInputStream2.close();
+                    }
+                    throw th;
                 }
+            } catch (Exception e2) {
+                e = e2;
+                objectInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (objectInputStream2 != null) {
+                }
+                throw th;
             }
-            return a;
+            return null;
         }
-        return (SharedPreferences) invokeL.objValue;
+        return (DraftData) invokeV.objValue;
+    }
+
+    public static final void d(DraftData draftData) {
+        ObjectOutputStream objectOutputStream;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, draftData) == null) && draftData != null) {
+            File file = new File(b(), "publisher_draft");
+            try {
+                if (file.exists()) {
+                    file.delete();
+                    file.createNewFile();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            ObjectOutputStream objectOutputStream2 = null;
+            try {
+                try {
+                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(file));
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                objectOutputStream.writeObject(draftData);
+                objectOutputStream.close();
+            } catch (Exception e3) {
+                e = e3;
+                objectOutputStream2 = objectOutputStream;
+                e.printStackTrace();
+                if (objectOutputStream2 != null) {
+                    objectOutputStream2.close();
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                objectOutputStream2 = objectOutputStream;
+                if (objectOutputStream2 != null) {
+                    objectOutputStream2.close();
+                }
+                throw th;
+            }
+        }
     }
 }

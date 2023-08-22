@@ -63,31 +63,31 @@ public final class ChannelKt {
     /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: java.lang.Object */
     /* JADX WARN: Multi-variable type inference failed */
     /* renamed from: getOrElse-WpGqRn0  reason: not valid java name */
-    public static final <T> T m2297getOrElseWpGqRn0(Object obj, Function1<? super Throwable, ? extends T> function1) {
+    public static final <T> T m2299getOrElseWpGqRn0(Object obj, Function1<? super Throwable, ? extends T> function1) {
         if (obj instanceof ChannelResult.Failed) {
-            return function1.invoke(ChannelResult.m2305exceptionOrNullimpl(obj));
+            return function1.invoke(ChannelResult.m2307exceptionOrNullimpl(obj));
         }
         return obj;
     }
 
     /* renamed from: onClosed-WpGqRn0  reason: not valid java name */
-    public static final <T> Object m2298onClosedWpGqRn0(Object obj, Function1<? super Throwable, Unit> function1) {
+    public static final <T> Object m2300onClosedWpGqRn0(Object obj, Function1<? super Throwable, Unit> function1) {
         if (obj instanceof ChannelResult.Closed) {
-            function1.invoke(ChannelResult.m2305exceptionOrNullimpl(obj));
+            function1.invoke(ChannelResult.m2307exceptionOrNullimpl(obj));
         }
         return obj;
     }
 
     /* renamed from: onFailure-WpGqRn0  reason: not valid java name */
-    public static final <T> Object m2299onFailureWpGqRn0(Object obj, Function1<? super Throwable, Unit> function1) {
+    public static final <T> Object m2301onFailureWpGqRn0(Object obj, Function1<? super Throwable, Unit> function1) {
         if (obj instanceof ChannelResult.Failed) {
-            function1.invoke(ChannelResult.m2305exceptionOrNullimpl(obj));
+            function1.invoke(ChannelResult.m2307exceptionOrNullimpl(obj));
         }
         return obj;
     }
 
     /* renamed from: onSuccess-WpGqRn0  reason: not valid java name */
-    public static final <T> Object m2300onSuccessWpGqRn0(Object obj, Function1<? super T, Unit> function1) {
+    public static final <T> Object m2302onSuccessWpGqRn0(Object obj, Function1<? super T, Unit> function1) {
         if (!(obj instanceof ChannelResult.Failed)) {
             function1.invoke(obj);
         }

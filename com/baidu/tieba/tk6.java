@@ -1,116 +1,66 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.exception.JsInterfaceException;
-import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes8.dex */
 public class tk6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Class<? extends AbsJsInterface>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public static r0a a(fl6 fl6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, fl6Var)) == null) {
+            r0a r0aVar = new r0a();
+            if (fl6Var != null) {
+                r0aVar.b = fl6Var.c;
+                r0aVar.e = fl6Var.g;
+                r0aVar.f = fl6Var.i;
+                r0aVar.c = fl6Var.d;
+                if (!km6.a(fl6Var.b)) {
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    r0aVar.a = arrayList;
+                    arrayList.addAll(fl6Var.b);
+                }
+                if (!km6.a(fl6Var.f)) {
+                    ArrayList<String> arrayList2 = new ArrayList<>();
+                    r0aVar.d = arrayList2;
+                    arrayList2.addAll(fl6Var.f);
+                }
+            }
+            return r0aVar;
+        }
+        return (r0a) invokeL.objValue;
     }
 
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final tk6 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-400803444, "Lcom/baidu/tieba/tk6$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-400803444, "Lcom/baidu/tieba/tk6$b;");
+    public static void b(al6 al6Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, al6Var, str) == null) {
+            try {
+                if (al6Var != null) {
+                    p0a.n().z(str, al6Var.b());
+                    p0a.n().x();
+                    if (!km6.b(al6Var.a())) {
+                        HashMap<String, r0a> hashMap = new HashMap<>();
+                        for (Map.Entry<String, fl6> entry : al6Var.a().entrySet()) {
+                            hashMap.put(entry.getKey(), a(entry.getValue()));
+                        }
+                        q0a.a().l(str, hashMap);
+                    }
+                    q0a.a().h(true, str);
                     return;
                 }
+                p0a.n().h(str);
+                p0a.n().x();
+                q0a.a().f(str);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-            a = new tk6(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948184138, "Lcom/baidu/tieba/tk6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948184138, "Lcom/baidu/tieba/tk6;");
-                return;
-            }
-        }
-        a = new HashMap();
-    }
-
-    public tk6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static tk6 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (tk6) invokeV.objValue;
-    }
-
-    public Map<String, Class<? extends AbsJsInterface>> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HashMap hashMap = new HashMap();
-            if (!a.isEmpty()) {
-                hashMap.putAll(a);
-            }
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public /* synthetic */ tk6(a aVar) {
-        this();
-    }
-
-    public void c(String str, Class<? extends AbsJsInterface> cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls) == null) {
-            if (!a.containsKey(str)) {
-                a.put(str, cls);
-                return;
-            }
-            throw new JsInterfaceException("注册JsInterface失败！");
         }
     }
 }

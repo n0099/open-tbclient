@@ -1,94 +1,161 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.emotion.editortool.EmotionTabHost;
+import com.baidu.tbadk.core.data.ItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ApkDetail;
+import tbclient.ManageInfo;
 /* loaded from: classes7.dex */
-public class ox6 extends xh5 {
+public class ox6 implements bn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
+    public ItemData a;
+    public int b;
+    public int c;
+    public boolean d;
+    public boolean e;
+    public boolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ox6(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_express), 5, i);
+    public static boolean e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? i == 3 || i == 4 : invokeI.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948047676, "Lcom/baidu/tieba/ox6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948047676, "Lcom/baidu/tieba/ox6;");
                 return;
             }
         }
-        this.d = R.drawable.icon_pure_post_expression24;
-        this.e = R.drawable.icon_mask_post_keyboard24_selection;
-        this.h = R.drawable.icon_pure_post_expression64_big;
-        this.i = false;
-        this.j = true;
-        this.m = new EmotionTabHost(context);
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1, 34, 35};
+        g = BdUniqueId.gen();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ox6(Context context, int i, boolean z) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_express), 5, i);
+    public ox6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.icon_pure_post_expression24;
-        this.e = R.drawable.icon_pure_post_expression24_selection;
-        this.h = R.drawable.icon_pure_post_expression64_big;
-        this.i = false;
-        this.j = true;
-        EmotionTabHost emotionTabHost = new EmotionTabHost(context);
-        emotionTabHost.setShowBigEmotion(z);
-        this.m = emotionTabHost;
-        this.o = true;
-        this.n = 6;
-        this.p = new int[]{1, 34, 35};
+        this.a = null;
+        this.b = 0;
+        this.c = 0;
+        this.d = true;
+        this.e = false;
+        this.f = false;
     }
 
-    @Override // com.baidu.tieba.xh5
-    public void e(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public ox6 clone() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            ((EmotionTabHost) this.m).setShowUserCollect(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ox6 ox6Var = new ox6();
+            ox6Var.a = this.a;
+            ox6Var.b = this.b;
+            ox6Var.c = this.c;
+            ox6Var.d = this.d;
+            ox6Var.e = this.e;
+            ox6Var.f = this.f;
+            return ox6Var;
         }
+        return (ox6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.xh5
-    public void f(boolean z) {
+    @Override // com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            ((EmotionTabHost) this.m).setShowDiyEmotion(z);
-            super.f(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return g;
         }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public static ox6 b(pg5 pg5Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, pg5Var)) == null) {
+            ox6 ox6Var = new ox6();
+            ox6Var.a = pg5Var.b;
+            ox6Var.b = pg5Var.d;
+            ox6Var.c = pg5Var.e;
+            return ox6Var;
+        }
+        return (ox6) invokeL.objValue;
+    }
+
+    public static ox6 c(ManageInfo manageInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
+            ox6 ox6Var = new ox6();
+            ItemData itemData = new ItemData();
+            ox6Var.a = itemData;
+            itemData.parseProto(manageInfo.item);
+            ox6Var.b = manageInfo.item_source.intValue();
+            return ox6Var;
+        }
+        return (ox6) invokeL.objValue;
+    }
+
+    public boolean d(ox6 ox6Var) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        ItemData itemData;
+        ApkDetail apkDetail;
+        ApkDetail apkDetail2;
+        ItemData itemData2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ox6Var)) == null) {
+            if (this.b == ox6Var.b && this.c == ox6Var.c) {
+                z = true;
+            } else {
+                z = false;
+            }
+            ItemData itemData3 = this.a;
+            if (itemData3 != null && (itemData2 = ox6Var.a) != null) {
+                z2 = itemData3.pkgName.equals(itemData2.pkgName);
+            } else {
+                z2 = false;
+            }
+            ItemData itemData4 = this.a;
+            if (itemData4 != null && (itemData = ox6Var.a) != null && (apkDetail = itemData4.apkDetail) != null && (apkDetail2 = itemData.apkDetail) != null) {
+                z3 = apkDetail.version_code.equals(apkDetail2.version_code);
+            } else {
+                z3 = false;
+            }
+            if (z && z2 && z3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

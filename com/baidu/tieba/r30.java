@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface r30 {
-    String a(String str, String str2, Map<String, String> map, JSONObject jSONObject);
+    r30 a(JSONObject jSONObject);
+
+    boolean a();
+
+    void b(JSONObject jSONObject);
 }

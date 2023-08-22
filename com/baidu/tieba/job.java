@@ -1,78 +1,239 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigGdt;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.flavor.Flavors;
+import com.fun.ad.sdk.internal.api.flavor.IAdForbidStrategyManager;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.rewardvideo.RewardVideoAD;
+import com.qq.e.ads.rewardvideo.RewardVideoADListener;
+import com.qq.e.ads.rewardvideo.ServerSideVerificationOptions;
+import com.qq.e.comm.util.AdError;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class job {
+public class job extends vnb<vob> {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ModuleConfigGdt e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891436, "Lcom/baidu/tieba/job;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947891436, "Lcom/baidu/tieba/job;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public job(Ssp.Pid pid, ModuleConfigGdt moduleConfigGdt) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid, moduleConfigGdt};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = "0123456789ABCDEF".toCharArray();
+        this.e = moduleConfigGdt;
     }
 
-    public static byte[] a(char[] cArr) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
-            if ((cArr.length & 1) == 0) {
-                byte[] bArr = new byte[cArr.length >> 1];
-                int i = 0;
-                int i2 = 0;
-                while (i < cArr.length) {
-                    int digit = Character.digit(cArr[i], 16);
-                    if (digit == -1) {
-                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i);
-                    }
-                    int i3 = i + 1;
-                    int digit2 = Character.digit(cArr[i3], 16);
-                    if (digit2 == -1) {
-                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i3);
-                    }
-                    i = i3 + 1;
-                    bArr[i2] = (byte) (((digit << 4) | digit2) & 255);
-                    i2++;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new wnb(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            vob vobVar = (vob) obj;
+        }
+    }
+
+    @Override // com.baidu.tieba.vnb
+    public void e(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String tid = getTid(valueOf);
+            String buildExtra = buildExtra(context, tid, valueOf, funAdSlot.getAppExtraData());
+            onLoadStart(funAdSlot, tid);
+            IAdForbidStrategyManager iAdForbidStrategyManager = Flavors.STRATEGY_MANAGER;
+            Ssp.Pid pid = this.mPid;
+            int checkForbidStatus = iAdForbidStrategyManager.checkForbidStatus(pid.ssp.type, pid.pid);
+            if (checkForbidStatus != 0) {
+                onError(checkForbidStatus != 5004 ? checkForbidStatus != 109502 ? "" : "toomuch" : "cheat", tid);
+                return;
+            }
+            RewardVideoAD rewardVideoAD = new RewardVideoAD(context.getApplicationContext(), this.mPid.pid, new a(this, r2, tid), true ^ this.e.autoPlayMuted);
+            RewardVideoAD[] rewardVideoADArr = {rewardVideoAD};
+            rewardVideoAD.setServerSideVerificationOptions(new ServerSideVerificationOptions.Builder().setUserId(FunAdSdk.getFunAdConfig().userId).setCustomData(buildExtra).build());
+            rewardVideoAD.loadAD();
+        }
+    }
+
+    @Override // com.baidu.tieba.vnb, com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            e(context, funAdSlot);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements RewardVideoADListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public vob c;
+        public final /* synthetic */ RewardVideoAD[] d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ job f;
+
+        public a(job jobVar, RewardVideoAD[] rewardVideoADArr, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jobVar, rewardVideoADArr, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return bArr;
             }
-            throw new IllegalArgumentException("Odd number of characters.");
+            this.f = jobVar;
+            this.d = rewardVideoADArr;
+            this.e = str;
         }
-        return (byte[]) invokeL.objValue;
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                this.f.onAdClicked((job) this.c, this.b, (Map<String, String>) hashMap);
+                this.b = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADClose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.f.onAdClose((job) this.c, this.e);
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADExpose() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                this.f.onAdShow((job) this.c, this.a, (Map<String, String>) hashMap);
+                this.a = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADLoad() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                vob vobVar = new vob(this.d[0]);
+                this.c = vobVar;
+                this.f.onAdLoaded(vobVar, this.e);
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onADShow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onError(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, adError) == null) {
+                LogPrinter.e("GDTRewardVideoAd onError code: " + adError.getErrorCode() + ", message: " + adError.getErrorMsg(), new Object[0]);
+                this.f.onError(adError.getErrorCode(), adError.getErrorMsg(), this.e);
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onVideoComplete() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.rewardvideo.RewardVideoADListener
+        public void onReward(Map<String, Object> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, map) == null) {
+                LogPrinter.d();
+                String str = (String) map.get("transId");
+                this.c.b = str;
+                HashMap hashMap = new HashMap();
+                hashMap.put("tid", this.e);
+                hashMap.put("p_req_id", this.c.e());
+                hashMap.put("p_trs_id", str);
+                this.f.onRewardedVideo((job) this.c, (Map<String, String>) hashMap);
+            }
+        }
     }
 
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
-    }
-
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (byte b : bArr) {
-                sb.append(a[(b >> 4) & 15]);
-                sb.append(a[b & 15]);
-            }
-            return sb.toString();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            vob vobVar = (vob) obj;
+            onShowStart(vobVar);
+            ((RewardVideoAD) vobVar.a).showAD(activity);
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

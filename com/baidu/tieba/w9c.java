@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.q7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class w9c {
+public class w9c implements a8c {
     public static /* synthetic */ Interceptable $ic;
-    public static w9c a;
-    public static SharedPreferences b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final a8c a;
+    public final q7c.a b;
+    public final long c;
 
-    public w9c(Context context, String str) {
+    public w9c(a8c a8cVar, q7c.a aVar, long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {a8cVar, aVar, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,38 +28,30 @@ public class w9c {
                 return;
             }
         }
-        c = str;
-        b = context.getSharedPreferences(str, 0);
+        this.a = a8cVar;
+        this.b = aVar;
+        this.c = j;
     }
 
-    public static w9c b(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.a8c
+    public void call() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (str == null) {
-                str = "midPay";
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
+            return;
+        }
+        long a = this.c - this.b.a();
+        if (a > 0) {
+            try {
+                Thread.sleep(a);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                z7c.c(e);
+                throw null;
             }
-            if (a == null || !str.equals(c)) {
-                a = new w9c(context, str);
-            }
-            return a;
         }
-        return (w9c) invokeLL.objValue;
-    }
-
-    public boolean a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            return b.getBoolean(str, z);
+        if (this.b.isUnsubscribed()) {
+            return;
         }
-        return invokeLZ.booleanValue;
-    }
-
-    public void c(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            b.edit().putBoolean(str, z).apply();
-        }
+        this.a.call();
     }
 }

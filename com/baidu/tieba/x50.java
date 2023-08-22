@@ -1,47 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.helios.ids.gaid.GaidProvider;
-import com.baidu.helios.ids.oid.OaidProvider;
-import com.baidu.tieba.f50;
+import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class x50 implements f50.a {
+public final class x50 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public x50() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251222, "Lcom/baidu/tieba/x50;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948251222, "Lcom/baidu/tieba/x50;");
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.f50.a
-    public List<e50> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new g50());
-            arrayList.add(new OaidProvider());
-            arrayList.add(new GaidProvider());
-            arrayList.add(new t50());
-            arrayList.add(new i50());
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
+        a = Boolean.parseBoolean(YYOption.IsLive.VALUE_TRUE);
     }
 }

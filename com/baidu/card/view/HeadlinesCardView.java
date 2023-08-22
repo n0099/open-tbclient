@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.mf5;
-import com.baidu.tieba.o35;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.qx;
+import com.baidu.tieba.cz;
+import com.baidu.tieba.tf5;
+import com.baidu.tieba.tx;
+import com.baidu.tieba.u35;
 import com.baidu.tieba.view.TbImageAutoSwitch;
-import com.baidu.tieba.zy;
+import com.baidu.tieba.w05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,13 +36,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class HeadlinesCardView extends FrameLayout implements qx<q05> {
+public class HeadlinesCardView extends FrameLayout implements tx<w05> {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
     public static final int p;
     public transient /* synthetic */ FieldHolder $fh;
-    public q05 a;
+    public w05 a;
     public TbImageView b;
     public TbImageView c;
     public ImageView d;
@@ -52,7 +52,7 @@ public class HeadlinesCardView extends FrameLayout implements qx<q05> {
     public TbImageAutoSwitch h;
     public TextView i;
     public HeadlinesItemInfoView j;
-    public zy k;
+    public cz k;
     public List<String> l;
     public TbImageAutoSwitch.b m;
 
@@ -128,15 +128,15 @@ public class HeadlinesCardView extends FrameLayout implements qx<q05> {
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o35 a;
+        public final /* synthetic */ u35 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public b(HeadlinesCardView headlinesCardView, o35 o35Var) {
+        public b(HeadlinesCardView headlinesCardView, u35 u35Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, o35Var};
+                Object[] objArr = {headlinesCardView, u35Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -147,7 +147,7 @@ public class HeadlinesCardView extends FrameLayout implements qx<q05> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = o35Var;
+            this.a = u35Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -168,15 +168,15 @@ public class HeadlinesCardView extends FrameLayout implements qx<q05> {
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o35 a;
+        public final /* synthetic */ u35 a;
         public final /* synthetic */ HeadlinesCardView b;
 
-        public c(HeadlinesCardView headlinesCardView, o35 o35Var) {
+        public c(HeadlinesCardView headlinesCardView, u35 u35Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {headlinesCardView, o35Var};
+                Object[] objArr = {headlinesCardView, u35Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -187,7 +187,7 @@ public class HeadlinesCardView extends FrameLayout implements qx<q05> {
                 }
             }
             this.b = headlinesCardView;
-            this.a = o35Var;
+            this.a = u35Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -232,7 +232,7 @@ public class HeadlinesCardView extends FrameLayout implements qx<q05> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                mf5.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
+                tf5.f(this.a.getContext(), this.a.a.getThreadData(), 1, 2);
             }
         }
     }
@@ -331,10 +331,10 @@ public class HeadlinesCardView extends FrameLayout implements qx<q05> {
         }
     }
 
-    public void setOnStatListener(zy zyVar) {
+    public void setOnStatListener(cz czVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, zyVar) == null) {
-            this.k = zyVar;
+        if (interceptable == null || interceptable.invokeL(1048580, this, czVar) == null) {
+            this.k = czVar;
         }
     }
 
@@ -373,18 +373,18 @@ public class HeadlinesCardView extends FrameLayout implements qx<q05> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qx
+    @Override // com.baidu.tieba.tx
     /* renamed from: g */
-    public void onBindDataToView(q05 q05Var) {
+    public void onBindDataToView(w05 w05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) {
-            this.a = q05Var;
-            if (q05Var != null && q05Var.getThreadData() != null && q05Var.getThreadData().getTaskInfoData() != null && q05Var.getThreadData().getTaskInfoData().f() != null) {
-                o35 f = q05Var.getThreadData().getTaskInfoData().f();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w05Var) == null) {
+            this.a = w05Var;
+            if (w05Var != null && w05Var.getThreadData() != null && w05Var.getThreadData().getTaskInfoData() != null && w05Var.getThreadData().getTaskInfoData().f() != null) {
+                u35 f = w05Var.getThreadData().getTaskInfoData().f();
                 this.g.c(f);
                 this.l.clear();
                 this.l.addAll(f.e());
-                this.h.p();
+                this.h.q();
                 if (!TextUtils.isEmpty(f.h())) {
                     this.i.setText(f.h());
                 }
@@ -392,9 +392,9 @@ public class HeadlinesCardView extends FrameLayout implements qx<q05> {
                 this.j.setOnBannerClickListener(new b(this, f));
                 this.j.setOnButtonClickListener(new c(this, f));
                 this.f.setOnClickListener(new d(this));
-                zy zyVar = this.k;
-                if (zyVar != null) {
-                    zyVar.onShow();
+                cz czVar = this.k;
+                if (czVar != null) {
+                    czVar.onShow();
                 }
             }
         }

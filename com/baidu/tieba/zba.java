@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.stats.BdStatsItem;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,52 +12,28 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-/* loaded from: classes8.dex */
-public class zba {
+/* loaded from: classes9.dex */
+public final class zba extends l41 {
     public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, bca> a;
+    public static final d41 f;
+    public static final d41 g;
+    public static final d41 h;
+    public static final d41 i;
+    public static final d41[] j;
+    public static final d41[][] k;
+    public static final d41[] l;
     public transient /* synthetic */ FieldHolder $fh;
+    public final StringColumn a;
+    public final StringColumn b;
+    public final LongColumn c;
+    public final LongColumn d;
+    public final Column[] e;
 
-    public static void d() {
+    @Override // com.baidu.tieba.l41
+    public String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                zba.a(1);
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "forum_visited_info" : (String) invokeV.objValue;
     }
 
     static {
@@ -75,80 +49,76 @@ public class zba {
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new a(2001011));
-        a = new HashMap<>();
+        f = l41.a(4, "fid", "         fid", 0);
+        g = l41.a(4, GfhKeyValue.TYPE_DATE, "        date", 1);
+        h = l41.a(3, "custom_count", "custom_count", 2);
+        d41 a = l41.a(3, "latest_time", " latest_time", 3);
+        i = a;
+        d41 d41Var = f;
+        d41 d41Var2 = g;
+        j = new d41[]{d41Var, d41Var2, h, a};
+        k = new d41[][]{new d41[]{d41Var}, new d41[]{d41Var2}, new d41[]{a}};
+        l = new d41[0];
     }
 
-    public static void a(int i) {
+    public zba() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            for (String str : a.keySet()) {
-                b(a.get(str), i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new StringColumn(f);
+        this.b = new StringColumn(g);
+        this.c = new LongColumn(h);
+        LongColumn longColumn = new LongColumn(i);
+        this.d = longColumn;
+        this.e = new Column[]{this.a, this.b, this.c, longColumn};
     }
 
-    public static void b(bca bcaVar, int i) {
-        String str;
+    @Override // com.baidu.tieba.l41
+    public Column[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, bcaVar, i) == null) {
-            aca acaVar = bcaVar.d;
-            aca acaVar2 = bcaVar.e;
-            aca acaVar3 = bcaVar.f;
-            if (acaVar.b + acaVar2.b + acaVar3.b >= i) {
-                BdStatsItem bdStatsItem = new BdStatsItem("dbg");
-                bdStatsItem.append("act", bcaVar.c);
-                bdStatsItem.append("httpTimeCost", String.valueOf(acaVar.a));
-                bdStatsItem.append("httpNum", String.valueOf(acaVar.b));
-                bdStatsItem.append("httpFailnum", String.valueOf(acaVar.c));
-                bdStatsItem.append("httpSize", String.valueOf(acaVar.d));
-                bdStatsItem.append("socketTimeCost", String.valueOf(acaVar2.a));
-                bdStatsItem.append("socketNum", String.valueOf(acaVar2.b));
-                bdStatsItem.append("socketFailnum", String.valueOf(acaVar2.c));
-                bdStatsItem.append("socketSize", String.valueOf(acaVar2.d));
-                bdStatsItem.append("abortTimeCost", String.valueOf(acaVar3.a));
-                bdStatsItem.append("abortNum", String.valueOf(acaVar3.b));
-                bdStatsItem.append("netType", bcaVar.b);
-                if (bcaVar.a) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                bdStatsItem.append("isJson", str);
-                BdStatisticsManager.getInstance().debug("frs", bdStatsItem);
-                acaVar.a();
-                acaVar2.a();
-                acaVar3.a();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
+        return (Column[]) invokeV.objValue;
     }
 
-    public static void c(String str, String str2, boolean z) {
+    @Override // com.baidu.tieba.l41
+    public d41[] d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
-            if (str2 == null) {
-                str2 = "";
-            }
-            String str3 = str + str2;
-            if (!a.containsKey(str3)) {
-                a.put(str3, new bca(str, str2, z));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return j;
         }
+        return (d41[]) invokeV.objValue;
     }
 
-    public static bca e(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
+    @Override // com.baidu.tieba.l41
+    public d41[][] e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, str2, z)) == null) {
-            if (str2 == null) {
-                str2 = "";
-            }
-            String str3 = str + str2;
-            if (!a.containsKey(str3)) {
-                a.put(str3, new bca(str, str2, z));
-            }
-            return a.get(str3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return k;
         }
-        return (bca) invokeLLZ.objValue;
+        return (d41[][]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.l41
+    public d41[] f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return l;
+        }
+        return (d41[]) invokeV.objValue;
     }
 }

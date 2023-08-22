@@ -9,7 +9,7 @@ import kotlin.reflect.jvm.internal.impl.resolve.constants.ConstantValue;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
 import kotlin.reflect.jvm.internal.impl.types.ErrorUtils;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface AnnotationDescriptor {
     Map<Name, ConstantValue<?>> getAllValueArguments();
 
@@ -19,7 +19,7 @@ public interface AnnotationDescriptor {
 
     KotlinType getType();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class DefaultImpls {
         public static FqName getFqName(AnnotationDescriptor annotationDescriptor) {
             ClassDescriptor annotationClass = DescriptorUtilsKt.getAnnotationClass(annotationDescriptor);

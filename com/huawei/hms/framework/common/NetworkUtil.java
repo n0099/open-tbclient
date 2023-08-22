@@ -44,7 +44,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class NetworkUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int INVALID_RSSI = -127;
@@ -85,7 +85,7 @@ public class NetworkUtil {
         return invokeI.intValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class NetType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int TYPE_2G = 2;
@@ -115,7 +115,7 @@ public class NetworkUtil {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class SignalType {
         public static /* synthetic */ Interceptable $ic = null;
         public static final String LTE_CQI = "lteCqi";
@@ -242,6 +242,24 @@ public class NetworkUtil {
                 return true;
             }
             return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean isUserUnlocked(Context context) {
+        InterceptResult invokeL;
+        UserManager userManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 24 && (userManager = (UserManager) ContextCompat.getSystemService(context, "user")) != null) {
+                try {
+                    return userManager.isUserUnlocked();
+                } catch (RuntimeException e) {
+                    Logger.e(TAG, "dealType rethrowFromSystemServer:", e);
+                    return true;
+                }
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
@@ -411,24 +429,6 @@ public class NetworkUtil {
             return null;
         }
         return (SignalStrength) invokeL.objValue;
-    }
-
-    public static boolean isUserUnlocked(Context context) {
-        InterceptResult invokeL;
-        UserManager userManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65577, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 24 && (userManager = (UserManager) ContextCompat.getSystemService(context, "user")) != null) {
-                try {
-                    return userManager.isUserUnlocked();
-                } catch (RuntimeException e) {
-                    Logger.e(TAG, "dealType rethrowFromSystemServer:", e);
-                    return true;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 
     @SuppressLint({"MissingPermission", "NewApi"})

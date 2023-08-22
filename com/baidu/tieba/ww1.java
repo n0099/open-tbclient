@@ -1,11 +1,16 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import com.baidu.swan.apps.core.container.NgWebView;
 /* loaded from: classes8.dex */
 public interface ww1 {
-    xn4 a();
+    void a(NgWebView ngWebView);
 
-    void b(ch2 ch2Var, ah2 ah2Var);
+    void b(NgWebView ngWebView, String str);
 
-    boolean c();
+    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
 
-    boolean d();
+    void d(String str, Context context);
+
+    void e(String str, Context context);
 }

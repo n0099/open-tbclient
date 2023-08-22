@@ -1,66 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class kmb {
+public class kmb extends gmb<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static final kmb a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947919305, "Lcom/baidu/tieba/kmb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947919305, "Lcom/baidu/tieba/kmb;");
-                return;
-            }
-        }
-        a = new kmb();
-    }
-
-    public kmb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kmb(TTNativeExpressAd tTNativeExpressAd) {
+        super(tTNativeExpressAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tTNativeExpressAd};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static kmb a() {
+    @Override // com.baidu.tieba.gmb
+    public double a() {
         InterceptResult invokeV;
+        Map<String, Object> mediaExtraInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                A a = this.a;
+                if (a == 0 || (mediaExtraInfo = ((TTNativeExpressAd) a).getMediaExtraInfo()) == null || !mediaExtraInfo.containsKey("price")) {
+                    return 0.0d;
+                }
+                return ((Integer) mediaExtraInfo.get("price")).intValue() / 100.0d;
+            } catch (Exception unused) {
+                return 0.0d;
+            }
         }
-        return (kmb) invokeV.objValue;
+        return invokeV.doubleValue;
     }
 
-    public void b(Context context, boolean z) {
+    @Override // com.baidu.tieba.gmb
+    public void b(String str, double d, double d2, boolean z, int i) {
+        A a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
-            umb umbVar = umb.e;
-            ymb ymbVar = new ymb();
-            ymbVar.a = context.getApplicationContext();
-            ymbVar.b = z;
-            umbVar.c(ymbVar);
+        if (!(interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) || (a = this.a) == 0) {
+            return;
         }
+        TTNativeExpressAd tTNativeExpressAd = (TTNativeExpressAd) a;
+        if (z) {
+            tTNativeExpressAd.win(Double.valueOf(d2));
+        } else {
+            tTNativeExpressAd.loss(Double.valueOf(d), str, String.valueOf(i));
+        }
+    }
+
+    @Override // com.baidu.tieba.gmb
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b.isEmpty() && ((TTNativeExpressAd) this.a).getMediaExtraInfo() != null) {
+                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
     }
 }

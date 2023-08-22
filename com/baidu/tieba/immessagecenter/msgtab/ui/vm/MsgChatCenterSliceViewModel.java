@@ -7,20 +7,20 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.i1c;
+import com.baidu.tieba.b8c;
+import com.baidu.tieba.hw8;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
 import com.baidu.tieba.immessagecenter.im.model.MsgChatTabModel;
 import com.baidu.tieba.immessagecenter.msgtab.obs.NotificationChangedMonitor;
 import com.baidu.tieba.immessagecenter.msgtab.ui.model.ChatMsgModel;
 import com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel;
-import com.baidu.tieba.js8;
-import com.baidu.tieba.ks8;
-import com.baidu.tieba.m1c;
-import com.baidu.tieba.pa8;
-import com.baidu.tieba.rg8;
-import com.baidu.tieba.ts8;
-import com.baidu.tieba.y5c;
+import com.baidu.tieba.iw8;
+import com.baidu.tieba.jd8;
+import com.baidu.tieba.occ;
+import com.baidu.tieba.qk8;
+import com.baidu.tieba.rw8;
+import com.baidu.tieba.x7c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,11 +33,11 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000r\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\b\n\u0002\u0010\u0001\n\u0002\b\u0002\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\u0018\u00002\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u0001B\u0013\u0012\f\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005¢\u0006\u0002\u0010\u0007J\u0016\u0010\u000e\u001a\u00020\u000f2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u0013J\u0006\u0010\u0014\u001a\u00020\u0015J\u0006\u0010\u0016\u001a\u00020\u0017J\u0010\u0010\u0018\u001a\u00020\u000f2\u0006\u0010\u0019\u001a\u00020\u0003H\u0014J\b\u0010\u001a\u001a\u00020\u0002H\u0014J\u0016\u0010\u001b\u001a\u00020\u000f2\u0006\u0010\u001c\u001a\u00020\u001d2\u0006\u0010\u001e\u001a\u00020\u001fJ\u0006\u0010 \u001a\u00020\u000fJ\u0006\u0010!\u001a\u00020\u000fJ\u0006\u0010\"\u001a\u00020\u000fJ\u0006\u0010#\u001a\u00020\u000fJ\u000e\u0010$\u001a\u00020\u000f2\u0006\u0010%\u001a\u00020\u001dJ\u0006\u0010&\u001a\u00020\u000fJ\n\u0010'\u001a\u0004\u0018\u00010(H\u0014J(\u0010)\u001a\u00020\u000f2\u000e\u0010*\u001a\n\u0012\u0004\u0012\u00020,\u0018\u00010+2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00112\u0006\u0010-\u001a\u00020.R\u0010\u0010\b\u001a\u0004\u0018\u00010\tX\u0082\u000e¢\u0006\u0002\n\u0000R\u0017\u0010\u0004\u001a\b\u0012\u0004\u0012\u00020\u00060\u0005¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR\u000e\u0010\f\u001a\u00020\rX\u0082.¢\u0006\u0002\n\u0000¨\u0006/"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/vm/MsgChatCenterSliceViewModel;", "Lcom/baidu/tieba/immessagecenter/arch/vm/BaseViewModel;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterChatTabUiState;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterChatTabUiIntent;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "(Lcom/baidu/tbadk/TbPageContext;)V", "mSubscription", "Lrx/subscriptions/CompositeSubscription;", "getPageContext", "()Lcom/baidu/tbadk/TbPageContext;", "personChatMsgModel", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/model/ChatMsgModel;", "deleteItem", "", "data", "Lcom/baidu/tbadk/core/data/ImMessageCenterShowItemData;", "iProcess", "Lcom/baidu/tieba/im/chat/notify/IProcess;", "getMessageCenterModel", "Lcom/baidu/tieba/immessagecenter/im/model/MsgChatTabModel;", "getSocketDispatcher", "Lcom/baidu/tieba/immessagecenter/chatgroup/chatbox/ChatTabSubscribeGroupMessageDispatcher;", "handleUiIntent", "intent", "initUiState", "officialMaskModelSwitchSingleMask", "isMask", "", TbEnum.ParamKey.GID, "", "onCreate", MissionEvent.MESSAGE_DESTROY, "onVmMsgTabPause", "onVmMsgTabPrimary", "refreshMsg", "isSort", "refreshUserList", "registerSubscribe", "", "sendChatTabRedTipUpdateMsg", "list", "", "Lcom/baidu/tieba/im/db/pojo/ImMessageCenterPojo;", "type", "", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
+public final class MsgChatCenterSliceViewModel extends BaseViewModel<iw8, hw8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext<BaseFragmentActivity> d;
-    public y5c e;
+    public occ e;
     public ChatMsgModel f;
 
     public Void D() {
@@ -52,7 +52,7 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
     /* renamed from: p */
-    public void h(js8 intent) {
+    public void h(hw8 intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, intent) == null) {
             Intrinsics.checkNotNullParameter(intent, "intent");
@@ -82,7 +82,7 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65537, null, this$0, list) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.b(new Function1<ks8, ks8>(list) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel$onCreate$1$1$1$1
+            this$0.b(new Function1<iw8, iw8>(list) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel$onCreate$1$1$1$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ List<ImMessageCenterShowItemData> $it;
@@ -110,16 +110,16 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function1
-                public final ks8 invoke(ks8 emitUiState) {
+                public final iw8 invoke(iw8 emitUiState) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, emitUiState)) == null) {
                         Intrinsics.checkNotNullParameter(emitUiState, "$this$emitUiState");
                         List<ImMessageCenterShowItemData> it = this.$it;
                         Intrinsics.checkNotNullExpressionValue(it, "it");
-                        return new ks8.f(it);
+                        return new iw8.f(it);
                     }
-                    return (ks8) invokeL.objValue;
+                    return (iw8) invokeL.objValue;
                 }
             });
         }
@@ -129,7 +129,7 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65538, null, this$0, bool) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.b(new Function1<ks8, ks8>(bool) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel$onCreate$1$1$2$1
+            this$0.b(new Function1<iw8, iw8>(bool) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel$onCreate$1$1$2$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Boolean $it;
@@ -157,16 +157,16 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function1
-                public final ks8 invoke(ks8 emitUiState) {
+                public final iw8 invoke(iw8 emitUiState) {
                     InterceptResult invokeL;
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, emitUiState)) == null) {
                         Intrinsics.checkNotNullParameter(emitUiState, "$this$emitUiState");
                         Boolean it = this.$it;
                         Intrinsics.checkNotNullExpressionValue(it, "it");
-                        return new ks8.e(it.booleanValue());
+                        return new iw8.e(it.booleanValue());
                     }
-                    return (ks8) invokeL.objValue;
+                    return (iw8) invokeL.objValue;
                 }
             });
         }
@@ -192,8 +192,8 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65541, null, this$0, pair) == null) {
             Intrinsics.checkNotNullParameter(this$0, "this$0");
-            ts8.a.h(((Boolean) pair.getFirst()).booleanValue());
-            this$0.b(new Function1<ks8, ks8>(pair) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel$onCreate$1$1$5$1
+            rw8.a.h(((Boolean) pair.getFirst()).booleanValue());
+            this$0.b(new Function1<iw8, iw8>(pair) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgChatCenterSliceViewModel$onCreate$1$1$5$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Pair<Boolean, Boolean> $it;
@@ -221,7 +221,7 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
 
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // kotlin.jvm.functions.Function1
-                public final ks8 invoke(ks8 emitUiState) {
+                public final iw8 invoke(iw8 emitUiState) {
                     InterceptResult invokeL;
                     boolean z;
                     Interceptable interceptable2 = $ic;
@@ -232,15 +232,15 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
                         } else {
                             z = false;
                         }
-                        return new ks8.b(z);
+                        return new iw8.b(z);
                     }
-                    return (ks8) invokeL.objValue;
+                    return (iw8) invokeL.objValue;
                 }
             });
         }
     }
 
-    public final void m(ImMessageCenterShowItemData data, pa8 iProcess) {
+    public final void m(ImMessageCenterShowItemData data, jd8 iProcess) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, data, iProcess) == null) {
             Intrinsics.checkNotNullParameter(data, "data");
@@ -292,8 +292,8 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
     }
 
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
-    public /* bridge */ /* synthetic */ y5c l() {
-        return (y5c) D();
+    public /* bridge */ /* synthetic */ occ l() {
+        return (occ) D();
     }
 
     public final MsgChatTabModel n() {
@@ -310,7 +310,7 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
         return (MsgChatTabModel) invokeV.objValue;
     }
 
-    public final rg8 o() {
+    public final qk8 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -321,19 +321,19 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
             }
             return chatMsgModel.H();
         }
-        return (rg8) invokeV.objValue;
+        return (qk8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
     /* renamed from: q */
-    public ks8 j() {
+    public iw8 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return ks8.a.a;
+            return iw8.a.a;
         }
-        return (ks8) invokeV.objValue;
+        return (iw8) invokeV.objValue;
     }
 
     public final void y() {
@@ -345,13 +345,13 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
                 chatMsgModel = null;
             }
             chatMsgModel.X();
-            y5c y5cVar = this.e;
-            if (y5cVar != null) {
-                y5cVar.unsubscribe();
+            occ occVar = this.e;
+            if (occVar != null) {
+                occVar.unsubscribe();
             }
-            y5c y5cVar2 = this.e;
-            if (y5cVar2 != null) {
-                y5cVar2.c();
+            occ occVar2 = this.e;
+            if (occVar2 != null) {
+                occVar2.c();
             }
             this.e = null;
         }
@@ -403,12 +403,12 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
                 chatMsgModel = null;
             }
             chatMsgModel.T();
-            y5c y5cVar = new y5c();
-            y5cVar.a(chatMsgModel.x().H(new m1c() { // from class: com.baidu.tieba.bs8
+            occ occVar = new occ();
+            occVar.a(chatMsgModel.x().H(new b8c() { // from class: com.baidu.tieba.zv8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m1c
+                @Override // com.baidu.tieba.b8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -416,11 +416,11 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
                     }
                 }
             }));
-            y5cVar.a(chatMsgModel.E().w().s(i1c.b()).g().H(new m1c() { // from class: com.baidu.tieba.is8
+            occVar.a(chatMsgModel.E().w().s(x7c.b()).g().H(new b8c() { // from class: com.baidu.tieba.gw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m1c
+                @Override // com.baidu.tieba.b8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -428,11 +428,11 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
                     }
                 }
             }));
-            y5cVar.a(chatMsgModel.D().w().s(i1c.b()).H(new m1c() { // from class: com.baidu.tieba.ds8
+            occVar.a(chatMsgModel.D().w().s(x7c.b()).H(new b8c() { // from class: com.baidu.tieba.bw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m1c
+                @Override // com.baidu.tieba.b8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -440,11 +440,11 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
                     }
                 }
             }));
-            y5cVar.a(chatMsgModel.B().w().s(i1c.b()).H(new m1c() { // from class: com.baidu.tieba.cs8
+            occVar.a(chatMsgModel.B().w().s(x7c.b()).H(new b8c() { // from class: com.baidu.tieba.aw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m1c
+                @Override // com.baidu.tieba.b8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -452,11 +452,11 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
                     }
                 }
             }));
-            y5cVar.a(NotificationChangedMonitor.c.a().f().H(new m1c() { // from class: com.baidu.tieba.fs8
+            occVar.a(NotificationChangedMonitor.c.a().f().H(new b8c() { // from class: com.baidu.tieba.dw8
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.m1c
+                @Override // com.baidu.tieba.b8c
                 public final void call(Object obj) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, obj) == null) {
@@ -464,7 +464,7 @@ public final class MsgChatCenterSliceViewModel extends BaseViewModel<ks8, js8> {
                     }
                 }
             }));
-            this.e = y5cVar;
+            this.e = occVar;
         }
     }
 }

@@ -1,115 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.IntRange;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.utils.BdNetUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ax0 {
+public final class ax0 implements sx0 {
     public static /* synthetic */ Interceptable $ic;
-    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> a;
-    public ArrayList<String> b;
-    public ArrayList<c> c;
-    public ArrayList<c> d;
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? "" : (String) invokeL.objValue;
-    }
-
-    public final int j(@IntRange(from = 0) int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (i != 1) {
-                if (i != 6) {
-                    if (i != 44) {
-                        if (i != 22) {
-                            return i != 23 ? -1 : 4;
-                        }
-                        return 1;
-                    }
-                    return 3;
-                }
-                return 2;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ax0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-932930286, "Lcom/baidu/tieba/ax0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-932930286, "Lcom/baidu/tieba/ax0$b;");
-                    return;
-                }
-            }
-            a = new ax0(null);
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public c(ax0 ax0Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ax0Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = str2;
-        }
-    }
+    public mz0 a;
+    public mz0 b;
 
     public ax0() {
         Interceptable interceptable = $ic;
@@ -125,257 +32,212 @@ public class ax0 {
         }
     }
 
-    public static ax0 h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sx0
+    public void a(zt0 player) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (ax0) invokeV.objValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            String e2 = i21.e();
-            if (!TextUtils.isEmpty(e2)) {
-                this.d = q(e2);
+        if (interceptable == null || interceptable.invokeL(1048576, this, player) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            i(player, player.u());
+            mz0 k = player.k();
+            if (k != null) {
+                if (!Intrinsics.areEqual(k, this.b)) {
+                    j(this.b);
+                    this.b = null;
+                } else if (!Intrinsics.areEqual(k, this.a)) {
+                    j(this.a);
+                    this.a = null;
+                }
+                j(k);
             }
         }
     }
 
-    public final void m() {
+    @Override // com.baidu.tieba.sx0
+    public mz0 b(zt0 player, mz0 mz0Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            String f = i21.f();
-            if (!TextUtils.isEmpty(f)) {
-                this.b = p(f);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, player, mz0Var)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            if (player.u1()) {
+                mz0Var = h(player, player.u());
             }
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            String n = i21.n();
-            if (!TextUtils.isEmpty(n)) {
-                this.c = q(n);
+            if (mz0Var == null) {
+                mz0Var = f(player.o());
             }
+            this.a = mz0Var;
+            return mz0Var;
         }
+        return (mz0) invokeLL.objValue;
     }
 
-    public final void o() {
+    @Override // com.baidu.tieba.sx0
+    public void c(zt0 player, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            String o = i21.o();
-            if (!TextUtils.isEmpty(o)) {
-                this.a = p(o);
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, player, z) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            mz0 mz0Var = this.a;
+            if (mz0Var != null) {
+                e(player, mz0Var);
+                return;
             }
-        }
-    }
-
-    public /* synthetic */ ax0(a aVar) {
-        this();
-    }
-
-    public final boolean b(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (k(4) && c() && a(str)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean a(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (this.b == null) {
-                m();
+                this.b = f(player.o());
             }
-            ArrayList<String> arrayList = this.b;
-            if (arrayList != null && arrayList.size() > 0) {
-                Iterator<String> it = this.b.iterator();
-                while (it.hasNext()) {
-                    String next = it.next();
-                    if (!TextUtils.isEmpty(next) && str.contains(next)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
+            e(player, this.b);
         }
-        return invokeL.booleanValue;
     }
 
-    public final boolean e(@NonNull String str) {
+    public final void e(zt0 zt0Var, mz0 mz0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, zt0Var, mz0Var) == null) && mz0Var != null) {
+            zt0Var.e(mz0Var);
+        }
+    }
+
+    @Override // com.baidu.tieba.sx0
+    public boolean d(zt0 player, mz0 mz0Var) {
+        InterceptResult invokeLL;
+        String vid;
+        mz0 mz0Var2;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, player, mz0Var)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            BdVideoSeries o1 = player.o1();
+            if (o1 == null || (vid = o1.getVid()) == null) {
+                return false;
+            }
+            Intrinsics.checkNotNullExpressionValue(vid, "player.videoSeries?.vid ?: return false");
+            PlayerStatus playerStatus = null;
+            if (!(mz0Var instanceof tz0)) {
+                mz0Var2 = null;
+            } else {
+                mz0Var2 = mz0Var;
+            }
+            tz0 tz0Var = (tz0) mz0Var2;
+            if (tz0Var != null) {
+                str = tz0Var.A0();
+            } else {
+                str = null;
+            }
+            if (!Intrinsics.areEqual(vid, str)) {
+                return false;
+            }
+            if (mz0Var != null) {
+                playerStatus = mz0Var.S();
+            }
+            if (!PlayerStatus.isActiveStatus(playerStatus)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean g(yt0 player, String str) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, player, str)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return false;
+            }
+            mz0 k = player.k();
+            b21.a("ReuseHelper: detach,cache is " + k + ",cacheKey is " + str);
+            if (k != null) {
+                k.a0();
+                qu0.a().c(str, k);
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public mz0 h(yt0 player, String str) {
+        InterceptResult invokeLL;
+        Boolean bool;
+        sy0 U;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, player, str)) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            mz0 b = qu0.a().b(str);
+            if (b != null && (U = b.U()) != null) {
+                bool = Boolean.valueOf(U.verify(player.o()));
+            } else {
+                bool = null;
+            }
+            if (Intrinsics.areEqual(bool, Boolean.TRUE)) {
+                qu0.a().d(str);
+                player.A0(true);
+                if (b.u() != null) {
+                    b.u().k();
+                    return b;
+                }
+                return b;
+            }
+            player.A0(false);
+            return null;
+        }
+        return (mz0) invokeLL.objValue;
+    }
+
+    public final tz0 f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.a == null) {
-                o();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            if (str == null) {
+                str = "CyberNetPlayer";
             }
-            ArrayList<String> arrayList = this.a;
-            if (arrayList != null && arrayList.size() > 0) {
-                Iterator<String> it = this.a.iterator();
-                while (it.hasNext()) {
-                    String next = it.next();
-                    if (!TextUtils.isEmpty(next) && str.contains(next)) {
-                        return true;
+            return new tz0(str);
+        }
+        return (tz0) invokeL.objValue;
+    }
+
+    public final void j(mz0 mz0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, mz0Var) == null) && mz0Var != null) {
+            mz0Var.a0();
+            mz0Var.v0();
+            mz0Var.c0();
+        }
+    }
+
+    public void i(zt0 player, String str) {
+        Activity activity;
+        yt0 yt0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, player, str) == null) {
+            Intrinsics.checkNotNullParameter(player, "player");
+            if (player.u1() && player.b0() && !player.S() && (activity = player.getActivity()) != null && activity.isFinishing()) {
+                b21.a("performAutoDetachCache begin");
+                mz0 A = player.A();
+                mz0 mz0Var = this.a;
+                if (mz0Var != null) {
+                    yt0Var = mz0Var.u();
+                } else {
+                    yt0Var = null;
+                }
+                if (Intrinsics.areEqual(yt0Var, player)) {
+                    b21.a("autoDetachCache,cacheKey:" + str + ", kernelLayer:" + A);
+                    if (g(player, str)) {
+                        this.a = null;
                     }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final ArrayList<String> p(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    String optString = jSONArray.optString(i, "");
-                    if (!TextUtils.isEmpty(optString)) {
-                        arrayList.add(optString);
+                } else if (this.a != null) {
+                    b21.a("detachCache,cacheKey:" + str + ", kernelLayer:" + A);
+                    mz0 mz0Var2 = this.a;
+                    if (mz0Var2 != null) {
+                        mz0Var2.a0();
                     }
+                    qu0.a().c(str, this.a);
+                    this.a = null;
                 }
-            } catch (Exception unused) {
             }
-            return arrayList;
         }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final ArrayList<c> q(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            ArrayList<c> arrayList = new ArrayList<>();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        arrayList.add(new c(this, optJSONObject.optString("start_time", ""), optJSONObject.optString("end_time", "")));
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeL.objValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d == null) {
-                l();
-            }
-            ArrayList<c> arrayList = this.d;
-            if (arrayList != null && arrayList.size() > 0) {
-                Iterator<c> it = this.d.iterator();
-                while (it.hasNext()) {
-                    c next = it.next();
-                    if (z11.a(next.a, next.b)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.c == null) {
-                n();
-            }
-            ArrayList<c> arrayList = this.c;
-            if (arrayList != null && arrayList.size() > 0) {
-                Iterator<c> it = this.c.iterator();
-                while (it.hasNext()) {
-                    c next = it.next();
-                    if (z11.a(next.a, next.b)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d(int i, @Nullable String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i, str)) == null) {
-            if (i21.m()) {
-                return true;
-            }
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            if (i == 23) {
-                if (!b(str)) {
-                    return false;
-                }
-            } else if (!f(i, str)) {
-                return false;
-            }
-            if (BdNetUtils.g() || !BdNetUtils.c()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public final boolean f(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, str)) == null) {
-            if (k(j(i)) && g() && e(str)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    public final boolean k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (TextUtils.isEmpty(e)) {
-                e = i("video_pcdn_scene_control_android");
-            }
-            if (!TextUtils.isEmpty(e) && i < e.length() && i >= 0) {
-                return "1".equals(String.valueOf(e.charAt(i)));
-            }
-            if (i >= 0 && i < 4) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
     }
 }

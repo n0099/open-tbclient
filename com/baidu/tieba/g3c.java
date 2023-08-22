@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.b1c;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class g3c implements l1c {
+public class g3c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final l1c a;
-    public final b1c.a b;
-    public final long c;
+    public w3c a;
 
-    public g3c(l1c l1cVar, b1c.a aVar, long j) {
+    public g3c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {l1cVar, aVar, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,30 +25,22 @@ public class g3c implements l1c {
                 return;
             }
         }
-        this.a = l1cVar;
-        this.b = aVar;
-        this.c = j;
+        this.a = null;
     }
 
-    @Override // com.baidu.tieba.l1c
-    public void call() {
+    public w3c a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        long a = this.c - this.b.a();
-        if (a > 0) {
-            try {
-                Thread.sleep(a);
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                k1c.c(e);
-                throw null;
-            }
+        return (w3c) invokeV.objValue;
+    }
+
+    public void b(w3c w3cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w3cVar) == null) {
+            this.a = w3cVar;
         }
-        if (this.b.isUnsubscribed()) {
-            return;
-        }
-        this.a.call();
     }
 }

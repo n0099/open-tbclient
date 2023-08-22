@@ -1,74 +1,30 @@
 package com.baidu.tieba;
 
+import android.util.Base64;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vo2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStreamReader;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.zip.GZIPInputStream;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public abstract class to2<W extends vo2> implements ZeusPlugin {
+public class to2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean a;
+    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public uo2<W> a;
-    public ZeusPlugin.Callback b;
-    @NonNull
-    public W c;
-    public boolean d;
-    public final List<ZeusPlugin.Command> e;
-    public vo2.a f;
-
-    /* loaded from: classes8.dex */
-    public class a implements vo2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ to2 a;
-
-        public a(to2 to2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {to2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = to2Var;
-        }
-
-        @Override // com.baidu.tieba.vo2.a
-        public void a(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                synchronized (this.a) {
-                    if (to2.g) {
-                        Log.i("BaseInlineController", "组件初始化完成，开始flush挂起的指令=====");
-                    }
-                    this.a.d();
-                    this.a.d = true;
-                    if (to2.g) {
-                        Log.i("BaseInlineController", "指令flush完成=========================");
-                    }
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -83,88 +39,94 @@ public abstract class to2<W extends vo2> implements ZeusPlugin {
                 return;
             }
         }
-        g = ir1.a;
+        a = nr1.a;
+        b = new byte[]{31, -117};
     }
 
-    public to2(@NonNull W w) {
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION, THROW, THROW, THROW, INVOKE, MOVE_EXCEPTION, INVOKE, THROW, INVOKE, MOVE_EXCEPTION, MOVE_EXCEPTION] complete} */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public static File a(byte[] bArr, File file) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {w};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        this.e = new ArrayList();
-        this.f = new a(this);
-        this.a = new uo2<>();
-        this.c = w;
-        if (g) {
-            Log.i("BaseInlineController", "开始初始化组件");
-        }
-        this.c.A(this.f);
-    }
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void setCallback(ZeusPlugin.Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callback) == null) {
-            this.b = callback;
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e.size() == 0) {
-            return;
-        }
-        Iterator<ZeusPlugin.Command> it = this.e.iterator();
-        while (it.hasNext()) {
-            ZeusPlugin.Command next = it.next();
-            if (g) {
-                Log.i("BaseInlineController", "flush-尝试分发Command: + " + next.what);
-            }
-            this.a.b(next, this.c);
-            it.remove();
-        }
-    }
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void sendCommand(ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
-            synchronized (this) {
-                if (command == null) {
-                    return;
-                }
-                if (this.d) {
-                    if (g) {
-                        Log.v("BaseInlineController", "组件已初始化，直接尝试分发Command: + " + command.what);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, file)) == null) {
+            if (bArr != null && bArr.length >= 2 && file != null && file.exists()) {
+                byte[] bArr2 = b;
+                bArr[0] = bArr2[0];
+                bArr[1] = bArr2[1];
+                try {
+                    ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
+                    GZIPInputStream gZIPInputStream = new GZIPInputStream(byteArrayInputStream);
+                    InputStreamReader inputStreamReader = new InputStreamReader(gZIPInputStream);
+                    BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                    try {
+                        StringBuilder sb = new StringBuilder();
+                        while (true) {
+                            String readLine = bufferedReader.readLine();
+                            if (readLine == null) {
+                                break;
+                            }
+                            sb.append(readLine);
+                        }
+                        if (a) {
+                            Log.d("SwanAppCloneModule", "first char:" + sb.charAt(0));
+                        }
+                        String string = new JSONObject(sb.toString()).getString(vo2.l);
+                        if (a) {
+                            Log.d("SwanAppCloneModule", string);
+                        }
+                        byte[] doFinal = b(2).doFinal(Base64.decode(string, 0));
+                        File file2 = new File(file, vo2.l);
+                        new FileOutputStream(file2).write(doFinal);
+                        if (a) {
+                            Log.d("SwanAppCloneModule", file2.getAbsolutePath());
+                        }
+                        bufferedReader.close();
+                        inputStreamReader.close();
+                        gZIPInputStream.close();
+                        byteArrayInputStream.close();
+                        return file2;
+                    } finally {
                     }
-                    this.a.b(command, this.c);
-                } else {
-                    ZeusPlugin.Command command2 = new ZeusPlugin.Command();
-                    command2.what = command.what;
-                    command2.arg1 = command.arg1;
-                    command2.arg2 = command.arg2;
-                    command2.arg3 = command.arg3;
-                    command2.arg4 = command.arg4;
-                    command2.arg5 = command.arg5;
-                    command2.obj = command.obj;
-                    this.e.add(command2);
-                    if (g) {
-                        Log.i("BaseInlineController", "组件未初始化，加入Pending队列： " + command2.what);
+                } catch (Exception e) {
+                    if (a) {
+                        e.printStackTrace();
                     }
-                    this.a.c(command);
                 }
             }
+            return null;
         }
+        return (File) invokeLL.objValue;
+    }
+
+    public static Cipher b(int i) throws Exception {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
+            cipher.init(i, new SecretKeySpec(c("la32118_p9d8#*!6)".getBytes()).substring(16).getBytes(), "AES"), new IvParameterSpec("2081147213143090".getBytes()));
+            return cipher;
+        }
+        return (Cipher) invokeI.objValue;
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return hr4.T(messageDigest.digest(), "", false);
+            } catch (NoSuchAlgorithmException e) {
+                if (a) {
+                    e.printStackTrace();
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -4,7 +4,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.builtins.PrimitiveType;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaPrimitiveType;
 import kotlin.reflect.jvm.internal.impl.resolve.jvm.JvmPrimitiveType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectJavaPrimitiveType extends ReflectJavaType implements JavaPrimitiveType {
     public final Class<?> reflectType;
 

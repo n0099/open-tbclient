@@ -20,10 +20,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.barselect.segment.VotedAreaLayout;
-import com.baidu.tieba.hg6;
-import com.baidu.tieba.ig6;
-import com.baidu.tieba.jg6;
-import com.baidu.tieba.sg6;
+import com.baidu.tieba.jh6;
+import com.baidu.tieba.kh6;
+import com.baidu.tieba.lh6;
+import com.baidu.tieba.uh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,8 +34,8 @@ public class FloatMyRecordCard extends LinearLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
     public int b;
-    public jg6 c;
-    public hg6 d;
+    public lh6 c;
+    public jh6 d;
     public TextView e;
     public BazhuHeadView f;
     public TextView g;
@@ -142,16 +142,16 @@ public class FloatMyRecordCard extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09279b);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0927cc);
             BazhuHeadView bazhuHeadView = (BazhuHeadView) findViewById(R.id.user_avatar);
             this.f = bazhuHeadView;
             if (bazhuHeadView.getHeadView() != null) {
                 this.f.getHeadView().setIsRound(true);
             }
             this.g = (TextView) findViewById(R.id.user_name);
-            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e6c);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0929b6);
-            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f091830);
+            this.h = (ImageView) findViewById(R.id.obfuscated_res_0x7f090e79);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f0929e7);
+            this.j = (VotedAreaLayout) findViewById(R.id.obfuscated_res_0x7f091851);
         }
     }
 
@@ -161,18 +161,18 @@ public class FloatMyRecordCard extends LinearLayout {
             this.a = getContext();
             setOrientation(0);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02d7, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d02da, (ViewGroup) this, true);
             b();
         }
     }
 
     public void d(int i) {
-        hg6 hg6Var;
+        jh6 jh6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (hg6Var = this.d) == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || (jh6Var = this.d) == null) {
             return;
         }
-        if (hg6Var.i() > 3) {
+        if (jh6Var.i() > 3) {
             SkinManager.setViewTextColor(this.e, R.color.CAM_X0105, 1, i);
         }
         SkinManager.setViewTextColor(this.g, R.color.CAM_X0105, 1, i);
@@ -183,21 +183,21 @@ public class FloatMyRecordCard extends LinearLayout {
         setGrade(this.d.d());
     }
 
-    public void setData(jg6 jg6Var) {
-        hg6 hg6Var;
+    public void setData(lh6 lh6Var) {
+        jh6 jh6Var;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jg6Var) == null) {
-            this.c = jg6Var;
-            if (jg6Var != null && jg6Var.a() != null) {
-                ig6 a2 = this.c.a();
+        if (interceptable == null || interceptable.invokeL(1048579, this, lh6Var) == null) {
+            this.c = lh6Var;
+            if (lh6Var != null && lh6Var.a() != null) {
+                kh6 a2 = this.c.a();
                 if (a2 != null) {
                     this.b = a2.h();
                 }
                 this.d = this.c.f();
             }
-            if (this.c != null && (hg6Var = this.d) != null && this.b == sg6.c) {
-                int i = hg6Var.i();
+            if (this.c != null && (jh6Var = this.d) != null && this.b == uh6.c) {
+                int i = jh6Var.i();
                 if (i < 10) {
                     this.e.setText("0" + i);
                 } else {

@@ -1,22 +1,56 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.widget.LinearLayout;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.live.business.refresh.BdSwipeRefreshLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ma0 extends la0 {
+public abstract class ma0 implements BdSwipeRefreshLayout.h {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean y;
-    public boolean z;
+    public Context a;
+    public View b;
+    public boolean c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public abstract View a();
+
+    public abstract void b(boolean z);
+
+    public abstract void e();
+
+    public abstract void f(boolean z);
+
+    public abstract void g(boolean z);
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public long getCompleteAnimTime() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    public abstract void h();
+
+    public abstract void i();
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onPullPercentChange(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+        }
+    }
+
     public ma0(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -26,55 +60,112 @@ public class ma0 extends la0 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.z = false;
+        this.a = null;
+        this.b = null;
+        this.c = false;
+        this.a = context;
     }
 
-    @Override // com.baidu.tieba.la0, com.baidu.tieba.ja0
-    public void b(boolean z) {
+    public final void d(View view2) {
+        int makeMeasureSpec;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            super.b(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.la0, com.baidu.tieba.ja0
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            super.g(z);
-            if (!this.y) {
-                p(0);
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                layoutParams = new ViewGroup.LayoutParams(-1, -2);
             }
+            int childMeasureSpec = ViewGroup.getChildMeasureSpec(0, 0, layoutParams.width);
+            int i = layoutParams.height;
+            if (i > 0) {
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(i, 1073741824);
+            } else {
+                makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);
+            }
+            view2.measure(childMeasureSpec, makeMeasureSpec);
         }
     }
 
-    @Override // com.baidu.tieba.la0
-    public void p(int i) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            super.p(i);
-            LinearLayout linearLayout = this.e;
-            if (linearLayout == null) {
-                return;
-            }
-            this.y = false;
-            if (this.z) {
-                linearLayout.setBackgroundColor(0);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.la0, com.baidu.tieba.ja0
-    public void h() {
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.a;
         }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public final View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.b == null) {
+                View a = a();
+                this.b = a;
+                d(a);
+            }
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onCompleteRefresh() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || this.c) {
+            return;
+        }
+        e();
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onFinish() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || this.c) {
+            return;
+        }
+        b(true);
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onPullToRefresh() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || this.c) {
+            return;
+        }
+        g(false);
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onRefreshing() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || this.c) {
+            return;
+        }
+        h();
+        f(true);
+    }
+
+    @Override // com.baidu.live.business.refresh.BdSwipeRefreshLayout.h
+    public void onReleaseToRefresh() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048593, this) != null) || this.c) {
+            return;
+        }
+        i();
     }
 }

@@ -35,21 +35,21 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.i
     public boolean d;
     public boolean e;
 
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public VoiceManager.IPlayView g1(VoiceData.VoiceModel voiceModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, voiceModel)) == null) {
-            return null;
-        }
-        return (VoiceManager.IPlayView) invokeL.objValue;
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tbadk.pageStayDuration.IPageStayDuration
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "a079" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public VoiceManager.IPlayView q1(VoiceData.VoiceModel voiceModel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, voiceModel)) == null) {
+            return null;
+        }
+        return (VoiceManager.IPlayView) invokeL.objValue;
     }
 
     /* loaded from: classes6.dex */
@@ -106,10 +106,23 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.i
         }
     }
 
+    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
+    public VoiceManager G0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c == null) {
+                this.c = VoiceManager.instance();
+            }
+            return this.c;
+        }
+        return (VoiceManager) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (this.e) {
                 ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
             } else {
@@ -121,7 +134,7 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.i
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.finish();
             if (this.e) {
                 MainTabActivityConfig mainTabActivityConfig = new MainTabActivityConfig(this);
@@ -197,22 +210,9 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.i
     public final void u1() {
         SwipeBackLayout swipeBackLayout;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (swipeBackLayout = this.mSwipeBackLayout) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048591, this) == null) && (swipeBackLayout = this.mSwipeBackLayout) != null) {
             swipeBackLayout.setOnSlidingStateChangeListener(new a(this));
         }
-    }
-
-    @Override // com.baidu.tbadk.core.voice.VoiceManager.i
-    public VoiceManager z0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            if (this.c == null) {
-                this.c = VoiceManager.instance();
-            }
-            return this.c;
-        }
-        return (VoiceManager) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -235,7 +235,7 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.i
             AtMessageFragment atMessageFragment = this.a;
             if (atMessageFragment != null && intent != null) {
                 atMessageFragment.setArguments(intent.getExtras());
-                this.a.e2();
+                this.a.q2();
             }
         }
     }
@@ -260,27 +260,27 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.i
                 setIsAddSwipeBackLayout(false);
             }
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d002b);
+            setContentView(R.layout.obfuscated_res_0x7f0d002c);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02e4));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f02e5));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             AtMessageFragment atMessageFragment = new AtMessageFragment();
             this.a = atMessageFragment;
             atMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0907b1, this.a).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f0907b5, this.a).commitAllowingStateLoss();
             adjustResizeForSoftInput();
-            VoiceManager z0 = z0();
-            this.c = z0;
-            z0.onCreate(getPageContext());
-            t1();
+            VoiceManager G0 = G0();
+            this.c = G0;
+            G0.onCreate(getPageContext());
+            s1();
             u1();
         }
     }
 
-    public final void t1() {
+    public final void s1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && getIntent() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && getIntent() != null) {
             StatisticItem statisticItem = new StatisticItem("c14622");
             statisticItem.param("obj_source", getIntent().getIntExtra("from", 0));
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
@@ -290,7 +290,7 @@ public class AtMeActivity extends BaseFragmentActivity implements VoiceManager.i
 
     public final void v1() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || this.d) {
+        if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || this.d) {
             return;
         }
         this.d = true;

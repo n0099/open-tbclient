@@ -23,7 +23,7 @@ import com.huawei.hms.android.HwBuildEx;
 import com.huawei.hms.support.api.push.TransActivity;
 import com.huawei.hms.support.log.HMSLog;
 import com.huawei.hms.utils.ResourceLoaderUtil;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class o {
     public static /* synthetic */ Interceptable $ic;
     public static int a;

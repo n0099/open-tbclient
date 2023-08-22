@@ -1,39 +1,37 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c63;
-import com.baidu.tieba.dg3;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.tieba.mg4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes8.dex */
-public class zf4 {
+import java.util.List;
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
+public class zf4 extends pf4<sx2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes8.dex */
-    public interface c {
-        void onFail();
-
-        void onSuccess();
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a implements rp3<bg3<dg3.e>> {
+    /* loaded from: classes9.dex */
+    public class a implements mg4.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
+        public final /* synthetic */ sx2 a;
+        public final /* synthetic */ mx2 b;
 
-        public a(c cVar) {
+        public a(zf4 zf4Var, sx2 sx2Var, mx2 mx2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
+                Object[] objArr = {zf4Var, sx2Var, mx2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,90 +41,112 @@ public class zf4 {
                     return;
                 }
             }
-            this.a = cVar;
+            this.a = sx2Var;
+            this.b = mx2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rp3
-        /* renamed from: b */
-        public void a(bg3<dg3.e> bg3Var) {
+        @Override // com.baidu.tieba.mg4.b
+        public void onAnimationEnd() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bg3Var) == null) {
-                if (wf3.h(bg3Var)) {
-                    zf4.c(this.a);
-                } else {
-                    this.a.onFail();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (!TextUtils.isEmpty(this.a.y)) {
+                    this.b.c(this.a.y, null);
                 }
+                d82.i("map", "TranslateMarkerAction animation end");
             }
         }
     }
 
-    /* loaded from: classes8.dex */
-    public static class b implements c63.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948358017, "Lcom/baidu/tieba/zf4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.c63.a
-        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
-                if (i != 0) {
-                    this.a.onFail();
-                    return;
-                }
-                for (int i2 : iArr) {
-                    if (i2 == -1) {
-                        this.a.onFail();
-                        return;
-                    }
-                }
-                this.a.onSuccess();
-            }
-        }
-    }
-
-    public static void b(Context context, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, cVar) == null) {
-            if (!(context instanceof Activity)) {
-                cVar.onFail();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948358017, "Lcom/baidu/tieba/zf4;");
                 return;
             }
-            ya3 M = ya3.M();
-            if (M != null) {
-                M.e0().g((Activity) context, "mapp_location", new a(cVar));
+        }
+        boolean z = nr1.a;
+    }
+
+    public zf4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void c(c cVar) {
+    public static zf4 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
-            ya3 b0 = ya3.b0();
-            if (so3.M() && b0 != null) {
-                cVar.onSuccess();
-            } else {
-                b0.w().z(0, new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, new b(cVar));
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new zf4();
         }
+        return (zf4) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pf4
+    /* renamed from: d */
+    public boolean b(Context context, sx2 sx2Var, mx2 mx2Var, db3 db3Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sx2Var, mx2Var, db3Var, jSONObject)) == null) {
+            return f(context, sx2Var, mx2Var, db3Var);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final boolean f(Context context, sx2 sx2Var, mx2 mx2Var, db3 db3Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, sx2Var, mx2Var, db3Var)) == null) {
+            d82.i("map", "TranslateMarkerAction start");
+            lx1 A = qw2.T().A(sx2Var.c);
+            if (!(A instanceof jx1)) {
+                d82.c("map", "WebViewManager is null");
+                return false;
+            }
+            ng4 d = mf4.b().c((jx1) A).d(sx2Var.b);
+            if (d == null) {
+                d82.c("map", "can not find map by id " + sx2Var.b);
+                return false;
+            }
+            return g(sx2Var, d, mx2Var);
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final boolean g(sx2 sx2Var, ng4 ng4Var, mx2 mx2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, sx2Var, ng4Var, mx2Var)) == null) {
+            if (!sx2Var.isValid()) {
+                return false;
+            }
+            wx2 wx2Var = sx2Var.A;
+            LatLng latLng = new LatLng(wx2Var.a, wx2Var.b);
+            List<mg4> I = ng4Var.I(sx2Var.z);
+            d82.i("map", "TranslateMarkerAction animation start");
+            if (I != null) {
+                for (mg4 mg4Var : I) {
+                    mg4Var.c(ng4Var, latLng, sx2Var, new a(this, sx2Var, mx2Var));
+                }
+            }
+            d82.i("map", "TranslateMarkerAction end");
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

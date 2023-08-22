@@ -1,37 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class mu9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public du9 a;
+    public ju9 b;
+    public eu9 c;
+    public cr9 d;
+    public List<om> e;
 
-    public static boolean a(om5 om5Var) {
-        InterceptResult invokeL;
+    public mu9(TbPageContext tbPageContext, HTypeListView hTypeListView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, om5Var)) == null) {
-            if (om5Var != null) {
-                return om5Var.isViewAttached();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, hTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeL.booleanValue;
+        this.e = new ArrayList();
+        this.a = new du9(tbPageContext, wv9.c);
+        this.b = new ju9(tbPageContext);
+        this.c = new eu9(tbPageContext, pv9.c);
+        this.d = new cr9(tbPageContext.getPageActivity(), yq9.d);
+        this.e.add(this.a);
+        this.e.add(this.b);
+        this.e.add(this.c);
+        this.e.add(this.d);
+        hTypeListView.a(this.e);
     }
 
-    public static void b(om5 om5Var, View.OnClickListener onClickListener, Context context, View view2, String str, boolean z) {
+    public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{om5Var, onClickListener, context, view2, str, Boolean.valueOf(z)}) == null) && !a(om5Var) && context != null && view2 != null) {
-            if (om5Var == null) {
-                om5Var = new om5(context, onClickListener);
-            }
-            om5Var.j(context.getResources().getDimensionPixelSize(R.dimen.tbds530));
-            om5Var.attachView(view2, z);
-            om5Var.o();
-            om5Var.onChangeSkinType();
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.a.u(onClickListener);
+        }
+    }
+
+    public void b(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onClickListener) == null) {
+            this.c.u(onClickListener);
         }
     }
 }

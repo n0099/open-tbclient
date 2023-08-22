@@ -1,130 +1,121 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ImageView.BdImage;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
+import java.util.HashMap;
+@ModifyClass
 /* loaded from: classes5.dex */
-public abstract class ei5 {
+public class ei5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdImage a;
-    public BdImage b;
-    public int c;
-    public int d;
 
-    public abstract String b(int i);
-
-    public abstract int c();
-
-    public abstract String f();
-
-    public abstract String g();
-
-    public abstract EmotionGroupType h();
-
-    public abstract int i();
-
-    public abstract boolean j();
-
-    public abstract int l();
-
-    public abstract boolean m(String str);
-
-    public abstract BdImage n(String str);
-
-    public abstract BdImage o(String str);
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947735320, "Lcom/baidu/tieba/ei5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947735320, "Lcom/baidu/tieba/ei5;");
+                return;
+            }
         }
+        a = TbConfig.TIEBA_ADDRESS + "mo/q/hybrid-main-service/creativeToolsList";
     }
 
-    public ei5() {
+    public static FrameLayout a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            FrameLayout frameLayout = new FrameLayout(context);
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
+            layoutParams.rightMargin = BdUtilHelper.getDimens(context, R.dimen.M_W_X006);
+            frameLayout.setLayoutParams(layoutParams);
+            EMManager.from(frameLayout).setBorderWidth(R.dimen.L_X02).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0209);
+            ImageView imageView = new ImageView(context);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(BdUtilHelper.getDimens(context, R.dimen.tbds138), BdUtilHelper.getDimens(context, R.dimen.tbds31));
+            layoutParams2.setMargins(BdUtilHelper.getDimens(context, R.dimen.M_W_X004), BdUtilHelper.getDimens(context, R.dimen.M_H_X002), BdUtilHelper.getDimens(context, R.dimen.M_W_X004), BdUtilHelper.getDimens(context, R.dimen.M_H_X002));
+            imageView.setLayoutParams(layoutParams2);
+            SkinManager.setImageResource(imageView, R.drawable.icon_ai_write_rukou);
+            frameLayout.addView(imageView);
+            b(context, frameLayout);
+            return frameLayout;
+        }
+        return (FrameLayout) invokeL.objValue;
+    }
+
+    public static void b(Context context, FrameLayout frameLayout) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, context, frameLayout) == null) && qp5.c("key_ai_write_button_first_show_red_dot", true)) {
+            if (qp5.g("key_ai_write_button_first_show_red_dot_time", 0L) == 0) {
+                qp5.o("key_ai_write_button_first_show_red_dot_time", System.currentTimeMillis());
+            }
+            if (System.currentTimeMillis() - qp5.g("key_ai_write_button_first_show_red_dot_time", System.currentTimeMillis()) < 1209600000) {
+                ImageView imageView = new ImageView(context);
+                imageView.setId(R.id.ai_write_button_red_dot);
+                imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(BdUtilHelper.getDimens(context, R.dimen.tbds18), BdUtilHelper.getDimens(context, R.dimen.tbds18));
+                layoutParams.setMargins((BdUtilHelper.getDimens(context, R.dimen.tbds138) + (BdUtilHelper.getDimens(context, R.dimen.M_W_X004) * 2)) - BdUtilHelper.getDimens(context, R.dimen.tbds18), 0, 0, 0);
+                SkinManager.setImageResource(imageView, R.drawable.icon_news_red_dot);
+                frameLayout.addView(imageView, layoutParams);
             }
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static String c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            return a + "?customfullscreen=1&nonavigationbar=1&type=" + str + "&fid=" + str2;
         }
-        return invokeV.intValue;
+        return (String) invokeLL.objValue;
     }
 
-    public BdImage d() {
-        InterceptResult invokeV;
+    public static void e(@Nullable String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (BdImage) invokeV.objValue;
-    }
-
-    public BdImage e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (BdImage) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void r(BdImage bdImage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bdImage) == null) {
-            if (bdImage != null) {
-                bdImage.getRawBitmap();
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            HashMap<String, Serializable> hashMap = new HashMap<>();
+            if (!TextUtils.isEmpty(str)) {
+                hashMap.put("pbReply", str);
             }
-            this.a = bdImage;
-        }
-    }
-
-    public void s(BdImage bdImage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, bdImage) == null) {
-            if (bdImage != null) {
-                bdImage.getRawBitmap();
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
             }
-            this.b = bdImage;
+            hz4 j = hz4.j(TbadkCoreApplication.getInst().getCurrentActivity(), c("reply", str2));
+            j.f(hashMap);
+            j.p();
         }
     }
 
-    public void t(int i) {
+    public static void d(@NonNull View view2) {
+        View findViewById;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
-            this.c = i;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2) == null) && (findViewById = view2.findViewById(R.id.ai_write_button_red_dot)) != null) {
+            findViewById.setVisibility(8);
+            qp5.m("key_ai_write_button_first_show_red_dot", false);
         }
     }
 }

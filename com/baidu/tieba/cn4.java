@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,33 +11,8 @@ import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class cn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile cn4 b;
+    public static volatile cn4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-
-    /* loaded from: classes5.dex */
-    public static class a extends ir4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("swan_preload_package");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
 
     public cn4() {
         Interceptable interceptable = $ic;
@@ -48,24 +24,22 @@ public class cn4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new a();
     }
 
     public static cn4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
+            if (a == null) {
                 synchronized (cn4.class) {
-                    if (b == null) {
-                        b = new cn4();
+                    if (a == null) {
+                        a = new cn4();
                     }
                 }
             }
-            return b;
+            return a;
         }
         return (cn4) invokeV.objValue;
     }
@@ -74,24 +48,26 @@ public class cn4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString("version", "0");
+            if (oi4.b() == null) {
+                return "0";
+            }
+            return oi4.b().i().getString("local_debug_version", "0");
         }
         return (String) invokeV.objValue;
     }
 
-    public void c(bn4 bn4Var) {
+    public void c(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bn4Var) == null) && bn4Var != null) {
-            this.a.edit().putString("version", bn4Var.c()).apply();
-        }
-    }
-
-    public void d(JSONObject jSONObject) {
-        bn4 a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null || (a2 = bn4.a(jSONObject)) == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        ji4.b().H(a2);
+        String optString = jSONObject.optString("version");
+        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && oi4.b() != null) {
+            oi4.b().i().putString("local_debug_version", optString);
+            oi4.b().i().putString("enable_local_debug_switch", optJSONObject.optString("enable_local_debug_switch"));
+            oi4.b().i().putString("error_url", optJSONObject.optString("error_url"));
+            oi4.b().i().putString("auth_white_list", optJSONObject.optString("auth_white_list"));
+        }
     }
 }

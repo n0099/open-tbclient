@@ -2,8 +2,8 @@ package com.xiaomi.push;
 /* loaded from: classes10.dex */
 public interface at {
     /* renamed from: a */
-    String mo263a();
+    String mo265a();
 
     /* renamed from: a */
-    boolean mo264a();
+    boolean mo266a();
 }

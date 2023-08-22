@@ -7,10 +7,10 @@ public class bv {
     public static volatile bv a;
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f151a;
+    public Context f152a;
 
     public bv(Context context) {
-        this.f151a = context;
+        this.f152a = context;
     }
 
     public static bv a(Context context) {
@@ -29,7 +29,7 @@ public class bv {
         } catch (Throwable unused) {
             return j;
         }
-        return this.f151a.getSharedPreferences(str, 4).getLong(str2, j);
+        return this.f152a.getSharedPreferences(str, 4).getLong(str2, j);
     }
 
     public synchronized String a(String str, String str2, String str3) {
@@ -37,19 +37,19 @@ public class bv {
         } catch (Throwable unused) {
             return str3;
         }
-        return this.f151a.getSharedPreferences(str, 4).getString(str2, str3);
+        return this.f152a.getSharedPreferences(str, 4).getString(str2, str3);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m302a(String str, String str2, long j) {
-        SharedPreferences.Editor edit = this.f151a.getSharedPreferences(str, 4).edit();
+    public synchronized void m304a(String str, String str2, long j) {
+        SharedPreferences.Editor edit = this.f152a.getSharedPreferences(str, 4).edit();
         edit.putLong(str2, j);
         edit.commit();
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized void m303a(String str, String str2, String str3) {
-        SharedPreferences.Editor edit = this.f151a.getSharedPreferences(str, 4).edit();
+    public synchronized void m305a(String str, String str2, String str3) {
+        SharedPreferences.Editor edit = this.f152a.getSharedPreferences(str, 4).edit();
         edit.putString(str2, str3);
         edit.commit();
     }

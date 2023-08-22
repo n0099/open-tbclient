@@ -4,9 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.appframework.BaseActivity;
-import com.baidu.tieba.h71;
-import com.baidu.tieba.k71;
-import com.baidu.tieba.l71;
+import com.baidu.tieba.m71;
+import com.baidu.tieba.p71;
+import com.baidu.tieba.q71;
 /* loaded from: classes3.dex */
 public class NadPermissionActivity extends BaseActivity {
     public int u;
@@ -18,7 +18,7 @@ public class NadPermissionActivity extends BaseActivity {
         requestPermissions();
     }
 
-    public final void M1() {
+    public final void L1() {
         Intent intent = getIntent();
         this.u = intent.getIntExtra("request_code", 0);
         this.v = intent.getStringArrayExtra("permissions");
@@ -29,34 +29,34 @@ public class NadPermissionActivity extends BaseActivity {
         if (strArr != null && strArr.length != 0) {
             boolean z = false;
             for (String str : strArr) {
-                if (!z && !h71.b(this, str)) {
+                if (!z && !m71.b(this, str)) {
                     z = false;
                 } else {
                     z = true;
                 }
             }
             if (z) {
-                h71.requestPermissions(this, this.v, this.u);
-            } else if (l71.a(this, this.u)) {
-                h71.requestPermissions(this, this.v, this.u);
+                m71.requestPermissions(this, this.v, this.u);
+            } else if (q71.a(this, this.u)) {
+                m71.requestPermissions(this, this.v, this.u);
             } else {
                 onRequestPermissionsResult(this.u, this.v, new int[0]);
             }
         }
     }
 
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void A1(Bundle bundle) {
+        super.A1(bundle);
+        L1();
+    }
+
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        h71.b c = k71.b().c(this.u);
+        m71.b c = p71.b().c(this.u);
         if (c != null) {
             c.onRequestPermissionsResult(i, strArr, iArr);
         }
         finish();
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void z1(Bundle bundle) {
-        super.z1(bundle);
-        M1();
     }
 }

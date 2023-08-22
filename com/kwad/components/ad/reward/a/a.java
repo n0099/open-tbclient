@@ -138,7 +138,7 @@ public final class a extends d implements View.OnClickListener {
 
     public a(Context context, @Nullable ViewGroup viewGroup, @Nullable int[] iArr) {
         this.oi = iArr;
-        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04cc, viewGroup, false);
+        ViewGroup viewGroup2 = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04d3, viewGroup, false);
         this.es = viewGroup2;
         d(viewGroup2);
     }
@@ -180,12 +180,12 @@ public final class a extends d implements View.OnClickListener {
     }
 
     private void d(ViewGroup viewGroup) {
-        this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f091297);
-        this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091295);
-        this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09129a);
-        this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091298);
-        this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091299);
-        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f091296);
+        this.oj = viewGroup.findViewById(R.id.obfuscated_res_0x7f0912ad);
+        this.ok = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912ab);
+        this.eQ = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912b0);
+        this.ol = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912ae);
+        this.iu = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912af);
+        Button button = (Button) viewGroup.findViewById(R.id.obfuscated_res_0x7f0912ac);
         this.om = button;
         button.setOnClickListener(this);
     }

@@ -8,7 +8,7 @@ import android.util.AttributeSet;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bi;
+import com.baidu.tieba.di;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -91,7 +91,7 @@ public class AlignTextView extends TextView {
             }
             String str = (String) text;
             Layout layout = getLayout();
-            if (!bi.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
+            if (!di.isEmpty(str) && layout != null && layout.getLineCount() == 1 && str.length() > 1) {
                 int lineBaseline = layout.getLineBaseline(0) + getPaddingTop();
                 float measureText = getPaint().measureText(str);
                 float paddingLeft = getPaddingLeft();

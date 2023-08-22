@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.bdtask.ctrl.model.TaskStatus;
+import android.graphics.Color;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,15 +45,19 @@ public final class kv {
         }
     }
 
-    public final TaskStatus a(TaskStatus taskStatus) {
-        InterceptResult invokeL;
+    public final int a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, taskStatus)) == null) {
-            TaskStatus deepCopy = taskStatus.deepCopy();
-            deepCopy.setCurStatus(22);
-            deepCopy.getTaskStatusRuntime().setDuplicated(true);
-            return deepCopy;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return i;
+            }
+            try {
+                return Color.parseColor(str);
+            } catch (Exception unused) {
+                return i;
+            }
         }
-        return (TaskStatus) invokeL.objValue;
+        return invokeLI.intValue;
     }
 }

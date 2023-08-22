@@ -1,145 +1,36 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.f7b;
-import com.baidu.tieba.y6b;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import com.baidu.turbonet.net.impl.CronetUrlRequestContext;
+import org.chromium.base.NativeLibraryLoadedStatus;
+import org.chromium.base.annotations.CheckDiscard;
+import org.chromium.base.natives.GEN_JNI;
+@CheckDiscard("crbug.com/993421")
 /* loaded from: classes8.dex */
-public class x6b implements f7b.a {
+public final class x6b implements CronetUrlRequestContext.f {
     public static /* synthetic */ Interceptable $ic;
-    public static x6b f;
+    public static CronetUrlRequestContext.f a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, f7b> a;
-    public w6b b;
-    public ExecutorService c;
-    public d7b d;
-    public Handler e;
 
-    public void delete(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948253733, "Lcom/baidu/tieba/x6b;")) == null) {
+            return;
         }
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ x6b b;
-
-        public a(x6b x6bVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x6bVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = x6bVar;
-            this.a = str;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a.containsKey(this.a)) {
-                this.b.a.remove(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x6b a;
-
-        public b(x6b x6bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x6bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x6bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (f7b f7bVar : this.a.a.values()) {
-                    if (f7bVar != null && f7bVar.isRunning()) {
-                        f7bVar.pause();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x6b a;
-
-        public c(x6b x6bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x6bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x6bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (f7b f7bVar : this.a.a.values()) {
-                    if (f7bVar != null && f7bVar.isRunning()) {
-                        f7bVar.cancel();
-                    }
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948253733, "Lcom/baidu/tieba/x6b;");
         }
     }
 
@@ -147,159 +38,94 @@ public class x6b implements f7b.a {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new Handler(Looper.getMainLooper());
-        this.a = new LinkedHashMap();
-        i(new w6b());
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e)) {
-                f7b f7bVar = this.a.get(e);
-                if (f7bVar != null) {
-                    f7bVar.cancel();
-                }
-                this.a.remove(e);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (str != null) {
-                return String.valueOf(str.hashCode());
-            }
-            throw new IllegalArgumentException("Tag can't be null!");
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final boolean j(String str) {
-        InterceptResult invokeL;
-        f7b f7bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            if (this.a.containsKey(str) && (f7bVar = this.a.get(str)) != null && f7bVar.isRunning()) {
-                p9b.d("DownloadInfo has been started!");
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean k(String str) {
-        InterceptResult invokeL;
-        f7b f7bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e) && (f7bVar = this.a.get(e)) != null) {
-                return f7bVar.isRunning();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static x6b h() {
+    public static CronetUrlRequestContext.f h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (x6b.class) {
-                    if (f == null) {
-                        f = new x6b();
-                    }
+            if (GEN_JNI.TESTING_ENABLED) {
+                CronetUrlRequestContext.f fVar = a;
+                if (fVar != null) {
+                    return fVar;
+                }
+                if (GEN_JNI.REQUIRE_MOCK) {
+                    throw new UnsupportedOperationException("No mock found for the native implementation for com.baidu.turbonet.net.impl.CronetUrlRequestContext.Natives. The current configuration requires all native implementations to have a mock instance.");
                 }
             }
-            return f;
+            NativeLibraryLoadedStatus.checkLoaded(false);
+            return new x6b();
         }
-        return (x6b) invokeV.objValue;
+        return (CronetUrlRequestContext.f) invokeV.objValue;
     }
 
-    public void d() {
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public long a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.post(new c(this));
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_createRequestContextAdapter(j);
         }
+        return invokeJ.longValue;
     }
 
-    public void m() {
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public int g(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.e.post(new b(this));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_setMinLogLevel(i);
         }
+        return invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.f7b.a
-    public void a(String str, f7b f7bVar) {
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public void b(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, f7bVar) == null) {
-            this.e.post(new a(this, str));
-        }
-    }
-
-    public void f(y6b y6bVar, String str, a7b a7bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, y6bVar, str, a7bVar) == null) {
-            String e = e(str);
-            if (!j(e)) {
-                l7b l7bVar = new l7b(y6bVar, new i7b(this.d, a7bVar), this.c, e, this.b, this);
-                this.a.put(e, l7bVar);
-                l7bVar.start();
-            }
+        if (interceptable == null || interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_applyBaiduConfigDictionary(j, str);
         }
     }
 
-    public void g(String str, String str2, String str3, a7b a7bVar) {
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public void d(long j, CronetUrlRequestContext cronetUrlRequestContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048582, this, str, str2, str3, a7bVar) == null) {
-            y6b.b bVar = new y6b.b();
-            bVar.d(str);
-            bVar.b(new File(str2));
-            bVar.c(str3);
-            f(bVar.a(), str, a7bVar);
+        if (interceptable == null || interceptable.invokeJL(1048579, this, j, cronetUrlRequestContext) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_initRequestContextOnInitThread(j, cronetUrlRequestContext);
         }
     }
 
-    public final void i(@NonNull w6b w6bVar) {
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public void f(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, w6bVar) == null) {
-            if (w6bVar.b() <= w6bVar.a()) {
-                this.b = w6bVar;
-                this.c = Executors.newFixedThreadPool(w6bVar.a());
-                this.d = new j7b(this.e);
-                return;
-            }
-            throw new IllegalArgumentException("thread num must < max thread num");
+        if (interceptable == null || interceptable.invokeJL(1048581, this, j, str) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_applyBaiduConfiguration(j, str);
         }
     }
 
-    public void l(String str) {
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public void c(long j, CronetUrlRequestContext cronetUrlRequestContext, String str, String str2, int i, int i2, long j2, long j3, long j4, long j5) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            String e = e(str);
-            if (this.a.containsKey(e)) {
-                f7b f7bVar = this.a.get(e);
-                if (f7bVar != null && f7bVar.isRunning()) {
-                    f7bVar.pause();
-                }
-                this.a.remove(e);
-            }
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), cronetUrlRequestContext, str, str2, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5)}) == null) {
+            GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_uploadNativeRequestLog(j, cronetUrlRequestContext, str, str2, i, i2, j2, j3, j4, j5);
         }
+    }
+
+    @Override // com.baidu.turbonet.net.impl.CronetUrlRequestContext.f
+    public long e(String str, String str2, boolean z, String str3, boolean z2, boolean z3, boolean z4, int i, long j, String str4, long j2, boolean z5, boolean z6, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Boolean.valueOf(z), str3, Boolean.valueOf(z2), Boolean.valueOf(z3), Boolean.valueOf(z4), Integer.valueOf(i), Long.valueOf(j), str4, Long.valueOf(j2), Boolean.valueOf(z5), Boolean.valueOf(z6), Integer.valueOf(i2)})) == null) {
+            return GEN_JNI.com_baidu_turbonet_net_impl_CronetUrlRequestContext_createRequestContextConfig(str, str2, z, str3, z2, z3, z4, i, j, str4, j2, z5, z6, i2);
+        }
+        return invokeCommon.longValue;
     }
 }

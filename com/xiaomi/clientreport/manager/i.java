@@ -6,15 +6,15 @@ public class i implements Runnable {
     public final /* synthetic */ a a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ bq f30a;
+    public final /* synthetic */ bq f31a;
 
     public i(a aVar, bq bqVar) {
         this.a = aVar;
-        this.f30a = bqVar;
+        this.f31a = bqVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f30a.run();
+        this.f31a.run();
     }
 }

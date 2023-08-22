@@ -30,6 +30,20 @@ public final class DownloadManagerStaticAutoGenerateUrlCollectorImpl implements 
     }
 
     @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
+    public Map<String, ArrayList<String>> getConfigRouterMap() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add("DownloadManagerActivityConfig");
+            hashMap.put("com.baidu.tieba.downloadmanager.DownloadManagerStatic", arrayList);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
     public Map<String, String> getCmdRouterMap() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -39,20 +53,7 @@ public final class DownloadManagerStaticAutoGenerateUrlCollectorImpl implements 
             hashMap.put("2002001", "com.baidu.tieba.downloadmanager.DownloadManagerStatic");
             hashMap.put("2921626", "com.baidu.tieba.downloadmanager.DownloadManagerStatic");
             hashMap.put("2921627", "com.baidu.tieba.downloadmanager.DownloadManagerStatic");
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.adp.framework.cmdRouter.ICmdRouter
-    public Map<String, ArrayList<String>> getConfigRouterMap() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap hashMap = new HashMap();
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("DownloadManagerActivityConfig");
-            hashMap.put("com.baidu.tieba.downloadmanager.DownloadManagerStatic", arrayList);
+            hashMap.put("2921819", "com.baidu.tieba.downloadmanager.DownloadManagerStatic");
             return hashMap;
         }
         return (Map) invokeV.objValue;

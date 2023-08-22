@@ -1,7 +1,5 @@
 package com.baidu.tieba;
-
-import java.util.Map;
-/* loaded from: classes8.dex */
-public interface z87 {
-    void a(Map<String, String> map);
+/* loaded from: classes9.dex */
+public interface z87<T> {
+    jb7<?> b(T t);
 }

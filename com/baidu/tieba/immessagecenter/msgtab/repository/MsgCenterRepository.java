@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.cg8;
+import com.baidu.tieba.bk8;
 import com.baidu.tieba.immessagecenter.arch.base.BaseRepository;
 import com.baidu.tieba.immessagecenter.msgtab.data.CacheDataType;
 import com.baidu.tieba.immessagecenter.msgtab.data.ForumListData;
@@ -33,15 +33,14 @@ import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010%\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001:\u0001'B\u0005¢\u0006\u0002\u0010\u0002J\u0016\u0010\u0012\u001a\u00020\b2\f\u0010\u0013\u001a\b\u0012\u0004\u0012\u00020\u00150\u0014H\u0002J\u0010\u0010\u0016\u001a\u00020\u00052\u0006\u0010\u0017\u001a\u00020\u0018H\u0002J\b\u0010\u0019\u001a\u0004\u0018\u00010\u0006J\b\u0010\u001a\u001a\u0004\u0018\u00010\u0006J\b\u0010\u001b\u001a\u00020\u0005H\u0002J\u0012\u0010\u001c\u001a\u0004\u0018\u00010\u00062\b\u0010\u001d\u001a\u0004\u0018\u00010\u0006J\u0010\u0010\u001e\u001a\u00020\u001f2\u0006\u0010 \u001a\u00020\u0005H\u0002J*\u0010!\u001a\u00020\u001f2\f\u0010\u0013\u001a\b\u0012\u0004\u0012\u00020\u00150\u00142\u0014\u0010\"\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00010\u0006\u0012\u0004\u0012\u00020\u001f0#J\u001c\u0010$\u001a\u00020\u001f2\u0014\u0010\"\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00010\u0006\u0012\u0004\u0012\u00020\u001f0#J\u0018\u0010%\u001a\u00020\u00062\u0006\u0010 \u001a\u00020\u00052\u0006\u0010&\u001a\u00020\u0006H\u0002R\u001a\u0010\u0003\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00060\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R\u0010\u0010\u0007\u001a\u0004\u0018\u00010\bX\u0082\u000e¢\u0006\u0002\n\u0000R#\u0010\t\u001a\n \u000b*\u0004\u0018\u00010\n0\n8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u000e\u0010\u000f\u001a\u0004\b\f\u0010\rR\u0012\u0010\u0010\u001a\u00060\u0011R\u00020\u0000X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006("}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/repository/MsgCenterRepository;", "Lcom/baidu/tieba/immessagecenter/arch/base/BaseRepository;", "()V", "_cache", "", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/ForumListData;", "_request", "Lcom/baidu/tbadk/net/FastRequest;", "_spInstance", "Landroid/content/SharedPreferences;", "kotlin.jvm.PlatformType", "get_spInstance", "()Landroid/content/SharedPreferences;", "_spInstance$delegate", "Lkotlin/Lazy;", "mRequestCallback", "Lcom/baidu/tieba/immessagecenter/msgtab/repository/MsgCenterRepository$FastRequestCallback;", "genRequest", "context", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "getCacheKey", "type", "Lcom/baidu/tieba/immessagecenter/msgtab/data/CacheDataType;", "getDataFromCache", "getLastRequestDataCache", "getLocalForumIds", "mergeForumDataToLocal", "networkForumData", "removeFromSp", "", "key", "requestChannelData", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/Function1;", "requestChannelLocalData", "saveOrUpdate", "value", "FastRequestCallback", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010%\n\u0002\u0010\u000e\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u0001:\u0001&B\u0005¢\u0006\u0002\u0010\u0002J\u0016\u0010\u0010\u001a\u00020\u00112\f\u0010\u0012\u001a\b\u0012\u0004\u0012\u00020\u00140\u0013H\u0002J\u0010\u0010\u0015\u001a\u00020\u00052\u0006\u0010\u0016\u001a\u00020\u0017H\u0002J\b\u0010\u0018\u001a\u0004\u0018\u00010\u0006J\b\u0010\u0019\u001a\u0004\u0018\u00010\u0006J\b\u0010\u001a\u001a\u00020\u0005H\u0002J\u0012\u0010\u001b\u001a\u0004\u0018\u00010\u00062\b\u0010\u001c\u001a\u0004\u0018\u00010\u0006J\u0010\u0010\u001d\u001a\u00020\u001e2\u0006\u0010\u001f\u001a\u00020\u0005H\u0002J*\u0010 \u001a\u00020\u001e2\f\u0010\u0012\u001a\b\u0012\u0004\u0012\u00020\u00140\u00132\u0014\u0010!\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00010\u0006\u0012\u0004\u0012\u00020\u001e0\"J\u001c\u0010#\u001a\u00020\u001e2\u0014\u0010!\u001a\u0010\u0012\u0006\u0012\u0004\u0018\u00010\u0006\u0012\u0004\u0012\u00020\u001e0\"J\u0018\u0010$\u001a\u00020\u00062\u0006\u0010\u001f\u001a\u00020\u00052\u0006\u0010%\u001a\u00020\u0006H\u0002R\u001a\u0010\u0003\u001a\u000e\u0012\u0004\u0012\u00020\u0005\u0012\u0004\u0012\u00020\u00060\u0004X\u0082\u0004¢\u0006\u0002\n\u0000R#\u0010\u0007\u001a\n \t*\u0004\u0018\u00010\b0\b8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\f\u0010\r\u001a\u0004\b\n\u0010\u000bR\u0012\u0010\u000e\u001a\u00060\u000fR\u00020\u0000X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006'"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/repository/MsgCenterRepository;", "Lcom/baidu/tieba/immessagecenter/arch/base/BaseRepository;", "()V", "_cache", "", "", "Lcom/baidu/tieba/immessagecenter/msgtab/data/ForumListData;", "_spInstance", "Landroid/content/SharedPreferences;", "kotlin.jvm.PlatformType", "get_spInstance", "()Landroid/content/SharedPreferences;", "_spInstance$delegate", "Lkotlin/Lazy;", "mRequestCallback", "Lcom/baidu/tieba/immessagecenter/msgtab/repository/MsgCenterRepository$FastRequestCallback;", "genRequest", "Lcom/baidu/tbadk/net/FastRequest;", "context", "Lcom/baidu/tbadk/TbPageContext;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "getCacheKey", "type", "Lcom/baidu/tieba/immessagecenter/msgtab/data/CacheDataType;", "getDataFromCache", "getLastRequestDataCache", "getLocalForumIds", "mergeForumDataToLocal", "networkForumData", "removeFromSp", "", "key", "requestChannelData", BreakpointSQLiteHelper.BLOCK_TABLE_NAME, "Lkotlin/Function1;", "requestChannelLocalData", "saveOrUpdate", "value", "FastRequestCallback", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class MsgCenterRepository extends BaseRepository {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FastRequest a;
-    public final a b;
-    public final Map<String, ForumListData> c;
-    public final Lazy d;
+    public final a a;
+    public final Map<String, ForumListData> b;
+    public final Lazy c;
 
     /* loaded from: classes6.dex */
     public final class a extends FastRequest.b<ForumListData> {
@@ -79,7 +78,6 @@ public final class MsgCenterRepository extends BaseRepository {
                 super.e(result);
                 ForumListData h = this.c.h(result);
                 if (h != null) {
-                    h.setExtFunctionData(result.getExtFunctionData());
                     Function1<? super ForumListData, Unit> function1 = this.b;
                     if (function1 != null) {
                         function1.invoke(h);
@@ -144,9 +142,9 @@ public final class MsgCenterRepository extends BaseRepository {
                 return;
             }
         }
-        this.b = new a(this);
-        this.c = new LinkedHashMap();
-        this.d = LazyKt__LazyJVMKt.lazy(MsgCenterRepository$_spInstance$2.INSTANCE);
+        this.a = new a(this);
+        this.b = new LinkedHashMap();
+        this.c = LazyKt__LazyJVMKt.lazy(MsgCenterRepository$_spInstance$2.INSTANCE);
     }
 
     public final FastRequest b(TbPageContext<BaseFragmentActivity> tbPageContext) {
@@ -155,7 +153,7 @@ public final class MsgCenterRepository extends BaseRepository {
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
             FastRequest fastRequest = new FastRequest(tbPageContext, CmdConfigHttp.CMD_REQUEST_FOLLOWED_FRS_LIST, TbConfig.REQUEST_FOLLOWED_FRS_LIST);
             fastRequest.T(HttpMessageTask.HTTP_METHOD.POST);
-            fastRequest.Q(this.b);
+            fastRequest.Q(this.a);
             return fastRequest;
         }
         return (FastRequest) invokeL.objValue;
@@ -176,7 +174,7 @@ public final class MsgCenterRepository extends BaseRepository {
             if (g().contains(str)) {
                 g().edit().remove(str).apply();
             }
-            this.c.remove(str);
+            this.b.remove(str);
         }
     }
 
@@ -205,7 +203,7 @@ public final class MsgCenterRepository extends BaseRepository {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             String c = c(CacheDataType.RECOMMEND_DATA);
-            ForumListData forumListData2 = this.c.get(c);
+            ForumListData forumListData2 = this.b.get(c);
             if (forumListData2 != null) {
                 return forumListData2;
             }
@@ -213,10 +211,10 @@ public final class MsgCenterRepository extends BaseRepository {
                 if (!g().contains(c) || (string = g().getString(c, "")) == null || (forumListData = (ForumListData) DataExt.toEntity(string, ForumListData.class)) == null) {
                     return null;
                 }
-                this.c.put(c, forumListData);
+                this.b.put(c, forumListData);
                 return forumListData;
             } catch (Exception e) {
-                cg8.a.a("MsgCenterContainerPresenter->获取本地存储的推荐数据失败", e);
+                bk8.a.a("MsgCenterContainerPresenter->获取本地存储的推荐数据失败", e);
             }
         } else {
             return (ForumListData) invokeV.objValue;
@@ -231,7 +229,7 @@ public final class MsgCenterRepository extends BaseRepository {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             String c = c(CacheDataType.LAST_REQUEST_DATA);
-            ForumListData forumListData2 = this.c.get(c);
+            ForumListData forumListData2 = this.b.get(c);
             if (forumListData2 != null) {
                 return forumListData2;
             }
@@ -239,10 +237,10 @@ public final class MsgCenterRepository extends BaseRepository {
                 if (!g().contains(c) || (string = g().getString(c, "")) == null || (forumListData = (ForumListData) DataExt.toEntity(string, ForumListData.class)) == null) {
                     return null;
                 }
-                this.c.put(c, forumListData);
+                this.b.put(c, forumListData);
                 return forumListData;
             } catch (Exception e) {
-                cg8.a.a("MsgCenterContainerPresenter->获取本地存储的最后一次网络请求数据失败", e);
+                bk8.a.a("MsgCenterContainerPresenter->获取本地存储的最后一次网络请求数据失败", e);
             }
         } else {
             return (ForumListData) invokeV.objValue;
@@ -309,7 +307,7 @@ public final class MsgCenterRepository extends BaseRepository {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return (SharedPreferences) this.d.getValue();
+            return (SharedPreferences) this.c.getValue();
         }
         return (SharedPreferences) invokeV.objValue;
     }
@@ -382,15 +380,10 @@ public final class MsgCenterRepository extends BaseRepository {
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, block) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
             Intrinsics.checkNotNullParameter(block, "block");
-            this.b.h(block);
-            if (this.a == null) {
-                this.a = b(context);
-            }
-            FastRequest fastRequest = this.a;
-            if (fastRequest != null) {
-                fastRequest.O(TiebaStatic.Params.FORUM_ID_MERGE, f());
-                fastRequest.P();
-            }
+            this.a.h(block);
+            FastRequest b = b(context);
+            b.O(TiebaStatic.Params.FORUM_ID_MERGE, f());
+            b.P();
         }
     }
 
@@ -399,7 +392,7 @@ public final class MsgCenterRepository extends BaseRepository {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, forumListData)) == null) {
             g().edit().putString(str, DataExt.toJson(forumListData)).apply();
-            this.c.put(str, forumListData);
+            this.b.put(str, forumListData);
             return forumListData;
         }
         return (ForumListData) invokeLL.objValue;

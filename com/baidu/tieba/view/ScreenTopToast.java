@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.w95;
+import com.baidu.tieba.da5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class ScreenTopToast extends LinearLayout {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, motionEvent)) == null) {
             return true;
         }
         return invokeL.booleanValue;
@@ -244,6 +244,16 @@ public class ScreenTopToast extends LinearLayout {
         return (ScreenTopToast) invokeL.objValue;
     }
 
+    public ScreenTopToast n(View.OnClickListener onClickListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, onClickListener)) == null) {
+            this.a.setOnClickListener(onClickListener);
+            return this;
+        }
+        return (ScreenTopToast) invokeL.objValue;
+    }
+
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -295,7 +305,7 @@ public class ScreenTopToast extends LinearLayout {
             this.b = (TextView) findViewById(R.id.screen_top_toast_title);
             this.c = (TextView) findViewById(R.id.screen_top_toast_content);
             this.d = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
-            this.d.setConfig(new w95());
+            this.d.setConfig(new da5());
             f();
             h();
         }
@@ -312,9 +322,9 @@ public class ScreenTopToast extends LinearLayout {
         }
     }
 
-    public void n(ViewGroup viewGroup) {
+    public void o(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, viewGroup) != null) || viewGroup == null) {
+        if ((interceptable != null && interceptable.invokeL(1048587, this, viewGroup) != null) || viewGroup == null) {
             return;
         }
         if (getParent() != null) {

@@ -63,7 +63,6 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.adp.lib.lbs.BdLocationMananger;
 import com.baidu.adp.lib.safe.JavaTypesHelper;
 import com.baidu.adp.lib.util.AndroidUtils;
@@ -137,32 +136,30 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.live.message.MemoryClearUnreadCountMessage;
 import com.baidu.tbadk.pageStayDuration.IPageStayDuration;
 import com.baidu.tbadk.pay.PayConfig;
-import com.baidu.tbadk.switchs.VideoMiddlePageSwitch;
-import com.baidu.tbadk.switchs.VideoSquareMiddlePageSwitch;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.be5;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.ci;
+import com.baidu.tieba.bw5;
 import com.baidu.tieba.compatible.CompatibleUtile;
 import com.baidu.tieba.compatible.StatusBarUtil;
-import com.baidu.tieba.hi;
+import com.baidu.tieba.cs5;
+import com.baidu.tieba.di;
+import com.baidu.tieba.ei;
+import com.baidu.tieba.ge5;
+import com.baidu.tieba.ie5;
+import com.baidu.tieba.ji;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.kv5;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.lr5;
-import com.baidu.tieba.m45;
-import com.baidu.tieba.m95;
-import com.baidu.tieba.ml;
-import com.baidu.tieba.nl;
-import com.baidu.tieba.nx9;
-import com.baidu.tieba.p95;
+import com.baidu.tieba.ox5;
 import com.baidu.tieba.pay.panel.PayPanelUtils;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.pl;
+import com.baidu.tieba.ql;
+import com.baidu.tieba.s1a;
+import com.baidu.tieba.s45;
+import com.baidu.tieba.t95;
 import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
+import com.baidu.tieba.w95;
 import com.baidu.tieba.wallet.CurrencyJumpHelper;
-import com.baidu.tieba.xw5;
-import com.baidu.tieba.zd5;
+import com.baidu.tieba.x25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -252,7 +249,7 @@ public class UtilHelper {
     public static boolean isShowBjhBigV(BaijiahaoInfo baijiahaoInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65680, null, baijiahaoInfo)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65678, null, baijiahaoInfo)) == null) {
             return false;
         }
         return invokeL.booleanValue;
@@ -261,24 +258,24 @@ public class UtilHelper {
     public static boolean isUgcThreadType(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65684, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65682, null, i)) == null) ? i == 1 || i == 2 || i == 3 || i == 4 : invokeI.booleanValue;
     }
 
     public static boolean isVideoThread(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65686, null, i)) == null) ? i == 2 || i == 6 || i == 8 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65684, null, i)) == null) ? i == 2 || i == 6 || i == 8 : invokeI.booleanValue;
     }
 
     public static void startPushService(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65730, null, context) != null) || context == null) {
+        if ((interceptable != null && interceptable.invokeL(65728, null, context) != null) || context == null) {
         }
     }
 
     public static void stopPushService(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65731, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65729, null, context) == null) {
         }
     }
 
@@ -524,7 +521,7 @@ public class UtilHelper {
     public static boolean isMiNotchDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65664, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65662, null)) == null) {
             String model = DeviceInfoHelper.getModel();
             if (TextUtils.isEmpty(model)) {
                 return false;
@@ -540,9 +537,9 @@ public class UtilHelper {
     public static boolean isOppoDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65673, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65671, null)) == null) {
             String str = Build.BRAND;
-            if (bi.isEmpty(str)) {
+            if (di.isEmpty(str)) {
                 return false;
             }
             if (!str.contains("OPPO") && !str.contains("oppo") && !str.contains("Oppo")) {
@@ -556,7 +553,7 @@ public class UtilHelper {
     public static boolean isOppoFoldScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65675, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65673, null)) == null) {
             String deviceModel = RomUtils.getDeviceModel();
             if ("OPPO".equalsIgnoreCase(RomUtils.getManufacturer()) && !TextUtils.isEmpty(deviceModel) && MODEL_OPPO.toLowerCase().contains(deviceModel.toLowerCase())) {
                 return true;
@@ -569,9 +566,9 @@ public class UtilHelper {
     public static boolean isVivoDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65688, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65686, null)) == null) {
             String str = Build.BRAND;
-            if (bi.isEmpty(str)) {
+            if (di.isEmpty(str)) {
                 return false;
             }
             if (!str.contains("VIVO") && !str.contains("vivo") && !str.contains("Vivo")) {
@@ -741,34 +738,10 @@ public class UtilHelper {
         return invokeV.booleanValue;
     }
 
-    public static boolean isGotoVideoMiddlePage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65651, null)) == null) {
-            if (SwitchManager.getInstance().findType(VideoMiddlePageSwitch.KEY) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean isGotoVideoSquareMiddlePage() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65652, null)) == null) {
-            if (SwitchManager.getInstance().findType(VideoSquareMiddlePageSwitch.KEY) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
     public static boolean isHuaWeiU9508Device() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65655, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65653, null)) == null) {
             String model = DeviceInfoHelper.getModel();
             if (TextUtils.isEmpty(model) || !model.contains("Huawei_HUAWEI U9508")) {
                 return false;
@@ -781,7 +754,7 @@ public class UtilHelper {
     public static boolean isMeizuE3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65661, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65659, null)) == null) {
             String str = Build.BRAND;
             String model = DeviceInfoHelper.getModel();
             if ("Meizu".equalsIgnoreCase(str) && "MEIZU E3".equalsIgnoreCase(model)) {
@@ -795,7 +768,7 @@ public class UtilHelper {
     public static boolean isMeizuM355() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65662, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65660, null)) == null) {
             String str = Build.BRAND;
             String model = DeviceInfoHelper.getModel();
             if ("Meizu".equalsIgnoreCase(str) && "M355".equalsIgnoreCase(model)) {
@@ -809,7 +782,7 @@ public class UtilHelper {
     public static boolean isMeizuPro7Plus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65663, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65661, null)) == null) {
             String str = Build.BRAND;
             String model = DeviceInfoHelper.getModel();
             if ("Meizu".equalsIgnoreCase(str) && "PRO 7 Plus".equalsIgnoreCase(model)) {
@@ -823,7 +796,7 @@ public class UtilHelper {
     public static boolean isNightOrDarkMode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65668, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65666, null)) == null) {
             if (TbadkApplication.getInst().getSkinType() == 4) {
                 return true;
             }
@@ -835,7 +808,7 @@ public class UtilHelper {
     public static boolean isOnePlus6() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65671, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65669, null)) == null) {
             String str = Build.BRAND;
             String model = DeviceInfoHelper.getModel();
             if ("OnePlus".equalsIgnoreCase(str) && "ONEPLUS A6000".equalsIgnoreCase(model)) {
@@ -849,7 +822,7 @@ public class UtilHelper {
     public static boolean isSMF9000() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65677, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65675, null)) == null) {
             return DeviceInfoHelper.getModel().equalsIgnoreCase("SM-F9000");
         }
         return invokeV.booleanValue;
@@ -1051,8 +1024,8 @@ public class UtilHelper {
 
     public static void quitDialog(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65692, null, activity) == null) {
-            new m45(activity).setTitle(R.string.obfuscated_res_0x7f0f0a89).setCancelable(false).setMessageId(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new m45.e(activity) { // from class: com.baidu.tbadk.core.util.UtilHelper.2
+        if (interceptable == null || interceptable.invokeL(65690, null, activity) == null) {
+            new s45(activity).setTitle(R.string.obfuscated_res_0x7f0f0a91).setCancelable(false).setMessageId(R.string.alert_quit_confirm).setPositiveButton(R.string.alert_yes_button, new s45.e(activity) { // from class: com.baidu.tbadk.core.util.UtilHelper.2
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ Activity val$activity;
@@ -1075,16 +1048,16 @@ public class UtilHelper {
                     this.val$activity = activity;
                 }
 
-                @Override // com.baidu.tieba.m45.e
-                public void onClick(m45 m45Var) {
+                @Override // com.baidu.tieba.s45.e
+                public void onClick(s45 s45Var) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, m45Var) == null) {
-                        m45Var.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, s45Var) == null) {
+                        s45Var.dismiss();
                         TbadkCoreApplication.getInst().notifyAppEnterBackground();
                         this.val$activity.finish();
                     }
                 }
-            }).setNegativeButton(R.string.obfuscated_res_0x7f0f03ce, new m45.e() { // from class: com.baidu.tbadk.core.util.UtilHelper.1
+            }).setNegativeButton(R.string.obfuscated_res_0x7f0f03cf, new s45.e() { // from class: com.baidu.tbadk.core.util.UtilHelper.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -1102,11 +1075,11 @@ public class UtilHelper {
                     }
                 }
 
-                @Override // com.baidu.tieba.m45.e
-                public void onClick(m45 m45Var) {
+                @Override // com.baidu.tieba.s45.e
+                public void onClick(s45 s45Var) {
                     Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, m45Var) == null) {
-                        m45Var.dismiss();
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, s45Var) == null) {
+                        s45Var.dismiss();
                     }
                 }
             }).create(l9.a(activity)).show();
@@ -1115,7 +1088,7 @@ public class UtilHelper {
 
     public static void startHardAccelerated(Window window) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65729, null, window) != null) || Build.VERSION.SDK_INT < 11) {
+        if ((interceptable != null && interceptable.invokeL(65727, null, window) != null) || Build.VERSION.SDK_INT < 11) {
             return;
         }
         try {
@@ -1132,7 +1105,7 @@ public class UtilHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!bi.isEmpty(str) && str.indexOf("cuid=") > -1) {
+            if (!di.isEmpty(str) && str.indexOf("cuid=") > -1) {
                 return str;
             }
             StringBuilder sb = new StringBuilder();
@@ -1159,7 +1132,7 @@ public class UtilHelper {
 
     public static void showSkinChangeAnimation(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65718, null, activity) == null) && !kv5.a() && activity != null) {
+        if ((interceptable == null || interceptable.invokeL(65716, null, activity) == null) && !bw5.a() && activity != null) {
             View decorView = activity.getWindow().getDecorView();
             Bitmap cacheBitmapFromView = getCacheBitmapFromView(decorView);
             if ((decorView instanceof ViewGroup) && cacheBitmapFromView != null) {
@@ -1217,7 +1190,7 @@ public class UtilHelper {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!bi.isEmpty(str) && str.indexOf("_client_version=") > -1) {
+            if (!di.isEmpty(str) && str.indexOf("_client_version=") > -1) {
                 return str;
             }
             return str + "&_client_version=" + TbConfig.getVersion();
@@ -1427,7 +1400,7 @@ public class UtilHelper {
     public static boolean isNativeAdURL(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65665, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65663, null, str)) == null) {
             if (str == null) {
                 return false;
             }
@@ -1450,7 +1423,7 @@ public class UtilHelper {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65669, null, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65667, null, activity)) == null) {
             boolean z2 = false;
             if (Build.VERSION.SDK_INT >= 28) {
                 z = hasNotchAndroidP(activity);
@@ -1468,7 +1441,7 @@ public class UtilHelper {
     public static boolean isPhoneNumber(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65676, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65674, null, str)) == null) {
             if (StringUtils.isNull(str) || !isNumber(str) || str.length() != 11 || !str.startsWith("1")) {
                 return false;
             }
@@ -1480,7 +1453,7 @@ public class UtilHelper {
     public static boolean isSelf(MetaData metaData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65679, null, metaData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65677, null, metaData)) == null) {
             if (metaData == null) {
                 return false;
             }
@@ -1500,7 +1473,7 @@ public class UtilHelper {
     public static boolean isSystemLocationProviderEnabled(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65682, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65680, null, context)) == null) {
             if (!BdLocationMananger.getInstance().checkWhiteList() || !PermissionUtil.checkLocationForGoogle(context)) {
                 return false;
             }
@@ -1523,7 +1496,7 @@ public class UtilHelper {
     public static boolean isTopActivity(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65683, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65681, null, str)) == null) {
             Activity currentActivity = BdActivityStack.getInst().currentActivity();
             if (currentActivity != null && currentActivity.getClass().getSimpleName() != null && currentActivity.getClass().getSimpleName().equals(str)) {
                 return true;
@@ -1538,7 +1511,7 @@ public class UtilHelper {
         Context context;
         Intent launchIntent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65726, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65724, null, str)) == null) {
             if (TextUtils.isEmpty(str) || (launchIntent = getLaunchIntent((context = TbadkCoreApplication.getInst().getContext()), str)) == null) {
                 return false;
             }
@@ -1555,7 +1528,7 @@ public class UtilHelper {
 
     public static void useNavigationBarStyleImmersiveSticky_KitKat(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65737, null, activity) != null) || activity == null) {
+        if ((interceptable != null && interceptable.invokeL(65735, null, activity) != null) || activity == null) {
             return;
         }
         boolean z = false;
@@ -1577,7 +1550,7 @@ public class UtilHelper {
     public static int ver2int(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65742, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65740, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return 0;
             }
@@ -1594,14 +1567,14 @@ public class UtilHelper {
     public static final boolean webViewIsProbablyCorrupt(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65743, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65741, null, context)) == null) {
             try {
                 SQLiteDatabase openOrCreateDatabase = context.openOrCreateDatabase("webviewCache.db", 0, null);
                 if (openOrCreateDatabase != null) {
-                    ci.b(openOrCreateDatabase);
+                    ei.b(openOrCreateDatabase);
                     return false;
                 }
-                ci.b(openOrCreateDatabase);
+                ei.b(openOrCreateDatabase);
                 return true;
             } catch (Throwable th) {
                 try {
@@ -1610,7 +1583,7 @@ public class UtilHelper {
                     }
                     return true;
                 } finally {
-                    ci.b(null);
+                    ei.b(null);
                 }
             }
         }
@@ -1636,7 +1609,7 @@ public class UtilHelper {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, context, str)) == null) {
-            if (context != null && !bi.isEmpty(str)) {
+            if (context != null && !di.isEmpty(str)) {
                 Intent intent = new Intent(IntentConstants.ACTION_BOX_BROWSER, Uri.parse(str));
                 if (!(context instanceof Activity)) {
                     intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
@@ -1731,28 +1704,10 @@ public class UtilHelper {
         }
     }
 
-    public static void install_apk(Context context, String str) {
-        File GetFile;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65635, null, context, str) == null) && str != null && str.length() > 0 && (GetFile = FileHelper.GetFile(str)) != null) {
-            try {
-                Intent intent = new Intent();
-                intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
-                intent.setDataAndType(getUriFromFile(GetFile, intent, context), "application/vnd.android.package-archive");
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                if (!isHaveActivityCanHandleIntent(intent)) {
-                    return;
-                }
-                context.startActivity(intent);
-            } catch (SecurityException unused) {
-            }
-        }
-    }
-
     public static boolean isSameDay(long j, long j2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65678, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65676, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
             if (j > j2 || j / 86400000 != j2 / 86400000) {
                 return false;
             }
@@ -1765,7 +1720,7 @@ public class UtilHelper {
         InterceptResult invokeLZ;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65687, null, view2, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65685, null, view2, z)) == null) {
             if (view2 == null) {
                 return false;
             }
@@ -1788,7 +1743,7 @@ public class UtilHelper {
 
     public static void newMsgTabClickStatistic(@NonNull NewsRemindMessage newsRemindMessage, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65689, null, newsRemindMessage, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65687, null, newsRemindMessage, i) == null) {
             StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_NEW_MSG_TAB_CLICK);
             statisticItem.addParam("obj_type", getRedType(newsRemindMessage));
             statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -1799,7 +1754,7 @@ public class UtilHelper {
 
     public static void setNavigationBarBackground_K(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65698, null, activity, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65696, null, activity, i) == null) {
             activity.getWindow().addFlags(SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
             View view2 = new View(activity);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, AndroidUtils.getNavigationBarHeight(activity));
@@ -1812,7 +1767,7 @@ public class UtilHelper {
 
     public static void showStatusBar(Activity activity, View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65719, null, activity, view2) == null) && activity != null && view2 != null) {
+        if ((interceptable == null || interceptable.invokeLL(65717, null, activity, view2) == null) && activity != null && view2 != null) {
             if (Build.VERSION.SDK_INT < 16) {
                 if (activity.getWindow() != null) {
                     activity.getWindow().clearFlags(1024);
@@ -1828,7 +1783,7 @@ public class UtilHelper {
 
     public static void startBaiduWebView(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65728, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65726, null, context, str) == null) {
             if (str != null && str.length() > 0) {
                 BrowserHelper.startInternalWebActivity(context, "http://m.baidu.com/s?from=1001157a&word=" + str);
                 return;
@@ -1878,10 +1833,33 @@ public class UtilHelper {
         return (Drawable) invokeCommon.objValue;
     }
 
+    public static void install_apk(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65635, null, context, str) == null) && str != null && str.length() > 0) {
+            File GetFile = FileHelper.GetFile(str);
+            if (GetFile != null && GetFile.exists()) {
+                try {
+                    Intent intent = new Intent();
+                    intent.setAction(IntentConstants.ACTION_BOX_BROWSER);
+                    intent.setDataAndType(getUriFromFile(GetFile, intent, context), "application/vnd.android.package-archive");
+                    intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    if (!isHaveActivityCanHandleIntent(intent)) {
+                        return;
+                    }
+                    context.startActivity(intent);
+                    return;
+                } catch (SecurityException unused) {
+                    return;
+                }
+            }
+            BdUtilHelper.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getApp().getString(R.string.file_not_exist));
+        }
+    }
+
     public static void setFlymeImmersedWindow(Window window, boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65694, null, window, z) == null) && z && window != null) {
+        if ((interceptable == null || interceptable.invokeLZ(65692, null, window, z) == null) && z && window != null) {
             WindowManager.LayoutParams attributes = window.getAttributes();
             if (Build.VERSION.SDK_INT < 19) {
                 try {
@@ -1907,7 +1885,7 @@ public class UtilHelper {
 
     public static void smsPhone(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65723, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65721, null, context, str) == null) {
             Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
             intent.putExtra("sms_body", "");
             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
@@ -1924,7 +1902,7 @@ public class UtilHelper {
     public static String urlAddParam(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65734, null, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65732, null, str, str2)) == null) {
             if (str != null && str2 != null) {
                 if (str.indexOf("?") < 0) {
                     str = str + "?";
@@ -2007,7 +1985,7 @@ public class UtilHelper {
 
     public static void startBaiDuBar(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65727, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65725, null, context, str) == null) {
             try {
                 TiebaStatic.eventStat(context, "search_in_baidu", "searchclick", 1, new Object[0]);
                 Intent intent = new Intent();
@@ -2039,9 +2017,9 @@ public class UtilHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
             if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("aiapp_guide.gif"))) {
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(nl.a);
+                requestParams.setRunType(ql.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new ml("com.baidu.tieba.resloader.aiappguide", (DefaultDownloadCallback) null));
+                requestParams.addChannel(new pl("com.baidu.tieba.resloader.aiappguide", (DefaultDownloadCallback) null));
                 PmsManager.getInstance().execute(requestParams);
                 return false;
             }
@@ -2189,7 +2167,7 @@ public class UtilHelper {
     public static boolean isOppoConcaveScreen() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65672, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65670, null)) == null) {
             if (!TbadkCoreApplication.getInst().getPackageManager().hasSystemFeature("com.oppo.feature.screen.heteromorphism")) {
                 return false;
             }
@@ -2446,7 +2424,7 @@ public class UtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65639, null, activity)) == null) {
             if (activity != null && activity.getIntent() != null) {
-                return !bi.isEmpty(activity.getIntent().getDataString());
+                return !di.isEmpty(activity.getIntent().getDataString());
             }
             return false;
         }
@@ -2524,7 +2502,7 @@ public class UtilHelper {
     public static boolean isHaveActivityCanHandleDeeplink(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65653, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65651, null, str)) == null) {
             if (URLUtil.isNetworkUrl(str)) {
                 return true;
             }
@@ -2537,7 +2515,7 @@ public class UtilHelper {
         InterceptResult invokeL;
         List<ResolveInfo> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65654, null, intent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65652, null, intent)) == null) {
             PackageManager packageManager = TbadkCoreApplication.getInst().getPackageManager();
             if (packageManager != null) {
                 list = packageManager.queryIntentActivities(intent, 32);
@@ -2555,7 +2533,7 @@ public class UtilHelper {
     public static boolean isLargeScreen(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65659, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65657, null, context)) == null) {
             if ((context.getResources().getConfiguration().screenLayout & 15) == 3) {
                 return true;
             }
@@ -2567,7 +2545,7 @@ public class UtilHelper {
     public static boolean isNavigationbarShown(Resources resources) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65667, null, resources)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65665, null, resources)) == null) {
             int identifier = resources.getIdentifier("config_showNavigationBar", "bool", "android");
             if (identifier > 0 && resources.getBoolean(identifier)) {
                 return true;
@@ -2580,7 +2558,7 @@ public class UtilHelper {
     public static boolean isNumber(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65670, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65668, null, str)) == null) {
             return Pattern.compile("[0-9]+").matcher(str).matches();
         }
         return invokeL.booleanValue;
@@ -2589,7 +2567,7 @@ public class UtilHelper {
     public static boolean isOppoFoldLargeScreen(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65674, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65672, null, context)) == null) {
             if (isOppoFoldScreen() && isLargeScreen(context)) {
                 return true;
             }
@@ -2601,7 +2579,7 @@ public class UtilHelper {
     public static boolean isSupportGesture(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65681, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65679, null, context)) == null) {
             if (Build.VERSION.SDK_INT > 4 && CompatibleUtile.getInstance().supportMultiTouch(context)) {
                 return true;
             }
@@ -2613,7 +2591,7 @@ public class UtilHelper {
     public static boolean isUseSingleGod(UserData userData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65685, null, userData)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65683, null, userData)) == null) {
             if (userData != null && userData.getGodUserData() != null && userData.getGodUserData().getType() == 2) {
                 return true;
             }
@@ -2624,7 +2602,7 @@ public class UtilHelper {
 
     public static void openGpu(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65690, null, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(65688, null, activity) == null) {
             CompatibleUtile.getInstance().openGpu(activity);
         }
     }
@@ -2632,7 +2610,7 @@ public class UtilHelper {
     public static void setTranslucentVirtualNavigation(Activity activity) {
         Window window;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65705, null, activity) == null) && (window = activity.getWindow()) != null && Build.VERSION.SDK_INT >= 19) {
+        if ((interceptable == null || interceptable.invokeL(65703, null, activity) == null) && (window = activity.getWindow()) != null && Build.VERSION.SDK_INT >= 19) {
             window.addFlags(67108864);
             window.addFlags(SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
         }
@@ -2642,7 +2620,7 @@ public class UtilHelper {
     public static TbPageContext tryCastPageContext(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65733, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65731, null, context)) == null) {
             if (context instanceof BaseActivity) {
                 return ((BaseActivity) context).getPageContext();
             }
@@ -2657,7 +2635,7 @@ public class UtilHelper {
     public static boolean useNavigationBarStyleImmersiveSticky(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65735, null, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65733, null, activity)) == null) {
             boolean z = false;
             boolean useNavigationBarStyleImmersiveSticky = useNavigationBarStyleImmersiveSticky(activity, false);
             if (TbadkCoreApplication.getInst().getSkinType() == 4) {
@@ -2671,7 +2649,7 @@ public class UtilHelper {
 
     public static void useNavigationBarStyleImmersiveSticky_L(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65738, null, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(65736, null, activity) == null) {
             useNavigationBarStyleImmersiveSticky_L(activity, false, false);
         }
     }
@@ -2710,7 +2688,7 @@ public class UtilHelper {
                         String string = intent.getExtras().getString("stat");
                         String stringExtra3 = intent.getStringExtra("link");
                         String stringExtra4 = intent.getStringExtra("task_id");
-                        if (!bi.isEmpty(stringExtra4)) {
+                        if (!di.isEmpty(stringExtra4)) {
                             TbadkCoreApplication.getInst().setTaskId(stringExtra4);
                         }
                         boolean booleanExtra = intent.getBooleanExtra("is_from_push", false);
@@ -2793,13 +2771,13 @@ public class UtilHelper {
                         str = "class";
                         str2 = "push";
                         int intExtra9 = intent.getIntExtra("KeyOfNotiId", 16);
-                        int u = be5.p0().u();
-                        int B = be5.p0().B();
-                        int v = be5.p0().v();
-                        int s = be5.p0().s();
-                        int y = be5.p0().y();
-                        int z6 = be5.p0().z();
-                        be5.p0().Z(u, B, v, s, y, z6);
+                        int u = ie5.p0().u();
+                        int B = ie5.p0().B();
+                        int v = ie5.p0().v();
+                        int s = ie5.p0().s();
+                        int y = ie5.p0().y();
+                        int z6 = ie5.p0().z();
+                        ie5.p0().Z(u, B, v, s, y, z6);
                         if (intExtra4 <= 0 && intExtra7 <= 0 && intExtra6 <= 0 && intExtra5 <= 0 && intExtra8 <= 0) {
                             z = false;
                         } else {
@@ -2822,17 +2800,17 @@ public class UtilHelper {
                         }
                         if (z2) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AgreeMeActivityConfig(context)));
-                            be5.p0().f0(0);
+                            ie5.p0().f0(0);
                         } else if (z3) {
-                            be5.p0().m0(0);
+                            ie5.p0().m0(0);
                             TbPageContext<?> tryCastPageContext = tryCastPageContext(context);
                             if (tryCastPageContext != null) {
                                 UrlManager.getInstance().dealOneLink(tryCastPageContext, new String[]{stringExtra6});
                             }
-                            be5.p0().m0(0);
+                            ie5.p0().m0(0);
                         } else if (z4) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AtMeActivityConfig(context)));
-                            be5.p0().g0(0);
+                            ie5.p0().g0(0);
                         } else if (i2 == 35) {
                             if (!z && intExtra <= 0 && intExtra3 <= 0 && intExtra2 <= 0 && z6 <= 0 && s <= 0) {
                                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -2843,7 +2821,7 @@ public class UtilHelper {
                                 }
                                 if (currentAccount != null && currentAccount.length() > 0) {
                                     MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(context, false, currentAccount, i)));
-                                    be5.p0().j0(0);
+                                    ie5.p0().j0(0);
                                 }
                             } else {
                                 goToMessageCenterFromNotifyCenter(intExtra9);
@@ -2858,7 +2836,7 @@ public class UtilHelper {
                                 intent2.putExtra(MentionActivityConfig.KEY_INTENT_NOTIFICATION_ID, intExtra9);
                                 intent2.putExtra(MentionActivityConfig.KEY_GO_TO_PAGE, 2);
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016321, intent2));
-                                newMsgTabClickStatistic(((zd5) ServiceManager.getService(zd5.a)).a(), 3);
+                                newMsgTabClickStatistic(((ge5) ServiceManager.getService(ge5.a)).a(), 3);
                             }
                         }
                         z5 = true;
@@ -2887,7 +2865,7 @@ public class UtilHelper {
                         if (MainEntrance.getCurrentTabType() == 8) {
                             MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(8)));
                         } else if (!TextUtils.isEmpty(currentAccount2) && !TextUtils.isEmpty(currentAccountName)) {
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, currentAccount2, currentAccountName, be5.p0().y())));
+                            MessageManager.getInstance().sendMessage(new CustomMessage(2002003, new PersonInfoActivityConfig(context, currentAccount2, currentAccountName, ie5.p0().y())));
                         }
                         str = "class";
                         str2 = "push";
@@ -2904,7 +2882,7 @@ public class UtilHelper {
                         int intExtra10 = intent.getIntExtra(MemberPayActivityConfig.FROM_SCENE, 0);
                         PayConfig payConfig = new PayConfig(JavaTypesHelper.toInt(stringExtra7, 0), stringExtra10, stringExtra8, stringExtra9, stringExtra11, true, stringExtra12, stringExtra13);
                         payConfig.fromScene = intExtra10;
-                        lr5.c().a(payConfig, context);
+                        cs5.c().a(payConfig, context);
                         str = "class";
                         str2 = "push";
                         break;
@@ -2984,7 +2962,7 @@ public class UtilHelper {
                         String string2 = intent.getExtras().getString(BigdayActivityConfig.JUMP_URL);
                         boolean z7 = intent.getExtras().getBoolean("is_ad", false);
                         if (intent.getExtras().getBoolean("gd_ad", false) && !StringUtils.isNull(string2)) {
-                            nx9.a(TbadkCoreApplication.getInst(), string2, hi.c(string2), intent.getExtras().getString(MigrateStatisticUtils.EXT_INFO, ""), null);
+                            s1a.a(TbadkCoreApplication.getInst(), string2, ji.c(string2), intent.getExtras().getString(MigrateStatisticUtils.EXT_INFO, ""), null);
                         } else {
                             k9 c = l9.c(context);
                             if (c instanceof BaseActivity) {
@@ -3113,7 +3091,7 @@ public class UtilHelper {
         String str2;
         String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65691, null, str, sb, sb2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65689, null, str, sb, sb2)) == null) {
             if (!str.contains("middlepage")) {
                 return false;
             }
@@ -3230,7 +3208,7 @@ public class UtilHelper {
         InterceptResult invokeLL;
         PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65656, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65654, null, context, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -3251,7 +3229,7 @@ public class UtilHelper {
     public static boolean isInstalledPackage(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65657, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65655, null, context, str)) == null) {
             try {
                 if (context.getPackageManager().getApplicationInfo(str, 8192) != null) {
                     return true;
@@ -3267,7 +3245,7 @@ public class UtilHelper {
     public static boolean isIntentAvailable(Context context, Intent intent) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65658, null, context, intent)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65656, null, context, intent)) == null) {
             List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 65536);
             if (queryIntentActivities != null && !queryIntentActivities.isEmpty()) {
                 return true;
@@ -3279,14 +3257,14 @@ public class UtilHelper {
 
     public static void setNavigationBarBackground(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65695, null, activity, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65693, null, activity, i) == null) {
             setNavigationBarBackground(activity, i, false);
         }
     }
 
     public static void setNavigationBarBackgroundForVivoX20(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65697, null, activity, i) == null) && activity != null && DeviceInfoUtil.isVivoX20A() && isNavigationbarShown(activity.getResources())) {
+        if ((interceptable == null || interceptable.invokeLI(65695, null, activity, i) == null) && activity != null && DeviceInfoUtil.isVivoX20A() && isNavigationbarShown(activity.getResources())) {
             if (Build.VERSION.SDK_INT > 21) {
                 setNavigationBarBackground_L(activity, i);
             } else {
@@ -3297,14 +3275,14 @@ public class UtilHelper {
 
     public static void setNavigationBarBackground_L(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65699, null, activity, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65697, null, activity, i) == null) {
             activity.getWindow().setNavigationBarColor(i);
         }
     }
 
     public static void setNavigationBarBg(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65700, null, activity, i) != null) || activity == null) {
+        if ((interceptable != null && interceptable.invokeLI(65698, null, activity, i) != null) || activity == null) {
             return;
         }
         if (Build.VERSION.SDK_INT > 21) {
@@ -3316,7 +3294,7 @@ public class UtilHelper {
 
     public static void setStatusBarBackground(View view2, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65703, null, view2, i) != null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeLI(65701, null, view2, i) != null) || view2 == null) {
             return;
         }
         SkinManager.setBackgroundColor(view2, R.color.CAM_X0201);
@@ -3324,7 +3302,7 @@ public class UtilHelper {
 
     public static void showHeadImageViewBigV(HeadImageView headImageView, com.baidu.tbadk.data.MetaData metaData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65710, null, headImageView, metaData) == null) {
+        if (interceptable == null || interceptable.invokeLL(65708, null, headImageView, metaData) == null) {
             showHeadImageViewBigV(headImageView, metaData, 0);
         }
     }
@@ -3332,7 +3310,7 @@ public class UtilHelper {
     public static boolean showNewGodIcon(ImageView imageView, com.baidu.tbadk.data.MetaData metaData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65715, null, imageView, metaData)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65713, null, imageView, metaData)) == null) {
             if (imageView == null || metaData == null || !metaData.isNewGod()) {
                 return false;
             }
@@ -3346,7 +3324,7 @@ public class UtilHelper {
     public static boolean showOfficialIcon(ImageView imageView, com.baidu.tbadk.data.MetaData metaData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65716, null, imageView, metaData)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65714, null, imageView, metaData)) == null) {
             if (imageView == null || metaData == null || !metaData.isOfficial()) {
                 return false;
             }
@@ -3360,7 +3338,7 @@ public class UtilHelper {
     public static boolean showOriginalIcon(ImageView imageView, com.baidu.tbadk.data.MetaData metaData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65717, null, imageView, metaData)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65715, null, imageView, metaData)) == null) {
             if (imageView == null || metaData == null || !metaData.isOriginal()) {
                 return false;
             }
@@ -3373,14 +3351,14 @@ public class UtilHelper {
 
     public static void showToast(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65720, null, context, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(65718, null, context, i) == null) {
             CustomToast2.showToast(context, i);
         }
     }
 
     public static void useNavigationBarStyleImmersiveSticky_M(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65741, null, activity, z) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65739, null, activity, z) == null) {
             useNavigationBarStyleImmersiveSticky_L(activity, z, true);
         }
     }
@@ -3403,7 +3381,7 @@ public class UtilHelper {
                     }
                 } else if (metaData.getAuthType() == 3) {
                     if (metaData.isNewGod()) {
-                        return metaData.getNewGodData().getFieldName() + xw5.c(metaData.isVideoGod());
+                        return metaData.getNewGodData().getFieldName() + ox5.c(metaData.isVideoGod());
                     }
                 } else if (metaData.getAuthType() == 4 && !z && metaData.showBazhuGrade()) {
                     return StringHelper.cutChineseAndEnglishWithSuffix(metaData.getBazhuGradeData().getDesc(), i, "...");
@@ -3416,7 +3394,7 @@ public class UtilHelper {
                 return metaData.getCreatorInfo().authDesc;
             }
             if (TextUtils.isEmpty("") && metaData.isNewGod()) {
-                return metaData.getNewGodData().getFieldName() + xw5.c(metaData.isVideoGod());
+                return metaData.getNewGodData().getFieldName() + ox5.c(metaData.isVideoGod());
             } else if (!TextUtils.isEmpty("") || z || !metaData.showBazhuGrade()) {
                 return "";
             } else {
@@ -3428,7 +3406,7 @@ public class UtilHelper {
 
     public static void useNavigationBarStyleImmersiveSticky_L(Window window, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65740, null, new Object[]{window, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || window == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65738, null, new Object[]{window, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || window == null) {
             return;
         }
         try {
@@ -3616,15 +3594,15 @@ public class UtilHelper {
         return (String) invokeCommon.objValue;
     }
 
-    public static void showYYNotification(Context context, r25 r25Var, int i) {
+    public static void showYYNotification(Context context, x25 x25Var, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65722, null, context, r25Var, i) != null) || be5.O()) {
+        if ((interceptable != null && interceptable.invokeLLI(65720, null, context, x25Var, i) != null) || ie5.O()) {
             return;
         }
-        String a = r25Var.a();
-        String b = r25Var.b();
+        String a = x25Var.a();
+        String b = x25Var.b();
         if (b != null && b.length() > 0) {
-            Intent yYNotificationIntent = getYYNotificationIntent(context, r25Var, b);
+            Intent yYNotificationIntent = getYYNotificationIntent(context, x25Var, b);
             if (yYNotificationIntent != null && yYNotificationIntent.getDataString() != null && yYNotificationIntent.getDataString().contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC)) {
                 yYNotificationIntent.setFlags(276824064);
                 NotificationHelper.showNotification(context, i, null, a, a, PendingIntent.getActivity(context, i, yYNotificationIntent, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION), false);
@@ -3676,25 +3654,25 @@ public class UtilHelper {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65608, null, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (!bi.isEmpty(str) && context != null && i != 0) {
+            if (!di.isEmpty(str) && context != null && i != 0) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 Bitmap bitmap = SkinManager.getBitmap(i);
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
                 if (bitmap != null) {
                     bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                 }
-                m95 m95Var = new m95(bitmapDrawable);
-                m95Var.b(BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070224));
+                t95 t95Var = new t95(bitmapDrawable);
+                t95Var.b(BdUtilHelper.getDimens(context, R.dimen.obfuscated_res_0x7f070224));
                 int length = spannableStringBuilder.length();
                 spannableStringBuilder.append((CharSequence) " ");
                 if (z) {
-                    spannableStringBuilder.setSpan(m95Var, length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.setSpan(t95Var, length, spannableStringBuilder.length(), 17);
                     spannableStringBuilder.append((CharSequence) " ");
                     spannableStringBuilder.append((CharSequence) str);
                 } else {
                     spannableStringBuilder.append((CharSequence) str);
                     spannableStringBuilder.append((CharSequence) " ");
-                    spannableStringBuilder.setSpan(m95Var, length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.setSpan(t95Var, length, spannableStringBuilder.length(), 17);
                 }
                 return spannableStringBuilder;
             }
@@ -3707,22 +3685,22 @@ public class UtilHelper {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65609, null, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (!bi.isEmpty(str) && context != null && i != 0) {
+            if (!di.isEmpty(str) && context != null && i != 0) {
                 SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                 Bitmap bitmap = SkinManager.getBitmap(i);
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(bitmap);
                 if (bitmap != null) {
                     bitmapDrawable.setBounds(0, 0, bitmap.getWidth(), bitmap.getHeight());
                 }
-                p95 p95Var = new p95(bitmapDrawable);
+                w95 w95Var = new w95(bitmapDrawable);
                 int length = spannableStringBuilder.length();
                 spannableStringBuilder.append((CharSequence) " ");
                 if (z) {
-                    spannableStringBuilder.setSpan(p95Var, length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.setSpan(w95Var, length, spannableStringBuilder.length(), 17);
                     spannableStringBuilder.append((CharSequence) str);
                 } else {
                     spannableStringBuilder.append((CharSequence) str);
-                    spannableStringBuilder.setSpan(p95Var, length, spannableStringBuilder.length(), 17);
+                    spannableStringBuilder.setSpan(w95Var, length, spannableStringBuilder.length(), 17);
                 }
                 return spannableStringBuilder;
             }
@@ -3736,7 +3714,7 @@ public class UtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65584, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (i <= -1) {
-                if (bi.byteLength(str) > 14) {
+                if (di.byteLength(str) > 14) {
                     str = StringHelper.cutChineseAndEnglishWithSuffix(str, 14, "...");
                 }
             } else {
@@ -3752,7 +3730,7 @@ public class UtilHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65585, null, new Object[]{str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
             if (i <= -1) {
-                if (bi.byteLength(str) > 14) {
+                if (di.byteLength(str) > 14) {
                     str = StringHelper.cutChineseAndEnglishWithSuffix(str, 14, "...");
                 }
             } else {
@@ -3765,7 +3743,7 @@ public class UtilHelper {
 
     public static void setBitmapByTag(View view2, String str, BdImage bdImage) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65693, null, view2, str, bdImage) == null) && view2 != null && str != null) {
+        if ((interceptable == null || interceptable.invokeLLL(65691, null, view2, str, bdImage) == null) && view2 != null && str != null) {
             if (view2.getTag() != null && view2.getTag().equals(str)) {
                 if (bdImage == null) {
                     view2.invalidate();
@@ -3789,7 +3767,7 @@ public class UtilHelper {
         ViewGroup.LayoutParams layoutParams;
         DisplayMetrics displayMetrics;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65704, null, new Object[]{context, view2, Float.valueOf(f)}) != null) || view2 == null || f <= 0.0f || context == null || (layoutParams = view2.getLayoutParams()) == null || (displayMetrics = context.getApplicationContext().getResources().getDisplayMetrics()) == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65702, null, new Object[]{context, view2, Float.valueOf(f)}) != null) || view2 == null || f <= 0.0f || context == null || (layoutParams = view2.getLayoutParams()) == null || (displayMetrics = context.getApplicationContext().getResources().getDisplayMetrics()) == null) {
             return;
         }
         layoutParams.height = Math.round(displayMetrics.widthPixels / f);
@@ -3799,8 +3777,8 @@ public class UtilHelper {
     public static boolean showHeadBazhuIcon(ImageView imageView, com.baidu.tbadk.data.MetaData metaData, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65708, null, imageView, metaData, z)) == null) {
-            if (imageView == null || metaData == null || metaData.getBazhuGradeData() == null || bi.isEmpty(metaData.getBazhuGradeData().getLevel()) || !metaData.showBazhuGrade()) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65706, null, imageView, metaData, z)) == null) {
+            if (imageView == null || metaData == null || metaData.getBazhuGradeData() == null || di.isEmpty(metaData.getBazhuGradeData().getLevel()) || !metaData.showBazhuGrade()) {
                 return false;
             }
             int bazhuIconId = getBazhuIconId(metaData.getBazhuGradeData().getLevel(), z);
@@ -3813,7 +3791,7 @@ public class UtilHelper {
 
     public static void smsTo(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65724, null, context, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLLL(65722, null, context, str, str2) == null) {
             Intent intent = new Intent("android.intent.action.SENDTO", Uri.parse("smsto:" + str));
             intent.putExtra("sms_body", str2 + "");
             intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
@@ -3830,7 +3808,7 @@ public class UtilHelper {
     public static boolean startApk(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65725, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65723, null, context, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
                     Intent intent = new Intent("android.intent.action.MAIN");
@@ -3929,12 +3907,12 @@ public class UtilHelper {
                     } catch (Exception e2) {
                         e = e2;
                         BdLog.e(e.getMessage());
-                        ci.d(randomAccessFile);
+                        ei.d(randomAccessFile);
                         return false;
                     }
                 } catch (Throwable th2) {
                     th = th2;
-                    ci.d(r5);
+                    ei.d(r5);
                     throw th;
                 }
             } catch (Exception e3) {
@@ -3943,11 +3921,11 @@ public class UtilHelper {
             } catch (Throwable th3) {
                 ?? r5 = 0;
                 th = th3;
-                ci.d(r5);
+                ei.d(r5);
                 throw th;
             }
             if (randomAccessFile.read(bArr) < 1) {
-                ci.d(randomAccessFile);
+                ei.d(randomAccessFile);
                 return false;
             }
             String str2 = new String(bArr);
@@ -3956,10 +3934,10 @@ public class UtilHelper {
                 str2 = str2.substring(0, indexOf);
             }
             if (str2.toLowerCase().contains("arm")) {
-                ci.d(randomAccessFile);
+                ei.d(randomAccessFile);
                 return true;
             }
-            ci.d(randomAccessFile);
+            ei.d(randomAccessFile);
             return false;
         }
         return invokeV.booleanValue;
@@ -3980,7 +3958,7 @@ public class UtilHelper {
 
     public static void useNavigationBarStyleImmersiveSticky_L(Activity activity, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65739, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || activity == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65737, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || activity == null) {
             return;
         }
         useNavigationBarStyleImmersiveSticky_L(activity.getWindow(), z, z2);
@@ -4005,7 +3983,7 @@ public class UtilHelper {
     public static boolean isMatchScheme(Context context, String str, String str2) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65660, null, context, str, str2)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65658, null, context, str, str2)) == null) {
             if (StringUtils.isNull(str) || StringUtils.isNull(str2) || !isAppAvilible(str2)) {
                 return false;
             }
@@ -4029,7 +4007,7 @@ public class UtilHelper {
 
     public static void setNavigationBarBackground(Activity activity, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65696, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || activity == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65694, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || activity == null) {
             return;
         }
         if (!DeviceInfoUtil.isfullScreen() && !z) {
@@ -4045,7 +4023,7 @@ public class UtilHelper {
     public static boolean showHeadBjhBigVIcon(ImageView imageView, com.baidu.tbadk.data.MetaData metaData, int i) {
         InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65709, null, imageView, metaData, i)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65707, null, imageView, metaData, i)) == null) {
             if (imageView == null || metaData == null || metaData.getBaijiahaoInfo() == null || !isShowBjhBigV(metaData.getBaijiahaoInfo())) {
                 return false;
             }
@@ -4057,12 +4035,12 @@ public class UtilHelper {
         return invokeLLI.booleanValue;
     }
 
-    public static final Intent getYYNotificationIntent(Context context, r25 r25Var, String str) {
+    public static final Intent getYYNotificationIntent(Context context, x25 x25Var, String str) {
         InterceptResult invokeLLL;
         String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65624, null, context, r25Var, str)) == null) {
-            if (context != null && r25Var != null && !TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65624, null, context, x25Var, str)) == null) {
+            if (context != null && x25Var != null && !TextUtils.isEmpty(str)) {
                 if (str.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_TOPIC) || str.contains(UrlSchemaHelper.SCHEMA_TYPE_DEEPLINK_FRS)) {
                     try {
                         return Intent.parseUri(str, 1);
@@ -4140,10 +4118,10 @@ public class UtilHelper {
                 }
                 intent.putExtra("is_notify", true);
                 intent.putExtra("link", str);
-                intent.putExtra("message_id", r25Var.c());
-                intent.putExtra("task_id", r25Var.e());
-                if (!TextUtils.isEmpty(r25Var.d())) {
-                    intent.putExtra("stat", r25Var.d());
+                intent.putExtra("message_id", x25Var.c());
+                intent.putExtra("task_id", x25Var.e());
+                if (!TextUtils.isEmpty(x25Var.d())) {
+                    intent.putExtra("stat", x25Var.d());
                 }
                 return intent;
             }
@@ -4158,9 +4136,9 @@ public class UtilHelper {
         String str3;
         String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65666, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65664, null, str)) == null) {
             NativePage nativePage = new NativePage();
-            if (str != null && !bi.isEmpty(str)) {
+            if (str != null && !di.isEmpty(str)) {
                 Matcher matcher = pbPattern0.matcher(str);
                 if (matcher.find()) {
                     try {
@@ -4251,7 +4229,7 @@ public class UtilHelper {
 
     public static void setSpan(SpannableString spannableString, String str, String str2, CharacterStyle characterStyle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65701, null, spannableString, str, str2, characterStyle) == null) && spannableString != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && characterStyle != null) {
+        if ((interceptable == null || interceptable.invokeLLLL(65699, null, spannableString, str, str2, characterStyle) == null) && spannableString != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && characterStyle != null) {
             int indexOf = str.indexOf(str2);
             int length = str2.length();
             while (indexOf >= 0) {
@@ -4264,7 +4242,7 @@ public class UtilHelper {
 
     public static void setSpan(SpannableStringBuilder spannableStringBuilder, String str, String str2, CharacterStyle characterStyle) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65702, null, spannableStringBuilder, str, str2, characterStyle) == null) && spannableStringBuilder != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && characterStyle != null) {
+        if ((interceptable == null || interceptable.invokeLLLL(65700, null, spannableStringBuilder, str, str2, characterStyle) == null) && spannableStringBuilder != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && characterStyle != null) {
             int indexOf = str.indexOf(str2);
             int length = str2.length();
             while (indexOf >= 0) {
@@ -4277,7 +4255,7 @@ public class UtilHelper {
 
     public static void share(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65706, null, context, str, str2, str3) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(65704, null, context, str, str2, str3) == null) {
             try {
                 Intent intent = new Intent("android.intent.action.SEND", (Uri) null);
                 intent.addCategory("android.intent.category.DEFAULT");
@@ -4287,7 +4265,7 @@ public class UtilHelper {
                 intent.putExtra("android.intent.extra.TEXT", str2);
                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.setType("text/plain");
-                context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f13b6)));
+                context.startActivity(Intent.createChooser(intent, TbadkCoreApplication.getInst().getApp().getResources().getString(R.string.obfuscated_res_0x7f0f13c3)));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -4296,7 +4274,7 @@ public class UtilHelper {
 
     public static void shareThread(Context context, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLLL(65707, null, context, str, str2, str3, str4) == null) && str2 != null && str3 != null && str4 != null) {
+        if ((interceptable == null || interceptable.invokeLLLLL(65705, null, context, str, str2, str3, str4) == null) && str2 != null && str3 != null && str4 != null) {
             try {
                 if (str3.length() > 140) {
                     str3 = str3.substring(0, Cea708Decoder.COMMAND_DLW);
@@ -4309,7 +4287,7 @@ public class UtilHelper {
                 intent.putExtra("android.intent.extra.TEXT", MessageFormat.format(context.getResources().getString(R.string.share_format), str3, str4, str5));
                 intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
                 intent.setType("text/plain");
-                context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.obfuscated_res_0x7f0f13b6)));
+                context.startActivity(Intent.createChooser(intent, context.getResources().getString(R.string.obfuscated_res_0x7f0f13c3)));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -4319,7 +4297,7 @@ public class UtilHelper {
     public static void showHeadImageViewBigV(HeadImageView headImageView, com.baidu.tbadk.data.MetaData metaData, int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65711, null, headImageView, metaData, i) == null) && headImageView != null && metaData != null) {
+        if ((interceptable == null || interceptable.invokeLLI(65709, null, headImageView, metaData, i) == null) && headImageView != null && metaData != null) {
             boolean z2 = false;
             headImageView.setBjhAuthIconRes(0);
             headImageView.setBazhuIconRes(0);
@@ -4347,7 +4325,7 @@ public class UtilHelper {
                         headImageView.setShowV(true);
                         return;
                     }
-                } else if (metaData.getAuthType() == 4 && metaData.getBazhuGradeData() != null && !bi.isEmpty(metaData.getBazhuGradeData().getLevel()) && metaData.showBazhuGrade()) {
+                } else if (metaData.getAuthType() == 4 && metaData.getBazhuGradeData() != null && !di.isEmpty(metaData.getBazhuGradeData().getLevel()) && metaData.showBazhuGrade()) {
                     int bazhuIconId = getBazhuIconId(metaData.getBazhuGradeData().getLevel(), true);
                     headImageView.setBjhAuthIconRes(0);
                     headImageView.setBazhuIconRes(bazhuIconId);
@@ -4364,7 +4342,7 @@ public class UtilHelper {
                     headImageView.setBazhuIconRes(0);
                     headImageView.setGodIconResId(R.drawable.icon_mask_shen_liang20_svg);
                     headImageView.setShowV(true);
-                } else if (metaData.getBazhuGradeData() != null && !bi.isEmpty(metaData.getBazhuGradeData().getLevel()) && metaData.showBazhuGrade()) {
+                } else if (metaData.getBazhuGradeData() != null && !di.isEmpty(metaData.getBazhuGradeData().getLevel()) && metaData.showBazhuGrade()) {
                     int bazhuIconId2 = getBazhuIconId(metaData.getBazhuGradeData().getLevel(), true);
                     headImageView.setBjhAuthIconRes(0);
                     headImageView.setBazhuIconRes(bazhuIconId2);
@@ -4389,7 +4367,7 @@ public class UtilHelper {
 
     public static void showHeadImageViewBigVForStranger(HeadImageView headImageView, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65712, null, headImageView, imMessageCenterShowItemData) == null) && headImageView != null && imMessageCenterShowItemData.getUserExtraData() != null) {
+        if ((interceptable == null || interceptable.invokeLL(65710, null, headImageView, imMessageCenterShowItemData) == null) && headImageView != null && imMessageCenterShowItemData.getUserExtraData() != null) {
             headImageView.setBjhAuthIconRes(0);
             headImageView.setBazhuIconRes(0);
             headImageView.setGodIconResId(0);
@@ -4403,7 +4381,7 @@ public class UtilHelper {
                         headImageView.setShowV(true);
                     }
                 } else if (i == 2) {
-                    if (!bi.isEmpty(imMessageCenterShowItemData.getUserExtraData().authDesc)) {
+                    if (!di.isEmpty(imMessageCenterShowItemData.getUserExtraData().authDesc)) {
                         headImageView.setOriginatorResId(R.drawable.ic_icon_mask_videov14);
                         headImageView.setShowV(true);
                     }
@@ -4414,7 +4392,7 @@ public class UtilHelper {
                         headImageView.setGodIconResId(R.drawable.icon_mask_shen_liang20_svg);
                         headImageView.setShowV(true);
                     }
-                } else if (i == 4 && !bi.isEmpty(imMessageCenterShowItemData.getUserExtraData().bazhuLevel) && imMessageCenterShowItemData.getUserExtraData().bazhuShowOutSide != 3) {
+                } else if (i == 4 && !di.isEmpty(imMessageCenterShowItemData.getUserExtraData().bazhuLevel) && imMessageCenterShowItemData.getUserExtraData().bazhuShowOutSide != 3) {
                     int bazhuImIconId = getBazhuImIconId(imMessageCenterShowItemData.getUserExtraData().bazhuLevel, true);
                     headImageView.setBjhAuthIconRes(0);
                     headImageView.setBazhuIconRes(bazhuImIconId);
@@ -4423,7 +4401,7 @@ public class UtilHelper {
             } else if (imMessageCenterShowItemData.getUserExtraData().isBusinessAccount == 1) {
                 headImageView.setOfficialIconResId(R.drawable.ic_icon_mask_shang22_n);
                 headImageView.setShowV(true);
-            } else if (!bi.isEmpty(imMessageCenterShowItemData.getUserExtraData().authDesc)) {
+            } else if (!di.isEmpty(imMessageCenterShowItemData.getUserExtraData().authDesc)) {
                 headImageView.setOriginatorResId(R.drawable.ic_icon_mask_videov14);
                 headImageView.setShowV(true);
             } else if (imMessageCenterShowItemData.getUserExtraData().godStatus == 3) {
@@ -4431,7 +4409,7 @@ public class UtilHelper {
                 headImageView.setBazhuIconRes(0);
                 headImageView.setGodIconResId(R.drawable.icon_mask_shen_liang20_svg);
                 headImageView.setShowV(true);
-            } else if (!bi.isEmpty(imMessageCenterShowItemData.getUserExtraData().bazhuLevel) && imMessageCenterShowItemData.getUserExtraData().bazhuShowOutSide != 3) {
+            } else if (!di.isEmpty(imMessageCenterShowItemData.getUserExtraData().bazhuLevel) && imMessageCenterShowItemData.getUserExtraData().bazhuShowOutSide != 3) {
                 int bazhuImIconId2 = getBazhuImIconId(imMessageCenterShowItemData.getUserExtraData().bazhuLevel, true);
                 headImageView.setBjhAuthIconRes(0);
                 headImageView.setBazhuIconRes(bazhuImIconId2);
@@ -4442,7 +4420,7 @@ public class UtilHelper {
 
     public static void showHeadImageViewFocusBigV(HeadImageView headImageView, com.baidu.tbadk.data.MetaData metaData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65714, null, headImageView, metaData) == null) && headImageView != null && metaData != null) {
+        if ((interceptable == null || interceptable.invokeLL(65712, null, headImageView, metaData) == null) && headImageView != null && metaData != null) {
             headImageView.setBjhAuthIconRes(0);
             headImageView.setBazhuIconRes(0);
             headImageView.setGodIconResId(0);
@@ -4466,7 +4444,7 @@ public class UtilHelper {
                         headImageView.setGodIconResId(R.drawable.icon_mask_shen_liang20_svg);
                         headImageView.setShowV(true);
                     }
-                } else if (metaData.getAuthType() == 4 && !bi.isEmpty(metaData.getBazhuGradeData().getLevel()) && metaData.getPrivSetsData().getBazhuShowOutside() != 3) {
+                } else if (metaData.getAuthType() == 4 && !di.isEmpty(metaData.getBazhuGradeData().getLevel()) && metaData.getPrivSetsData().getBazhuShowOutside() != 3) {
                     int bazhuImIconId = getBazhuImIconId(metaData.getBazhuGradeData().getLevel(), true);
                     headImageView.setBjhAuthIconRes(0);
                     headImageView.setBazhuIconRes(bazhuImIconId);
@@ -4483,7 +4461,7 @@ public class UtilHelper {
                 headImageView.setBazhuIconRes(0);
                 headImageView.setGodIconResId(R.drawable.icon_mask_shen_liang20_svg);
                 headImageView.setShowV(true);
-            } else if (!bi.isEmpty(metaData.getBazhuGradeData().getLevel()) && metaData.getPrivSetsData().getBazhuShowOutside() != 3) {
+            } else if (!di.isEmpty(metaData.getBazhuGradeData().getLevel()) && metaData.getPrivSetsData().getBazhuShowOutside() != 3) {
                 int bazhuImIconId2 = getBazhuImIconId(metaData.getBazhuGradeData().getLevel(), true);
                 headImageView.setBjhAuthIconRes(0);
                 headImageView.setBazhuIconRes(bazhuImIconId2);
@@ -4496,7 +4474,7 @@ public class UtilHelper {
         InterceptResult invokeLZ;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65736, null, activity, z)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65734, null, activity, z)) == null) {
             if (Build.VERSION.SDK_INT < 19 || activity == null || !SharedPrefHelper.getInstance().getBoolean("switch_immersive_sticky_status", true) || !TbadkCoreApplication.getInst().isMeiZuCanUseImmersive()) {
                 return false;
             }
@@ -4533,7 +4511,7 @@ public class UtilHelper {
 
     public static void showHeadImageViewBigVForStranger(HeadImageView headImageView, com.baidu.tbadk.data.MetaData metaData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65713, null, headImageView, metaData) == null) && headImageView != null && metaData != null) {
+        if ((interceptable == null || interceptable.invokeLL(65711, null, headImageView, metaData) == null) && headImageView != null && metaData != null) {
             headImageView.setBjhAuthIconRes(0);
             headImageView.setBazhuIconRes(0);
             headImageView.setGodIconResId(0);
@@ -4547,7 +4525,7 @@ public class UtilHelper {
                         headImageView.setShowV(true);
                     }
                 } else if (authType == 2) {
-                    if (!bi.isEmpty(metaData.getAuthDesc())) {
+                    if (!di.isEmpty(metaData.getAuthDesc())) {
                         headImageView.setOriginatorResId(R.drawable.ic_icon_mask_videov14);
                         headImageView.setShowV(true);
                     }
@@ -4558,7 +4536,7 @@ public class UtilHelper {
                         headImageView.setGodIconResId(R.drawable.icon_mask_shen_liang20_svg);
                         headImageView.setShowV(true);
                     }
-                } else if (authType == 4 && !bi.isEmpty(metaData.getBazhuLevel()) && metaData.getBazhuShowOutside() != 3) {
+                } else if (authType == 4 && !di.isEmpty(metaData.getBazhuLevel()) && metaData.getBazhuShowOutside() != 3) {
                     int bazhuImIconId = getBazhuImIconId(metaData.getBazhuLevel(), true);
                     headImageView.setBjhAuthIconRes(0);
                     headImageView.setBazhuIconRes(bazhuImIconId);
@@ -4567,7 +4545,7 @@ public class UtilHelper {
             } else if (metaData.getIsBussinessAccount() == 1) {
                 headImageView.setOfficialIconResId(R.drawable.ic_icon_mask_shang22_n);
                 headImageView.setShowV(true);
-            } else if (!bi.isEmpty(metaData.getAuthDesc())) {
+            } else if (!di.isEmpty(metaData.getAuthDesc())) {
                 headImageView.setOriginatorResId(R.drawable.ic_icon_mask_videov14);
                 headImageView.setShowV(true);
             } else if (metaData.getGodStatus() == 3) {
@@ -4575,7 +4553,7 @@ public class UtilHelper {
                 headImageView.setBazhuIconRes(0);
                 headImageView.setGodIconResId(R.drawable.icon_mask_shen_liang20_svg);
                 headImageView.setShowV(true);
-            } else if (!bi.isEmpty(metaData.getBazhuLevel()) && metaData.getBazhuShowOutside() != 3) {
+            } else if (!di.isEmpty(metaData.getBazhuLevel()) && metaData.getBazhuShowOutside() != 3) {
                 int bazhuImIconId2 = getBazhuImIconId(metaData.getBazhuLevel(), true);
                 headImageView.setBjhAuthIconRes(0);
                 headImageView.setBazhuIconRes(bazhuImIconId2);
@@ -4586,7 +4564,7 @@ public class UtilHelper {
 
     public static void showToast(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65721, null, context, str) == null) {
+        if (interceptable == null || interceptable.invokeLL(65719, null, context, str) == null) {
             CustomToast2.showToast(context, str);
         }
     }
@@ -4596,7 +4574,7 @@ public class UtilHelper {
         int i;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65732, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65730, null, str)) == null) {
             if (StringUtils.isNull(str)) {
                 return str;
             }

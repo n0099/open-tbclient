@@ -1,92 +1,39 @@
 package com.baidu.tieba;
 
+import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b1c;
-import com.baidu.tieba.c1c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.transvod.player.common.AVframe;
+import com.yy.transvod.player.common.AudioSendStamp;
+import com.yy.transvod.player.log.TLog;
+import com.yy.transvod.player.mediacodec.FrameInfo;
+import com.yy.transvod.player.mediacodec.MediaInfo;
+import com.yy.transvod.player.mediacodec.MediaSample;
+import com.yy.transvod.player.mediacodec.NativeFfmpeg;
+import java.nio.ByteBuffer;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.TreeMap;
 /* loaded from: classes8.dex */
-public final class v2c<T> implements c1c.c<T> {
+public abstract class v2c extends q2c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c1c.c<T> a;
-    public final b1c b;
+    public NativeFfmpeg A;
+    public ByteBuffer B;
+    public ByteBuffer C;
+    public TreeMap<Integer, Object> D;
+    public int E;
+    public FrameInfo F;
+    public x1c G;
 
-    /* loaded from: classes8.dex */
-    public static final class a<T> extends d1c<T> implements l1c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final d1c<? super T> b;
-        public final b1c.a c;
-        public T d;
-        public Throwable e;
-
-        public a(d1c<? super T> d1cVar, b1c.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d1cVar, aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = d1cVar;
-            this.c = aVar;
-        }
-
-        @Override // com.baidu.tieba.d1c
-        public void b(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.e = th;
-                this.c.b(this);
-            }
-        }
-
-        @Override // com.baidu.tieba.d1c
-        public void c(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.d = t;
-                this.c.b(this);
-            }
-        }
-
-        @Override // com.baidu.tieba.l1c
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    Throwable th = this.e;
-                    if (th != null) {
-                        this.e = null;
-                        this.b.b(th);
-                    } else {
-                        T t = this.d;
-                        this.d = null;
-                        this.b.c(t);
-                    }
-                } finally {
-                    this.c.unsubscribe();
-                }
-            }
-        }
-    }
-
-    public v2c(c1c.c<T> cVar, b1c b1cVar) {
+    public v2c() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, b1cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -96,23 +43,191 @@ public final class v2c<T> implements c1c.c<T> {
                 return;
             }
         }
-        this.a = cVar;
-        this.b = b1cVar;
+        this.A = new NativeFfmpeg();
+        this.B = null;
+        this.C = null;
+        this.D = new TreeMap<>();
+        this.E = 0;
+        this.F = new FrameInfo();
+        this.G = new x1c(200);
     }
 
-    public void call(d1c<? super T> d1cVar) {
+    @Override // com.baidu.tieba.q2c
+    public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, d1cVar) == null) {
-            b1c.a createWorker = this.b.createWorker();
-            a aVar = new a(d1cVar, createWorker);
-            d1cVar.a(createWorker);
-            d1cVar.a(aVar);
-            this.a.call(aVar);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            while (!this.r.b() && K() == 1) {
+                TLog.g(this, "handleEndOfStream");
+                try {
+                    Thread.sleep(20L);
+                } catch (Exception unused) {
+                    TLog.g(this, "handleEndOfStream error");
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.c1c.c, com.baidu.tieba.m1c
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((d1c) ((d1c) obj));
+    public void L() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TLog.g(this, "NativeFfmpegFilter.stopCodec enter.");
+            this.A.k();
+            this.B = null;
+            this.C = null;
+            this.E = 0;
+            this.F.a = 0L;
+            this.v = 0L;
+            G();
+            TLog.g(this, "NativeFfmpegFilter.stopCodec leave.");
+        }
+    }
+
+    @Override // com.baidu.tieba.q2c
+    public int D(MediaSample mediaSample) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample)) == null) {
+            K();
+            int J = J(mediaSample);
+            K();
+            return J;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.q2c, com.baidu.tieba.z2c, com.baidu.tieba.h1c.a
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, message) == null) {
+            if (message.what != 1002) {
+                super.handleMessage(message);
+            } else {
+                L();
+            }
+        }
+    }
+
+    public final int J(MediaSample mediaSample) {
+        InterceptResult invokeL;
+        AVframe aVframe;
+        MediaInfo mediaInfo;
+        ByteBuffer byteBuffer;
+        byte[] bArr;
+        byte[] bArr2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mediaSample)) == null) {
+            if (mediaSample == null || (aVframe = mediaSample.g) == null || (mediaInfo = mediaSample.i) == null || (byteBuffer = this.B) == null || mediaInfo.k == null || mediaInfo.a == 0) {
+                return -1;
+            }
+            int i = aVframe.e;
+            int i2 = this.a;
+            if (i > i2) {
+                long j = this.v + 1;
+                this.v = j;
+                if (j < 10 || j % 1000 == 0) {
+                    TLog.c(this, String.format("ffmepg::sample.avFrame.playTaskID: %d > mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
+                }
+                return 0;
+            } else if (i < i2) {
+                long j2 = this.v + 1;
+                this.v = j2;
+                if (j2 < 10 || j2 % 1000 == 0) {
+                    TLog.c(this, String.format("ffmpeg::sample.avFrame.playTaskID: %d < mPlayTaskID %d", Integer.valueOf(mediaSample.g.e), Integer.valueOf(this.a)));
+                }
+                return -1;
+            } else {
+                byteBuffer.clear();
+                boolean z = mediaSample.g.c;
+                int capacity = mediaSample.i.k.capacity();
+                if (mediaSample.d && (bArr2 = mediaSample.g.q) != null) {
+                    capacity += bArr2.length + 7;
+                }
+                ByteBuffer byteBuffer2 = this.B;
+                if (byteBuffer2 == null || byteBuffer2.capacity() < capacity) {
+                    int i3 = (int) (capacity * 1.5d);
+                    if (i3 > 2000000 || i3 < capacity) {
+                        i3 = capacity;
+                    }
+                    this.B = ByteBuffer.allocateDirect(i3);
+                }
+                if (this.B.capacity() >= capacity) {
+                    if (mediaSample.d && (bArr = mediaSample.g.q) != null) {
+                        m2c.d(bArr, this.B);
+                    }
+                    this.B.put(mediaSample.i.k).flip();
+                    if (this.A.o(this.B, mediaSample.d, mediaSample.l, mediaSample.k) < 0) {
+                        TLog.c(this, "mCodec.send_packet() failed.");
+                        m(51);
+                        return -1;
+                    }
+                }
+                this.G.b(mediaSample.t);
+                this.r.a(mediaSample);
+                return 1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public final int K() {
+        InterceptResult invokeV;
+        MediaInfo mediaInfo;
+        AVframe aVframe;
+        AVframe aVframe2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ByteBuffer byteBuffer = this.C;
+            if (byteBuffer != null) {
+                byteBuffer.clear();
+                this.D.clear();
+                FrameInfo frameInfo = this.F;
+                frameInfo.a = 0L;
+                frameInfo.b = 0L;
+                if (this.A.n(this.C, this.D, frameInfo) > 0) {
+                    MediaSample c = this.r.c();
+                    if (c != null && c.g != null && (mediaInfo = c.i) != null) {
+                        mediaInfo.c(this.q);
+                        c.i.k = this.C;
+                        FrameInfo frameInfo2 = this.F;
+                        c.l = frameInfo2.a;
+                        E(c, frameInfo2.b);
+                        this.u++;
+                        c.I = NativeFfmpeg.l(this.D);
+                        ArrayList<Long> m = NativeFfmpeg.m(this.D);
+                        if (m != null && !m.isEmpty()) {
+                            c.J = new ArrayList<>();
+                            Iterator<Long> it = m.iterator();
+                            while (it.hasNext()) {
+                                c.J.add(new AudioSendStamp(this.G.a(), it.next().longValue()));
+                            }
+                        }
+                        n(c);
+                        if (!c.c) {
+                            z1c z1cVar = this.s.get();
+                            if (z1cVar != null && (aVframe2 = c.g) != null) {
+                                z1cVar.t((int) aVframe2.l);
+                            }
+                        } else {
+                            z1c z1cVar2 = this.s.get();
+                            if (z1cVar2 != null && (aVframe = c.g) != null) {
+                                z1cVar2.s((int) aVframe.l);
+                            }
+                        }
+                        this.D.clear();
+                        d2c.c(c, 6);
+                        synchronized (this.k) {
+                            if (this.d != null) {
+                                this.d.f(c);
+                            }
+                        }
+                        return 1;
+                    }
+                    return -1;
+                }
+                return 0;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
     }
 }

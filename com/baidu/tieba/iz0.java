@@ -1,14 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import com.baidu.tieba.hz0;
+import android.app.Activity;
+import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
+import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public abstract class iz0<VG extends ViewGroup, BE extends hz0> extends mz0<VG, BE> {
+public class iz0 extends rz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,19 +27,42 @@ public abstract class iz0<VG extends ViewGroup, BE extends hz0> extends mz0<VG, 
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cz0
-    /* renamed from: U */
-    public wt0 u() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iz0(Activity activity) {
+        super(activity);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            vt0 u = super.u();
-            if (u != null) {
-                return (wt0) u;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.BaseVideoPlayer");
         }
-        return (wt0) invokeV.objValue;
+        Intrinsics.checkNotNullParameter(activity, "activity");
+    }
+
+    @Override // com.baidu.tieba.rz0
+    public void b0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            zt0 bindPlayer = u();
+            Intrinsics.checkNotNullExpressionValue(bindPlayer, "bindPlayer");
+            IVideoUpdateStrategy n1 = bindPlayer.n1();
+            Intrinsics.checkNotNullExpressionValue(n1, "bindPlayer.strategy");
+            if (!n1.f()) {
+                BdThumbSeekBar mThumbSeekBar = this.l;
+                Intrinsics.checkNotNullExpressionValue(mThumbSeekBar, "mThumbSeekBar");
+                mThumbSeekBar.setVisibility(4);
+                return;
+            }
+            super.b0();
+        }
     }
 }

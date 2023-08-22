@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import org.apache.http.cookie.ClientCookie;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class g1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,13 +44,13 @@ public class g1 {
         this.a = -1;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0065, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:18:0x0064, code lost:
         if (r7 != null) goto L33;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x006b, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x006a, code lost:
         if (r7 != null) goto L33;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x006e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:24:0x006d, code lost:
         r7.close();
      */
     /*

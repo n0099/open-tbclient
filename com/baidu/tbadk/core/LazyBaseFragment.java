@@ -11,7 +11,6 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.idlehelp.IdleHandlerManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.MainTabFragmentIdleSwitch;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,9 +28,9 @@ public abstract class LazyBaseFragment extends BaseFragment {
     public Bundle e;
     public final CustomMessageListener f;
 
-    public abstract int J1();
+    public abstract int V1();
 
-    public abstract void L1(View view2, Bundle bundle);
+    public abstract void X1(View view2, Bundle bundle);
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -68,7 +67,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.K1();
+                    this.a.a.W1();
                 }
             }
         }
@@ -103,7 +102,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
                 } else if (IdleHandlerManager.getInstance().hasRunImmediately()) {
-                    this.a.K1();
+                    this.a.W1();
                 } else {
                     this.a.a.post(new RunnableC0220a(this));
                 }
@@ -135,19 +134,17 @@ public abstract class LazyBaseFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            if (MainTabFragmentIdleSwitch.isOn()) {
-                registerListener(this.f);
-            }
+            registerListener(this.f);
         }
     }
 
-    public synchronized void K1() {
+    public synchronized void W1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 if (!this.b && this.d != null) {
                     this.b = true;
-                    L1(this.d.inflate(), this.e);
+                    X1(this.d.inflate(), this.e);
                 }
             }
         }
@@ -159,7 +156,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPrimary();
             if (isPrimary() && !this.b && getView() != null) {
-                K1();
+                W1();
             }
         }
     }
@@ -170,20 +167,14 @@ public abstract class LazyBaseFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, layoutInflater, viewGroup, bundle)) == null) {
-            if (MainTabFragmentIdleSwitch.isOn()) {
-                View inflate = layoutInflater.inflate(R.layout.maintab_lazyinit_layout, viewGroup, false);
-                ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.main_view_stub);
-                this.d = viewStub;
-                viewStub.setLayoutResource(J1());
-                if (this.c) {
-                    K1();
-                    return inflate;
-                }
-                return inflate;
+            View inflate = layoutInflater.inflate(R.layout.maintab_lazyinit_layout, viewGroup, false);
+            ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.main_view_stub);
+            this.d = viewStub;
+            viewStub.setLayoutResource(V1());
+            if (this.c) {
+                W1();
             }
-            View inflate2 = layoutInflater.inflate(J1(), viewGroup, false);
-            L1(inflate2, bundle);
-            return inflate2;
+            return inflate;
         }
         return (View) invokeLLL.objValue;
     }

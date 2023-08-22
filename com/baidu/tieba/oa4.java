@@ -1,168 +1,89 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-@Autowired
+import java.io.File;
 /* loaded from: classes7.dex */
-public final class oa4 {
+public class oa4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final oa4 a;
+    public static volatile oa4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public String b;
 
-    /* loaded from: classes7.dex */
-    public static final class a implements na4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.na4
-        public void a(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
         }
-
-        @Override // com.baidu.tieba.na4
-        public void b(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.na4
-        public void c(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.na4
-        public void d(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.na4
-        public void e(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.na4
-        public void f() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.na4
-        public void g(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.na4
-        public void h(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.na4
-        public void i(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        @Override // com.baidu.tieba.na4
-        public void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.na4
-        public void k(JsObject jsObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048586, this, jsObject) == null) {
-                Intrinsics.checkNotNullParameter(jsObject, "jsObject");
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948025511, "Lcom/baidu/tieba/oa4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948025511, "Lcom/baidu/tieba/oa4;");
-                return;
-            }
-        }
-        a = new oa4();
     }
 
     public oa4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Inject(force = false)
-    public final na4 a() {
+    public static oa4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (oa4.class) {
+                    if (c == null) {
+                        c = new oa4();
+                    }
+                }
+            }
+            return c;
+        }
+        return (oa4) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a();
+            if (TextUtils.isEmpty(this.b)) {
+                return "";
+            }
+            return this.b + File.separator + "index.js";
         }
-        return (na4) invokeV.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
+        }
     }
 }

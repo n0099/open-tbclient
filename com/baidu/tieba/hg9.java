@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.widget.ImageView;
-import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.adp.widget.ImageView.BdImage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.download.constants.DownloadStatisticConstants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.pb.account.forbid.ForbidResultData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,46 +15,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class hg9 extends k06 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static double O = 0.5d;
+public class hg9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947822895, "Lcom/baidu/tieba/hg9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947822895, "Lcom/baidu/tieba/hg9;");
-        }
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(ForbidResultData forbidResultData);
+
+        void b(ForbidResultData forbidResultData);
     }
 
     /* loaded from: classes6.dex */
-    public class a implements TbImageView.h {
+    public static class a extends BdAsyncTask<String, Object, ForbidResultData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hg9 a;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
+        public String f;
+        public String g;
+        public String h;
+        public String i;
+        public WeakReference<b> j;
 
-        @Override // com.baidu.tbadk.widget.TbImageView.h
-        public void a(TbImageView tbImageView, Canvas canvas) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, tbImageView, canvas) == null) {
-            }
-        }
-
-        public a(hg9 hg9Var) {
+        public a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hg9Var};
+                Object[] objArr = {str, str2, str3, str4, str5, str6, str7, str8, str9, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -67,110 +59,96 @@ public class hg9 extends k06 {
                     return;
                 }
             }
-            this.a = hg9Var;
+            this.a = str;
+            this.b = str2;
+            this.c = str3;
+            this.d = str4;
+            this.g = str6;
+            this.e = str8;
+            this.f = str9;
+            this.h = str7;
+            this.i = str5;
+            this.j = new WeakReference<>(bVar);
+            setPriority(3);
         }
 
-        @Override // com.baidu.tbadk.widget.TbImageView.h
-        public void b(TbImageView tbImageView, Canvas canvas) {
-            int i;
-            int i2;
-            float f;
-            float f2;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public ForbidResultData doInBackground(String... strArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbImageView, canvas) == null) && tbImageView != null && tbImageView.getImageMatrix() != null && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
-                Matrix imageMatrix = tbImageView.getImageMatrix();
-                if (this.a.u) {
-                    i = 17;
-                } else {
-                    i = 18;
-                }
-                BdImage D = TbImageMemoryCache.B().D(BdResourceLoader.getInstance().genCacheKey(tbImageView.getUrl(), i));
-                int i3 = 0;
-                if (D != null) {
-                    i3 = D.getWidth();
-                    i2 = D.getHeight();
-                } else {
-                    i2 = 0;
-                }
-                if (i3 != 0 && i2 != 0) {
-                    int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
-                    int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
-                    if (i3 * height > width * i2) {
-                        f = height;
-                        f2 = i2;
-                    } else {
-                        f = width;
-                        f2 = i3;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                NetWork netWork = new NetWork(hg9.a);
+                netWork.addPostData("day", this.g);
+                netWork.addPostData("un", this.d);
+                netWork.addPostData("fid", this.a);
+                netWork.addPostData(DownloadStatisticConstants.UBC_VALUE_WORD, this.b);
+                netWork.addPostData("z", this.c);
+                netWork.addPostData("reason", this.h);
+                netWork.addPostData("ntn", "banid");
+                netWork.addPostData("post_id", this.i);
+                netWork.addPostData("nick_name", this.e);
+                netWork.addPostData("portrait", this.f);
+                netWork.getNetContext().getRequest().mIsNeedTbs = true;
+                String postNetData = netWork.postNetData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    try {
+                        return (ForbidResultData) OrmObject.objectWithJsonStr(postNetData, ForbidResultData.class);
+                    } catch (Exception e) {
+                        BdLog.detailException(e);
+                        ForbidResultData forbidResultData = new ForbidResultData();
+                        forbidResultData.error_code = -1000;
+                        return forbidResultData;
                     }
-                    float f3 = f / f2;
-                    imageMatrix.setScale(f3, f3);
-                    imageMatrix.postTranslate(0.0f, 0.0f);
+                }
+                ForbidResultData forbidResultData2 = new ForbidResultData();
+                forbidResultData2.error_code = netWork.getServerErrorCode();
+                forbidResultData2.error_msg = netWork.getErrorString();
+                return forbidResultData2;
+            }
+            return (ForbidResultData) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(ForbidResultData forbidResultData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidResultData) == null) {
+                super.onPostExecute(forbidResultData);
+                b bVar = this.j.get();
+                if (bVar != null) {
+                    if (forbidResultData.error_code == 0 && di.isEmpty(forbidResultData.error_msg)) {
+                        bVar.a(forbidResultData);
+                    } else {
+                        bVar.b(forbidResultData);
+                    }
                 }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hg9(k06 k06Var) {
-        super(k06Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {k06Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((k06) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947822895, "Lcom/baidu/tieba/hg9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947822895, "Lcom/baidu/tieba/hg9;");
                 return;
             }
         }
-        l(true);
-        v();
-        p(TbConfig.getPostLineSpace(), 1.0f);
-        A(0);
-        m(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds30));
-        n(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds12));
-        j(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds48));
-        t(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004), BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
-        k(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_H_X004));
-        this.J = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds749);
-        this.K = BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
-        BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds26);
-        this.M = new a(this);
+        a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
     }
 
-    @Override // com.baidu.tieba.k06
-    public int[] f(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
+    public static void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048576, this, i, i2, i3, i4)) == null) {
-            if (i2 > 0 && i > 0 && i3 > 0 && i4 > 0) {
-                if (this.v) {
-                    float f = k06.N;
-                    if (f > 1.0f) {
-                        float f2 = i;
-                        if (f2 * f <= i3 * O) {
-                            i3 = (int) (f2 * f);
-                        }
-                        i2 = (i2 * i3) / i;
-                        if (i2 > 4096) {
-                            this.s = ImageView.ScaleType.MATRIX;
-                            i = i3;
-                            i2 = 4096;
-                        } else {
-                            this.s = ImageView.ScaleType.CENTER_CROP;
-                            i = i3;
-                        }
-                    }
-                }
-                return new int[]{i, i2};
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, bVar}) == null) {
+            new a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
         }
-        return (int[]) invokeIIII.objValue;
     }
 }

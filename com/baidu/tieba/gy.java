@@ -2,31 +2,32 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.view.RecommendForumLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.SingleLinkCardView;
+import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gy extends dx {
+public class gy extends zw<n35> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SingleLinkCardView h;
+    public RecommendForumLayout f;
+    public int g;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gy(Context context) {
-        super(context);
+    public gy(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,72 +38,91 @@ public class gy extends dx {
                 return;
             }
         }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().m instanceof SingleLinkCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().m.getParent() == null) {
-            this.h = (SingleLinkCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().m;
-        } else {
-            this.h = new SingleLinkCardView(context);
+        this.g = 3;
+        RecommendForumLayout recommendForumLayout = new RecommendForumLayout(tbPageContext);
+        this.f = recommendForumLayout;
+        recommendForumLayout.setPageUniqueId(bdUniqueId);
+        this.f.setShowMore(true);
+    }
+
+    public void A(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.f.setShowMore(z);
         }
-        y(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+    }
+
+    public void B(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.f.setShowSquareEntrance(z);
+        }
+    }
+
+    @Override // com.baidu.tieba.zw
+    public void q(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            this.f.setPageUniqueId(bdUniqueId);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qx
-    /* renamed from: B */
-    public void onBindDataToView(q05 q05Var) {
+    @Override // com.baidu.tieba.tx
+    /* renamed from: t */
+    public void onBindDataToView(n35 n35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) {
-            if (!A(q05Var) && q05Var != null && q05Var.getThreadData() != null && !z(q05Var) && ListUtils.getCount(q05Var.getThreadData().getLinkDataList()) + ListUtils.getCount(q05Var.getThreadData().getGoodsDataList()) == 1) {
-                if (q05Var.getThreadData().getLinkDataList().size() >= 1) {
-                    this.h.a((ln6) ListUtils.getItem(q05Var.getThreadData().getLinkDataList(), 0));
-                } else if (q05Var.getThreadData().getGoodsDataList().size() >= 1) {
-                    this.h.a((ln6) ListUtils.getItem(q05Var.getThreadData().getGoodsDataList(), 0));
-                }
-                this.h.setVisibility(0);
-                return;
-            }
-            this.h.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048582, this, n35Var) == null) {
+            this.f.setData(n35Var);
         }
     }
 
-    public final boolean A(q05 q05Var) {
-        InterceptResult invokeL;
+    public void u(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q05Var)) == null) {
-            if (q05Var != null && q05Var.getThreadData() != null && q05Var.getThreadData().getPollData() != null && q05Var.getThreadData().getPollData().getOptions() != null && q05Var.getThreadData().getPollData().getOptions().size() > 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.f.setEnableShowInto(z);
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ww
+    public void x(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onClickListener) == null) {
+            this.f.setOnClickRightArrowListener(onClickListener);
+        }
+    }
+
+    public void y(rz4<m35> rz4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, rz4Var) == null) {
+            this.f.setOnItemCoverListener(rz4Var);
+        }
+    }
+
+    public void z(PullLeftRefreshLayout.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, fVar) == null) {
+            this.f.setOnRullOkCallbackr(fVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.zw
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
+            return this.f;
         }
         return (View) invokeV.objValue;
     }
 
-    public final boolean z(q05 q05Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, q05Var)) == null) {
-            if (q05Var != null && q05Var.getThreadData() != null && q05Var.getThreadData().isVideoThreadType() && q05Var.getThreadData().getThreadVideoInfo() != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rx
+    @Override // com.baidu.tieba.ux
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            this.h.d();
+            if (this.g != i) {
+                this.f.onChangeSkinType(tbPageContext, i);
+            }
+            this.g = i;
         }
     }
 }

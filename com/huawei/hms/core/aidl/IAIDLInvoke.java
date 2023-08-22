@@ -12,13 +12,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.core.aidl.IAIDLCallback;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface IAIDLInvoke extends IInterface {
     void asyncCall(DataBuffer dataBuffer, IAIDLCallback iAIDLCallback) throws RemoteException;
 
     void syncCall(DataBuffer dataBuffer) throws RemoteException;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static abstract class Stub extends Binder implements IAIDLInvoke {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -30,7 +30,7 @@ public interface IAIDLInvoke extends IInterface {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (IBinder) invokeV.objValue;
         }
 
-        /* loaded from: classes9.dex */
+        /* loaded from: classes10.dex */
         public static class a implements IAIDLInvoke {
             public static /* synthetic */ Interceptable $ic;
             public static IAIDLInvoke b;

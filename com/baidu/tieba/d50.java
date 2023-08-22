@@ -1,61 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 /* loaded from: classes5.dex */
-public final class d50 {
+public class d50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String[] b;
-    public int c;
-    public String d;
-    public long e;
-    public long f;
 
-    public d50(Context context, String str) {
+    public static byte[] a(byte[] bArr, w40 w40Var) throws Exception {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bArr, w40Var)) == null) {
+            l40 b = l40.b();
+            b.c(2, w40Var);
+            return b.a(bArr);
         }
-        this.a = str;
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            this.d = packageInfo.versionName;
-            this.c = packageInfo.versionCode;
-            this.e = packageInfo.firstInstallTime;
-            this.f = packageInfo.lastUpdateTime;
-            this.b = new String[packageInfo.signatures.length];
-            for (int i3 = 0; i3 < this.b.length; i3++) {
-                this.b[i3] = z40.c(packageInfo.signatures[i3].toByteArray());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SappInfo{pkg='" + this.a + "', sigs=" + Arrays.toString(this.b) + ", vc=" + this.c + ", va=" + this.d + ", installts=" + this.e + ", lstupdatets=" + this.f + '}';
-        }
-        return (String) invokeV.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 }

@@ -1,20 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.http.callback.StatResponseCallback;
+import com.baidu.tieba.mk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.String;
 /* loaded from: classes6.dex */
-public abstract class kk4 {
+public abstract class kk4<T extends String> implements StatResponseCallback<T>, mk4.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract al4 a();
-
-    public abstract boolean b(al4 al4Var);
-
-    public abstract void c(boolean z);
 
     public kk4() {
         Interceptable interceptable = $ic;
@@ -28,14 +24,5 @@ public abstract class kk4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "task=" + a();
-        }
-        return (String) invokeV.objValue;
     }
 }

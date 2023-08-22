@@ -1,19 +1,21 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import android.content.Context;
+import com.facebook.drawee.generic.GenericDraweeHierarchy;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public interface xv1 extends p43 {
-    File a();
+public interface xv1 {
+    void a(Context context, JSONObject jSONObject);
 
-    void e(String str, String str2);
+    void b(Context context, JSONObject jSONObject);
 
-    void e(String str, String str2, Throwable th);
+    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
 
-    void flush(boolean z);
+    void d(Context context, String[] strArr, int i);
 
-    void i(String str, String str2);
+    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
 
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    void f(Context context, JSONObject jSONObject);
 }

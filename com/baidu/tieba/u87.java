@@ -4,12 +4,20 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes8.dex */
 public class u87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
+    public int b;
+    public int c;
+    public boolean d;
+    public String e;
+    public int f;
+    public int g;
+    public int h;
+    public Map<String, String> i;
 
     public u87() {
         Interceptable interceptable = $ic;

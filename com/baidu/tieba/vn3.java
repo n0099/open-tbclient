@@ -1,109 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.net.Uri;
+import android.util.Base64;
 import android.util.Log;
+import androidx.annotation.CheckResult;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.executors.UiThreadImmediateExecutorService;
-import com.facebook.common.references.CloseableReference;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
-import com.facebook.imagepipeline.image.CloseableBitmap;
-import com.facebook.imagepipeline.image.CloseableImage;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.security.KeyFactory;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes8.dex */
 public class vn3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes8.dex */
-    public interface b {
-        void a(String str, Bitmap bitmap);
-    }
-
-    /* loaded from: classes8.dex */
-    public static class a extends BaseBitmapDataSubscriber {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ String b;
-
-        public a(b bVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-            this.b = str;
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber, com.facebook.datasource.DataSubscriber
-        public void onCancellation(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
-                super.onCancellation(dataSource);
-                this.a.a(this.b, null);
-            }
-        }
-
-        @Override // com.facebook.datasource.BaseDataSubscriber
-        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataSource) == null) {
-                this.a.a(this.b, null);
-            }
-        }
-
-        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
-        public void onNewResultImpl(Bitmap bitmap) {
-            Bitmap copy;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
-                if (bitmap != null && !bitmap.isRecycled()) {
-                    try {
-                        if (bitmap.getConfig() == null) {
-                            copy = bitmap.copy(Bitmap.Config.ARGB_8888, true);
-                        } else {
-                            copy = bitmap.copy(bitmap.getConfig(), true);
-                        }
-                        this.a.a(this.b, copy);
-                        return;
-                    } catch (Exception e) {
-                        if (vn3.a) {
-                            Log.e("SwanAppFrescoImageUtils", e.getMessage());
-                        }
-                        this.a.a(this.b, null);
-                        return;
-                    }
-                }
-                this.a.a(this.b, null);
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -118,136 +41,157 @@ public class vn3 {
                 return;
             }
         }
-        a = ir1.a;
+        a = nr1.a;
     }
 
-    public static Bitmap b(DataSource<CloseableReference<CloseableImage>> dataSource) {
-        InterceptResult invokeL;
-        CloseableReference<CloseableImage> closeableReference;
-        Throwable th;
-        Bitmap underlyingBitmap;
+    @NonNull
+    @CheckResult
+    public static String a(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dataSource)) == null) {
-            if (dataSource == null) {
-                return null;
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, str4)) == null) {
             try {
-                closeableReference = dataSource.getResult();
-                if (closeableReference != null) {
+                Cipher cipher = Cipher.getInstance(str3);
+                cipher.init(1, new SecretKeySpec(str.getBytes("utf-8"), "AES"), new IvParameterSpec(str4.getBytes("utf-8")));
+                return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
+            } catch (Exception e) {
+                if (a) {
+                    Log.e("SwanAppEncryptUtils", "aesEncrypt", e);
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeLLLL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0034 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3, types: [java.io.Closeable] */
+    /* JADX WARN: Type inference failed for: r0v4 */
+    public static String b(String str, File file, boolean z) {
+        InterceptResult invokeLLZ;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, str, file, z)) == null) {
+            ?? r0 = 0;
+            try {
+                try {
+                    MessageDigest messageDigest = MessageDigest.getInstance(str);
+                    messageDigest.reset();
+                    fileInputStream = new FileInputStream(file);
                     try {
-                        CloseableImage closeableImage = closeableReference.get();
-                        if (closeableImage != null && (closeableImage instanceof CloseableBitmap) && (underlyingBitmap = ((CloseableBitmap) closeableImage).getUnderlyingBitmap()) != null && !underlyingBitmap.isRecycled()) {
-                            try {
-                                Bitmap createBitmap = Bitmap.createBitmap(underlyingBitmap);
-                                dataSource.close();
-                                CloseableReference.closeSafely(closeableReference);
-                                return createBitmap;
-                            } catch (OutOfMemoryError unused) {
-                                System.gc();
+                        byte[] bArr = new byte[8192];
+                        while (true) {
+                            int read = fileInputStream.read(bArr);
+                            if (read > 0) {
+                                messageDigest.update(bArr, 0, read);
+                            } else {
+                                String e = e(messageDigest.digest(), "", z);
+                                hr4.d(fileInputStream);
+                                return e;
                             }
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
-                        dataSource.close();
-                        CloseableReference.closeSafely(closeableReference);
-                        throw th;
+                    } catch (FileNotFoundException e2) {
+                        e = e2;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        hr4.d(fileInputStream);
+                        return null;
+                    } catch (IOException e3) {
+                        e = e3;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        hr4.d(fileInputStream);
+                        return null;
+                    } catch (NoSuchAlgorithmException e4) {
+                        e = e4;
+                        if (a) {
+                            e.printStackTrace();
+                        }
+                        hr4.d(fileInputStream);
+                        return null;
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    r0 = interceptable;
+                    hr4.d(r0);
+                    throw th;
                 }
-                dataSource.close();
-                CloseableReference.closeSafely(closeableReference);
-                return null;
-            } catch (Throwable th3) {
-                closeableReference = null;
-                th = th3;
+            } catch (FileNotFoundException e5) {
+                e = e5;
+                fileInputStream = null;
+            } catch (IOException e6) {
+                e = e6;
+                fileInputStream = null;
+            } catch (NoSuchAlgorithmException e7) {
+                e = e7;
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+                hr4.d(r0);
+                throw th;
             }
         } else {
-            return (Bitmap) invokeL.objValue;
+            return (String) invokeLLZ.objValue;
         }
     }
 
-    public static Bitmap c(Uri uri, Context context) {
-        InterceptResult invokeLL;
+    public static String c(String str, byte[] bArr, boolean z) throws NoSuchAlgorithmException {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, uri, context)) == null) {
-            if (uri != null && context != null) {
-                if (d(uri)) {
-                    if (a) {
-                        Log.i("SwanAppFrescoImageUtils", "start get Bitmap from memory, uri : " + uri.toString());
-                    }
-                    return b(Fresco.getImagePipeline().fetchImageFromBitmapCache(ImageRequest.fromUri(uri), context.getApplicationContext()));
-                }
-                if (a) {
-                    Log.i("SwanAppFrescoImageUtils", "start get Bitmap from sdcard, uri : " + uri.toString());
-                }
-                DataSource<Boolean> isInDiskCache = Fresco.getImagePipeline().isInDiskCache(uri);
-                if (isInDiskCache != null && isInDiskCache.hasResult() && isInDiskCache.getResult() != null && isInDiskCache.getResult().booleanValue()) {
-                    try {
-                        return b(Fresco.getImagePipeline().fetchDecodedImage(ImageRequest.fromUri(uri), context));
-                    } finally {
-                        isInDiskCache.close();
-                    }
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, str, bArr, z)) == null) {
+            MessageDigest messageDigest = MessageDigest.getInstance(str);
+            messageDigest.reset();
+            messageDigest.update(bArr);
+            return e(messageDigest.digest(), "", z);
         }
-        return (Bitmap) invokeLL.objValue;
+        return (String) invokeLLZ.objValue;
     }
 
-    public static boolean d(Uri uri) {
-        InterceptResult invokeL;
+    @NonNull
+    @CheckResult
+    public static String d(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
-            if (uri != null && Fresco.getImagePipeline().isInBitmapMemoryCache(uri)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void e(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, bVar) == null) {
-            Uri C = so3.C(str);
-            if (C == null) {
-                bVar.a(str, null);
-                return;
-            }
-            Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(C).build(), AppRuntime.getAppContext()).subscribe(new a(bVar, str), UiThreadImmediateExecutorService.getInstance());
-        }
-    }
-
-    public static void f(Uri uri, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, uri, str) != null) || uri == null) {
-            return;
-        }
-        if (a) {
-            Log.i("SwanAppFrescoImageUtils", "start preFetch into memory, uri : " + uri.toString());
-        }
-        Fresco.getImagePipeline().prefetchToBitmapCache(ImageRequestBuilder.newBuilderWithSource(uri).build(), str);
-    }
-
-    public static Bitmap g(Bitmap bitmap, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bitmap, i, i2)) == null) {
-            if (bitmap == null || i <= 0 || i2 <= 0) {
-                return null;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (width == 0 || height == 0) {
-                return null;
-            }
-            Matrix matrix = new Matrix();
-            matrix.postScale(i / width, i2 / height);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3)) == null) {
             try {
-                return Bitmap.createBitmap(bitmap, 0, 0, width, height, matrix, true);
-            } catch (Exception | OutOfMemoryError unused) {
-                return null;
+                PublicKey generatePublic = KeyFactory.getInstance("RSA").generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes("utf-8"), 0)));
+                Cipher cipher = Cipher.getInstance(str3);
+                cipher.init(1, generatePublic);
+                return Base64.encodeToString(cipher.doFinal(str2.getBytes("utf-8")), 2);
+            } catch (Exception e) {
+                if (a) {
+                    Log.e("SwanAppEncryptUtils", "rsaEncrypt", e);
+                    return "";
+                }
+                return "";
             }
         }
-        return (Bitmap) invokeLII.objValue;
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String e(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
     }
 }

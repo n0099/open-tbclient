@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.core.aidl.IMessageEntity;
 import com.huawei.hms.core.aidl.annotation.Packed;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PermissionInfo implements IMessageEntity, Parcelable {
     public static /* synthetic */ Interceptable $ic;
     public static final Parcelable.Creator<PermissionInfo> CREATOR;
@@ -35,7 +35,7 @@ public class PermissionInfo implements IMessageEntity, Parcelable {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Parcelable.Creator<PermissionInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

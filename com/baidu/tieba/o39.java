@@ -1,159 +1,133 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.ala.atomdata.AlaSDKShareEmptyActivityConfig;
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService;
-import com.baidu.searchbox.live.interfaces.sharechennel.IShareCallback;
-import com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel;
-import com.baidu.searchbox.live.interfaces.sharechennel.ShareEntity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes7.dex */
-public class o39 implements ShareChannelService {
+public class o39 {
     public static /* synthetic */ Interceptable $ic;
+    public static Application.ActivityLifecycleCallbacks a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements IShareChannel {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o39 a;
+    }
 
-        public a(o39 o39Var) {
+    /* loaded from: classes7.dex */
+    public static class b implements Application.ActivityLifecycleCallbacks {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o39Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = o39Var;
         }
 
-        @Override // com.baidu.searchbox.live.interfaces.sharechennel.IShareChannel
-        public void shareToChannel(ShareEntity shareEntity, int i, IShareCallback iShareCallback) {
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(Activity activity) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, shareEntity, i, iShareCallback) == null) {
-                if (i == 1) {
-                    this.a.c(6, shareEntity, iShareCallback);
-                } else if (i == 3) {
-                    this.a.c(2, shareEntity, iShareCallback);
-                } else if (i == 2) {
-                    this.a.c(3, shareEntity, iShareCallback);
-                } else if (i == 4) {
-                    this.a.c(8, shareEntity, iShareCallback);
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                BdLog.e("activity is " + activity);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+                BdLog.e("activity is " + activity);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+                BdLog.e("activity is " + activity);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+                BdLog.e("activity is " + activity);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+                BdLog.e("activity is " + activity);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+                BdLog.e("activity is " + activity);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+                BdLog.e("activity is " + activity);
             }
         }
     }
 
-    public o39() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981460, "Lcom/baidu/tieba/o39;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.tb.ShareChannelService
-    public IShareChannel buildShareChannel() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new a(this);
-        }
-        return (IShareChannel) invokeV.objValue;
-    }
-
-    public final boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i != 2 && i != 3) {
-                if (i != 6) {
-                    if (i != 8) {
-                        return false;
-                    }
-                    boolean b = waa.b(TbadkCoreApplication.getInst(), "com.tencent.mobileqq");
-                    if (!b) {
-                        BdUtilHelper.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13a2));
-                        return b;
-                    }
-                    return b;
-                }
-                boolean b2 = waa.b(TbadkCoreApplication.getInst(), "com.sina.weibo");
-                if (!b2) {
-                    BdUtilHelper.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13c0));
-                    return b2;
-                }
-                return b2;
-            }
-            boolean b3 = waa.b(TbadkCoreApplication.getInst(), "com.tencent.mm");
-            if (!b3) {
-                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f13c7));
-                return b3;
-            }
-            return b3;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public final void c(int i, ShareEntity shareEntity, IShareCallback iShareCallback) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, shareEntity, iShareCallback) != null) || shareEntity == null) {
-            return;
-        }
-        if (!b(i)) {
-            if (iShareCallback != null) {
-                iShareCallback.onShare(0, 0, "");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947981460, "Lcom/baidu/tieba/o39;");
                 return;
             }
-            return;
         }
-        ShareItem d = d(shareEntity);
-        if (d == null) {
-            return;
-        }
-        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaSDKShareEmptyActivityConfig(TbadkCoreApplication.getInst(), d, i, 2)));
+        Arrays.asList("com.baidu.sapi2.activity.LoginActivity", "com.baidu.sapi2.activity.social.WXLoginActivity");
     }
 
-    public final ShareItem d(ShareEntity shareEntity) {
-        InterceptResult invokeL;
+    public static void a(Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, shareEntity)) == null) {
-            if (shareEntity != null) {
-                ShareItem shareItem = new ShareItem();
-                shareItem.title = shareEntity.title;
-                shareItem.content = shareEntity.content;
-                shareItem.imageUrl = shareEntity.imageUrl;
-                shareItem.linkUrl = shareEntity.linkUrl;
-                shareItem.extData = String.valueOf(shareEntity.liveId);
-                shareItem.extLiveInfo = String.valueOf(shareEntity.userId);
-                return shareItem;
+        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
+            if (a == null) {
+                a = new b(null);
             }
-            return null;
+            application.registerActivityLifecycleCallbacks(a);
         }
-        return (ShareItem) invokeL.objValue;
     }
 }

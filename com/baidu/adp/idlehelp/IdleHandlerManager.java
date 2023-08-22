@@ -1,6 +1,7 @@
 package com.baidu.adp.idlehelp;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.searchbox.taskmanager.IdleTaskRegister;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -30,7 +31,7 @@ public class IdleHandlerManager {
             }
         }
         this.mManager = new IdleTaskRegister();
-        this.hasLaunched = false;
+        this.hasLaunched = !ProcessUtils.isMainProcess();
         this.hasRunImmediately = false;
     }
 

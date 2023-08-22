@@ -1,5 +1,5 @@
 package com.huawei.hms.support.api.client;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface InnerApiClient extends AidlApiClient {
     boolean innerIsConnected();
 }

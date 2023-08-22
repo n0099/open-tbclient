@@ -19,26 +19,26 @@ import com.baidu.tbadk.coreExtra.messageCenter.SignManager;
 import com.baidu.tbadk.coreExtra.util.DialogUtil;
 import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
 import com.baidu.tieba.R;
-import com.baidu.tieba.de5;
-import com.baidu.tieba.ds5;
-import com.baidu.tieba.p05;
+import com.baidu.tieba.ke5;
 import com.baidu.tieba.setting.model.MsgRemindModel;
-import com.baidu.tieba.t2a;
+import com.baidu.tieba.us5;
+import com.baidu.tieba.v05;
+import com.baidu.tieba.y6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Date;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implements BdSwitchView.b, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t2a a;
+    public y6a a;
     public MsgRemindModel b;
     public final OnTimeSelectListener c;
     public MsgRemindModel.f d;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class a implements OnTimeSelectListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,14 +66,14 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         public void onTimeSelect(Date date, View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && this.a.a != null) {
-                de5.d().c0(date.getHours(), date.getMinutes());
+                ke5.d().c0(date.getHours(), date.getMinutes());
                 this.a.a.g0();
                 this.a.a.f0();
             }
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class b implements MsgRemindModel.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -108,13 +108,13 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                 } else if (i == 1) {
                     this.a.a.l0();
                 } else if (i == 20) {
-                    this.a.a.n0();
+                    this.a.a.m0();
                 } else if (i == 30) {
                     this.a.a.k0();
                 } else if (i == 10) {
-                    this.a.a.p0();
-                } else if (i == 35) {
                     this.a.a.o0();
+                } else if (i == 35) {
+                    this.a.a.n0();
                 } else if (i == 7) {
                     if (!z) {
                         if (z2) {
@@ -126,10 +126,10 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
                 } else if (i == 6) {
                     if (!z) {
                         if (z2) {
-                            this.a.a.M().j();
+                            this.a.a.L().j();
                             return;
                         } else {
-                            this.a.a.M().m();
+                            this.a.a.L().m();
                             return;
                         }
                     }
@@ -189,7 +189,7 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onStop();
-            de5.d().I();
+            ke5.d().I();
         }
     }
 
@@ -207,109 +207,109 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            t2a t2aVar = new t2a(this);
-            this.a = t2aVar;
-            t2aVar.T(this);
+            y6a y6aVar = new y6a(this);
+            this.a = y6aVar;
+            y6aVar.S(this);
             this.b = new MsgRemindModel(getPageContext());
         }
     }
 
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
-    public void b0(View view2, BdSwitchView.SwitchState switchState) {
+    public void U(View view2, BdSwitchView.SwitchState switchState) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
             boolean z = false;
-            if (view2 == this.a.P()) {
+            if (view2 == this.a.O()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
-                    de5.d().b0(true);
+                    ke5.d().b0(true);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 2));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 1));
                     this.a.g0();
                     this.a.d0(true);
                 } else {
-                    de5.d().b0(false);
+                    ke5.d().b0(false);
                     TiebaStatic.log(new StatisticItem("c12939").param("obj_type", 1));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SIGN_REMIND_SWITCH).param("obj_type", 0));
                     this.a.d0(false);
                 }
-                w1(switchState, 9, this.a.Q());
+                v1(switchState, 9, this.a.P());
             } else if (view2 == this.a.K()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.b.S(30, true, this.d);
                 } else {
                     this.b.S(30, false, this.d);
                 }
-                v1(switchState, 10);
-            } else if (view2 == this.a.N()) {
+                u1(switchState, 10);
+            } else if (view2 == this.a.M()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.b.S(1, true, this.d);
                 } else {
                     this.b.S(1, false, this.d);
                 }
-                v1(switchState, 1);
-            } else if (view2 == this.a.S()) {
+                u1(switchState, 1);
+            } else if (view2 == this.a.R()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.b.S(20, true, this.d);
                 } else {
                     this.b.S(20, false, this.d);
                 }
-                v1(switchState, 2);
+                u1(switchState, 2);
             } else if (view2 == this.a.A()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.b.S(2, true, this.d);
                 } else {
                     this.b.S(2, false, this.d);
                 }
-                v1(switchState, 4);
+                u1(switchState, 4);
             } else if (view2 == this.a.G()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.b.S(10, true, this.d);
                 } else {
                     this.b.S(10, false, this.d);
                 }
-                v1(switchState, 11);
+                u1(switchState, 11);
             } else if (view2 == this.a.H()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.b.S(35, true, this.d);
                 } else {
                     this.b.S(35, false, this.d);
                 }
-                v1(switchState, 35);
+                u1(switchState, 35);
             } else if (view2 == this.a.J()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.b.S(3, true, this.d);
                 } else {
                     this.b.S(3, false, this.d);
                 }
-                v1(switchState, 3);
+                u1(switchState, 3);
             } else if (view2 == this.a.E()) {
                 MsgRemindModel msgRemindModel = this.b;
                 if (switchState == BdSwitchView.SwitchState.OFF) {
                     z = true;
                 }
                 msgRemindModel.S(7, z, this.d);
-                v1(switchState, 7);
-            } else if (view2 == this.a.M()) {
+                u1(switchState, 7);
+            } else if (view2 == this.a.L()) {
                 MsgRemindModel msgRemindModel2 = this.b;
                 if (switchState == BdSwitchView.SwitchState.OFF) {
                     z = true;
                 }
                 msgRemindModel2.S(6, z, this.d);
-                v1(switchState, 8);
+                u1(switchState, 8);
             } else if (view2 == this.a.F()) {
                 MsgRemindModel msgRemindModel3 = this.b;
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     z = true;
                 }
                 msgRemindModel3.S(33, z, this.d);
-                v1(switchState, 13);
+                u1(switchState, 13);
             } else if (view2 == this.a.D()) {
                 if (switchState == BdSwitchView.SwitchState.ON) {
                     this.b.S(34, true, this.d);
                 } else {
                     this.b.S(34, false, this.d);
                 }
-                v1(switchState, 15);
+                u1(switchState, 15);
             }
         }
     }
@@ -319,10 +319,10 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
             super.onClick(view2);
-            if (view2 == this.a.O()) {
+            if (view2 == this.a.N()) {
                 SignManager.getInstance().showTimePicker(3, getPageContext(), this.c, false);
             } else if (view2 == this.a.I()) {
-                p05.c().b();
+                v05.c().b();
             }
         }
     }
@@ -332,30 +332,30 @@ public class MsgRemindActivity extends BaseActivity<MsgRemindActivity> implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
-            boolean a2 = ds5.a(this);
+            boolean a2 = us5.a(this);
             if (getIntent() != null && getIntent().getBooleanExtra("not_need_account", false)) {
                 return;
             }
             if (!a2) {
                 this.a.e0(false);
-                showNetRefreshView(this.a.R(), getString(R.string.obfuscated_res_0x7f0f18f8), getString(R.string.obfuscated_res_0x7f0f08fe), getString(R.string.go_to_open), true, getNetRefreshListener());
+                showNetRefreshView(this.a.Q(), getString(R.string.obfuscated_res_0x7f0f1908), getString(R.string.obfuscated_res_0x7f0f0906), getString(R.string.go_to_open), true, getNetRefreshListener());
                 setNetRefreshViewPicResId(R.drawable.new_pic_emotion_03);
                 setNetRefreshViewEmotionMarginTop(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds530));
                 return;
             }
             this.a.e0(true);
-            hideNetRefreshView(this.a.R());
+            hideNetRefreshView(this.a.Q());
         }
     }
 
-    public final void v1(BdSwitchView.SwitchState switchState, int i) {
+    public final void u1(BdSwitchView.SwitchState switchState, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, switchState, i) == null) {
-            w1(switchState, i, "");
+            v1(switchState, i, "");
         }
     }
 
-    public final void w1(BdSwitchView.SwitchState switchState, int i, String str) {
+    public final void v1(BdSwitchView.SwitchState switchState, int i, String str) {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIL(1048585, this, switchState, i, str) == null) {

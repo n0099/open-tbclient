@@ -6,11 +6,11 @@ import java.util.List;
 import kotlin.collections.CollectionsKt__CollectionsKt;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaAnnotationOwner;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface ReflectJavaAnnotationOwner extends JavaAnnotationOwner {
     AnnotatedElement getElement();
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public static final class DefaultImpls {
         public static boolean isDeprecatedInJavaDoc(ReflectJavaAnnotationOwner reflectJavaAnnotationOwner) {
             return false;

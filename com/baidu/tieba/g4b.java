@@ -1,63 +1,105 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public final class g4b {
+public class g4b extends h4b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SQLiteDatabase a;
 
-    public g4b() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g4b(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull o2b o2bVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, o2bVar, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, o2bVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (o2b) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = f4b.a().c();
     }
 
-    public final List<com.baidu.ubs.analytics.a.i> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.h4b, com.baidu.tieba.c4b, com.baidu.tieba.d4b
+    public void L(@NonNull List<p2b<?>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Cursor rawQuery = this.a.rawQuery("SELECT * FROM tb_ab_netlog order by _id ", null);
-            ArrayList arrayList = new ArrayList();
-            while (rawQuery.moveToNext()) {
-                com.baidu.ubs.analytics.a.i iVar = new com.baidu.ubs.analytics.a.i();
-                iVar.setUrl(rawQuery.getString(rawQuery.getColumnIndex("_url")));
-                iVar.setType(rawQuery.getString(rawQuery.getColumnIndex("_type")));
-                iVar.u(rawQuery.getString(rawQuery.getColumnIndex("_timeStamp")));
-                iVar.setParameters(rawQuery.getString(rawQuery.getColumnIndex("_parameters")));
-                iVar.x(rawQuery.getString(rawQuery.getColumnIndex("_sessionId")));
-                iVar.setId(rawQuery.getInt(rawQuery.getColumnIndex("_id")));
-                arrayList.add(iVar);
-            }
-            rawQuery.close();
-            return arrayList;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            list.add(s3b.i(this.a));
+            super.L(list);
         }
-        return (List) invokeV.objValue;
     }
 
-    public final void b(int i) {
+    @Override // com.baidu.tieba.h4b, com.baidu.tieba.c4b, com.baidu.tieba.d4b
+    public void N(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.execSQL("delete from tb_ab_netlog where _id <= " + i);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            super.N(editorTools);
+            li5 p = editorTools.p(15);
+            if (p instanceof wxa) {
+                ((wxa) p).o(false);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.h4b, com.baidu.tieba.c4b, com.baidu.tieba.d4b
+    public void O(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.O(navigationBar);
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1120));
+        }
+    }
+
+    @Override // com.baidu.tieba.c4b, com.baidu.tieba.d4b
+    public void U(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.U(bundle);
+            this.K.w(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.c4b, com.baidu.tieba.d4b
+    public void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            dfa.o(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.c4b, com.baidu.tieba.d4b, com.baidu.tieba.r2b
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.a();
+            dfa.z(null);
+        }
+    }
+
+    @Override // com.baidu.tieba.c4b, com.baidu.tieba.d4b
+    public void c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.c0();
+            dfa.z(this.p);
         }
     }
 }

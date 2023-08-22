@@ -4,16 +4,12 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
 /* loaded from: classes6.dex */
-public class g90 extends d90 {
+public class g90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Socket c;
-    public InputStream d;
-    public OutputStream e;
+    public Boolean a;
+    public Boolean b;
 
     public g90() {
         Interceptable interceptable = $ic;
@@ -28,8 +24,8 @@ public class g90 extends d90 {
                 return;
             }
         }
-        this.c = null;
-        this.d = null;
-        this.e = null;
+        Boolean bool = Boolean.FALSE;
+        this.a = bool;
+        this.b = bool;
     }
 }

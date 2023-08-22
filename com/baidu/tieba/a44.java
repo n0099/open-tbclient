@@ -1,43 +1,23 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class a44 {
+public class a44 extends fi3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int realHeight;
-    @V8JavascriptField
-    public int realWidth;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
+    public String k;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void i(String str);
-    }
-
-    public a44(@NonNull f32 f32Var) {
+    public a44() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f32Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,37 +27,29 @@ public class a44 {
                 return;
             }
         }
-        a(f32Var);
+        this.k = "";
     }
 
-    public void b(a aVar) {
+    @Override // com.baidu.tieba.fi3
+    public JSONObject f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (ir1.a) {
-                Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
             }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.i(str);
+            try {
+                this.h.put("error_code", this.k);
+            } catch (JSONException e) {
+                if (fi3.j) {
+                    e.printStackTrace();
+                }
             }
+            if (fi3.j) {
+                Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
+            }
+            return super.f();
         }
-    }
-
-    public final void a(@NonNull f32 f32Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f32Var) == null) {
-            this.left = f32Var.r("left", this.left);
-            this.top = f32Var.r("top", this.top);
-            this.width = f32Var.r("width", this.width);
-            this.height = f32Var.r("height", this.height);
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

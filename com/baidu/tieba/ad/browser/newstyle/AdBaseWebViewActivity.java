@@ -30,10 +30,10 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a26;
-import com.baidu.tieba.nx9;
-import com.baidu.tieba.s46;
-import com.baidu.tieba.u46;
+import com.baidu.tieba.j56;
+import com.baidu.tieba.l56;
+import com.baidu.tieba.s1a;
+import com.baidu.tieba.s26;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -53,7 +53,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
     public static /* synthetic */ Interceptable $ic;
     public static final List<String> s;
     public transient /* synthetic */ FieldHolder $fh;
-    public u46 a;
+    public l56 a;
     public String b;
     public final Runnable c;
     public String d;
@@ -246,7 +246,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e21);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0e29);
                     return;
                 }
                 this.a.a.f();
@@ -395,9 +395,9 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             dismissAllDialog();
             dismissAllPopupWindow();
             hideListMenu();
-            u46 u46Var = this.a;
-            if (u46Var != null) {
-                u46Var.c();
+            l56 l56Var = this.a;
+            if (l56Var != null) {
+                l56Var.c();
             }
         }
     }
@@ -409,7 +409,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             if (URLUtil.isNetworkUrl(this.b)) {
                 showProgressBar();
                 loadUrl(this.b);
-            } else if (!x1(this.b)) {
+            } else if (!w1(this.b)) {
                 loadUrl(this.b);
             }
         }
@@ -528,9 +528,9 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             webViewDestory();
             TbadkCoreApplication.getInst().delRemoteActivity(this);
             stopLoadTimer();
-            u46 u46Var = this.a;
-            if (u46Var != null) {
-                u46Var.n();
+            l56 l56Var = this.a;
+            if (l56Var != null) {
+                l56Var.n();
             }
             super.onDestroy();
         }
@@ -578,18 +578,18 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
             super.onUserChanged(z);
-            u46 u46Var = this.a;
-            if (u46Var != null) {
-                u46Var.s(z);
+            l56 l56Var = this.a;
+            if (l56Var != null) {
+                l56Var.s(z);
             }
         }
     }
 
-    public boolean x1(String str) {
+    public boolean w1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, str)) == null) {
-            return nx9.l(str, getApplicationContext());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, str)) == null) {
+            return s1a.l(str, getApplicationContext());
         }
         return invokeL.booleanValue;
     }
@@ -699,7 +699,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         if (str != null && !str.startsWith("http://") && !this.b.startsWith("https://")) {
             this.b = "http://".concat(this.b);
         }
-        if (w1(this.b)) {
+        if (v1(this.b)) {
             this.a.q(false);
         }
         this.e = intent.getBooleanExtra(WebViewActivityConfig.TAG_COOKIE, false);
@@ -833,7 +833,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
                 SafeHandler.getInst().post(this.l);
             } else if (id == R.id.webview_more_pop_item_open_browser_layout) {
                 this.a.c();
-                s46.f(getPageContext().getPageActivity(), this.b);
+                j56.f(getPageContext().getPageActivity(), this.b);
             } else if (id == R.id.webview_more_pop_item_copy_link_layout) {
                 this.a.c();
                 AndroidUtils.copyToClipboard(this.b);
@@ -849,7 +849,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             initWebView();
-            this.a = new u46(this);
+            this.a = new l56(this);
             initData();
             this.a.i();
             this.a.v(new c(this));
@@ -865,27 +865,27 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        u46 u46Var;
+        l56 l56Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048602, this, intent) == null) {
             super.onNewIntent(intent);
             this.b = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
             this.q = intent.getStringExtra(WebViewActivityConfig.TAG_URL);
-            if (w1(this.b) && (u46Var = this.a) != null) {
-                u46Var.q(false);
+            if (v1(this.b) && (l56Var = this.a) != null) {
+                l56Var.q(false);
             }
             refresh();
         }
     }
 
-    public boolean w1(String str) {
+    public boolean v1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
-            if (a26.a().l()) {
+            if (s26.a().l()) {
                 return true;
             }
             for (String str2 : s) {

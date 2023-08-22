@@ -1,216 +1,172 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class cy2 extends vc3 {
+public final class cy2 {
     public static /* synthetic */ Interceptable $ic;
+    public static ArrayList<by2> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cy2(vb3 vb3Var) {
-        super(vb3Var, "/swanAPI/backgroundAudio");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vb3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947691021, "Lcom/baidu/tieba/cy2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947691021, "Lcom/baidu/tieba/cy2;");
                 return;
             }
         }
+        a = new ArrayList<>();
     }
 
-    @Override // com.baidu.tieba.vc3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
-        InterceptResult invokeLLLL;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
-            if (unitedSchemeEntity != null) {
-                by2.b("AudioBGPlayerAction", "#handle entity.uri=" + unitedSchemeEntity.getUri());
-                return false;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a.clear();
         }
-        return invokeLLLL.booleanValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.vc3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, ya3 ya3Var) {
-        InterceptResult invokeLLLLL;
-        yx2 b;
-        char c;
-        boolean z;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, ya3Var)) == null) {
-            if (ya3Var == null) {
-                ei3.b("audio", 2001, "SwanApp is null", 1001, "SwanApp is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                by2 by2Var = a.get(size);
+                if (by2Var != null) {
+                    by2Var.onDestroy();
+                }
             }
-            by2.b("AudioBGPlayerAction", "#handleSubAction subAction=" + str + " entity.uri=" + unitedSchemeEntity.getUri());
-            JSONObject j = j(unitedSchemeEntity.getParam("params"));
-            if (j == null) {
-                ei3.b("audio", 2001, "param is null", 201, "param is null");
-                y72.c("backgroundAudio", "param is null!");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            ay2 P = ya3Var.P();
-            if (TextUtils.equals(str, "/swanAPI/backgroundAudio/open")) {
-                b = yx2.b(j, new yx2());
-            } else {
-                b = yx2.b(j, P.q());
-            }
-            by2.b("AudioBGPlayerAction", "#handleSubAction playerParams=" + b);
-            JSONObject jSONObject = null;
-            switch (str.hashCode()) {
-                case 312101659:
-                    if (str.equals("/swanAPI/backgroundAudio/getParamsSync")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335869926:
-                    if (str.equals("/swanAPI/backgroundAudio/open")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335895760:
-                    if (str.equals("/swanAPI/backgroundAudio/play")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335978516:
-                    if (str.equals("/swanAPI/backgroundAudio/seek")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 335993246:
-                    if (str.equals("/swanAPI/backgroundAudio/stop")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 820188005:
-                    if (str.equals("/swanAPI/backgroundAudio/update")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1822525402:
-                    if (str.equals("/swanAPI/backgroundAudio/pause")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    y72.i("backgroundAudio", "open, audioId " + b.a);
-                    P.z(b, callbackHandler);
-                    z = true;
-                    break;
-                case 1:
-                    y72.i("backgroundAudio", "update, audioId " + b.a);
-                    P.update(b);
-                    z = true;
-                    break;
-                case 2:
-                    y72.i("backgroundAudio", "play, audioId " + b.a);
-                    P.F();
-                    z = true;
-                    break;
-                case 3:
-                    y72.i("backgroundAudio", "pause, audioId " + b.a);
-                    P.A();
-                    z = true;
-                    break;
-                case 4:
-                    y72.i("backgroundAudio", "seek, audioId " + b.a + " position " + b.l);
-                    P.G(b.l);
-                    z = true;
-                    break;
-                case 5:
-                    y72.i("backgroundAudio", "stop, audioId " + b.a);
-                    P.L();
-                    z = true;
-                    break;
-                case 6:
-                    jSONObject = new JSONObject();
-                    try {
-                        jSONObject.putOpt(b.m, P.t(b.m));
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-                        return true;
-                    } catch (JSONException e) {
-                        ei3.b("audio", 2009, "json exception", -1, "");
-                        y72.c("backgroundAudio", "getParams error " + e.toString());
-                        by2.c("backgroundAudio", "getParamsSync error", e);
-                        break;
-                    }
-                default:
-                    z = false;
-                    break;
-            }
-            by2.b("AudioBGPlayerAction", "#handleSubAction invokeSuccess=" + z);
-            if (z) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
-            return super.i(context, unitedSchemeEntity, callbackHandler, str, ya3Var);
         }
-        return invokeLLLLL.booleanValue;
     }
 
-    public final JSONObject j(String str) {
+    public static void a(by2 by2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, by2Var) == null) && by2Var != null && !a.contains(by2Var)) {
+            a.add(by2Var);
+        }
+    }
+
+    public static void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                by2 by2Var = a.get(size);
+                if (by2Var != null) {
+                    by2Var.j(z);
+                }
+            }
+        }
+    }
+
+    public static void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65546, null, z) == null) {
+            for (int size = a.size() - 1; size >= 0; size--) {
+                by2 by2Var = a.get(size);
+                if (by2Var != null) {
+                    by2Var.k(z);
+                }
+            }
+        }
+    }
+
+    public static void k(by2 by2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65547, null, by2Var) != null) || by2Var == null) {
+            return;
+        }
+        a.remove(by2Var);
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            by2 by2Var = a.get(size);
+            if (by2Var != null && TextUtils.equals(str, by2Var.b())) {
+                by2Var.onDestroy();
+            }
+        }
+    }
+
+    public static by2 e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    return new JSONObject(str);
-                } catch (JSONException e) {
-                    if (vc3.b) {
-                        Log.d("AudioBGPlayerAction", Log.getStackTraceString(e));
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                by2 by2Var = a.get(size);
+                if (by2Var != null && TextUtils.equals(str, by2Var.c())) {
+                    return by2Var;
                 }
             }
             return null;
         }
-        return (JSONObject) invokeL.objValue;
+        return (by2) invokeL.objValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                by2 by2Var = a.get(size);
+                if (by2Var != null && TextUtils.equals(str, by2Var.b()) && by2Var.onBackPressed()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static by2 f(@Nullable String str, @Nullable String str2, @NonNull String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            for (int size = a.size() - 1; size >= 0; size--) {
+                by2 by2Var = a.get(size);
+                if (by2Var != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, by2Var.b())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, by2Var.f())) || TextUtils.equals(str3, by2Var.c())))) {
+                    return by2Var;
+                }
+            }
+            return null;
+        }
+        return (by2) invokeLLL.objValue;
+    }
+
+    public static void i(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(65545, null, str, z) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        for (int size = a.size() - 1; size >= 0; size--) {
+            by2 by2Var = a.get(size);
+            if (by2Var != null && TextUtils.equals(str, by2Var.b())) {
+                by2Var.k(z);
+            }
+        }
     }
 }

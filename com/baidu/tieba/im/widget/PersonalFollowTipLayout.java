@@ -26,9 +26,9 @@ import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
 import com.baidu.tieba.R;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.gb5;
 import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.w95;
-import com.baidu.tieba.za5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,7 +44,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public TextView d;
     public ImageView e;
     public FollowUserButton f;
-    public za5 g;
+    public gb5 g;
     public UserData h;
 
     /* loaded from: classes6.dex */
@@ -237,9 +237,9 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public void f(BdPageContext<MsglistActivity<?>> bdPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, bdPageContext) == null) && (bdPageContext instanceof TbPageContext)) {
-            za5 za5Var = new za5((TbPageContext) bdPageContext, this.f);
-            this.g = za5Var;
-            za5Var.i(true);
+            gb5 gb5Var = new gb5((TbPageContext) bdPageContext, this.f);
+            this.g = gb5Var;
+            gb5Var.i(true);
         }
     }
 
@@ -270,7 +270,7 @@ public class PersonalFollowTipLayout extends RelativeLayout {
             this.c.setRadius(BdUtilHelper.getDimens(getContext(), R.dimen.tbds83));
             this.c.setConrers(15);
             this.c.setPlaceHolder(1);
-            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f08119c);
+            this.c.setDefaultResource(R.drawable.obfuscated_res_0x7f0811b0);
             h();
         }
     }
@@ -341,15 +341,15 @@ public class PersonalFollowTipLayout extends RelativeLayout {
     public final void j(@NonNull UserData userData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, userData) == null) {
-            w95 w95Var = new w95();
-            w95Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            w95Var.i(R.color.CAM_X0101);
-            w95Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
-            w95Var.g(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
-            this.f.setConfig(w95Var);
+            da5 da5Var = new da5();
+            da5Var.j(R.drawable.icon_pure_follow26, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            da5Var.i(R.color.CAM_X0101);
+            da5Var.h(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds24));
+            da5Var.g(BdUtilHelper.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+            this.f.setConfig(da5Var);
             this.f.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
             if (userData.getRelation() == 0) {
-                this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e8));
+                this.f.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02e9));
             } else {
                 this.f.setText(TbadkCoreApplication.getInst().getString(R.string.back_attention));
             }

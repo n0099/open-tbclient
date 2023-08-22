@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class FileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String LOCAL_REPORT_FILE = "hms/HwMobileServiceReport.txt";
@@ -25,7 +25,7 @@ public abstract class FileUtil {
     public static ScheduledExecutorService b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

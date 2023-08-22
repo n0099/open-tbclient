@@ -1,120 +1,255 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.squareup.wire2.FieldEncoding;
+import com.squareup.wire2.Message;
+import com.squareup.wire2.Message.a;
+import com.squareup.wire2.ProtoAdapter;
+import com.squareup.wire2.WireField;
+import java.io.IOException;
+import java.lang.reflect.Field;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class kyb {
+public final class kyb<M extends Message<M, B>, B extends Message.a<M, B>> extends ProtoAdapter<M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Class<M> a;
+    public final Class<B> b;
+    public final Map<Integer, fyb<M, B>> c;
 
-    public static int b(int i, int i2) {
-        InterceptResult invokeII;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kyb(Class<M> cls, Class<B> cls2, Map<Integer, fyb<M, B>> map) {
+        super(FieldEncoding.LENGTH_DELIMITED, cls);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            int i3 = 1 << (i2 - 1);
-            while ((i & i3) != 0) {
-                i3 >>= 1;
-            }
-            return (i & (i3 - 1)) + i3;
-        }
-        return invokeII.intValue;
-    }
-
-    public static void a(int[] iArr, int i, int i2, int[] iArr2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2, Integer.valueOf(i3)}) == null) {
-            int[] iArr3 = new int[i3];
-            int[] iArr4 = new int[16];
-            int[] iArr5 = new int[16];
-            int i4 = 0;
-            for (int i5 = 0; i5 < i3; i5++) {
-                int i6 = iArr2[i5];
-                iArr4[i6] = iArr4[i6] + 1;
-            }
-            iArr5[1] = 0;
-            int i7 = 1;
-            while (i7 < 15) {
-                int i8 = i7 + 1;
-                iArr5[i8] = iArr5[i7] + iArr4[i7];
-                i7 = i8;
-            }
-            for (int i9 = 0; i9 < i3; i9++) {
-                if (iArr2[i9] != 0) {
-                    int i10 = iArr2[i9];
-                    int i11 = iArr5[i10];
-                    iArr5[i10] = i11 + 1;
-                    iArr3[i11] = i9;
-                }
-            }
-            int i12 = 1 << i2;
-            if (iArr5[15] == 1) {
-                for (int i13 = 0; i13 < i12; i13++) {
-                    iArr[i + i13] = iArr3[0];
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls, cls2, map};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FieldEncoding) objArr2[0], (Class) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            int i14 = 2;
-            int i15 = 0;
-            int i16 = 1;
-            int i17 = 2;
-            while (i16 <= i2) {
-                while (iArr4[i16] > 0) {
-                    d(iArr, i + i4, i17, i12, iArr3[i15] | (i16 << 16));
-                    i4 = b(i4, i16);
-                    iArr4[i16] = iArr4[i16] - 1;
-                    i15++;
+        }
+        this.a = cls;
+        this.b = cls2;
+        this.c = map;
+    }
+
+    public static <M extends Message<M, B>, B extends Message.a<M, B>> kyb<M, B> a(Class<M> cls) {
+        InterceptResult invokeL;
+        Field[] declaredFields;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cls)) == null) {
+            Class e = e(cls);
+            LinkedHashMap linkedHashMap = new LinkedHashMap();
+            for (Field field : cls.getDeclaredFields()) {
+                WireField wireField = (WireField) field.getAnnotation(WireField.class);
+                if (wireField != null) {
+                    linkedHashMap.put(Integer.valueOf(wireField.tag()), new fyb(wireField, field, e));
                 }
-                i16++;
-                i17 <<= 1;
             }
-            int i18 = i12 - 1;
-            int i19 = -1;
-            int i20 = i2 + 1;
-            int i21 = i;
-            while (i20 <= 15) {
-                while (iArr4[i20] > 0) {
-                    int i22 = i4 & i18;
-                    if (i22 != i19) {
-                        i21 += i12;
-                        int c = c(iArr4, i20, i2);
-                        iArr[i + i22] = ((c + i2) << 16) | ((i21 - i) - i22);
-                        i12 = 1 << c;
-                        i19 = i22;
+            return new kyb<>(cls, e, Collections.unmodifiableMap(linkedHashMap));
+        }
+        return (kyb) invokeL.objValue;
+    }
+
+    public static <M extends Message<M, B>, B extends Message.a<M, B>> Class<B> e(Class<M> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            try {
+                return (Class<B>) Class.forName(cls.getName() + "$Builder");
+            } catch (ClassNotFoundException unused) {
+                throw new IllegalArgumentException("No builder class found for message type " + cls.getName());
+            }
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: d */
+    public int encodedSize(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, m)) == null) {
+            int i = m.cachedSerializedSize;
+            if (i != 0) {
+                return i;
+            }
+            int i2 = 0;
+            for (fyb<M, B> fybVar : this.c.values()) {
+                Object b = fybVar.b(m);
+                if (b != null) {
+                    i2 += fybVar.a().encodedSizeWithTag(fybVar.c, b);
+                }
+            }
+            int size = i2 + m.unknownFields().size();
+            m.cachedSerializedSize = size;
+            return size;
+        }
+        return invokeL.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: b */
+    public M decode(hyb hybVar) throws IOException {
+        InterceptResult invokeL;
+        ProtoAdapter<?> i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hybVar)) == null) {
+            B f = f();
+            long c = hybVar.c();
+            while (true) {
+                int f2 = hybVar.f();
+                if (f2 != -1) {
+                    fyb<M, B> fybVar = this.c.get(Integer.valueOf(f2));
+                    if (fybVar != null) {
+                        try {
+                            if (fybVar.f()) {
+                                i = fybVar.a();
+                            } else {
+                                i = fybVar.i();
+                            }
+                            fybVar.j(f, i.decode(hybVar));
+                        } catch (ProtoAdapter.EnumConstantNotFoundException e) {
+                            f.addUnknownField(f2, FieldEncoding.VARINT, Long.valueOf(e.value));
+                        }
+                    } else {
+                        FieldEncoding g = hybVar.g();
+                        f.addUnknownField(f2, g, g.rawProtoAdapter().decode(hybVar));
                     }
-                    d(iArr, (i4 >> i2) + i21, i14, i12, ((i20 - i2) << 16) | iArr3[i15]);
-                    i4 = b(i4, i20);
-                    iArr4[i20] = iArr4[i20] - 1;
-                    i15++;
+                } else {
+                    hybVar.d(c);
+                    return (M) f.build();
                 }
-                i20++;
-                i14 <<= 1;
             }
+        } else {
+            return (M) invokeL.objValue;
         }
     }
 
-    public static int c(int[] iArr, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: h */
+    public String toString(M m) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, iArr, i, i2)) == null) {
-            int i4 = 1 << (i - i2);
-            while (i < 15 && (i3 = i4 - iArr[i]) > 0) {
-                i++;
-                i4 = i3 << 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, m)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (fyb<M, B> fybVar : this.c.values()) {
+                Object b = fybVar.b(m);
+                if (b != null) {
+                    sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    sb.append(fybVar.b);
+                    sb.append('=');
+                    if (fybVar.f) {
+                        b = "██";
+                    }
+                    sb.append(b);
+                }
             }
-            return i - i2;
+            sb.replace(0, 2, this.a.getSimpleName() + '{');
+            sb.append('}');
+            return sb.toString();
         }
-        return invokeLII.intValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void d(int[] iArr, int i, int i2, int i3, int i4) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: c */
+    public void encode(iyb iybVar, M m) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            do {
-                i3 -= i2;
-                iArr[i + i3] = i4;
-            } while (i3 > 0);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iybVar, m) == null) {
+            for (fyb<M, B> fybVar : this.c.values()) {
+                Object b = fybVar.b(m);
+                if (b != null) {
+                    fybVar.a().encodeWithTag(iybVar, fybVar.c, b);
+                }
+            }
+            iybVar.k(m.unknownFields());
         }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
+            if ((obj instanceof kyb) && ((kyb) obj).a == this.a) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public B f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            try {
+                return this.b.newInstance();
+            } catch (IllegalAccessException | InstantiationException e) {
+                throw new AssertionError(e);
+            }
+        }
+        return (B) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.squareup.wire2.ProtoAdapter
+    /* renamed from: g */
+    public M redact(M m) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, m)) == null) {
+            Message.a<M, B> newBuilder = m.newBuilder();
+            for (fyb<M, B> fybVar : this.c.values()) {
+                if (fybVar.f && fybVar.a == WireField.Label.REQUIRED) {
+                    throw new UnsupportedOperationException(String.format("Field '%s' in %s is required and cannot be redacted.", fybVar.b, this.javaType.getName()));
+                }
+                boolean isAssignableFrom = Message.class.isAssignableFrom(fybVar.i().javaType);
+                if (!fybVar.f && (!isAssignableFrom || fybVar.a.isRepeated())) {
+                    if (isAssignableFrom && fybVar.a.isRepeated()) {
+                        myb.k((List) fybVar.e(newBuilder), fybVar.i());
+                    }
+                } else {
+                    Object e = fybVar.e(newBuilder);
+                    if (e != null) {
+                        fybVar.h(newBuilder, fybVar.a().redact(e));
+                    }
+                }
+            }
+            newBuilder.clearUnknownFields();
+            return newBuilder.build();
+        }
+        return (M) invokeL.objValue;
     }
 }

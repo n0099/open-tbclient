@@ -17,7 +17,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AssetsUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final ExecutorService EXECUTOR_SERVICE;

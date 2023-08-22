@@ -1,79 +1,118 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes5.dex */
 public class eg7 {
     public static /* synthetic */ Interceptable $ic;
-    public static eg7 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseArray<String> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947733460, "Lcom/baidu/tieba/eg7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947733460, "Lcom/baidu/tieba/eg7;");
-                return;
-            }
-        }
-        b = new eg7();
-    }
-
-    public eg7() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
         }
-        this.a = new SparseArray<>();
     }
 
-    public static eg7 a() {
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        String string = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
+        if (!StringUtils.isNull(string)) {
+            try {
+                JSONArray jSONArray = new JSONArray(string);
+                if (jSONArray.length() <= 0) {
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    Object obj = jSONArray.get(i);
+                    if (!str.equals(obj)) {
+                        arrayList.add((String) obj);
+                    }
+                }
+                SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void d(String str) {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        String string = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
+        try {
+            if (StringUtils.isNull(string)) {
+                jSONArray = new JSONArray();
+            } else {
+                jSONArray = new JSONArray(string);
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(str);
+            int i = 1;
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                Object obj = jSONArray.get(i2);
+                if ((obj instanceof String) && !str.equals(obj)) {
+                    arrayList.add((String) obj);
+                    i++;
+                }
+                if (i == 6) {
+                    break;
+                }
+            }
+            SharedPrefHelper.getInstance().putString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (eg7) invokeV.objValue;
-    }
-
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i > 100) {
-                i = 100;
+            String string = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount("search_forum_history"), "");
+            ArrayList<String> arrayList = null;
+            if (StringUtils.isNull(string)) {
+                return null;
             }
-            return !TextUtils.isEmpty(this.a.get(i));
-        }
-        return invokeI.booleanValue;
-    }
-
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.put(i, "1");
+            try {
+                JSONArray jSONArray = new JSONArray(string);
+                if (jSONArray.length() <= 0) {
+                    return null;
+                }
+                ArrayList<String> arrayList2 = new ArrayList<>();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    try {
+                        Object obj = jSONArray.get(i);
+                        if (obj instanceof String) {
+                            arrayList2.add((String) obj);
+                        }
+                    } catch (JSONException e) {
+                        e = e;
+                        arrayList = arrayList2;
+                        e.printStackTrace();
+                        return arrayList;
+                    }
+                }
+                return arrayList2;
+            } catch (JSONException e2) {
+                e = e2;
+            }
+        } else {
+            return (ArrayList) invokeV.objValue;
         }
     }
 }

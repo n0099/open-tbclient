@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.adp.lib.safe.SafeHandler;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.MessageQueue;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.searchbox.performance.speed.SpeedStats;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,179 +17,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
 public class u75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public String d;
+    public boolean e;
+    public Handler f;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public class a implements MessageQueue.IdleHandler {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ Activity a;
 
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Class<?> a;
-        public final Object b;
-        public final Class<?> c;
-        public final Method d;
-        public final Object e;
-        public final Method f;
-        public final c g;
-        public final int h;
-        public final x75 i;
-        public int j;
-
-        /* loaded from: classes8.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.i.a(this.a.f());
-                    this.a.g.c();
-                    this.a.g();
-                }
-            }
-        }
-
-        public b(int i, x75 x75Var) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+        public a(u75 u75Var, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), x75Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.j = 0;
-            this.c = Class.forName("android.view.Choreographer");
-            this.a = Class.forName("android.view.Choreographer$FrameCallback");
-            this.g = new c(this);
-            this.b = Proxy.newProxyInstance(this.a.getClassLoader(), new Class[]{this.a}, this.g);
-            Method method = this.c.getMethod("getInstance", new Class[0]);
-            this.d = method;
-            this.e = method.invoke(null, new Object[0]);
-            this.f = this.c.getMethod("postFrameCallback", this.a);
-            this.h = i <= 0 ? 16 : i;
-            this.i = x75Var;
-        }
-
-        public /* synthetic */ b(int i, x75 x75Var, a aVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
-            this(i, x75Var);
-        }
-
-        public final List<Long> f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ArrayList arrayList = new ArrayList(24);
-                List<Long> h = h();
-                int size = h.size();
-                int i = 0;
-                while (i < size - 1) {
-                    long longValue = h.get(i).longValue();
-                    i++;
-                    arrayList.add(Long.valueOf(h.get(i).longValue() - longValue));
-                }
-                return arrayList;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public final void g() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.g.c();
-            }
-        }
-
-        public final List<Long> h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.g.a;
-            }
-            return (List) invokeV.objValue;
-        }
-
-        public final void i() throws InvocationTargetException, IllegalAccessException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                this.f.invoke(this.e, this.b);
-            }
-        }
-
-        public final void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                int i = this.j;
-                if (i >= this.h) {
-                    SafeHandler.getInst().post(new a(this));
-                    return;
-                }
-                this.j = i + 1;
-                try {
-                    i();
-                } catch (Throwable th) {
-                    BdLog.e(th);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public static class c implements InvocationHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final List<Long> a;
-        public final List<Integer> b;
-        public b c;
-
-        public c(b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {u75Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -193,47 +49,70 @@ public class u75 {
                     return;
                 }
             }
-            this.c = bVar;
-            this.a = new ArrayList(240);
-            this.b = new ArrayList(15);
+            this.a = activity;
         }
 
-        public final void d(long j) {
+        @Override // android.os.MessageQueue.IdleHandler
+        public boolean queueIdle() {
+            InterceptResult invokeV;
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                this.a.add(Long.valueOf(j));
-                this.c.j();
-            }
-        }
-
-        public final void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c = null;
-                this.a.clear();
-                this.b.clear();
-            }
-        }
-
-        @Override // java.lang.reflect.InvocationHandler
-        public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, method, objArr)) == null) {
-                String name = method.getName();
-                Class<?>[] parameterTypes = method.getParameterTypes();
-                if ("doFrame".equals(name) && parameterTypes.length == 1 && parameterTypes[0] == Long.TYPE) {
-                    d(((Long) objArr[0]).longValue());
-                    return null;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (u75.a().c == 1) {
+                    i = 8;
+                } else {
+                    i = -1;
                 }
-                return null;
+                if (u75.a().c == 2) {
+                    i = 9;
+                }
+                if (!this.a.getClass().getSimpleName().equals("PbActivity")) {
+                    SpeedStats.getInstance().onSchemeOrPushStatsEnd(this.a, i, u75.a().d);
+                    return false;
+                }
+                return false;
             }
-            return invokeLLL.objValue;
+            return invokeV.booleanValue;
         }
     }
 
     /* loaded from: classes8.dex */
-    public static final class d {
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ MessageQueue.IdleHandler a;
+        public final /* synthetic */ u75 b;
+
+        public b(u75 u75Var, MessageQueue.IdleHandler idleHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u75Var, idleHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = u75Var;
+            this.a = idleHandler;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.d(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public static final class c {
         public static /* synthetic */ Interceptable $ic;
         public static final u75 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -241,13 +120,13 @@ public class u75 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-420227114, "Lcom/baidu/tieba/u75$d;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-420227145, "Lcom/baidu/tieba/u75$c;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-420227114, "Lcom/baidu/tieba/u75$d;");
+                    classClinitInterceptable.invokePostClinit(-420227145, "Lcom/baidu/tieba/u75$c;");
                     return;
                 }
             }
@@ -268,29 +147,81 @@ public class u75 {
                 return;
             }
         }
-        this.a = null;
+        this.c = 0;
+        this.e = false;
     }
 
     public static u75 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return d.a;
+            return c.a;
         }
         return (u75) invokeV.objValue;
     }
 
-    public void b(int i, x75 x75Var) {
+    public final Handler b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, x75Var) != null) || Build.VERSION.SDK_INT < 16) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f == null) {
+                this.f = new Handler(Looper.getMainLooper());
+            }
+            return this.f;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    public void c(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent) == null) {
+            int i = 0;
+            if (TbadkCoreApplication.getInst().isMainProcess(false) && intent != null && intent.getComponent() != null) {
+                String dataString = intent.getDataString();
+                String className = intent.getComponent().getClassName();
+                if ("com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(className)) {
+                    this.c = !di.isEmpty(dataString) ? 1 : 0;
+                    this.d = dataString;
+                } else if (SpeedStats.PUSH_ACTIVITY.equals(className)) {
+                    if (!di.isEmpty(dataString)) {
+                        i = 2;
+                    }
+                    this.c = i;
+                    this.d = dataString;
+                } else {
+                    this.c = 0;
+                }
+            }
+        }
+    }
+
+    public void d(MessageQueue.IdleHandler idleHandler) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, idleHandler) != null) || idleHandler == null || this.e) {
             return;
         }
-        try {
-            b bVar = new b(i, x75Var, null);
-            this.a = bVar;
-            bVar.j();
-        } catch (Throwable th) {
-            BdLog.e(th);
+        if (Looper.myLooper() != Looper.getMainLooper()) {
+            b().post(new b(this, idleHandler));
+            return;
+        }
+        Looper.myQueue().addIdleHandler(idleHandler);
+        this.e = true;
+    }
+
+    public void e(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, activity) != null) || activity == null) {
+            return;
+        }
+        if (a().c != 1 && a().c != 2) {
+            return;
+        }
+        String name = activity.getClass().getName();
+        if (v75.a().d() && !SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME.equals(name) && !SpeedStats.PUSH_ACTIVITY.equals(name) && !"com.baidu.tieba.tblauncher.SchemaRouteActivity".equals(name)) {
+            if (SpeedRuntimeProvider.MAIN_ACTIVITY_NAME.equals(name) && !SchemeActionHelper.isToMaintab(activity.getIntent())) {
+                return;
+            }
+            a().d(new a(this, activity));
         }
     }
 }

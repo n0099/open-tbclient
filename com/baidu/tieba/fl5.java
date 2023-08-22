@@ -1,91 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class fl5 implements jl5 {
+public class fl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ByteBuffer a;
 
-    @Override // com.baidu.tieba.jl5
-    public void close() {
+    public static List<gl5> a(nl5 nl5Var) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public fl5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, nl5Var)) == null) {
+            if (nl5Var.c("\u0089PNG") && nl5Var.c("\r\n\u001a\n")) {
+                ArrayList arrayList = new ArrayList();
+                while (nl5Var.available() > 0) {
+                    arrayList.add(b(nl5Var));
+                }
+                return arrayList;
             }
+            throw new IOException("APNG Format error");
         }
-        d(10240);
+        return (List) invokeL.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static gl5 b(nl5 nl5Var) throws IOException {
+        InterceptResult invokeL;
+        gl5 gl5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.position();
-        }
-        return invokeV.intValue;
-    }
-
-    public byte[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.array();
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public void b(byte b) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeB(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, b) == null) {
-            this.a.put(b);
-        }
-    }
-
-    public void c(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-            this.a.put(bArr);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            ByteBuffer byteBuffer = this.a;
-            if (byteBuffer == null || i > byteBuffer.capacity()) {
-                ByteBuffer allocate = ByteBuffer.allocate(i);
-                this.a = allocate;
-                allocate.order(ByteOrder.LITTLE_ENDIAN);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, nl5Var)) == null) {
+            int position = nl5Var.position();
+            int e = nl5Var.e();
+            int d = nl5Var.d();
+            if (d == cl5.d) {
+                gl5Var = new cl5();
+            } else if (d == hl5.k) {
+                gl5Var = new hl5();
+            } else if (d == il5.c) {
+                gl5Var = new il5();
+            } else if (d == jl5.c) {
+                gl5Var = new jl5();
+            } else if (d == kl5.c) {
+                gl5Var = new kl5();
+            } else if (d == ll5.f) {
+                gl5Var = new ll5();
+            } else {
+                gl5Var = new gl5();
             }
-            this.a.clear();
+            gl5Var.b = position;
+            gl5Var.a = e;
+            gl5Var.c(nl5Var);
+            nl5Var.e();
+            return gl5Var;
         }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.a.position(i + a());
-        }
+        return (gl5) invokeL.objValue;
     }
 }

@@ -1,106 +1,75 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.MotionEvent;
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ph8 implements kh8 {
+public class ph8 extends Dialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
-    public TextView b;
-    public ImageView c;
-    public RecyclerView d;
-    public ph8 e;
+    public a a;
 
-    public ph8() {
+    /* loaded from: classes7.dex */
+    public interface a {
+        void onClick();
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ph8(@NonNull Context context, int i) {
+        super(context, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        getWindow().setSoftInputMode(32);
+        GreyUtil.grey(this);
     }
 
-    @Override // com.baidu.tieba.kh8
-    public RelativeLayout a() {
-        InterceptResult invokeV;
+    public void a(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.a = aVar;
         }
-        return (RelativeLayout) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kh8
-    public RecyclerView c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e.d;
-        }
-        return (RecyclerView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.kh8
-    public ImageView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e.c;
-        }
-        return (ImageView) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.kh8
-    public TextView e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e.b;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public static ph8 f(@NonNull View view2) {
+    @Override // android.app.Dialog
+    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
         InterceptResult invokeL;
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            ph8 ph8Var = new ph8();
-            ph8Var.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0917d9);
-            ph8Var.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0917d8);
-            ph8Var.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917df);
-            ph8Var.d = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f0917e4);
-            ph8Var.e = ph8Var;
-            return ph8Var;
-        }
-        return (ph8) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.kh8
-    public void b(int i, @NonNull bi8 bi8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bi8Var) == null) {
-            if (!bi8Var.e()) {
-                EMManager.from(this.e.b).setTextSize(R.dimen.T_X12).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0107);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            if (motionEvent.getAction() == 0) {
+                Rect rect = new Rect();
+                getWindow().getDecorView().getGlobalVisibleRect(rect);
+                if (!rect.contains((int) motionEvent.getX(), (int) motionEvent.getY()) && (aVar = this.a) != null) {
+                    aVar.onClick();
+                    return true;
+                }
+                return true;
             }
-            EMManager.from(this.e.d).setBackGroundColor(R.color.CAM_X0201);
-            EMManager.from(this.e.a).setBackGroundColor(R.color.CAM_X0201);
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

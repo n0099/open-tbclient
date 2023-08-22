@@ -1,45 +1,132 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
+import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xw8 {
+public final class xw8 extends xk1<ge5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vw8 a;
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    public static final class a implements ge5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes8.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static xw8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-275145006, "Lcom/baidu/tieba/xw8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-275145006, "Lcom/baidu/tieba/xw8$b;");
-                    return;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new xw8(null);
+        }
+
+        @Override // com.baidu.tieba.ge5
+        public NewsRemindMessage a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return NewsRemindMsgMonitor.f.a().m();
+            }
+            return (NewsRemindMessage) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.ge5
+        public n7c<Boolean> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return NewsRemindMsgMonitor.f.a().i();
+            }
+            return (n7c) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.ge5
+        public boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return dx8.a();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ge5
+        public n7c<NewsRemindMessage> g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+                return NewsRemindMsgMonitor.f.a().k();
+            }
+            return (n7c) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.ge5
+        public void b(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+                NewsRemindMsgMonitor.f.a().j().onNext(Boolean.valueOf(z));
+            }
+        }
+
+        @Override // com.baidu.tieba.ge5
+        public boolean d() {
+            InterceptResult invokeV;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                Long valueOf = Long.valueOf(SharedPrefHelper.getInstance().getLong("key_msg_remind_frequency_minute", 0L));
+                if (valueOf.longValue() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    valueOf = null;
+                }
+                if (valueOf == null) {
+                    return false;
+                }
+                if (System.currentTimeMillis() - SharedPrefHelper.getInstance().getLong("key_msg_remind_last_show_time", 0L) < valueOf.longValue()) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ge5
+        public void e() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || TbSingleton.MsgUpgradeTips.isMsgTabUpgradeTipsShowing() || d()) {
+                return;
+            }
+            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
+            int msgCount = m.getMsgCount() + m.getChatCount() + m.getNotificationCount();
+            if (!m.hasMsgRemind() && !m.hasChatRemind() && !m.hasNotificationRemind()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (msgCount <= 0 && z && SharedPrefHelper.getInstance().getLong("key_msg_remind_frequency_minute", 0L) > 0) {
+                SharedPrefHelper.getInstance().putLong("key_msg_remind_last_show_time", System.currentTimeMillis());
+                NewsRemindMsgMonitor.f.a().f();
+            }
         }
     }
 
@@ -57,40 +144,15 @@ public class xw8 {
         }
     }
 
-    public static xw8 b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xk1
+    /* renamed from: a */
+    public ge5 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
         }
-        return (xw8) invokeV.objValue;
-    }
-
-    public void c() {
-        vw8 vw8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (vw8Var = this.a) == null) {
-            return;
-        }
-        vw8Var.cancel();
-        this.a = null;
-    }
-
-    public /* synthetic */ xw8(a aVar) {
-        this();
-    }
-
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            vw8 vw8Var = this.a;
-            if (vw8Var != null) {
-                vw8Var.cancel();
-                this.a = null;
-            }
-            vw8 vw8Var2 = new vw8(z);
-            this.a = vw8Var2;
-            vw8Var2.execute(new String[0]);
-        }
+        return (ge5) invokeV.objValue;
     }
 }

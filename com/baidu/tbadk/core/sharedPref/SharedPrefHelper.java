@@ -20,8 +20,8 @@ import com.baidu.searchbox.downloads.DownloadConstants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.UniKVTestSwitch;
+import com.baidu.tieba.b95;
 import com.baidu.tieba.compatible.EditorHelper;
-import com.baidu.tieba.u85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -142,12 +142,12 @@ public class SharedPrefHelper {
         this.kvMap = new ConcurrentHashMap<>();
         HashMap<String, String> hashMap = new HashMap<>();
         mProcessMap = hashMap;
-        hashMap.put(u85.a, "settings2");
-        mProcessMap.put(u85.b, "remote_settings2");
-        mProcessMap.put(u85.c, "bdservice_settings2");
-        mProcessMap.put(u85.d, u85.h);
-        mProcessMap.put(u85.e, u85.j);
-        mProcessMap.put(u85.f, u85.l);
+        hashMap.put(b95.a, "settings2");
+        mProcessMap.put(b95.b, "remote_settings2");
+        mProcessMap.put(b95.c, "bdservice_settings2");
+        mProcessMap.put(b95.d, b95.h);
+        mProcessMap.put(b95.e, b95.j);
+        mProcessMap.put(b95.f, b95.l);
         mContentResolver = TbadkCoreApplication.getInst().getContext().getContentResolver();
     }
 
@@ -315,9 +315,9 @@ public class SharedPrefHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
             if (str != null && str.length() != 0) {
-                int length = u85.n.length;
+                int length = b95.n.length;
                 for (int i = 0; i < length; i++) {
-                    if (str.equals(u85.n[i])) {
+                    if (str.equals(b95.n[i])) {
                         return true;
                     }
                 }
@@ -732,7 +732,7 @@ public class SharedPrefHelper {
             if (Build.VERSION.SDK_INT >= 28) {
                 return Application.getProcessName();
             }
-            String str = u85.a;
+            String str = b95.a;
             ActivityManager activityManager = (ActivityManager) TbadkCoreApplication.getInst().getSystemService("activity");
             if (activityManager != null) {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = activityManager.getRunningAppProcesses();

@@ -115,7 +115,7 @@ public final class l extends a {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        ((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09133f)).setVisibility(4);
+        ((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091355)).setVisibility(4);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

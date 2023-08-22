@@ -1,38 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.AccountToolsCallback;
-import com.baidu.sapi2.dto.AccountToolsDTO;
-import com.baidu.sapi2.result.SapiResult;
-import com.baidu.sapi2.utils.ToastUtil;
-import com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import com.baidu.adp.lib.safe.SafeHandler;
+import com.baidu.adp.lib.util.BdUtilHelper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-/* loaded from: classes8.dex */
-public class zv7 implements LoginModifyPwdServices {
+/* loaded from: classes9.dex */
+public class zv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Activity a;
+    public PopupWindow b;
+    public View c;
+    public FrsViewData d;
+    public zl7 e;
+    public Runnable f;
+    public Runnable g;
+    public View.OnClickListener h;
 
-    /* loaded from: classes8.dex */
-    public class a implements AccountToolsCallback {
+    /* loaded from: classes9.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Function1 a;
+        public final /* synthetic */ zv7 a;
 
-        public a(zv7 zv7Var, Function1 function1) {
+        public a(zv7 zv7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zv7Var, function1};
+                Object[] objArr = {zv7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,45 +53,148 @@ public class zv7 implements LoginModifyPwdServices {
                     return;
                 }
             }
-            this.a = function1;
+            this.a = zv7Var;
         }
 
-        @Override // com.baidu.sapi2.callback.SapiWebCallback
-        public void onFinish(SapiResult sapiResult) {
-            Function1 function1;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) && (function1 = this.a) != null) {
-                function1.invoke(sapiResult.getResultMsg());
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null && this.a.c != null && this.a.b != null && this.a.b.getContentView() != null) {
+                int dimens = BdUtilHelper.getDimens(this.a.a, R.dimen.obfuscated_res_0x7f0703ac);
+                this.a.b.getContentView().measure(0, 0);
+                jg.l(this.a.b, this.a.c, (-BdUtilHelper.getDimens(this.a.a, R.dimen.obfuscated_res_0x7f0703db)) + (this.a.c.getMeasuredWidth() / 2) + 30, -dimens);
+                SafeHandler.getInst().postDelayed(this.a.g, 5000L);
+                TiebaStatic.log(new StatisticItem("c13016").param("obj_locate", 2));
             }
         }
     }
 
-    public zv7() {
+    /* loaded from: classes9.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zv7 a;
+
+        public b(zv7 zv7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zv7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zv7Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.h();
+            }
+        }
+    }
+
+    /* loaded from: classes9.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zv7 a;
+
+        public c(zv7 zv7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zv7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = zv7Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.i();
+                if (this.a.d != null && this.a.d.postTopic != null && this.a.d.getForum() != null) {
+                    if ((this.a.e != null && !this.a.e.a()) || WriteActivityConfig.isAsyncWriting()) {
+                        return;
+                    }
+                    WriteActivityConfig.newInstance(this.a.a).setType(9).setForumData(this.a.d.getForum()).setAntiData(this.a.d.getAnti()).setTitle(this.a.d.postTopic.recom_topic).send();
+                    TiebaStatic.log(new StatisticItem("c13017").param("obj_locate", 2));
+                }
+            }
+        }
+    }
+
+    public zv7(Activity activity, zl7 zl7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity, zl7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.f = new a(this);
+        this.g = new b(this);
+        this.h = new c(this);
+        this.a = activity;
+        this.e = zl7Var;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            jg.c(this.b);
         }
     }
 
-    @Override // com.baidu.searchbox.yy.gameassist.interfaces.LoginModifyPwdServices
-    public void openModifyPwd(@NonNull Context context, @Nullable Function1<? super String, Unit> function1) {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, function1) == null) {
-            AccountToolsDTO accountToolsDTO = new AccountToolsDTO();
-            accountToolsDTO.context = context;
-            accountToolsDTO.toolsType = 5;
-            if (!SapiAccountManager.getInstance().isLogin()) {
-                ToastUtil.show(R.string.obfuscated_res_0x7f0f10df + "");
-                return;
-            }
-            PassportSDK.getInstance().loadAccountTools(accountToolsDTO, new a(this, function1));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SafeHandler.getInst().removeCallbacks(this.f);
+            SafeHandler.getInst().removeCallbacks(this.g);
+            h();
+        }
+    }
+
+    public void j(View view2, FrsViewData frsViewData) {
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, frsViewData) == null) && view2 != null && frsViewData != null && frsViewData.postTopic != null && (activity = this.a) != null) {
+            this.d = frsViewData;
+            this.c = view2;
+            View inflate = LayoutInflater.from(activity).inflate(R.layout.frs_tips_blue_twice_line_down, (ViewGroup) null);
+            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09258c)).setText(StringHelper.cutHotTopicShow(frsViewData.postTopic.recom_title, 24, "..."));
+            ((TextView) inflate.findViewById(R.id.tips_content)).setText(R.string.topic_join);
+            inflate.setOnClickListener(this.h);
+            PopupWindow popupWindow = new PopupWindow(inflate, -2, -2);
+            this.b = popupWindow;
+            GreyUtil.grey(popupWindow);
+            SafeHandler.getInst().removeCallbacks(this.f);
+            SafeHandler.getInst().postDelayed(this.f, 100L);
         }
     }
 }

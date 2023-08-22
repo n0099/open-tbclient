@@ -1,25 +1,45 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface ej1 {
-    void a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "splash.host");
+    public static final ej1 b = new a();
 
-    void b(String str);
+    boolean a(String str, yj1 yj1Var);
 
-    boolean c(String str);
+    /* loaded from: classes5.dex */
+    public class a implements ej1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    void d();
+        @Override // com.baidu.tieba.ej1
+        public boolean a(String str, yj1 yj1Var) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, yj1Var)) == null) {
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
 
-    void e(pl1 pl1Var);
-
-    void f();
-
-    @NonNull
-    ViewGroup g();
-
-    void onAdShow();
-
-    void onSkip();
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

@@ -20,7 +20,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     public String callFrom;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1107common;
+    public CommonReq f1120common;
     public long topicId;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -48,7 +48,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1443common = this.f1107common;
+            builder.f1446common = this.f1120common;
             builder.topic_id = Long.valueOf(this.topicId);
             builder.call_from = this.callFrom;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
@@ -71,7 +71,7 @@ public class RequestGetTopicDetailMessage extends NetMessage {
     public void setCommon(CommonReq commonReq) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, commonReq) == null) {
-            this.f1107common = commonReq;
+            this.f1120common = commonReq;
         }
     }
 

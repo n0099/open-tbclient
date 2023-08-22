@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.nk0;
+import com.baidu.tieba.qk0;
 /* loaded from: classes3.dex */
 public class ApkDownloadView extends FrameLayout {
     public int a;
-    public nk0 b;
+    public qk0 b;
 
     public ApkDownloadView(@NonNull Context context) {
         super(context);
@@ -68,7 +68,7 @@ public class ApkDownloadView extends FrameLayout {
         this.a = 0;
     }
 
-    public nk0 getRealDownloadView() {
+    public qk0 getRealDownloadView() {
         return this.b;
     }
 }

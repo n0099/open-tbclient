@@ -1,58 +1,75 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.WebviewHelper;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-@Service
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipUpgrade;
 /* loaded from: classes6.dex */
-public final class g89 implements ne5 {
+public class g89 implements bn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947747937, "Lcom/baidu/tieba/g89;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947747937, "Lcom/baidu/tieba/g89;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
 
     public g89() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ne5
-    public ge5 a(String schema) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, schema)) == null) {
-            Intrinsics.checkNotNullParameter(schema, "schema");
-            try {
-                if (StringsKt__StringsKt.contains$default((CharSequence) schema, (CharSequence) "tbtopicdetail", false, 2, (Object) null) || StringsKt__StringsKt.contains$default((CharSequence) schema, (CharSequence) "unidispatch/topicdetail", false, 2, (Object) null)) {
-                    String c = aw5.c(WebviewHelper.getMatchStringFromURL(schema, "topic_id="), null);
-                    ge5 ge5Var = new ge5();
-                    ge5Var.c(c);
-                    ge5Var.d(true);
-                    return ge5Var;
-                }
-            } catch (Exception e) {
-                if (!TbadkCoreApplication.getInst().isDebugMode()) {
-                    e.printStackTrace();
-                } else {
-                    throw e;
-                }
-            }
-            return new ge5();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return a;
         }
-        return (ge5) invokeL.objValue;
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void a(DataRes dataRes) {
+        VipUpgrade vipUpgrade;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, dataRes) == null) && dataRes != null && (vipUpgrade = dataRes.upgrade) != null) {
+            String str = vipUpgrade.svip;
+            String str2 = vipUpgrade.link;
+            String str3 = vipUpgrade.button;
+            String str4 = vipUpgrade.text;
+            vipUpgrade.pay.intValue();
+            dataRes.upgrade.normal.intValue();
+            VipUpgrade vipUpgrade2 = dataRes.upgrade;
+            String str5 = vipUpgrade2.card_id;
+            String str6 = vipUpgrade2.expire;
+        }
     }
 }

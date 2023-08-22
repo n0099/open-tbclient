@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,45 +7,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class is0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public is0() {
-        this(false, false, 0, false, false, false, 63, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Boolean) objArr[0]).booleanValue(), ((Boolean) objArr[1]).booleanValue(), ((Integer) objArr[2]).intValue(), ((Boolean) objArr[3]).booleanValue(), ((Boolean) objArr[4]).booleanValue(), ((Boolean) objArr[5]).booleanValue(), ((Integer) objArr[6]).intValue(), (DefaultConstructorMarker) objArr[7]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    public final int a;
+    public final int b;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
             if (this != obj) {
                 if (obj instanceof is0) {
                     is0 is0Var = (is0) obj;
-                    return this.a == is0Var.a && this.b == is0Var.b && this.c == is0Var.c && this.d == is0Var.d && this.e == is0Var.e && this.f == is0Var.f;
+                    return this.a == is0Var.a && this.b == is0Var.b;
                 }
                 return false;
             }
@@ -55,182 +31,53 @@ public final class is0 {
         return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v14 */
-    /* JADX WARN: Type inference failed for: r0v15 */
-    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
-    /* JADX WARN: Type inference failed for: r2v1, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r2v4, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r2v6, types: [boolean] */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            boolean z = this.a;
-            ?? r0 = z;
-            if (z) {
-                r0 = 1;
-            }
-            int i = r0 * 31;
-            ?? r2 = this.b;
-            int i2 = r2;
-            if (r2 != 0) {
-                i2 = 1;
-            }
-            int i3 = (((i + i2) * 31) + this.c) * 31;
-            ?? r22 = this.d;
-            int i4 = r22;
-            if (r22 != 0) {
-                i4 = 1;
-            }
-            int i5 = (i3 + i4) * 31;
-            ?? r23 = this.e;
-            int i6 = r23;
-            if (r23 != 0) {
-                i6 = 1;
-            }
-            int i7 = (i5 + i6) * 31;
-            boolean z2 = this.f;
-            return i7 + (z2 ? 1 : z2 ? 1 : 0);
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? (this.a * 31) + this.b : invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "RewardRuntimeData(isPanelPopShown=" + this.a + ", isTailFrameShown=" + this.b + ", rewardShownIndex=" + this.c + ", clickUserInfoContainer=" + this.d + ", upperLimit=" + this.e + ", lottieDialogBtnClick=" + this.f + SmallTailInfo.EMOTION_SUFFIX;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "RequestRewardExtra(sessionCount=" + this.a + ", rewardCount=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
-    public is0(boolean z, boolean z2, int i, boolean z3, boolean z4, boolean z5) {
+    public is0(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Boolean.valueOf(z3), Boolean.valueOf(z4), Boolean.valueOf(z5)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = z;
-        this.b = z2;
-        this.c = i;
-        this.d = z3;
-        this.e = z4;
-        this.f = z5;
+        this.a = i;
+        this.b = i2;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ is0(boolean z, boolean z2, int i, boolean z3, boolean z4, boolean z5, int i2, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r13, r1, r2, r3, r4, r12);
-        boolean z6;
-        boolean z7;
-        int i3;
-        boolean z8;
-        boolean z9;
-        boolean z10;
-        if ((i2 & 1) != 0) {
-            z6 = false;
-        } else {
-            z6 = z;
-        }
-        if ((i2 & 2) != 0) {
-            z7 = false;
-        } else {
-            z7 = z2;
-        }
-        if ((i2 & 4) != 0) {
-            i3 = 1;
-        } else {
-            i3 = i;
-        }
-        if ((i2 & 8) != 0) {
-            z8 = false;
-        } else {
-            z8 = z3;
-        }
-        if ((i2 & 16) != 0) {
-            z9 = false;
-        } else {
-            z9 = z4;
-        }
-        if ((i2 & 32) != 0) {
-            z10 = false;
-        } else {
-            z10 = z5;
-        }
-    }
-
-    public final boolean a() {
+    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: int : 0x0009: IGET  (r1v2 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.is0 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.is0.a int), ('_' char), (wrap: int : 0x0013: IGET  (r1v4 int A[REMOVE]) = (r4v0 'this' com.baidu.tieba.is0 A[IMMUTABLE_TYPE, THIS]) com.baidu.tieba.is0.b int)] */
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+            StringBuilder sb = new StringBuilder();
+            sb.append(this.a);
+            sb.append('_');
+            sb.append(this.b);
+            String sb2 = sb.toString();
+            Intrinsics.checkNotNullExpressionValue(sb2, "StringBuilder().append(s…d(rewardCount).toString()");
+            return sb2;
         }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.d = z;
-        }
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.f = z;
-        }
-    }
-
-    public final void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.b = z;
-        }
+        return (String) invokeV.objValue;
     }
 }

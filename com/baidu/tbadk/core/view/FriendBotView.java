@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.k15;
-import com.baidu.tieba.wb9;
+import com.baidu.tieba.bg9;
+import com.baidu.tieba.di;
+import com.baidu.tieba.q15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class FriendBotView extends RelativeLayout {
     public CallRobotEntrance c;
     public boolean d;
     public f e;
-    public k15 f;
+    public q15 f;
     public String g;
     public StyleContentInfo h;
     public String i;
@@ -278,12 +278,12 @@ public class FriendBotView extends RelativeLayout {
         }
     }
 
-    public void setCallRobotEntranceData(k15 k15Var) {
+    public void setCallRobotEntranceData(q15 q15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, k15Var) == null) {
-            this.f = k15Var;
-            this.c = k15Var.c();
-            setStyleContentInfo(k15Var);
+        if (interceptable == null || interceptable.invokeL(1048591, this, q15Var) == null) {
+            this.f = q15Var;
+            this.c = q15Var.c();
+            setStyleContentInfo(q15Var);
             setLoadingToast(this.c);
             p();
             if (this.b.getVisibility() == 0) {
@@ -358,13 +358,13 @@ public class FriendBotView extends RelativeLayout {
         }
     }
 
-    private void setStyleContentInfo(k15 k15Var) {
+    private void setStyleContentInfo(q15 q15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65551, this, k15Var) == null) {
+        if (interceptable == null || interceptable.invokeL(65551, this, q15Var) == null) {
             if (TbadkApplication.getInst().getSkinType() == 4) {
-                this.h = k15Var.a();
+                this.h = q15Var.a();
             } else {
-                this.h = k15Var.b();
+                this.h = q15Var.b();
             }
         }
     }
@@ -528,7 +528,7 @@ public class FriendBotView extends RelativeLayout {
         if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (styleContentInfo = this.h) != null) {
             String str = styleContentInfo.icon;
             String str2 = styleContentInfo.dynamic_icon;
-            if (!bi.isEmpty(str2)) {
+            if (!di.isEmpty(str2)) {
                 this.a.l(str2);
             }
             if (!TextUtils.isEmpty(str)) {
@@ -557,7 +557,7 @@ public class FriendBotView extends RelativeLayout {
         Map<String, Long> b2;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (b2 = wb9.b()) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || (b2 = bg9.b()) == null) {
             return;
         }
         Iterator<Map.Entry<String, Long>> it = b2.entrySet().iterator();
@@ -579,7 +579,7 @@ public class FriendBotView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             String str = "friend_bot_sha_time" + this.g;
-            Map<String, Long> b2 = wb9.b();
+            Map<String, Long> b2 = bg9.b();
             if (b2 != null && b2.containsKey(str)) {
                 long currentTimeMillis = System.currentTimeMillis() - b2.get(str).longValue();
                 if (currentTimeMillis >= 0 && currentTimeMillis < 30000) {
@@ -597,7 +597,7 @@ public class FriendBotView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             String str = "friend_bot_sha_time" + this.g;
-            Map b2 = wb9.b();
+            Map b2 = bg9.b();
             if (b2 == null) {
                 b2 = new HashMap();
             }

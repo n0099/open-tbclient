@@ -1152,11 +1152,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.m = arrayList;
-            arrayList.add(r(R.drawable.obfuscated_res_0x7f080f5f));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f60));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f61));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f62));
-            this.m.add(r(R.drawable.obfuscated_res_0x7f080f63));
+            arrayList.add(r(R.drawable.obfuscated_res_0x7f080f70));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080f71));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080f72));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080f73));
+            this.m.add(r(R.drawable.obfuscated_res_0x7f080f74));
         }
     }
 
@@ -1222,11 +1222,11 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
             this.e = false;
             ArrayList<Bitmap> arrayList = new ArrayList<>();
             this.m = arrayList;
-            arrayList.add(s(R.drawable.obfuscated_res_0x7f080f5f));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f60));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f61));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f62));
-            this.m.add(s(R.drawable.obfuscated_res_0x7f080f63));
+            arrayList.add(s(R.drawable.obfuscated_res_0x7f080f70));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080f71));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080f72));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080f73));
+            this.m.add(s(R.drawable.obfuscated_res_0x7f080f74));
         }
     }
 }

@@ -1,38 +1,66 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.TextUtils;
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.f81;
-import com.baidu.tieba.ga1;
+import com.baidu.nadcore.webview.activity.NadWebViewActivity;
+import com.baidu.nadcore.webview.activity.NadWebViewActivityStandard;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.ab1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+@Service
 /* loaded from: classes8.dex */
-public final class v91 extends s91 {
+public final class v91 extends ej0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final hj0 a;
-    public final w91 b;
+    public final String a;
+
+    @Override // com.baidu.tieba.ej0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "easybrowse" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ej0
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "interceptorEasybrowse" : (String) invokeV.objValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* loaded from: classes8.dex */
-    public static final class a implements hj0 {
+    public static final class a implements ab1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ v91 a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ HashMap c;
+        public final /* synthetic */ kj0 d;
+        public final /* synthetic */ gj0 e;
 
-        public a(v91 v91Var) {
+        public a(v91 v91Var, Context context, HashMap hashMap, kj0 kj0Var, gj0 gj0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v91Var};
+                Object[] objArr = {v91Var, context, hashMap, kj0Var, gj0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,27 +71,43 @@ public final class v91 extends s91 {
                 }
             }
             this.a = v91Var;
+            this.b = context;
+            this.c = hashMap;
+            this.d = kj0Var;
+            this.e = gj0Var;
         }
 
-        @Override // com.baidu.tieba.hj0
-        public final void a(boolean z, Map<String, String> map) {
-            AbsNadBrowserView m;
+        @Override // com.baidu.tieba.ab1.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, map) == null) {
-                String p = mj0.p(map);
-                if (!TextUtils.isEmpty(p) && (m = this.a.b.m()) != null) {
-                    AbsNadBrowserView.B(m, p, null, 2, null);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int i = 0;
+                boolean i2 = this.a.i(this.b, this.c, false);
+                String str = this.a.a;
+                fb1.a(str, "调起SDK落地页, 结果 " + i2);
+                v91 v91Var = this.a;
+                kj0 kj0Var = this.d;
+                gj0 gj0Var = this.e;
+                if (!i2) {
+                    i = 1001;
                 }
+                v91Var.c(kj0Var, gj0Var, i, i2);
+            }
+        }
+
+        @Override // com.baidu.tieba.ab1.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                fb1.c(this.b, "初始化失败，降级为原生打开");
             }
         }
     }
 
-    public v91(w91 container) {
+    public v91() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {container};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -73,71 +117,98 @@ public final class v91 extends s91 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(container, "container");
-        this.b = container;
-        this.a = new a(this);
+        this.a = "EasyBrowseInterceptor";
     }
 
-    @Override // com.baidu.tieba.s91
-    public boolean f(AbsNadBrowserView webView, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ej0
+    public boolean d(Context context, gj0 schemeModel, Map<String, Object> map, kj0 kj0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            String e = c71.e(str);
-            Intrinsics.checkNotNullExpressionValue(e, "UrlUtil.handleAbnormalUrlIfNeeded(url)");
-            if (!TextUtils.isEmpty(e) && (StringsKt__StringsJVMKt.startsWith$default(e, "http://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "https://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "ftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "sftp://", false, 2, null) || StringsKt__StringsJVMKt.startsWith$default(e, "ftps://", false, 2, null))) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, schemeModel, map, kj0Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
+            int i = 0;
+            if (!j()) {
+                fb1.c(context, "未命中新架构");
                 return false;
             }
-            if (str != null && this.b.a(str)) {
-                return true;
-            }
-            o(webView, str);
-            if (this.b.l() != null) {
-                ga1.d l = this.b.l();
-                Intrinsics.checkNotNull(l);
-                if (!l.a()) {
+            HashMap<String, String> d = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            u31.b((String) f31.b(d, "charge_url"));
+            int b = w91.b(context.getApplicationContext(), new a(this, context, d, kj0Var, schemeModel));
+            if (b == 0) {
+                c(kj0Var, schemeModel, 1001, false);
+                fb1.d(new IllegalStateException("web app init failed, state=" + b));
+                return false;
+            } else if (2 != b && 1 != b) {
+                if (4 == b) {
+                    fb1.c(context, "初始化失败，降级为原生打开");
+                    h(context, schemeModel, kj0Var);
+                    return true;
+                } else if (5 == b) {
+                    fb1.c(context, "低版本不支持t7，降级为原生打开");
+                    h(context, schemeModel, kj0Var);
+                    return true;
+                } else {
+                    boolean i2 = i(context, d, false);
+                    String str = this.a;
+                    fb1.a(str, "调起SDK落地页, 结果 " + i2);
+                    if (!i2) {
+                        i = 1001;
+                    }
+                    c(kj0Var, schemeModel, i, i2);
                     return true;
                 }
-            }
-            if (!kj0.a(this.b.b(), str) || wi0.b(this.b.b(), str, false) || f81.b.a().a(this.b.b(), str, webView.getUrl(), this.a) || yi0.c(str, this.b.b())) {
+            } else {
+                fb1.c(context, "正在初始化，降级为原生打开");
+                h(context, schemeModel, kj0Var);
                 return true;
             }
-            if (sa1.b() && gj0.b.a(this.b.b(), str, null, this.a)) {
-                return true;
-            }
-            AbsNadBrowserView m = this.b.m();
-            if (m != null) {
-                m.U();
-            }
-            return super.f(webView, str);
         }
-        return invokeLL.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public final void o(AbsNadBrowserView absNadBrowserView, String str) {
-        String str2;
+    public final void h(Context context, gj0 gj0Var, kj0 kj0Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, absNadBrowserView, str) == null) && str != null) {
-            String str3 = null;
-            if (StringsKt__StringsJVMKt.startsWith$default(str, "tel:", false, 2, null) && this.b.b() != null) {
-                ga1.d l = this.b.l();
-                if (l != null) {
-                    str2 = l.f();
-                } else {
-                    str2 = null;
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    rd1 rd1Var = new rd1();
-                    Activity b = this.b.b();
-                    Intrinsics.checkNotNull(b);
-                    ga1.d l2 = this.b.l();
-                    if (l2 != null) {
-                        str3 = l2.f();
-                    }
-                    rd1Var.p(b, str3, "tel");
-                }
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, gj0Var, kj0Var) == null) {
+            HashMap<String, String> d = gj0Var.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            d.put("downgrade_to_native", "1");
+            boolean i2 = i(context, gj0Var.d(), true);
+            if (i2) {
+                i = 0;
+            } else {
+                i = 1001;
             }
+            c(kj0Var, gj0Var, i, i2);
         }
+    }
+
+    public final boolean i(Context context, HashMap<String, String> hashMap, boolean z) {
+        InterceptResult invokeLLZ;
+        String str;
+        Class cls;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048580, this, context, hashMap, z)) == null) {
+            if (!z && !s91.a().b(hashMap, s91.b())) {
+                fb1.a(this.a, "调起SDK落地页, Activity 调起失败, 内核未成功初始化");
+                return false;
+            }
+            if (hashMap != null) {
+                str = hashMap.remove("newbrowser");
+            } else {
+                str = null;
+            }
+            if (Intrinsics.areEqual("1", str)) {
+                cls = NadWebViewActivityStandard.class;
+            } else {
+                cls = NadWebViewActivity.class;
+            }
+            Intent intent = new Intent(context, cls);
+            intent.putExtra("map", hashMap);
+            return e61.d(context, intent);
+        }
+        return invokeLLZ.booleanValue;
     }
 }

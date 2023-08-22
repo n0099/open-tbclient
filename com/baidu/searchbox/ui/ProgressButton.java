@@ -22,7 +22,7 @@ public class ProgressButton extends RelativeLayout {
     }
 
     private void init(Context context) {
-        LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0820, this);
+        LayoutInflater.from(context).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0826, this);
     }
 
     public void setDefaultText(String str) {
@@ -69,8 +69,8 @@ public class ProgressButton extends RelativeLayout {
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.progressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09164e);
-        this.progressTextView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09164c);
+        this.progressBar = (SmoothProgressBar) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091665);
+        this.progressTextView = (TextView) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091663);
         stopProgress();
     }
 

@@ -68,7 +68,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
     public b.InterfaceC0671b dY;
 
     /* renamed from: do  reason: not valid java name */
-    public ImageView f5do;
+    public ImageView f6do;
     public com.kwad.sdk.core.video.videoview.a dp;
     public com.kwad.components.core.video.c dq;
     public d dr;
@@ -582,12 +582,12 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
         this.ds = (!(ksAdVideoPlayConfig instanceof KSAdVideoPlayConfigImpl) || ((KSAdVideoPlayConfigImpl) ksAdVideoPlayConfig).getVideoSoundValue() == 0) ? com.kwad.sdk.core.response.a.a.bh(this.mAdInfo) : ksAdVideoPlayConfig.isVideoSoundEnable();
         String url = com.kwad.sdk.core.response.a.a.aL(this.mAdInfo).getUrl();
         if (TextUtils.isEmpty(url)) {
-            imageView = this.f5do;
+            imageView = this.f6do;
             i = 8;
         } else {
-            this.f5do.setImageDrawable(null);
-            KSImageLoader.loadImage(this.f5do, url, this.mAdTemplate);
-            imageView = this.f5do;
+            this.f6do.setImageDrawable(null);
+            KSImageLoader.loadImage(this.f6do, url, this.mAdTemplate);
+            imageView = this.f6do;
             i = 0;
         }
         imageView.setVisibility(i);
@@ -676,12 +676,12 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
 
     @Override // com.kwad.components.core.widget.b
     public final void bg() {
-        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091446);
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09145c);
         this.mAdWebView = ksAdWebView;
         ksAdWebView.setVisibility(4);
-        this.dL = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091293);
-        this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09141d);
-        this.f5do = (ImageView) findViewById(R.id.obfuscated_res_0x7f09142d);
+        this.dL = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912a9);
+        this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091433);
+        this.f6do = (ImageView) findViewById(R.id.obfuscated_res_0x7f091443);
     }
 
     @Override // com.kwad.components.core.widget.b
@@ -730,7 +730,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
 
     @Override // com.kwad.components.core.widget.b
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d04a1;
+        return R.layout.obfuscated_res_0x7f0d04a8;
     }
 
     @Override // android.view.View.OnClickListener

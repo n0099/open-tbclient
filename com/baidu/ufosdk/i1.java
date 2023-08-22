@@ -84,8 +84,8 @@ public class i1 extends Dialog {
                 attributes.width = -1;
                 window.setAttributes(attributes);
             }
-            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09ad);
-            ImageButton imageButton = (ImageButton) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0904bf);
+            setContentView(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09b5);
+            ImageButton imageButton = (ImageButton) findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0904c2);
             this.a = imageButton;
             imageButton.setOnClickListener(new a(this));
         }

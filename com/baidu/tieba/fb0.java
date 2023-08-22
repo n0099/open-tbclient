@@ -1,48 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.RequestSearchData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface fb0 {
-    void a(Context context, String str);
+public class fb0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile eb0 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(Context context);
-
-    void c();
-
-    void d();
-
-    void e(Context context);
-
-    void f(Context context, int i);
-
-    void g(String str, String str2, RequestSearchData requestSearchData);
-
-    void h();
-
-    void i(String str);
-
-    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
-
-    void onDetach();
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static /* synthetic */ void a(fb0 fb0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
-            if (obj == null) {
-                if ((i & 4) != 0) {
-                    requestSearchData = new RequestSearchData();
+    public static synchronized eb0 a() {
+        InterceptResult invokeV;
+        eb0 eb0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (fb0.class) {
+                if (a == null) {
+                    a = new eb0();
                 }
-                fb0Var.g(str, str2, requestSearchData);
-                return;
+                eb0Var = a;
             }
-            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
+            return eb0Var;
         }
+        return (eb0) invokeV.objValue;
     }
 }

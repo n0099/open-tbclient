@@ -1,789 +1,308 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
+import android.content.pm.SigningInfo;
 import android.os.Build;
-import android.os.StrictMode;
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gtb;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.ui.SystemBarTintManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.sdk.crashreportbaidu.ActivityHistory;
-import com.yy.sdk.crashreportbaidu.CrashHandler;
-import com.yy.sdk.crashreportbaidu.CrashInfo;
-import java.io.File;
+import com.hihonor.push.framework.aidl.entity.RequestHeader;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Locale;
+import java.util.UUID;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
 /* loaded from: classes5.dex */
 public class ctb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static ftb<CrashInfo> a = null;
-    public static String b = "";
-    public static atb c;
-    public static List<String> d;
-    public static e e;
-    public static List<String> f;
-    public static h g;
-    public static ConcurrentHashMap<String, Integer> h;
-    public static CrashHandler.b i;
-    public static Boolean j;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface e {
-        void a(String str, boolean z, String str2, String str3, String str4);
-
-        void b(String str, boolean z, String str2, String str3, String str4);
-
-        void c(boolean z, String str, String str2, String str3);
-    }
-
-    /* loaded from: classes5.dex */
-    public interface g {
-        Map<String, String> getExtInfo();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface h {
-        List<String> a();
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements CrashHandler.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static String f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            if (bArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                for (byte b : bArr) {
+                    String hexString = Integer.toHexString(b & 255);
+                    if (hexString.length() == 1) {
+                        sb.append(TransactionIdCreater.FILL_BYTE);
+                    }
+                    sb.append(hexString);
                 }
+                return sb.toString();
             }
+            return "";
         }
-
-        @Override // com.yy.sdk.crashreportbaidu.CrashHandler.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                htb.S();
-            }
-        }
-
-        @Override // com.yy.sdk.crashreportbaidu.CrashHandler.b
-        public void b(int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2) == null) {
-                ctb.m(i, str, null, str2);
-            }
-        }
+        return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public static byte[] h(String str) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return new byte[0];
             }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                List<CrashInfo> c = ctb.a.c();
-                ArrayList arrayList = new ArrayList();
-                ArrayList arrayList2 = new ArrayList();
-                ArrayList arrayList3 = new ArrayList();
-                for (CrashInfo crashInfo : c) {
-                    gtb.j(crashInfo, null, null);
-                    ctb.h.put(crashInfo.crashId, 7);
-                    ctb.h(crashInfo, arrayList, arrayList2, arrayList3);
-                    ctb.u(crashInfo, arrayList, "2");
-                    ctb.u(crashInfo, arrayList2, "3");
+            String upperCase = str.toUpperCase(Locale.ENGLISH);
+            int length = upperCase.length() / 2;
+            byte[] bArr = new byte[length];
+            try {
+                byte[] bytes = upperCase.getBytes(StandardCharsets.UTF_8);
+                for (int i2 = 0; i2 < length; i2++) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("0x");
+                    sb.append(new String(new byte[]{bytes[i2 * 2]}, StandardCharsets.UTF_8));
+                    bArr[i2] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i + 1]}, StandardCharsets.UTF_8)).byteValue());
                 }
-                ctb.j();
+            } catch (NumberFormatException e) {
+                String str2 = "hex string 2 byte array exception : " + e.getMessage();
             }
+            return bArr;
         }
+        return (byte[]) invokeL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static class c implements gtb.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static byte[] i(byte[] bArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) {
+            if (bArr == null) {
+                return bArr;
             }
-            this.a = str;
-        }
-
-        @Override // com.baidu.tieba.gtb.f
-        public void onResult(String str, boolean z, int i, String str2) {
-            String str3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), str2}) == null) {
-                Object[] objArr = new Object[4];
-                objArr[0] = this.a;
-                if (z) {
-                    str3 = "success";
+            for (int i2 = 0; i2 < bArr.length; i2++) {
+                if (i < 0) {
+                    bArr[i2] = (byte) (bArr[i2] << (-i));
                 } else {
-                    str3 = "failed";
+                    bArr[i2] = (byte) (bArr[i2] >> i);
                 }
-                objArr[1] = str3;
-                objArr[2] = Integer.valueOf(i);
-                objArr[3] = str2;
-                btb.d("CrashReport", String.format("crash[id = %s] report %s [status code = %s, ret = %s]", objArr));
-                ctb.c.b();
             }
+            return bArr;
         }
+        return (byte[]) invokeLI.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static class d implements gtb.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CrashInfo a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ List c;
-
-        public d(CrashInfo crashInfo, String str, List list) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {crashInfo, str, list};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static byte[] j(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, bArr2)) == null) {
+            byte[] bArr3 = null;
+            if (bArr != null) {
+                int length = bArr.length;
+                if (length != bArr2.length) {
+                    return null;
+                }
+                bArr3 = new byte[length];
+                for (int i = 0; i < length; i++) {
+                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
                 }
             }
-            this.a = crashInfo;
-            this.b = str;
-            this.c = list;
+            return bArr3;
         }
+        return (byte[]) invokeLL.objValue;
+    }
 
-        @Override // com.baidu.tieba.gtb.f
-        public void onResult(String str, boolean z, int i, String str2) {
-            String str3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), str2}) == null) {
-                Object[] objArr = new Object[5];
-                objArr[0] = this.a.crashId;
-                if (z) {
-                    str3 = "success";
-                } else {
-                    str3 = "failed";
+    public static RequestHeader a() throws ApiException {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            Context a = jtb.e.a();
+            String str2 = null;
+            try {
+                Object obj = a.getPackageManager().getApplicationInfo(a.getPackageName(), 128).metaData.get("com.hihonor.push.app_id");
+                if (obj != null) {
+                    str2 = String.valueOf(obj);
                 }
-                objArr[1] = str3;
-                objArr[2] = this.b;
-                objArr[3] = Integer.valueOf(i);
-                objArr[4] = str2;
-                etb.d("CrashReport", String.format("upload crash report[id = %s] %s [stage = %s, status code = %s, ret = %s]", objArr));
-                String d = gtb.d(this.a.crashId, this.b);
-                if (!TextUtils.isEmpty(d)) {
-                    new File(d).delete();
-                }
-                if (z) {
-                    this.a.clearFiles(this.c);
-                    Integer num = (Integer) ctb.h.get(this.a.crashId);
-                    if (num != null) {
-                        int intValue = num.intValue();
-                        if ("2".equals(this.b)) {
-                            intValue &= -2;
-                        } else if ("3".equals(this.b)) {
-                            intValue &= -3;
-                        }
-                        if (intValue == 0) {
-                            ctb.a.delete(this.a.crashId);
-                            ctb.h.remove(this.a.crashId);
+            } catch (PackageManager.NameNotFoundException e) {
+                etb.b("ConfigUtils", "getPushAppId", e);
+            }
+            if (!TextUtils.isEmpty(str2)) {
+                String str3 = "checkPushAppId Parameter is " + str2;
+                String e2 = e(a, a.getPackageName());
+                if (!TextUtils.isEmpty(e2)) {
+                    String str4 = "checkPushCertFingerprint Parameter is " + e2;
+                    RequestHeader requestHeader = new RequestHeader();
+                    requestHeader.setPackageName(a.getPackageName());
+                    requestHeader.setAppId(str2);
+                    requestHeader.setCertificateFingerprint(e2);
+                    htb htbVar = htb.b;
+                    requestHeader.setPushToken(htbVar.c(a));
+                    synchronized (htbVar) {
+                        htbVar.a(a);
+                        SharedPreferences sharedPreferences = htb.a.a;
+                        if (sharedPreferences != null) {
+                            str = sharedPreferences.getString("key_aaid", "");
                         } else {
-                            ctb.h.put(this.a.crashId, Integer.valueOf(intValue));
+                            str = "";
+                        }
+                        if (TextUtils.isEmpty(str)) {
+                            str = UUID.randomUUID().toString().replace("-", "");
+                            String str5 = "getRandomUUID UUID =" + str;
+                            htb.a.b("key_aaid", str);
                         }
                     }
+                    requestHeader.setAAID(str);
+                    requestHeader.setSdkVersion(70001103);
+                    return requestHeader;
                 }
-                ctb.c.b();
+                etb.a("checkPushConfig Parameter is missing.");
+                throw HonorPushErrorEnum.ERROR_CERT_FINGERPRINT_EMPTY.toApiException();
             }
+            etb.a("checkPushConfig Parameter is missing");
+            throw HonorPushErrorEnum.ERROR_NO_APPID.toApiException();
         }
+        return (RequestHeader) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static final class f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Context a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public dtb f;
-
-        public f() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            this.b = "default";
-            this.c = "default";
-            this.d = "";
-            this.e = "default";
-            this.f = null;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.c;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.e;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public dtb d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.f;
-            }
-            return (dtb) invokeV.objValue;
-        }
-
-        public String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public Context getContext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.a;
-            }
-            return (Context) invokeV.objValue;
-        }
-
-        public f f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.b = str;
-                return this;
-            }
-            return (f) invokeL.objValue;
-        }
-
-        public f g(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-                this.a = context;
-                return this;
-            }
-            return (f) invokeL.objValue;
-        }
-
-        public f h(dtb dtbVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dtbVar)) == null) {
-                this.f = dtbVar;
-                return this;
-            }
-            return (f) invokeL.objValue;
-        }
-
-        public f i(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (f) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947687704, "Lcom/baidu/tieba/ctb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947687704, "Lcom/baidu/tieba/ctb;");
-                return;
-            }
-        }
-        h = new ConcurrentHashMap<>();
-        i = new a();
-        j = Boolean.FALSE;
-    }
-
-    public ctb() {
+    public static ApiException b(Exception exc) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) {
+            if (exc.getCause() instanceof ApiException) {
+                return (ApiException) exc.getCause();
             }
+            if (exc instanceof ApiException) {
+                return (ApiException) exc;
+            }
+            return new ApiException(-1, exc.getMessage());
         }
+        return (ApiException) invokeL.objValue;
     }
 
-    public static boolean i() {
-        InterceptResult invokeV;
+    public static <TResult> vtb<TResult> c(Callable<TResult> callable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            List<String> list = f;
-            if (list != null && list.size() != 0) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) {
+            ExecutorService executorService = oub.c.b;
+            nub nubVar = new nub();
+            try {
+                executorService.execute(new stb(nubVar, callable));
+            } catch (Exception e) {
+                nubVar.a(e);
             }
-            return false;
+            return nubVar.a;
         }
-        return invokeV.booleanValue;
+        return (vtb) invokeL.objValue;
     }
 
-    public static void k() {
-        List<String> list;
+    public static void g(Handler handler) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65548, null) != null) || (list = d) == null) {
+        if ((interceptable != null && interceptable.invokeL(65542, null, handler) != null) || Looper.myLooper() == handler.getLooper()) {
             return;
         }
-        for (String str : list) {
-            htb.P(str);
-        }
+        throw new IllegalStateException("Must be called on the handler thread");
     }
 
-    public static List<String> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return f;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static void u(CrashInfo crashInfo, List<String> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65558, null, crashInfo, list, str) == null) {
-            gtb.k(crashInfo, str, list, new d(crashInfo, str, list));
-        }
-    }
-
-    public static void g(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, map) == null) {
-            htb.a(map);
-        }
-    }
-
-    public static void q(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, eVar) == null) {
-            e = eVar;
-        }
-    }
-
-    public static void r(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, map) == null) {
-            htb.V(map);
-        }
-    }
-
-    public static void t(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, null, context) == null) {
-            etb.d("CrashReport", "upload all dumps");
-            new Thread(new b()).start();
-        }
-    }
-
-    public static void h(CrashInfo crashInfo, List<String> list, List<String> list2, List<String> list3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65545, null, crashInfo, list, list2, list3) == null) {
-            list.clear();
-            list2.clear();
-            boolean z = false;
-            int i2 = 0;
-            for (String str : crashInfo.fileList) {
-                if (str != null) {
-                    File file = new File(str);
-                    String name = file.getName();
-                    if (!name.endsWith(".dmp") && !name.endsWith(".symbol")) {
-                        if (!z && ((name.contains(crashInfo.crashId) || name.endsWith(".syslog")) && file.exists())) {
-                            i2 |= 2;
-                            z = true;
-                        }
-                        if (name.endsWith(".hprof") && file.exists()) {
-                            list3.add(str);
-                            i2 |= 4;
-                        }
-                    } else if (file.exists()) {
-                        list.add(str);
-                        i2 |= 1;
-                    }
-                }
-            }
-            if (z) {
-                list2.addAll(crashInfo.fileList);
-                list2.removeAll(list);
-            }
-            if (i2 != 0) {
-                h.put(crashInfo.crashId, Integer.valueOf(i2));
-            }
-        }
-    }
-
-    public static void j() {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65547, null) == null) {
-            try {
-                File file = new File(htb.s());
-                if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length > 0) {
-                    Date date = new Date();
-                    for (File file2 : listFiles) {
-                        if (!file2.isDirectory() && file2.getName().endsWith(".syslog")) {
-                            if (date.getTime() - new Date(file2.lastModified()).getTime() > 432000000) {
-                                file2.delete();
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:59:0x01c6 A[Catch: all -> 0x01d9, TryCatch #4 {all -> 0x01d9, blocks: (B:57:0x01c2, B:59:0x01c6, B:63:0x01ce), top: B:83:0x01c2 }] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x01e3  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x01eb  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void m(int i2, String str, String str2, String str3) {
-        String str4;
-        CrashInfo crashInfo;
-        boolean z;
-        List<String> a2;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{Integer.valueOf(i2), str, str2, str3}) == null) {
-            String str5 = str;
-            String str6 = str2;
-            boolean z3 = true;
-            try {
-                if (e != null) {
-                    e eVar = e;
-                    if (i2 == 1) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    eVar.c(z2, str5, str6, str3);
-                }
-            } catch (Throwable th) {
-                etb.e("CrashReport", "mCrashCallback.preCrashCallback error!", th);
-            }
-            try {
-                File file = new File(str5);
-                File file2 = new File(file.getParent() + File.separator + htb.n() + ".dmp");
-                str5 = file2.getAbsolutePath();
-                file.renameTo(file2);
-            } catch (Throwable th2) {
-                etb.e("CrashReport", "NullPointerException!", th2);
-            }
-            String str7 = str5;
-            try {
-                File file3 = new File(str6);
-                File file4 = new File(file3.getParent() + File.separator + htb.n() + ".symbol");
-                str6 = file4.getAbsolutePath();
-                file3.renameTo(file4);
-            } catch (Throwable th3) {
-                etb.e("CrashReport", "mCrashCallback.preCrashCallback error!", th3);
-            }
-            String str8 = str6;
-            btb.d("CrashReport", (CrashInfo.CrashType.valueOf(i2).toString() + " heppen") + ", dumpFile = " + str7 + ", dumpSymbolFile = " + str8);
-            CrashInfo generateCrashInfo = CrashInfo.generateCrashInfo(CrashInfo.CrashType.valueOf(i2), str7, str3, str8, b);
-            String str9 = generateCrashInfo.crashId;
-            if (i()) {
-                generateCrashInfo.fileList.addAll(l());
-            }
-            HashSet hashSet = new HashSet(generateCrashInfo.fileList);
-            h hVar = g;
-            if (hVar != null && (a2 = hVar.a()) != null) {
-                for (int i3 = 0; i3 < a2.size(); i3++) {
-                    String str10 = a2.get(i3);
-                    if (!hashSet.contains(str10)) {
-                        generateCrashInfo.fileList.add(str10);
-                        btb.d("CrashReport", "newCrash.fileList.add = " + str10);
-                    }
-                }
-            }
-            String a3 = a.a(generateCrashInfo);
-            try {
-                if (e != null) {
-                    e eVar2 = e;
-                    String str11 = generateCrashInfo.crashId;
-                    if (i2 == 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    str4 = str9;
-                    crashInfo = generateCrashInfo;
-                    try {
-                        eVar2.b(str11, z, str7, str8, str3);
-                    } catch (Throwable th4) {
-                        th = th4;
-                        etb.e("CrashReport", "mCrashCallback.crashCallback error!", th);
-                        k();
-                        btb.d("CrashReport", String.format("start report crash[crash id = %s]", str4));
-                        c.a(3);
-                        CrashInfo crashInfo2 = crashInfo;
-                        gtb.j(crashInfo2, a3, new c(str4));
-                        h.put(crashInfo2.crashId, 7);
-                        ArrayList arrayList = new ArrayList();
-                        arrayList.add(str7);
-                        arrayList.add(str8);
-                        u(crashInfo2, arrayList, "2");
-                        ArrayList arrayList2 = new ArrayList();
-                        arrayList2.addAll(crashInfo2.fileList);
-                        arrayList2.removeAll(arrayList);
-                        u(crashInfo2, arrayList2, "3");
-                        if (e != null) {
-                        }
-                        if (Build.VERSION.SDK_INT >= 22) {
-                        }
-                    }
-                } else {
-                    str4 = str9;
-                    crashInfo = generateCrashInfo;
-                }
-                if (i2 == 1) {
-                    etb.e("CrashReport", "Native Crash Happen!", new Throwable("NativeCrashException"));
-                }
-            } catch (Throwable th5) {
-                th = th5;
-                str4 = str9;
-                crashInfo = generateCrashInfo;
-            }
-            k();
-            btb.d("CrashReport", String.format("start report crash[crash id = %s]", str4));
-            c.a(3);
-            CrashInfo crashInfo22 = crashInfo;
-            gtb.j(crashInfo22, a3, new c(str4));
-            h.put(crashInfo22.crashId, 7);
-            ArrayList arrayList3 = new ArrayList();
-            arrayList3.add(str7);
-            arrayList3.add(str8);
-            u(crashInfo22, arrayList3, "2");
-            ArrayList arrayList22 = new ArrayList();
-            arrayList22.addAll(crashInfo22.fileList);
-            arrayList22.removeAll(arrayList3);
-            u(crashInfo22, arrayList22, "3");
-            try {
-                if (e != null) {
-                    e eVar3 = e;
-                    String str12 = crashInfo22.crashId;
-                    if (i2 != 1) {
-                        z3 = false;
-                    }
-                    eVar3.a(str12, z3, str7, str8, str3);
-                }
-            } catch (Throwable th6) {
-                etb.c("CrashReport", "mCrashCallback.preCrashCallback error!", th6);
-            }
-            if (Build.VERSION.SDK_INT >= 22) {
-                c.c(3000);
-            } else {
-                c.c(4000);
-            }
-        }
-    }
-
-    public static synchronized boolean n(f fVar) {
+    public static <TResult> TResult d(vtb<TResult> vtbVar) throws ExecutionException, InterruptedException {
         InterceptResult invokeL;
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, fVar)) == null) {
-            synchronized (ctb.class) {
-                if (j.booleanValue()) {
-                    etb.d("CrashReport", "crashreport has init, please check!");
-                    return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, vtbVar)) == null) {
+            if (Looper.myLooper() != Looper.getMainLooper()) {
+                synchronized (vtbVar.a) {
+                    z = vtbVar.b;
                 }
-                if ((fVar.getContext().getApplicationInfo().flags & 2) != 0) {
-                    z = true;
-                } else {
-                    z = false;
+                if (z) {
+                    if (vtbVar.f()) {
+                        return vtbVar.d();
+                    }
+                    throw new ExecutionException(vtbVar.c());
                 }
-                htb.U(z);
-                etb.f(fVar.d());
-                ActivityHistory.INSTANCE.init(fVar.getContext());
-                htb.I(fVar.getContext(), fVar.a(), fVar.b());
-                htb.W(fVar.c());
-                CrashHandler.e(i);
-                o(fVar.getContext());
-                c = new atb();
-                gtb.e(fVar.getContext());
-                if (p(fVar.e(), fVar.getContext())) {
-                    htb.Q(true);
-                    CrashHandler.initNativeHandler(htb.s());
-                    etb.d("CrashReport", "crashreport init, use native catch 3.1.0-baidu-SNAPSHOT");
-                } else {
-                    htb.Q(false);
-                    etb.d("CrashReport", "crashreport init by 3.1.0-baidu-SNAPSHOT");
+                ztb ztbVar = new ztb();
+                oub oubVar = oub.c;
+                vtbVar.a(new qtb(oubVar.a, ztbVar));
+                vtbVar.a(new mtb(oubVar.a, ztbVar));
+                vtbVar.a(new dtb(oubVar.a, ztbVar));
+                ztbVar.a.await();
+                if (vtbVar.f()) {
+                    return vtbVar.d();
                 }
-                t(fVar.getContext());
-                j = Boolean.TRUE;
-                if (htb.J()) {
-                    StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder().detectLeakedSqlLiteObjects().detectLeakedClosableObjects().penaltyLog().build());
-                }
-                return j.booleanValue();
+                throw new ExecutionException(vtbVar.c());
             }
+            throw new IllegalStateException("await must not be called on the UI thread");
         }
-        return invokeL.booleanValue;
+        return (TResult) invokeL.objValue;
     }
 
-    public static void o(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, context) == null) {
-            a = new ftb<>(context, "CrashDB_" + htb.e());
-            ftb ftbVar = new ftb(context, "CrashSharedPref");
-            List<CrashInfo> c2 = ftbVar.c();
-            for (CrashInfo crashInfo : c2) {
-                etb.a("hqq", "oldCrash: " + crashInfo.nyyData);
-                a.a(crashInfo);
-            }
-            if (!c2.isEmpty()) {
-                ftbVar.b();
-            }
-        }
-    }
-
-    public static boolean p(String str, Context context) {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0054 -> B:20:0x0055). Please submit an issue!!! */
+    public static String e(Context context, String str) {
         InterceptResult invokeLL;
+        Signature[] signatureArr;
+        String str2;
+        SigningInfo signingInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65553, null, str, context)) == null) {
-            if (str != null) {
-                try {
-                    if (!str.isEmpty()) {
-                        System.load(str);
-                        return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            String str3 = "getCertFingerprint pkgName=" + str + "onlyOne=true";
+            ArrayList arrayList = new ArrayList();
+            PackageManager packageManager = context.getPackageManager();
+            if (Build.VERSION.SDK_INT >= 30) {
+                PackageInfo packageInfo = packageManager.getPackageInfo(str, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
+                if (packageInfo != null && (signingInfo = packageInfo.signingInfo) != null) {
+                    if (signingInfo.hasMultipleSigners()) {
+                        signatureArr = signingInfo.getApkContentsSigners();
+                    } else {
+                        signatureArr = signingInfo.getSigningCertificateHistory();
                     }
-                } catch (UnsatisfiedLinkError e2) {
-                    if (!htb.J()) {
-                        etb.c("CrashReport", "load yycrashreport.so failed, native crash will not report", e2);
-                        return false;
+                }
+                signatureArr = null;
+            } else {
+                PackageInfo packageInfo2 = packageManager.getPackageInfo(str, 64);
+                if (packageInfo2 != null) {
+                    signatureArr = packageInfo2.signatures;
+                }
+                signatureArr = null;
+            }
+            if (signatureArr != null && signatureArr.length > 0) {
+                int length = signatureArr.length;
+                int i = 0;
+                while (true) {
+                    if (i >= length) {
+                        break;
                     }
-                    throw new UnsatisfiedLinkError("load yycrashreport failed");
+                    try {
+                        byte[] digest = MessageDigest.getInstance("SHA256").digest(signatureArr[i].toByteArray());
+                        StringBuilder sb = new StringBuilder();
+                        for (byte b : digest) {
+                            String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
+                            if (upperCase.length() == 1) {
+                                sb.append("0");
+                            }
+                            sb.append(upperCase);
+                        }
+                        str2 = sb.toString();
+                    } catch (NoSuchAlgorithmException unused) {
+                        str2 = null;
+                    }
+                    if (str2 != null) {
+                        arrayList.add(str2);
+                        break;
+                    }
+                    i++;
                 }
             }
-            if (!htb.M(context, "yycrashreport")) {
-                throw new UnsatisfiedLinkError("load yycrashreport failed");
+            if (arrayList.isEmpty()) {
+                return null;
             }
-            return true;
+            return (String) arrayList.get(0);
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static void s(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, null, list) == null) {
-            synchronized (ctb.class) {
-                if (f == null) {
-                    f = new ArrayList();
-                } else {
-                    f.clear();
-                }
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    String str = list.get(i2);
-                    if (b != null && !b.equals(str)) {
-                        f.add(str);
-                    }
-                }
-            }
-        }
+        return (String) invokeLL.objValue;
     }
 }

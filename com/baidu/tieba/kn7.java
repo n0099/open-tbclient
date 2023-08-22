@@ -1,52 +1,41 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.mvc.data.IResponseData;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Message;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONObject;
-import tbclient.AlbumElement;
-import tbclient.ItemGameCode;
-import tbclient.ItemGameInfo;
-import tbclient.ItemInfo;
-import tbclient.ItemPage.DataRes;
-import tbclient.RecentUpdate;
-import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class kn7 implements IResponseData {
+public class kn7 extends mn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemInfo a;
-    public List<AlbumElement> b;
-    public ArrayList<ym> c;
-    public boolean d;
+    public LabelDataList c;
+    public Context d;
+    public int e;
+    public final int f;
 
-    @Override // com.baidu.tbadk.mvc.data.IResponseData
-    public void initByJson(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.mn7
+    public long e(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    @Override // com.baidu.tbadk.mvc.data.IResponseData
-    public void initByProtobuf(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, message) == null) {
-        }
-    }
-
-    public kn7() {
+    public kn7(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -56,80 +45,109 @@ public class kn7 implements IResponseData {
                 return;
             }
         }
-        this.c = new ArrayList<>();
+        this.e = 0;
+        this.d = context;
+        this.f = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070258);
     }
 
-    public void a(DataRes dataRes) {
+    @Override // com.baidu.tieba.mn7
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ListUtils.getCount(this.c);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.mn7
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.mn7
+    public Object c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return ListUtils.getItem(this.c, i);
+        }
+        return invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.mn7
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.e = i;
+            this.c.setSelectedIndex(i);
+            notifyDataSetChanged();
+        }
+    }
+
+    public void n(LabelDataList labelDataList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, labelDataList) == null) {
+            this.c = labelDataList;
+            notifyDataSetChanged();
+        }
+    }
+
+    @Override // com.baidu.tieba.mn7
+    public View g(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        TextView m;
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        ItemInfo itemInfo = dataRes.item_info;
-        this.a = itemInfo;
-        if (itemInfo == null) {
-            return;
-        }
-        this.b = dataRes.album_list;
-        int i = 1;
-        if (dataRes.has_tornado.intValue() == 1) {
-            z = true;
-        } else {
-            z = false;
-        }
-        this.d = z;
-        ItemGameCode itemGameCode = dataRes.item_game_code;
-        if (itemGameCode != null && ListUtils.getCount(itemGameCode.game_code_list) != 0) {
-            co7 co7Var = new co7();
-            co7Var.e(dataRes.item_game_code);
-            this.c.add(co7Var);
-        }
-        ItemGameInfo itemGameInfo = dataRes.item_game_info;
-        if (itemGameInfo != null) {
-            List<ThreadInfo> list = itemGameInfo.hot_videos;
-            if (list != null && ListUtils.getCount(list) >= 3) {
-                do7 do7Var = new do7();
-                do7Var.d(dataRes.item_game_info.hot_videos);
-                this.c.add(do7Var);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
+            if (view2 instanceof TextView) {
+                m = (TextView) view2;
+            } else {
+                m = m();
             }
-            RecentUpdate recentUpdate = dataRes.item_game_info.recent_update;
-            if (recentUpdate != null && !bi.isEmpty(recentUpdate.log)) {
-                eo7 eo7Var = new eo7();
-                eo7Var.d(dataRes.item_game_info.recent_update);
-                this.c.add(eo7Var);
+            bn7 bn7Var = (bn7) ListUtils.getItem(this.c, i);
+            if (bn7Var != null) {
+                m.setText(bn7Var.b);
             }
-        }
-        if (!ListUtils.isEmpty(dataRes.thread_list)) {
-            ao7 ao7Var = new ao7();
-            ao7Var.setSupportType(BaseCardInfo.SupportType.TOP);
-            this.c.add(ao7Var);
-            for (ThreadInfo threadInfo : dataRes.thread_list) {
-                if (threadInfo != null) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.parserProtobuf(threadInfo);
-                    threadData.parser_title();
-                    threadData.setPositionInFrsItemTab(i);
-                    i++;
-                    threadData.insertItemToTitleOrAbstractText();
-                    this.c.add(threadData);
-                    ao7 ao7Var2 = new ao7();
-                    ao7Var2.setSupportType(BaseCardInfo.SupportType.CONTENT);
-                    this.c.add(ao7Var2);
-                }
+            if (this.e == i) {
+                z = true;
+            } else {
+                z = false;
             }
-            ao7 ao7Var3 = new ao7();
-            ao7Var3.d(this.a.id.intValue());
-            ao7Var3.setPositionInFrsItemTab(i);
-            ao7Var3.setSupportType(BaseCardInfo.SupportType.BOTTOM);
-            this.c.add(ao7Var3);
+            l(m, z);
+            return m;
         }
-        bo7 bo7Var = new bo7();
-        bo7Var.e(dataRes.item_info);
-        if (bo7Var.d()) {
-            this.c.add(bo7Var);
+        return (View) invokeILL.objValue;
+    }
+
+    public void l(TextView textView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048582, this, textView, z) == null) {
+            if (z) {
+                SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0302);
+                SkinManager.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_s);
+                return;
+            }
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0106);
+            SkinManager.setBackgroundResource(textView, R.drawable.shape_frs_game_label_item_bg_n);
         }
-        fo7 fo7Var = new fo7();
-        fo7Var.d(dataRes.recommend_item);
-        this.c.add(fo7Var);
+    }
+
+    public final TextView m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            TextView textView = new TextView(this.d);
+            textView.setTextSize(0, this.d.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070458));
+            textView.setGravity(17);
+            textView.setHeight(d());
+            return textView;
+        }
+        return (TextView) invokeV.objValue;
     }
 }

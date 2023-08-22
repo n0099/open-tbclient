@@ -1,19 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.List;
 /* loaded from: classes5.dex */
-public interface eo5 extends jo5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatBoxDialogService");
-
-    boolean isEnable();
-
-    void onChangeSkinType(int i);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
+public interface eo5 {
+    void a(List<String> list);
 }

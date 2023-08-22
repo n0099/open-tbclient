@@ -1,22 +1,78 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
+import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
+import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class kp {
+public abstract class kp extends os<TaskBuoyViewData, TaskBuoyViewModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final lp a;
+    public TaskBuoyViewModel a;
+    public final rs b;
 
-    public kp(lp lpVar) {
+    /* loaded from: classes6.dex */
+    public static final class a implements rs {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ kp a;
+
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(kp kpVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kpVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = kpVar;
+        }
+
+        @Override // com.baidu.tieba.rs
+        public void a() {
+            TaskBuoyViewModel taskBuoyViewModel;
+            TaskInfo c;
+            TaskBuoyViewModel taskBuoyViewModel2;
+            ws<TaskBuoyViewData> a;
+            TaskBuoyViewData k;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (taskBuoyViewModel = this.a.a) != null && (c = taskBuoyViewModel.c()) != null && (taskBuoyViewModel2 = this.a.a) != null && (a = taskBuoyViewModel2.a()) != null && (k = a.k()) != null) {
+                qp.a.b(k.getUiConfig().h(), c, k.getTaskStatus());
+            }
+        }
+
+        @Override // com.baidu.tieba.rs
+        public void b() {
+            TaskBuoyViewModel taskBuoyViewModel;
+            TaskInfo c;
+            TaskBuoyViewModel taskBuoyViewModel2;
+            ws<TaskBuoyViewData> a;
+            TaskBuoyViewData k;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (taskBuoyViewModel = this.a.a) != null && (c = taskBuoyViewModel.c()) != null && (taskBuoyViewModel2 = this.a.a) != null && (a = taskBuoyViewModel2.a()) != null && (k = a.k()) != null) {
+                qp.a.a(k.getUiConfig().h(), c, k.getTaskStatus());
+            }
+        }
+    }
+
+    public kp() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lpVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,15 +82,23 @@ public final class kp {
                 return;
             }
         }
-        this.a = lpVar;
+        this.b = new a(this);
     }
 
-    public String toString() {
+    public rs c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "curProcess" + this.a;
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return (rs) invokeV.objValue;
+    }
+
+    @CallSuper
+    public void d(TaskBuoyViewModel taskBuoyViewModel) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskBuoyViewModel) == null) {
+            this.a = taskBuoyViewModel;
+        }
     }
 }

@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 /* loaded from: classes8.dex */
 public interface tl1 {
-    void onVideoSizeChanged(int i, int i2);
+    void d();
 
-    void setDisplayMode(int i);
+    void g();
+
+    void h(String str);
+
+    void onAdError(String str);
 }

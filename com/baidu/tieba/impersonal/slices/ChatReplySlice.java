@@ -23,20 +23,20 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.au8;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.du8;
-import com.baidu.tieba.gt8;
+import com.baidu.tieba.cy8;
+import com.baidu.tieba.di;
+import com.baidu.tieba.dy8;
+import com.baidu.tieba.gy8;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.data.QuickReplyData;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalReplyBinding;
 import com.baidu.tieba.impersonal.reply.ChatReplyAdapter;
 import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
-import com.baidu.tieba.iv8;
+import com.baidu.tieba.jn5;
+import com.baidu.tieba.jx8;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.um5;
-import com.baidu.tieba.ut8;
-import com.baidu.tieba.zt8;
+import com.baidu.tieba.lz8;
+import com.baidu.tieba.xx8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -52,7 +52,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ChatReplySlice extends Slice {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final iv8 j;
+    public final lz8 j;
     public final String k;
     public final String l;
     public final String m;
@@ -81,7 +81,7 @@ public final class ChatReplySlice extends Slice {
     }
 
     /* loaded from: classes6.dex */
-    public static final class a extends iv8.a {
+    public static final class a extends lz8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatReplySlice a;
@@ -104,21 +104,21 @@ public final class ChatReplySlice extends Slice {
             this.a = chatReplySlice;
         }
 
-        @Override // com.baidu.tieba.iv8.b
-        public void a(List<? extends ut8> list) {
+        @Override // com.baidu.tieba.lz8.b
+        public void a(List<? extends xx8> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
                 Intrinsics.checkNotNullParameter(list, "list");
-                for (ut8 ut8Var : list) {
+                for (xx8 xx8Var : list) {
                     TbLog defaultLog = DefaultLog.getInstance();
-                    defaultLog.i("sendSpriteMsg", "新消息返回：" + ut8Var.b());
-                    if (bi.isEquals(ut8Var.b(), um5.d())) {
+                    defaultLog.i("sendSpriteMsg", "新消息返回：" + xx8Var.b());
+                    if (di.isEquals(xx8Var.b(), jn5.d())) {
                         DefaultLog.getInstance().i("sendSpriteMsg", "命中匹配，是通过sendSpriteMsg发送的");
                         return;
                     }
                 }
                 this.a.r = true;
-                this.a.g0();
+                this.a.h0();
             }
         }
     }
@@ -152,7 +152,7 @@ public final class ChatReplySlice extends Slice {
             QuickReplyData.QuestionData questionData;
             String question;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && !this.a.e0()) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{viewGroup, view2, obj, Integer.valueOf(i), Long.valueOf(j)}) == null) && !this.a.f0()) {
                 ChatReplyAdapter chatReplyAdapter = this.a.p;
                 if (chatReplyAdapter != null) {
                     questionData = chatReplyAdapter.l(i);
@@ -164,13 +164,13 @@ public final class ChatReplySlice extends Slice {
                     if (StringUtils.isNull(questionData.getQuestion())) {
                         return;
                     }
-                    chatReplySlice.h0(question);
+                    chatReplySlice.i0(question);
                     String currentAccount = TbadkCoreApplication.getCurrentAccount();
                     if (currentAccount == null) {
                         currentAccount = "";
                     }
                     Intrinsics.checkNotNullExpressionValue(currentAccount, "TbadkApplication.getCurrentAccount() ?: \"\"");
-                    gt8.a("c15230", currentAccount, questionData.getQuestion());
+                    jx8.a("c15230", currentAccount, questionData.getQuestion());
                 }
             }
         }
@@ -237,7 +237,7 @@ public final class ChatReplySlice extends Slice {
         }
     }
 
-    public ChatReplySlice(iv8 repo, String talkType, String talkPrologue, String str) {
+    public ChatReplySlice(lz8 repo, String talkType, String talkPrologue, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -264,10 +264,10 @@ public final class ChatReplySlice extends Slice {
         this.u = new b(this);
     }
 
-    public final void h0(String str) {
+    public final void i0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            zt8<au8> a2 = du8.a(str);
+            cy8<dy8> a2 = gy8.a(str);
             Intrinsics.checkNotNullExpressionValue(a2, "genTextMsg(text)");
             this.j.t(a2);
         }
@@ -287,7 +287,7 @@ public final class ChatReplySlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View O(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View P(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
@@ -302,11 +302,11 @@ public final class ChatReplySlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void U(View view2, Bundle bundle) {
+    public void V(View view2, Bundle bundle) {
         ChatReplyAdapter chatReplyAdapter;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.U(view2, bundle);
+            super.V(view2, bundle);
             Context context = F().getContext();
             SlicePersonalReplyBinding slicePersonalReplyBinding = null;
             if (context != null) {
@@ -355,12 +355,12 @@ public final class ChatReplySlice extends Slice {
                 slicePersonalReplyBinding = slicePersonalReplyBinding7;
             }
             slicePersonalReplyBinding.c.setOnItemClickListener(this.u);
-            f0();
             g0();
+            h0();
         }
     }
 
-    public final boolean e0() {
+    public final boolean f0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -373,14 +373,14 @@ public final class ChatReplySlice extends Slice {
         return invokeV.booleanValue;
     }
 
-    public final void f0() {
+    public final void g0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.j.a(this.s);
         }
     }
 
-    public final void g0() {
+    public final void h0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             if (this.q == null) {

@@ -4,9 +4,9 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.l45;
 import com.baidu.tieba.ne;
-import com.baidu.tieba.q49;
+import com.baidu.tieba.r45;
+import com.baidu.tieba.t89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import tbclient.GetVipInfo.GetVipInfoResIdl;
 public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q49 mMembercenter;
+    public t89 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterSocketResponseMessage() {
@@ -41,13 +41,13 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public q49 getMembercenterData() {
+    public t89 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mMembercenter;
         }
-        return (q49) invokeV.objValue;
+        return (t89) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -68,7 +68,7 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
             }
             DataRes dataRes = getVipInfoResIdl.data;
             if (dataRes != null) {
-                this.mMembercenter = new q49(dataRes);
+                this.mMembercenter = new t89(dataRes);
             }
             if (getError() == 0) {
                 if (TbadkCoreApplication.isLogin()) {
@@ -76,10 +76,10 @@ public class MembercenterSocketResponseMessage extends SocketResponsedMessage {
                 } else {
                     str = SevenZipUtils.FILE_NAME_TEMP;
                 }
-                l45.e();
-                ne<byte[]> d = l45.d("tb_member_center", str);
-                if (d != null && bArr != null) {
-                    d.g("member_center_cache_key", bArr);
+                r45.k();
+                ne<byte[]> j = r45.j("tb_member_center", str);
+                if (j != null && bArr != null) {
+                    j.g("member_center_cache_key", bArr);
                 }
             }
             return getVipInfoResIdl;

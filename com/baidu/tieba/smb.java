@@ -1,186 +1,142 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.text.TextUtils;
-import android.util.Base64;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.StandardCharsets;
-import java.security.GeneralSecurityException;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.GCMParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes7.dex */
-public class smb {
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTFullScreenVideoAd;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+/* loaded from: classes8.dex */
+public class smb extends hmb<qmb> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile snb a;
-    public static final smb b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948157633, "Lcom/baidu/tieba/smb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class a implements TTAdNative.FullScreenVideoAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ smb a;
+
+        public a(smb smbVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {smbVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948157633, "Lcom/baidu/tieba/smb;");
-                return;
+            this.a = smbVar;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
             }
         }
-        b = new smb();
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoAdLoad(TTFullScreenVideoAd tTFullScreenVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTFullScreenVideoAd) == null) {
+                LogPrinter.d();
+                this.a.onAdLoaded(new qmb(tTFullScreenVideoAd), new String[0]);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.FullScreenVideoAdListener
+        public void onFullScreenVideoCached(TTFullScreenVideoAd tTFullScreenVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, tTFullScreenVideoAd) == null) {
+            }
+        }
     }
 
-    public smb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public smb(FunAdType funAdType, Ssp.Pid pid) {
+        super(funAdType, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {funAdType, pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public final void a(Context context) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && a == null) {
-            a = new snb(context, "push");
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            qmb qmbVar = (qmb) obj;
         }
     }
 
-    public synchronized void b(Context context, String str) {
-        byte[] bArr;
-        byte[] bArr2;
+    @Override // com.baidu.tieba.hmb
+    public void f(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str) == null) {
-            synchronized (this) {
-                a(context);
-                if (TextUtils.isEmpty(str)) {
-                    a.a("key_push_token");
-                } else {
-                    String e = nmb.e(context, context.getPackageName());
-                    byte[] h = nmb.h("EA23F5B8C7577CDC744ABD1C6D7E143D5123F8F282BF4E7853C1EC86BD2EDD22");
-                    byte[] h2 = nmb.h(e);
-                    try {
-                        bArr = new byte[32];
-                        new SecureRandom().nextBytes(bArr);
-                    } catch (Exception unused) {
-                        bArr = new byte[0];
-                    }
-                    nmb.i(h, -4);
-                    byte[] j = nmb.j(h, h2);
-                    nmb.i(j, 6);
-                    String encodeToString = Base64.encodeToString(nmb.j(j, bArr), 0);
-                    boolean b2 = a.b("key_aes_gcm", encodeToString);
-                    byte[] decode = Base64.decode(encodeToString, 0);
-                    String str2 = "";
-                    if (!TextUtils.isEmpty(str) && decode != null && decode.length >= 16) {
-                        try {
-                            try {
-                                bArr2 = new byte[12];
-                                new SecureRandom().nextBytes(bArr2);
-                            } catch (GeneralSecurityException e2) {
-                                String str3 = "GCM encrypt data error" + e2.getMessage();
-                            }
-                        } catch (Exception unused2) {
-                            bArr2 = new byte[0];
-                        }
-                        byte[] bytes = str.getBytes(StandardCharsets.UTF_8);
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(decode, "AES");
-                        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                        cipher.init(1, secretKeySpec, new GCMParameterSpec(128, bArr2));
-                        byte[] doFinal = cipher.doFinal(bytes);
-                        if (doFinal != null && doFinal.length != 0) {
-                            str2 = nmb.f(bArr2) + nmb.f(doFinal);
-                        }
-                    }
-                    if (b2 && !TextUtils.isEmpty(str2)) {
-                        a.b("key_push_token", str2);
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            this.e.loadFullScreenVideoAd(i(funAdSlot), new a(this));
         }
     }
 
-    public synchronized String c(Context context) {
+    public AdSlot i(FunAdSlot funAdSlot) {
         InterceptResult invokeL;
-        String str;
-        boolean z;
-        String str2;
-        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            synchronized (this) {
-                a(context);
-                str = "";
-                SharedPreferences sharedPreferences = a.a;
-                boolean z2 = true;
-                if (sharedPreferences != null && sharedPreferences.contains("key_push_token")) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    SharedPreferences sharedPreferences2 = a.a;
-                    if (sharedPreferences2 == null || !sharedPreferences2.contains("key_aes_gcm")) {
-                        z2 = false;
-                    }
-                    if (z2) {
-                        SharedPreferences sharedPreferences3 = a.a;
-                        if (sharedPreferences3 != null) {
-                            str2 = sharedPreferences3.getString("key_push_token", "");
-                        } else {
-                            str2 = "";
-                        }
-                        SharedPreferences sharedPreferences4 = a.a;
-                        if (sharedPreferences4 != null) {
-                            str3 = sharedPreferences4.getString("key_aes_gcm", "");
-                        } else {
-                            str3 = "";
-                        }
-                        byte[] decode = Base64.decode(str3, 0);
-                        String str4 = "";
-                        if (!TextUtils.isEmpty(str2) && decode != null && decode.length >= 16) {
-                            try {
-                                SecretKeySpec secretKeySpec = new SecretKeySpec(decode, "AES");
-                                Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
-                                String substring = str2.substring(0, 24);
-                                String substring2 = str2.substring(24);
-                                if (!TextUtils.isEmpty(substring) && !TextUtils.isEmpty(substring2)) {
-                                    cipher.init(2, secretKeySpec, new GCMParameterSpec(128, nmb.h(substring)));
-                                    str4 = new String(cipher.doFinal(nmb.h(substring2)), StandardCharsets.UTF_8);
-                                }
-                            } catch (Exception e) {
-                                String str5 = "GCM decrypt data exception: " + e.getMessage();
-                            }
-                        }
-                        if (!TextUtils.isEmpty(str4)) {
-                            str = str4;
-                        } else {
-                            a.a("key_aes_gcm");
-                            a.a("key_push_token");
-                        }
-                    } else {
-                        a.a("key_push_token");
-                    }
-                }
-            }
-            return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, funAdSlot)) == null) {
+            return new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setOrientation(this.mPid.isHorizontal ? 2 : 1).build();
         }
-        return (String) invokeL.objValue;
+        return (AdSlot) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            qmb qmbVar = (qmb) obj;
+            onShowStart(qmbVar);
+            ((TTFullScreenVideoAd) qmbVar.a).setFullScreenVideoAdInteractionListener(new vmb(this, qmbVar));
+            ((TTFullScreenVideoAd) qmbVar.a).setDownloadListener(new xlb(null));
+            ((TTFullScreenVideoAd) qmbVar.a).showFullScreenVideoAd(activity);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

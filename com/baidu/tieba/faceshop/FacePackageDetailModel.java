@@ -13,9 +13,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.l45;
+import com.baidu.tieba.di;
 import com.baidu.tieba.ne;
+import com.baidu.tieba.r45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,10 +78,10 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
         public final void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                l45.e();
-                ne<String> f = l45.f("tb_face_package");
-                if (f != null) {
-                    f.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
+                r45.k();
+                ne<String> l = r45.l("tb_face_package");
+                if (l != null) {
+                    l.e(TbadkCoreApplication.getCurrentAccount() + this.c.d, str, 604800000L);
                 }
             }
         }
@@ -126,11 +126,11 @@ public class FacePackageDetailModel extends BdBaseModel<FacePackageDetailActivit
                     if (this.c.d == null || this.c.d.length() <= 0 || this.b) {
                         return null;
                     }
-                    l45.e();
-                    ne<String> f = l45.f("tb_face_package");
-                    if (f != null) {
-                        String str = f.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
-                        if (!bi.isEmpty(str)) {
+                    r45.k();
+                    ne<String> l = r45.l("tb_face_package");
+                    if (l != null) {
+                        String str = l.get(TbadkCoreApplication.getCurrentAccount() + this.c.d);
+                        if (!di.isEmpty(str)) {
                             publishProgress(str);
                         }
                     }

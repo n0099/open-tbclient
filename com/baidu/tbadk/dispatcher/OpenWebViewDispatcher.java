@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
 import com.baidu.tbadk.core.util.FullBrowseHelper;
 import com.baidu.tbadk.data.JSONLikeSerializable;
-import com.baidu.tieba.cz4;
-import com.baidu.tieba.t1a;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.y5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,7 +25,7 @@ import java.util.Iterator;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class OpenWebViewDispatcher implements t1a {
+public class OpenWebViewDispatcher implements y5a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String URL_PREFIX = "com.baidu.tieba://unidispatch/tbwebview";
     public transient /* synthetic */ FieldHolder $fh;
@@ -44,7 +44,7 @@ public class OpenWebViewDispatcher implements t1a {
         }
     }
 
-    @Override // com.baidu.tieba.t1a
+    @Override // com.baidu.tieba.y5a
     public void dispatch(JSONObject jSONObject, Context context) {
         TbPageContext currentPageContext;
         String str;
@@ -89,7 +89,7 @@ public class OpenWebViewDispatcher implements t1a {
             } else {
                 bundle = null;
             }
-            cz4 j = cz4.j(context, optString);
+            hz4 j = hz4.j(context, optString);
             j.r(optString2);
             j.m(optBoolean);
             j.k(optBoolean2);

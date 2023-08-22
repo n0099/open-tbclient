@@ -5,7 +5,7 @@ import kotlin.collections.CollectionsKt___CollectionsKt;
 import kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor;
 import kotlin.reflect.jvm.internal.impl.load.kotlin.TypeMappingConfiguration;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeMappingConfigurationImpl implements TypeMappingConfiguration<JvmType> {
     public static final TypeMappingConfigurationImpl INSTANCE = new TypeMappingConfigurationImpl();
 

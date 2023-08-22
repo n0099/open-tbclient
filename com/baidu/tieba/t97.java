@@ -1,71 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.SparseArray;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedFeedback;
+import tbclient.FeedbackReason;
 /* loaded from: classes8.dex */
-public class t97 implements g97 {
+public final class t97 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Runnable> a;
-    public boolean b;
 
-    public t97() {
+    public static final r77 a(FeedFeedback feedFeedback, p77 feedExtraData) {
+        InterceptResult invokeLL;
+        t77 t77Var;
+        int i;
+        Object s77Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Runnable runnable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            WeakReference<Runnable> weakReference = this.a;
-            if (weakReference != null) {
-                runnable = weakReference.get();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, feedFeedback, feedExtraData)) == null) {
+            Intrinsics.checkNotNullParameter(feedFeedback, "<this>");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            String type = feedFeedback.type;
+            Intrinsics.checkNotNullExpressionValue(type, "type");
+            String str = feedFeedback.title;
+            String str2 = feedFeedback.button_text;
+            String str3 = feedFeedback.common_id;
+            String str4 = feedFeedback.type;
+            if (Intrinsics.areEqual(str4, ImageViewerConfig.FROM_CONCERN)) {
+                t77Var = new t77(feedExtraData.a().a().get("user_id"), feedExtraData.a().a().get("portrait"));
+            } else if (Intrinsics.areEqual(str4, "recommend_post")) {
+                String str5 = feedExtraData.a().a().get("thread_id");
+                String str6 = feedExtraData.a().a().get("forum_id");
+                List<FeedbackReason> list = feedFeedback.dislike;
+                SparseArray sparseArray = new SparseArray();
+                for (FeedbackReason feedbackReason : list) {
+                    Integer num = feedbackReason.id;
+                    Intrinsics.checkNotNullExpressionValue(num, "reason.id");
+                    sparseArray.put(num.intValue(), feedbackReason.reason);
+                }
+                List<FeedbackReason> list2 = feedFeedback.dislike;
+                SparseArray sparseArray2 = new SparseArray();
+                for (FeedbackReason feedbackReason2 : list2) {
+                    Integer num2 = feedbackReason2.id;
+                    Intrinsics.checkNotNullExpressionValue(num2, "reason.id");
+                    sparseArray2.put(num2.intValue(), feedbackReason2.extra);
+                }
+                String str7 = feedExtraData.a().a().get("weight");
+                String str8 = feedExtraData.a().a().get("source");
+                String str9 = feedExtraData.a().a().get("threadType");
+                if (str9 != null) {
+                    i = Integer.parseInt(str9);
+                } else {
+                    i = 0;
+                }
+                s77Var = new s77(str5, str6, null, sparseArray, sparseArray2, str7, str8, feedExtraData.a().a().get("extra"), i, 4, null);
+                return new r77(type, str, str2, str3, s77Var);
             } else {
-                runnable = null;
+                t77Var = null;
             }
-            if (runnable != null) {
-                runnable.run();
-            }
-            if (runnable != null) {
-                return true;
-            }
-            return false;
+            s77Var = t77Var;
+            return new r77(type, str, str2, str3, s77Var);
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.g97
-    public final void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.b = true;
-            this.a = new WeakReference<>(runnable);
-        }
-    }
-
-    public final void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            Intrinsics.checkNotNullParameter(runnable, "runnable");
-            this.a = new WeakReference<>(runnable);
-        }
+        return (r77) invokeLL.objValue;
     }
 }

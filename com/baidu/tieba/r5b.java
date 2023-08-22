@@ -1,55 +1,128 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.minivideo.plugin.capture.report.ReportConfig;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.data.VideoCategoryClassData;
+import com.baidu.tieba.write.write.work.classdialog.model.GetSelectClassReqMessage;
+import com.baidu.tieba.write.write.work.selecttag.model.GetSelectTagReqMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.AbstractMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class r5b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<String> a;
+    public List<List<String>> b;
+    public VideoCategoryClassData c;
+    public BdUniqueId d;
 
-    public static void a(String str, v5b v5bVar, u5b u5bVar) {
+    public r5b(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, v5bVar, u5bVar) == null) {
-            if (j9b.a) {
-                j9b.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + u5bVar.toString());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            p5b g = m5b.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (u5bVar != null) {
-                    arrayList = new ArrayList();
-                    arrayList.add(new AbstractMap.SimpleEntry("sft", u5bVar.a));
-                    arrayList.add(new AbstractMap.SimpleEntry("bft", u5bVar.b));
-                    arrayList.add(new AbstractMap.SimpleEntry("mem", u5bVar.f));
-                    arrayList.add(new AbstractMap.SimpleEntry("fc", u5bVar.c));
-                    arrayList.add(new AbstractMap.SimpleEntry("time", u5bVar.d + ""));
-                }
-                g.a("perf_record_arperf", str, v5bVar.a, v5bVar.b, v5bVar.c, v5bVar.d, v5bVar.e, null, arrayList);
-            }
+        }
+        this.a = new ArrayList();
+        this.b = new ArrayList();
+        this.c = new VideoCategoryClassData();
+        this.d = bdUniqueId;
+    }
+
+    public VideoCategoryClassData a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
+            this.c.setFirstClass(this.a.get(i));
+            this.c.setSecondClass(this.b.get(i).get(i2));
+            this.c.getTags().clear();
+            return this.c;
+        }
+        return (VideoCategoryClassData) invokeII.objValue;
+    }
+
+    public List<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<List<String>> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public ArrayList<String> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.getTags();
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            GetSelectClassReqMessage getSelectClassReqMessage = new GetSelectClassReqMessage();
+            getSelectClassReqMessage.setTag(this.d);
+            MessageManager.getInstance().sendMessage(getSelectClassReqMessage);
         }
     }
 
-    public static void b(String str, String str2) {
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (j9b.a) {
-                j9b.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
-            }
-            p5b g = m5b.c().g();
-            if (g != null) {
-                ArrayList arrayList = null;
-                if (str2 != null) {
-                    arrayList = new ArrayList(3);
-                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", h9b.a(m5b.c().getContext())));
-                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(h9b.b(m5b.c().getContext()))));
-                }
-                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            GetSelectTagReqMessage getSelectTagReqMessage = new GetSelectTagReqMessage();
+            getSelectTagReqMessage.setTag(this.d);
+            getSelectTagReqMessage.setFirstClass(this.c.getFirstClass());
+            getSelectTagReqMessage.setSecondClass(this.c.getSecondClass());
+            MessageManager.getInstance().sendMessage(getSelectTagReqMessage);
+        }
+    }
+
+    public void g(List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.a.clear();
+            this.a.addAll(list);
+        }
+    }
+
+    public void h(List<List<String>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+            this.b.clear();
+            this.b.addAll(list);
+        }
+    }
+
+    public void i(VideoCategoryClassData videoCategoryClassData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, videoCategoryClassData) == null) {
+            this.c = videoCategoryClassData;
         }
     }
 }

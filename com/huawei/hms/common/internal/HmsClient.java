@@ -17,13 +17,13 @@ import com.huawei.hms.support.api.entity.core.CommonCode;
 import com.huawei.hms.support.log.HMSLog;
 import java.lang.ref.WeakReference;
 import org.json.JSONObject;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class HmsClient extends BaseHmsClient implements AnyClient {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "HmsClient";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class BaseAdapterCallBack implements BaseAdapter.BaseCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

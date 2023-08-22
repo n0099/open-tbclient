@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.elementsMaven.EMManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.of5;
 import com.baidu.tieba.tbadkCore.data.FaceGroupInfoData;
+import com.baidu.tieba.vf5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -239,14 +239,14 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
         if (i != 1) {
             if (i != 2) {
                 if (i != 3) {
-                    this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f05ab));
+                    this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f05ad));
                     return;
                 }
                 this.e.setProgress(this.f.getProgress());
                 this.e.setText(String.format(getResources().getString(R.string.item_download_progress), Integer.valueOf(this.f.getProgress())));
                 return;
             }
-            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0707));
+            this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f070f));
             return;
         }
         this.e.setText(getResources().getString(R.string.obfuscated_res_0x7f0f0105));
@@ -326,7 +326,7 @@ public class FaceGroupDownloadLayout extends RelativeLayout implements View.OnCl
                 int dimens = (((getResources().getDisplayMetrics().widthPixels - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds94)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds180)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds75)) - BdUtilHelper.getDimens(TbadkApplication.getInst(), R.dimen.tbds200);
                 TextPaint paint = this.c.getPaint();
                 String name = this.f.getName();
-                this.c.setText(of5.a(name, "..." + j, dimens, paint));
+                this.c.setText(vf5.a(name, "..." + j, dimens, paint));
                 CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921699, Boolean.class, this.f.getId());
                 if (runTask != null && ((Boolean) runTask.getData()).booleanValue()) {
                     this.f.updateStatus(FaceGroupInfoData.Status.FINISH);

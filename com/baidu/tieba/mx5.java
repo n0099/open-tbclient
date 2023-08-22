@@ -1,43 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
-import android.os.MessageQueue;
-import android.text.TextUtils;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.kx5;
-import com.baidu.tieba.log.TbLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.IdRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
-import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public class mx5 {
     public static /* synthetic */ Interceptable $ic;
-    public static List<String> a;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final Activity a;
+    @NonNull
+    public final ViewGroup b;
+    @NonNull
+    public int[] c;
+    @Nullable
+    public c d;
+    @Nullable
+    public d e;
 
     /* loaded from: classes7.dex */
-    public static class a implements kx5.b {
+    public interface c {
+        void a(@NonNull MotionEvent motionEvent);
+    }
+
+    /* loaded from: classes7.dex */
+    public interface d {
+        boolean a();
+    }
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ mx5 a;
 
-        public a(String str) {
+        public a(mx5 mx5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {mx5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,33 +64,32 @@ public class mx5 {
                     return;
                 }
             }
-            this.a = str;
+            this.a = mx5Var;
         }
 
-        @Override // com.baidu.tieba.kx5.b
-        public void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                TbLog defaultLog = DefaultLog.getInstance();
-                defaultLog.i("WebPreheat", "预热成功:" + this.a);
+                this.a.h();
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public static class b implements MessageQueue.IdleHandler {
+    public class b implements View.OnTouchListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ kx5.b c;
+        @NonNull
+        public final List<Rect> a;
+        public final /* synthetic */ mx5 b;
 
-        public b(Context context, String str, kx5.b bVar) {
+        public b(mx5 mx5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context, str, bVar};
+                Object[] objArr = {mx5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -83,111 +99,125 @@ public class mx5 {
                     return;
                 }
             }
-            this.a = context;
-            this.b = str;
-            this.c = bVar;
+            this.b = mx5Var;
+            this.a = new ArrayList();
         }
 
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
+        @Override // android.view.View.OnTouchListener
+        @SuppressLint({"ClickableViewAccessibility"})
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                kx5 a = lx5.b().a(this.a.getApplicationContext(), this.b);
-                if (a != null) {
-                    a.b(this.c);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (this.b.e != null && !this.b.e.a()) {
                     return false;
+                }
+                this.a.clear();
+                int[] iArr = new int[2];
+                int[] iArr2 = this.b.c;
+                int length = iArr2.length;
+                int i = 0;
+                while (true) {
+                    z = true;
+                    if (i >= length) {
+                        break;
+                    }
+                    View findViewById = this.b.a.findViewById(iArr2[i]);
+                    if (findViewById != null) {
+                        findViewById.getLocationOnScreen(iArr);
+                        this.a.add(new Rect(iArr[0], iArr[1], iArr[0] + findViewById.getWidth(), iArr[1] + findViewById.getHeight()));
+                    }
+                    i++;
+                }
+                if (motionEvent.getAction() == 0) {
+                    int rawX = (int) motionEvent.getRawX();
+                    int rawY = (int) motionEvent.getRawY();
+                    Iterator<Rect> it = this.a.iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            if (it.next().contains(rawX, rawY)) {
+                                break;
+                            }
+                        } else {
+                            z = false;
+                            break;
+                        }
+                    }
+                    if (!z && this.b.d != null) {
+                        this.b.d.a(motionEvent);
+                    }
                 }
                 return false;
             }
-            return invokeV.booleanValue;
+            return invokeLL.booleanValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947988063, "Lcom/baidu/tieba/mx5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947988063, "Lcom/baidu/tieba/mx5;");
+    public mx5(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new ArrayList();
+        this.c = new int[0];
+        this.a = activity;
+        this.b = (ViewGroup) activity.findViewById(16908290);
     }
 
-    public static String a(String str) {
+    public static mx5 g(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            for (String str2 : a) {
-                if (str2 != null && str != null && str.startsWith(str2)) {
-                    return str2;
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
+            return new mx5(activity);
         }
-        return (String) invokeL.objValue;
+        return (mx5) invokeL.objValue;
     }
 
-    public static void c(JSONArray jSONArray) {
+    @NonNull
+    public mx5 i(@Nullable c cVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, jSONArray) != null) || jSONArray == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar)) == null) {
+            this.d = cVar;
+            return this;
         }
-        a.clear();
-        for (int i = 0; i < jSONArray.length(); i++) {
-            try {
-                a.add((String) jSONArray.get(i));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return;
-            }
+        return (mx5) invokeL.objValue;
+    }
+
+    @NonNull
+    public mx5 j(@IdRes int... iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, iArr)) == null) {
+            this.c = iArr;
+            return this;
+        }
+        return (mx5) invokeL.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.post(new a(this));
         }
     }
 
-    public static void b(WebView webView) {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, webView) != null) || webView == null) {
-            return;
-        }
-        webView.getSettings().setJavaScriptEnabled(true);
-        webView.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        webView.getSettings().setAllowFileAccess(true);
-        webView.getSettings().setDatabaseEnabled(true);
-        webView.getSettings().setDomStorageEnabled(true);
-        webView.getSettings().setTextZoom(100);
-        webView.getSettings().setDatabasePath(webView.getContext().getApplicationContext().getDir("databases", 0).getAbsolutePath());
-        webView.setHorizontalScrollBarEnabled(false);
-        webView.setHorizontalScrollbarOverlay(false);
-    }
-
-    public static boolean d(Context context, String str, kx5.b bVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, bVar)) == null) {
-            if (!TextUtils.isEmpty(str) && !lx5.b().d(str)) {
-                Looper.myQueue().addIdleHandler(new b(context, str, bVar));
-                return true;
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void e(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, jSONArray) != null) || jSONArray == null) {
-            return;
-        }
-        int length = jSONArray.length();
-        for (int i = 0; i < length; i++) {
-            String optString = jSONArray.optString(i);
-            d(TbadkCoreApplication.getInst(), optString, new a(optString));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            View view2 = new View(this.a);
+            view2.setOnTouchListener(new b(this));
+            this.b.addView(view2, new ViewGroup.LayoutParams(-1, -1));
         }
     }
 }

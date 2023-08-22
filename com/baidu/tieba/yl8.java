@@ -1,27 +1,113 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.adapter.ResponsePanelEmojiAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.emoji.data.Reaction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class yl8 extends fx5 {
+public class yl8 implements sy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @SerializedName(alternate = {"mask_type"}, value = "mask_id")
-    public int b;
-    @SerializedName("content")
-    public String c;
-    @SerializedName("is_use_default_text")
-    public boolean d;
+    @Nullable
+    public LinearLayout a;
+    @NonNull
+    public final vl8 b;
+    public ImageView c;
+    @Nullable
+    public ResponsePanelEmojiAdapter d;
 
-    public yl8() {
+    /* loaded from: classes8.dex */
+    public class a extends LinearLayoutManager {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
+        public boolean canScrollHorizontally() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(yl8 yl8Var, Context context, int i, boolean z) {
+            super(context, i, z);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yl8Var, context, Integer.valueOf(i), Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Boolean) objArr2[2]).booleanValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes8.dex */
+    public class b implements ko8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yl8 a;
+
+        public b(yl8 yl8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yl8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yl8Var;
+        }
+
+        @Override // com.baidu.tieba.ko8
+        public void a(@NonNull Reaction reaction) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, reaction) == null) {
+                this.a.b.K(reaction);
+                this.a.b.A();
+            }
+        }
+    }
+
+    public yl8(@NonNull vl8 vl8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vl8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,54 +117,65 @@ public class yl8 extends fx5 {
                 return;
             }
         }
-        this.d = true;
+        this.b = vl8Var;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void c(@NonNull List<Reaction> list) {
+        ResponsePanelEmojiAdapter responsePanelEmojiAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.c = str;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && (responsePanelEmojiAdapter = this.d) != null) {
+            responsePanelEmojiAdapter.o(list);
         }
     }
 
-    public void g(int i) {
+    public void d(boolean z) {
+        LinearLayout linearLayout;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.b = i;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || (linearLayout = this.a) == null) {
+            return;
+        }
+        if (z) {
+            i = 0;
+        } else {
+            i = 8;
+        }
+        linearLayout.setVisibility(i);
+    }
+
+    @Override // com.baidu.tieba.sy6
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f0800e2, R.color.CAM_X0108, null);
         }
     }
 
-    public void h(boolean z) {
+    public void b(@NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.d = z;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            LinearLayout linearLayout = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090e95);
+            this.a = linearLayout;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) linearLayout.getLayoutParams();
+            int i = go8.a;
+            layoutParams.leftMargin = i;
+            layoutParams.rightMargin = i;
+            this.a.setLayoutParams(layoutParams);
+            RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091e5f);
+            this.d = new ResponsePanelEmojiAdapter(this.b.getPageContext().getOrignalPage().getPageContext());
+            a aVar = new a(this, this.b.getPageContext().getPageActivity(), 0, false);
+            this.d.p(new b(this));
+            recyclerView.setLayoutManager(aVar);
+            recyclerView.setAdapter(this.d);
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0917a1);
+            this.c = imageView;
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) imageView.getLayoutParams();
+            int i2 = go8.b;
+            layoutParams2.leftMargin = i2;
+            layoutParams2.rightMargin = i2;
+            this.c.setLayoutParams(layoutParams2);
+            this.c.setOnClickListener(this.b);
+            onChangeSkinType(TbadkApplication.getInst().getSkinType());
         }
     }
 }

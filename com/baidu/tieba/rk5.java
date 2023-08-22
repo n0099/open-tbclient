@@ -1,61 +1,42 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class rk5 {
+public final class rk5 extends et6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static List<sk5> a(zk5 zk5Var) throws IOException {
-        InterceptResult invokeL;
+    public rk5(String tid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, zk5Var)) == null) {
-            if (zk5Var.c("\u0089PNG") && zk5Var.c("\r\n\u001a\n")) {
-                ArrayList arrayList = new ArrayList();
-                while (zk5Var.available() > 0) {
-                    arrayList.add(b(zk5Var));
-                }
-                return arrayList;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            throw new IOException("APNG Format error");
         }
-        return (List) invokeL.objValue;
+        Intrinsics.checkNotNullParameter(tid, "tid");
+        this.a = tid;
     }
 
-    public static sk5 b(zk5 zk5Var) throws IOException {
-        InterceptResult invokeL;
-        sk5 sk5Var;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, zk5Var)) == null) {
-            int position = zk5Var.position();
-            int e = zk5Var.e();
-            int d = zk5Var.d();
-            if (d == ok5.d) {
-                sk5Var = new ok5();
-            } else if (d == tk5.k) {
-                sk5Var = new tk5();
-            } else if (d == uk5.c) {
-                sk5Var = new uk5();
-            } else if (d == vk5.c) {
-                sk5Var = new vk5();
-            } else if (d == wk5.c) {
-                sk5Var = new wk5();
-            } else if (d == xk5.f) {
-                sk5Var = new xk5();
-            } else {
-                sk5Var = new sk5();
-            }
-            sk5Var.b = position;
-            sk5Var.a = e;
-            sk5Var.c(zk5Var);
-            zk5Var.e();
-            return sk5Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (sk5) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

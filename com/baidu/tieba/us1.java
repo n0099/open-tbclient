@@ -1,37 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import android.content.Context;
+import android.view.View;
+import android.widget.FrameLayout;
 /* loaded from: classes8.dex */
-public class us1 implements pu1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface us1 {
+    boolean a(View view2, j13 j13Var);
 
-    @Override // com.baidu.tieba.pu1
-    public boolean a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    boolean b();
 
-    public us1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean c(View view2, j13 j13Var);
+
+    boolean d(View view2);
+
+    void e(cq3 cq3Var);
+
+    void f(cq3 cq3Var);
+
+    void g(boolean z);
+
+    Context getContext();
+
+    FrameLayout getRootView();
+
+    boolean h();
+
+    boolean removeView(View view2);
 }

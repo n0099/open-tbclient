@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class j8a {
+public class j8a implements k10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public ArrayList<j8a> e;
 
     public j8a() {
         Interceptable interceptable = $ic;
@@ -33,29 +29,13 @@ public class j8a {
         }
     }
 
-    public void a(JSONObject jSONObject) throws JSONException {
+    @Override // com.baidu.tieba.k10
+    public String getAppVersion() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            this.a = jSONObject.optString(ForumListActivityConfig.KEY_MENU_TYPE);
-            this.b = jSONObject.optString("menu_name");
-            this.c = jSONObject.optString("menu_id");
-            String str = null;
-            String optString = jSONObject.optString("default_logo_url", null);
-            this.d = optString;
-            if (optString != null) {
-                str = this.d + "?v=2";
-            }
-            this.d = str;
-            if (jSONObject.has("child_menu_list")) {
-                ArrayList<j8a> arrayList = new ArrayList<>();
-                JSONArray optJSONArray = jSONObject.optJSONArray("child_menu_list");
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    j8a j8aVar = new j8a();
-                    j8aVar.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(j8aVar);
-                }
-                this.e = arrayList;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return TbConfig.getVersion();
         }
+        return (String) invokeV.objValue;
     }
 }

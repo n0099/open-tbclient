@@ -1,75 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
-import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes8.dex */
-public final class us8 {
+public class us8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdTypeRecyclerView a;
+    public ArrayList<bn> b;
+    public List<om> c;
+    public ws8 d;
+    public ws8 e;
+    public ws8 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948221679, "Lcom/baidu/tieba/us8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public us8(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948221679, "Lcom/baidu/tieba/us8;");
+        this.c = new LinkedList();
+        if (tbPageContext != null && bdTypeRecyclerView != null) {
+            this.a = bdTypeRecyclerView;
+            b(tbPageContext);
         }
     }
 
-    @JvmStatic
-    public static final void a(ImMessageCenterShowItemData imMessageCenterShowItemData, Context context, BdUniqueId uniqueId) {
-        int i;
+    public void a(int i) {
+        BdTypeRecyclerView bdTypeRecyclerView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, imMessageCenterShowItemData, context, uniqueId) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(uniqueId, "uniqueId");
-            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_HOME_PAGE_MESSGAE_ITEM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_locate", "1");
-            Intrinsics.checkNotNull(imMessageCenterShowItemData);
-            TiebaStatic.log(param.param("obj_param1", imMessageCenterShowItemData.getUnReadCount()).param(TiebaStatic.Params.FRIEND_UID, imMessageCenterShowItemData.getFriendId()));
-            if (imMessageCenterShowItemData.getUnReadCount() > 0) {
-                be5.p0().i0(be5.p0().x() - imMessageCenterShowItemData.getUnReadCount());
-                imMessageCenterShowItemData.setUnReadCount(0);
-            }
-            try {
-                String friendId = imMessageCenterShowItemData.getFriendId();
-                Intrinsics.checkNotNullExpressionValue(friendId, "data.friendId");
-                long parseLong = Long.parseLong(friendId);
-                TiebaStatic.log("tab_msg_personal_chat_click");
-                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), TbConfig.ST_TYPE_PCHAT, null, 1, "st_param", "1");
-                if (imMessageCenterShowItemData.getRelation() == 1) {
-                    i = 1;
-                } else {
-                    i = 0;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bdTypeRecyclerView = this.a) != null) {
+            bdTypeRecyclerView.removeItem(i);
+        }
+    }
+
+    public void d(ln lnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lnVar) == null) {
+            for (om omVar : this.c) {
+                if (omVar != null) {
+                    omVar.setOnAdapterItemClickListener(lnVar);
                 }
-                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(context, parseLong, imMessageCenterShowItemData.getFriendName(), imMessageCenterShowItemData.getFriendNameShow(), imMessageCenterShowItemData.getFriendPortrait(), 0, i);
-                personalChatActivityConfig.setFrom(3);
-                personalChatActivityConfig.setLastUniqueId(uniqueId.getId());
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, personalChatActivityConfig));
-            } catch (Exception e) {
-                e.printStackTrace();
             }
+        }
+    }
+
+    public void e(ArrayList<bn> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
+            this.a.setData(arrayList);
+            this.b = arrayList;
+        }
+    }
+
+    public void f(mn mnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, mnVar) == null) {
+            for (om omVar : this.c) {
+                if (omVar != null) {
+                    omVar.setOnAdapterItemLongClickListener(mnVar);
+                }
+            }
+        }
+    }
+
+    public void g(jo6 jo6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jo6Var) == null) {
+            this.f.x(jo6Var);
+            this.e.x(jo6Var);
+            this.d.x(jo6Var);
+        }
+    }
+
+    public final void b(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+            ws8 ws8Var = new ws8(tbPageContext, vs8.I);
+            this.d = ws8Var;
+            ws8Var.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
+            ws8 ws8Var2 = new ws8(tbPageContext, vs8.H);
+            this.e = ws8Var2;
+            ws8Var2.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
+            ws8 ws8Var3 = new ws8(tbPageContext, vs8.G);
+            this.f = ws8Var3;
+            ws8Var3.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
+            this.c.add(this.f);
+            this.c.add(this.e);
+            this.c.add(this.d);
+            this.a.addAdapters(this.c);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.getAdapter().notifyDataSetChanged();
         }
     }
 }

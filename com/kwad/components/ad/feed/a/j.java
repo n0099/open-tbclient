@@ -45,14 +45,14 @@ public final class j extends a implements View.OnClickListener {
 
     @Override // com.kwad.components.core.widget.b
     public final void bg() {
-        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091252);
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912c9)).setRatio(0.66f);
-        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f091258);
+        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f091268);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0912df)).setRatio(0.66f);
+        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f09126e);
         this.dI = roundAngleImageView;
         roundAngleImageView.setRadius(com.kwad.sdk.b.kwai.a.a(getContext(), 3.0f));
-        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091254);
-        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f09126b);
-        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912bf);
+        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f09126a);
+        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091281);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0912d5);
     }
 
     @Override // com.kwad.components.core.widget.b
@@ -87,7 +87,7 @@ public final class j extends a implements View.OnClickListener {
 
     @Override // com.kwad.components.core.widget.b
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d049d;
+        return R.layout.obfuscated_res_0x7f0d04a4;
     }
 
     @Override // android.view.View.OnClickListener

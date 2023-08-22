@@ -3,11 +3,11 @@ package com.baidu.tieba.tracker;
 import androidx.fragment.app.Fragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.eja;
-import com.baidu.tieba.fja;
-import com.baidu.tieba.jja;
-import com.baidu.tieba.xia;
-import com.baidu.tieba.yia;
+import com.baidu.tieba.gna;
+import com.baidu.tieba.hna;
+import com.baidu.tieba.nna;
+import com.baidu.tieba.ona;
+import com.baidu.tieba.sna;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ import kotlin.jvm.internal.Intrinsics;
 public final class Monitor {
     public static /* synthetic */ Interceptable $ic;
     public static final Monitor a;
-    public static Map<String, fja<jja>> b;
+    public static Map<String, ona<sna>> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -59,15 +59,15 @@ public final class Monitor {
         }
     }
 
-    public final fja<jja> a(Fragment fragment, final String pid) {
+    public final ona<sna> a(Fragment fragment, final String pid) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, fragment, pid)) == null) {
             Intrinsics.checkNotNullParameter(fragment, "fragment");
             Intrinsics.checkNotNullParameter(pid, "pid");
-            fja<jja> fjaVar = b.get(pid);
-            if (fjaVar == null) {
-                fjaVar = new eja<>(fragment, new Function1<jja, yia>(pid) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$1
+            ona<sna> onaVar = b.get(pid);
+            if (onaVar == null) {
+                onaVar = new nna<>(fragment, new Function1<sna, hna>(pid) { // from class: com.baidu.tieba.tracker.Monitor$get$monitor$1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String $pid;
@@ -95,30 +95,30 @@ public final class Monitor {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final yia invoke(jja it) {
+                    public final hna invoke(sna it) {
                         InterceptResult invokeL;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, it)) == null) {
                             Intrinsics.checkNotNullParameter(it, "it");
-                            return xia.a.a(this.$pid);
+                            return gna.a.a(this.$pid);
                         }
-                        return (yia) invokeL.objValue;
+                        return (hna) invokeL.objValue;
                     }
                 });
             }
-            b.put(pid, fjaVar);
-            return fjaVar;
+            b.put(pid, onaVar);
+            return onaVar;
         }
-        return (fja) invokeLL.objValue;
+        return (ona) invokeLL.objValue;
     }
 
-    public final fja<jja> b(String pid) {
+    public final ona<sna> b(String pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pid)) == null) {
             Intrinsics.checkNotNullParameter(pid, "pid");
             return b.remove(pid);
         }
-        return (fja) invokeL.objValue;
+        return (ona) invokeL.objValue;
     }
 }

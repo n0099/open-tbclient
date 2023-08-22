@@ -1,166 +1,185 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.tail.AdVideoTailFrameView;
 import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class ey0 extends wx0 implements AdVideoTailFrameView.b {
+public class ey0 implements nx0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdVideoTailFrameView b;
-    public Object c;
+    public int a;
+    public int b;
 
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ey0(gz0 gz0Var, Object obj) {
-        super(gz0Var);
+    public ey0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gz0Var, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((gz0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = obj;
+        this.a = 0;
+        this.b = 0;
     }
 
-    @Override // com.baidu.nadcore.player.tail.AdVideoTailFrameView.b
-    public void a() {
+    @Override // com.baidu.tieba.nx0
+    public void a(g01 g01Var) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            boolean z = this.c instanceof rr0;
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null && this.c != null) {
-            g();
-        }
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AdVideoTailFrameView adVideoTailFrameView = this.b;
-            if (adVideoTailFrameView != null && adVideoTailFrameView.q()) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, g01Var) == null) && g01Var != null && !TextUtils.isEmpty(g01Var.g)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            if (!TextUtils.isEmpty(g01Var.f)) {
+                clogBuilder.v(g01Var.f);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l() {
-        AdVideoTailFrameView adVideoTailFrameView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (adVideoTailFrameView = this.b) != null) {
-            adVideoTailFrameView.y();
-        }
-    }
-
-    public void m() {
-        AdVideoTailFrameView adVideoTailFrameView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (adVideoTailFrameView = this.b) != null) {
-            adVideoTailFrameView.t();
-        }
-    }
-
-    @Override // com.baidu.nadcore.player.tail.AdVideoTailFrameView.b
-    public void b() {
-        gz0 gz0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Object obj = this.c;
-            if (obj instanceof rr0) {
-                if ("ad_full_video".equals(((rr0) obj).s)) {
-                    if (this.a != null && h() && this.a.O()) {
-                        if (this.a.u().V0()) {
-                            this.a.H(gw0.w(PlayerEvent.ACTION_ON_COMPLETE));
+            clogBuilder.p(g01Var.g);
+            String c = g01Var.a.c();
+            char c2 = 65535;
+            switch (c.hashCode()) {
+                case -1530009462:
+                    if (c.equals(ControlEvent.ACTION_SYNC_PROGRESS)) {
+                        c2 = 5;
+                        break;
+                    }
+                    break;
+                case 154871702:
+                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c2 = 4;
+                        break;
+                    }
+                    break;
+                case 720027695:
+                    if (c.equals(ControlEvent.ACTION_PAUSE)) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+                case 723345051:
+                    if (c.equals(ControlEvent.ACTION_START)) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+                case 906917140:
+                    if (c.equals(ControlEvent.ACTION_RESUME)) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case 2145795460:
+                    if (c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        if (c2 != 3 && c2 != 4) {
+                            if (c2 == 5) {
+                                int g = g01Var.a.g(1);
+                                int g2 = g01Var.a.g(2);
+                                if (g == 0 && g2 != 0 && (i = this.b) != 0 && i >= g2 - 2) {
+                                    clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).l(String.valueOf(g2)).m(String.valueOf(g2)).n(g01Var.e);
+                                    t31.e(clogBuilder);
+                                    ClogBuilder p = new ClogBuilder().y(ClogBuilder.LogType.VIDEO_START).k(g01Var.b).m(g01Var.d).p(g01Var.g);
+                                    if (!TextUtils.isEmpty(g01Var.f)) {
+                                        p.v(g01Var.f);
+                                    }
+                                    t31.e(p);
+                                }
+                                this.b = g;
+                                return;
+                            }
+                            return;
+                        } else if (this.a < 1) {
+                            return;
                         } else {
-                            this.a.u().y().G(0);
+                            try {
+                                if (this.b > Integer.parseInt(g01Var.c)) {
+                                    clogBuilder.l(g01Var.d);
+                                } else {
+                                    clogBuilder.l(g01Var.c);
+                                }
+                            } catch (NumberFormatException unused) {
+                                clogBuilder.l(g01Var.c);
+                            }
+                            clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).m(g01Var.d).n(g01Var.e).o("0");
+                            this.a--;
+                            t31.e(clogBuilder);
+                            return;
                         }
                     }
-                } else if ("ad_append_video".equals(((rr0) this.c).s) && (gz0Var = this.a) != null && gz0Var.O()) {
-                    this.b.u(ClogBuilder.LogType.CLOSE.type, "", "");
-                    this.a.R(8);
-                    this.a.P();
-                    this.a.H(fw0.w("layer_event_ad_finish"));
-                    if (!this.a.u().a0()) {
-                        this.a.H(gw0.w(PlayerEvent.ACTION_ON_COMPLETE));
-                    }
+                    clogBuilder.y(ClogBuilder.LogType.VIDEO_RESUME).k(g01Var.b).m(g01Var.d);
+                    t31.e(clogBuilder);
+                    return;
                 }
+                boolean d = g01Var.a.d(7);
+                clogBuilder.l(g01Var.c).m(g01Var.d).n(g01Var.e);
+                if (d) {
+                    clogBuilder.y(ClogBuilder.LogType.VIDEO_PAUSE);
+                } else {
+                    clogBuilder.y(ClogBuilder.LogType.VIDEO_COMPLETED).o("1");
+                }
+                t31.e(clogBuilder);
+                return;
             }
+            clogBuilder.y(ClogBuilder.LogType.VIDEO_START).k(g01Var.b).m(g01Var.d);
+            this.b = 0;
+            this.a++;
+            t31.e(clogBuilder);
         }
     }
 
-    public final void g() {
+    @Override // com.baidu.tieba.nx0
+    public void b(g01 g01Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a == null) {
-            return;
-        }
-        if (this.b == null) {
-            AdVideoTailFrameView adVideoTailFrameView = new AdVideoTailFrameView(this.a.getContentView().getContext(), this.a, d());
-            this.b = adVideoTailFrameView;
-            this.a.N(adVideoTailFrameView);
-        }
-        this.b.n(d());
-        this.b.setCallBack(this);
-        Object obj = this.c;
-        if (obj != null) {
-            this.b.setData(obj);
-            this.b.x();
-        }
-    }
-
-    public final boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            gz0 gz0Var = this.a;
-            if (gz0Var != null && gz0Var.u().o1() != null && this.a.u().o1().getVideoAd() != null && this.a.u().o1().getVideoAd().fullItemAdData != null) {
-                return true;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g01Var) == null) && g01Var != null && g01Var.a != null && !TextUtils.isEmpty(g01Var.g)) {
+            String c = g01Var.a.c();
+            char c2 = 65535;
+            int hashCode = c.hashCode();
+            if (hashCode != 154871702) {
+                if (hashCode != 1370689931) {
+                    if (hashCode == 2145795460 && c.equals(StatisticsEvent.ACTION_PLAYER_STOP)) {
+                        c2 = 1;
+                    }
+                } else if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
+                    c2 = 0;
+                }
+            } else if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                c2 = 2;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j(boolean z) {
-        AdVideoTailFrameView adVideoTailFrameView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048583, this, z) == null) && (adVideoTailFrameView = this.b) != null) {
-            adVideoTailFrameView.s(z);
-        }
-    }
-
-    public void k(boolean z) {
-        AdVideoTailFrameView adVideoTailFrameView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (adVideoTailFrameView = this.b) != null) {
-            adVideoTailFrameView.n(z);
+            if (c2 != 0) {
+                if (c2 == 1 || c2 == 2) {
+                    h01.b.b();
+                    return;
+                }
+                return;
+            }
+            m01 a = h01.b.a();
+            if (a != null) {
+                a.c(g01Var.g);
+                a.e(g01Var.b);
+                a.d(g01Var.h);
+                a.b(g01Var.d);
+                h01.b.c(a);
+            }
         }
     }
 }

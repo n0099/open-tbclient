@@ -6,7 +6,7 @@ import kotlin.reflect.jvm.internal.impl.types.model.KotlinTypeMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.SimpleTypeMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeConstructorMarker;
 import kotlin.reflect.jvm.internal.impl.types.model.TypeParameterMarker;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class InlineClassMappingKt {
     public static final KotlinTypeMarker computeExpandedTypeForInlineClass(TypeSystemCommonBackendContext typeSystemCommonBackendContext, KotlinTypeMarker kotlinTypeMarker) {
         return computeExpandedTypeInner(typeSystemCommonBackendContext, kotlinTypeMarker, new HashSet());

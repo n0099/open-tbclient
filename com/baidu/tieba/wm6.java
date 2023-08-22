@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes8.dex */
-public class wm6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface wm6 {
+    @Nullable
+    WebResourceResponse a(@NonNull WebView webView, @NonNull WebResourceRequest webResourceRequest);
 }

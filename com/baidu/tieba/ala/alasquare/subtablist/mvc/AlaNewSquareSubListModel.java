@@ -12,12 +12,12 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.ad6;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListRequestMessage;
 import com.baidu.tieba.ala.alasquare.subtablist.message.AlaNewSquareSubListResponseMessage;
-import com.baidu.tieba.i96;
-import com.baidu.tieba.yb6;
-import com.baidu.tieba.ym;
-import com.baidu.tieba.zb6;
+import com.baidu.tieba.bd6;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.ka6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +50,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
     public int k;
     public List<String> l;
     public List<ThreadData> m;
-    public List<ym> n;
+    public List<bn> n;
     public boolean o;
     public b p;
     public BdUniqueId q;
@@ -171,7 +171,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         u = new HashMap<>();
     }
 
-    public List<ym> b0() {
+    public List<bn> b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -386,41 +386,41 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
             int size = list.size();
             for (int i = 0; i < size; i += 2) {
                 if (this.o) {
-                    yb6 yb6Var = new yb6();
-                    i96 i96Var = new i96();
-                    i96Var.e = this.i;
-                    i96Var.b = this.e;
-                    i96Var.c = this.d;
-                    i96Var.d = list.get(i);
-                    yb6Var.a = i96Var;
+                    ad6 ad6Var = new ad6();
+                    ka6 ka6Var = new ka6();
+                    ka6Var.e = this.i;
+                    ka6Var.b = this.e;
+                    ka6Var.c = this.d;
+                    ka6Var.d = list.get(i);
+                    ad6Var.a = ka6Var;
                     int i2 = i + 1;
                     if (i2 < size) {
-                        i96 i96Var2 = new i96();
-                        i96Var2.e = this.i;
-                        i96Var2.b = this.e;
-                        i96Var2.c = this.d;
-                        i96Var2.d = list.get(i2);
-                        yb6Var.b = i96Var2;
+                        ka6 ka6Var2 = new ka6();
+                        ka6Var2.e = this.i;
+                        ka6Var2.b = this.e;
+                        ka6Var2.c = this.d;
+                        ka6Var2.d = list.get(i2);
+                        ad6Var.b = ka6Var2;
                     }
-                    this.n.add(yb6Var);
+                    this.n.add(ad6Var);
                 } else {
-                    zb6 zb6Var = new zb6();
-                    i96 i96Var3 = new i96();
-                    i96Var3.e = this.i;
-                    i96Var3.b = this.e;
-                    i96Var3.c = this.d;
-                    i96Var3.d = list.get(i);
-                    zb6Var.a = i96Var3;
+                    bd6 bd6Var = new bd6();
+                    ka6 ka6Var3 = new ka6();
+                    ka6Var3.e = this.i;
+                    ka6Var3.b = this.e;
+                    ka6Var3.c = this.d;
+                    ka6Var3.d = list.get(i);
+                    bd6Var.a = ka6Var3;
                     int i3 = i + 1;
                     if (i3 < size) {
-                        i96 i96Var4 = new i96();
-                        i96Var4.e = this.i;
-                        i96Var4.b = this.e;
-                        i96Var4.c = this.d;
-                        i96Var4.d = list.get(i3);
-                        zb6Var.b = i96Var4;
+                        ka6 ka6Var4 = new ka6();
+                        ka6Var4.e = this.i;
+                        ka6Var4.b = this.e;
+                        ka6Var4.c = this.d;
+                        ka6Var4.d = list.get(i3);
+                        bd6Var.b = ka6Var4;
                     }
-                    this.n.add(zb6Var);
+                    this.n.add(bd6Var);
                 }
             }
         }

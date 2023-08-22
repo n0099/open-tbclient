@@ -49,8 +49,8 @@ public class BoxAlertDialog extends BaseDialog {
     /* loaded from: classes.dex */
     public static class Builder {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int DIALOG_NEGATIVE_TEXT_CANCEL = 2131690900;
-        public static final int DIALOG_POSITIVE_TEXT_OK = 2131690904;
+        public static final int DIALOG_NEGATIVE_TEXT_CANCEL = 2131690902;
+        public static final int DIALOG_POSITIVE_TEXT_OK = 2131690906;
         public transient /* synthetic */ FieldHolder $fh;
         public int mBtnHeight;
         public Context mContext;
@@ -101,7 +101,7 @@ public class BoxAlertDialog extends BaseDialog {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65538, this) == null) {
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908ba);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908bf);
                 this.mDialogElement.mBtnPanelLayout.setLayoutParams(layoutParams);
             }
         }
@@ -193,12 +193,12 @@ public class BoxAlertDialog extends BaseDialog {
         private void updateDialogUI() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-                int color = getAlertDialogResources().getColor(R.color.obfuscated_res_0x7f060719);
-                int color2 = getAlertDialogResources().getColor(R.color.obfuscated_res_0x7f060715);
-                int color3 = getAlertDialogResources().getColor(R.color.obfuscated_res_0x7f060715);
-                int color4 = getAlertDialogResources().getColor(R.color.obfuscated_res_0x7f0604c0);
-                int color5 = getAlertDialogResources().getColor(R.color.obfuscated_res_0x7f060716);
-                this.mDialogElement.mDialogLayout.setBackground(getAlertDialogResources().getDrawable(R.drawable.obfuscated_res_0x7f080560));
+                int color = getAlertDialogResources().getColor(R.color.obfuscated_res_0x7f06071f);
+                int color2 = getAlertDialogResources().getColor(R.color.obfuscated_res_0x7f06071b);
+                int color3 = getAlertDialogResources().getColor(R.color.obfuscated_res_0x7f06071b);
+                int color4 = getAlertDialogResources().getColor(R.color.obfuscated_res_0x7f0604c6);
+                int color5 = getAlertDialogResources().getColor(R.color.obfuscated_res_0x7f06071c);
+                this.mDialogElement.mDialogLayout.setBackground(getAlertDialogResources().getDrawable(R.drawable.obfuscated_res_0x7f080562));
                 this.mDialogElement.mTitle.setTextColor(color);
                 this.mDialogElement.mMessage.setTextColor(color4);
                 DialogElement dialogElement = this.mDialogElement;
@@ -219,12 +219,12 @@ public class BoxAlertDialog extends BaseDialog {
                 this.mDialogElement.mDivider2.setBackgroundColor(color5);
                 this.mDialogElement.mDivider3.setBackgroundColor(color5);
                 this.mDialogElement.mDivider4.setBackgroundColor(color5);
-                this.mDialogElement.mPositiveButton.setBackground(ResourcesCompat.getDrawable(getAlertDialogResources(), R.drawable.obfuscated_res_0x7f08055f, null));
-                this.mDialogElement.mNegativeButton.setBackground(ResourcesCompat.getDrawable(getAlertDialogResources(), R.drawable.obfuscated_res_0x7f08055b, null));
-                this.mDialogElement.mNeutralButton.setBackground(ResourcesCompat.getDrawable(getAlertDialogResources(), R.drawable.obfuscated_res_0x7f08055d, null));
+                this.mDialogElement.mPositiveButton.setBackground(ResourcesCompat.getDrawable(getAlertDialogResources(), R.drawable.obfuscated_res_0x7f080561, null));
+                this.mDialogElement.mNegativeButton.setBackground(ResourcesCompat.getDrawable(getAlertDialogResources(), R.drawable.obfuscated_res_0x7f08055d, null));
+                this.mDialogElement.mNeutralButton.setBackground(ResourcesCompat.getDrawable(getAlertDialogResources(), R.drawable.obfuscated_res_0x7f08055f, null));
                 TextView ifOnlyOneBtnGetIt = ifOnlyOneBtnGetIt();
                 if (ifOnlyOneBtnGetIt != null) {
-                    ifOnlyOneBtnGetIt.setBackground(getAlertDialogResources().getDrawable(R.drawable.obfuscated_res_0x7f080559));
+                    ifOnlyOneBtnGetIt.setBackground(getAlertDialogResources().getDrawable(R.drawable.obfuscated_res_0x7f08055b));
                 }
             }
         }
@@ -621,7 +621,7 @@ public class BoxAlertDialog extends BaseDialog {
                 this.mDialogElement.mDialogContent.removeAllViews();
                 this.mDialogElement.mDialogContent.addView(view2);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908ae);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908b3);
                 this.mDialogElement.mBtnPanelLayout.setLayoutParams(layoutParams);
                 return this;
             }
@@ -959,7 +959,7 @@ public class BoxAlertDialog extends BaseDialog {
                 this.mDialogElement.mDialogContent.addView(view2);
                 this.mDialogElement.mDialogContent.setPadding(i, i2, i3, i4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.mBtnHeight);
-                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908ae);
+                layoutParams.addRule(3, R.id.obfuscated_res_0x7f0908b3);
                 this.mDialogElement.mBtnPanelLayout.setLayoutParams(layoutParams);
                 return this;
             }
@@ -1017,23 +1017,23 @@ public class BoxAlertDialog extends BaseDialog {
             this.mPositiveBtnTextColor = -1;
             this.mNegativeBtnTextColor = -1;
             this.mRoot = viewGroup;
-            this.mTitlePanel = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092582);
-            this.mTitle = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908c4);
-            this.mMessage = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b9);
-            this.mMessageContent = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908ba);
-            this.mPositiveButton = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091cee);
-            this.mNegativeButton = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0918ef);
-            this.mNeutralButton = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091904);
-            this.mDivider3 = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908f8);
-            this.mDivider4 = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908f9);
-            this.mDialogContentPanel = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908ae);
-            this.mDialogContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908af);
-            this.mIcon = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b3);
-            this.mDialogLayout = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f092124);
-            this.mDivider2 = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908f7);
-            this.mScrollView = (BoxScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091752);
-            this.mBtnPanelLayout = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0904dc);
-            this.mCustomPanel = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908ae);
+            this.mTitlePanel = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0925b1);
+            this.mTitle = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908c9);
+            this.mMessage = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908be);
+            this.mMessageContent = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908bf);
+            this.mPositiveButton = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091d11);
+            this.mNegativeButton = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091913);
+            this.mNeutralButton = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091928);
+            this.mDivider3 = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908fd);
+            this.mDivider4 = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908fe);
+            this.mDialogContentPanel = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b3);
+            this.mDialogContent = (FrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b4);
+            this.mIcon = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b8);
+            this.mDialogLayout = (RelativeLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f09214a);
+            this.mDivider2 = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908fc);
+            this.mScrollView = (BoxScrollView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091769);
+            this.mBtnPanelLayout = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0904df);
+            this.mCustomPanel = viewGroup.findViewById(R.id.obfuscated_res_0x7f0908b3);
         }
 
         public void setMessageMaxHeight(int i) {
@@ -1121,7 +1121,7 @@ public class BoxAlertDialog extends BaseDialog {
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d023c);
+            setContentView(R.layout.obfuscated_res_0x7f0d023f);
             getWindow().setLayout(-1, -1);
         }
     }

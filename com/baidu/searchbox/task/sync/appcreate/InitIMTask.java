@@ -1,8 +1,8 @@
 package com.baidu.searchbox.task.sync.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.p98;
-import com.baidu.tieba.wr5;
+import com.baidu.tieba.ib8;
+import com.baidu.tieba.ns5;
 /* loaded from: classes4.dex */
 public class InitIMTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -17,8 +17,8 @@ public class InitIMTask extends LaunchTask {
 
     private void initIM() {
         long currentTimeMillis = System.currentTimeMillis();
-        p98.a();
-        wr5.a().o(System.currentTimeMillis() - currentTimeMillis);
+        ib8.a();
+        ns5.a().o(System.currentTimeMillis() - currentTimeMillis);
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

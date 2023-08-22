@@ -7,38 +7,19 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class d77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final Map<String, String> b;
-    public final Map<String, String> c;
-    public String d;
-    public c77 e;
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public d77() {
-        this(null, null, null, null, null, 31, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((String) objArr[0], (Map) objArr[1], (Map) objArr[2], (String) objArr[3], (c77) objArr[4], ((Integer) objArr[5]).intValue(), (DefaultConstructorMarker) objArr[6]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    public final int b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final boolean f;
+    public final List<String> g;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -49,85 +30,88 @@ public final class d77 {
             }
             if (obj instanceof d77) {
                 d77 d77Var = (d77) obj;
-                return Intrinsics.areEqual(this.a, d77Var.a) && Intrinsics.areEqual(this.b, d77Var.b) && Intrinsics.areEqual(this.c, d77Var.c) && Intrinsics.areEqual(this.d, d77Var.d) && Intrinsics.areEqual(this.e, d77Var.e);
+                return Intrinsics.areEqual(this.a, d77Var.a) && this.b == d77Var.b && Intrinsics.areEqual(this.c, d77Var.c) && Intrinsics.areEqual(this.d, d77Var.d) && Intrinsics.areEqual(this.e, d77Var.e) && this.f == d77Var.f && Intrinsics.areEqual(this.g, d77Var.g);
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
+    /* JADX DEBUG: Multi-variable search result rejected for r1v11, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode() : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            int hashCode = ((this.a.hashCode() * 31) + this.b) * 31;
+            String str = this.c;
+            int hashCode2 = (hashCode + (str == null ? 0 : str.hashCode())) * 31;
+            String str2 = this.d;
+            int hashCode3 = (hashCode2 + (str2 == null ? 0 : str2.hashCode())) * 31;
+            String str3 = this.e;
+            int hashCode4 = (hashCode3 + (str3 == null ? 0 : str3.hashCode())) * 31;
+            boolean z = this.f;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            int i2 = (hashCode4 + i) * 31;
+            List<String> list = this.g;
+            return i2 + (list != null ? list.hashCode() : 0);
+        }
+        return invokeV.intValue;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return "StatData(key=" + this.a + ", customMap=" + this.b + ", passthroughMap=" + this.c + ", positionName=" + this.d + ", callback=" + this.e + ')';
+            return "CardHeadImageData(imgUrl=" + this.a + ", imgShape=" + this.b + ", schema=" + this.c + ", pendantUrl=" + this.d + ", cornerUrl=" + this.e + ", showLivingLottie=" + this.f + ", layerImageUrls=" + this.g + ')';
         }
         return (String) invokeV.objValue;
     }
 
-    public d77(String key, Map<String, String> customMap, Map<String, String> passthroughMap, String positionName, c77 callback) {
+    public d77(String imgUrl, int i, String str, String str2, String str3, boolean z, List<String> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {key, customMap, passthroughMap, positionName, callback};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {imgUrl, Integer.valueOf(i), str, str2, str3, Boolean.valueOf(z), list};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(key, "key");
-        Intrinsics.checkNotNullParameter(customMap, "customMap");
-        Intrinsics.checkNotNullParameter(passthroughMap, "passthroughMap");
-        Intrinsics.checkNotNullParameter(positionName, "positionName");
-        Intrinsics.checkNotNullParameter(callback, "callback");
-        this.a = key;
-        this.b = customMap;
-        this.c = passthroughMap;
-        this.d = positionName;
-        this.e = callback;
+        Intrinsics.checkNotNullParameter(imgUrl, "imgUrl");
+        this.a = imgUrl;
+        this.b = i;
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
+        this.f = z;
+        this.g = list;
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ d77(String str, Map map, Map map2, String str2, c77 c77Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(r10, (i & 2) != 0 ? new HashMap() : map, (i & 4) != 0 ? new HashMap() : map2, (i & 8) == 0 ? str2 : "", (i & 16) != 0 ? e77.a() : c77Var);
-        String str3;
-        if ((i & 1) != 0) {
-            str3 = "";
-        } else {
-            str3 = str;
-        }
-    }
-
-    public final c77 a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.e;
         }
-        return (c77) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final Map<String, String> b() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (Map) invokeV.objValue;
+        return invokeV.intValue;
     }
 
     public final String c() {
@@ -139,13 +123,13 @@ public final class d77 {
         return (String) invokeV.objValue;
     }
 
-    public final Map<String, String> d() {
+    public final List<String> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+            return this.g;
         }
-        return (Map) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
     public final String e() {
@@ -157,19 +141,21 @@ public final class d77 {
         return (String) invokeV.objValue;
     }
 
-    public final void f(c77 c77Var) {
+    public final String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, c77Var) == null) {
-            Intrinsics.checkNotNullParameter(c77Var, "<set-?>");
-            this.e = c77Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void g(String str) {
+    public final boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.d = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
         }
+        return invokeV.booleanValue;
     }
 }

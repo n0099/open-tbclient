@@ -1,8 +1,19 @@
 package com.baidu.tieba;
-
-import android.app.Activity;
-import android.os.Bundle;
 /* loaded from: classes6.dex */
 public interface fv1 {
-    void a(Activity activity, Bundle bundle, uy2 uy2Var);
+    void a(String str, ky2 ky2Var);
+
+    int getDuration();
+
+    boolean isPlaying();
+
+    void onRelease();
+
+    void pause();
+
+    void play();
+
+    void seek(int i);
+
+    void stop();
 }

@@ -1,220 +1,115 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.sailor.BdSailorWebView;
 import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes8.dex */
-public class zf2 implements ag2 {
+import java.io.File;
+/* loaded from: classes9.dex */
+public class zf2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<cg2> a;
-    public boolean b;
 
-    /* loaded from: classes8.dex */
-    public static /* synthetic */ class a {
+    /* loaded from: classes9.dex */
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ PrefetchEvent b;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-233765338, "Lcom/baidu/tieba/zf2$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-233765338, "Lcom/baidu/tieba/zf2$a;");
+        public a(String str, PrefetchEvent prefetchEvent) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, prefetchEvent};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[RecordType.values().length];
-            a = iArr;
-            try {
-                iArr[RecordType.APP_ID.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[RecordType.APP_VERSION.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[RecordType.PREFETCH_TYPE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[RecordType.PREFETCH_EVENT.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[RecordType.PREFETCH_OTHER_MSG.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[RecordType.PREFETCH_PRELINK.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
+            this.a = str;
+            this.b = prefetchEvent;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                zf2.d(this.a);
+                zf2.d(zf2.e(this.a, this.b.pageUrl));
             }
         }
     }
 
-    public zf2() {
+    public static void c(@NonNull PrefetchEvent prefetchEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable != null && interceptable.invokeL(65538, null, prefetchEvent) != null) || !e53.a()) {
+            return;
+        }
+        String str = prefetchEvent.appPath;
+        if (TextUtils.isEmpty(str) || !new File(str).exists()) {
+            return;
+        }
+        xn3.k(new a(str, prefetchEvent), "addFileResToMemoryCache");
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        File file = new File(str);
+        if (!file.exists()) {
+            return;
+        }
+        if (file.isDirectory()) {
+            String[] list = file.list();
+            if (list != null && list.length != 0) {
+                for (String str2 : list) {
+                    if (!TextUtils.isEmpty(str2)) {
+                        String str3 = str + File.separator + str2;
+                        File file2 = new File(str3);
+                        if (file2.exists() && file2.isFile() && (str3.endsWith(FileHelper.FILE_CACHE_CSS) || str3.endsWith(".js"))) {
+                            BdSailorWebView.addToWebCache("file://" + str3, true);
+                        }
+                    }
+                }
+            }
+        } else if (file.isFile()) {
+            String absolutePath = file.getAbsolutePath();
+            if (TextUtils.isEmpty(absolutePath)) {
                 return;
             }
-        }
-        this.a = new ArrayList();
-        this.b = false;
-    }
-
-    public void a(String str, UbcFlowEvent ubcFlowEvent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, ubcFlowEvent) != null) || !b(str)) {
-            return;
-        }
-        d43.q(PrefetchEvent.MODULE, str).F(ubcFlowEvent);
-    }
-
-    public void d(String str, boolean z) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048579, this, str, z) != null) || !b(str)) {
-            return;
-        }
-        HybridUbcFlow q = d43.q(PrefetchEvent.MODULE, str);
-        if (z) {
-            str2 = "success";
-        } else {
-            str2 = "fail";
-        }
-        q.E("value", str2);
-    }
-
-    public void e(String str, cg2 cg2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, cg2Var) != null) || !b(str)) {
-            return;
-        }
-        c(d43.q(PrefetchEvent.MODULE, str), cg2Var);
-    }
-
-    public final boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return !TextUtils.isEmpty(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || !b(str)) {
-            return;
-        }
-        d43.s(PrefetchEvent.MODULE, str);
-        d43.q(PrefetchEvent.MODULE, str);
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.b) {
-            this.b = true;
-            HybridUbcFlow q = d43.q(PrefetchEvent.MODULE, str);
-            g(q);
-            q.A();
-            d43.s(PrefetchEvent.MODULE, str);
-        }
-    }
-
-    public final void c(HybridUbcFlow hybridUbcFlow, cg2 cg2Var) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow, cg2Var) == null) && hybridUbcFlow != null && cg2Var != null) {
-            switch (a.a[cg2Var.a.ordinal()]) {
-                case 1:
-                    hybridUbcFlow.D("app_id", cg2Var.b);
-                    return;
-                case 2:
-                    hybridUbcFlow.D("app_version", cg2Var.b);
-                    return;
-                case 3:
-                    if (cg2Var.c) {
-                        str = "hot";
-                    } else {
-                        str = "cold";
-                    }
-                    hybridUbcFlow.E("type", str);
-                    return;
-                case 4:
-                    hybridUbcFlow.E("source", cg2Var.b);
-                    return;
-                case 5:
-                    hybridUbcFlow.D("msg", cg2Var.b);
-                    return;
-                case 6:
-                    synchronized (this.a) {
-                        this.a.add(cg2Var);
-                    }
-                    return;
-                default:
-                    return;
+            if (absolutePath.endsWith(FileHelper.FILE_CACHE_CSS) || absolutePath.endsWith(".js")) {
+                BdSailorWebView.addToWebCache("file://" + absolutePath, true);
             }
         }
     }
 
-    public final void g(HybridUbcFlow hybridUbcFlow) {
-        List<cg2> list;
-        String str;
+    public static String e(@NonNull String str, String str2) {
+        InterceptResult invokeLL;
+        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, hybridUbcFlow) == null) && hybridUbcFlow != null && (list = this.a) != null && list.size() > 0) {
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            synchronized (this.a) {
-                try {
-                    for (cg2 cg2Var : this.a) {
-                        String str2 = cg2Var.b;
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("url", str2);
-                        if (cg2Var.c) {
-                            str = "1";
-                        } else {
-                            str = "0";
-                        }
-                        jSONObject2.put("link", str);
-                        jSONArray.put(jSONObject2);
-                    }
-                    jSONObject.put("links", jSONArray);
-                } catch (JSONException unused) {
-                }
-                this.a.clear();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String f = vo3.f(str2);
+            if (TextUtils.isEmpty(f) || (lastIndexOf = f.lastIndexOf(File.separator)) <= 0) {
+                return null;
             }
-            if (jSONObject.length() > 0) {
-                hybridUbcFlow.D("prelink", jSONObject.toString());
-            }
+            String substring = f.substring(0, lastIndexOf);
+            return str + File.separator + substring;
         }
+        return (String) invokeLL.objValue;
     }
 }

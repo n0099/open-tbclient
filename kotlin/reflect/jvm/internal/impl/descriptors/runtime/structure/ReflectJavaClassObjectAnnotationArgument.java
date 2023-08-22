@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.descriptors.runtime.structure;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaClassObjectAnnotationArgument;
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaType;
 import kotlin.reflect.jvm.internal.impl.name.Name;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ReflectJavaClassObjectAnnotationArgument extends ReflectJavaAnnotationArgument implements JavaClassObjectAnnotationArgument {
     public final Class<?> klass;
 

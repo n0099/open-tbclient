@@ -1,50 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.content.DialogInterface;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.webkit.WebView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.dh2;
-import com.baidu.tieba.ne3;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.aw2;
+import com.baidu.tieba.e92;
+import com.baidu.tieba.ha3;
+import com.baidu.tieba.ma2;
+import com.baidu.tieba.zt2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-@Deprecated
 /* loaded from: classes7.dex */
-public class oe3 extends vc3 {
+public class oe3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements ne3.e {
+    public static class a implements DialogInterface.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ lw2 b;
-        public final /* synthetic */ y03 c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ CallbackHandler e;
-        public final /* synthetic */ ya3 f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ ha2 h;
-        public final /* synthetic */ Context i;
-        public final /* synthetic */ oe3 j;
+        public final /* synthetic */ e92 a;
+        public final /* synthetic */ zc2 b;
+        public final /* synthetic */ jx1 c;
+        public final /* synthetic */ aw2 d;
+        public final /* synthetic */ zt2.g e;
 
-        public a(oe3 oe3Var, String str, lw2 lw2Var, y03 y03Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var, String str2, ha2 ha2Var, Context context) {
+        public a(e92 e92Var, zc2 zc2Var, jx1 jx1Var, aw2 aw2Var, zt2.g gVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oe3Var, str, lw2Var, y03Var, unitedSchemeEntity, callbackHandler, ya3Var, str2, ha2Var, context};
+                Object[] objArr = {e92Var, zc2Var, jx1Var, aw2Var, gVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,62 +54,40 @@ public class oe3 extends vc3 {
                     return;
                 }
             }
-            this.j = oe3Var;
-            this.a = str;
-            this.b = lw2Var;
-            this.c = y03Var;
-            this.d = unitedSchemeEntity;
-            this.e = callbackHandler;
-            this.f = ya3Var;
-            this.g = str2;
-            this.h = ha2Var;
-            this.i = context;
+            this.a = e92Var;
+            this.b = zc2Var;
+            this.c = jx1Var;
+            this.d = aw2Var;
+            this.e = gVar;
         }
 
-        @Override // com.baidu.tieba.ne3.e
-        public void a(String str) {
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                e43.d(this.a);
-                y72.i("relaunch", "check pages success");
-                this.b.o();
-                dh2.e f = dh2.f(this.b.getActivity(), ih2.c(this.c.a));
-                he3.l(this.d, this.e, this.f, f.a.a(), this.c.a, null, this.g);
-                this.j.p(f, this.c, this.h, this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.ne3.e
-        public void b(int i, rm3 rm3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, rm3Var) == null) {
-                y72.c("relaunch", "check pages failed");
-                this.b.o();
-                if (vc3.b) {
-                    Context context = this.i;
-                    qa3.g(context, this.i.getString(R.string.obfuscated_res_0x7f0f01d4) + i).G();
-                }
-                he3.j(this.d, this.e, this.g);
-                mh3.j(this.c, rm3Var);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                this.a.i();
+                e92.g(0);
+                oe3.a(this.b, this.c, this.d, this.e);
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements dh2.f {
+    public static class b implements e92.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dh2.e a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ y03 c;
-        public final /* synthetic */ ha2 d;
+        public final /* synthetic */ zc2 a;
+        public final /* synthetic */ jx1 b;
+        public final /* synthetic */ aw2 c;
+        public final /* synthetic */ zt2.g d;
+        public final /* synthetic */ ha3 e;
 
-        public b(oe3 oe3Var, dh2.e eVar, String str, y03 y03Var, ha2 ha2Var) {
+        public b(zc2 zc2Var, jx1 jx1Var, aw2 aw2Var, zt2.g gVar, ha3 ha3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {oe3Var, eVar, str, y03Var, ha2Var};
+                Object[] objArr = {zc2Var, jx1Var, aw2Var, gVar, ha3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -119,147 +97,258 @@ public class oe3 extends vc3 {
                     return;
                 }
             }
-            this.a = eVar;
-            this.b = str;
-            this.c = y03Var;
-            this.d = ha2Var;
+            this.a = zc2Var;
+            this.b = jx1Var;
+            this.c = aw2Var;
+            this.d = gVar;
+            this.e = ha3Var;
         }
 
-        @Override // com.baidu.tieba.dh2.f
-        public void onReady() {
+        @Override // com.baidu.tieba.e92.b
+        public void onConnected() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (vc3.b) {
-                    Log.d("ReLaunchAction", "tryToExecutePageRoute onReady start.");
-                }
-                e43.e(this.a, this.b);
-                he3.e(this.a.a, this.c, this.b);
-                oe3.o(this.d, this.c, this.b);
-                if (vc3.b) {
-                    Log.d("ReLaunchAction", "tryToExecutePageRoute onReady end.");
-                }
+                oe3.a(this.a, this.b, this.c, this.d);
+                this.e.dismiss();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oe3(vb3 vb3Var) {
-        super(vb3Var, "/swanAPI/reLaunch");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vb3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948029324, "Lcom/baidu/tieba/oe3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948029324, "Lcom/baidu/tieba/oe3;");
                 return;
             }
         }
+        a = nr1.a;
     }
 
-    public static void o(ha2 ha2Var, y03 y03Var, String str) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65542, null, ha2Var, y03Var, str) == null) {
-            t02.y(ha2Var, y03Var, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            b(wq3.b(e()));
         }
     }
 
-    @Override // com.baidu.tieba.vc3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ya3 ya3Var) {
-        InterceptResult invokeLLLL;
+    public static void a(zc2 zc2Var, jx1 jx1Var, aw2 aw2Var, zt2.g gVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, ya3Var)) == null) {
-            if (vc3.b) {
-                Log.d("ReLaunchAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, zc2Var, jx1Var, aw2Var, gVar) == null) {
+            HybridUbcFlow o = i43.o();
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fist_page_action_dostart");
+            ubcFlowEvent.a(true);
+            o.F(ubcFlowEvent);
+            qw2 T2 = qw2.T();
+            SwanAppConfigData swanAppConfigData = gVar.b;
+            if (swanAppConfigData == null) {
+                if (a) {
+                    Log.e("FirstPageAction", Log.getStackTraceString(new Exception("loadInfo.mConfigData is null.")));
+                    return;
+                }
+                return;
             }
-            String uuid = UUID.randomUUID().toString();
-            e43.b(uuid);
-            String o = he3.o(unitedSchemeEntity, "params");
-            if (TextUtils.isEmpty(o)) {
-                y72.c("relaunch", "url is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
+            String d = d(T2, aw2Var, swanAppConfigData);
+            String h = gVar.b.h(d);
+            SwanAppActivity activity = T2.getActivity();
+            if (activity != null && !activity.isFinishing()) {
+                lg2.c().b(zc2Var, jx1Var, aw2Var, gVar.b, gVar, false);
+                zc2Var.attachActivity(activity);
+                jx1Var.attachActivity(activity);
+                ma2 U = T2.U();
+                if (U == null) {
+                    return;
+                }
+                d13 d2 = d13.d(d, T2.z());
+                ih2.o(xo3.a(d2.c, d2.a, d2.b), jx1Var);
+                g(U, d);
+                wh3.E();
+                q13.e(jx1Var.a());
+                if (!TextUtils.isEmpty(h)) {
+                    i43.l(h);
+                }
+                wh3.F(true, aw2Var.T());
+                fq3 T3 = activity.T();
+                if (a) {
+                    Log.i("FirstPageAction", "startFirstPage:: loadingView=" + T3);
+                }
+                if (T3 != null) {
+                    T3.F(1);
+                }
+                cb3 K = cb3.K();
+                if (K.E() && TextUtils.equals(K.getAppId(), aw2Var.H())) {
+                    K.q().J(true);
+                }
+                fb2.f(true);
+            } else if (a) {
+                Log.w("FirstPageAction", Log.getStackTraceString(new Exception("activity is invalid.")));
             }
-            lw2 T2 = lw2.T();
-            ha2 U = T2.U();
-            if (U == null) {
-                y72.c("relaunch", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        }
+    }
+
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            qw2 T2 = qw2.T();
+            SwanAppActivity activity = T2.getActivity();
+            if (activity != null && !activity.isFinishing()) {
+                ma2 U = T2.U();
+                if (U == null) {
+                    d82.i("FirstPageAction", "doWebModeStart: fragment manager is null.");
+                    return;
+                } else if (TextUtils.isEmpty(str)) {
+                    d82.i("FirstPageAction", "doWebModeStart: web url is null.");
+                    return;
+                } else {
+                    h(U, str);
+                    yq3.a().k();
+                    fq3 T3 = activity.T();
+                    if (T3 != null) {
+                        T3.F(1);
+                    }
+                    cb3 K = cb3.K();
+                    if (K.E()) {
+                        K.q().J(true);
+                    }
+                    fb2.f(true);
+                    return;
+                }
             }
-            y03 d = y03.d(o, T2.z());
-            d.e = "3";
-            d.f = uuid;
-            mh3.g(d);
-            if (!so3.b(T2.s(), d, true)) {
-                y72.c("relaunch", "page params error : path=" + d.a + " ; routePath=" + d.d);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                mh3.i(d);
-                return false;
+            d82.i("FirstPageAction", "activity is invalid.");
+        }
+    }
+
+    public static String d(qw2 qw2Var, aw2 aw2Var, SwanAppConfigData swanAppConfigData) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, qw2Var, aw2Var, swanAppConfigData)) == null) {
+            String b2 = qw2Var.b();
+            if (TextUtils.isEmpty(b2)) {
+                if (aw2Var.o0()) {
+                    b2 = swanAppConfigData.g(aw2Var.h0());
+                } else {
+                    b2 = qw2Var.g();
+                }
             }
-            String n = he3.n(unitedSchemeEntity, "params", "initData");
-            if (!TextUtils.isEmpty(n) && !TextUtils.isEmpty(d.d) && ya3.M() != null) {
-                ya3.M().L0(n, d.d);
+            b = b2;
+            return b2;
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        aw2.a W;
+        PMSAppInfo f0;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            db3 q = cb3.K().q();
+            if (q == null || (W = q.W()) == null || (f0 = W.f0()) == null) {
+                return null;
             }
-            String n2 = he3.n(unitedSchemeEntity, "params", "startTime");
-            if (!TextUtils.isEmpty(n2)) {
-                HybridUbcFlow q = d43.q("route", uuid);
-                UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fe_route_start");
-                ubcFlowEvent.h(Long.valueOf(n2).longValue());
-                q.F(ubcFlowEvent);
+            String str = f0.webUrl;
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            String optString = yn3.d(unitedSchemeEntity.getParam("params")).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                y72.c("relaunch", "cb is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                mh3.i(d);
-                return false;
-            } else if (ld3.b().a(d)) {
-                ld3.b().i("reLaunch", d);
-                y72.c("ReLaunchAction", "access to this page is prohibited");
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1003, "access to this page is prohibited"));
-                return false;
-            } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                T2.a();
-                ne3.g(ya3Var, d, "", new a(this, uuid, T2, d, unitedSchemeEntity, callbackHandler, ya3Var, optString, U, context), uuid);
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean f(ma2 ma2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, ma2Var)) == null) {
+            if (ma2Var.k() >= 1 && (ma2Var.m() instanceof qa2)) {
                 return true;
             }
+            return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void p(dh2.e eVar, y03 y03Var, ha2 ha2Var, String str) {
-        boolean z;
-        String str2;
+    public static void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eVar, y03Var, ha2Var, str) == null) {
-            if (eVar != null && eVar.b) {
-                z = true;
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            b(str);
+        }
+    }
+
+    public static void g(ma2 ma2Var, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65543, null, ma2Var, str) != null) || ma2Var == null) {
+            return;
+        }
+        la2.U3(null);
+        qw2 T2 = qw2.T();
+        ma2.b i = ma2Var.i("init");
+        int i2 = ma2.i;
+        i.n(i2, i2);
+        i.f();
+        i.l("normal", d13.d(str, T2.z()), true).a();
+    }
+
+    public static void h(ma2 ma2Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, ma2Var, str) == null) {
+            if (ma2Var == null) {
+                d82.i("FirstPageAction", "pushWebModeFragment: fragment manager is null.");
+            } else if (f(ma2Var)) {
+                d82.i("FirstPageAction", "pushWebModeFragment: has already push the web fragment.");
             } else {
-                z = false;
+                la2.U3(null);
+                ma2.b i = ma2Var.i("init");
+                int i2 = ma2.i;
+                i.n(i2, i2);
+                i.f();
+                i.l("web_mode", d13.d(str, str), true).a();
+                vq3.c().o(ma2Var.m());
             }
-            HybridUbcFlow q = d43.q("route", str);
-            q.F(new UbcFlowEvent("na_pre_load_slave_check"));
-            if (z) {
-                str2 = "1";
-            } else {
-                str2 = "0";
+        }
+    }
+
+    public static void i(zc2 zc2Var, jx1 jx1Var, aw2 aw2Var, zt2.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65545, null, zc2Var, jx1Var, aw2Var, gVar) == null) {
+            if (!c73.H() && e92.e() != 2) {
+                if (c73.D()) {
+                    o82.k().q(zc2Var, jx1Var, aw2Var, gVar);
+                    return;
+                } else {
+                    a(zc2Var, jx1Var, aw2Var, gVar);
+                    return;
+                }
             }
-            q.D("preload", str2);
-            if (vc3.b) {
-                Log.d("ReLaunchAction", "tryToExecutePageRoute start. isReady : " + z);
-            }
-            dh2.q(eVar, new b(this, eVar, str, y03Var, ha2Var));
-            if (vc3.b) {
-                Log.d("ReLaunchAction", "tryToExecutePageRoute end.");
-            }
+            d82.i("FirstPageAction", "in adb/wireless debug mode");
+            WebView.setWebContentsDebuggingEnabled(true);
+            e92 e92Var = new e92(ku2.c());
+            ha3.a aVar = new ha3.a(cb3.K().w());
+            aVar.U(R.string.obfuscated_res_0x7f0f017d);
+            aVar.v(R.string.obfuscated_res_0x7f0f016c);
+            aVar.n(new lq3());
+            aVar.m(false);
+            aVar.O(R.string.obfuscated_res_0x7f0f016b, new a(e92Var, zc2Var, jx1Var, aw2Var, gVar));
+            ha3 X = aVar.X();
+            HybridUbcFlow o = i43.o();
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("fist_page_action_reg_callback");
+            ubcFlowEvent.a(true);
+            o.F(ubcFlowEvent);
+            e92Var.f(new b(zc2Var, jx1Var, aw2Var, gVar, X));
+            e92Var.h();
         }
     }
 }

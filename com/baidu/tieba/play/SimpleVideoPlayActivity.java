@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cu9;
+import com.baidu.tieba.hy9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public cu9 c;
+    public hy9 c;
     public FrameLayout d;
     public NavigationBar e;
 
@@ -103,9 +103,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 17;
             this.d.addView(frameLayout2, layoutParams);
-            cu9 cu9Var = new cu9(this, frameLayout2);
-            this.c = cu9Var;
-            cu9Var.setStageType("2006");
+            hy9 hy9Var = new hy9(this, frameLayout2);
+            this.c = hy9Var;
+            hy9Var.setStageType("2006");
             NavigationBar navigationBar = new NavigationBar(this);
             this.e = navigationBar;
             navigationBar.hideBottomLine();
@@ -132,7 +132,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             initView();
-            u1(bundle);
+            s1(bundle);
             setContentView(this.d);
         }
     }
@@ -147,7 +147,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         }
     }
 
-    public final void u1(Bundle bundle) {
+    public final void s1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             if (bundle != null) {

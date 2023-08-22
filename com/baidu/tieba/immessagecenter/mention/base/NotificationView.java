@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdPageContext;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
@@ -115,7 +116,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
     /* loaded from: classes6.dex */
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final C0358a g;
+        public static final C0353a g;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
         public RelativeLayout b;
@@ -137,20 +138,20 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                     return;
                 }
             }
-            g = new C0358a(null);
+            g = new C0353a(null);
         }
 
         /* renamed from: com.baidu.tieba.immessagecenter.mention.base.NotificationView$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public static final class C0358a {
+        public static final class C0353a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public /* synthetic */ C0358a(DefaultConstructorMarker defaultConstructorMarker) {
+            public /* synthetic */ C0353a(DefaultConstructorMarker defaultConstructorMarker) {
                 this();
             }
 
-            public C0358a() {
+            public C0353a() {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -171,16 +172,16 @@ public final class NotificationView extends LinearLayout implements View.OnClick
                     Intrinsics.checkNotNullParameter(root, "root");
                     a aVar = new a();
                     aVar.j(root);
-                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0919da);
+                    View findViewById = root.findViewById(R.id.obfuscated_res_0x7f0919fd);
                     Intrinsics.checkNotNullExpressionValue(findViewById, "root.findViewById(R.id.open_notify_background)");
                     aVar.h((RelativeLayout) findViewById);
-                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0910d7);
+                    View findViewById2 = root.findViewById(R.id.obfuscated_res_0x7f0910e9);
                     Intrinsics.checkNotNullExpressionValue(findViewById2, "root.findViewById(R.id.img_focus)");
                     aVar.g((ImageView) findViewById2);
-                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0919d7);
+                    View findViewById3 = root.findViewById(R.id.obfuscated_res_0x7f0919fa);
                     Intrinsics.checkNotNullExpressionValue(findViewById3, "root.findViewById(R.id.open_desc)");
                     aVar.i((TextView) findViewById3);
-                    View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f0904da);
+                    View findViewById4 = root.findViewById(R.id.obfuscated_res_0x7f0904dd);
                     Intrinsics.checkNotNullExpressionValue(findViewById4, "root.findViewById(R.id.btn_open)");
                     aVar.e((TextView) findViewById4);
                     View findViewById5 = root.findViewById(R.id.img_close);
@@ -336,10 +337,10 @@ public final class NotificationView extends LinearLayout implements View.OnClick
         Intrinsics.checkNotNullParameter(context, "context");
         this.b = TbadkApplication.getInst().getCurrentPageContext(getContext());
         this.c = 3;
-        View rootView = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0752, (ViewGroup) this, true);
-        a.C0358a c0358a = a.g;
+        View rootView = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0758, (ViewGroup) this, true);
+        a.C0353a c0353a = a.g;
         Intrinsics.checkNotNullExpressionValue(rootView, "rootView");
-        a a3 = c0358a.a(rootView);
+        a a3 = c0353a.a(rootView);
         this.a = a3;
         if (a3 != null && (a2 = a3.a()) != null) {
             a2.setOnClickListener(this);
@@ -364,7 +365,7 @@ public final class NotificationView extends LinearLayout implements View.OnClick
             return;
         }
         this.c = i;
-        DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).radius((float) R.string.J_X01).gradientLinear(DrawableSelector.LEFT_RIGHT, Arrays.copyOf(new int[]{R.color.open_notify_start_color, R.color.open_notify_start_color, R.color.open_notify_end_color}, 3));
+        DrawableSelector gradientLinear = TBSelector.makeDrawableSelector().setShape(0).tlRadius(BdUtilHelper.getDimens(getContext(), R.dimen.tbds36)).blRadius(BdUtilHelper.getDimens(getContext(), R.dimen.tbds36)).gradientLinear(DrawableSelector.LEFT_RIGHT, Arrays.copyOf(new int[]{R.color.open_notify_start_color, R.color.open_notify_start_color, R.color.open_notify_end_color}, 3));
         a aVar = this.a;
         TextView textView2 = null;
         if (aVar != null) {
@@ -383,12 +384,12 @@ public final class NotificationView extends LinearLayout implements View.OnClick
         } else {
             textView = null;
         }
-        EMManager.from(textView).setTextSize(R.dimen.tbds36).setTextColor(R.color.CAM_X0107).setTextStyle(R.string.F_X01);
+        EMManager.from(textView).setTextSize(R.dimen.T_X08).setTextColor(R.color.CAM_X0107).setTextStyle(R.string.F_X01);
         a aVar4 = this.a;
         if (aVar4 != null) {
             textView2 = aVar4.a();
         }
-        EMManager.from(textView2).setTextSize(R.dimen.tbds36).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0341);
+        EMManager.from(textView2).setTextSize(R.dimen.T_X08).setTextStyle(R.string.F_X01).setTextColor(R.color.CAM_X0341);
         EMManager.from(this).setBackGroundColor(R.color.CAM_X0201);
     }
 

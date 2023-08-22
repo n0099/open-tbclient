@@ -18,7 +18,7 @@ import com.huawei.hms.stats.c;
 import com.huawei.hms.support.log.HMSLog;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HiAnalyticsUtils {
     public static /* synthetic */ Interceptable $ic;
     public static final Object c;

@@ -1,44 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.immessagecenter.arch.vm.IUiIntent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class jg8 implements IUiIntent {
+public class jg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947882446, "Lcom/baidu/tieba/jg8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947882446, "Lcom/baidu/tieba/jg8;");
-        }
-    }
-
-    public jg8() {
+    @Nullable
+    public static Object a(@NonNull dg8 dg8Var, @NonNull eg8 eg8Var, @NonNull Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, dg8Var, eg8Var, obj)) == null) {
+            try {
+                return dg8Var.b(eg8Var, obj);
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
             }
         }
+        return invokeLLL.objValue;
+    }
+
+    @Nullable
+    public static Object b(@NonNull dg8 dg8Var, @NonNull eg8 eg8Var, @NonNull Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, dg8Var, eg8Var, obj)) == null) {
+            try {
+                return dg8Var.a(eg8Var, obj);
+            } catch (Exception e) {
+                e.printStackTrace();
+                BdLog.e(e);
+                return null;
+            }
+        }
+        return invokeLLL.objValue;
     }
 }

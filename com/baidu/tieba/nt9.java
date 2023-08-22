@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.cyberplayer.sdk.context.CyberMediaContextDef;
-import com.baidu.cyberplayer.sdk.context.ICyberGlobalOptions;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.HistorySwan.DataRes;
+import tbclient.SmartApp;
 /* loaded from: classes7.dex */
-public class nt9 extends CyberMediaContextDef {
+public class nt9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public du9 a;
+    public List<SmartApp> a;
 
     public nt9() {
         Interceptable interceptable = $ic;
@@ -23,19 +26,24 @@ public class nt9 extends CyberMediaContextDef {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new du9();
     }
 
-    @Override // com.baidu.cyberplayer.sdk.context.CyberMediaContextDef, com.baidu.cyberplayer.sdk.context.ICyberMediaContext
-    public ICyberGlobalOptions getCyberGlobalOptions() {
+    public List<SmartApp> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ICyberGlobalOptions) invokeV.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        this.a = new ArrayList(dataRes.naws_list);
     }
 }

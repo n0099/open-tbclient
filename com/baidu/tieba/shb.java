@@ -1,23 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.phb;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-/* loaded from: classes7.dex */
-public class shb implements phb.e {
+import com.baidu.validation.utils.ValidationLog;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes8.dex */
+public class shb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ ChannelNativeAds.GdtADStatusChangeListener a;
+    public String a;
+    public final List<String> b;
 
-    public shb(thb thbVar, ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener) {
+    public shb() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {thbVar, gdtADStatusChangeListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,14 +33,47 @@ public class shb implements phb.e {
                 return;
             }
         }
-        this.a = gdtADStatusChangeListener;
+        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.phb.e
-    public void onADStatusChanged() {
+    public static shb a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.onADStatusChanged();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                shb shbVar = new shb();
+                JSONObject optJSONObject = jSONObject.optJSONObject("action");
+                if (optJSONObject != null) {
+                    shbVar.a = optJSONObject.optString("name");
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            shbVar.b.add(optJSONArray.optString(i));
+                        }
+                    }
+                }
+                return shbVar;
+            } catch (JSONException e) {
+                ValidationLog.e(e);
+                return null;
+            }
         }
+        return (shb) invokeL.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public List<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 }

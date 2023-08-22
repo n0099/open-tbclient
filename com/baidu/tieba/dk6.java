@@ -1,50 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.net.Uri;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.InputStream;
+import okio.Okio;
 /* loaded from: classes5.dex */
-public class dk6 {
+public class dk6 implements ck6<String, Pair<InputStream, Long>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
-        rl6 b;
+    public dk6() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (b = b()) != null) {
-            b.c();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static rl6 b() {
-        InterceptResult invokeV;
+    public final File c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (rl6) ServiceManager.getService(rl6.a);
-        }
-        return (rl6) invokeV.objValue;
-    }
-
-    public static void c() {
-        rl6 b;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (b = b()) != null) {
-            b.b();
-        }
-    }
-
-    public static JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            rl6 b = b();
-            if (b != null) {
-                return b.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            File file = new File(Uri.parse(str).getPath());
+            if (file.exists() && file.isFile()) {
+                return file;
             }
             return null;
         }
-        return (JSONObject) invokeV.objValue;
+        return (File) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ck6
+    @Nullable
+    /* renamed from: d */
+    public Pair<InputStream, Long> a(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            File c = c(str);
+            if (c != null) {
+                return Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length()));
+            }
+            return null;
+        }
+        return (Pair) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ck6
+    /* renamed from: e */
+    public void b(String str, c8c<Pair<InputStream, Long>, Exception> c8cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, c8cVar) == null) {
+            try {
+                File c = c(str);
+                if (c != null) {
+                    c8cVar.call(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
+                } else {
+                    c8cVar.call(null, new IllegalArgumentException(str + "file not exist !"));
+                }
+            } catch (Exception e) {
+                c8cVar.call(null, e);
+            }
+        }
     }
 }

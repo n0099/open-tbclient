@@ -10,12 +10,12 @@ public class af {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject(force = false)
-    public gk1<ue> a;
+    public lk1<ue> a;
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ek1 b = ek1.b();
+            jk1 b = jk1.b();
             this.a = b;
             b.a(new ve());
         }

@@ -2,104 +2,26 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes7.dex */
-public final class s5c<T> {
+import org.chromium.base.Callback;
+import org.chromium.base.Promise;
+/* compiled from: lambda */
+/* loaded from: classes8.dex */
+public final /* synthetic */ class s5c implements Callback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final T b;
+    public final /* synthetic */ Promise a;
 
-    public s5c(long j, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), t};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = t;
-        this.a = j;
+    @Override // org.chromium.base.Callback
+    public /* synthetic */ Runnable bind(T t) {
+        return t5c.$default$bind(this, t);
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    @Override // org.chromium.base.Callback
+    public final void onResult(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            this.a.reject((Exception) obj);
         }
-        return invokeV.longValue;
-    }
-
-    public T b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        int hashCode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            long j = this.a;
-            int i = (((int) (j ^ (j >>> 32))) + 31) * 31;
-            T t = this.b;
-            if (t == null) {
-                hashCode = 0;
-            } else {
-                hashCode = t.hashCode();
-            }
-            return i + hashCode;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.a), this.b.toString());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || !(obj instanceof s5c)) {
-                return false;
-            }
-            s5c s5cVar = (s5c) obj;
-            if (this.a == s5cVar.a) {
-                T t = this.b;
-                T t2 = s5cVar.b;
-                if (t == t2) {
-                    return true;
-                }
-                if (t != null && t.equals(t2)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

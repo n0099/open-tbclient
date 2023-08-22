@@ -7,9 +7,9 @@ import com.baidu.adp.lib.resourceLoader.BdResourceLoader;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.adp.widget.ImageView.BdImage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.vm5;
-import com.baidu.tieba.wm5;
+import com.baidu.tieba.di;
+import com.baidu.tieba.kn5;
+import com.baidu.tieba.ln5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,8 +28,8 @@ public class DynamicIconData {
     public boolean isNormalStateImgLoadingCompleted;
     public boolean isSelectedStateImgLoadingCompleted;
     public BdResourceCallback<BdImage> mCallback;
-    public vm5 mDynamicStyleData;
-    public wm5 mIconLoadedFinishCallback;
+    public kn5 mDynamicStyleData;
+    public ln5 mIconLoadedFinishCallback;
     public BdUniqueId mMainTabPageId;
     public String normalStateUrl;
     public String selectedStateUrl;
@@ -138,13 +138,13 @@ public class DynamicIconData {
         this.mCallback = new a(this);
     }
 
-    public vm5 getDynamicStyleData() {
+    public kn5 getDynamicStyleData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mDynamicStyleData;
         }
-        return (vm5) invokeV.objValue;
+        return (kn5) invokeV.objValue;
     }
 
     public String getNormalStateUrl() {
@@ -179,23 +179,23 @@ public class DynamicIconData {
         if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
             this.normalStateUrl = jSONObject.optString("pic_before");
             this.selectedStateUrl = jSONObject.optString("pic_after");
-            vm5 vm5Var = new vm5();
-            this.mDynamicStyleData = vm5Var;
-            vm5Var.h(jSONObject);
+            kn5 kn5Var = new kn5();
+            this.mDynamicStyleData = kn5Var;
+            kn5Var.h(jSONObject);
         }
     }
 
-    public void setDynamicStyleData(vm5 vm5Var) {
+    public void setDynamicStyleData(kn5 kn5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, vm5Var) == null) {
-            this.mDynamicStyleData = vm5Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, kn5Var) == null) {
+            this.mDynamicStyleData = kn5Var;
         }
     }
 
-    public void setIconLoadedFinishCallback(wm5 wm5Var) {
+    public void setIconLoadedFinishCallback(ln5 ln5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, wm5Var) == null) {
-            this.mIconLoadedFinishCallback = wm5Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ln5Var) == null) {
+            this.mIconLoadedFinishCallback = ln5Var;
         }
     }
 
@@ -211,8 +211,8 @@ public class DynamicIconData {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, this)) == null) {
-            vm5 vm5Var = this.mDynamicStyleData;
-            if (vm5Var != null && StringUtils.isNotNull(vm5Var.b()) && StringUtils.isNotNull(this.mDynamicStyleData.c()) && StringUtils.isNotNull(this.mDynamicStyleData.a())) {
+            kn5 kn5Var = this.mDynamicStyleData;
+            if (kn5Var != null && StringUtils.isNotNull(kn5Var.b()) && StringUtils.isNotNull(this.mDynamicStyleData.c()) && StringUtils.isNotNull(this.mDynamicStyleData.a())) {
                 return true;
             }
             return false;
@@ -224,11 +224,11 @@ public class DynamicIconData {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             String str = this.normalStateUrl;
-            if (str != null && !bi.isEmpty(str)) {
+            if (str != null && !di.isEmpty(str)) {
                 BdResourceLoader.getInstance().loadResource(this.normalStateUrl, getImgLoadType(), this.mCallback, 0, 0, this.mMainTabPageId, new Object[0]);
             }
             String str2 = this.selectedStateUrl;
-            if (str2 != null && !bi.isEmpty(str2)) {
+            if (str2 != null && !di.isEmpty(str2)) {
                 BdResourceLoader.getInstance().loadResource(this.selectedStateUrl, getImgLoadType(), this.mCallback, 0, 0, this.mMainTabPageId, new Object[0]);
             }
             if (isDynamicStyleDataValid()) {

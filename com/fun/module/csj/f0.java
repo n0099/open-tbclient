@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ifb;
+import com.baidu.tieba.xlb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,18 +110,18 @@ public class f0 extends LinearLayout {
             if (interactionType == 2 || interactionType == 3) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0897;
+                i = R.string.obfuscated_res_0x7f0f089f;
             } else if (interactionType == 4) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0899;
+                i = R.string.obfuscated_res_0x7f0f08a1;
             } else if (interactionType != 5) {
                 this.e.setVisibility(8);
                 return;
             } else {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f0898;
+                i = R.string.obfuscated_res_0x7f0f08a0;
             }
             button.setText(i);
         }
@@ -149,10 +149,10 @@ public class f0 extends LinearLayout {
         return (List) invokeV.objValue;
     }
 
-    public ifb getDownloadListener() {
+    public xlb getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new ifb(this.e) : (ifb) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new xlb(this.e) : (xlb) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -160,11 +160,11 @@ public class f0 extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onFinishInflate();
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900b1);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ed);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b9);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0900b2);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ef);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900bb);
             this.c = (TextView) findViewById(R.id.ad_source);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0900ad);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f0900ae);
         }
     }
 }

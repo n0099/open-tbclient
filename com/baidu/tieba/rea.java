@@ -1,31 +1,27 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.Fans;
+import tbclient.FrsPage.Size;
+import tbclient.FrsPage.StarInfo;
 /* loaded from: classes7.dex */
 public class rea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final iea b;
-    public lr6 c;
-    public lr6 d;
-    public lr6 e;
+    public int a;
+    public long b;
+    public boolean c;
+    public String d;
 
-    public rea(MainTabActivity mainTabActivity, iea ieaVar) {
+    public rea() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ieaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,89 +31,70 @@ public class rea {
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = ieaVar;
+        this.a = 0;
+        this.b = 0L;
+        this.c = false;
+        this.d = null;
     }
 
-    public void a() {
-        lr6 lr6Var;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (lr6Var = this.e) != null && lr6Var.i()) {
-            this.e.h();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void b() {
-        lr6 lr6Var;
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (lr6Var = this.d) != null && lr6Var.i()) {
-            this.d.h();
-            this.d = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
     }
 
-    public void c() {
-        lr6 lr6Var;
+    public void c(StarInfo starInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (lr6Var = this.c) != null && lr6Var.i()) {
-            this.c.h();
-            this.c = null;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, starInfo) != null) || starInfo == null) {
+            return;
         }
-    }
-
-    public void d() {
-        iea ieaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ieaVar = this.b) != null && ieaVar.z() != null) {
-            FragmentTabWidget fragmentTabWidget = this.b.z().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
+        int intValue = starInfo.has_frs_star.intValue();
+        this.a = intValue;
+        boolean z = true;
+        if (intValue == 1) {
+            String str = starInfo.top;
+            String str2 = starInfo.head;
+            Fans fans = starInfo.fans;
+            if (fans != null) {
+                fans.is_get.intValue();
+                fans.num.intValue();
+                fans.open.intValue();
+                this.b = fans.left_time.intValue();
             }
-            lr6 lr6Var = new lr6(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
-            this.e = lr6Var;
-            lr6Var.L(R.drawable.bg_tip_blue_down);
-            this.e.l(2);
-            this.e.o(32);
-            this.e.N(true);
-            this.e.R(-BdUtilHelper.getDimens(this.a, R.dimen.tbds10));
-            this.e.C(R.color.CAM_X0101);
-            this.e.p(R.dimen.tbds54);
-            this.e.w(1);
-            this.e.n(4000);
-            this.e.F(BdUtilHelper.getDimens(this.a, R.dimen.tbds44));
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str)) {
-            FragmentTabWidget fragmentTabWidget = this.b.z().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
+            Size size = starInfo.top_size;
+            if (size != null) {
+                size.width.intValue();
+                size.height.intValue();
             }
-            lr6 lr6Var = new lr6(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
-            this.c = lr6Var;
-            lr6Var.L(R.drawable.bg_tip_blue_down);
-            this.c.l(2);
-            this.c.o(32);
-            this.c.N(true);
-            this.c.R(-BdUtilHelper.getDimens(this.a, R.dimen.tbds10));
-            this.c.C(R.color.CAM_X0101);
-            this.c.p(R.dimen.tbds54);
-            this.c.w(999);
-            this.c.n(5000);
-            this.c.F(BdUtilHelper.getDimens(this.a, R.dimen.tbds44));
-            this.c.V(str, "categoryUpdate", false, true);
+            Size size2 = starInfo.head_size;
+            if (size2 != null) {
+                size2.width.intValue();
+                size2.height.intValue();
+            }
         }
-    }
-
-    public void f() {
-        lr6 lr6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (lr6Var = this.e) != null && !lr6Var.i()) {
-            lr6 lr6Var2 = this.e;
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f0673);
-            lr6Var2.T(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
+        if (starInfo.trade == null) {
+            z = false;
         }
+        this.c = z;
+        if (z) {
+            Integer num = starInfo.trade.time;
+            if (num != null) {
+                num.intValue();
+            }
+            String str3 = starInfo.trade.url;
+        }
+        this.d = starInfo.star_forum_headimg;
     }
 }

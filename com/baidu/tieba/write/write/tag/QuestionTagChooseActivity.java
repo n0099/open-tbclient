@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.QuestionTagChooseActivityConfig;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendedActivity;
-import com.baidu.tieba.fya;
-import com.baidu.tieba.ms5;
+import com.baidu.tieba.dt5;
+import com.baidu.tieba.u4b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,10 +18,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class QuestionTagChooseActivity extends SuspendedActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fya k;
+    public u4b k;
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public void B1() {
+    public void C1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
@@ -78,9 +79,9 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onDestroy();
-            fya fyaVar = this.k;
-            if (fyaVar != null) {
-                fyaVar.onDestroy();
+            u4b u4bVar = this.k;
+            if (u4bVar != null) {
+                u4bVar.onDestroy();
             }
         }
     }
@@ -96,23 +97,34 @@ public class QuestionTagChooseActivity extends SuspendedActivity {
     }
 
     @Override // com.baidu.tbadk.suspended.SuspendedActivity
-    public ms5 t1(LinearLayout linearLayout, NavigationBar navigationBar) {
+    public dt5 s1(LinearLayout linearLayout, NavigationBar navigationBar) {
         InterceptResult invokeLL;
+        String str;
+        String str2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, linearLayout, navigationBar)) == null) {
             if (this.k == null) {
-                String str = null;
+                String str3 = null;
                 Intent intent = getIntent();
-                if (intent != null) {
-                    str = intent.getStringExtra("key_category");
-                }
-                if (str == null) {
+                String str4 = "";
+                if (intent == null) {
                     str = "";
+                    str2 = str;
+                } else {
+                    str3 = intent.getStringExtra("key_category");
+                    str2 = intent.getStringExtra(QuestionTagChooseActivityConfig.KEY_QUESTION_TAG_REFER);
+                    str = intent.getStringExtra(QuestionTagChooseActivityConfig.KEY_QUESTION_TAG_DEFAULT_CATEGORY);
                 }
-                this.k = new fya(linearLayout, navigationBar, this, str);
+                if (str3 != null) {
+                    str4 = str3;
+                }
+                u4b u4bVar = new u4b(linearLayout, navigationBar, this, str4);
+                this.k = u4bVar;
+                u4bVar.H(str2);
+                this.k.G(str);
             }
             return this.k;
         }
-        return (ms5) invokeLL.objValue;
+        return (dt5) invokeLL.objValue;
     }
 }

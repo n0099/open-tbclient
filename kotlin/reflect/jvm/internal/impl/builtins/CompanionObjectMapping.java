@@ -14,7 +14,7 @@ import kotlin.reflect.jvm.internal.impl.name.ClassId;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
 import kotlin.reflect.jvm.internal.impl.resolve.DescriptorUtils;
 import kotlin.reflect.jvm.internal.impl.resolve.descriptorUtil.DescriptorUtilsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class CompanionObjectMapping {
     public static final CompanionObjectMapping INSTANCE = new CompanionObjectMapping();
     public static final LinkedHashSet<ClassId> classIds;

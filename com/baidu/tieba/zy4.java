@@ -1,14 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.abtest.UsbAbTestConst;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-/* loaded from: classes8.dex */
-public class zy4 implements ck1 {
+/* loaded from: classes9.dex */
+public class zy4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile zy4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     public zy4() {
@@ -25,17 +34,50 @@ public class zy4 implements ck1 {
         }
     }
 
-    @Override // com.baidu.tieba.ck1
-    public Object get() {
+    public static zy4 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new ew7());
-            arrayList.add(new g48());
-            arrayList.add(new kc8());
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (zy4.class) {
+                    if (a == null) {
+                        a = new zy4();
+                    }
+                }
+            }
+            return a;
         }
-        return invokeV.objValue;
+        return (zy4) invokeV.objValue;
+    }
+
+    public void a(String str, String str2, String str3, String str4, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, str4, Integer.valueOf(i)}) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("obj_source", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str3);
+            if (i > 0) {
+                statisticItem.param("obj_param1", i);
+            }
+            if (StringUtils.isNotNull(str4)) {
+                statisticItem.param(TiebaStatic.Params.OBJ_URL, str4);
+            }
+            if (UbsABTestHelper.isNonEcomAdDownloaderTestA()) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, UsbAbTestConst.KEY_NON_ECOM_AD_DOWNLOADER_A);
+            } else if (UbsABTestHelper.isNonEcomAdDownloaderTestB()) {
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, UsbAbTestConst.KEY_NON_ECOM_AD_DOWNLOADER_B);
+            }
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void c(boolean z, DownloadData downloadData, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), downloadData, Integer.valueOf(i)}) == null) {
+            if (z) {
+                a(TbadkCoreStatisticKey.FILE_DOWNLOAD_RESUME, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl(), i);
+            } else {
+                a(TbadkCoreStatisticKey.FILE_DOWNLOAD_START, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl(), i);
+            }
+        }
     }
 }

@@ -84,7 +84,7 @@ public final class a {
         this.bS.removeAllViews();
         this.bS.setVisibility(4);
         this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f091446);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f09145c);
         this.BQ = ksAdWebView;
         ksAdWebView.setBackgroundColor(-1);
         u.b bVar = new u.b();
@@ -101,7 +101,7 @@ public final class a {
                 }
             }
         });
-        ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f0912b5);
+        ImageView imageView = (ImageView) this.BT.findViewById(R.id.obfuscated_res_0x7f0912cb);
         this.mBackIcon = imageView;
         imageView.setVisibility(8);
         this.mBackIcon.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.ad.i.a.2
@@ -115,7 +115,7 @@ public final class a {
     }
 
     public static int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0481;
+        return R.layout.obfuscated_res_0x7f0d0488;
     }
 
     private KsAdWebView.d getWebListener() {

@@ -1,46 +1,18 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ForumPresentInfo;
-import tbclient.UserRankPresentInfo;
+import tbclient.FrsPage.ForumBookInfo;
 /* loaded from: classes8.dex */
 public class y15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a> a;
-
-    /* loaded from: classes8.dex */
-    public class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(y15 y15Var, UserRankPresentInfo userRankPresentInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y15Var, userRankPresentInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            if (userRankPresentInfo == null) {
-                return;
-            }
-            Integer num = userRankPresentInfo.user_id;
-            String str = userRankPresentInfo.user_name;
-            String str2 = userRankPresentInfo.portrait;
-        }
-    }
+    public String a;
+    public int b;
 
     public y15() {
         Interceptable interceptable = $ic;
@@ -56,15 +28,43 @@ public class y15 {
         }
     }
 
-    public void a(ForumPresentInfo forumPresentInfo) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, forumPresentInfo) != null) || forumPresentInfo == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c(ForumBookInfo forumBookInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumBookInfo) != null) || forumBookInfo == null) {
             return;
         }
-        String str = forumPresentInfo.content;
-        this.a = new ArrayList<>();
-        for (int i = 0; i < forumPresentInfo.user_list.size(); i++) {
-            this.a.add(new a(this, forumPresentInfo.user_list.get(i)));
-        }
+        this.a = forumBookInfo.book_id;
+        this.b = forumBookInfo.book_type.intValue();
+        String str = forumBookInfo.book_title;
+        String str2 = forumBookInfo.book_cover;
+        String str3 = forumBookInfo.author;
+        String str4 = forumBookInfo.forum_pic;
+        String str5 = forumBookInfo.show_chapter_id;
+        String str6 = forumBookInfo.show_chapter_no;
+        String str7 = forumBookInfo.show_chapter_title;
+        forumBookInfo.history_page_id.longValue();
+        forumBookInfo.history_paragraph_id.longValue();
+        forumBookInfo.history_word_id.longValue();
+        forumBookInfo.history_percent.longValue();
+        forumBookInfo.show_page_id.longValue();
+        forumBookInfo.show_paragraph_id.longValue();
     }
 }

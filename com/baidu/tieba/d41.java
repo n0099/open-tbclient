@@ -1,74 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.sweetsqlite.BooleanColumn;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.IntegerColumn;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class d41 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<Class<? extends j41>, j41> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final String b;
+    public final int c;
+    public final int d;
+    public final String e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947654472, "Lcom/baidu/tieba/d41;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947654472, "Lcom/baidu/tieba/d41;");
-                return;
-            }
-        }
-        a = new HashMap<>();
-    }
-
-    public d41() {
+    public d41(int i, String str, String str2, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = str;
+        this.e = str2;
+        this.c = i2;
+        this.d = i3;
     }
 
-    public static <T extends j41> T a(Class<T> cls) {
+    public static boolean a(Column column) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
-            T t = (T) a.get(cls);
-            if (t == null) {
-                synchronized (d41.class) {
-                    t = (T) a.get(cls);
-                    if (t == null) {
-                        t = (T) e41.a(cls);
-                        a.put(cls, t);
-                    }
-                }
-            }
-            return t;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, column)) == null) {
+            return ((BooleanColumn) column).getValue();
         }
-        return (T) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static <T extends j41> i41 b(Class<T> cls) {
+    public static int b(Column column) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            return a(cls).b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, column)) == null) {
+            return ((IntegerColumn) column).getValue();
         }
-        return (i41) invokeL.objValue;
+        return invokeL.intValue;
+    }
+
+    public static long c(Column column) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, column)) == null) {
+            return ((LongColumn) column).getValue();
+        }
+        return invokeL.longValue;
+    }
+
+    public static String d(Column column) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, column)) == null) {
+            return ((StringColumn) column).getValue();
+        }
+        return (String) invokeL.objValue;
     }
 }

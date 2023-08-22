@@ -1,80 +1,187 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class m11 implements l11 {
+/* loaded from: classes7.dex */
+public final class m11 {
     public static /* synthetic */ Interceptable $ic;
-    public static final m11 a;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public zz0 a;
+    public PlayerStatus b;
+    public StringBuilder c;
 
-    @Override // com.baidu.tieba.p11
-    public void end(int i) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
-    }
-
-    @Override // com.baidu.tieba.p11
-    public void stop(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends m11 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947919708, "Lcom/baidu/tieba/m11;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947919708, "Lcom/baidu/tieba/m11;");
-                return;
-            }
-        }
-        a = new a();
     }
 
     public m11() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = PlayerStatus.IDLE;
+        d();
+    }
+
+    @NonNull
+    public PlayerStatus c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (PlayerStatus) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            h();
+            this.b = PlayerStatus.IDLE;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public void a(sw0 sw0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sw0Var) == null) {
+            if (sw0Var.getType() != 4 && sw0Var.getType() != 2) {
+                return;
+            }
+            String c = sw0Var.c();
+            char c2 = 65535;
+            switch (c.hashCode()) {
+                case -525235558:
+                    if (c.equals(PlayerEvent.ACTION_ON_PREPARED)) {
+                        c2 = 2;
+                        break;
+                    }
+                    break;
+                case -461848373:
+                    if (c.equals(PlayerEvent.ACTION_ON_ERROR)) {
+                        c2 = 3;
+                        break;
+                    }
+                    break;
+                case 154871702:
+                    if (c.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c2 = 1;
+                        break;
+                    }
+                    break;
+                case 1370689931:
+                    if (c.equals(PlayerEvent.ACTION_ON_INFO)) {
+                        c2 = 0;
+                        break;
+                    }
+                    break;
+            }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        if (c2 == 3) {
+                            g(PlayerStatus.ERROR);
+                            return;
+                        }
+                        return;
+                    }
+                    g(PlayerStatus.PREPARED);
+                    return;
+                }
+                g(PlayerStatus.COMPLETE);
+                return;
+            }
+            int g = sw0Var.g(1);
+            if (904 == g || 956 == g) {
+                g(PlayerStatus.PLAYING);
+            }
+        }
+    }
+
+    public void b(@NonNull zz0 zz0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zz0Var) == null) {
+            this.a = zz0Var;
+        }
+    }
+
+    public boolean e(@NonNull PlayerStatus... playerStatusArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, playerStatusArr)) == null) {
+            for (PlayerStatus playerStatus : playerStatusArr) {
+                if (playerStatus == c()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(PlayerStatus playerStatus) {
+        PlayerStatus playerStatus2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, playerStatus) != null) || playerStatus == (playerStatus2 = this.b)) {
+            return;
+        }
+        this.b = playerStatus;
+        zz0 zz0Var = this.a;
+        if (zz0Var != null) {
+            zz0Var.d(nw0.w(playerStatus2, playerStatus));
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (xt0.f()) {
+                StringBuilder sb = this.c;
+                if (sb == null) {
+                    this.c = new StringBuilder();
+                } else if (sb.length() > 0) {
+                    StringBuilder sb2 = this.c;
+                    sb2.delete(0, sb2.length());
+                }
+                StringBuilder sb3 = this.c;
+                sb3.append("，Courier :");
+                sb3.append(this.a);
+                sb3.append("，status :");
+                sb3.append(this.b);
+                sb3.append("，hash :");
+                sb3.append(hashCode());
+                sb3.append("】");
+                return this.c.toString();
+            }
+            return super.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.hz4;
 import com.baidu.tieba.log.TbLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -239,7 +239,7 @@ public final class PayPanelUtils {
                         str3 = "";
                     }
                     hashMap.put("fromScene", str3);
-                    cz4 j = cz4.j(tbPageContext.getPageActivity(), a);
+                    hz4 j = hz4.j(tbPageContext.getPageActivity(), a);
                     j.f(hashMap);
                     TbWebViewActivityConfig b = j.b();
                     b.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
@@ -283,7 +283,7 @@ public final class PayPanelUtils {
                         b = "";
                     }
                     hashMap.put("fromScene", b);
-                    cz4 j = cz4.j(tbPageContext.getPageActivity(), a2);
+                    hz4 j = hz4.j(tbPageContext.getPageActivity(), a2);
                     j.f(hashMap);
                     if (d != null) {
                         i = d.intValue();

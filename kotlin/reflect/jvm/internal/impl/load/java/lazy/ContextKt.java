@@ -16,7 +16,7 @@ import kotlin.reflect.jvm.internal.impl.load.java.AnnotationTypeQualifierResolve
 import kotlin.reflect.jvm.internal.impl.load.java.structure.JavaTypeParameterListOwner;
 import kotlin.reflect.jvm.internal.impl.load.java.typeEnhancement.NullabilityQualifierWithMigrationStatus;
 import kotlin.reflect.jvm.internal.impl.utils.ReportLevel;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class ContextKt {
     public static final LazyJavaResolverContext child(LazyJavaResolverContext lazyJavaResolverContext, DeclarationDescriptor declarationDescriptor, JavaTypeParameterListOwner javaTypeParameterListOwner, int i, Lazy<JavaTypeQualifiersByElementType> lazy) {
         TypeParameterResolver typeParameterResolver;

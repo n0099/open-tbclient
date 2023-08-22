@@ -10,11 +10,11 @@ import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.tbadk.mvc.data.IResponseData;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fq5;
-import com.baidu.tieba.gq5;
-import com.baidu.tieba.l45;
 import com.baidu.tieba.ne;
 import com.baidu.tieba.of;
+import com.baidu.tieba.r45;
+import com.baidu.tieba.wq5;
+import com.baidu.tieba.xq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,13 +70,13 @@ public class MvcJsonHttpResponsedMessage<D extends IResponseData> extends MvcHtt
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06a2));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06a9));
                 } else if (getError() != 0) {
                     setErrorString(errorData.getError_msg());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
-                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06a2));
+                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f06a9));
             }
         }
     }
@@ -152,31 +152,31 @@ public class MvcJsonHttpResponsedMessage<D extends IResponseData> extends MvcHtt
             super.afterDispatchInBackGround(i, (int) bArr);
             if (getError() == 0 && (getOrginalMessage() instanceof MvcHttpMessage) && bArr != null) {
                 MvcHttpMessage mvcHttpMessage = (MvcHttpMessage) getOrginalMessage();
-                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof fq5)) {
-                    fq5 fq5Var = (fq5) mvcHttpMessage.getRequestData();
-                    String cacheKey = fq5Var.getCacheKey();
-                    String cacheTableName = fq5Var.getCacheTableName();
-                    if (fq5Var.isNeedUid()) {
+                if (mvcHttpMessage.isNeedCache() && (mvcHttpMessage.getRequestData() instanceof wq5)) {
+                    wq5 wq5Var = (wq5) mvcHttpMessage.getRequestData();
+                    String cacheKey = wq5Var.getCacheKey();
+                    String cacheTableName = wq5Var.getCacheTableName();
+                    if (wq5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     } else {
                         str = null;
                     }
                     if (cacheKey != null && !TextUtils.isEmpty(cacheTableName) && bArr != null) {
-                        if (fq5Var.w()) {
-                            l45.e();
-                            ne<byte[]> d = l45.d(cacheTableName, str);
-                            if (d == null) {
+                        if (wq5Var.w()) {
+                            r45.k();
+                            ne<byte[]> j = r45.j(cacheTableName, str);
+                            if (j == null) {
                                 return;
                             }
-                            d.g(cacheKey, bArr);
-                        } else if (mvcHttpMessage.getRequestData() instanceof gq5) {
-                            l45.e();
-                            ne<String> g = l45.g(cacheTableName, str);
-                            if (g == null) {
+                            j.g(cacheKey, bArr);
+                        } else if (mvcHttpMessage.getRequestData() instanceof xq5) {
+                            r45.k();
+                            ne<String> m = r45.m(cacheTableName, str);
+                            if (m == null) {
                                 return;
                             }
                             try {
-                                g.g(cacheKey, new String(bArr, "UTF-8"));
+                                m.g(cacheKey, new String(bArr, "UTF-8"));
                             } catch (UnsupportedEncodingException e) {
                                 e.printStackTrace();
                             }

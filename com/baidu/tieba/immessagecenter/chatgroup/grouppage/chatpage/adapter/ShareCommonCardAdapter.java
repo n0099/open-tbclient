@@ -25,12 +25,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000J\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010!\n\u0002\u0010\u0000\n\u0002\b\u0003\u0018\u0000 \u001b2\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u0001:\u0001\u001bB\u0019\u0012\n\u0010\u0004\u001a\u0006\u0012\u0002\b\u00030\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0010\u0010\t\u001a\u00020\u00032\u0006\u0010\n\u001a\u00020\u000bH\u0002J\u0010\u0010\f\u001a\u00020\u00032\u0006\u0010\r\u001a\u00020\u000eH\u0014J\u0010\u0010\u000f\u001a\u00020\u00032\u0006\u0010\r\u001a\u00020\u000eH\u0014J>\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u00132\u0006\u0010\u0014\u001a\u00020\u000e2\u0006\u0010\u0015\u001a\u00020\u00022\u0006\u0010\u0016\u001a\u00020\u00032\f\u0010\u0017\u001a\b\u0012\u0004\u0012\u00020\u00190\u00182\u0006\u0010\u001a\u001a\u00020\u0013H\u0014¨\u0006\u001c"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/adapter/ShareCommonCardAdapter;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseChatAdapter;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/itemdata/ShareCommonCardSysMsg;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseViewHolder;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "uid", "Lcom/baidu/adp/BdUniqueId;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/adp/BdUniqueId;)V", "createViewHolder", "context", "Landroid/content/Context;", "onCreateChildLeftViewHolder", "parent", "Landroid/view/ViewGroup;", "onCreateChildRightViewHolder", "onFillChildViewHolder", "", CriusAttrConstants.POSITION, "", "directParent", "data", "holder", "payloads", "", "", WriteMulitImageActivityConfig.SKIN_TYPE, "Companion", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000R\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\t\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0004\n\u0002\u0010!\n\u0002\u0010\u0000\n\u0002\b\u0003\u0018\u0000 !2\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u0001:\u0001!B\u0019\u0012\n\u0010\u0004\u001a\u0006\u0012\u0002\b\u00030\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0007¢\u0006\u0002\u0010\bJ\u0010\u0010\u000f\u001a\u00020\u00032\u0006\u0010\u0010\u001a\u00020\u0011H\u0002J\u0010\u0010\u0012\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u0014H\u0014J\u0010\u0010\u0015\u001a\u00020\u00032\u0006\u0010\u0013\u001a\u00020\u0014H\u0014J>\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u00192\u0006\u0010\u001a\u001a\u00020\u00142\u0006\u0010\u001b\u001a\u00020\u00022\u0006\u0010\u001c\u001a\u00020\u00032\f\u0010\u001d\u001a\b\u0012\u0004\u0012\u00020\u001f0\u001e2\u0006\u0010 \u001a\u00020\u0019H\u0014R\u001a\u0010\t\u001a\u00020\nX\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u000b\u0010\f\"\u0004\b\r\u0010\u000e¨\u0006\""}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/adapter/ShareCommonCardAdapter;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseChatAdapter;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/itemdata/ShareCommonCardSysMsg;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseViewHolder;", "pageContext", "Lcom/baidu/tbadk/TbPageContext;", "uid", "Lcom/baidu/adp/BdUniqueId;", "(Lcom/baidu/tbadk/TbPageContext;Lcom/baidu/adp/BdUniqueId;)V", "roomId", "", "getRoomId", "()J", "setRoomId", "(J)V", "createViewHolder", "context", "Landroid/content/Context;", "onCreateChildLeftViewHolder", "parent", "Landroid/view/ViewGroup;", "onCreateChildRightViewHolder", "onFillChildViewHolder", "", CriusAttrConstants.POSITION, "", "directParent", "data", "holder", "payloads", "", "", WriteMulitImageActivityConfig.SKIN_TYPE, "Companion", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCardSysMsg, BaseViewHolder> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int l;
+    public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
+    public long l;
 
     static {
         InterceptResult invokeClinit;
@@ -45,7 +46,7 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
                 return;
             }
         }
-        l = UtilHelper.getDimenPixelSize(R.dimen.tbds666);
+        m = UtilHelper.getDimenPixelSize(R.dimen.tbds666);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -72,7 +73,7 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    public BaseViewHolder O(ViewGroup parent) {
+    public BaseViewHolder N(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, parent)) == null) {
@@ -85,7 +86,7 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    public BaseViewHolder Q(ViewGroup parent) {
+    public BaseViewHolder P(ViewGroup parent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, parent)) == null) {
@@ -97,14 +98,22 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
         return (BaseViewHolder) invokeL.objValue;
     }
 
+    public final void d0(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.l = j;
+        }
+    }
+
     public final BaseViewHolder b0(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             final ChatShareCommonCard chatShareCommonCard = new ChatShareCommonCard(context, null, 2, null);
-            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090eac);
+            chatShareCommonCard.setId(R.id.obfuscated_res_0x7f090eb9);
             chatShareCommonCard.setScene(1);
-            chatShareCommonCard.setLayoutParams(new ViewGroup.LayoutParams(l, -2));
+            chatShareCommonCard.setRoomId(this.l);
+            chatShareCommonCard.setLayoutParams(new ViewGroup.LayoutParams(m, -2));
             return new BaseViewHolder(chatShareCommonCard) { // from class: com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.ShareCommonCardAdapter$createViewHolder$1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -144,7 +153,7 @@ public final class ShareCommonCardAdapter extends BaseChatAdapter<ShareCommonCar
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     /* renamed from: c0 */
-    public void V(int i, ViewGroup directParent, ShareCommonCardSysMsg data, BaseViewHolder holder, List<Object> payloads, int i2) {
+    public void U(int i, ViewGroup directParent, ShareCommonCardSysMsg data, BaseViewHolder holder, List<Object> payloads, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), directParent, data, holder, payloads, Integer.valueOf(i2)}) == null) {

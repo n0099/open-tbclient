@@ -1,15 +1,15 @@
 package com.baidu.searchbox.abtest.ioc;
 
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.dk1;
-import com.baidu.tieba.fk1;
+import com.baidu.tieba.ik1;
+import com.baidu.tieba.kk1;
 /* loaded from: classes3.dex */
 public class CSPDataComponent {
     @Inject
-    public fk1<ICSPDataService> cspServiceHolder;
+    public kk1<ICSPDataService> cspServiceHolder;
 
     public void initcspServiceHolder() {
-        dk1 b = dk1.b();
+        ik1 b = ik1.b();
         this.cspServiceHolder = b;
         b.a(new ICSPDataService_CSPDataComponent_Provider());
     }

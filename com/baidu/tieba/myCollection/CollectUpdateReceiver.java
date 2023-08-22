@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.NotificationHelper;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n79;
+import com.baidu.tieba.sb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,7 +42,7 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !ACTION_NAME.equals(intent.getAction())) {
             return;
         }
-        n79.b().g();
+        sb9.b().g();
         if (!SharedPrefHelper.getInstance().getBoolean("collect_update_flag_key" + TbadkCoreApplication.getCurrentAccount(), false)) {
             return;
         }
@@ -52,7 +52,7 @@ public class CollectUpdateReceiver extends BroadcastReceiver {
             intent2.putExtra("is_notify", true);
             intent2.setFlags(603979776);
             PendingIntent service = PendingIntent.getService(context, 0, intent2, SystemBarTintManager.FLAG_TRANSLUCENT_NAVIGATION);
-            String string = context.getString(R.string.obfuscated_res_0x7f0f047c);
+            String string = context.getString(R.string.obfuscated_res_0x7f0f047d);
             NotificationHelper.showNotification(context, 28, context.getString(R.string.obfuscated_res_0x7f0f029e), string, string, service, false);
         } catch (Throwable th) {
             if (BdLog.isDebugMode()) {

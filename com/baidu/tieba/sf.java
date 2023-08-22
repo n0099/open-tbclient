@@ -23,7 +23,7 @@ import javax.net.ssl.SSLSocketFactory;
 import okhttp3.CertificatePinner;
 import okhttp3.Handshake;
 import okhttp3.internal.tls.OkHostnameVerifier;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class sf extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

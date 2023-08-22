@@ -1,59 +1,100 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.NegativeFeedBackData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: HeaderViewLogic.java */
-/* loaded from: classes8.dex */
-public final /* synthetic */ class zp7 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.RecentUpdate;
+/* loaded from: classes9.dex */
+public class zp7 extends w05 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public RecentUpdate a;
 
-    @NonNull
-    public static aq7 a() {
+    @Override // com.baidu.tieba.w05
+    public NegativeFeedBackData getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new bq7();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-        return (aq7) invokeV.objValue;
+        return (NegativeFeedBackData) invokeV.objValue;
     }
 
-    public static View b(View view2) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.w05
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            return view2.findViewById(R.id.obfuscated_res_0x7f090cd7);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
-        return (View) invokeL.objValue;
+        return (ThreadData) invokeV.objValue;
     }
 
-    @NonNull
-    public static TextView c(@NonNull View view2, boolean z) {
-        InterceptResult invokeLZ;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, view2, z)) == null) {
-            if (z) {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090eeb);
-            } else {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090eec);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948367720, "Lcom/baidu/tieba/zp7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            textView.bringToFront();
-            EMManager.from(textView).setTextColor(R.color.CAM_X0619);
-            return textView;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948367720, "Lcom/baidu/tieba/zp7;");
+                return;
+            }
         }
-        return (TextView) invokeLZ.objValue;
+        b = BdUniqueId.gen();
     }
 
-    public static void d(@NonNull View view2, @NonNull View view3) {
+    public zp7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
-            EMManager.from(view2).setCorner(R.string.J_X11).setMaskBackGround(R.array.Mask_X005);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        setSupportType(BaseCardInfo.SupportType.FULL);
+    }
+
+    public RecentUpdate c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (RecentUpdate) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void d(RecentUpdate recentUpdate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentUpdate) == null) {
+            this.a = recentUpdate;
         }
     }
 }

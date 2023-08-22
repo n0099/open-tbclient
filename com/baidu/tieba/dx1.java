@@ -1,19 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.tieba.fx1;
+import androidx.annotation.NonNull;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface dx1<T extends fx1> extends gx1<T> {
-    void D();
+public interface dx1 {
+    void a(@NonNull Object obj, String str, String str2);
 
-    void E(ViewGroup viewGroup);
+    void b(@NonNull Object obj);
 
-    void F(View view2);
+    Object beginFlow(String str);
 
-    void O(boolean z);
+    void c(@NonNull Object obj);
 
-    void T();
+    void d(String str, Map<String, String> map);
 
-    void d0(String str, String str2);
+    boolean e();
+
+    void f(String str, JSONObject jSONObject);
+
+    void g(@NonNull Object obj, String str, String str2, long j);
+
+    void h(@NonNull Object obj, String str);
+
+    void i(String str, String str2);
 }

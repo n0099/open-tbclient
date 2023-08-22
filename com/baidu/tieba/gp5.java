@@ -1,16 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.tbadk.BdToken.completeTask.CompleteTaskToastData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mutiprocess.competetask.CompeteTaskEvent;
+import com.baidu.tieba.videoplay.service.VideoVerticalPageFragmentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class gp5 implements uo5<CompeteTaskEvent> {
+public class gp5 implements hk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -28,23 +25,10 @@ public class gp5 implements uo5<CompeteTaskEvent> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uo5
-    /* renamed from: a */
-    public boolean onEvent(CompeteTaskEvent competeTaskEvent) {
-        InterceptResult invokeL;
-        CompleteTaskToastData completeTaskToastData;
+    @Override // com.baidu.tieba.hk1
+    public Object get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, competeTaskEvent)) == null) {
-            if (competeTaskEvent != null && (completeTaskToastData = competeTaskEvent.taskToastData) != null) {
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity instanceof qt4) {
-                    ((qt4) currentActivity).onMissionCompleted(completeTaskToastData);
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new VideoVerticalPageFragmentService() : invokeV.objValue;
     }
 }

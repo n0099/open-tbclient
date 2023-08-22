@@ -1,5 +1,5 @@
 package kotlin.reflect.jvm.internal.impl.descriptors;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public interface SourceElement {
     public static final SourceElement NO_SOURCE = new SourceElement() { // from class: kotlin.reflect.jvm.internal.impl.descriptors.SourceElement.1
         public static /* synthetic */ void $$$reportNull$$$0(int i) {

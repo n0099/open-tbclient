@@ -9,7 +9,7 @@ import com.huawei.hms.common.internal.Preconditions;
 import com.huawei.hms.support.api.client.Result;
 import com.huawei.hms.support.log.HMSLog;
 @Deprecated
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public abstract class ResolvingResultCallbacks<R extends Result> extends ResultCallbacks<R> {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "ResolvingResultCallbacks";

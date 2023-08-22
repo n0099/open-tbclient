@@ -1,169 +1,147 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.content.IntentFilter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.payment.PaymentManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.poly.widget.PolyActivity;
+import com.baidu.poly.widget.WechatSignAutoRenewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes8.dex */
-public class wf1 implements yf1 {
+public class wf1 implements qi1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static wf1 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b a;
+    public boolean b;
 
-    @Override // com.baidu.tieba.yf1
-    public void i(Activity activity, JSONObject jSONObject, tf1 tf1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048585, this, activity, jSONObject, tf1Var) == null) {
-        }
+    /* loaded from: classes8.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948268551, "Lcom/baidu/tieba/wf1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes8.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wf1 this$0;
+
+        public b(wf1 wf1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wf1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948268551, "Lcom/baidu/tieba/wf1;");
-                return;
+            this.this$0 = wf1Var;
+        }
+
+        public /* synthetic */ b(wf1 wf1Var, a aVar) {
+            this(wf1Var);
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.b) {
+                this.this$0.b = false;
+                try {
+                    int intExtra = intent.getIntExtra("code", 0);
+                    Intent intent2 = new Intent(PolyActivity.g, WechatSignAutoRenewActivity.class);
+                    intent2.putExtra("code", intExtra);
+                    PolyActivity.g.startActivity(intent2);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
-        a = SchemeConfig.getSchemeHead() + "://swan/";
     }
 
     public wf1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+    }
+
+    public static wf1 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (c == null) {
+                synchronized (wf1.class) {
+                    if (c == null) {
+                        c = new wf1();
+                    }
+                }
+            }
+            return c;
+        }
+        return (wf1) invokeV.objValue;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a = new b(this, null);
+            PolyActivity.g.getApplicationContext().registerReceiver(this.a, new IntentFilter("com_baidu_poly_cashier_wechat_sign_auto_renew_receiver"));
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
+            try {
+                PolyActivity.g.getApplicationContext().unregisterReceiver(this.a);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    @Override // com.baidu.tieba.yf1
+    @Override // com.baidu.tieba.qi1
     public void a(Activity activity, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
-            fu2.S().a(activity, str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.yf1
-    public void aLiAuth(Activity activity, String str, fg1<JSONObject> fg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, fg1Var) == null) {
-            fu2.S().f(activity, str, fg1Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.yf1
-    public void c(Activity activity, String str, tf1 tf1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, tf1Var) == null) {
-            fu2.S().c(activity, str, tf1Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.yf1
-    public void d(Context context, JSONObject jSONObject, tf1 tf1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, jSONObject, tf1Var) == null) {
-            fu2.S().d(context, jSONObject, tf1Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.yf1
-    public void e(Activity activity, String str, tf1 tf1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, tf1Var) == null) {
-            fu2.S().e(activity, str, tf1Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.yf1
-    public boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            return fu2.S().b(context);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yf1
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            m33.b().a = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.yf1
-    public String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
-            return fu2.G0().a(context);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.yf1
-    public void f(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
-            if (jSONObject == null) {
-                PaymentManager.i(3, "支付信息不能为空");
+            ci1.b("WECHAT signWechatAutoRenew appId=" + str);
+            dg1 a2 = tf1.a();
+            if (a2 == null) {
                 return;
             }
-            String optString = jSONObject.optString("appKey");
-            String optString2 = jSONObject.optString("redirectUrl");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                SchemeRouter.invoke(context, a + optString + optString2);
+            if (!a2.b(activity)) {
+                aj1.f(activity, "您没有安装微信，请选择其他支付方式");
+                activity.finish();
                 return;
             }
-            PaymentManager.i(3, "支付信息不能为空");
-        }
-    }
-
-    @Override // com.baidu.tieba.yf1
-    public void g(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            String str = m33.b().a;
-            if (TextUtils.isEmpty(str)) {
-                qf1.a(bundle);
-                return;
-            }
-            o73 e = o73.e();
-            q73 q73Var = new q73(119, bundle);
-            q73Var.c(str);
-            q73Var.p(true);
-            e.h(q73Var);
+            this.b = true;
+            f();
+            e();
+            a2.a(activity, str, str2);
+            activity.finish();
         }
     }
 }

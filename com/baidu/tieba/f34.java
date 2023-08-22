@@ -1,121 +1,95 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class f34 implements tw1 {
+public class f34 extends j34 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, e34> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947713186, "Lcom/baidu/tieba/f34;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements wp3<dg3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ho2 a;
+
+        public a(f34 f34Var, ho2 ho2Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f34Var, ho2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947713186, "Lcom/baidu/tieba/f34;");
-                return;
+            this.a = ho2Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wp3
+        /* renamed from: b */
+        public void a(dg3 dg3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dg3Var) == null) {
+                boolean z = true;
+                if ((dg3Var == null || dg3Var.d || dg3Var.j != 1) ? false : false) {
+                    this.a.onSuccess(null);
+                } else {
+                    this.a.onFail(10001, "authorize fail.");
+                }
             }
         }
-        b = ir1.a;
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f34() {
+        super("authorize");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap<>();
-        c();
     }
 
-    @Override // com.baidu.tieba.tw1
-    public y22 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull co2 co2Var) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.j34
+    public d32 a(@NonNull JSONObject jSONObject, @NonNull ho2 ho2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, co2Var)) == null) {
-            return b(str, jSONObject, co2Var);
-        }
-        return (y22) invokeLLL.objValue;
-    }
-
-    public final y22 b(String str, JSONObject jSONObject, co2 co2Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, co2Var)) == null) {
-            e34 e34Var = this.a.get(str);
-            if (e34Var != null) {
-                if (b) {
-                    Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
-                }
-                return e34Var.a(jSONObject, co2Var);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ho2Var)) == null) {
+            if (j34.b && jSONObject.optBoolean("debug", false)) {
+                Log.i("authorize", "debug mode: true.");
+                ho2Var.onSuccess(null);
+                return null;
             }
-            if (b) {
-                Log.i("GameCenterDispatcher", "action has not found: " + str + ", params: " + jSONObject);
+            db3 b0 = db3.b0();
+            if (b0 == null) {
+                ho2Var.onFail(10001, "authorize fail.");
+                return null;
             }
-            return new y22(10002, "no such api.");
+            b0.e0().e("mapp_gamecenter_private_api", new a(this, ho2Var));
+            return null;
         }
-        return (y22) invokeLLL.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            d(new c34());
-            d(new d34());
-            d(new a24());
-            d(new e24());
-            d(new b24());
-            d(new t34());
-            d(new c24());
-            d(new j34());
-            d(new q34());
-            d(new z14());
-            d(new g24());
-            d(new d24());
-            d(new f24());
-            d(new m34());
-            d(new s34());
-            d(new n34());
-            d(new p34());
-            d(new o34());
-        }
-    }
-
-    public void d(e34 e34Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, e34Var) == null) {
-            if (b && TextUtils.isEmpty(e34Var.a)) {
-                throw new IllegalArgumentException("action name is null");
-            }
-            if (b && this.a.containsKey(e34Var.a)) {
-                throw new IllegalArgumentException("duplicate action: " + e34Var);
-            }
-            this.a.put(e34Var.a, e34Var);
-        }
+        return (d32) invokeLL.objValue;
     }
 }

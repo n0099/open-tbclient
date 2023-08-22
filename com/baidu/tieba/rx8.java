@@ -1,75 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Objects;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class rx8 extends tx8 {
+public abstract class rx8<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<tx8> c;
+    public final cy8<T> a;
+    public Function2<? super View, ? super cy8<T>, Unit> b;
+    public Function2<? super View, ? super cy8<T>, Unit> c;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @Override // com.baidu.tieba.tx8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.tx8
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "lego_main" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final rx8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-445996391, "Lcom/baidu/tieba/rx8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-445996391, "Lcom/baidu/tieba/rx8$b;");
-                    return;
-                }
-            }
-            a = new rx8(null);
-        }
-    }
-
-    public rx8() {
+    public rx8(cy8<T> data) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,134 +35,118 @@ public class rx8 extends tx8 {
                 return;
             }
         }
-        this.c = new ArrayList(4);
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
     }
 
-    public static rx8 h() {
+    public boolean f(rx8<?> other) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, other)) == null) {
+            Intrinsics.checkNotNullParameter(other, "other");
+            if (this.a.e().c() != 2 && other.a.e().c() != 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final cy8<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (rx8) invokeV.objValue;
+        return (cy8) invokeV.objValue;
     }
 
-    public /* synthetic */ rx8(a aVar) {
-        this();
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.cy8<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.cy8<T>, kotlin.Unit> */
+    public final Function2<View, cy8<T>, Unit> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (Function2<? super View, ? super cy8<T>, Unit>) this.b;
+        }
+        return (Function2) invokeV.objValue;
     }
 
-    public static ICardInfo j(JSONObject jSONObject) throws CardParseException {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.cy8<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.cy8<T>, kotlin.Unit> */
+    public final Function2<View, cy8<T>, Unit> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (Function2<? super View, ? super cy8<T>, Unit>) this.c;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return Objects.hashCode(this.a);
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v10 */
+    /* JADX WARN: Type inference failed for: r1v11 */
+    /* JADX WARN: Type inference failed for: r1v12 */
+    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.CharSequence] */
+    /* JADX WARN: Type inference failed for: r1v9 */
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
+        rx8 rx8Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
-            return h().b(jSONObject, jSONObject.optInt("card_type"));
-        }
-        return (ICardInfo) invokeL.objValue;
-    }
-
-    public synchronized void g(tx8 tx8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tx8Var) == null) {
-            synchronized (this) {
-                this.c.add(tx8Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-        }
-    }
-
-    public static ICardInfo i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                ICardInfo j = j(new JSONObject(str));
-                if (j != null) {
-                    if (j.isValid()) {
-                        return j;
-                    }
-                }
-                return null;
-            } catch (CardParseException e) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e);
-                return null;
-            } catch (JSONException e2) {
-                BdLog.detailException("CardFactory.getPageCardInfo", e2);
-                return null;
-            }
-        }
-        return (ICardInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.tx8
-    public <T> ly8 a(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, tbPageContext, iCardInfo, i)) == null) {
-            ly8 e = e(tbPageContext, iCardInfo, i);
-            if (e != null) {
-                e.setBusinessType(i);
-            }
-            return e;
-        }
-        return (ly8) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.tx8
-    public ICardInfo b(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, i)) == null) {
-            return f(jSONObject, i);
-        }
-        return (ICardInfo) invokeLI.objValue;
-    }
-
-    public final <T> ly8 e(TbPageContext<T> tbPageContext, ICardInfo iCardInfo, int i) {
-        InterceptResult invokeLLI;
-        int cardType;
-        ly8 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, tbPageContext, iCardInfo, i)) == null) {
-            for (tx8 tx8Var : this.c) {
-                try {
-                    a2 = tx8Var.a(tbPageContext, iCardInfo, i);
-                } catch (Throwable th) {
-                    BdLog.detailException("factory <" + tx8Var.d() + "> respond exception", th);
-                }
-                if (a2 != null) {
-                    return a2;
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("No card factory for card type ");
-            if (iCardInfo == null) {
-                cardType = -1;
+            cy8<T> cy8Var = (cy8<T>) false;
+            if (obj instanceof rx8) {
+                rx8Var = (rx8) obj;
             } else {
-                cardType = iCardInfo.getCardType();
+                rx8Var = null;
             }
-            sb.append(cardType);
-            BdLog.e(sb.toString());
-            return null;
+            if (this instanceof tx8) {
+                String a = ((tx8) this).c().g().a();
+                ?? r1 = cy8Var;
+                if (rx8Var != null) {
+                    cy8<T> cy8Var2 = rx8Var.a;
+                    r1 = cy8Var;
+                    if (cy8Var2 != null) {
+                        by8 g = cy8Var2.g();
+                        r1 = cy8Var;
+                        if (g != null) {
+                            r1 = (cy8<T>) g.a();
+                        }
+                    }
+                }
+                return TextUtils.equals(a, r1);
+            }
+            cy8<T> cy8Var3 = this.a;
+            cy8<T> cy8Var4 = cy8Var;
+            if (rx8Var != null) {
+                cy8Var4 = rx8Var.a;
+            }
+            return Objects.equals(cy8Var3, cy8Var4);
         }
-        return (ly8) invokeLLI.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final ICardInfo f(JSONObject jSONObject, int i) throws CardParseException {
-        InterceptResult invokeLI;
+    public final void g(Function2<? super View, ? super cy8<T>, Unit> function2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, jSONObject, i)) == null) {
-            for (tx8 tx8Var : this.c) {
-                try {
-                    ICardInfo b2 = tx8Var.b(jSONObject, i);
-                    if (b2 != null) {
-                        return b2;
-                    }
-                } catch (Throwable th) {
-                    throw new CardParseException("Card type " + i + ", factory <" + tx8Var.d() + "> respond exception", th);
-                }
-            }
-            BdLog.e("No card factory for card type " + i);
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048581, this, function2) == null) {
+            this.b = function2;
         }
-        return (ICardInfo) invokeLI.objValue;
+    }
+
+    public final void h(Function2<? super View, ? super cy8<T>, Unit> function2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, function2) == null) {
+            this.c = function2;
+        }
     }
 }

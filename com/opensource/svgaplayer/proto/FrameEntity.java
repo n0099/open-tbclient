@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.srb;
-import com.baidu.tieba.trb;
-import com.baidu.tieba.xrb;
+import com.baidu.tieba.hyb;
+import com.baidu.tieba.iyb;
+import com.baidu.tieba.myb;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,7 +60,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                     return;
                 }
             }
-            this.shapes = xrb.i();
+            this.shapes = myb.i();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -109,7 +109,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
-                xrb.a(list);
+                myb.a(list);
                 this.shapes = list;
                 return this;
             }
@@ -154,39 +154,39 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public FrameEntity decode(srb srbVar) throws IOException {
+        public FrameEntity decode(hyb hybVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, srbVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hybVar)) == null) {
                 Builder builder = new Builder();
-                long c = srbVar.c();
+                long c = hybVar.c();
                 while (true) {
-                    int f = srbVar.f();
+                    int f = hybVar.f();
                     if (f != -1) {
                         if (f != 1) {
                             if (f != 2) {
                                 if (f != 3) {
                                     if (f != 4) {
                                         if (f != 5) {
-                                            FieldEncoding g = srbVar.g();
-                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(srbVar));
+                                            FieldEncoding g = hybVar.g();
+                                            builder.addUnknownField(f, g, g.rawProtoAdapter().decode(hybVar));
                                         } else {
-                                            builder.shapes.add(ShapeEntity.ADAPTER.decode(srbVar));
+                                            builder.shapes.add(ShapeEntity.ADAPTER.decode(hybVar));
                                         }
                                     } else {
-                                        builder.clipPath(ProtoAdapter.STRING.decode(srbVar));
+                                        builder.clipPath(ProtoAdapter.STRING.decode(hybVar));
                                     }
                                 } else {
-                                    builder.transform(Transform.ADAPTER.decode(srbVar));
+                                    builder.transform(Transform.ADAPTER.decode(hybVar));
                                 }
                             } else {
-                                builder.layout(Layout.ADAPTER.decode(srbVar));
+                                builder.layout(Layout.ADAPTER.decode(hybVar));
                             }
                         } else {
-                            builder.alpha(ProtoAdapter.FLOAT.decode(srbVar));
+                            builder.alpha(ProtoAdapter.FLOAT.decode(hybVar));
                         }
                     } else {
-                        srbVar.d(c);
+                        hybVar.d(c);
                         return builder.build();
                     }
                 }
@@ -197,27 +197,27 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(trb trbVar, FrameEntity frameEntity) throws IOException {
+        public void encode(iyb iybVar, FrameEntity frameEntity) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, trbVar, frameEntity) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, iybVar, frameEntity) == null) {
                 Float f = frameEntity.alpha;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(trbVar, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(iybVar, 1, f);
                 }
                 Layout layout = frameEntity.layout;
                 if (layout != null) {
-                    Layout.ADAPTER.encodeWithTag(trbVar, 2, layout);
+                    Layout.ADAPTER.encodeWithTag(iybVar, 2, layout);
                 }
                 Transform transform = frameEntity.transform;
                 if (transform != null) {
-                    Transform.ADAPTER.encodeWithTag(trbVar, 3, transform);
+                    Transform.ADAPTER.encodeWithTag(iybVar, 3, transform);
                 }
                 String str = frameEntity.clipPath;
                 if (str != null) {
-                    ProtoAdapter.STRING.encodeWithTag(trbVar, 4, str);
+                    ProtoAdapter.STRING.encodeWithTag(iybVar, 4, str);
                 }
-                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(trbVar, 5, frameEntity.shapes);
-                trbVar.k(frameEntity.unknownFields());
+                ShapeEntity.ADAPTER.asRepeated().encodeWithTag(iybVar, 5, frameEntity.shapes);
+                iybVar.k(frameEntity.unknownFields());
             }
         }
 
@@ -276,7 +276,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 if (transform != null) {
                     newBuilder2.transform = Transform.ADAPTER.redact(transform);
                 }
-                xrb.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
+                myb.k(newBuilder2.shapes, ShapeEntity.ADAPTER);
                 newBuilder2.clearUnknownFields();
                 return newBuilder2.build();
             }
@@ -345,7 +345,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
         this.layout = layout;
         this.transform = transform;
         this.clipPath = str;
-        this.shapes = xrb.g("shapes", list);
+        this.shapes = myb.g("shapes", list);
     }
 
     public boolean equals(Object obj) {
@@ -359,7 +359,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
                 return false;
             }
             FrameEntity frameEntity = (FrameEntity) obj;
-            if (unknownFields().equals(frameEntity.unknownFields()) && xrb.f(this.alpha, frameEntity.alpha) && xrb.f(this.layout, frameEntity.layout) && xrb.f(this.transform, frameEntity.transform) && xrb.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes)) {
+            if (unknownFields().equals(frameEntity.unknownFields()) && myb.f(this.alpha, frameEntity.alpha) && myb.f(this.layout, frameEntity.layout) && myb.f(this.transform, frameEntity.transform) && myb.f(this.clipPath, frameEntity.clipPath) && this.shapes.equals(frameEntity.shapes)) {
                 return true;
             }
             return false;
@@ -425,7 +425,7 @@ public final class FrameEntity extends Message<FrameEntity, Builder> {
             builder.layout = this.layout;
             builder.transform = this.transform;
             builder.clipPath = this.clipPath;
-            builder.shapes = xrb.c("shapes", this.shapes);
+            builder.shapes = myb.c("shapes", this.shapes);
             builder.addUnknownFields(unknownFields());
             return builder;
         }

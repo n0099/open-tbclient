@@ -1,130 +1,54 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import rx.exceptions.CompositeException;
-import rx.exceptions.OnCompletedFailedException;
-import rx.exceptions.OnErrorFailedException;
-import rx.exceptions.OnErrorNotImplementedException;
-import rx.exceptions.UnsubscribeFailedException;
 /* loaded from: classes5.dex */
-public class f5c<T> extends e1c<T> {
+public final class f5c {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] a;
+    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final e1c<? super T> e;
-    public boolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f5c(e1c<? super T> e1cVar) {
-        super(e1cVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e1cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((e1c) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716565, "Lcom/baidu/tieba/f5c;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947716565, "Lcom/baidu/tieba/f5c;");
                 return;
             }
         }
-        this.e = e1cVar;
+        a = new byte[1024];
+        b = new int[1024];
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    public void g(Throwable th) {
+    public static void a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-            o5c.c().b().a(th);
-            try {
-                this.e.onError(th);
-                try {
-                    unsubscribe();
-                } catch (Throwable th2) {
-                    l5c.j(th2);
-                    throw new OnErrorFailedException(th2);
-                }
-            } catch (OnErrorNotImplementedException e) {
-                try {
-                    unsubscribe();
-                    throw e;
-                } catch (Throwable th3) {
-                    l5c.j(th3);
-                    throw new OnErrorNotImplementedException("Observer.onError not implemented and error while unsubscribing.", new CompositeException(Arrays.asList(th, th3)));
-                }
-            } catch (Throwable th4) {
-                l5c.j(th4);
-                try {
-                    unsubscribe();
-                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError", new CompositeException(Arrays.asList(th, th4)));
-                } catch (Throwable th5) {
-                    l5c.j(th5);
-                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError and during unsubscription.", new CompositeException(Arrays.asList(th, th4, th5)));
-                }
+        if (interceptable == null || interceptable.invokeLII(65537, null, bArr, i, i2) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                int min = Math.min(i3 + 1024, i2) - i3;
+                System.arraycopy(a, 0, bArr, i + i3, min);
+                i3 += min;
             }
         }
     }
 
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
-    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
-    @Override // com.baidu.tieba.z0c
-    public void onCompleted() {
-        UnsubscribeFailedException unsubscribeFailedException;
+    public static void b(int[] iArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f) {
-            this.f = true;
-            try {
-                this.e.onCompleted();
-                try {
-                    unsubscribe();
-                } finally {
-                }
-            } catch (Throwable th) {
-                try {
-                    k1c.e(th);
-                    l5c.j(th);
-                    throw new OnCompletedFailedException(th.getMessage(), th);
-                } catch (Throwable th2) {
-                    try {
-                        unsubscribe();
-                        throw th2;
-                    } finally {
-                    }
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.z0c
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            k1c.e(th);
-            if (!this.f) {
-                this.f = true;
-                g(th);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.z0c
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-            try {
-                if (!this.f) {
-                    this.e.onNext(t);
-                }
-            } catch (Throwable th) {
-                k1c.f(th, this);
+        if (interceptable == null || interceptable.invokeLII(65538, null, iArr, i, i2) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                int min = Math.min(i3 + 1024, i2) - i3;
+                System.arraycopy(b, 0, iArr, i + i3, min);
+                i3 += min;
             }
         }
     }

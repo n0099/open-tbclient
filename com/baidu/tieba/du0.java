@@ -1,28 +1,29 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
 /* loaded from: classes5.dex */
-public interface du0 extends zt0, bu0 {
-    public static final a a = ub1.a;
+public interface du0 {
+    void a(int i);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        du0 a(Context context, int i);
+    void onBufferEnd();
 
-        du0 b(Context context, int i, @Nullable eu0 eu0Var);
-    }
+    void onBufferStart();
 
-    void a(au0 au0Var);
+    void onEnd(int i);
 
-    void attachToContainer(@NonNull ViewGroup viewGroup);
+    void onError(int i, int i2, String str);
 
-    void c(@NonNull pr0 pr0Var);
+    void onInfo(int i, int i2);
 
-    void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy);
+    void onPause();
 
-    void release();
+    void onPrepared();
+
+    void onResume();
+
+    void onSeekEnd();
+
+    void onStart();
+
+    void onUpdateProgress(int i, int i2, int i3);
+
+    void onVideoSizeChanged(int i, int i2);
 }

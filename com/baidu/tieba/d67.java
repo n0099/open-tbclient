@@ -1,120 +1,168 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.component.uistate.CardOriginCardUiStateKt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class d67 {
+public final class d67 extends j67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final String b;
-    public final String c;
-    public final String d;
-    public final Object e;
+    public final w57 d;
+    public final e67 e;
+    public final l67 f;
+    public final b67 g;
+    public final x57 h;
+    public final String i;
+    public final r87 j;
+    public final Function2<Context, d67, Unit> k;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof d67) {
-                d67 d67Var = (d67) obj;
-                return Intrinsics.areEqual(this.a, d67Var.a) && Intrinsics.areEqual(this.b, d67Var.b) && Intrinsics.areEqual(this.c, d67Var.c) && Intrinsics.areEqual(this.d, d67Var.d) && Intrinsics.areEqual(this.e, d67Var.e);
-            }
-            return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947656580, "Lcom/baidu/tieba/d67;")) == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947656580, "Lcom/baidu/tieba/d67;");
+        }
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int hashCode = this.a.hashCode() * 31;
-            String str = this.b;
-            int hashCode2 = (hashCode + (str == null ? 0 : str.hashCode())) * 31;
-            String str2 = this.c;
-            int hashCode3 = (hashCode2 + (str2 == null ? 0 : str2.hashCode())) * 31;
-            String str3 = this.d;
-            int hashCode4 = (hashCode3 + (str3 == null ? 0 : str3.hashCode())) * 31;
-            Object obj = this.e;
-            return hashCode4 + (obj != null ? obj.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "FeedFeedbackData(type=" + this.a + ", title=" + this.b + ", buttonText=" + this.c + ", commonId=" + this.d + ", businessData=" + this.e + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public d67(String type, String str, String str2, String str3, Object obj) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public d67(w57 cardAbstractUiState, e67 e67Var, l67 l67Var, b67 b67Var, x57 x57Var, String schema, r87 statData, Function2<? super Context, ? super d67, Unit> onCardClick) {
+        super(null, null, 3, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type, str, str2, str3, obj};
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r3;
+            Object[] objArr = {cardAbstractUiState, e67Var, l67Var, b67Var, x57Var, schema, statData, onCardClick};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Function2) objArr2[0], (Function1) objArr2[1], ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-        this.b = str;
-        this.c = str2;
-        this.d = str3;
-        this.e = obj;
+        Intrinsics.checkNotNullParameter(cardAbstractUiState, "cardAbstractUiState");
+        Intrinsics.checkNotNullParameter(schema, "schema");
+        Intrinsics.checkNotNullParameter(statData, "statData");
+        Intrinsics.checkNotNullParameter(onCardClick, "onCardClick");
+        this.d = cardAbstractUiState;
+        this.e = e67Var;
+        this.f = l67Var;
+        this.g = b67Var;
+        this.h = x57Var;
+        this.i = schema;
+        this.j = statData;
+        this.k = onCardClick;
     }
 
-    public final Object a() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ d67(w57 w57Var, e67 e67Var, l67 l67Var, b67 b67Var, x57 x57Var, String str, r87 r87Var, Function2 function2, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(w57Var, e67Var, l67Var, b67Var, x57Var, str, r87Var, r9);
+        Function2 function22;
+        Function2 function23;
+        if ((i & 128) != 0) {
+            function23 = CardOriginCardUiStateKt.a;
+            function22 = function23;
+        } else {
+            function22 = function2;
+        }
+    }
+
+    public final w57 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+            return this.d;
         }
-        return invokeV.objValue;
+        return (w57) invokeV.objValue;
     }
 
-    public final String b() {
+    public final x57 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.h;
         }
-        return (String) invokeV.objValue;
+        return (x57) invokeV.objValue;
     }
 
-    public final String c() {
+    public final b67 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            return this.g;
+        }
+        return (b67) invokeV.objValue;
+    }
+
+    public final e67 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (e67) invokeV.objValue;
+    }
+
+    public final l67 l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
+        }
+        return (l67) invokeV.objValue;
+    }
+
+    public final Function2<Context, d67, Unit> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.k;
+        }
+        return (Function2) invokeV.objValue;
+    }
+
+    public final String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
         }
         return (String) invokeV.objValue;
     }
 
-    public final String getType() {
+    public final r87 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.j;
         }
-        return (String) invokeV.objValue;
+        return (r87) invokeV.objValue;
     }
 }

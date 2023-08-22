@@ -1,26 +1,25 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.model.LoadType;
-import com.baidu.tieba.st5;
-import com.baidu.tieba.tt5;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qs5<Q extends st5, P extends tt5> implements rs5<Q, P> {
+public class qs5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
+    public ss5 a;
+    public String b;
 
-    public qs5() {
+    public qs5(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,65 +29,44 @@ public class qs5<Q extends st5, P extends tt5> implements rs5<Q, P> {
                 return;
             }
         }
-        this.a = true;
-        this.b = 1;
-        this.c = 1;
+        this.b = str;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public final void a(String str, int i) {
+        int intValue;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.rs5
-    public void a(Q q, P p) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, q, p) != null) || p == null) {
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || di.isEmpty(str) || i <= 0 || TbSingleton.getInstance().isAnimFpsComputed(str) || (intValue = TbSingleton.getInstance().getAnimAvgFpsCount(str).intValue()) >= 5) {
             return;
         }
-        if (p.getPageInfo() != null) {
-            nt5 pageInfo = p.getPageInfo();
-            this.c = pageInfo.a;
-            this.a = pageInfo.b;
-            if (q != null && q.c() != null) {
-                q.c().d = pageInfo.c;
-            }
+        int i2 = intValue + 1;
+        int intValue2 = TbSingleton.getInstance().getAnimAvgFps(str).intValue();
+        if (intValue2 > 0) {
+            i = (i + (intValue2 * (i2 - 1))) / i2;
         }
-        if (this.c <= 0 && q != null && q.c() != null && q.c().c > 0) {
-            this.c = q.c().c;
-            this.a = true;
+        TbSingleton.getInstance().setAnimAvgFps(str, i);
+        TbSingleton.getInstance().setAnimAvgFpsCount(str, i2);
+        if (i2 >= 5) {
+            TbSingleton.getInstance().setAnimComputedFps(str, i);
+            rs5.a();
         }
-        iu5.b("onResp--->pn=" + this.c + ",hasMore=" + this.a);
     }
 
-    @Override // com.baidu.tieba.rs5
-    public void b(Q q, boolean z) {
-        LoadType loadType;
+    public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q, z) == null) && q != null && q.c() != null) {
-            mt5 c = q.c();
-            if (z) {
-                if (!c.a()) {
-                    this.c = this.b;
-                }
-                if (c.a()) {
-                    loadType = LoadType.PREPEND;
-                } else {
-                    loadType = LoadType.REFRESH;
-                }
-                c.b = loadType;
-                c.c = this.c;
-            } else {
-                int i = this.c + 1;
-                this.c = i;
-                c.b = LoadType.APPEND;
-                c.c = i;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && Build.VERSION.SDK_INT >= 16) {
+            if (this.a == null) {
+                this.a = new ss5();
             }
-            iu5.b("onReq--->pn=" + this.c + ",hasMore=" + this.a + ",isPullRefresh=" + z + ",loadType=" + c.b);
+            this.a.c();
+        }
+    }
+
+    public void c() {
+        ss5 ss5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ss5Var = this.a) != null && Build.VERSION.SDK_INT >= 16) {
+            ss5Var.d();
+            a(this.b, this.a.b());
         }
     }
 }

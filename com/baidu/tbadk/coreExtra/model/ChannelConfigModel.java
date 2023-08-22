@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.coreExtra.data.ChannelIconConfigFinalData;
 import com.baidu.tbadk.coreExtra.message.ChannelConfigResponseMessage;
-import com.baidu.tieba.ec5;
+import com.baidu.tieba.lc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ public class ChannelConfigModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public b callback;
-    public ec5 mData;
+    public lc5 mData;
     public ChannelIconConfigFinalData mFinalData;
     public int mLocalCommonVersion;
     public int mLocalSpecialVersion;
@@ -29,7 +29,7 @@ public class ChannelConfigModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(boolean z, ec5 ec5Var);
+        void a(boolean z, lc5 lc5Var);
     }
 
     /* loaded from: classes4.dex */
@@ -102,13 +102,13 @@ public class ChannelConfigModel {
         }
     }
 
-    public ec5 getData() {
+    public lc5 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mData;
         }
-        return (ec5) invokeV.objValue;
+        return (lc5) invokeV.objValue;
     }
 
     public void onDestroy() {
@@ -137,16 +137,16 @@ public class ChannelConfigModel {
                 return null;
             }
             ChannelIconConfigFinalData channelIconConfigFinalData2 = new ChannelIconConfigFinalData();
-            ec5 ec5Var = this.mData;
-            if (ec5Var != null && ec5Var.b() != null && this.mLocalSpecialVersion < this.mData.b().e()) {
+            lc5 lc5Var = this.mData;
+            if (lc5Var != null && lc5Var.b() != null && this.mLocalSpecialVersion < this.mData.b().e()) {
                 channelIconConfigFinalData2.setIcon(this.mData.b().a());
                 channelIconConfigFinalData2.setPopText(this.mData.b().b());
                 channelIconConfigFinalData2.setTabCode(this.mData.b().c());
                 channelIconConfigFinalData2.setTid(this.mData.b().d());
                 channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_SPECIAL);
             } else {
-                ec5 ec5Var2 = this.mData;
-                if (ec5Var2 != null && ec5Var2.a() > 0 && this.mLocalCommonVersion < this.mData.a()) {
+                lc5 lc5Var2 = this.mData;
+                if (lc5Var2 != null && lc5Var2.a() > 0 && this.mLocalCommonVersion < this.mData.a()) {
                     channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_COMMON);
                 } else {
                     channelIconConfigFinalData2.setChannelConfigDataType(ChannelIconConfigFinalData.FRAG_TIP_NONE);

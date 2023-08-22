@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.support.log.HMSLog;
 import java.lang.ref.WeakReference;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class ActivityMgr implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public static final ActivityMgr INST;

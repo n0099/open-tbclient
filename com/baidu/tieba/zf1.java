@@ -1,5 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes8.dex */
+
+import org.json.JSONObject;
+/* loaded from: classes9.dex */
 public interface zf1 {
-    void onNativeANR(int i);
+    void a(JSONObject jSONObject);
 }

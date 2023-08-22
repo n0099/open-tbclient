@@ -1,96 +1,47 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.launch.LaunchStatsUtils;
-import com.baidu.searchbox.security.WarmTipsManager;
-import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.unitedscheme.IExternalTransferIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class l80 {
+public final class l80 implements IExternalTransferIoc {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static long b;
-    public static long c;
-    public static volatile String d;
-    public static volatile long e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947896613, "Lcom/baidu/tieba/l80;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public l80() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947896613, "Lcom/baidu/tieba/l80;");
-                return;
-            }
         }
-        a = AppConfig.isDebug();
-        b = -1L;
-        c = -1L;
-        d = "";
-        e = -1L;
     }
 
-    public static long a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.unitedscheme.IExternalTransferIoc
+    public void addEvent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            n80.b(str);
         }
-        return invokeV.longValue;
     }
 
-    public static long b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.unitedscheme.IExternalTransferIoc
+    public void addEvent(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return invokeV.longValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && a() != -1 && !TextUtils.isEmpty(str)) {
-            if (System.currentTimeMillis() - e < 10000) {
-                if (a) {
-                    Log.d(LaunchStatsUtils.TAG, "set source too often，ignore this set source " + str);
-                }
-            } else if (!TextUtils.equals("push", str) && !TextUtils.equals(PbModel.WISE, str) && !TextUtils.equals("scheme", str) && !TextUtils.equals(CommandUBCHelper.COMMAND_UBC_SHARE_TOKEN, str) && !TextUtils.equals(WarmTipsManager.WIDGET_SOURCE_VALUE, str)) {
-                if (a) {
-                    Log.d(LaunchStatsUtils.TAG, "cannot distinguish the source: " + str);
-                }
-            } else {
-                e = System.currentTimeMillis();
-                d = str;
-                if (!TextUtils.equals(k80.e(), str)) {
-                    k80.g(str);
-                }
-                if (a) {
-                    Log.d(LaunchStatsUtils.TAG, "set external transfer source: " + str);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
+            n80.c(str, str2);
         }
     }
 }

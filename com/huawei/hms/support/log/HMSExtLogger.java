@@ -1,5 +1,5 @@
 package com.huawei.hms.support.log;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface HMSExtLogger {
     void d(String str, String str2);
 

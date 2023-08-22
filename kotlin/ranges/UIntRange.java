@@ -39,23 +39,23 @@ public final class UIntRange extends UIntProgression implements ClosedRange<UInt
     /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ UInt getEndInclusive() {
-        return UInt.m935boximpl(m2056getEndInclusivepVg5ArA());
+        return UInt.m937boximpl(m2058getEndInclusivepVg5ArA());
     }
 
     /* renamed from: getEndInclusive-pVg5ArA  reason: not valid java name */
-    public int m2056getEndInclusivepVg5ArA() {
-        return m2053getLastpVg5ArA();
+    public int m2058getEndInclusivepVg5ArA() {
+        return m2055getLastpVg5ArA();
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ UInt getStart() {
-        return UInt.m935boximpl(m2057getStartpVg5ArA());
+        return UInt.m937boximpl(m2059getStartpVg5ArA());
     }
 
     /* renamed from: getStart-pVg5ArA  reason: not valid java name */
-    public int m2057getStartpVg5ArA() {
-        return m2052getFirstpVg5ArA();
+    public int m2059getStartpVg5ArA() {
+        return m2054getFirstpVg5ArA();
     }
 
     @Override // kotlin.ranges.UIntProgression
@@ -63,12 +63,12 @@ public final class UIntRange extends UIntProgression implements ClosedRange<UInt
         if (isEmpty()) {
             return -1;
         }
-        return (m2052getFirstpVg5ArA() * 31) + m2053getLastpVg5ArA();
+        return (m2054getFirstpVg5ArA() * 31) + m2055getLastpVg5ArA();
     }
 
     @Override // kotlin.ranges.UIntProgression, kotlin.ranges.ClosedRange
     public boolean isEmpty() {
-        if (UnsignedKt.uintCompare(m2052getFirstpVg5ArA(), m2053getLastpVg5ArA()) > 0) {
+        if (UnsignedKt.uintCompare(m2054getFirstpVg5ArA(), m2055getLastpVg5ArA()) > 0) {
             return true;
         }
         return false;
@@ -76,7 +76,7 @@ public final class UIntRange extends UIntProgression implements ClosedRange<UInt
 
     @Override // kotlin.ranges.UIntProgression
     public String toString() {
-        return ((Object) UInt.m986toStringimpl(m2052getFirstpVg5ArA())) + IStringUtil.TOP_PATH + ((Object) UInt.m986toStringimpl(m2053getLastpVg5ArA()));
+        return ((Object) UInt.m988toStringimpl(m2054getFirstpVg5ArA())) + IStringUtil.TOP_PATH + ((Object) UInt.m988toStringimpl(m2055getLastpVg5ArA()));
     }
 
     public UIntRange(int i, int i2) {
@@ -86,12 +86,12 @@ public final class UIntRange extends UIntProgression implements ClosedRange<UInt
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ boolean contains(UInt uInt) {
-        return m2055containsWZ4Q5Ns(uInt.m992unboximpl());
+        return m2057containsWZ4Q5Ns(uInt.m994unboximpl());
     }
 
     /* renamed from: contains-WZ4Q5Ns  reason: not valid java name */
-    public boolean m2055containsWZ4Q5Ns(int i) {
-        if (UnsignedKt.uintCompare(m2052getFirstpVg5ArA(), i) <= 0 && UnsignedKt.uintCompare(i, m2053getLastpVg5ArA()) <= 0) {
+    public boolean m2057containsWZ4Q5Ns(int i) {
+        if (UnsignedKt.uintCompare(m2054getFirstpVg5ArA(), i) <= 0 && UnsignedKt.uintCompare(i, m2055getLastpVg5ArA()) <= 0) {
             return true;
         }
         return false;
@@ -102,7 +102,7 @@ public final class UIntRange extends UIntProgression implements ClosedRange<UInt
         if (obj instanceof UIntRange) {
             if (!isEmpty() || !((UIntRange) obj).isEmpty()) {
                 UIntRange uIntRange = (UIntRange) obj;
-                if (m2052getFirstpVg5ArA() != uIntRange.m2052getFirstpVg5ArA() || m2053getLastpVg5ArA() != uIntRange.m2053getLastpVg5ArA()) {
+                if (m2054getFirstpVg5ArA() != uIntRange.m2054getFirstpVg5ArA() || m2055getLastpVg5ArA() != uIntRange.m2055getLastpVg5ArA()) {
                 }
             }
             return true;

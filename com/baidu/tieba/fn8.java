@@ -1,166 +1,108 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import androidx.recyclerview.widget.SimpleItemAnimator;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.InterceptRecyclerView;
-import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.TagGridLayoutManager;
-import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.TagAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class fn8 {
+public final class fn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecyclerView a;
-    public TagAdapter b;
-    public in8 c;
+    public final Map<String, hn8> a;
+    public hn8 b;
+    public long c;
 
-    /* loaded from: classes5.dex */
-    public static class a extends RecyclerView.ItemDecoration {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final int a;
-        public final int b;
-
-        public a(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
-        public void getItemOffsets(Rect rect, View view2, RecyclerView recyclerView, RecyclerView.State state) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, rect, view2, recyclerView, state) == null) {
-                super.getItemOffsets(rect, view2, recyclerView, state);
-                int i = this.a;
-                rect.set(i / 2, this.b, i / 2, 0);
-            }
+    @JvmOverloads
+    public final void c(AbilityItem abilityItem, BaseMsg baseMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            e(this, abilityItem, baseMsg, null, 4, null);
         }
     }
 
-    public fn8(Context context, RecyclerView recyclerView, in8 in8Var, jn8 jn8Var, int i, int i2) {
+    public fn8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, recyclerView, in8Var, jn8Var, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (context != null && recyclerView != null && in8Var != null && jn8Var != null) {
-            this.a = recyclerView;
-            if ((recyclerView instanceof InterceptRecyclerView) && recyclerView.getItemAnimator() != null) {
-                recyclerView.getItemAnimator().setChangeDuration(0L);
-                recyclerView.getItemAnimator().setAddDuration(0L);
-                ((SimpleItemAnimator) recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
+        this.a = new LinkedHashMap();
+    }
+
+    public static /* synthetic */ void e(fn8 fn8Var, AbilityItem abilityItem, BaseMsg baseMsg, Object obj, int i, Object obj2) {
+        if ((i & 4) != 0) {
+            obj = null;
+        }
+        fn8Var.d(abilityItem, baseMsg, obj);
+    }
+
+    public final void a(hn8 handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, handler) == null) {
+            Intrinsics.checkNotNullParameter(handler, "handler");
+            if (handler.c()) {
+                this.b = handler;
             }
-            TagAdapter tagAdapter = new TagAdapter(jn8Var, in8Var, context);
-            this.b = tagAdapter;
-            tagAdapter.setHasStableIds(true);
-            this.a.setAdapter(this.b);
-            this.c = in8Var;
-            if (i2 == 1) {
-                dn8 dn8Var = new dn8(recyclerView, i);
-                TagGridLayoutManager tagGridLayoutManager = new TagGridLayoutManager(context, this.a, dn8Var.b());
-                tagGridLayoutManager.setSpanSizeLookup(dn8Var);
-                this.a.setLayoutManager(tagGridLayoutManager);
-                this.a.addItemDecoration(new a(i, i));
-                return;
+            for (String str : handler.e()) {
+                this.a.put(str, handler);
             }
-            this.a.addItemDecoration(new a(i, 0));
-            this.a.setLayoutManager(new LinearLayoutManager(context, 0, false));
-            return;
-        }
-        throw new IllegalArgumentException("入参不能为null");
-    }
-
-    public gn8 a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.c.d(i);
-        }
-        return (gn8) invokeI.objValue;
-    }
-
-    public void c(List list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.c.g(list);
         }
     }
 
-    public void d(List list) {
+    public final void b(AbilityItem abilityItem, BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.c.h(list);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            hn8 hn8Var = this.b;
+            if (hn8Var != null) {
+                hn8Var.b(abilityItem, baseMsg, null);
+            }
         }
     }
 
-    public void e(int i) {
+    @JvmOverloads
+    public final void d(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
+        Unit unit;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.c.i(i);
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, abilityItem, baseMsg, obj) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            try {
+                hn8 hn8Var = this.a.get(abilityItem.getType());
+                if (hn8Var != null) {
+                    hn8Var.b(abilityItem, baseMsg, obj);
+                    unit = Unit.INSTANCE;
+                } else {
+                    unit = null;
+                }
+                if (unit == null) {
+                    b(abilityItem, baseMsg);
+                }
+            } catch (Exception e) {
+                rm8.g("ability_handle_exception", this.c, e);
+            }
         }
     }
 
-    public void g(hn8 hn8Var) {
+    public final void f(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, hn8Var) == null) {
-            this.c.k(hn8Var);
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.c.m(i);
-        }
-    }
-
-    public List<gn8> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c.f();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void f(gj8 gj8Var, fj8 fj8Var) {
-        TagAdapter tagAdapter;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, gj8Var, fj8Var) == null) && (tagAdapter = this.b) != null) {
-            tagAdapter.q(gj8Var, fj8Var);
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            this.c = j;
         }
     }
 }

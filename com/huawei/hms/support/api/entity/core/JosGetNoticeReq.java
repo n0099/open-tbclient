@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.huawei.hms.core.aidl.annotation.Packed;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class JosGetNoticeReq extends JosBaseReq {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int NOTICE_TYPE_CONN = 0;

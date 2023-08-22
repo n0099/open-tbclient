@@ -12,8 +12,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.gz4;
+import com.baidu.tieba.ifa;
+import com.baidu.tieba.lz4;
 import com.baidu.tieba.userblock.message.UserBlockSetHttpResponseMessage;
 import com.baidu.tieba.userblock.message.UserBlockSetRequestMessage;
 import com.baidu.tieba.userblock.message.UserBlockSetSocketResponseMessage;
@@ -27,7 +27,7 @@ public class UserBlockSetModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public gz4 b;
+    public lz4 b;
     public NetMessageListener c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -137,18 +137,18 @@ public class UserBlockSetModel extends BdBaseModel {
         return (String) invokeI.objValue;
     }
 
-    public void U(gz4 gz4Var) {
+    public void U(lz4 lz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gz4Var) == null) {
-            this.b = gz4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, lz4Var) == null) {
+            this.b = lz4Var;
         }
     }
 
     public void S() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            aba.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
-            aba.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
+            ifa.h(309697, UserBlockSetSocketResponseMessage.class, false, false);
+            ifa.c(309697, CmdConfigHttp.CMD_USER_BLOCK_SET, TbConfig.URL_USER_BLOCK_SET, UserBlockSetHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
             this.c.getSocketMessageListener().setSelfListener(true);
             registerListener(this.c);

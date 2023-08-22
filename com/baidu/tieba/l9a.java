@@ -1,25 +1,52 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tbadk.core.GlobalBuildConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Random;
 /* loaded from: classes6.dex */
-public final class l9a extends r9a {
+public class l9a implements n9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    public l9a() {
+    public l9a(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = i2;
+    }
+
+    @Override // com.baidu.tieba.n9a
+    public boolean a(NetworkStatRecord networkStatRecord) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, networkStatRecord)) == null) {
+            if (networkStatRecord == null) {
+                return false;
+            }
+            if ((networkStatRecord.from == 3 && GlobalBuildConfig.isDebug()) || new Random().nextInt(this.b) >= this.a) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

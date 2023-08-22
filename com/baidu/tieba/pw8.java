@@ -1,148 +1,179 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.messageCenter.NewsRemindMessage;
+import com.baidu.tieba.immessagecenter.msgtab.obs.ForumChannelDataObs;
+import com.baidu.tieba.immessagecenter.msgtab.obs.NewsRemindMsgMonitor;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class pw8 implements View.OnClickListener {
+public final class pw8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final pw8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ViewGroup a;
-    public TextView b;
-    public TextView c;
-    public ImageView d;
-    public TextView e;
-    public ImageView f;
-    public TextView g;
-    public int h;
-    public int i;
-    public int j;
 
-    public pw8(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948076568, "Lcom/baidu/tieba/pw8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948076568, "Lcom/baidu/tieba/pw8;");
+                return;
+            }
+        }
+        a = new pw8();
+    }
+
+    public final void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        }
+    }
+
+    public final String k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? i > 0 ? "1" : "2" : (String) invokeI.objValue;
+    }
+
+    public final String l(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) ? i > 0 ? "1" : z ? "3" : "2" : (String) invokeCommon.objValue;
+    }
+
+    public pw8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04fe, (ViewGroup) null);
-        this.a = viewGroup;
-        this.b = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0906f7);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f091e6d);
-        this.d = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0916b7);
-        this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0916b8);
-        this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090b08);
-        this.g = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090b09);
-        this.d.setOnClickListener(this);
-        this.f.setOnClickListener(this);
-        c();
     }
 
-    public ViewGroup a() {
-        InterceptResult invokeV;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.d, R.drawable.img_lable_boy_n);
-            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0109);
-            SkinManager.setImageResource(this.f, R.drawable.img_lable_girl_n);
-            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0109);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_EDIT_ITEM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
-    public void d(List<mw8> list) {
+    public final void b(Long l) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && ListUtils.getCount(list) == 2) {
-            this.h = list.get(0).a;
-            this.i = list.get(1).a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l) == null) {
+            a("msgCenterChannelTabMC:" + l);
+            if (l != null) {
+                TiebaStatic.log(new StatisticItem("c15334").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", l.longValue()));
+            }
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
+    public final void j(List<ot8> data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            boolean z = false;
-            if (view2 == this.d) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            try {
+                int c = ForumChannelDataObs.b.a().c();
+                for (ot8 ot8Var : data) {
+                    if (ot8Var.getType() == 3) {
+                        a.c(ot8Var.a(), c);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public final void c(long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            a("msgCenterChannelTabMV:forumId=" + j + "+,frsCount=" + i);
+            TiebaStatic.log(new StatisticItem("c15333").param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", j).param("obj_source", i));
+        }
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            int chatCount = NewsRemindMsgMonitor.f.a().m().getChatCount();
+            boolean hasChatRemind = NewsRemindMsgMonitor.f.a().m().hasChatRemind();
+            a("msgCenterChatTabMC:" + chatCount);
+            StatisticItem statisticItem = new StatisticItem("c15331");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_type", l(chatCount, hasChatRemind));
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
+            boolean hasChatRemind = NewsRemindMsgMonitor.f.a().m().hasChatRemind();
+            a("msgCenterChatTabPV:" + m);
+            StatisticItem statisticItem = new StatisticItem("c15332");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_type", l(m.getChatCount(), hasChatRemind));
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
+            int notificationCount = m.getNotificationCount() + m.getMsgCount();
+            a("msgCenterNotifyTabMC:" + notificationCount);
+            TiebaStatic.log(new StatisticItem("c15329").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", k(notificationCount)));
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
+            a("msgCenterNotifyTabPV:" + m);
+            TiebaStatic.log(new StatisticItem("c15330").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", k(m.getNotificationCount() + m.getMsgCount())));
+        }
+    }
+
+    public final void i(int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            NewsRemindMessage m = NewsRemindMsgMonitor.f.a().m();
+            if (!m.hasChatRemind() && !m.hasMsgRemind() && !m.hasNotificationRemind()) {
+                z = false;
+            } else {
                 z = true;
-            } else {
-                ImageView imageView = this.f;
             }
-            if (z) {
-                i = this.h;
-            } else {
-                i = this.i;
-            }
-            this.j = i;
-            ImageView imageView2 = this.d;
-            if (z) {
-                i2 = R.drawable.img_lable_boy_s;
-            } else {
-                i2 = R.drawable.img_lable_boy_n;
-            }
-            SkinManager.setImageResource(imageView2, i2);
-            TextView textView = this.e;
-            int i5 = R.color.CAM_X0109;
-            if (z) {
-                i3 = R.color.CAM_X0302;
-            } else {
-                i3 = R.color.CAM_X0109;
-            }
-            SkinManager.setViewTextColor(textView, i3);
-            ImageView imageView3 = this.f;
-            if (z) {
-                i4 = R.drawable.img_lable_girl_n;
-            } else {
-                i4 = R.drawable.img_lable_girl_s;
-            }
-            SkinManager.setImageResource(imageView3, i4);
-            TextView textView2 = this.g;
-            if (!z) {
-                i5 = R.color.CAM_X0301;
-            }
-            SkinManager.setViewTextColor(textView2, i5);
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_NEW_MSG_TAB_EXPLORE);
+            statisticItem.addParam("obj_type", l(m.getChatCount() + m.getMsgCount() + m.getNotificationCount(), z));
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.addParam("obj_locate", i);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

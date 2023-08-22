@@ -129,17 +129,17 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
     private void init() {
         ImageView imageView;
         int i;
-        LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d04a0, (ViewGroup) this, true);
-        this.Jp = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091436);
-        this.Jq = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09129b);
-        this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f09129d);
-        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f09129c);
+        LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d04a7, (ViewGroup) this, true);
+        this.Jp = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09144c);
+        this.Jq = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0912b1);
+        this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b3);
+        ImageView imageView2 = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912b2);
         this.jQ = imageView2;
         imageView2.setOnClickListener(this);
-        this.Jt = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09142f);
-        this.Ju = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09142a);
-        this.kk = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091435);
-        this.Jv = (ImageView) findViewById(R.id.obfuscated_res_0x7f09143d);
+        this.Jt = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091445);
+        this.Ju = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091440);
+        this.kk = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f09144b);
+        this.Jv = (ImageView) findViewById(R.id.obfuscated_res_0x7f091453);
         String url = com.kwad.sdk.core.response.a.a.aL(this.mAdInfo).getUrl();
         if (TextUtils.isEmpty(url)) {
             imageView = this.Jv;
@@ -175,7 +175,7 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
     }
 
     public final void aA(String str) {
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f09126a)).setText(str);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f091280)).setText(str);
     }
 
     public final void az(boolean z) {
@@ -191,13 +191,13 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
 
     public void er() {
         if (com.kwad.sdk.core.response.a.a.am(this.mAdInfo)) {
-            this.Jx = (ImageView) findViewById(R.id.obfuscated_res_0x7f09141b);
-            this.Jy = (TextView) findViewById(R.id.obfuscated_res_0x7f09126f);
-            this.Jz = (TextView) findViewById(R.id.obfuscated_res_0x7f09126a);
+            this.Jx = (ImageView) findViewById(R.id.obfuscated_res_0x7f091431);
+            this.Jy = (TextView) findViewById(R.id.obfuscated_res_0x7f091285);
+            this.Jz = (TextView) findViewById(R.id.obfuscated_res_0x7f091280);
             KSImageLoader.loadAppIcon(this.Jx, com.kwad.sdk.core.response.a.d.bU(this.mAdTemplate), this.mAdTemplate, 12);
             this.Jy.setText(com.kwad.sdk.core.response.a.a.bl(this.mAdInfo));
             this.Jz.setText(com.kwad.sdk.core.response.a.a.al(this.mAdInfo));
-            this.Jw = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09141a);
+            this.Jw = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091430);
             this.Jx.setOnClickListener(this);
             this.Jy.setOnClickListener(this);
             this.Jz.setOnClickListener(this);
@@ -205,11 +205,11 @@ public class a extends com.kwad.sdk.core.video.videoview.b implements View.OnCli
             this.mApkDownloadHelper = cVar;
             cVar.b(this.JB);
         } else {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0912c5);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0912db);
             this.Jz = textView;
             textView.setText(com.kwad.sdk.core.response.a.a.al(this.mAdInfo));
             this.Jz.setOnClickListener(this);
-            this.Jw = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09141c);
+            this.Jw = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091432);
         }
         this.Jw.setOnClickListener(this);
         this.Jw.setVisibility(0);

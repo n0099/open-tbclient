@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.util.WebviewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
 @Service
-/* loaded from: classes6.dex */
-public final class lc9 implements h65 {
+/* loaded from: classes7.dex */
+public final class lc9 implements ue5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.h65
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "NA_PB_FRIEND_BOT_BOTTOM_NEW_SKILL_STRATEGY" : (String) invokeV.objValue;
-    }
 
     public lc9() {
         Interceptable interceptable = $ic;
@@ -34,13 +30,29 @@ public final class lc9 implements h65 {
         }
     }
 
-    @Override // com.baidu.tieba.h65
-    public f65 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ue5
+    public ne5 a(String schema) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new kc9();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, schema)) == null) {
+            Intrinsics.checkNotNullParameter(schema, "schema");
+            try {
+                if (StringsKt__StringsKt.contains$default((CharSequence) schema, (CharSequence) "tbtopicdetail", false, 2, (Object) null) || StringsKt__StringsKt.contains$default((CharSequence) schema, (CharSequence) "unidispatch/topicdetail", false, 2, (Object) null)) {
+                    String c = rw5.c(WebviewHelper.getMatchStringFromURL(schema, "topic_id="), null);
+                    ne5 ne5Var = new ne5();
+                    ne5Var.c(c);
+                    ne5Var.d(true);
+                    return ne5Var;
+                }
+            } catch (Exception e) {
+                if (!TbadkCoreApplication.getInst().isDebugMode()) {
+                    e.printStackTrace();
+                } else {
+                    throw e;
+                }
+            }
+            return new ne5();
         }
-        return (f65) invokeV.objValue;
+        return (ne5) invokeL.objValue;
     }
 }

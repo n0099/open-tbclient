@@ -5,9 +5,9 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.l45;
+import com.baidu.tieba.f35;
 import com.baidu.tieba.ne;
-import com.baidu.tieba.z25;
+import com.baidu.tieba.r45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int CACHETIME = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
-    public z25 data;
+    public f35 data;
     public int errCode;
     public String resultString;
 
@@ -42,7 +42,7 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.errCode = -1;
-        this.data = new z25();
+        this.data = new f35();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,10 +61,10 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
                 try {
                     String parseToString = parseToString(bArr);
                     if (parseToString != null) {
-                        l45.e();
-                        ne<String> f = l45.f("tb.my_pages");
-                        if (f != null) {
-                            f.e("personal_myfollow_" + str, parseToString, 604800000L);
+                        r45.k();
+                        ne<String> l = r45.l("tb.my_pages");
+                        if (l != null) {
+                            l.e("personal_myfollow_" + str, parseToString, 604800000L);
                         }
                     }
                 } catch (Exception e) {
@@ -97,13 +97,13 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public z25 getPersonFriendData() {
+    public f35 getPersonFriendData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.data;
         }
-        return (z25) invokeV.objValue;
+        return (f35) invokeV.objValue;
     }
 
     public String getResultString() {
@@ -122,10 +122,10 @@ public class PersonFriendResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void setPersonFriendData(z25 z25Var) {
+    public void setPersonFriendData(f35 f35Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, z25Var) == null) {
-            this.data = z25Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, f35Var) == null) {
+            this.data = f35Var;
         }
     }
 

@@ -1,6 +1,6 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.jlb;
+import com.baidu.tieba.yrb;
 import com.google.ar.core.Session;
 /* loaded from: classes9.dex */
 public enum ah extends Session.c {
@@ -9,7 +9,7 @@ public enum ah extends Session.c {
     }
 
     @Override // com.google.ar.core.Session.c
-    public final jlb a(long j, Session session) {
+    public final yrb a(long j, Session session) {
         return new AugmentedImage(j, session);
     }
 }

@@ -1,118 +1,161 @@
 package com.baidu.tieba;
 
+import android.net.wifi.WifiManager;
+import android.os.Build;
 import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.util.Enumeration;
 /* loaded from: classes8.dex */
 public class vh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable... closeableArr) {
+    public static InetAddress a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeableArr) == null) && closeableArr != null) {
-            for (Closeable closeable : closeableArr) {
-                if (closeable != null) {
-                    try {
-                        closeable.close();
-                    } catch (IOException unused) {
-                    }
-                }
-            }
-        }
-    }
-
-    public static String b(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
-            if (file == null) {
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            InetAddress inetAddress = null;
             try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    String c = c(fileInputStream);
-                    a(fileInputStream);
-                    return c;
-                } catch (Exception unused) {
-                    a(fileInputStream);
+                Enumeration<NetworkInterface> networkInterfaces = NetworkInterface.getNetworkInterfaces();
+                if (networkInterfaces == null) {
                     return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    a(fileInputStream2);
-                    throw th;
                 }
-            } catch (Exception unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
+                InetAddress inetAddress2 = null;
+                do {
+                    try {
+                        if (networkInterfaces.hasMoreElements()) {
+                            Enumeration<InetAddress> inetAddresses = networkInterfaces.nextElement().getInetAddresses();
+                            while (true) {
+                                if (inetAddresses.hasMoreElements()) {
+                                    InetAddress nextElement = inetAddresses.nextElement();
+                                    try {
+                                        if (!nextElement.isLoopbackAddress() && !nextElement.getHostAddress().contains(":")) {
+                                            inetAddress2 = nextElement;
+                                            continue;
+                                            break;
+                                        }
+                                        inetAddress2 = null;
+                                    } catch (Exception unused) {
+                                        return nextElement;
+                                    }
+                                }
+                            }
+                        } else {
+                            return inetAddress2;
+                        }
+                    } catch (Exception unused2) {
+                        inetAddress = inetAddress2;
+                        return inetAddress;
+                    }
+                } while (inetAddress2 == null);
+                return inetAddress2;
+            } catch (Exception unused3) {
             }
         } else {
-            return (String) invokeL.objValue;
+            return (InetAddress) invokeV.objValue;
         }
     }
 
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
+    public static String d() {
+        InterceptResult invokeV;
+        byte[] hardwareAddress;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder sb = new StringBuilder();
-            while (true) {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    sb.append(readLine);
-                } else {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                NetworkInterface byName = NetworkInterface.getByName("wlan0");
+                if (byName != null && (hardwareAddress = ApiReplaceUtil.getHardwareAddress(byName)) != null) {
+                    StringBuilder sb = new StringBuilder();
+                    int length = hardwareAddress.length;
+                    for (int i = 0; i < length; i++) {
+                        sb.append(String.format("%02X:", Byte.valueOf(hardwareAddress[i])));
+                    }
+                    if (sb.length() > 0) {
+                        sb.deleteCharAt(sb.length() - 1);
+                    }
                     return sb.toString();
                 }
+            } catch (Exception unused) {
             }
-        } else {
-            return (String) invokeL.objValue;
+            return "";
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void d(String str, File file) {
+    public static String e() {
+        InterceptResult invokeV;
+        byte[] hardwareAddress;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, file) == null) && !TextUtils.isEmpty(str) && file != null) {
-            FileOutputStream fileOutputStream = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             try {
-                if (!file.getParentFile().exists()) {
-                    file.getParentFile().mkdirs();
+                InetAddress a = a();
+                if (a == null || (hardwareAddress = ApiReplaceUtil.getHardwareAddress(NetworkInterface.getByInetAddress(a))) == null) {
+                    return "";
                 }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                try {
-                    fileOutputStream2.write(str.getBytes());
-                    fileOutputStream2.flush();
-                    a(fileOutputStream2);
-                } catch (Exception unused) {
-                    fileOutputStream = fileOutputStream2;
-                    a(fileOutputStream);
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    a(fileOutputStream);
-                    throw th;
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hardwareAddress.length; i++) {
+                    if (i != 0) {
+                        sb.append(':');
+                    }
+                    String hexString = Integer.toHexString(hardwareAddress[i] & 255);
+                    if (hexString.length() == 1) {
+                        hexString = 0 + hexString;
+                    }
+                    sb.append(hexString);
                 }
-            } catch (Exception unused2) {
-            } catch (Throwable th2) {
-                th = th2;
+                return sb.toString();
+            } catch (Exception unused) {
+                return "";
             }
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return ApiReplaceUtil.getMacAddress(((WifiManager) gi1.a().getApplicationContext().getSystemService("wifi")).getConnectionInfo());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Build.VERSION.SDK_INT < 23) {
+                d = b();
+            } else {
+                d = d();
+            }
+            if (!f(d)) {
+                d = e();
+            }
+            if (!TextUtils.isEmpty(d)) {
+                return d.toUpperCase();
+            }
+            return d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !str.equals(Config.DEF_MAC_ID)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

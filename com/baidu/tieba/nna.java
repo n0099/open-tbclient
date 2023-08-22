@@ -1,109 +1,32 @@
 package com.baidu.tieba;
 
-import android.widget.CompoundButton;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.NegativeFeedBackData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
-import com.baidu.tieba.video.VideoItemData;
+import com.baidu.tieba.sna;
+import com.baidu.tieba.tracker.core.monitors.PageTraceMonitor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Arrays;
+import kotlin.Pair;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class nna {
+public final class nna<R extends sna> extends PageTraceMonitor<R> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public f36 b;
-    public NEGFeedBackView.NEGFeedbackEventCallback c;
+    public final Fragment e;
+    public final Function1<R, hna> f;
 
-    /* loaded from: classes7.dex */
-    public class a implements NEGFeedBackView.NEGFeedbackEventCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nna a;
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onCheckedChanged(NegativeFeedBackData negativeFeedBackData, CompoundButton compoundButton, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(1048576, this, negativeFeedBackData, compoundButton, z) == null) {
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onNEGFeedbackWindowShow(NegativeFeedBackData negativeFeedBackData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, negativeFeedBackData) == null) {
-            }
-        }
-
-        public a(nna nnaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nnaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nnaVar;
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.NEGFeedbackEventCallback
-        public void onNEGFeedbackConfirm(ArrayList<Integer> arrayList, String str, NegativeFeedBackData negativeFeedBackData) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList, str, negativeFeedBackData) == null) && arrayList != null && negativeFeedBackData != null) {
-                StringBuilder sb = new StringBuilder();
-                int size = arrayList.size();
-                int i = 0;
-                for (int i2 = 0; i2 < size; i2++) {
-                    sb.append(arrayList.get(i2));
-                    sb.append(",");
-                }
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                int i3 = negativeFeedBackData.threadType;
-                int i4 = 3;
-                if (i3 == 0) {
-                    i = 1;
-                } else if (i3 == 40) {
-                    i = 2;
-                } else if (i3 == 49 || i3 == 69) {
-                    i = 3;
-                }
-                boolean z = negativeFeedBackData.fromShare;
-                if (this.a.a) {
-                    if (!z) {
-                        i4 = 2;
-                    }
-                } else if (z) {
-                    i4 = 5;
-                } else {
-                    i4 = 4;
-                }
-                StatisticItem.make(TbadkCoreStatisticKey.NEG_FEEDBACK_KEY).param("tid", negativeFeedBackData.getTid()).param("nid", negativeFeedBackData.getNid()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("fid", negativeFeedBackData.getFid()).param("obj_param1", negativeFeedBackData.weight).param("obj_source", negativeFeedBackData.source).param("obj_id", negativeFeedBackData.extra).param("obj_type", sb.toString()).param("obj_name", str).param(TiebaStatic.Params.OBJ_PARAM2, i).param("obj_locate", i4).eventStat();
-            }
-        }
-    }
-
-    public nna() {
+    public nna(Fragment fragment, Function1<? super R, hna> traceHolderFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fragment, traceHolderFactory};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -113,60 +36,70 @@ public class nna {
                 return;
             }
         }
-        this.a = false;
-        this.c = new a(this);
+        Intrinsics.checkNotNullParameter(fragment, "fragment");
+        Intrinsics.checkNotNullParameter(traceHolderFactory, "traceHolderFactory");
+        this.e = fragment;
+        this.f = traceHolderFactory;
     }
 
-    public void b() {
-        f36 f36Var;
+    @Override // com.baidu.tieba.ona
+    public hna c(R thisRef) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (f36Var = this.b) != null) {
-            f36Var.h();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            return this.f.invoke(thisRef);
         }
+        return (hna) invokeL.objValue;
     }
 
-    public void c(boolean z) {
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public Lifecycle g(R thisRef) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void d(TbPageContext tbPageContext, VideoItemData videoItemData, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, videoItemData, z) != null) || tbPageContext == null || videoItemData == null || !ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
-            return;
-        }
-        if (this.b == null) {
-            this.b = new f36(tbPageContext);
-        }
-        NegativeFeedBackData negFeedBackData = videoItemData.getNegFeedBackData();
-        if (negFeedBackData == null) {
-            negFeedBackData = new NegativeFeedBackData();
-        }
-        String str = videoItemData.thread_id;
-        String str2 = videoItemData.forum_id;
-        negFeedBackData.fromShare = z;
-        negFeedBackData.setTid(str);
-        negFeedBackData.setFid(str2);
-        this.b.r(this.a);
-        this.b.p(this.c);
-        this.b.o(negFeedBackData);
-        this.b.q(true);
-        this.b.h();
-        this.b.s();
-        if (this.a) {
-            if (z) {
-                i = 3;
-            } else {
-                i = 2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            try {
+                Lifecycle lifecycle = this.e.getLifecycle();
+                Intrinsics.checkNotNullExpressionValue(lifecycle, "fragment.lifecycle");
+                return lifecycle;
+            } catch (IllegalStateException e) {
+                throw new IllegalStateException("Fragment doesn 't have view associated with it or the view has been destroyed!", e);
             }
-        } else if (z) {
-            i = 5;
-        } else {
-            i = 4;
         }
-        StatisticItem.make(TbadkCoreStatisticKey.NEGATIVE_FEEDBACK_OPEN_CLICK).param("obj_locate", i).param("fid", str2).param("tid", str).param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+        return (Lifecycle) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public void i(Pair<String, String>... params) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            rna.b(this.e, (Pair[]) Arrays.copyOf(params, params.length));
+        }
+    }
+
+    @Override // com.baidu.tieba.tracker.core.monitors.PageTraceMonitor
+    public String h(R thisRef) {
+        InterceptResult invokeL;
+        Fragment parentFragment;
+        sna snaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, thisRef)) == null) {
+            Intrinsics.checkNotNullParameter(thisRef, "thisRef");
+            Fragment fragment = this.e;
+            if (fragment != null && (parentFragment = fragment.getParentFragment()) != null) {
+                if (parentFragment instanceof sna) {
+                    snaVar = (sna) parentFragment;
+                } else {
+                    snaVar = null;
+                }
+                if (snaVar != null) {
+                    return snaVar.getScene();
+                }
+            }
+            return thisRef.getScene();
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -2,7 +2,7 @@ package com.baidu.tieba.addresslist.im.newFriend;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.gb8;
+import com.baidu.tieba.ae8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import org.json.JSONObject;
 public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<gb8> mDatas;
+    public List<ae8> mDatas;
     public int mErrCode;
     public String mErrMsg;
 
@@ -57,26 +57,26 @@ public class RecommendFriendResponseMessage extends JsonHttpResponsedMessage {
                 if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray("recommend_list")) != null) {
                     this.mDatas = new ArrayList();
                     for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                        gb8 gb8Var = new gb8();
+                        ae8 ae8Var = new ae8();
                         JSONObject jSONObject2 = optJSONArray.getJSONObject(i2);
-                        gb8Var.h(jSONObject2.optLong("user_id"));
-                        gb8Var.j(jSONObject2.optString("user_name"));
-                        gb8Var.k(jSONObject2.optString("portrait"));
-                        gb8Var.g(jSONObject2.optString("message"));
+                        ae8Var.h(jSONObject2.optLong("user_id"));
+                        ae8Var.j(jSONObject2.optString("user_name"));
+                        ae8Var.k(jSONObject2.optString("portrait"));
+                        ae8Var.g(jSONObject2.optString("message"));
                         if (jSONObject2.optInt("type") == 0) {
-                            gb8Var.l(0);
+                            ae8Var.l(0);
                         } else {
-                            gb8Var.l(1);
+                            ae8Var.l(1);
                         }
-                        gb8Var.i(1);
-                        this.mDatas.add(gb8Var);
+                        ae8Var.i(1);
+                        this.mDatas.add(ae8Var);
                     }
                 }
             }
         }
     }
 
-    public List<gb8> getDatas() {
+    public List<ae8> getDatas() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

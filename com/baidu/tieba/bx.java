@@ -1,74 +1,101 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import android.widget.RelativeLayout;
-import com.baidu.adp.lib.util.BdUtilHelper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.CardForumHeadLayout;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class bx extends yw implements qx<ThreadData>, rx {
+public class bx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardForumHeadLayout a;
-    public int b;
-    public int c;
-    public int d;
+    public View decorView;
+    public int insertIndex;
+    public RelativeLayout.LayoutParams layoutParams;
+    public ny threadCard;
 
-    public bx(TbPageContext tbPageContext) {
+    public void onAttachCard() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void onDetachCard() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public bx() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.b = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10);
-        this.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds44);
-        this.d = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds60);
-        this.a = new CardForumHeadLayout(tbPageContext.getPageActivity());
-        setInsertIndex(-1);
-        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-        layoutParams.leftMargin = this.c;
-        layoutParams.topMargin = this.b;
-        layoutParams.bottomMargin = this.d;
-        setLayoutParams(layoutParams);
-        setDecorView(this.a);
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qx
-    /* renamed from: a */
-    public void onBindDataToView(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            if (threadData != null && threadData.getAuthor() != null) {
-                this.a.setVisibility(0);
-                this.a.setData(threadData);
-                this.a.setTag(threadData);
-                return;
-            }
-            this.a.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.rx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public View getDecorView() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.a.g();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.decorView;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public int getInsertIndex() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.insertIndex;
+        }
+        return invokeV.intValue;
+    }
+
+    public RelativeLayout.LayoutParams getLayoutParams() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.layoutParams;
+        }
+        return (RelativeLayout.LayoutParams) invokeV.objValue;
+    }
+
+    public void setDecorView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
+            this.decorView = view2;
+        }
+    }
+
+    public void setInsertIndex(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.insertIndex = i;
+        }
+    }
+
+    public void setLayoutParams(RelativeLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, layoutParams) == null) {
+            this.layoutParams = layoutParams;
+        }
+    }
+
+    public void setThreadCard(ny nyVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, nyVar) == null) {
+            this.threadCard = nyVar;
         }
     }
 }

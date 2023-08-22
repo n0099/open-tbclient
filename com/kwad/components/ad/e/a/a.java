@@ -10,7 +10,7 @@ import com.kwad.sdk.api.KsAdVideoPlayConfig;
 import com.kwad.sdk.core.response.model.AdInfo;
 import com.kwad.sdk.utils.ae;
 import com.kwad.sdk.utils.bc;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class a extends com.kwad.components.ad.e.kwai.a implements View.OnClickListener {
     public KsAdVideoPlayConfig cN;
     public ViewGroup jP;
@@ -99,8 +99,8 @@ public final class a extends com.kwad.components.ad.e.kwai.a implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.jP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09129b);
-        this.jQ = (ImageView) findViewById(R.id.obfuscated_res_0x7f09129c);
-        this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f09129d);
+        this.jP = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912b1);
+        this.jQ = (ImageView) findViewById(R.id.obfuscated_res_0x7f0912b2);
+        this.jR = (TextView) findViewById(R.id.obfuscated_res_0x7f0912b3);
     }
 }

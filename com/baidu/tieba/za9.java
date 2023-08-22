@@ -1,29 +1,36 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.mm.opensdk.modelbase.BaseResp;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class za9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public BaseResp b;
 
-    public za9() {
+    public static String a(Throwable th) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, th)) == null) {
+            if (th == null) {
+                return "";
             }
+            StringBuilder sb = new StringBuilder(th.toString());
+            StackTraceElement[] stackTrace = th.getStackTrace();
+            if (stackTrace != null) {
+                for (int i = 0; i < stackTrace.length; i++) {
+                    StackTraceElement stackTraceElement = stackTrace[i];
+                    if (stackTraceElement != null && i < 7) {
+                        sb.append(" ----> ");
+                        sb.append(stackTraceElement.getClassName());
+                        sb.append(".");
+                        sb.append(stackTraceElement.getMethodName());
+                        sb.append("()");
+                    }
+                }
+            }
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 }

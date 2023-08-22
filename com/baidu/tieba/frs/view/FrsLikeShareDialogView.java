@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ht7;
-import com.baidu.tieba.it7;
+import com.baidu.tieba.cv7;
+import com.baidu.tieba.dv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -46,7 +46,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     public ImageView r;
     public ImageView s;
     public View t;
-    public ht7 u;
+    public cv7 u;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public FrsLikeShareDialogView(Context context) {
@@ -86,7 +86,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
                 }
             }
             if (i2 != -1 && (forumData = this.a) != null) {
-                it7.a(forumData.getId(), i2);
+                dv7.a(forumData.getId(), i2);
             }
         }
     }
@@ -94,13 +94,13 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         int i;
-        ht7 ht7Var;
+        cv7 cv7Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             if (view2 == this.q) {
-                ht7 ht7Var2 = this.u;
-                if (ht7Var2 != null) {
-                    ht7Var2.a();
+                cv7 cv7Var2 = this.u;
+                if (cv7Var2 != null) {
+                    cv7Var2.a();
                 }
                 f(-1);
                 return;
@@ -114,8 +114,8 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             } else {
                 i = -1;
             }
-            if (i != -1 && (ht7Var = this.u) != null) {
-                ht7Var.b(i);
+            if (i != -1 && (cv7Var = this.u) != null) {
+                cv7Var.b(i);
             }
             f(i);
         }
@@ -167,26 +167,26 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0382, this);
-            this.b = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f090cfb);
-            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d0c);
-            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090cf9);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d0d);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090d01);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090d07);
-            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090d03);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d0a);
-            this.j = findViewById(R.id.obfuscated_res_0x7f090cfa);
-            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d0e);
-            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d0f);
-            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090cfc);
-            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cfd);
-            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d08);
-            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d09);
-            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090cff);
-            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d00);
-            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cfe);
-            this.t = findViewById(R.id.obfuscated_res_0x7f090d06);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0387, this);
+            this.b = (ConstraintLayout) findViewById(R.id.obfuscated_res_0x7f090d08);
+            this.c = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090d19);
+            this.d = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f090d06);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090d1a);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090d0e);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090d14);
+            this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f090d10);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d17);
+            this.j = findViewById(R.id.obfuscated_res_0x7f090d07);
+            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d1b);
+            this.l = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d1c);
+            this.m = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d09);
+            this.n = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d0a);
+            this.o = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d15);
+            this.p = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d16);
+            this.q = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090d0c);
+            this.r = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d0d);
+            this.s = (ImageView) findViewById(R.id.obfuscated_res_0x7f090d0b);
+            this.t = findViewById(R.id.obfuscated_res_0x7f090d13);
             e();
             b();
         }
@@ -217,7 +217,7 @@ public class FrsLikeShareDialogView extends ConstraintLayout implements View.OnC
             this.c.setRadiusById(R.string.J_X14);
             this.c.setConrers(3);
             this.c.setIsBitmapPic(true);
-            SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080df9, 0);
+            SkinManager.setImageResource(this.c, R.drawable.obfuscated_res_0x7f080e0a, 0);
             EMManager.from(this.t).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0501);
         }
     }

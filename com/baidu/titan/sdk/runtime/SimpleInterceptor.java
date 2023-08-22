@@ -1,5 +1,5 @@
 package com.baidu.titan.sdk.runtime;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SimpleInterceptor implements Interceptable {
     @Override // com.baidu.titan.sdk.runtime.Interceptable
     public InterceptResult invokeB(int i, Object obj, byte b) {

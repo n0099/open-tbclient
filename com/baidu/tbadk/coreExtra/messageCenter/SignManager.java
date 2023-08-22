@@ -9,7 +9,7 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.widget.timepicker.pickerview.listener.OnTimeSelectListener;
-import com.baidu.tieba.ae5;
+import com.baidu.tieba.he5;
 import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ public class SignManager {
     public static /* synthetic */ Interceptable $ic;
     public static SignManager mInstance;
     public transient /* synthetic */ FieldHolder $fh;
-    public ae5 mISignManager;
+    public he5 mISignManager;
     public String mSignInfo;
 
     public SignManager() {
@@ -40,17 +40,17 @@ public class SignManager {
         this.mISignManager = getISignManager();
     }
 
-    private ae5 getISignManager() {
+    private he5 getISignManager() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, ae5.class);
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, he5.class);
             if (runTask != null) {
-                return (ae5) runTask.getData();
+                return (he5) runTask.getData();
             }
             return null;
         }
-        return (ae5) invokeV.objValue;
+        return (he5) invokeV.objValue;
     }
 
     public static SignManager getInstance() {
@@ -73,9 +73,9 @@ public class SignManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ae5 ae5Var = this.mISignManager;
-            if (ae5Var != null) {
-                return ae5Var.g();
+            he5 he5Var = this.mISignManager;
+            if (he5Var != null) {
+                return he5Var.g();
             }
             return 0;
         }
@@ -86,9 +86,9 @@ public class SignManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ae5 ae5Var = this.mISignManager;
-            if (ae5Var != null) {
-                return ae5Var.b();
+            he5 he5Var = this.mISignManager;
+            if (he5Var != null) {
+                return he5Var.b();
             }
             return 0;
         }
@@ -108,9 +108,9 @@ public class SignManager {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ae5 ae5Var = this.mISignManager;
-            if (ae5Var != null) {
-                return ae5Var.a();
+            he5 he5Var = this.mISignManager;
+            if (he5Var != null) {
+                return he5Var.a();
             }
             return false;
         }
@@ -118,26 +118,26 @@ public class SignManager {
     }
 
     public void updateSignAlarm() {
-        ae5 ae5Var;
+        he5 he5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (ae5Var = this.mISignManager) != null) {
-            ae5Var.c();
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (he5Var = this.mISignManager) != null) {
+            he5Var.c();
         }
     }
 
     public void checkAndShowTimePicker(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z) {
-        ae5 ae5Var;
+        he5 he5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) && (ae5Var = this.mISignManager) != null) {
-            ae5Var.f(i, tbPageContext, viewGroup, z);
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) && (he5Var = this.mISignManager) != null) {
+            he5Var.f(i, tbPageContext, viewGroup, z);
         }
     }
 
     public void setSignAlert(boolean z, int i, int i2) {
-        ae5 ae5Var;
+        he5 he5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) && (ae5Var = this.mISignManager) != null) {
-            ae5Var.i(z, i, i2);
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) && (he5Var = this.mISignManager) != null) {
+            he5Var.i(z, i, i2);
         }
     }
 
@@ -152,9 +152,9 @@ public class SignManager {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, activity, viewGroup)) == null) {
-            ae5 ae5Var = this.mISignManager;
-            if (ae5Var != null) {
-                return ae5Var.e(activity, viewGroup);
+            he5 he5Var = this.mISignManager;
+            if (he5Var != null) {
+                return he5Var.e(activity, viewGroup);
             }
             return null;
         }
@@ -162,10 +162,10 @@ public class SignManager {
     }
 
     public void updateSignSwitchAndTimeByServerSync(boolean z, long j) {
-        ae5 ae5Var;
+        he5 he5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) && (ae5Var = this.mISignManager) != null) {
-            ae5Var.h(z, j);
+        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) && (he5Var = this.mISignManager) != null) {
+            he5Var.h(z, j);
         }
     }
 
@@ -173,9 +173,9 @@ public class SignManager {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), tbPageContext, onTimeSelectListener, Boolean.valueOf(z)})) == null) {
-            ae5 ae5Var = this.mISignManager;
-            if (ae5Var != null) {
-                return ae5Var.d(i, tbPageContext, onTimeSelectListener, z);
+            he5 he5Var = this.mISignManager;
+            if (he5Var != null) {
+                return he5Var.d(i, tbPageContext, onTimeSelectListener, z);
             }
             return null;
         }

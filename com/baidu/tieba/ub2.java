@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.gb2;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,29 +11,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes8.dex */
 public class ub2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gb2 a;
-    public final pb2 b;
-    public final db2 c;
+    public Timer a;
+    public volatile boolean b;
+    public final vb2 c;
 
     /* loaded from: classes8.dex */
-    public class a implements gb2.b {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rb2 a;
-        public final /* synthetic */ fb2 b;
-        public final /* synthetic */ ub2 c;
+        public final /* synthetic */ ub2 a;
 
-        public a(ub2 ub2Var, rb2 rb2Var, fb2 fb2Var) {
+        public a(ub2 ub2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ub2Var, rb2Var, fb2Var};
+                Object[] objArr = {ub2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,35 +44,25 @@ public class ub2 {
                     return;
                 }
             }
-            this.c = ub2Var;
-            this.a = rb2Var;
-            this.b = fb2Var;
+            this.a = ub2Var;
         }
 
-        @Override // com.baidu.tieba.gb2.b
-        public void a(NetworkStatus networkStatus) {
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                za2.e(SceneType.SCENE_INIT_DATA_ERROR.getType(), networkStatus.getStatus(), this.a.e().getStatus(), this.a.g(), this.a.b(), this.a.f(), this.a.a());
-                StringBuilder sb = new StringBuilder();
-                sb.append(SceneType.SCENE_INIT_DATA_ERROR.getScene());
-                sb.append(this.b.a());
-                sb.append(this.a.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.a.c());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (ub2.d) {
-                    Log.d("SceneInitDataTips", ">> " + sb.toString());
+                    Log.d("RequestMonitor", ">> finish collecting request info.");
                 }
-                ab2.g(sb.toString());
-                this.c.d(networkStatus);
+                this.a.b = false;
             }
         }
     }
 
     /* loaded from: classes8.dex */
-    public static /* synthetic */ class b {
+    public static final class b {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
+        public static final ub2 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -88,16 +78,7 @@ public class ub2 {
                     return;
                 }
             }
-            int[] iArr = new int[NetworkStatus.values().length];
-            a = iArr;
-            try {
-                iArr[NetworkStatus.NETWORK_BAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[NetworkStatus.NETWORK_OFFLINE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
+            a = new ub2(null);
         }
     }
 
@@ -114,7 +95,7 @@ public class ub2 {
                 return;
             }
         }
-        d = ir1.a;
+        d = nr1.a;
     }
 
     public ub2() {
@@ -130,33 +111,96 @@ public class ub2 {
                 return;
             }
         }
-        this.c = db2.d();
-        this.a = new gb2();
-        this.b = pb2.d();
+        this.b = true;
+        this.c = new vb2();
     }
 
-    public void c() {
+    public static ub2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (d) {
-                Log.d("SceneInitDataTips", ">> trigger init data error event.");
-            }
-            pb2.d().j();
-            db2.d().j();
-            fb2 f = this.c.f();
-            this.a.a(new a(this, this.b.f(), f));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b.a;
+        }
+        return (ub2) invokeV.objValue;
+    }
+
+    public List<tb2> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c.a.d();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.b = true;
+            h();
+            this.c.h();
         }
     }
 
-    public final void d(NetworkStatus networkStatus) {
+    public final void h() {
+        Timer timer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, networkStatus) == null) {
-            int i = b.a[networkStatus.ordinal()];
-            if (i != 1 && i != 2) {
-                ya2.f(R.string.obfuscated_res_0x7f0f157b);
-            } else {
-                ya2.f(R.string.obfuscated_res_0x7f0f1571);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (timer = this.a) != null) {
+            timer.cancel();
+            this.a = null;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = false;
+            h();
+            if (d) {
+                Log.d("RequestMonitor", ">> stop to collect request info.");
             }
+        }
+    }
+
+    public /* synthetic */ ub2(a aVar) {
+        this();
+    }
+
+    public void e(tb2 tb2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tb2Var) == null) && this.b) {
+            if (d) {
+                Log.d("RequestMonitor", ">> add request " + tb2Var.toString());
+            }
+            this.c.a(tb2Var);
+        }
+    }
+
+    @NonNull
+    public wb2 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            wb2 g = this.c.g();
+            if (d) {
+                Log.d("RequestMonitor", ">> requestResult: " + g.d() + g.c());
+            }
+            return g;
+        }
+        return (wb2) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (d) {
+                Log.d("RequestMonitor", ">> start to collect request info. ");
+            }
+            this.c.i();
+            h();
+            Timer timer = new Timer();
+            this.a = timer;
+            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
         }
     }
 }

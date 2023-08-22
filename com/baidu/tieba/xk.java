@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.pm.Signature;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.nps.interfa.ISignatureVerifier;
+import android.content.res.Resources;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nps.interfa.IResourcesFetcher;
 import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
 @Service
 /* loaded from: classes8.dex */
-public class xk implements ISignatureVerifier {
+public class xk implements IResourcesFetcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,16 +32,30 @@ public class xk implements ISignatureVerifier {
         }
     }
 
-    @Override // com.baidu.nps.interfa.ISignatureVerifier
-    public boolean checkSignature(String str, Signature[] signatureArr) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources getBaseContextResources() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, signatureArr)) == null) {
-            if (BdLog.isDebugMode()) {
-                return true;
-            }
-            return "YvigAa51R7YgCp8eDveR1g==".equals(wk.c(signatureArr));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return BdBaseApplication.getInst().getResources();
         }
-        return invokeLL.booleanValue;
+        return (Resources) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources getGlobalResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return BdBaseApplication.getInst().getResources();
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    @Override // com.baidu.nps.interfa.IResourcesFetcher
+    public Resources[] getWrapperResources() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? new Resources[]{BdBaseApplication.getInst().getResources()} : (Resources[]) invokeV.objValue;
     }
 }

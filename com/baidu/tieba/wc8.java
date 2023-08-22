@@ -1,121 +1,174 @@
 package com.baidu.tieba;
 
-import androidx.collection.LongSparseArray;
+import android.content.Context;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.log.Logger;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.message.MessageSyncMessage;
-import com.baidu.tieba.im.message.ResponsePullMessage;
-import com.baidu.tieba.im.message.ResponseUnLoginMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonalMsgImageActivityConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.data.StatisticInfoField;
+import com.baidu.tieba.fm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.IOException;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class wc8 extends ab {
+public class wc8 extends BdAsyncTask<String, Integer, String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NetWork a;
+    public String b;
+    public String c;
+    public long d;
+    public long e;
+    public String f;
+    public Context g;
+    public boolean h;
+    public HashMap<String, Boolean> i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wc8() {
-        super(202003);
+    public wc8(@NonNull Context context, @NonNull String str, long j, @Nullable String str2, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Long.valueOf(j), str2, Long.valueOf(j2), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.i = new HashMap<>();
+        this.g = context;
+        this.b = str;
+        this.e = j;
+        this.f = str2;
+        this.d = j2;
+        this.h = z;
     }
 
-    public final void c(GroupMsgData groupMsgData) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, groupMsgData) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-            MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.i.containsKey(this.c) && this.i.get(this.c).booleanValue()) {
+                BdUtilHelper.showToast(TbadkCoreApplication.getInst(), (int) R.string.save_emotion_duplicate);
+            } else if (this.c == null) {
+            } else {
+                if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                    fm5.b bVar = new fm5.b();
+                    bVar.c = this.c;
+                    String str = this.b;
+                    bVar.a = str;
+                    bVar.b = str;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, bVar));
+                    return;
+                }
+                Intent intent = new Intent(fm5.a);
+                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+                intent.putExtra(fm5.b, this.b);
+                intent.putExtra(fm5.c, this.b);
+                intent.putExtra(fm5.d, this.c);
+                TbadkCoreApplication.getInst().sendBroadcast(intent);
+            }
+        }
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            try {
+                this.c = new JSONObject(str).getString("pid");
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
+            }
+            this.c = null;
+            super.cancel(true);
+        }
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onPreExecute();
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.xa
-    /* renamed from: d */
-    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String doInBackground(String... strArr) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socketResponsedMessage)) == null) {
-            MessageSyncMessage messageSyncMessage = null;
-            if (!(socketResponsedMessage instanceof ResponsePullMessage)) {
-                return null;
-            }
-            if (socketResponsedMessage.getOrginalMessage() != null && (socketResponsedMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
-                messageSyncMessage = (MessageSyncMessage) socketResponsedMessage.getOrginalMessage();
-            }
-            if (messageSyncMessage != null) {
-                Logger.addLog("im", messageSyncMessage.getClientLogID(), messageSyncMessage.getCmd(), "ack", socketResponsedMessage.getError(), socketResponsedMessage.getErrorString(), new Object[0]);
-            }
-            if (socketResponsedMessage.getError() == 110000) {
-                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
-            }
-            ResponsePullMessage responsePullMessage = (ResponsePullMessage) socketResponsedMessage;
-            List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
-            if (groupMsg != null && groupMsg.size() > 0) {
-                for (GroupMsgData groupMsgData : groupMsg) {
-                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
-                        c(groupMsgData);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
+            NetWork netWork = new NetWork(TbConfig.URL_REQUEST_PID);
+            this.a = netWork;
+            String str = null;
+            try {
+                netWork.addPostData("pic_url", this.b);
+                str = this.a.postMultiNetData();
+                if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                    c(str);
                 }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            if (!e(responsePullMessage)) {
-                uc8.n().p();
-            }
-            return socketResponsedMessage;
+            return str;
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final boolean e(ResponsePullMessage responsePullMessage) {
-        InterceptResult invokeL;
-        Long l;
-        Long l2;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, responsePullMessage)) == null) {
-            if (responsePullMessage != null && responsePullMessage.getGroupMsg() != null && responsePullMessage.getGroupMsg().size() != 0 && !responsePullMessage.hasError()) {
-                List<GroupMsgData> groupMsg = responsePullMessage.getGroupMsg();
-                if (!(responsePullMessage.getOrginalMessage() instanceof MessageSyncMessage)) {
-                    return false;
-                }
-                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) responsePullMessage.getOrginalMessage();
-                if (messageSyncMessage.getGroupMids() != null && messageSyncMessage.getGroupMids().size() != 0) {
-                    LongSparseArray<Long> longSparseArray = new LongSparseArray<>();
-                    LongSparseArray<Long> q = nc8.n().q();
-                    boolean z = false;
-                    for (GroupMsgData groupMsgData : groupMsg) {
-                        if (groupMsgData != null && groupMsgData.getGroupInfo() != null && oc8.a(groupMsgData.getGroupInfo().getCustomType()) && (l = q.get(groupMsgData.getGroupInfo().getGroupId())) != null && (l2 = messageSyncMessage.getGroupMids().get(groupMsgData.getGroupInfo().getGroupId())) != null) {
-                            if (l.longValue() > l2.longValue()) {
-                                z = true;
-                            }
-                            if (groupMsgData.hasMore()) {
-                                longSparseArray.put(groupMsgData.getGroupInfo().getGroupId(), l);
-                            }
-                        }
-                    }
-                    if (z && longSparseArray.size() > 0) {
-                        uc8.n().t(longSparseArray);
-                        return true;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            super.onPostExecute((wc8) str);
+            if (this.h) {
+                b();
+                oc8.a(2, 1, this.e, this.d);
+                return;
             }
-            return false;
+            PersonalMsgImageActivityConfig personalMsgImageActivityConfig = new PersonalMsgImageActivityConfig(this.g, this.b, TbadkCoreApplication.getCurrentAccountId(), "");
+            StatisticInfoField statisticInfoField = new StatisticInfoField();
+            String str2 = this.f;
+            if (str2 != null) {
+                statisticInfoField.setForumName(str2);
+            }
+            statisticInfoField.setForumId(String.valueOf(this.e));
+            statisticInfoField.setChatRoomId(String.valueOf(this.d));
+            personalMsgImageActivityConfig.setStatisticInfoFild(statisticInfoField);
+            personalMsgImageActivityConfig.setFrom(1);
+            personalMsgImageActivityConfig.setPid(this.c);
+            personalMsgImageActivityConfig.isFromGroupChat(true);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalMsgImageActivityConfig));
+            oc8.a(1, 2, this.e, this.d);
         }
-        return invokeL.booleanValue;
     }
 }

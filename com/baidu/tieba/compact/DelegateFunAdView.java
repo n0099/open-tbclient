@@ -6,11 +6,11 @@ import android.view.View;
 import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ev7;
-import com.baidu.tieba.ib7;
-import com.baidu.tieba.o97;
-import com.baidu.tieba.p97;
-import com.baidu.tieba.pba;
+import com.baidu.tieba.cb7;
+import com.baidu.tieba.db7;
+import com.baidu.tieba.wc7;
+import com.baidu.tieba.xfa;
+import com.baidu.tieba.zw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000F\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\b\u0007\u0018\u00002\u00020\u00012\u00020\u0002B\u0015\u0012\u0006\u0010\u0003\u001a\u00020\u0004\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J\b\u0010\r\u001a\u00020\u000eH\u0016JJ\u0010\u000f\u001a\u00020\u000e2\b\u0010\u0010\u001a\u0004\u0018\u00010\u00112\b\u0010\u0012\u001a\u0004\u0018\u00010\u00132\b\u0010\u0014\u001a\u0004\u0018\u00010\u00132\b\u0010\u0015\u001a\u0004\u0018\u00010\u00132\b\u0010\u0016\u001a\u0004\u0018\u00010\u00132\u0006\u0010\u0017\u001a\u00020\u00182\b\u0010\u0019\u001a\u0004\u0018\u00010\u001aR\u0016\u0010\b\u001a\n \n*\u0004\u0018\u00010\t0\tX\u0082\u0004¢\u0006\u0002\n\u0000R\u0011\u0010\u0005\u001a\u00020\u0006¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\f¨\u0006\u001b"}, d2 = {"Lcom/baidu/tieba/compact/DelegateFunAdView;", "Landroid/widget/FrameLayout;", "Lcom/baidu/tieba/feed/list/OnChangeSkinListener;", "context", "Landroid/content/Context;", "type", "Lcom/baidu/adp/BdUniqueId;", "(Landroid/content/Context;Lcom/baidu/adp/BdUniqueId;)V", "realView", "Landroid/view/View;", "kotlin.jvm.PlatformType", "getType", "()Lcom/baidu/adp/BdUniqueId;", "onChangeSkin", "", "updateFunAdView", "funAdData", "Lcom/baidu/tieba/tbadkCore/data/FunAdData;", "sid", "", "pageType", "sceneKey", "fromTab", "currentFloor", "", "feedbackClickListener", "Landroid/view/View$OnClickListener;", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes5.dex */
-public final class DelegateFunAdView extends FrameLayout implements o97 {
+public final class DelegateFunAdView extends FrameLayout implements cb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final BdUniqueId a;
@@ -48,29 +48,29 @@ public final class DelegateFunAdView extends FrameLayout implements o97 {
         Intrinsics.checkNotNullParameter(context, "context");
         Intrinsics.checkNotNullParameter(type, "type");
         this.a = type;
-        View b = ev7.h().b(context, this.a);
+        View b = zw7.h().b(context, this.a);
         this.b = b;
         addView(b, new FrameLayout.LayoutParams(-1, -2));
-        ib7.a aVar = ib7.b;
+        wc7.a aVar = wc7.b;
         View realView = this.b;
         Intrinsics.checkNotNullExpressionValue(realView, "realView");
-        ib7.a.f(aVar, realView, null, null, 6, null);
+        wc7.a.f(aVar, realView, null, null, 6, null);
     }
 
-    public final void a(pba pbaVar, String str, String str2, String str3, String str4, int i, View.OnClickListener onClickListener) {
+    public final void a(xfa xfaVar, String str, String str2, String str3, String str4, int i, View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{pbaVar, str, str2, str3, str4, Integer.valueOf(i), onClickListener}) == null) {
-            ev7.h().f(this.b, pbaVar, this.a, str, str2, str3, str4, i, onClickListener);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{xfaVar, str, str2, str3, str4, Integer.valueOf(i), onClickListener}) == null) {
+            zw7.h().f(this.b, xfaVar, this.a, str, str2, str3, str4, i, onClickListener);
         }
     }
 
-    @Override // com.baidu.tieba.o97
+    @Override // com.baidu.tieba.cb7
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || p97.a(this)) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || db7.a(this)) {
             return;
         }
-        ev7.h().e(this.b);
+        zw7.h().e(this.b);
     }
 
     public final BdUniqueId getType() {

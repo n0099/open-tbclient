@@ -35,7 +35,7 @@ public class AppPrivacyPolicyActivity extends Activity {
     @Override // android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(R.layout.obfuscated_res_0x7f0d09a7);
+        setContentView(R.layout.obfuscated_res_0x7f0d09af);
         if (a()) {
             b();
         } else {
@@ -75,8 +75,8 @@ public class AppPrivacyPolicyActivity extends Activity {
     }
 
     private void b() {
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091228);
-        this.b = (WebView) findViewById(R.id.obfuscated_res_0x7f091d3e);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f09123d);
+        this.b = (WebView) findViewById(R.id.obfuscated_res_0x7f091d61);
         this.a.setOnClickListener(new View.OnClickListener() { // from class: com.ss.android.downloadlib.addownload.compliance.AppPrivacyPolicyActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {

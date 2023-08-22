@@ -1,41 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.container.NgWebView;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class p03 extends pz1 {
+public class p03 extends ad3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.bz1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "SwanCallImageMenuApi" : (String) invokeV.objValue;
-    }
+    public o03 c;
+    public s03 d;
+    public r03 e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p03(@NonNull zy1 zy1Var) {
-        super(zy1Var);
+    public p03(ac3 ac3Var) {
+        super(ac3Var, "/swanAPI/vrvideo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zy1Var};
+            Object[] objArr = {ac3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zy1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -43,43 +39,71 @@ public class p03 extends pz1 {
         }
     }
 
-    public y22 y(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ad3
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, db3 db3Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            fx1 i = lw2.T().i();
-            if (!(i instanceof NgWebView)) {
-                return new y22(1001, "call image menu fail");
-            }
-            rw1 E0 = fu2.E0();
-            if (E0 == null) {
-                return new y22(1001, "call image menu fail");
-            }
-            E0.b((NgWebView) i, str);
-            return y22.f();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, db3Var)) == null) {
+            d82.b("VrVideoPlayerAction", "handle entity: ", unitedSchemeEntity);
+            return false;
         }
-        return (y22) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public y22 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ad3
+    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, db3 db3Var) {
+        InterceptResult invokeLLLLL;
+        char c;
+        boolean c2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#callImageMenu", false);
-            if (ya3.b0() == null) {
-                return new y22(1001, "swan app is null");
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, db3Var)) == null) {
+            d82.b("VrVideoPlayerAction", "handleSubAction subAction : " + str + "params : ", ad3.a(unitedSchemeEntity, "params"));
+            int hashCode = str.hashCode();
+            if (hashCode != 533456719) {
+                if (hashCode != 1626770505) {
+                    if (hashCode == 1722535054 && str.equals("/swanAPI/vrvideo/update")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("/swanAPI/vrvideo/remove")) {
+                        c = 2;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("/swanAPI/vrvideo/open")) {
+                    c = 0;
+                }
+                c = 65535;
             }
-            Pair<y22, JSONObject> s = s(str);
-            y22 y22Var = (y22) s.first;
-            if (!y22Var.isSuccess()) {
-                return y22Var;
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        c2 = false;
+                    } else {
+                        if (this.e == null) {
+                            this.e = new r03("/swanAPI/vrvideo/remove");
+                        }
+                        c2 = this.e.c(context, unitedSchemeEntity, callbackHandler, db3Var);
+                    }
+                } else {
+                    if (this.d == null) {
+                        this.d = new s03("/swanAPI/vrvideo/update");
+                    }
+                    c2 = this.d.c(context, unitedSchemeEntity, callbackHandler, db3Var);
+                }
+            } else {
+                if (this.c == null) {
+                    this.c = new o03("/swanAPI/vrvideo/open");
+                }
+                c2 = this.c.c(context, unitedSchemeEntity, callbackHandler, db3Var);
             }
-            String optString = ((JSONObject) s.second).optString("imageURL");
-            if (TextUtils.isEmpty(optString)) {
-                return new y22(202, fu2.c().getString(R.string.obfuscated_res_0x7f0f1783));
+            if (!c2 && !super.i(context, unitedSchemeEntity, callbackHandler, str, db3Var)) {
+                return false;
             }
-            return y(optString);
+            return true;
         }
-        return (y22) invokeL.objValue;
+        return invokeLLLLL.booleanValue;
     }
 }

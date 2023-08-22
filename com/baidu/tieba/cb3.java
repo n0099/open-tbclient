@@ -1,127 +1,418 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.tieba.cb3;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.tieba.gw2;
+import com.baidu.tieba.hb3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
+import java.util.HashSet;
+import java.util.Queue;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public abstract class cb3<SelfT extends cb3<SelfT>> extends bw2<SelfT> {
+public abstract class cb3 extends za3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean i;
+    public static volatile cb3 j;
+    public static Handler k;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String b;
+    public gs1 a;
+    public final Set<wp3<hb3.a>> b;
+    public volatile int c;
+    public final Queue<Runnable> d;
+    public Runnable e;
+    public mk4 f;
+    public nd3 g;
+    public boolean h;
+
+    public abstract mk4 I();
+
+    public abstract nd3 J();
+
+    public abstract void Q();
 
     /* loaded from: classes5.dex */
-    public static final class a extends cb3<a> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hb3.a a;
+        public final /* synthetic */ cb3 b;
 
-        public a E() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this : (a) invokeV.objValue;
+        /* renamed from: com.baidu.tieba.cb3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class RunnableC0262a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ wp3 a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0262a(a aVar, wp3 wp3Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, wp3Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = wp3Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a(this.b.a);
+                }
+            }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str) {
-            super(str);
+        public a(cb3 cb3Var, hb3.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {cb3Var, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.b = cb3Var;
+            this.a = aVar;
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(String str, Bundle bundle) {
-            super(str, bundle);
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (Looper.getMainLooper() == Looper.myLooper()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                for (wp3 wp3Var : this.b.b) {
+                    if (z && !this.a.d("event_flag_force_post", false)) {
+                        wp3Var.a(this.a);
+                    } else {
+                        cb3.M().post(new RunnableC0262a(this, wp3Var));
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wp3 a;
+        public final /* synthetic */ cb3 b;
+
+        public b(cb3 cb3Var, wp3 wp3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, bundle};
-                interceptable.invokeUnInit(65537, newInitContext);
+                Object[] objArr = {cb3Var, wp3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (Bundle) objArr2[1]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.b = cb3Var;
+            this.a = wp3Var;
         }
 
-        @Override // com.baidu.tieba.up3
-        public /* bridge */ /* synthetic */ up3 i() {
-            E();
-            return this;
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public cb3(String str) {
-        this(str, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (Bundle) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.b.add(this.a);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cb3(String str, Bundle bundle) {
-        super(bundle);
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wp3 a;
+        public final /* synthetic */ cb3 b;
+
+        public c(cb3 cb3Var, wp3 wp3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cb3Var, wp3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = cb3Var;
+            this.a = wp3Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.b.remove(this.a);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947668949, "Lcom/baidu/tieba/cb3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947668949, "Lcom/baidu/tieba/cb3;");
+                return;
+            }
+        }
+        i = nr1.a;
+    }
+
+    public static cb3 K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            cb3 L = L();
+            if (!L.h) {
+                L.O();
+            }
+            return L;
+        }
+        return (cb3) invokeV.objValue;
+    }
+
+    public static Handler M() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (k == null) {
+                k = new Handler(Looper.getMainLooper());
+            }
+            return k;
+        }
+        return (Handler) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gb3
+    public nd3 B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.g == null) {
+                this.g = J();
+            }
+            return this.g;
+        }
+        return (nd3) invokeV.objValue;
+    }
+
+    public mk4 N() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.f == null) {
+                this.f = I();
+            }
+            return this.f;
+        }
+        return (mk4) invokeV.objValue;
+    }
+
+    public final void O() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.h) {
+            P();
+            N();
+            p73.S();
+            Q();
+            this.h = true;
+        }
+    }
+
+    public final void P() {
+        nd3 B;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (B = B()) != null) {
+            B.J();
+        }
+    }
+
+    @Override // com.baidu.tieba.gb3
+    public gs1 x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            if (this.a == null) {
+                this.a = new gs1();
+            }
+            return this.a;
+        }
+        return (gs1) invokeV.objValue;
+    }
+
+    public cb3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, bundle};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Bundle) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = TextUtils.isEmpty(str) ? "" : str;
+        new gw2.a();
+        this.b = new HashSet();
+        this.c = 0;
+        this.d = new ArrayDeque();
+        this.e = null;
+        this.h = false;
     }
 
-    @Override // com.baidu.tieba.bw2
-    public String toString() {
+    @Override // com.baidu.tieba.gb3
+    public void o(wp3<hb3.a> wp3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, wp3Var) == null) && wp3Var != null) {
+            R(new c(this, wp3Var));
+        }
+    }
+
+    @Override // com.baidu.tieba.gb3
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            v(str, null);
+        }
+    }
+
+    @Override // com.baidu.tieba.gb3
+    public void u(wp3<hb3.a> wp3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, wp3Var) == null) && wp3Var != null) {
+            R(new b(this, wp3Var));
+        }
+    }
+
+    public static cb3 L() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return String.format("Event(%s) Ext => %s", this.b, super.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (j instanceof ib3) {
+                return j;
+            }
+            synchronized (cb3.class) {
+                if (j instanceof ib3) {
+                    return j;
+                }
+                SwanAppProcessInfo current = SwanAppProcessInfo.current();
+                if (current.isSwanClient) {
+                    if (i && j != null) {
+                        throw new IllegalStateException("When convinced current process is swan client，but Swan instance already init with: " + j);
+                    }
+                    j = new ib3();
+                    return j;
+                } else if (current.isSwanService) {
+                    if (!(j instanceof kb3)) {
+                        if (i && j != null) {
+                            throw new IllegalStateException("When convinced current process is swan service，but Swan instance already init with: " + j);
+                        }
+                        j = new kb3();
+                    }
+                    return j;
+                } else {
+                    if (j == null) {
+                        j = new bb3();
+                    }
+                    return j;
+                }
+            }
         }
-        return (String) invokeV.objValue;
+        return (cb3) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gb3
+    public void A(hb3.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            if (i) {
+                Log.i("SwanImpl", "SwanEvent dispatchEvent: " + aVar + " mEventCallbacks:" + this.b.size());
+            }
+            if (aVar != null) {
+                R(new a(this, aVar));
+            }
+        }
+    }
+
+    public final synchronized void R(@NonNull Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, runnable) == null) {
+            synchronized (this) {
+                this.d.offer(runnable);
+                if (this.e == null) {
+                    while (!this.d.isEmpty()) {
+                        Runnable poll = this.d.poll();
+                        this.e = poll;
+                        if (poll != null) {
+                            poll.run();
+                        }
+                        this.e = null;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.gb3
+    public void v(String str, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, str, bundle) == null) {
+            A(new hb3.a(str, bundle));
+        }
     }
 }

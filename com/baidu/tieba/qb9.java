@@ -1,59 +1,37 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.payment.PayVcodeActivity;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AlaInfoData;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TiebaStaticHelper;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class qb9 extends WebChromeClient {
+public class qb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PayVcodeActivity a;
-    public hca b;
 
-    public qb9(PayVcodeActivity payVcodeActivity) {
+    public static void a(String str, UserData userData) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {payVcodeActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, userData) == null) && userData != null && userData.getUserId() != null && userData.getAlaUserData() != null && userData.getAlaInfo() != null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            AlaInfoData alaInfo = userData.getAlaInfo();
+            String str2 = null;
+            if (!StringUtils.isNull(alaInfo.appId)) {
+                str2 = alaInfo.appId;
             }
-        }
-        this.a = payVcodeActivity;
-    }
-
-    public void a(hca hcaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hcaVar) == null) {
-            this.b = hcaVar;
-        }
-    }
-
-    @Override // android.webkit.WebChromeClient
-    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        PayVcodeActivity payVcodeActivity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            hca hcaVar = this.b;
-            if ((hcaVar != null && hcaVar.onJsPrompt(str2, jsPromptResult)) || (payVcodeActivity = this.a) == null || !jg.f(payVcodeActivity.getPageContext())) {
-                return true;
+            if (alaInfo.mYyExtData != null) {
+                str2 = TiebaStatic.YYValues.YY_LIVE;
             }
-            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
+            statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(alaInfo));
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+            TiebaStaticHelper.addYYParam(statisticItem, alaInfo.mYyExtData);
+            TiebaStatic.log(statisticItem);
         }
-        return invokeLLLLL.booleanValue;
     }
 }

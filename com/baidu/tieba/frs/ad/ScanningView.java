@@ -17,7 +17,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ah7;
+import com.baidu.tieba.ri7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -134,11 +134,11 @@ public class ScanningView extends View {
                 return;
             }
         }
-        this.k = R.drawable.obfuscated_res_0x7f0806bf;
+        this.k = R.drawable.obfuscated_res_0x7f0806c4;
         this.l = 400;
         if (attributeSet != null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ah7.ScanningView);
-            this.k = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f0806bf);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ri7.ScanningView);
+            this.k = obtainStyledAttributes.getResourceId(1, R.drawable.obfuscated_res_0x7f0806c4);
             this.l = obtainStyledAttributes.getInt(0, 400);
             obtainStyledAttributes.recycle();
         }

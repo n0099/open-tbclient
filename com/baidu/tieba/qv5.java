@@ -1,52 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import org.json.JSONException;
+import org.json.JSONObject;
+import tbclient.AppTransmitData;
 /* loaded from: classes7.dex */
 public class qv5 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (str == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(TiebaStatic.Params.WISE_SAMPLE_ID, c());
+                jSONObject.put(DI.YY.YY_HDID, TbadkCoreApplication.getInst().getHdid());
+                jSONObject.put("yy_version", "");
+            } catch (JSONException e) {
+                BdLog.e(e);
             }
-            int indexOf = str.indexOf("hiphotos");
-            if (indexOf > 0 && indexOf < 20) {
-                return true;
-            }
-            int indexOf2 = str.indexOf("tiebapic");
-            if (indexOf2 <= 0 || indexOf2 >= 20) {
-                return false;
-            }
-            return true;
+            return jSONObject.toString();
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean b() {
+    public static AppTransmitData b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c();
+            AppTransmitData.Builder builder = new AppTransmitData.Builder();
+            builder.wise_sample_id = c();
+            builder.yy_hdid = TbadkCoreApplication.getInst().getHdid();
+            builder.yy_version = "";
+            return builder.build(false);
         }
-        return invokeV.booleanValue;
+        return (AppTransmitData) invokeV.objValue;
     }
 
-    public static boolean c() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!FileHelper.checkSD() || !pb.c()) {
-                return false;
-            }
-            return true;
+            return a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a = str;
+        }
     }
 }

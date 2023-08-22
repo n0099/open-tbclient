@@ -12,15 +12,15 @@ import com.xiaomi.push.et;
 public class eu implements et.a {
 
     /* renamed from: a  reason: collision with other field name */
-    public Context f332a;
+    public Context f333a;
 
     /* renamed from: a  reason: collision with other field name */
-    public PendingIntent f331a = null;
+    public PendingIntent f332a = null;
     public volatile long a = 0;
 
     public eu(Context context) {
-        this.f332a = null;
-        this.f332a = context;
+        this.f333a = null;
+        this.f333a = context;
     }
 
     private void a(AlarmManager alarmManager, long j, PendingIntent pendingIntent) {
@@ -33,17 +33,17 @@ public class eu implements et.a {
 
     @Override // com.xiaomi.push.et.a
     public void a() {
-        if (this.f331a != null) {
+        if (this.f332a != null) {
             try {
-                ((AlarmManager) this.f332a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f331a);
+                ((AlarmManager) this.f333a.getSystemService(NotificationCompat.CATEGORY_ALARM)).cancel(this.f332a);
             } catch (Exception unused) {
             } catch (Throwable th) {
-                this.f331a = null;
+                this.f332a = null;
                 com.xiaomi.channel.commonutils.logger.b.c("[Alarm] unregister timer");
                 this.a = 0L;
                 throw th;
             }
-            this.f331a = null;
+            this.f332a = null;
             com.xiaomi.channel.commonutils.logger.b.c("[Alarm] unregister timer");
             this.a = 0L;
         }
@@ -51,12 +51,12 @@ public class eu implements et.a {
     }
 
     public void a(Intent intent, long j) {
-        AlarmManager alarmManager = (AlarmManager) this.f332a.getSystemService(NotificationCompat.CATEGORY_ALARM);
-        this.f331a = Build.VERSION.SDK_INT >= 31 ? PendingIntent.getBroadcast(this.f332a, 0, intent, 33554432) : PendingIntent.getBroadcast(this.f332a, 0, intent, 0);
+        AlarmManager alarmManager = (AlarmManager) this.f333a.getSystemService(NotificationCompat.CATEGORY_ALARM);
+        this.f332a = Build.VERSION.SDK_INT >= 31 ? PendingIntent.getBroadcast(this.f333a, 0, intent, 33554432) : PendingIntent.getBroadcast(this.f333a, 0, intent, 0);
         if (Build.VERSION.SDK_INT >= 23) {
-            bj.a((Object) alarmManager, "setExactAndAllowWhileIdle", 2, Long.valueOf(j), this.f331a);
+            bj.a((Object) alarmManager, "setExactAndAllowWhileIdle", 2, Long.valueOf(j), this.f332a);
         } else {
-            a(alarmManager, j, this.f331a);
+            a(alarmManager, j, this.f332a);
         }
         com.xiaomi.channel.commonutils.logger.b.c("[Alarm] register timer " + j);
     }
@@ -69,7 +69,7 @@ public class eu implements et.a {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void a(boolean z) {
-        long m817a = com.xiaomi.push.service.o.a(this.f332a).m817a();
+        long m819a = com.xiaomi.push.service.o.a(this.f333a).m819a();
         if (z || this.a != 0) {
             if (z) {
                 a();
@@ -77,23 +77,23 @@ public class eu implements et.a {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             if (!z && this.a != 0) {
                 if (this.a <= elapsedRealtime) {
-                    this.a += m817a;
+                    this.a += m819a;
                 }
                 Intent intent = new Intent(com.xiaomi.push.service.bk.p);
-                intent.setPackage(this.f332a.getPackageName());
+                intent.setPackage(this.f333a.getPackageName());
                 a(intent, this.a);
             }
-            m817a -= elapsedRealtime % m817a;
-            this.a = elapsedRealtime + m817a;
+            m819a -= elapsedRealtime % m819a;
+            this.a = elapsedRealtime + m819a;
             Intent intent2 = new Intent(com.xiaomi.push.service.bk.p);
-            intent2.setPackage(this.f332a.getPackageName());
+            intent2.setPackage(this.f333a.getPackageName());
             a(intent2, this.a);
         }
     }
 
     @Override // com.xiaomi.push.et.a
     /* renamed from: a */
-    public boolean mo465a() {
+    public boolean mo467a() {
         return this.a != 0;
     }
 }

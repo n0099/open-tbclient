@@ -22,9 +22,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.log.Logger;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.ml;
-import com.baidu.tieba.nl;
+import com.baidu.tieba.di;
+import com.baidu.tieba.pl;
+import com.baidu.tieba.ql;
 import com.baidu.tieba.zf;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -463,14 +463,14 @@ public class ViewHelper {
             checkDownloadSo("libopencv_java3.so", "com.baidu.tieba.soloader.libopencv_java3", "opencv_java3");
             checkDownloadSo("libbd_pass_face_sdk.so", "com.baidu.tieba.soloader.libbdface", "bd_pass_face_sdk");
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true);
-            if (!bi.isEmpty(str)) {
+            if (!di.isEmpty(str)) {
                 loginActivityConfig.setFrom(str);
             }
             if (StringUtils.isNull(BdBaseApplication.getInst().getResHashMap().get("libmml_framework.so"))) {
                 RequestParams requestParams = new RequestParams();
-                requestParams.setRunType(nl.a);
+                requestParams.setRunType(ql.a);
                 requestParams.setRunNode("aps");
-                requestParams.addChannel(new ml("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
+                requestParams.addChannel(new pl("com.baidu.tieba.soloader.libmmlframework", (DefaultDownloadCallback) null));
                 PmsManager.getInstance().execute(requestParams);
             }
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, loginActivityConfig));

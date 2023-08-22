@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -10,46 +10,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
-import com.yy.mobile.framework.revenuesdk.baseapi.IToken;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
-import com.yy.mobile.framework.revenuesdk.payapi.IAppPayServiceListener;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.IPaySignCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayStatus;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PaySignInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PurchaseInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.GetChargeOrderStatusResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
-import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
-import com.yy.mobile.framework.revenuesdk.payapi.request.ChargeCurrencyReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetChargeOrderStatusReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatisticsApi;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.IMiddlePayService;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.api.pay.params.IAppServerExpand;
-import tv.athena.revenue.api.pay.params.RefreshAppExpandInfo;
+import java.io.PrintStream;
+import java.math.BigInteger;
+import java.nio.ByteBuffer;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Locale;
+import java.util.Random;
+import java.util.TimeZone;
+import kotlin.jvm.internal.ByteCompanionObject;
+import okhttp3.internal.ws.WebSocketProtocol;
+import org.apache.http.protocol.HTTP;
+import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.IncompleteException;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.exceptions.InvalidFrameException;
+import org.java_websocket.exceptions.InvalidHandshakeException;
+import org.java_websocket.exceptions.LimitExedeedException;
+import org.java_websocket.exceptions.NotSendableException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public final class k6c implements IMiddlePayService {
+public class k6c extends Draft {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MiddleRevenueConfig a;
-    public final IAppPayService b;
+    public m6c c;
+    public List<m6c> d;
+    public f7c e;
+    public List<f7c> f;
+    public Framedata g;
+    public List<ByteBuffer> h;
+    public ByteBuffer i;
+    public final Random j;
 
     static {
         InterceptResult invokeClinit;
@@ -66,425 +65,943 @@ public final class k6c implements IMiddlePayService {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a implements IPayCallback<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ IPayCallback a;
-
-        public a(IPayCallback iPayCallback) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iPayCallback};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iPayCallback;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        /* renamed from: a */
-        public void onSuccess(String str, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, payCallBackBean) == null) {
-                RLog.debug("MiddlePayService", "doPayProduct onSuccess");
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onSuccess(str, payCallBackBean);
-                }
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStatus(PurchaseStatus purchaseStatus, PayCallBackBean payCallBackBean) {
-            IPayCallback iPayCallback;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048579, this, purchaseStatus, payCallBackBean) == null) && (iPayCallback = this.a) != null) {
-                iPayCallback.onPayStatus(purchaseStatus, payCallBackBean);
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
-        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) {
-                RLog.debug("MiddlePayService", "doPayProduct onFail [code = " + i + ", failReason=" + str + ']');
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onFail(i, str, payCallBackBean);
-                }
-            }
-        }
-
-        @Override // com.yy.mobile.framework.revenuesdk.payapi.IPayCallback
-        public void onPayStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                RLog.debug("MiddlePayService", "doPayProduct onPayStart");
-                IPayCallback iPayCallback = this.a;
-                if (iPayCallback != null) {
-                    iPayCallback.onPayStart();
-                }
-            }
-        }
-    }
-
-    public k6c(MiddleRevenueConfig middleRevenueConfig, IAppPayService iAppPayService) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public k6c() {
+        this(Collections.emptyList());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {middleRevenueConfig, iAppPayService};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this((List) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = middleRevenueConfig;
-        this.b = iAppPayService;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryProductList(QueryCurrencyReqParams queryCurrencyReqParams, IResult<ProductListResult> iResult) {
+    public m6c A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, queryCurrencyReqParams, iResult) == null) {
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setExpand(e(queryCurrencyReqParams.getExpandMap()));
-            RLog.info("MiddlePayService", "queryProductList params expand:" + queryCurrencyReqParams.getExpand());
-            this.b.queryProductList(queryCurrencyReqParams, iResult);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (m6c) invokeV.objValue;
+    }
+
+    public List<m6c> B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<f7c> C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public f7c E() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (f7c) invokeV.objValue;
+    }
+
+    public final String F() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Calendar calendar = Calendar.getInstance();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss z", Locale.US);
+            simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
+            return simpleDateFormat.format(calendar.getTime());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            m6c m6cVar = this.c;
+            int i2 = 0;
+            if (m6cVar != null) {
+                i = m6cVar.hashCode();
+            } else {
+                i = 0;
+            }
+            int i3 = i * 31;
+            f7c f7cVar = this.e;
+            if (f7cVar != null) {
+                i2 = f7cVar.hashCode();
+            }
+            return i3 + i2;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // org.java_websocket.drafts.Draft
+    public Draft.CloseHandshakeType l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return Draft.CloseHandshakeType.TWOWAY;
+        }
+        return (Draft.CloseHandshakeType) invokeV.objValue;
+    }
+
+    @Override // org.java_websocket.drafts.Draft
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            this.i = null;
+            m6c m6cVar = this.c;
+            if (m6cVar != null) {
+                m6cVar.reset();
+            }
+            this.c = new l6c();
+            this.e = null;
         }
     }
 
-    @Override // tv.athena.revenue.api.pay.IMiddlePayService
-    public void a(f6c f6cVar) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public k6c(List<m6c> list) {
+        this(list, Collections.singletonList(new g7c("")));
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, f6cVar) == null) {
-            g(f6cVar.getActivity(), f6cVar.h(), f6cVar.o(), f6cVar.l(), f6cVar.f(), f6cVar.p(), f6cVar.d(), f6cVar.k(), f6cVar.c(), f6cVar.i(), f6cVar.e(), f6cVar.b(), f6cVar.m(), f6cVar.a(), f6cVar.n(), f6cVar.g(), f6cVar.j());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((List) objArr2[0], (List) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void addPayListener(IAppPayServiceListener iAppPayServiceListener) {
+    public final Framedata.Opcode I(byte b) throws InvalidFrameException {
+        InterceptResult invokeB;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iAppPayServiceListener) == null) {
-            this.b.addPayListener(iAppPayServiceListener);
+        if (interceptable == null || (invokeB = interceptable.invokeB(1048583, this, b)) == null) {
+            if (b != 0) {
+                if (b != 1) {
+                    if (b != 2) {
+                        switch (b) {
+                            case 8:
+                                return Framedata.Opcode.CLOSING;
+                            case 9:
+                                return Framedata.Opcode.PING;
+                            case 10:
+                                return Framedata.Opcode.PONG;
+                            default:
+                                throw new InvalidFrameException("Unknown opcode " + ((int) b));
+                        }
+                    }
+                    return Framedata.Opcode.BINARY;
+                }
+                return Framedata.Opcode.TEXT;
+            }
+            return Framedata.Opcode.CONTINUOUS;
         }
+        return (Framedata.Opcode) invokeB.objValue;
     }
 
-    public final boolean f(Activity activity) {
+    public final byte y(Framedata.Opcode opcode) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, activity)) == null) {
-            if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, opcode)) == null) {
+            if (opcode == Framedata.Opcode.CONTINUOUS) {
+                return (byte) 0;
+            }
+            if (opcode == Framedata.Opcode.TEXT) {
+                return (byte) 1;
+            }
+            if (opcode == Framedata.Opcode.BINARY) {
+                return (byte) 2;
+            }
+            if (opcode == Framedata.Opcode.CLOSING) {
+                return (byte) 8;
+            }
+            if (opcode == Framedata.Opcode.PING) {
+                return (byte) 9;
+            }
+            if (opcode == Framedata.Opcode.PONG) {
+                return (byte) 10;
+            }
+            throw new IllegalArgumentException("Don't know how to handle " + opcode.toString());
+        }
+        return invokeL.byteValue;
+    }
+
+    public k6c(List<m6c> list, List<f7c> list2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, list2};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.c = new l6c();
+        this.j = new Random();
+        if (list != null && list2 != null) {
+            this.d = new ArrayList(list.size());
+            this.f = new ArrayList(list2.size());
+            boolean z = false;
+            this.h = new ArrayList();
+            for (m6c m6cVar : list) {
+                if (m6cVar.getClass().equals(l6c.class)) {
+                    z = true;
+                }
+            }
+            this.d.addAll(list);
+            if (!z) {
+                List<m6c> list3 = this.d;
+                list3.add(list3.size(), this.c);
+            }
+            this.f.addAll(list2);
+            return;
+        }
+        throw new IllegalArgumentException();
+    }
+
+    public static void G(Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj) == null) && h6c.u) {
+            System.out.println(obj);
+        }
+    }
+
+    public final ByteBuffer D() throws LimitExedeedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long j = 0;
+            for (ByteBuffer byteBuffer : this.h) {
+                j += byteBuffer.limit();
+            }
+            if (j <= 2147483647L) {
+                ByteBuffer allocate = ByteBuffer.allocate((int) j);
+                for (ByteBuffer byteBuffer2 : this.h) {
+                    allocate.put(byteBuffer2);
+                }
+                allocate.flip();
+                return allocate;
+            }
+            throw new LimitExedeedException("Payloadsize is to big...");
+        }
+        return (ByteBuffer) invokeV.objValue;
+    }
+
+    @Override // org.java_websocket.drafts.Draft
+    public Draft f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            for (m6c m6cVar : B()) {
+                arrayList.add(m6cVar.a());
+            }
+            ArrayList arrayList2 = new ArrayList();
+            for (f7c f7cVar : C()) {
+                arrayList2.add(f7cVar.a());
+            }
+            return new k6c(arrayList, arrayList2);
+        }
+        return (Draft) invokeV.objValue;
+    }
+
+    @Override // org.java_websocket.drafts.Draft
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            String draft = super.toString();
+            if (A() != null) {
+                draft = draft + " extension: " + A().toString();
+            }
+            if (E() != null) {
+                return draft + " protocol: " + E().toString();
+            }
+            return draft;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final byte[] H(long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            byte[] bArr = new byte[i];
+            int i2 = (i * 8) - 8;
+            for (int i3 = 0; i3 < i; i3++) {
+                bArr[i3] = (byte) (j >>> (i2 - (i3 * 8)));
+            }
+            return bArr;
+        }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    @Override // org.java_websocket.drafts.Draft
+    public List<Framedata> h(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048590, this, str, z)) == null) {
+            v6c v6cVar = new v6c();
+            v6cVar.j(ByteBuffer.wrap(j7c.f(str)));
+            v6cVar.n(z);
+            try {
+                v6cVar.h();
+                return Collections.singletonList(v6cVar);
+            } catch (InvalidDataException e) {
+                throw new NotSendableException(e);
+            }
+        }
+        return (List) invokeLZ.objValue;
+    }
+
+    public Framedata J(ByteBuffer byteBuffer) throws IncompleteException, InvalidDataException {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
+        boolean z4;
+        boolean z5;
+        boolean z6;
+        int i;
+        int i2;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, byteBuffer)) == null) {
+            int remaining = byteBuffer.remaining();
+            int i3 = 2;
+            if (remaining >= 2) {
+                byte b = byteBuffer.get();
+                if ((b >> 8) != 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if ((b & 64) != 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if ((b & 32) != 0) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                if ((b & 16) != 0) {
+                    z4 = true;
+                } else {
+                    z4 = false;
+                }
+                byte b2 = byteBuffer.get();
+                if ((b2 & Byte.MIN_VALUE) != 0) {
+                    z5 = true;
+                } else {
+                    z5 = false;
+                }
+                byte b3 = (byte) (b2 & ByteCompanionObject.MAX_VALUE);
+                Framedata.Opcode I = I((byte) (b & 15));
+                if (b3 >= 0 && b3 <= 125) {
+                    z6 = z2;
+                    i = b3;
+                } else if (I != Framedata.Opcode.PING && I != Framedata.Opcode.PONG && I != Framedata.Opcode.CLOSING) {
+                    if (b3 == 126) {
+                        if (remaining >= 4) {
+                            z6 = z2;
+                            i = new BigInteger(new byte[]{0, byteBuffer.get(), byteBuffer.get()}).intValue();
+                            i3 = 4;
+                        } else {
+                            throw new IncompleteException(4);
+                        }
+                    } else {
+                        i3 = 10;
+                        if (remaining >= 10) {
+                            byte[] bArr = new byte[8];
+                            for (int i4 = 0; i4 < 8; i4++) {
+                                bArr[i4] = byteBuffer.get();
+                            }
+                            z6 = z2;
+                            long longValue = new BigInteger(bArr).longValue();
+                            if (longValue <= 2147483647L) {
+                                i = (int) longValue;
+                            } else {
+                                throw new LimitExedeedException("Payloadsize is to big...");
+                            }
+                        } else {
+                            throw new IncompleteException(10);
+                        }
+                    }
+                } else {
+                    throw new InvalidFrameException("more than 125 octets");
+                }
+                if (z5) {
+                    i2 = 4;
+                } else {
+                    i2 = 0;
+                }
+                int i5 = i3 + i2 + i;
+                if (remaining >= i5) {
+                    d(i);
+                    ByteBuffer allocate = ByteBuffer.allocate(i);
+                    if (z5) {
+                        byte[] bArr2 = new byte[4];
+                        byteBuffer.get(bArr2);
+                        for (int i6 = 0; i6 < i; i6++) {
+                            allocate.put((byte) (byteBuffer.get() ^ bArr2[i6 % 4]));
+                        }
+                    } else {
+                        allocate.put(byteBuffer.array(), byteBuffer.position(), allocate.limit());
+                        byteBuffer.position(byteBuffer.position() + allocate.limit());
+                    }
+                    s6c g = s6c.g(I);
+                    g.i(z);
+                    g.k(z6);
+                    g.l(z3);
+                    g.m(z4);
+                    allocate.flip();
+                    g.j(allocate);
+                    A().h(g);
+                    A().f(g);
+                    if (h6c.u) {
+                        PrintStream printStream = System.out;
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("afterDecoding(");
+                        sb.append(g.a().remaining());
+                        sb.append("): {");
+                        if (g.a().remaining() > 1000) {
+                            str = "too big to display";
+                        } else {
+                            str = new String(g.a().array());
+                        }
+                        sb.append(str);
+                        sb.append('}');
+                        printStream.println(sb.toString());
+                    }
+                    g.h();
+                    return g;
+                }
+                throw new IncompleteException(i5);
+            }
+            throw new IncompleteException(2);
+        }
+        return (Framedata) invokeL.objValue;
+    }
+
+    @Override // org.java_websocket.drafts.Draft
+    public Draft.HandshakeState a(w6c w6cVar, d7c d7cVar) throws InvalidHandshakeException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, w6cVar, d7cVar)) == null) {
+            if (!c(d7cVar)) {
+                G("acceptHandshakeAsClient - Missing/wrong upgrade or connection in handshake.");
+                return Draft.HandshakeState.NOT_MATCHED;
+            } else if (w6cVar.e("Sec-WebSocket-Key") && d7cVar.e("Sec-WebSocket-Accept")) {
+                if (!z(w6cVar.d("Sec-WebSocket-Key")).equals(d7cVar.d("Sec-WebSocket-Accept"))) {
+                    G("acceptHandshakeAsClient - Wrong key for Sec-WebSocket-Key.");
+                    return Draft.HandshakeState.NOT_MATCHED;
+                }
+                Draft.HandshakeState handshakeState = Draft.HandshakeState.NOT_MATCHED;
+                String d = d7cVar.d("Sec-WebSocket-Extensions");
+                Iterator<m6c> it = this.d.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    m6c next = it.next();
+                    if (next.b(d)) {
+                        this.c = next;
+                        handshakeState = Draft.HandshakeState.MATCHED;
+                        G("acceptHandshakeAsClient - Matching extension found: " + this.c.toString());
+                        break;
+                    }
+                }
+                Draft.HandshakeState handshakeState2 = Draft.HandshakeState.NOT_MATCHED;
+                String d2 = d7cVar.d("Sec-WebSocket-Protocol");
+                Iterator<f7c> it2 = this.f.iterator();
+                while (true) {
+                    if (!it2.hasNext()) {
+                        break;
+                    }
+                    f7c next2 = it2.next();
+                    if (next2.b(d2)) {
+                        this.e = next2;
+                        handshakeState2 = Draft.HandshakeState.MATCHED;
+                        G("acceptHandshakeAsClient - Matching protocol found: " + this.e.toString());
+                        break;
+                    }
+                }
+                Draft.HandshakeState handshakeState3 = Draft.HandshakeState.MATCHED;
+                if (handshakeState2 == handshakeState3 && handshakeState == handshakeState3) {
+                    return handshakeState3;
+                }
+                G("acceptHandshakeAsClient - No matching extension or protocol found.");
+                return Draft.HandshakeState.NOT_MATCHED;
+            } else {
+                G("acceptHandshakeAsClient - Missing Sec-WebSocket-Key or Sec-WebSocket-Accept");
+                return Draft.HandshakeState.NOT_MATCHED;
+            }
+        }
+        return (Draft.HandshakeState) invokeLL.objValue;
+    }
+
+    @Override // org.java_websocket.drafts.Draft
+    public Draft.HandshakeState b(w6c w6cVar) throws InvalidHandshakeException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, w6cVar)) == null) {
+            if (r(w6cVar) != 13) {
+                G("acceptHandshakeAsServer - Wrong websocket version.");
+                return Draft.HandshakeState.NOT_MATCHED;
+            }
+            Draft.HandshakeState handshakeState = Draft.HandshakeState.NOT_MATCHED;
+            String d = w6cVar.d("Sec-WebSocket-Extensions");
+            Iterator<m6c> it = this.d.iterator();
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                m6c next = it.next();
+                if (next.e(d)) {
+                    this.c = next;
+                    handshakeState = Draft.HandshakeState.MATCHED;
+                    G("acceptHandshakeAsServer - Matching extension found: " + this.c.toString());
+                    break;
+                }
+            }
+            Draft.HandshakeState handshakeState2 = Draft.HandshakeState.NOT_MATCHED;
+            String d2 = w6cVar.d("Sec-WebSocket-Protocol");
+            Iterator<f7c> it2 = this.f.iterator();
+            while (true) {
+                if (!it2.hasNext()) {
+                    break;
+                }
+                f7c next2 = it2.next();
+                if (next2.b(d2)) {
+                    this.e = next2;
+                    handshakeState2 = Draft.HandshakeState.MATCHED;
+                    G("acceptHandshakeAsServer - Matching protocol found: " + this.e.toString());
+                    break;
+                }
+            }
+            Draft.HandshakeState handshakeState3 = Draft.HandshakeState.MATCHED;
+            if (handshakeState2 == handshakeState3 && handshakeState == handshakeState3) {
+                return handshakeState3;
+            }
+            G("acceptHandshakeAsServer - No matching extension or protocol found.");
+            return Draft.HandshakeState.NOT_MATCHED;
+        }
+        return (Draft.HandshakeState) invokeL.objValue;
+    }
+
+    @Override // org.java_websocket.drafts.Draft
+    public x6c m(x6c x6cVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, x6cVar)) == null) {
+            x6cVar.put("Upgrade", "websocket");
+            x6cVar.put(HTTP.CONN_DIRECTIVE, "Upgrade");
+            byte[] bArr = new byte[16];
+            this.j.nextBytes(bArr);
+            x6cVar.put("Sec-WebSocket-Key", h7c.g(bArr));
+            x6cVar.put("Sec-WebSocket-Version", "13");
+            StringBuilder sb = new StringBuilder();
+            for (m6c m6cVar : this.d) {
+                if (m6cVar.g() != null && m6cVar.g().length() != 0) {
+                    if (sb.length() > 0) {
+                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    }
+                    sb.append(m6cVar.g());
+                }
+            }
+            if (sb.length() != 0) {
+                x6cVar.put("Sec-WebSocket-Extensions", sb.toString());
+            }
+            StringBuilder sb2 = new StringBuilder();
+            for (f7c f7cVar : this.f) {
+                if (f7cVar.c().length() != 0) {
+                    if (sb2.length() > 0) {
+                        sb2.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
+                    }
+                    sb2.append(f7cVar.c());
+                }
+            }
+            if (sb2.length() != 0) {
+                x6cVar.put("Sec-WebSocket-Protocol", sb2.toString());
+            }
+            return x6cVar;
+        }
+        return (x6c) invokeL.objValue;
+    }
+
+    @Override // org.java_websocket.drafts.Draft
+    public List<Framedata> u(ByteBuffer byteBuffer) throws InvalidDataException {
+        LinkedList linkedList;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, byteBuffer)) == null) {
+            while (true) {
+                linkedList = new LinkedList();
+                if (this.i == null) {
+                    break;
+                }
+                try {
+                    byteBuffer.mark();
+                    int remaining = byteBuffer.remaining();
+                    int remaining2 = this.i.remaining();
+                    if (remaining2 > remaining) {
+                        this.i.put(byteBuffer.array(), byteBuffer.position(), remaining);
+                        byteBuffer.position(byteBuffer.position() + remaining);
+                        return Collections.emptyList();
+                    }
+                    this.i.put(byteBuffer.array(), byteBuffer.position(), remaining2);
+                    byteBuffer.position(byteBuffer.position() + remaining2);
+                    linkedList.add(J((ByteBuffer) this.i.duplicate().position(0)));
+                    this.i = null;
+                } catch (IncompleteException e) {
+                    int preferredSize = e.getPreferredSize();
+                    d(preferredSize);
+                    ByteBuffer allocate = ByteBuffer.allocate(preferredSize);
+                    this.i.rewind();
+                    allocate.put(this.i);
+                    this.i = allocate;
+                }
+            }
+            while (byteBuffer.hasRemaining()) {
+                byteBuffer.mark();
+                try {
+                    linkedList.add(J(byteBuffer));
+                } catch (IncompleteException e2) {
+                    byteBuffer.reset();
+                    int preferredSize2 = e2.getPreferredSize();
+                    d(preferredSize2);
+                    ByteBuffer allocate2 = ByteBuffer.allocate(preferredSize2);
+                    this.i = allocate2;
+                    allocate2.put(byteBuffer);
+                }
+            }
+            return linkedList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, obj)) == null) {
+            if (this == obj) {
                 return true;
             }
-            RLog.info("MiddlePayService", "act not alive");
+            if (obj == null || k6c.class != obj.getClass()) {
+                return false;
+            }
+            k6c k6cVar = (k6c) obj;
+            m6c m6cVar = this.c;
+            if (m6cVar == null ? k6cVar.c != null : !m6cVar.equals(k6cVar.c)) {
+                return false;
+            }
+            f7c f7cVar = this.e;
+            f7c f7cVar2 = k6cVar.e;
+            if (f7cVar != null) {
+                return f7cVar.equals(f7cVar2);
+            }
+            if (f7cVar2 == null) {
+                return true;
+            }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void removePayListener(IAppPayServiceListener iAppPayServiceListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, iAppPayServiceListener) == null) {
-            this.b.removePayListener(iAppPayServiceListener);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0062  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void b(Activity activity, PayType payType, long j, String str, ProductInfo productInfo, int i, int i2, int i3, String str2, String str3, Map<String, Object> map, IPayCallback<String> iPayCallback, IToken iToken, AppCustomExpand appCustomExpand, String str4, int i4, String str5) {
-        Map<String, String> map2;
-        IAppServerExpand iAppServerExpand;
-        k6c k6cVar;
-        Map<String, Object> map3;
-        String str6;
-        IAppServerExpand iAppServerExpand2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, payType, Long.valueOf(j), str, productInfo, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str2, str3, map, iPayCallback, iToken, appCustomExpand, str4, Integer.valueOf(i4), str5}) == null) {
-            RLog.info("MiddlePayService", "doPayProduct");
-            if (!f(activity)) {
-                return;
-            }
-            Map<String, String> map4 = null;
-            if (appCustomExpand != null) {
-                map2 = appCustomExpand.appServerExpand;
-            } else {
-                map2 = null;
-            }
-            if (appCustomExpand != null) {
-                iAppServerExpand = appCustomExpand.iAppServerExpand;
-            } else {
-                iAppServerExpand = null;
-            }
-            if (iAppServerExpand != null) {
-                RefreshAppExpandInfo refreshAppExpandInfo = new RefreshAppExpandInfo();
-                refreshAppExpandInfo.payType = payType;
-                if (appCustomExpand != null) {
-                    iAppServerExpand2 = appCustomExpand.iAppServerExpand;
-                } else {
-                    iAppServerExpand2 = null;
-                }
-                Map<String, String> appServerExpand = iAppServerExpand2.getAppServerExpand(refreshAppExpandInfo);
-                if (appServerExpand != null) {
-                    map3 = map;
-                    str6 = str5;
-                    map2 = appServerExpand;
-                    k6cVar = this;
-                    String d = k6cVar.d(map2, map3, str6);
-                    RLog.info("MiddlePayService", "doPayProduct params expand:" + d);
-                    if (appCustomExpand != null) {
-                        map4 = appCustomExpand.appClientExpand;
-                    }
-                    payWithProductInfo(activity, c(payType, productInfo, j, str, i, i2, str3, i3, d, str2, iToken, map4, str4, i4), productInfo, payType, 5, 3000, 10000, new a(iPayCallback));
-                }
-            }
-            k6cVar = this;
-            map3 = map;
-            str6 = str5;
-            String d2 = k6cVar.d(map2, map3, str6);
-            RLog.info("MiddlePayService", "doPayProduct params expand:" + d2);
-            if (appCustomExpand != null) {
-            }
-            payWithProductInfo(activity, c(payType, productInfo, j, str, i, i2, str3, i3, d2, str2, iToken, map4, str4, i4), productInfo, payType, 5, 3000, 10000, new a(iPayCallback));
-        }
-    }
-
-    public final ChargeCurrencyReqParams c(PayType payType, ProductInfo productInfo, long j, String str, int i, int i2, String str2, int i3, String str3, String str4, IToken iToken, Map<String, String> map, String str5, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{payType, productInfo, Long.valueOf(j), str, Integer.valueOf(i), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3, str4, iToken, map, str5, Integer.valueOf(i4)})) == null) {
-            ChargeCurrencyReqParams chargeCurrencyReqParams = new ChargeCurrencyReqParams();
-            chargeCurrencyReqParams.setUid(j);
-            chargeCurrencyReqParams.setToken(str);
-            chargeCurrencyReqParams.setAppId(this.a.getAppId());
-            chargeCurrencyReqParams.setSid(0);
-            chargeCurrencyReqParams.setUsedChannel(i);
-            chargeCurrencyReqParams.setCurrencyType(i2);
-            chargeCurrencyReqParams.setClientVersion(this.a.getVersion());
-            chargeCurrencyReqParams.setSubscriptionType(i3);
-            chargeCurrencyReqParams.setExpand(str3);
-            chargeCurrencyReqParams.setReturnUrl(str2);
-            chargeCurrencyReqParams.setAppClientExpand(map);
-            if (str5 != null) {
-                chargeCurrencyReqParams.setTraceid(str5);
-            }
-            chargeCurrencyReqParams.setPayType(payType);
-            chargeCurrencyReqParams.setProductId(productInfo.productId);
-            chargeCurrencyReqParams.setSrcAmount(productInfo.srcAmount);
-            chargeCurrencyReqParams.setCid(productInfo.cid);
-            chargeCurrencyReqParams.setTokenCallback(iToken);
-            chargeCurrencyReqParams.setPayFlowTypeId(i4);
-            if (str4.equals(IMiddlePayService.ChargeSource.WALLET_CHARGE)) {
-                chargeCurrencyReqParams.setFrom(1);
-            } else if (str4.equals(IMiddlePayService.ChargeSource.ROOM_CHARGE)) {
-                chargeCurrencyReqParams.setFrom(2);
-            } else if (str4.equals(IMiddlePayService.ChargeSource.OTHER_CHARGE)) {
-                chargeCurrencyReqParams.setFrom(3);
-            }
-            return chargeCurrencyReqParams;
-        }
-        return (ChargeCurrencyReqParams) invokeCommon.objValue;
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void cancelAllRequest() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.cancelAllRequest();
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public IPayServiceStatisticsApi getPayServiceStatistics() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            IPayServiceStatisticsApi payServiceStatistics = this.b.getPayServiceStatistics();
-            Intrinsics.checkExpressionValueIsNotNull(payServiceStatistics, "payService.payServiceStatistics");
-            return payServiceStatistics;
-        }
-        return (IPayServiceStatisticsApi) invokeV.objValue;
-    }
-
-    public final String d(Map<String, String> map, Map<String, Object> map2, String str) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, map, map2, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (map2 != null) {
-                try {
-                    if (map2.size() > 0) {
-                        for (Map.Entry<String, Object> entry : map2.entrySet()) {
-                            if (entry.getKey() != null && entry.getValue() != null) {
-                                jSONObject.put(entry.getKey(), entry.getValue());
-                            } else {
-                                RLog.info("MiddlePayService", "expandMap parse error! key or value null");
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    RLog.error("MiddlePayService", "ChargeCurrencyRequest JSONException" + e.getLocalizedMessage(), new Object[0]);
-                }
-            }
-            if (map != null && map.size() > 0) {
-                JSONObject jSONObject2 = new JSONObject();
-                for (Map.Entry<String, String> entry2 : map.entrySet()) {
-                    if (entry2.getKey() != null && entry2.getValue() != null) {
-                        jSONObject2.put(entry2.getKey(), entry2.getValue());
-                    } else {
-                        RLog.info("MiddlePayService", "expandMap parse error! key or value null");
-                    }
-                }
-                jSONObject.put("yyBussinessPenetrateMsg", jSONObject2);
-            }
-            if (str != null) {
-                jSONObject.put("splitDetailId", str);
-            }
-            String jSONObject3 = jSONObject.toString();
-            Intrinsics.checkExpressionValueIsNotNull(jSONObject3, "expand.toString()");
-            return jSONObject3;
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public final String e(Map<String, Object> map) {
+    public final String z(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, map)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (map != null) {
-                try {
-                    if (map.size() > 0) {
-                        for (Map.Entry<String, Object> entry : map.entrySet()) {
-                            if (entry.getKey() != null && entry.getValue() != null) {
-                                jSONObject.put(entry.getKey(), entry.getValue());
-                            } else {
-                                RLog.info("MiddlePayService", "getQueryProductListExpand parse error! key or value null");
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    RLog.error("MiddlePayService", "getQueryProductListExpand JSONException:" + e.getLocalizedMessage(), new Object[0]);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
+            String trim = str.trim();
+            try {
+                return h7c.g(MessageDigest.getInstance("SHA1").digest((trim + WebSocketProtocol.ACCEPT_MAGIC).getBytes()));
+            } catch (NoSuchAlgorithmException e) {
+                throw new IllegalStateException(e);
             }
-            String jSONObject2 = jSONObject.toString();
-            Intrinsics.checkExpressionValueIsNotNull(jSONObject2, "expand.toString()");
-            return jSONObject2;
         }
         return (String) invokeL.objValue;
     }
 
-    public final void g(Activity activity, PayType payType, long j, String str, ProductInfo productInfo, int i, int i2, IMiddlePayService.SubscriptType subscriptType, IMiddlePayService.ChargeSource chargeSource, String str2, Map<String, Object> map, IPayCallback<String> iPayCallback, IToken iToken, AppCustomExpand appCustomExpand, String str3, int i3, String str4) {
+    @Override // org.java_websocket.drafts.Draft
+    public ByteBuffer g(Framedata framedata) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{activity, payType, Long.valueOf(j), str, productInfo, Integer.valueOf(i), Integer.valueOf(i2), subscriptType, chargeSource, str2, map, iPayCallback, iToken, appCustomExpand, str3, Integer.valueOf(i3), str4}) == null) {
-            if (!isSupported(activity, payType)) {
-                if (iPayCallback != null) {
-                    iPayCallback.onFail(PayStatus.DEVICE_NOT_SUPPORT.getCode(), PayStatus.DEVICE_NOT_SUPPORT.getMessage(), null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, framedata)) == null) {
+            A().c(framedata);
+            if (h6c.u) {
+                PrintStream printStream = System.out;
+                StringBuilder sb = new StringBuilder();
+                sb.append("afterEnconding(");
+                sb.append(framedata.a().remaining());
+                sb.append("): {");
+                if (framedata.a().remaining() > 1000) {
+                    str = "too big to display";
+                } else {
+                    str = new String(framedata.a().array());
                 }
-                RLog.error("MiddlePayService", "当前不支持该种支付方式,是否正确接入第三方支付SDK实现?", new Object[0]);
-                return;
+                sb.append(str);
+                sb.append('}');
+                printStream.println(sb.toString());
             }
-            b(activity, payType, j, str, productInfo, i, i2, subscriptType.getValue(), chargeSource.getValue(), str2, map, iPayCallback, iToken, appCustomExpand, str3, i3, str4);
+            return x(framedata);
         }
+        return (ByteBuffer) invokeL.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public boolean isSupported(Activity activity, PayType payType) {
+    @Override // org.java_websocket.drafts.Draft
+    public List<Framedata> i(ByteBuffer byteBuffer, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048592, this, byteBuffer, z)) == null) {
+            n6c n6cVar = new n6c();
+            n6cVar.j(byteBuffer);
+            n6cVar.n(z);
+            try {
+                n6cVar.h();
+                return Collections.singletonList(n6cVar);
+            } catch (InvalidDataException e) {
+                throw new NotSendableException(e);
+            }
+        }
+        return (List) invokeLZ.objValue;
+    }
+
+    @Override // org.java_websocket.drafts.Draft
+    public y6c n(w6c w6cVar, e7c e7cVar) throws InvalidHandshakeException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, activity, payType)) == null) {
-            return this.b.isSupported(activity, payType);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, w6cVar, e7cVar)) == null) {
+            e7cVar.put("Upgrade", "websocket");
+            e7cVar.put(HTTP.CONN_DIRECTIVE, w6cVar.d(HTTP.CONN_DIRECTIVE));
+            String d = w6cVar.d("Sec-WebSocket-Key");
+            if (d != null) {
+                e7cVar.put("Sec-WebSocket-Accept", z(d));
+                if (A().d().length() != 0) {
+                    e7cVar.put("Sec-WebSocket-Extensions", A().d());
+                }
+                if (E() != null && E().c().length() != 0) {
+                    e7cVar.put("Sec-WebSocket-Protocol", E().c());
+                }
+                e7cVar.c("Web Socket Protocol Handshake");
+                e7cVar.put("Server", "TooTallNate Java-WebSocket");
+                e7cVar.put("Date", F());
+                return e7cVar;
+            }
+            throw new InvalidHandshakeException("missing Sec-WebSocket-Key");
         }
-        return invokeLL.booleanValue;
+        return (y6c) invokeLL.objValue;
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void onQQPayResult(int i, String str) {
+    @Override // org.java_websocket.drafts.Draft
+    public void o(h6c h6cVar, Framedata framedata) throws InvalidDataException {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048587, this, i, str) == null) {
-            this.b.onQQPayResult(i, str);
+        if (interceptable == null || interceptable.invokeLL(1048596, this, h6cVar, framedata) == null) {
+            Framedata.Opcode d = framedata.d();
+            if (d == Framedata.Opcode.CLOSING) {
+                int i = 1005;
+                if (framedata instanceof o6c) {
+                    o6c o6cVar = (o6c) framedata;
+                    i = o6cVar.o();
+                    str = o6cVar.p();
+                } else {
+                    str = "";
+                }
+                if (h6cVar.t() == WebSocket.READYSTATE.CLOSING) {
+                    h6cVar.g(i, str, true);
+                } else if (l() == Draft.CloseHandshakeType.TWOWAY) {
+                    h6cVar.d(i, str, true);
+                } else {
+                    h6cVar.o(i, str, false);
+                }
+            } else if (d == Framedata.Opcode.PING) {
+                h6cVar.v().onWebsocketPing(h6cVar, framedata);
+            } else if (d == Framedata.Opcode.PONG) {
+                h6cVar.N();
+                h6cVar.v().onWebsocketPong(h6cVar, framedata);
+            } else if (framedata.f() && d != Framedata.Opcode.CONTINUOUS) {
+                if (this.g == null) {
+                    if (d == Framedata.Opcode.TEXT) {
+                        try {
+                            h6cVar.v().onWebsocketMessage(h6cVar, j7c.e(framedata.a()));
+                            return;
+                        } catch (RuntimeException e) {
+                            h6cVar.v().onWebsocketError(h6cVar, e);
+                            return;
+                        }
+                    } else if (d == Framedata.Opcode.BINARY) {
+                        try {
+                            h6cVar.v().onWebsocketMessage(h6cVar, framedata.a());
+                            return;
+                        } catch (RuntimeException e2) {
+                            h6cVar.v().onWebsocketError(h6cVar, e2);
+                            return;
+                        }
+                    } else {
+                        throw new InvalidDataException(1002, "non control or continious frame expected");
+                    }
+                }
+                throw new InvalidDataException(1002, "Continuous frame sequence not completed.");
+            } else {
+                if (d != Framedata.Opcode.CONTINUOUS) {
+                    if (this.g == null) {
+                        this.g = framedata;
+                        this.h.add(framedata.a());
+                    } else {
+                        throw new InvalidDataException(1002, "Previous continuous frame sequence not completed.");
+                    }
+                } else if (framedata.f()) {
+                    if (this.g != null) {
+                        this.h.add(framedata.a());
+                        if (this.g.d() == Framedata.Opcode.TEXT) {
+                            ((s6c) this.g).j(D());
+                            ((s6c) this.g).h();
+                            try {
+                                h6cVar.v().onWebsocketMessage(h6cVar, j7c.e(this.g.a()));
+                            } catch (RuntimeException e3) {
+                                h6cVar.v().onWebsocketError(h6cVar, e3);
+                            }
+                        } else if (this.g.d() == Framedata.Opcode.BINARY) {
+                            ((s6c) this.g).j(D());
+                            ((s6c) this.g).h();
+                            try {
+                                h6cVar.v().onWebsocketMessage(h6cVar, this.g.a());
+                            } catch (RuntimeException e4) {
+                                h6cVar.v().onWebsocketError(h6cVar, e4);
+                            }
+                        }
+                        this.g = null;
+                        this.h.clear();
+                    } else {
+                        throw new InvalidDataException(1002, "Continuous frame sequence was not started.");
+                    }
+                } else if (this.g == null) {
+                    throw new InvalidDataException(1002, "Continuous frame sequence was not started.");
+                }
+                if (d == Framedata.Opcode.TEXT && !j7c.b(framedata.a())) {
+                    throw new InvalidDataException(1007);
+                }
+                if (d == Framedata.Opcode.CONTINUOUS && this.g != null) {
+                    this.h.add(framedata.a());
+                }
+            }
         }
     }
 
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void onWxPayResult(int i, String str) {
+    public final ByteBuffer x(Framedata framedata) {
+        InterceptResult invokeL;
+        boolean z;
+        int i;
+        int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048588, this, i, str) == null) {
-            this.b.onWxPayResult(i, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, framedata)) == null) {
+            ByteBuffer a = framedata.a();
+            int i5 = 0;
+            if (this.a == WebSocket.Role.CLIENT) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (a.remaining() <= 125) {
+                i = 1;
+            } else if (a.remaining() <= 65535) {
+                i = 2;
+            } else {
+                i = 8;
+            }
+            if (i > 1) {
+                i2 = i + 1;
+            } else {
+                i2 = i;
+            }
+            int i6 = i2 + 1;
+            if (z) {
+                i3 = 4;
+            } else {
+                i3 = 0;
+            }
+            ByteBuffer allocate = ByteBuffer.allocate(i6 + i3 + a.remaining());
+            byte y = y(framedata.d());
+            byte b = Byte.MIN_VALUE;
+            if (framedata.f()) {
+                i4 = -128;
+            } else {
+                i4 = 0;
+            }
+            allocate.put((byte) (((byte) i4) | y));
+            byte[] H = H(a.remaining(), i);
+            if (i == 1) {
+                byte b2 = H[0];
+                if (!z) {
+                    b = 0;
+                }
+                allocate.put((byte) (b2 | b));
+            } else if (i == 2) {
+                if (!z) {
+                    b = 0;
+                }
+                allocate.put((byte) (b | 126));
+                allocate.put(H);
+            } else if (i == 8) {
+                if (!z) {
+                    b = 0;
+                }
+                allocate.put((byte) (b | ByteCompanionObject.MAX_VALUE));
+                allocate.put(H);
+            } else {
+                throw new RuntimeException("Size representation not supported/specified");
+            }
+            if (z) {
+                ByteBuffer allocate2 = ByteBuffer.allocate(4);
+                allocate2.putInt(this.j.nextInt());
+                allocate.put(allocate2.array());
+                while (a.hasRemaining()) {
+                    allocate.put((byte) (a.get() ^ allocate2.get(i5 % 4)));
+                    i5++;
+                }
+            } else {
+                allocate.put(a);
+                a.flip();
+            }
+            allocate.flip();
+            return allocate;
         }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryBannerConfigRequest(GetBannerConfigReqParams getBannerConfigReqParams, IResult<BannerConfigResult> iResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, getBannerConfigReqParams, iResult) == null) {
-            this.b.queryBannerConfigRequest(getBannerConfigReqParams, iResult);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryChargeOrderStatus(GetChargeOrderStatusReqParams getChargeOrderStatusReqParams, IResult<GetChargeOrderStatusResult> iResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048591, this, getChargeOrderStatusReqParams, iResult) == null) {
-            getChargeOrderStatusReqParams.setAppId(this.a.getAppId());
-            this.b.queryChargeOrderStatus(getChargeOrderStatusReqParams, iResult);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void queryMyBalance(QueryCurrencyReqParams queryCurrencyReqParams, IResult<MyBalanceResult> iResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, queryCurrencyReqParams, iResult) == null) {
-            this.b.queryMyBalance(queryCurrencyReqParams, iResult);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void querySplitOrderConfig(GetSplitOrderConfigReqParams getSplitOrderConfigReqParams, IResult<SplitOrderConfigResult> iResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, getSplitOrderConfigReqParams, iResult) == null) {
-            this.b.querySplitOrderConfig(getSplitOrderConfigReqParams, iResult);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void payWithProductInfo(Activity activity, ChargeCurrencyReqParams chargeCurrencyReqParams, ProductInfo productInfo, PayType payType, int i, int i2, int i3, IPayCallback<String> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{activity, chargeCurrencyReqParams, productInfo, payType, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), iPayCallback}) == null) {
-            this.b.payWithProductInfo(activity, chargeCurrencyReqParams, productInfo, payType, i, i2, i3, iPayCallback);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void requestPay(Activity activity, PayType payType, String str, String str2, IPayCallback<PurchaseInfo> iPayCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048596, this, activity, payType, str, str2, iPayCallback) == null) {
-            this.b.requestPay(activity, payType, str, str2, iPayCallback);
-        }
-    }
-
-    @Override // com.yy.mobile.framework.revenuesdk.payapi.IAppPayService
-    public void signAliPay(Activity activity, PaySignInfo paySignInfo, IPaySignCallback iPaySignCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048597, this, activity, paySignInfo, iPaySignCallback) == null) {
-            this.b.signAliPay(activity, paySignInfo, iPaySignCallback);
-        }
+        return (ByteBuffer) invokeL.objValue;
     }
 }

@@ -1,36 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class tea {
+public class tea implements bn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final bfa b;
-    public final afa c;
-    public final cfa d;
-    public final wea e;
-    public final sea f;
-    public final vea g;
-    public final uea h;
-    public final rea i;
-    public final yea j;
-    public final xea k;
-    public final zea l;
+    public ForumData a;
 
-    public tea(MainTabActivity mainTabActivity, iea ieaVar) {
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public tea(ForumData forumData, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ieaVar};
+            Object[] objArr = {forumData, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,116 +48,15 @@ public class tea {
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = new bfa(mainTabActivity, ieaVar);
-        this.c = new afa(mainTabActivity, ieaVar);
-        this.d = new cfa();
-        this.e = new wea(mainTabActivity, ieaVar);
-        this.f = new sea(mainTabActivity, ieaVar);
-        this.g = new vea(mainTabActivity, ieaVar);
-        this.h = new uea(mainTabActivity, ieaVar);
-        this.i = new rea(mainTabActivity, ieaVar);
-        this.j = new yea(mainTabActivity, ieaVar);
-        this.k = new xea(mainTabActivity);
-        this.l = new zea(mainTabActivity);
+        this.a = forumData;
     }
 
-    public rea a() {
+    public ForumData a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+            return this.a;
         }
-        return (rea) invokeV.objValue;
-    }
-
-    public sea b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (sea) invokeV.objValue;
-    }
-
-    public uea c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.h;
-        }
-        return (uea) invokeV.objValue;
-    }
-
-    public vea d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
-        }
-        return (vea) invokeV.objValue;
-    }
-
-    public wea e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (wea) invokeV.objValue;
-    }
-
-    public xea f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.k;
-        }
-        return (xea) invokeV.objValue;
-    }
-
-    public yea g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return (yea) invokeV.objValue;
-    }
-
-    public afa h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (afa) invokeV.objValue;
-    }
-
-    public bfa i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return (bfa) invokeV.objValue;
-    }
-
-    public cfa j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.d;
-        }
-        return (cfa) invokeV.objValue;
-    }
-
-    public zea k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.l;
-        }
-        return (zea) invokeV.objValue;
+        return (ForumData) invokeV.objValue;
     }
 }

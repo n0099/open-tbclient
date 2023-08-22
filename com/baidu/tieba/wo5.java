@@ -1,11 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.mutiprocess.IEvent;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: ChatFloatEntranceService.java */
 /* loaded from: classes8.dex */
-public interface wo5 {
-    void a(IEvent iEvent);
+public final /* synthetic */ class wo5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(vo5 vo5Var);
-
-    void startService();
+    public static xo5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (xo5) ServiceManager.getService(xo5.a);
+        }
+        return (xo5) invokeV.objValue;
+    }
 }

@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.core.util.Pair;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,27 +10,41 @@ public class il6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SafeVarargs
-    public static String a(Pair<String, String>... pairArr) {
-        InterceptResult invokeL;
-        String str;
+    public static void a() {
+        xm6 b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, pairArr)) == null) {
-            if (!fl6.e(pairArr)) {
-                JSONObject jSONObject = new JSONObject();
-                for (Pair<String, String> pair : pairArr) {
-                    if (pair != null && (str = pair.first) != null) {
-                        try {
-                            jSONObject.put(str, pair.second);
-                        } catch (Exception e) {
-                            dl6.b("newHybrid", "toJsonStr err:" + e);
-                        }
-                    }
-                }
-                return jSONObject.toString();
-            }
-            return "{}";
+        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (b = b()) != null) {
+            b.c();
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static xm6 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (xm6) ServiceManager.getService(xm6.a);
+        }
+        return (xm6) invokeV.objValue;
+    }
+
+    public static void c() {
+        xm6 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (b = b()) != null) {
+            b.b();
+        }
+    }
+
+    public static JSONObject d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            xm6 b = b();
+            if (b != null) {
+                return b.a();
+            }
+            return null;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

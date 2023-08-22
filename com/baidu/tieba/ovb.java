@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.media.AudioManager;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.model.YYOption;
+import com.baidu.tieba.vub;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,62 +12,169 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.transvod.player.core.TransVodProxy;
-import com.yy.transvod.player.log.TLog;
-import com.yy.transvod.player.mediacodec.MediaSample;
-import java.util.ArrayList;
-import java.util.concurrent.atomic.AtomicLong;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public final class ovb {
+public class ovb extends sub {
     public static /* synthetic */ Interceptable $ic;
-    public static long o;
-    public static int p;
+    public static List<lvb> c;
+    public static final Object d;
+    public static final Map<String, sub> e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public TransVodProxy a;
-    public AudioManager b;
-    public boolean c;
-    public ArrayList<MediaSample> d;
-    public boolean e;
-    public boolean f;
-    public long g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public long l;
-    public AtomicLong m;
-    public AtomicLong n;
+    public final tub a;
+    public final pvb b;
+
+    /* loaded from: classes7.dex */
+    public static class a implements vub.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vub.a
+        public String a(tub tubVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tubVar)) == null) {
+                if (tubVar.b().equals(qub.c)) {
+                    str = "/agcgw_all/CN";
+                } else if (tubVar.b().equals(qub.e)) {
+                    str = "/agcgw_all/RU";
+                } else if (tubVar.b().equals(qub.d)) {
+                    str = "/agcgw_all/DE";
+                } else if (!tubVar.b().equals(qub.f)) {
+                    return null;
+                } else {
+                    str = "/agcgw_all/SG";
+                }
+                return tubVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements vub.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vub.a
+        public String a(tub tubVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tubVar)) == null) {
+                if (tubVar.b().equals(qub.c)) {
+                    str = "/agcgw_all/CN_back";
+                } else if (tubVar.b().equals(qub.e)) {
+                    str = "/agcgw_all/RU_back";
+                } else if (tubVar.b().equals(qub.d)) {
+                    str = "/agcgw_all/DE_back";
+                } else if (!tubVar.b().equals(qub.f)) {
+                    return null;
+                } else {
+                    str = "/agcgw_all/SG_back";
+                }
+                return tubVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class c implements vub.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vub.a
+        public String a(tub tubVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tubVar)) == null) {
+                if (tubVar.b().equals(qub.c)) {
+                    str = "/service/analytics/collector_url_cn";
+                } else if (tubVar.b().equals(qub.e)) {
+                    str = "/service/analytics/collector_url_ru";
+                } else if (tubVar.b().equals(qub.d)) {
+                    str = "/service/analytics/collector_url_de";
+                } else if (!tubVar.b().equals(qub.f)) {
+                    return null;
+                } else {
+                    str = "/service/analytics/collector_url_sg";
+                }
+                return tubVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948047118, "Lcom/baidu/tieba/ovb;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948047118, "Lcom/baidu/tieba/ovb;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948047118, "Lcom/baidu/tieba/ovb;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948047118, "Lcom/baidu/tieba/ovb;");
-        }
+        d = new Object();
+        e = new HashMap();
     }
 
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public ovb(TransVodProxy transVodProxy, Context context) {
+    public ovb(tub tubVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {transVodProxy, context};
+            Object[] objArr = {tubVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,204 +184,144 @@ public final class ovb {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = false;
-        this.d = new ArrayList<>();
-        this.e = false;
-        this.f = false;
-        this.g = 0L;
-        this.h = 0L;
-        this.i = 0L;
-        this.j = 0L;
-        this.k = 0;
-        this.l = 50L;
-        this.m = new AtomicLong(0L);
-        this.n = new AtomicLong(0L);
-        this.a = transVodProxy;
-        long b = b();
-        this.l = b;
-        if (b == 0) {
-            this.l = wub.a();
-            TLog.l(this, "jitter set avdelta " + this.l);
+        this.a = tubVar;
+        if (c == null) {
+            Log.e("AGConnectInstance", "please call `initialize()` first");
         }
-        TLog.l(this, "jitter avdelta " + this.l);
-        this.b = (AudioManager) context.getSystemService("audio");
-    }
-
-    public static void c(MediaSample mediaSample, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, mediaSample, i) == null) {
-            d(mediaSample, i, ptb.a() - o);
+        new pvb(c, tubVar.getContext());
+        pvb pvbVar = new pvb(null, tubVar.getContext());
+        this.b = pvbVar;
+        if (tubVar instanceof bvb) {
+            pvbVar.c(((bvb) tubVar).d(), tubVar.getContext());
         }
     }
 
-    public static void d(MediaSample mediaSample, int i, long j) {
+    public static sub e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{mediaSample, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            switch (i) {
-                case 0:
-                    mediaSample.r = (int) j;
-                    return;
-                case 1:
-                    mediaSample.j = j;
-                    return;
-                case 2:
-                    mediaSample.k = j;
-                    return;
-                case 3:
-                    mediaSample.l = j;
-                    return;
-                case 4:
-                    mediaSample.v = j;
-                    return;
-                case 5:
-                    mediaSample.x = j;
-                    return;
-                case 6:
-                    mediaSample.w = j;
-                    return;
-                case 7:
-                default:
-                    return;
-                case 8:
-                    mediaSample.y = j;
-                    return;
-                case 9:
-                    mediaSample.A = j;
-                    return;
-                case 10:
-                    mediaSample.z = j;
-                    return;
-                case 11:
-                    mediaSample.B = j;
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = f;
+            if (str == null) {
+                str = "DEFAULT_INSTANCE";
             }
+            return h(str);
         }
+        return (sub) invokeV.objValue;
     }
 
-    public void a() {
+    public static sub f(tub tubVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                for (int i = 0; i < this.d.size(); i++) {
-                    vub.f().e(this.d.get(i));
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, tubVar)) == null) ? g(tubVar, false) : (sub) invokeL.objValue;
+    }
+
+    public static sub g(tub tubVar, boolean z) {
+        InterceptResult invokeLZ;
+        sub subVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, tubVar, z)) == null) {
+            synchronized (d) {
+                subVar = e.get(tubVar.getIdentifier());
+                if (subVar == null || z) {
+                    subVar = new ovb(tubVar);
+                    e.put(tubVar.getIdentifier(), subVar);
                 }
-                this.d.clear();
             }
+            return subVar;
         }
+        return (sub) invokeLZ.objValue;
     }
 
-    public void e(MediaSample mediaSample) {
-        int i;
+    public static sub h(String str) {
+        InterceptResult invokeL;
+        sub subVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mediaSample) == null) {
-            synchronized (this) {
-                this.k++;
-                if (mediaSample.c) {
-                    this.n.set(mediaSample.z - mediaSample.l);
-                    if (mediaSample.l <= this.g) {
-                        TLog.h("[avsync]", "^^^^^^^^^^^^^^^^^^^^[avsync] audio pts error lastAduioPts=" + this.g + " sample.Pts=" + mediaSample.l);
-                    } else if (this.k % 50 == 0) {
-                        TLog.h("[avsync]", "audio pts: " + mediaSample.l + " audio delta: " + this.n.get());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            synchronized (d) {
+                subVar = e.get(str);
+                if (subVar == null) {
+                    if ("DEFAULT_INSTANCE".equals(str)) {
+                        Log.w("AGC_Instance", "please call `initialize()` first");
+                    } else {
+                        Log.w("AGC_Instance", "not find instance for : " + str);
                     }
-                    this.f = true;
-                    this.h = mediaSample.z;
-                    this.g = mediaSample.l;
+                }
+            }
+            return subVar;
+        }
+        return (sub) invokeL.objValue;
+    }
+
+    public static synchronized void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            synchronized (ovb.class) {
+                if (e.size() > 0) {
+                    Log.w("AGC_Instance", "Repeated invoking initialize");
                 } else {
-                    this.m.set(mediaSample.z - mediaSample.l);
-                    this.e = true;
-                    if (mediaSample.l + 150 <= this.i) {
-                        TLog.h("[avsync]", "^^^^^^^^^^^^^^^^^^^^[avsync] video pts error lastVideo=" + this.i + " sample.Pts=" + mediaSample.l);
-                    } else if (this.k % 50 == 0) {
-                        TLog.h("[avsync]", "video pts: " + mediaSample.l + " video delta: " + this.m.get());
-                    }
-                    this.i = mediaSample.l;
-                    this.j = mediaSample.z;
-                }
-                int i2 = 30;
-                if (kvb.w() < 12) {
-                    i2 = 60;
-                    i = -90;
-                } else {
-                    i = 0;
-                }
-                if (this.k > i2) {
-                    if (this.e && this.f) {
-                        long j = (this.n.get() + this.l) - this.m.get();
-                        if (Math.abs(this.j - this.h) > 500 || Math.abs(this.g - this.i) > 1000) {
-                            TLog.h("[avsync]", "[avsync] detla: " + j + " arender: " + this.h + "vrender: " + this.j + " apts: " + this.g + " vpts: " + this.i + " renderDiff:" + (this.h - this.j) + " ptsDiff:" + (this.g - this.i));
-                        }
-                        TLog.h("[avsync]", "updateAVDelta, audio delta: " + this.n.get() + " mDelta:" + this.l + " video delta: " + this.m.get() + " extraDelta " + ((this.n.get() + this.l) - this.m.get()) + " xDelta " + i);
-                        this.a.w(this.n.get() + this.l + ((long) i), this.m.get());
-                    }
-                    this.k = 0;
-                    this.e = false;
-                    this.f = false;
-                }
-                g();
-                MediaSample a = vub.f().a(null);
-                a.b(mediaSample);
-                a.F = this.c;
-                this.d.add(a);
-                if (mediaSample.e || this.d.size() > 200 || mediaSample.N > 0 || mediaSample.O) {
-                    this.a.m((MediaSample[]) this.d.toArray(new MediaSample[this.d.size()]));
-                    a();
+                    j(context, wub.c(context));
                 }
             }
         }
     }
 
-    public void f() {
+    public static synchronized void j(Context context, tub tubVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                a();
-                this.e = false;
-                this.f = false;
-                this.g = 0L;
-                this.i = 0L;
-                this.h = 0L;
-                this.j = 0L;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, tubVar) == null) {
+            synchronized (ovb.class) {
+                Context applicationContext = context.getApplicationContext();
+                if (applicationContext == null) {
+                    Log.w("AGC_Instance", "context.getApplicationContext null");
+                } else {
+                    context = applicationContext;
+                }
+                k();
+                l();
+                avb.a(context);
+                if (c == null) {
+                    c = new com.huawei.agconnect.core.a.c(context).b();
+                }
+                g(tubVar, true);
+                f = tubVar.getIdentifier();
+                Log.i("AGC_Instance", "AGC SDK initialize end, default route:" + tubVar.b().a());
+                nvb.a();
             }
         }
     }
 
-    public final void g() {
-        int i;
+    public static void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i2 = p + 1;
-            p = i2;
-            if (i2 > 1000) {
-                try {
-                    i = this.b.getStreamVolume(3);
-                } catch (Exception unused) {
-                    TLog.l(this, "getStreamVolume Exception");
-                    i = 0;
-                }
-                String str = YYOption.IsLive.VALUE_TRUE;
-                if (i == 0) {
-                    this.c = true;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("audio playback is mute ");
-                    if (!this.c) {
-                        str = "false";
-                    }
-                    sb.append(str);
-                    TLog.l(this, sb.toString());
-                } else {
-                    this.c = false;
-                    StringBuilder sb2 = new StringBuilder();
-                    sb2.append("audio playback is mute ");
-                    if (!this.c) {
-                        str = "false";
-                    }
-                    sb2.append(str);
-                    TLog.l(this, sb2.toString());
-                }
-                p = 0;
-            }
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            vub.b("/agcgw/url", new a());
+            vub.b("/agcgw/backurl", new b());
         }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            vub.b("/service/analytics/collector_url", new c());
+        }
+    }
+
+    @Override // com.baidu.tieba.sub
+    public tub c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (tub) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sub
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sub
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIdentifier() : (String) invokeV.objValue;
     }
 }

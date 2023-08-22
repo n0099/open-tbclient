@@ -11,11 +11,11 @@ public final class cb implements Runnable {
     public final /* synthetic */ Context a;
 
     /* renamed from: a  reason: collision with other field name */
-    public final /* synthetic */ hl f966a;
+    public final /* synthetic */ hl f967a;
 
     public cb(Context context, hl hlVar) {
         this.a = context;
-        this.f966a = hlVar;
+        this.f967a = hlVar;
     }
 
     @Override // java.lang.Runnable
@@ -26,12 +26,12 @@ public final class cb implements Runnable {
             try {
                 try {
                     File file = new File(this.a.getFilesDir(), "tiny_data.lock");
-                    com.xiaomi.push.y.m841a(file);
+                    com.xiaomi.push.y.m843a(file);
                     randomAccessFile = new RandomAccessFile(file, "rw");
                     try {
                         try {
                             fileLock = randomAccessFile.getChannel().lock();
-                            ca.c(this.a, this.f966a);
+                            ca.c(this.a, this.f967a);
                             if (fileLock != null && fileLock.isValid()) {
                                 try {
                                     fileLock.release();

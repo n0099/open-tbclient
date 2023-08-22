@@ -9,7 +9,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.homepage.personalize.view.HotCardView;
-import com.baidu.tieba.lz4;
+import com.baidu.tieba.qz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> 
     public TbPageContext a;
     public List<ThreadData> b;
     public ThemeColorInfo c;
-    public lz4 d;
+    public qz4 d;
 
     /* loaded from: classes6.dex */
     public class HotCardViewHolder extends RecyclerView.ViewHolder {
@@ -76,10 +76,10 @@ public class HotCardListAdapter extends RecyclerView.Adapter<HotCardViewHolder> 
         this.a = tbPageContext;
     }
 
-    public void o(lz4 lz4Var) {
+    public void o(qz4 qz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lz4Var) == null) {
-            this.d = lz4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, qz4Var) == null) {
+            this.d = qz4Var;
         }
     }
 

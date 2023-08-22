@@ -1,60 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.os.Build;
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.tbadk.editortools.RawLayout;
-import com.baidu.tbadk.editortools.sendtool.SendView;
-import com.baidu.tbadk.editortools.sendtool.SendViewBtnStyle;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class xj5 extends xh5 {
+public class xj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xj5(Context context, boolean z) {
-        super(context, (String) null, 4);
-        yh5 sendView;
+    @TargetApi(16)
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 16) {
+                return false;
             }
+            return ((ViewGroup) activity.findViewById(16908290)).getChildAt(0).getFitsSystemWindows();
         }
-        this.o = false;
-        this.n = 2;
-        this.p = new int[]{4, 12, 10, 13, 11, 28, 29, 39, 9};
-        if (z) {
-            sendView = new SendViewBtnStyle(context);
-        } else {
-            sendView = new SendView(context);
-        }
-        this.m = sendView;
-        RawLayout.LayoutParams layoutParams = new RawLayout.LayoutParams(-2, -2);
-        ((LinearLayout.LayoutParams) layoutParams).gravity = 80;
-        ((View) this.m).setLayoutParams(layoutParams);
+        return invokeL.booleanValue;
     }
 
-    public void g(int i) {
-        yh5 yh5Var;
+    public static boolean b(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (yh5Var = this.m) != null && (yh5Var instanceof TextView)) {
-            ((TextView) yh5Var).setText(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if ((activity.getWindow().getAttributes().flags & 1024) != 0) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    @TargetApi(19)
+    public static boolean c(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT < 19 || (activity.getWindow().getAttributes().flags & 67108864) == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(View view2, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
+            if (view2.isInEditMode() || view2.getHeight() == i || Math.abs(view2.getHeight() - i) == wj5.a(view2.getContext())) {
+                return false;
+            }
+            int h = vj5.h(view2.getContext());
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            if (layoutParams == null) {
+                view2.setLayoutParams(new ViewGroup.LayoutParams(-1, h));
+                return true;
+            }
+            layoutParams.height = h;
+            view2.requestLayout();
+            return true;
+        }
+        return invokeLI.booleanValue;
     }
 }

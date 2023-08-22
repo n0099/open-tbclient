@@ -13,11 +13,11 @@ import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.data.NewsNotifyMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cz4;
+import com.baidu.tieba.hz4;
 import com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel;
-import com.baidu.tieba.ls8;
-import com.baidu.tieba.ms8;
-import com.baidu.tieba.y5c;
+import com.baidu.tieba.jw8;
+import com.baidu.tieba.kw8;
+import com.baidu.tieba.occ;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,20 +28,20 @@ import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00006\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0000\u0018\u00002\u000e\u0012\u0004\u0012\u00020\u0002\u0012\u0004\u0012\u00020\u00030\u0001B\u0005¢\u0006\u0002\u0010\u0004J\u0018\u0010\b\u001a\u00020\t2\u0006\u0010\n\u001a\u00020\u000b2\u0006\u0010\f\u001a\u00020\rH\u0002J\u0010\u0010\u000e\u001a\u00020\t2\u0006\u0010\u000f\u001a\u00020\u0003H\u0014J\b\u0010\u0010\u001a\u00020\u0002H\u0014J\b\u0010\u0011\u001a\u00020\tH\u0016J\b\u0010\u0012\u001a\u00020\tH\u0016J\n\u0010\u0013\u001a\u0004\u0018\u00010\u0014H\u0014R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/vm/MsgTabInviteAnswerViewModel;", "Lcom/baidu/tieba/immessagecenter/arch/vm/BaseViewModel;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterInviteAnswerUiState;", "Lcom/baidu/tieba/immessagecenter/msgtab/uidata/MsgCenterInviteAnswerUiIntent;", "()V", "mNewMessageListener", "Lcom/baidu/adp/framework/listener/CustomMessageListener;", "mShieldInvitationListener", "gotoWebActivity", "", "context", "Landroid/content/Context;", "objType", "", "handleUiIntent", "intent", "initUiState", "onAttachedUi", "onDetachedUi", "registerSubscribe", "Lrx/subscriptions/CompositeSubscription;", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class MsgTabInviteAnswerViewModel extends BaseViewModel<ms8, ls8> {
+public final class MsgTabInviteAnswerViewModel extends BaseViewModel<kw8, jw8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener d;
     public final CustomMessageListener e;
 
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
-    public y5c l() {
+    public occ l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
-        return (y5c) invokeV.objValue;
+        return (occ) invokeV.objValue;
     }
 
     public MsgTabInviteAnswerViewModel() {
@@ -107,7 +107,7 @@ public final class MsgTabInviteAnswerViewModel extends BaseViewModel<ms8, ls8> {
                         if (bool != null) {
                             MsgTabInviteAnswerViewModel msgTabInviteAnswerViewModel = this.a;
                             final boolean booleanValue = bool.booleanValue();
-                            msgTabInviteAnswerViewModel.b(new Function1<ms8, ms8>(booleanValue) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgTabInviteAnswerViewModel$mShieldInvitationListener$1$onMessage$3$1
+                            msgTabInviteAnswerViewModel.b(new Function1<kw8, kw8>(booleanValue) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgTabInviteAnswerViewModel$mShieldInvitationListener$1$onMessage$3$1
                                 public static /* synthetic */ Interceptable $ic;
                                 public transient /* synthetic */ FieldHolder $fh;
                                 public final /* synthetic */ boolean $it;
@@ -135,14 +135,14 @@ public final class MsgTabInviteAnswerViewModel extends BaseViewModel<ms8, ls8> {
 
                                 /* JADX DEBUG: Method merged with bridge method */
                                 @Override // kotlin.jvm.functions.Function1
-                                public final ms8 invoke(ms8 emitUiState) {
+                                public final kw8 invoke(kw8 emitUiState) {
                                     InterceptResult invokeL;
                                     Interceptable interceptable3 = $ic;
                                     if (interceptable3 == null || (invokeL = interceptable3.invokeL(1048576, this, emitUiState)) == null) {
                                         Intrinsics.checkNotNullParameter(emitUiState, "$this$emitUiState");
-                                        return new ms8.b(this.$it);
+                                        return new kw8.b(this.$it);
                                     }
-                                    return (ms8) invokeL.objValue;
+                                    return (kw8) invokeL.objValue;
                                 }
                             });
                         }
@@ -183,7 +183,7 @@ public final class MsgTabInviteAnswerViewModel extends BaseViewModel<ms8, ls8> {
                 if (interceptable2 == null || interceptable2.invokeL(1048576, this, msg) == null) {
                     Intrinsics.checkNotNullParameter(msg, "msg");
                     if (msg.getCmd() == 2001120 && (msg instanceof NewsNotifyMessage)) {
-                        this.a.b(new Function1<ms8, ms8>(msg) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgTabInviteAnswerViewModel$mNewMessageListener$1$onMessage$1
+                        this.a.b(new Function1<kw8, kw8>(msg) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.vm.MsgTabInviteAnswerViewModel$mNewMessageListener$1$onMessage$1
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
                             public final /* synthetic */ CustomResponsedMessage<?> $msg;
@@ -211,14 +211,14 @@ public final class MsgTabInviteAnswerViewModel extends BaseViewModel<ms8, ls8> {
 
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // kotlin.jvm.functions.Function1
-                            public final ms8 invoke(ms8 emitUiState) {
+                            public final kw8 invoke(kw8 emitUiState) {
                                 InterceptResult invokeL;
                                 Interceptable interceptable3 = $ic;
                                 if (interceptable3 == null || (invokeL = interceptable3.invokeL(1048576, this, emitUiState)) == null) {
                                     Intrinsics.checkNotNullParameter(emitUiState, "$this$emitUiState");
-                                    return new ms8.a(((NewsNotifyMessage) this.$msg).getMsgInvitation());
+                                    return new kw8.a(((NewsNotifyMessage) this.$msg).getMsgInvitation());
                                 }
-                                return (ms8) invokeL.objValue;
+                                return (kw8) invokeL.objValue;
                             }
                         });
                     }
@@ -227,7 +227,7 @@ public final class MsgTabInviteAnswerViewModel extends BaseViewModel<ms8, ls8> {
         };
     }
 
-    @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel, com.baidu.tieba.yf8
+    @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel, com.baidu.tieba.yj8
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -237,7 +237,7 @@ public final class MsgTabInviteAnswerViewModel extends BaseViewModel<ms8, ls8> {
         }
     }
 
-    @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel, com.baidu.tieba.yf8
+    @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel, com.baidu.tieba.yj8
     public void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -250,24 +250,24 @@ public final class MsgTabInviteAnswerViewModel extends BaseViewModel<ms8, ls8> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
     /* renamed from: p */
-    public ms8 j() {
+    public kw8 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return new ms8.b(SharedPrefHelper.getInstance().getBoolean("key_question_msg_no_remind", false));
+            return new kw8.b(SharedPrefHelper.getInstance().getBoolean("key_question_msg_no_remind", false));
         }
-        return (ms8) invokeV.objValue;
+        return (kw8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.arch.vm.BaseViewModel
     /* renamed from: o */
-    public void h(ls8 intent) {
+    public void h(jw8 intent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, intent) == null) {
             Intrinsics.checkNotNullParameter(intent, "intent");
-            if (intent instanceof ls8.a) {
-                ls8.a aVar = (ls8.a) intent;
+            if (intent instanceof jw8.a) {
+                jw8.a aVar = (jw8.a) intent;
                 n(aVar.getContext(), aVar.a());
             }
         }
@@ -279,8 +279,8 @@ public final class MsgTabInviteAnswerViewModel extends BaseViewModel<ms8, ls8> {
             SharedPrefHelper.getInstance().putInt(SharedPrefHelper.getSharedPrefKeyWithAccount("msg_tab_entrance_invitation_answer_unread_num"), 0);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2008024));
             new StatisticItem(CommonStatisticKey.KEY_QUESTION_ENTRANCE_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", i).eventStat();
-            cz4 j = cz4.j(context, TbConfig.QUESTION_THREAD_LIST);
-            j.r(context.getString(R.string.obfuscated_res_0x7f0f0aec));
+            hz4 j = hz4.j(context, TbConfig.QUESTION_THREAD_LIST);
+            j.r(context.getString(R.string.obfuscated_res_0x7f0f0af4));
             j.k(true);
             j.d(true);
             TbWebViewActivityConfig b = j.b();

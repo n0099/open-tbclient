@@ -6,7 +6,7 @@ import kotlin.jvm.internal.Intrinsics;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.AnnotationDescriptor;
 import kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations;
 import kotlin.reflect.jvm.internal.impl.name.FqName;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class EnhancedTypeAnnotations implements Annotations {
     public final FqName fqNameToMatch;
 
@@ -27,7 +27,7 @@ public final class EnhancedTypeAnnotations implements Annotations {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.annotations.Annotations
     /* renamed from: findAnnotation */
-    public EnhancedTypeAnnotationDescriptor mo2097findAnnotation(FqName fqName) {
+    public EnhancedTypeAnnotationDescriptor mo2099findAnnotation(FqName fqName) {
         if (Intrinsics.areEqual(fqName, this.fqNameToMatch)) {
             return EnhancedTypeAnnotationDescriptor.INSTANCE;
         }

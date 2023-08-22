@@ -9,7 +9,7 @@ public class es {
     public static Vector<Pair<String, Long>> a = new Vector<>();
 
     /* renamed from: a  reason: collision with other field name */
-    public static ConcurrentHashMap<String, Long> f328a = new ConcurrentHashMap<>();
+    public static ConcurrentHashMap<String, Long> f329a = new ConcurrentHashMap<>();
 
     public static String a() {
         StringBuilder sb = new StringBuilder();

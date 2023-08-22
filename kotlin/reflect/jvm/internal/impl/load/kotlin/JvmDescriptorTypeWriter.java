@@ -3,7 +3,7 @@ package kotlin.reflect.jvm.internal.impl.load.kotlin;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import kotlin.reflect.jvm.internal.impl.name.Name;
 import kotlin.text.StringsKt__StringsJVMKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class JvmDescriptorTypeWriter<T> {
     public T jvmCurrentType;
     public int jvmCurrentTypeArrayLevel;

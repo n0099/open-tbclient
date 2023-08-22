@@ -1,27 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class o1a {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile n1a a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface o1a {
+    om<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId);
 
-    public static synchronized n1a a() {
-        InterceptResult invokeV;
-        n1a n1aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (o1a.class) {
-                if (a == null) {
-                    a = new n1a();
-                }
-                n1aVar = a;
-            }
-            return n1aVar;
-        }
-        return (n1a) invokeV.objValue;
-    }
+    j1a b();
+
+    void c(AdvertAppInfo advertAppInfo, o29<?> o29Var, String str, String str2, int i, int i2);
+
+    e1a d();
+
+    om<?, ?> e(n1a n1aVar, BdUniqueId bdUniqueId);
+
+    void f();
+
+    List<AdvertAppInfo> g();
+
+    om<?, ?> h(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, String str);
+
+    IAdBaseAsyncController i(@NonNull IAdBaseAsyncController.Type type, @Nullable IAdBaseAsyncController.a aVar);
+
+    l1a j();
+
+    void k(AdvertAppInfo advertAppInfo);
+
+    void l(HashMap<String, String> hashMap, Context context);
 }

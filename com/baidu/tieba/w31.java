@@ -1,14 +1,95 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public interface w31 {
-    void a();
+public class w31 implements z31 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final StringBuilder a;
 
-    <T extends w31> T b(String str, String str2);
+    @Override // com.baidu.tieba.z31
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
 
-    boolean isValid();
+    public w31() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new StringBuilder();
+    }
 
+    @Override // com.baidu.tieba.z31
     @NonNull
-    String toString();
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.z31
+    public <T extends z31> T b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            return (T) d(str, str2);
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public <T extends z31> T c(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
+            return (T) d(str, obj);
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public <T extends z31> T d(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return this;
+            }
+            if (obj != null) {
+                try {
+                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
+                        if (this.a.length() > 0) {
+                            this.a.append('&');
+                        }
+                        StringBuilder sb = this.a;
+                        sb.append(str);
+                        sb.append('=');
+                        sb.append(obj);
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return this;
+        }
+        return (T) invokeLL.objValue;
+    }
 }

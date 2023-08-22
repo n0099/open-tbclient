@@ -1,153 +1,94 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.JavaTypesHelper;
-import com.baidu.tbadk.TbSingleton;
+import android.text.TextUtils;
+import com.baidu.adp.base.BdPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.video.LiveConfig;
+import com.baidu.tbadk.data.ImShareCardCommonData;
+import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import org.json.JSONArray;
+import org.json.JSONException;
 /* loaded from: classes7.dex */
-public final class qoa {
+public class qoa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(String str, String str2) {
+    public static String a(BdPageContext bdPageContext, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            String sharedPrefKeyWithAccount = SharedPrefHelper.getSharedPrefKeyWithAccount(str);
-            return sharedPrefKeyWithAccount + str2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, bdPageContext, str)) == null) {
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    sb.append(jSONArray.optJSONObject(i).optString("src"));
+                }
+                return sb.toString();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return bdPageContext.getString(R.string.pic_str);
+            }
         }
         return (String) invokeLL.objValue;
     }
 
-    public static final boolean b(String str, int i) {
-        InterceptResult invokeLI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            String spCancelValue = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount(str), "");
-            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
-            List<String> e = e(spCancelValue);
-            if (e != null && !e.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                long j = JavaTypesHelper.toLong(e.get(0), 0L);
-                int i2 = JavaTypesHelper.toInt(e.get(1), 0);
-                if (TimeHelper.isSameDay(j, System.currentTimeMillis()) && i2 > i) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public static final boolean c(String str, String str2) {
+    public static String b(BdPageContext bdPageContext, ChatMessage chatMessage) {
         InterceptResult invokeLL;
-        boolean z;
+        String string;
+        ImShareCardCommonData c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (str2 != null && str2.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return true;
-            }
-            return !TimeHelper.isSameDay(SharedPrefHelper.getInstance().getLong(a(str, str2), 0L), System.currentTimeMillis());
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final void g(String spKey, String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, spKey, str) == null) {
-            Intrinsics.checkNotNullParameter(spKey, "spKey");
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                return;
-            }
-            SharedPrefHelper.getInstance().putLong(a(spKey, str), System.currentTimeMillis());
-        }
-    }
-
-    public static final boolean d(LiveConfig config) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, config)) == null) {
-            Intrinsics.checkNotNullParameter(config, "config");
-            if (TbadkCoreApplication.isLogin() && c("sp_live_cancel_id_", config.getCurrentId()) && c("sp_live_into_id_", config.getCurrentId()) && b("sp_live_click_cancel_key", config.getCloseMax()) && b("sp_live_day_show_auto_in_key", config.getShowMax()) && TbSingleton.getInstance().autoInLiveRoomTimes < config.getSingleMax()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final List<String> e(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str.length() > 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return StringsKt__StringsKt.split$default((CharSequence) str, new String[]{","}, false, 0, 6, (Object) null);
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(r0v3 long), (',' char), (r4v2 int)] */
-    public static final void f(String spKey) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, spKey) == null) {
-            Intrinsics.checkNotNullParameter(spKey, "spKey");
-            long currentTimeMillis = System.currentTimeMillis();
-            String spCancelValue = SharedPrefHelper.getInstance().getString(SharedPrefHelper.getSharedPrefKeyWithAccount(spKey), "");
-            Intrinsics.checkNotNullExpressionValue(spCancelValue, "spCancelValue");
-            List<String> e = e(spCancelValue);
-            int i = 1;
-            if (e != null && !e.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (!z) {
-                long j = JavaTypesHelper.toLong(e.get(0), 0L);
-                int i2 = JavaTypesHelper.toInt(e.get(1), 0);
-                if (TimeHelper.isSameDay(j, System.currentTimeMillis())) {
-                    i = 1 + i2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bdPageContext, chatMessage)) == null) {
+            int msgType = chatMessage.getMsgType();
+            String str = "";
+            if (msgType != 1) {
+                if (msgType != 2) {
+                    if (msgType != 3) {
+                        if (msgType != 30) {
+                            if (msgType != 32) {
+                                if (msgType != 33) {
+                                    if (msgType != 37) {
+                                        if (msgType == 38 && (c = ui8.c(chatMessage)) != null) {
+                                            if (c.getType() == 1) {
+                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_topic_share);
+                                            } else if (c.getType() == 2) {
+                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_compilation_share);
+                                            } else if (c.getType() == 3) {
+                                                str = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_active_share);
+                                            }
+                                        }
+                                    } else {
+                                        str = bdPageContext.getString(R.string.last_msg_chatroom_share);
+                                    }
+                                } else {
+                                    str = bdPageContext.getString(R.string.last_msg_forum_share);
+                                }
+                            } else {
+                                str = bdPageContext.getString(R.string.last_msg_thread_share);
+                            }
+                        }
+                    } else {
+                        str = bdPageContext.getString(R.string.voice_str);
+                    }
+                } else {
+                    str = a(bdPageContext, chatMessage.getContent());
                 }
+                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
+                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+                        string = bdPageContext.getString(R.string.private_message_report_person);
+                    } else {
+                        string = bdPageContext.getString(R.string.private_message_is_report_name);
+                    }
+                    return string + chatMessage.getToUserInfo().getUserName() + bdPageContext.getString(R.string.private_message_report_content) + str;
+                }
+                return bdPageContext.getString(R.string.private_message_is_report_name);
             }
-            SharedPrefHelper sharedPrefHelper = SharedPrefHelper.getInstance();
-            StringBuilder sb = new StringBuilder();
-            sb.append(currentTimeMillis);
-            sb.append(',');
-            sb.append(i);
-            sharedPrefHelper.putString(spKey, sb.toString());
+            str = chatMessage.getContent();
+            if (chatMessage == null) {
+            }
+            return bdPageContext.getString(R.string.private_message_is_report_name);
         }
+        return (String) invokeLL.objValue;
     }
 }

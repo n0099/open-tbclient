@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.GetMoreMsg.DataReq;
 import tbclient.GetMoreMsg.GetMoreMsgReqIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ScreenLockLoadMoreMessage extends NetMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

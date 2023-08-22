@@ -11,9 +11,9 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.connect.NetWorkUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dl0;
-import com.baidu.tieba.pj0;
-import com.baidu.tieba.q31;
+import com.baidu.tieba.gl0;
+import com.baidu.tieba.sj0;
+import com.baidu.tieba.t31;
 /* loaded from: classes3.dex */
 public abstract class NadDialogActivity extends BaseActivity {
     public String A;
@@ -33,22 +33,22 @@ public abstract class NadDialogActivity extends BaseActivity {
 
     public abstract int R1();
 
-    public void T1() {
-    }
-
-    public boolean U1() {
-        return false;
+    public void U1() {
     }
 
     public boolean V1() {
         return false;
     }
 
-    public String W1() {
-        return null;
+    public boolean W1() {
+        return false;
     }
 
     public String X1() {
+        return null;
+    }
+
+    public String Y1() {
         return null;
     }
 
@@ -61,7 +61,7 @@ public abstract class NadDialogActivity extends BaseActivity {
         public void onClick(View view2) {
             NadDialogActivity.this.Q1();
             NadDialogActivity nadDialogActivity = NadDialogActivity.this;
-            nadDialogActivity.Y1(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_POSITIVE.type, NadDialogActivity.this.z);
+            nadDialogActivity.Z1(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_POSITIVE.type, NadDialogActivity.this.z);
         }
     }
 
@@ -74,8 +74,23 @@ public abstract class NadDialogActivity extends BaseActivity {
         public void onClick(View view2) {
             NadDialogActivity.this.P1();
             NadDialogActivity nadDialogActivity = NadDialogActivity.this;
-            nadDialogActivity.Y1(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_NAGITIVE.type, NadDialogActivity.this.z);
+            nadDialogActivity.Z1(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_NAGITIVE.type, NadDialogActivity.this.z);
         }
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void A1(Bundle bundle) {
+        super.A1(bundle);
+        setContentView(gl0.a().a());
+        Intent intent = getIntent();
+        this.B = intent;
+        if (intent != null) {
+            this.z = intent.getStringExtra("ext");
+            this.A = this.B.getStringExtra("alsPage");
+        }
+        S1();
+        U1();
+        Z1(this.A, ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_DIALOG_SHOW.type, this.z);
     }
 
     public final void S1() {
@@ -85,42 +100,27 @@ public abstract class NadDialogActivity extends BaseActivity {
         this.x = (LinearLayout) findViewById(R.id.ll_dialog_content_container);
         this.y = (LinearLayout) findViewById(R.id.ll_dialog_btn_container);
         LayoutInflater.from(this).inflate(R1(), (ViewGroup) this.x, true);
-        this.w.setBackground(pj0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
-        this.w.setDividerDrawable(pj0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
-        this.y.setDividerDrawable(pj0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
-        if (V1()) {
-            this.u.setText(X1());
+        this.w.setBackground(sj0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
+        this.w.setDividerDrawable(sj0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
+        this.y.setDividerDrawable(sj0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
+        if (W1()) {
+            this.u.setText(Y1());
             this.u.setOnClickListener(new a());
         } else {
             this.u.setVisibility(8);
         }
-        if (U1()) {
-            this.v.setText(W1());
+        if (V1()) {
+            this.v.setText(X1());
             this.v.setOnClickListener(new b());
             return;
         }
         this.v.setVisibility(8);
     }
 
-    public final void Y1(String str, String str2, String str3, String str4) {
-        if (!NetWorkUtils.b(pj0.b())) {
+    public final void Z1(String str, String str2, String str3, String str4) {
+        if (!NetWorkUtils.b(sj0.b())) {
             return;
         }
-        q31.e(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void z1(Bundle bundle) {
-        super.z1(bundle);
-        setContentView(dl0.a().a());
-        Intent intent = getIntent();
-        this.B = intent;
-        if (intent != null) {
-            this.z = intent.getStringExtra("ext");
-            this.A = this.B.getStringExtra("alsPage");
-        }
-        S1();
-        T1();
-        Y1(this.A, ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_DIALOG_SHOW.type, this.z);
+        t31.e(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
     }
 }

@@ -14,13 +14,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PowerUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "PowerUtils";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static final class PowerMode {
         public static /* synthetic */ Interceptable $ic = null;
         public static int POWER_MODE_DEFAULT_RETURN_VALUE = 0;

@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.module.pb.BarManageResultListener;
-import com.baidu.tieba.g25;
+import com.baidu.tieba.m25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -314,7 +314,7 @@ public class ForumManageModel extends BdBaseModel {
         public String c;
         public String d;
         public int e;
-        public ArrayList<g25> f;
+        public ArrayList<m25> f;
         public String g;
         public final /* synthetic */ ForumManageModel h;
 
@@ -378,9 +378,9 @@ public class ForumManageModel extends BdBaseModel {
                         try {
                             JSONArray optJSONArray = new JSONObject(postNetData).optJSONArray("cates");
                             for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                g25 g25Var = new g25();
-                                g25Var.c(optJSONArray.optJSONObject(i2));
-                                this.f.add(g25Var);
+                                m25 m25Var = new m25();
+                                m25Var.c(optJSONArray.optJSONObject(i2));
+                                this.f.add(m25Var);
                             }
                         } catch (Exception e) {
                             BdLog.e(e.getMessage());
@@ -439,7 +439,7 @@ public class ForumManageModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public boolean a;
         public String b;
-        public ArrayList<g25> c;
+        public ArrayList<m25> c;
 
         public g(ForumManageModel forumManageModel) {
             Interceptable interceptable = $ic;

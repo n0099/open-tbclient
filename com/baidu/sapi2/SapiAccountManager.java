@@ -55,7 +55,7 @@ import com.baidu.sapi2.utils.enums.Enums;
 import com.baidu.sapi2.utils.enums.LoginShareStrategy;
 import com.baidu.sofire.ac.FH;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
-import com.baidu.tieba.qo1;
+import com.baidu.tieba.vo1;
 import com.meizu.cloud.pushsdk.notification.model.AppIconSetting;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -78,7 +78,7 @@ public final class SapiAccountManager implements ISAccountManager {
     public static final String SESSION_UID = "uid";
     public static final String TAG = "SapiAccountManager";
     public static final int VERSION_CODE = 250;
-    public static final String VERSION_NAME = "9.7.5";
+    public static final String VERSION_NAME = "9.7.5.1";
     public static CheckUrlIsAvailableListener checkUrlIsAvailablelister;
     public static GlobalCallback globalCallback;
     public static SapiAccountManager instance;
@@ -99,7 +99,7 @@ public final class SapiAccountManager implements ISAccountManager {
 
     @Override // com.baidu.sapi2.service.interfaces.ISAccountManager
     public String getVersionName() {
-        return "9.7.5";
+        return "9.7.5.1";
     }
 
     static {
@@ -180,7 +180,7 @@ public final class SapiAccountManager implements ISAccountManager {
     }
 
     public int getSmsCodeLength() {
-        return EnhancedService.getInstance(sapiConfiguration, "9.7.5").getSmsCodeLength();
+        return EnhancedService.getInstance(sapiConfiguration, "9.7.5.1").getSmsCodeLength();
     }
 
     public String getTpl() {
@@ -308,7 +308,7 @@ public final class SapiAccountManager implements ISAccountManager {
         SapiConfiguration sapiConfiguration2 = getSapiConfiguration();
         if (sapiConfiguration2 != null) {
             sapiConfiguration2.setAgreeDangerousProtocol(z);
-            qo1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
+            vo1.d().i(sapiConfiguration2.context, sapiConfiguration2.isAgreeDangerousProtocol());
             sapiConfiguration2.clientIp = SapiUtils.getLocalIpAddress();
             if (sapiConfiguration2.supportFaceLogin) {
                 new PassBiometricCall().setFaceModuleAgreeDangerousProtocol(z);

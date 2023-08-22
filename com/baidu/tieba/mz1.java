@@ -1,44 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.net.URLConnection;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class mz1 extends bz1 {
+public class mz1 extends iz1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bz1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "File" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bz1
+    @Override // com.baidu.tieba.gz1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "OpenIdApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public class a implements ActivityResultConsumer {
+    public class a implements wp3<gg3<JSONObject>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -63,107 +52,98 @@ public class mz1 extends bz1 {
             this.a = str;
         }
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
-        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
-            InterceptResult invokeLIL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.wp3
+        /* renamed from: b */
+        public void a(gg3<JSONObject> gg3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
-                this.b.d(this.a, new y22(0));
-                return true;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gg3Var) == null) {
+                d32 d32Var = new d32();
+                String z = this.b.z(gg3Var);
+                if (TextUtils.isEmpty(z)) {
+                    d32Var.b = 1001;
+                    d32Var.c = "openid is empty";
+                    this.b.d(this.a, d32Var);
+                    return;
+                }
+                d32Var.g("openid", z);
+                d32Var.b = 0;
+                this.b.d(this.a, d32Var);
             }
-            return invokeLIL.booleanValue;
         }
     }
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947989861, "Lcom/baidu/tieba/mz1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947989861, "Lcom/baidu/tieba/mz1;");
+                return;
+            }
+        }
+        f = nr1.a;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mz1(@NonNull zy1 zy1Var) {
-        super(zy1Var);
+    public mz1(@NonNull ez1 ez1Var) {
+        super(ez1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zy1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {ez1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((zy1) newInitContext.callArgs[0]);
+                super((ez1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    public final String x(String str) {
+    public d32 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            int lastIndexOf = str.lastIndexOf("/");
-            if (lastIndexOf > 0) {
-                String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));
-                if (!TextUtils.isEmpty(contentTypeFor)) {
-                    return contentTypeFor;
-                }
-                return "*/*";
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#getOpenId", false);
+            if (f) {
+                Log.d("OpenIdApi", "#getOpenId params = " + str);
             }
-            return "*/*";
+            Pair<d32, JSONObject> s = s(str);
+            if (!((d32) s.first).isSuccess()) {
+                return (d32) s.first;
+            }
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new d32(202, "cb is empty");
+            }
+            kg3 f2 = cb3.K().x().a().b().f(cb3.K());
+            f2.o(new a(this, optString));
+            f2.call();
+            return d32.f();
         }
-        return (String) invokeL.objValue;
+        return (d32) invokeL.objValue;
     }
 
-    public y22 y(String str) {
+    public final String z(gg3<JSONObject> gg3Var) {
         InterceptResult invokeL;
-        Uri fromFile;
+        JSONObject jSONObject;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            q("#shareFile", false);
-            if (n()) {
-                y72.c("FileApi", "FileApi does not supported when app is invisible.");
-                return new y22(1001, "FileApi does not supported when app is invisible.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gg3Var)) == null) {
+            if (gg3Var.c() && (jSONObject = gg3Var.a) != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                return optJSONObject.optString("openid");
             }
-            Pair<y22, JSONObject> s = s(str);
-            y22 y22Var = (y22) s.first;
-            if (!y22Var.isSuccess()) {
-                return y22Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("filePath");
-            String M = gi3.M(optString, ya3.g0());
-            if (!TextUtils.isEmpty(optString) && gi3.s(optString) == PathType.BD_FILE && !TextUtils.isEmpty(M)) {
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    y72.c("FileApi", "cb is required");
-                    return new y22(202, "cb is required");
-                }
-                File file = new File(M);
-                if (file.exists() && !file.isDirectory()) {
-                    SwanAppActivity activity = lw2.T().getActivity();
-                    if (activity == null) {
-                        y72.c("FileApi", "activity null");
-                        return new y22(1001, "activity null");
-                    }
-                    ActivityResultDispatcher resultDispatcher = activity.getResultDispatcher();
-                    Intent intent = new Intent();
-                    if (fn3.i()) {
-                        fromFile = vo3.a(activity, file);
-                        intent.setFlags(3);
-                    } else {
-                        fromFile = Uri.fromFile(file);
-                    }
-                    intent.setAction("android.intent.action.SEND");
-                    intent.putExtra("android.intent.extra.STREAM", fromFile);
-                    intent.setType(x(M));
-                    resultDispatcher.addConsumer(new a(this, optString2));
-                    resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
-                    return y22.f();
-                }
-                y72.c("FileApi", "file not exists");
-                return new y22(1001, "file not exists");
-            }
-            y72.c("FileApi", "a valid filePath is required");
-            return new y22(202, "a valid filePath is required");
+            return "";
         }
-        return (y22) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 }

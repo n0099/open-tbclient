@@ -43,15 +43,15 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             return;
         }
         this.a = view2;
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092725);
-        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910e2);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092756);
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0910f4);
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             EMManager.from(this.b).setTextColor(R.color.CAM_X0304);
-            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080c49, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
+            WebPManager.setPureDrawable(this.c, R.drawable.obfuscated_res_0x7f080c58, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL);
         }
     }
 
@@ -61,17 +61,17 @@ public class PbLoadPreReplyViewHolder extends TypeAdapter.ViewHolder {
             if (i != 0) {
                 if (i != 1) {
                     if (i == 2) {
-                        this.b.setText(R.string.obfuscated_res_0x7f0f0be7);
+                        this.b.setText(R.string.obfuscated_res_0x7f0f0bef);
                         this.c.setVisibility(8);
                         return;
                     }
                     return;
                 }
-                this.b.setText(R.string.obfuscated_res_0x7f0f0be9);
+                this.b.setText(R.string.obfuscated_res_0x7f0f0bf1);
                 this.c.setVisibility(8);
                 return;
             }
-            this.b.setText(R.string.obfuscated_res_0x7f0f11c5);
+            this.b.setText(R.string.obfuscated_res_0x7f0f11d0);
             this.c.setVisibility(0);
         }
     }

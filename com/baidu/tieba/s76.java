@@ -1,27 +1,155 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.Log;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes7.dex */
-public class s76 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+/* loaded from: classes8.dex */
+public class s76 extends xk1<jj0> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile r76 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized r76 a() {
-        InterceptResult invokeV;
-        r76 r76Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (s76.class) {
-                if (a == null) {
-                    a = new r76();
-                }
-                r76Var = a;
+    /* loaded from: classes8.dex */
+    public class a implements jj0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.jj0
+        public String[] c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
             }
-            return r76Var;
+            return (String[]) invokeV.objValue;
         }
-        return (r76) invokeV.objValue;
+
+        @Override // com.baidu.tieba.jj0
+        public boolean d(Context context, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        /* renamed from: com.baidu.tieba.s76$a$a  reason: collision with other inner class name */
+        /* loaded from: classes8.dex */
+        public class C0475a implements mj0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ boolean[] a;
+            public final /* synthetic */ kj0 b;
+
+            public C0475a(a aVar, boolean[] zArr, kj0 kj0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, zArr, kj0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = zArr;
+                this.b = kj0Var;
+            }
+
+            @Override // com.baidu.tieba.mj0
+            public void onResult(boolean z) {
+                kj0 kj0Var;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                    this.a[0] = z;
+                    if (z && (kj0Var = this.b) != null) {
+                        kj0Var.a(true, null);
+                    }
+                }
+            }
+        }
+
+        public a(s76 s76Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s76Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.jj0
+        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable kj0 kj0Var) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, kj0Var)) == null) {
+                Log.e("CMDConfig", "host invoke command = " + str);
+                if (UrlSchemaJumpHelper.isHitBlackList(str)) {
+                    return true;
+                }
+                if (!str.startsWith("http://") && !str.startsWith("https://")) {
+                    oj0.a(context, str, null, new C0475a(this, new boolean[1], kj0Var), false);
+                    return true;
+                }
+                UrlManager.getInstance().dealOneLink(new String[]{str});
+                return true;
+            }
+            return invokeLLLL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.jj0
+        public void b(String str, String str2, mj0 mj0Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, mj0Var) == null) && mj0Var != null) {
+                mj0Var.onResult(true);
+            }
+        }
+    }
+
+    public s76() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.xk1
+    /* renamed from: a */
+    public jj0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (jj0) invokeV.objValue;
     }
 }

@@ -1,130 +1,108 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationManagerCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.coreExtra.util.PushOpenUtil;
-import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class zg7 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static ThreadData b;
     public transient /* synthetic */ FieldHolder $fh;
-    public kf5 a;
-    public FrsActivity b;
-    public Map<String, Date> c;
-    public boolean d;
 
-    public zg7(FrsActivity frsActivity) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948359071, "Lcom/baidu/tieba/zg7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.c = new HashMap();
-        this.d = false;
-        this.b = frsActivity;
-    }
-
-    public void a() {
-        kf5 kf5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (kf5Var = this.a) != null) {
-            kf5Var.q();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948359071, "Lcom/baidu/tieba/zg7;");
         }
     }
 
-    public boolean b() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            kf5 kf5Var = this.a;
-            if (kf5Var != null && kf5Var.t()) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ThreadData b2 = b();
+            if (b2 == null || !TbSingleton.getInstance().isPbPreloadSwitchOn() || !ThreadCardUtils.isPreloadType(b2)) {
+                return false;
             }
-            return false;
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public Date c(String str) {
-        InterceptResult invokeL;
+    public static ThreadData b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.c == null) {
-                this.c = new HashMap();
-            } else {
-                this.c = TbSingleton.getInstance().getHasShowTip();
-            }
-            Date date = new Date(System.currentTimeMillis());
-            Map<String, Date> map = this.c;
-            if (map != null && map.containsKey(str)) {
-                if (TimeHelper.getDayDifference(this.c.get(str), date) >= 1) {
-                    this.d = true;
-                }
-            } else {
-                this.d = true;
-            }
-            return date;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return (Date) invokeL.objValue;
+        return (ThreadData) invokeV.objValue;
     }
 
-    public void d(String str) {
-        FrsActivity frsActivity;
-        int i;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (frsActivity = this.b) != null && frsActivity.getPageContext() != null) {
-            Date c = c(str);
-            boolean z = false;
-            if (!UbsABTestHelper.isPushPermissionForumFollowTestA() && !UbsABTestHelper.isPushPermissionForumFollowTestB()) {
-                i = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ThreadData b2 = b();
+            if (b2 == null) {
+                return false;
+            }
+            if ((UbsABTestHelper.isConcernFeedTest() && b2.isFromConcern()) || (UbsABTestHelper.isConcernFeedTest() && b2.isFromHomPage)) {
+                z = true;
             } else {
-                i = 11;
+                z = false;
             }
-            if ((!NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !de5.d().n()) && this.d && op7.a(i)) {
-                FrsActivity frsActivity2 = this.b;
-                if (frsActivity2 != null && frsActivity2.w1() != null) {
-                    z = this.b.w1().B;
-                }
-                HashMap hashMap = new HashMap();
-                if (z) {
-                    hashMap.put(PushOpenUtil.VIEW_PARAMS_KEY_STYLE, "short");
-                }
-                kf5 kf5Var = this.a;
-                if (kf5Var != null) {
-                    kf5Var.q();
-                }
-                kf5 showPushOpenView = PushOpenUtil.showPushOpenView(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
-                this.a = showPushOpenView;
-                if (showPushOpenView != null) {
-                    uv9.e().h("forum_follow");
-                }
-                this.c.put(str, c);
-                TbSingleton.getInstance().setHasShowTip(this.c);
-                return;
+            if (!z || !a()) {
+                return false;
             }
-            BdUtilHelper.showToastByTextCenter(TbadkCoreApplication.getInst(), R.string.push_like_tip_msg);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static synchronized void e(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, obj) == null) {
+            synchronized (zg7.class) {
+                if (obj instanceof ThreadData) {
+                    update((ThreadData) obj);
+                }
+            }
+        }
+    }
+
+    public static synchronized void update(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, threadData) == null) {
+            synchronized (zg7.class) {
+                a = threadData.getTid();
+                b = threadData;
+            }
         }
     }
 }

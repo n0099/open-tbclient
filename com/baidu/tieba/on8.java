@@ -1,24 +1,21 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ListView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.im.chat.emoji.ImEmojiUtil;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class on8 implements pn8 {
+public class on8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, Integer> a;
+    public nn8<? extends BaseChatAdapter, ? extends BaseMsg> a;
 
     public on8() {
         Interceptable interceptable = $ic;
@@ -30,64 +27,41 @@ public class on8 implements pn8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>(6);
-        this.a = hashMap;
-        hashMap.put("#(呵呵)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(哈哈)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(吐舌)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(太开心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(笑眼)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
-        this.a.put("#(花心)_#(炸药)", Integer.valueOf(ImEmojiUtil.d));
     }
 
-    @Override // com.baidu.tieba.pn8
-    public boolean a(ChatMessage... chatMessageArr) {
+    @NonNull
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> nn8<T, Msg> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (nn8<T, Msg>) this.a;
+        }
+        return (nn8) invokeV.objValue;
+    }
+
+    @Nullable
+    public static on8 b(@NonNull View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chatMessageArr)) == null) {
-            if (chatMessageArr != null && chatMessageArr.length >= 2) {
-                ChatMessage chatMessage = chatMessageArr[0];
-                ChatMessage chatMessage2 = chatMessageArr[1];
-                if (chatMessage == null || chatMessage.getUserInfo() == null || chatMessage2 == null || chatMessage2.getUserInfo() == null || StringHelper.equals(chatMessage.getUserInfo().getUserId(), chatMessage2.getUserInfo().getUserId())) {
-                    return false;
-                }
-                return this.a.containsKey(c(chatMessageArr));
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return (on8) view2.getTag(R.id.obfuscated_res_0x7f0923d9);
         }
-        return invokeL.booleanValue;
+        return (on8) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pn8
-    public void b(ListView listView, ChatMessage... chatMessageArr) {
+    public <T extends BaseChatAdapter, Msg extends BaseMsg> void c(@NonNull nn8<T, Msg> nn8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, listView, chatMessageArr) != null) || listView == null) {
-            return;
-        }
-        int lastVisiblePosition = listView.getLastVisiblePosition() - listView.getFirstVisiblePosition();
-        View childAt = listView.getChildAt(lastVisiblePosition);
-        View childAt2 = listView.getChildAt(lastVisiblePosition - 1);
-        if (childAt != null && childAt2 != null) {
-            TbRichTextView tbRichTextView = (TbRichTextView) childAt.findViewById(R.id.tex_msgitem_text);
-            TbRichTextView tbRichTextView2 = (TbRichTextView) childAt2.findViewById(R.id.tex_msgitem_text);
-            if (chatMessageArr != null && chatMessageArr.length > 1) {
-                ImEmojiUtil.m(listView.getContext(), (FrameLayout) listView.getRootView().findViewById(16908290), this.a.get(c(chatMessageArr)).intValue(), tbRichTextView, tbRichTextView2);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nn8Var) == null) {
+            this.a = nn8Var;
         }
     }
 
-    public final String c(ChatMessage... chatMessageArr) {
-        InterceptResult invokeL;
+    public static void d(@NonNull View view2, @NonNull on8 on8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessageArr)) == null) {
-            if (chatMessageArr != null && chatMessageArr.length > 1 && chatMessageArr[0] != null && chatMessageArr[1] != null) {
-                return chatMessageArr[1].getContent() + "_" + chatMessageArr[0].getContent();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeLL(65538, null, view2, on8Var) == null) {
+            view2.setTag(R.id.obfuscated_res_0x7f0923d9, on8Var);
         }
-        return (String) invokeL.objValue;
     }
 }

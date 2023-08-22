@@ -1,172 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class hu5 {
+public abstract class hu5<T> extends iu5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
-    public a b;
-    public b c;
 
-    /* loaded from: classes6.dex */
-    public static class a extends e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public int c;
-        public String d;
-        public String e;
-        public boolean f;
-        public int g;
-        public View.OnClickListener h;
+    public abstract List<w05> e();
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = true;
-            this.c = R.drawable.new_pic_emotion_05;
-            this.d = hu5.c(R.string.no_data_common_txt, new Object[0]);
-            this.e = hu5.c(R.string.refresh_view_button_text, new Object[0]);
-            this.f = false;
-            this.g = BdUtilHelper.getDimens(hu5.b(), R.dimen.obfuscated_res_0x7f0703d9);
+    public abstract List<ThreadData> f();
+
+    public void g(gu5 gu5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, gu5Var) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b extends e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public int c;
-        public int d;
-        public String e;
-        public String f;
-        public String g;
-        public View.OnClickListener h;
+    @Override // com.baidu.tieba.ku5
+    public eu5 getPageInfo() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return null;
+        }
+        return (eu5) invokeV.objValue;
+    }
 
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = true;
-            this.c = R.drawable.new_pic_emotion_08;
-            this.d = BdUtilHelper.getDimens(hu5.b(), R.dimen.obfuscated_res_0x7f0703b0);
-            this.e = hu5.c(R.string.refresh_view_button_text, new Object[0]);
-            this.f = hu5.c(R.string.refresh_view_title_text, new Object[0]);
-            this.g = hu5.c(R.string.data_load_error, new Object[0]);
+    public void h(List<ThreadData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class c extends e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public boolean g;
-        public View.OnClickListener h;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = BdUtilHelper.getDimens(hu5.b(), R.dimen.tbds182);
-            this.b = TbadkCoreApplication.getInst().getMainTabBottomBarHeight();
-            this.c = hu5.c(R.string.obfuscated_res_0x7f0f0be4, new Object[0]);
-            this.d = hu5.c(R.string.pb_load_more, new Object[0]);
-            this.e = hu5.c(R.string.list_no_more, new Object[0]);
-            this.f = hu5.c(R.string.click_retry, new Object[0]);
-            this.g = false;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d extends e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hu5.c(R.string.loading_text, new Object[0]);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static abstract class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    public abstract List<bn> i(List<? extends bn> list);
 
     public hu5() {
         Interceptable interceptable = $ic;
@@ -182,25 +54,12 @@ public class hu5 {
         }
     }
 
-    public static /* synthetic */ Context b() {
-        return getContext();
-    }
-
-    public static Context getContext() {
-        InterceptResult invokeV;
+    public final List<bn> d(List<? extends bn> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return TbadkCoreApplication.getInst().getApplicationContext();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            return i(list);
         }
-        return (Context) invokeV.objValue;
-    }
-
-    public static String c(int i, Object... objArr) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65539, null, i, objArr)) == null) {
-            return getContext().getString(i, objArr);
-        }
-        return (String) invokeIL.objValue;
+        return (List) invokeL.objValue;
     }
 }

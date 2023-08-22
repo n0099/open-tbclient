@@ -1,29 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.db.TableDefine;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.postsearch.PostSearchActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class gz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final Context b;
-    public final ViewGroup c;
+    public PostSearchActivity a;
+    public View b;
+    public az9 c;
+    public cz9 d;
+    public fz9 e;
 
-    public gz9(Context context, ViewGroup viewGroup) {
+    public gz9(PostSearchActivity postSearchActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, viewGroup};
+            Object[] objArr = {postSearchActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,59 +36,131 @@ public class gz9 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = context;
-        this.c = viewGroup;
+        this.a = postSearchActivity;
     }
 
-    public final boolean a(String str, String str2) {
-        InterceptResult invokeLL;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if ("apk_download".equals(str)) {
-                return "apk_download".equals(str2);
-            }
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str)) {
-                return TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(str2);
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c.j(i);
+            this.d.j(i);
+            this.e.g(i);
+            bt5.a(this.a.getPageContext(), this.b);
         }
-        return invokeLL.booleanValue;
     }
 
-    public hz9 b(sy9 sy9Var, hz9 hz9Var) {
-        InterceptResult invokeLL;
+    public void i(ArrayList<String> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sy9Var, hz9Var)) == null) {
-            if (sy9Var == null) {
-                return hz9Var;
-            }
-            String str = sy9Var.a;
-            if (str == null) {
-                return hz9Var;
-            }
-            if (hz9Var != null && a(str, hz9Var.a)) {
-                return hz9Var;
-            }
-            ViewGroup viewGroup = this.c;
-            if (viewGroup == null) {
-                return null;
-            }
-            viewGroup.removeAllViews();
-            if (TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT.equals(sy9Var.a)) {
-                if (this.a == 2) {
-                    return new fz9(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d09d6, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-                }
-                return new dz9(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d095b, this.c, true), TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
-            } else if (!"apk_download".equals(sy9Var.a)) {
-                return null;
-            } else {
-                if (this.a == 2) {
-                    return new ez9(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d09d5, this.c, true), "apk_download");
-                }
-                return new cz9(LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d095a, this.c, true), "apk_download");
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
+            this.e.j(false);
+            this.d.k(arrayList);
         }
-        return (hz9) invokeLL.objValue;
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            this.c.l(str);
+        }
+    }
+
+    public void l(ViewPager.OnPageChangeListener onPageChangeListener) {
+        fz9 fz9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, onPageChangeListener) == null) && (fz9Var = this.e) != null) {
+            fz9Var.i(onPageChangeListener);
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.c.g();
+            d();
+            this.c.f();
+            this.e.j(true);
+            this.e.k(i);
+        }
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e.d();
+        }
+        return invokeV.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.e();
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d.f();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c.h();
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d.i();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        az9 az9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (az9Var = this.c) != null) {
+            az9Var.k();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.d.m();
+            this.d.g();
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d.p();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0815);
+            View findViewById = this.a.findViewById(R.id.obfuscated_res_0x7f09213b);
+            this.b = findViewById;
+            this.c = new az9(this.a, findViewById);
+            this.d = new cz9(this.a, this.b);
+            this.e = new fz9(this.a, this.b);
+        }
+    }
+
+    public void j(int i, bz9 bz9Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), bz9Var, Boolean.valueOf(z)}) == null) {
+            this.e.h(i, bz9Var, z);
+        }
     }
 }

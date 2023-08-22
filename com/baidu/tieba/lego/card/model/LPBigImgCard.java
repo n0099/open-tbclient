@@ -7,17 +7,17 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.VrPlayerActivityConfig;
-import com.baidu.tieba.fy8;
+import com.baidu.tieba.c29;
+import com.baidu.tieba.i29;
 import com.baidu.tieba.lego.card.utils.ColorUtils;
-import com.baidu.tieba.zx8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public class LPBigImgCard extends BaseCardInfo implements zx8<LPBigImgCard> {
+/* loaded from: classes7.dex */
+public class LPBigImgCard extends BaseCardInfo implements c29<LPBigImgCard> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int bgColor;
@@ -53,22 +53,22 @@ public class LPBigImgCard extends BaseCardInfo implements zx8<LPBigImgCard> {
             }
         }
         this.picUrl = jSONObject.optString("pic_url");
-        this.picWidth = fy8.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
-        this.picHeight = fy8.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
+        this.picWidth = i29.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_WIDTH));
+        this.picHeight = i29.a(jSONObject.optInt(VrPlayerActivityConfig.PIC_HEIGHT));
         this.bgColor = ColorUtils.parseColor(jSONObject.optString("bg_color"));
         this.bgColorNight = ColorUtils.parseColor(jSONObject.optString("bg_color_n"));
         this.btnText = jSONObject.optString("btn_text");
         this.btnColor = ColorUtils.parseColor(jSONObject.optString("btn_color"));
         this.btnColorNight = ColorUtils.parseColor(jSONObject.optString("btn_color_n"));
         this.btnImgUrl = jSONObject.optString("btn_img");
-        this.btnWidth = fy8.a(jSONObject.optInt("btn_width"));
-        this.btnHeight = fy8.a(jSONObject.optInt("btn_height"));
+        this.btnWidth = i29.a(jSONObject.optInt("btn_width"));
+        this.btnHeight = i29.a(jSONObject.optInt("btn_height"));
         this.btnPosRatio = jSONObject.optDouble("btn_pos", 0.5d);
         this.btnLink = jSONObject.optString("link");
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zx8
+    @Override // com.baidu.tieba.c29
     public void doLoad(LPBigImgCard lPBigImgCard, TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lPBigImgCard, tbPageContext) == null) && lPBigImgCard != null && tbPageContext != null) {

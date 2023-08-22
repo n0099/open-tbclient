@@ -26,14 +26,14 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
-import com.baidu.tieba.qz8;
 import com.baidu.tieba.share.ImplicitShareMessage;
+import com.baidu.tieba.t39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -49,9 +49,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public long j;
     public String k;
     public ShareItem l;
-    public qz8 m;
+    public t39 m;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class a implements DialogInterface.OnDismissListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -117,11 +117,11 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
             if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
                 return;
             }
-            this.a.B1();
+            this.a.A1();
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes7.dex */
     public class c implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -149,7 +149,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.A1();
+                this.a.z1();
                 if (this.a.l != null) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VOICE_ROOM_SHARE);
                     statisticItem.addParam("obj_type", this.a.l.voiceRoomShareType);
@@ -178,26 +178,25 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         this.f = 0;
     }
 
-    public final void A1() {
-        ShareItem shareItem;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (shareItem = this.l) == null) {
-            return;
-        }
-        AndroidUtils.copyToClipboard(x1(shareItem.linkUrl));
-        BdUtilHelper.showToast(getApplicationContext(), getResources().getString(R.string.copy_pb_url_success));
-    }
-
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onDestroy();
-            qz8 qz8Var = this.m;
-            if (qz8Var != null) {
-                qz8Var.d();
+            t39 t39Var = this.m;
+            if (t39Var != null) {
+                t39Var.d();
             }
         }
+    }
+
+    public final void y1() {
+        ShareItem shareItem;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (shareItem = this.l) == null) {
+            return;
+        }
+        MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this, this.e, shareItem, true));
     }
 
     public final void z1() {
@@ -206,10 +205,11 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (shareItem = this.l) == null) {
             return;
         }
-        MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this, this.e, shareItem, true));
+        AndroidUtils.copyToClipboard(w1(shareItem.linkUrl));
+        BdUtilHelper.showToast(getApplicationContext(), getResources().getString(R.string.copy_pb_url_success));
     }
 
-    public static String x1(String str) {
+    public static String w1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
@@ -234,7 +234,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     @Override // android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             super.onSaveInstanceState(bundle);
             bundle.putString("title", this.a);
             bundle.putString("content", this.b);
@@ -248,21 +248,21 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         }
     }
 
-    public final void B1() {
-        qz8 qz8Var;
+    public final void A1() {
+        t39 t39Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (qz8Var = this.m) != null) {
-            if (ListUtils.isEmpty(qz8Var.b())) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (t39Var = this.m) != null) {
+            if (ListUtils.isEmpty(t39Var.b())) {
                 this.m.c();
             }
             this.m.e(JavaTypesHelper.toLong(this.g, 0L), this.i, this.l);
         }
     }
 
-    public final void D1() {
+    public final void B1() {
         ShareItem shareItem;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (shareItem = this.l) == null) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (shareItem = this.l) == null) {
             return;
         }
         shareItem.setShowShare(false);
@@ -280,12 +280,12 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                 statisticItem.eventStat();
             }
         } else {
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f027a, R.drawable.obfuscated_res_0x7f080b04, new b(this));
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f027b, R.drawable.obfuscated_res_0x7f080b12, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        qz8 qz8Var = this.m;
-        if (qz8Var != null) {
-            qz8Var.c();
+        t39 t39Var = this.m;
+        if (t39Var != null) {
+            t39Var.c();
         }
     }
 
@@ -293,7 +293,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public void onActivityResult(int i, int i2, Intent intent) {
         int intExtra;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
             if (i == 24007) {
                 if (intent == null) {
@@ -310,10 +310,10 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.m = new qz8(getPageContext());
+            this.m = new t39(getPageContext());
             if (bundle != null) {
                 this.a = bundle.getString("title");
                 this.b = bundle.getString("content");
@@ -342,12 +342,12 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                 this.h = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_EXT_INFO);
                 this.i = getIntent().getStringExtra(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_YY_ANCHOR_BDUID);
             }
-            this.l = y1();
+            this.l = x1();
             int i = this.f;
             if (i == 1) {
-                D1();
+                B1();
             } else if (i == 2) {
-                z1();
+                y1();
             } else {
                 finish();
             }
@@ -357,15 +357,15 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     @Override // android.app.Activity
     public void overridePendingTransition(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
             super.overridePendingTransition(0, 0);
         }
     }
 
-    public final ShareItem y1() {
+    public final ShareItem x1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             ShareItem shareItem = new ShareItem();
             shareItem.title = this.a;
             shareItem.content = this.b;

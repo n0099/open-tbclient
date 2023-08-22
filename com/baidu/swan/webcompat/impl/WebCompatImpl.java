@@ -6,10 +6,10 @@ import androidx.webkit.WebViewAssetLoader;
 import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tieba.vs4;
-import com.baidu.tieba.ws4;
-import com.baidu.tieba.xa3;
-import com.baidu.tieba.y72;
+import com.baidu.tieba.at4;
+import com.baidu.tieba.bt4;
+import com.baidu.tieba.cb3;
+import com.baidu.tieba.d82;
 import com.bumptech.glide.load.model.AssetUriLoader;
 import java.io.File;
 import kotlin.Lazy;
@@ -22,15 +22,15 @@ import kotlin.text.StringsKt__StringsJVMKt;
 import kotlin.text.StringsKt__StringsKt;
 @Singleton
 @Service
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\b\b\u0007\u0018\u0000 52\u00020\u0001:\u00015B\u0007¢\u0006\u0004\b3\u00104J\u0017\u0010\u0004\u001a\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0003\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000b\u0010\fJ9\u0010\u0011\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010\r2\b\u0010\u000e\u001a\u0004\u0018\u00010\n2\u0016\u0010\u0010\u001a\u0012\u0012\u0006\u0012\u0004\u0018\u00010\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u001b\u0010\u0014\u001a\u00020\u0002*\u00020\u00022\u0006\u0010\u0013\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0013\u0010\u0016\u001a\u00020\u0002*\u00020\u0002H\u0002¢\u0006\u0004\b\u0016\u0010\u0005R\u001f\u0010\u001c\u001a\u0004\u0018\u00010\u00178B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\u0019\u001a\u0004\b\u001a\u0010\u001bR\u001f\u0010!\u001a\u0004\u0018\u00010\u001d8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001e\u0010\u0019\u001a\u0004\b\u001f\u0010 R\u001d\u0010$\u001a\u00020\u00178B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\"\u0010\u0019\u001a\u0004\b#\u0010\u001bR\u001d\u0010)\u001a\u00020%8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b&\u0010\u0019\u001a\u0004\b'\u0010(R\u001d\u0010-\u001a\u00020\u00028B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b*\u0010\u0019\u001a\u0004\b+\u0010,R\u001d\u00102\u001a\u00020.8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b/\u0010\u0019\u001a\u0004\b0\u00101¨\u00066"}, d2 = {"Lcom/baidu/swan/webcompat/impl/WebCompatImpl;", "Lcom/baidu/tieba/ws4;", "", "url", "getWebCompatUrl", "(Ljava/lang/String;)Ljava/lang/String;", "", "isExternalFilesUrl", "(Ljava/lang/String;)Z", "Landroid/net/Uri;", "Landroid/webkit/WebResourceResponse;", "shouldInterceptRequest", "(Landroid/net/Uri;)Landroid/webkit/WebResourceResponse;", "Target", "response", "Lkotlin/Function1;", "transform", "transformResponse", "(Landroid/webkit/WebResourceResponse;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "algorithm", "hashString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "pathForHandler", "Lcom/baidu/swan/webcompat/impl/FilePathInfo;", "externalFilePathInfo$delegate", "Lkotlin/Lazy;", "getExternalFilePathInfo", "()Lcom/baidu/swan/webcompat/impl/FilePathInfo;", "externalFilePathInfo", "Lcom/baidu/swan/webcompat/impl/ExternalStoragePathHandler;", "externalStorageFilesPathHandler$delegate", "getExternalStorageFilesPathHandler", "()Lcom/baidu/swan/webcompat/impl/ExternalStoragePathHandler;", "externalStorageFilesPathHandler", "internalFilePathInfo$delegate", "getInternalFilePathInfo", "internalFilePathInfo", "Landroidx/webkit/WebViewAssetLoader$InternalStoragePathHandler;", "internalStorageFilesPathHandler$delegate", "getInternalStorageFilesPathHandler", "()Landroidx/webkit/WebViewAssetLoader$InternalStoragePathHandler;", "internalStorageFilesPathHandler", "localAssetDomain$delegate", "getLocalAssetDomain", "()Ljava/lang/String;", "localAssetDomain", "Landroidx/webkit/WebViewAssetLoader;", "localAssetLoader$delegate", "getLocalAssetLoader", "()Landroidx/webkit/WebViewAssetLoader;", "localAssetLoader", "<init>", "()V", "Companion", "webcompat-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000L\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\b\b\u0007\u0018\u0000 52\u00020\u0001:\u00015B\u0007¢\u0006\u0004\b3\u00104J\u0017\u0010\u0004\u001a\u00020\u00022\u0006\u0010\u0003\u001a\u00020\u0002H\u0016¢\u0006\u0004\b\u0004\u0010\u0005J\u0017\u0010\u0007\u001a\u00020\u00062\u0006\u0010\u0003\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0007\u0010\bJ\u0019\u0010\u000b\u001a\u0004\u0018\u00010\n2\u0006\u0010\u0003\u001a\u00020\tH\u0016¢\u0006\u0004\b\u000b\u0010\fJ9\u0010\u0011\u001a\u0004\u0018\u00018\u0000\"\u0004\b\u0000\u0010\r2\b\u0010\u000e\u001a\u0004\u0018\u00010\n2\u0016\u0010\u0010\u001a\u0012\u0012\u0006\u0012\u0004\u0018\u00010\n\u0012\u0006\u0012\u0004\u0018\u00018\u00000\u000fH\u0016¢\u0006\u0004\b\u0011\u0010\u0012J\u001b\u0010\u0014\u001a\u00020\u0002*\u00020\u00022\u0006\u0010\u0013\u001a\u00020\u0002H\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0013\u0010\u0016\u001a\u00020\u0002*\u00020\u0002H\u0002¢\u0006\u0004\b\u0016\u0010\u0005R\u001f\u0010\u001c\u001a\u0004\u0018\u00010\u00178B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\u0019\u001a\u0004\b\u001a\u0010\u001bR\u001f\u0010!\u001a\u0004\u0018\u00010\u001d8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u001e\u0010\u0019\u001a\u0004\b\u001f\u0010 R\u001d\u0010$\u001a\u00020\u00178B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b\"\u0010\u0019\u001a\u0004\b#\u0010\u001bR\u001d\u0010)\u001a\u00020%8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b&\u0010\u0019\u001a\u0004\b'\u0010(R\u001d\u0010-\u001a\u00020\u00028B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b*\u0010\u0019\u001a\u0004\b+\u0010,R\u001d\u00102\u001a\u00020.8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b/\u0010\u0019\u001a\u0004\b0\u00101¨\u00066"}, d2 = {"Lcom/baidu/swan/webcompat/impl/WebCompatImpl;", "Lcom/baidu/tieba/bt4;", "", "url", "getWebCompatUrl", "(Ljava/lang/String;)Ljava/lang/String;", "", "isExternalFilesUrl", "(Ljava/lang/String;)Z", "Landroid/net/Uri;", "Landroid/webkit/WebResourceResponse;", "shouldInterceptRequest", "(Landroid/net/Uri;)Landroid/webkit/WebResourceResponse;", "Target", "response", "Lkotlin/Function1;", "transform", "transformResponse", "(Landroid/webkit/WebResourceResponse;Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;", "algorithm", "hashString", "(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;", "pathForHandler", "Lcom/baidu/swan/webcompat/impl/FilePathInfo;", "externalFilePathInfo$delegate", "Lkotlin/Lazy;", "getExternalFilePathInfo", "()Lcom/baidu/swan/webcompat/impl/FilePathInfo;", "externalFilePathInfo", "Lcom/baidu/swan/webcompat/impl/ExternalStoragePathHandler;", "externalStorageFilesPathHandler$delegate", "getExternalStorageFilesPathHandler", "()Lcom/baidu/swan/webcompat/impl/ExternalStoragePathHandler;", "externalStorageFilesPathHandler", "internalFilePathInfo$delegate", "getInternalFilePathInfo", "internalFilePathInfo", "Landroidx/webkit/WebViewAssetLoader$InternalStoragePathHandler;", "internalStorageFilesPathHandler$delegate", "getInternalStorageFilesPathHandler", "()Landroidx/webkit/WebViewAssetLoader$InternalStoragePathHandler;", "internalStorageFilesPathHandler", "localAssetDomain$delegate", "getLocalAssetDomain", "()Ljava/lang/String;", "localAssetDomain", "Landroidx/webkit/WebViewAssetLoader;", "localAssetLoader$delegate", "getLocalAssetLoader", "()Landroidx/webkit/WebViewAssetLoader;", "localAssetLoader", "<init>", "()V", "Companion", "webcompat-impl_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes4.dex */
-public final class WebCompatImpl implements ws4 {
+public final class WebCompatImpl implements bt4 {
     public final Lazy a = LazyKt__LazyJVMKt.lazy(new Function0<FilePathInfo>() { // from class: com.baidu.swan.webcompat.impl.WebCompatImpl$internalFilePathInfo$2
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // kotlin.jvm.functions.Function0
         public final FilePathInfo invoke() {
-            xa3 K = xa3.K();
+            cb3 K = cb3.K();
             Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
             File filesDir = K.getFilesDir();
             Intrinsics.checkNotNullExpressionValue(filesDir, "Swan.get().filesDir");
@@ -42,7 +42,7 @@ public final class WebCompatImpl implements ws4 {
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // kotlin.jvm.functions.Function0
         public final FilePathInfo invoke() {
-            File it = xa3.K().getExternalFilesDir(null);
+            File it = cb3.K().getExternalFilesDir(null);
             if (it == null) {
                 return null;
             }
@@ -55,7 +55,7 @@ public final class WebCompatImpl implements ws4 {
         @Override // kotlin.jvm.functions.Function0
         public final String invoke() {
             StringBuilder sb = new StringBuilder();
-            xa3 K = xa3.K();
+            cb3 K = cb3.K();
             Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
             sb.append(K.getPackageName());
             sb.append(".swanhost.smartapps.cn");
@@ -72,12 +72,12 @@ public final class WebCompatImpl implements ws4 {
         @Override // kotlin.jvm.functions.Function0
         public final WebViewAssetLoader.InternalStoragePathHandler invoke() {
             FilePathInfo l;
-            xa3 K = xa3.K();
+            cb3 K = cb3.K();
             l = WebCompatImpl.this.l();
             return new WebViewAssetLoader.InternalStoragePathHandler(K, l.c());
         }
     });
-    public final Lazy e = LazyKt__LazyJVMKt.lazy(new Function0<vs4>() { // from class: com.baidu.swan.webcompat.impl.WebCompatImpl$externalStorageFilesPathHandler$2
+    public final Lazy e = LazyKt__LazyJVMKt.lazy(new Function0<at4>() { // from class: com.baidu.swan.webcompat.impl.WebCompatImpl$externalStorageFilesPathHandler$2
         {
             super(0);
         }
@@ -85,11 +85,11 @@ public final class WebCompatImpl implements ws4 {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // kotlin.jvm.functions.Function0
-        public final vs4 invoke() {
+        public final at4 invoke() {
             FilePathInfo j;
             j = WebCompatImpl.this.j();
             if (j != null) {
-                return new vs4(xa3.K(), j.c());
+                return new at4(cb3.K(), j.c());
             }
             return null;
         }
@@ -109,7 +109,7 @@ public final class WebCompatImpl implements ws4 {
             String q2;
             WebViewAssetLoader.InternalStoragePathHandler m2;
             FilePathInfo l;
-            vs4 k;
+            at4 k;
             String q3;
             String q4;
             String q5;
@@ -118,7 +118,7 @@ public final class WebCompatImpl implements ws4 {
             String q6;
             String q7;
             WebViewAssetLoader.InternalStoragePathHandler m3;
-            xa3 K = xa3.K();
+            cb3 K = cb3.K();
             WebViewAssetLoader.Builder builder = new WebViewAssetLoader.Builder();
             n = WebCompatImpl.this.n();
             builder.setDomain(n).setHttpAllowed(true);
@@ -163,8 +163,8 @@ public final class WebCompatImpl implements ws4 {
         return (FilePathInfo) this.b.getValue();
     }
 
-    public final vs4 k() {
-        return (vs4) this.e.getValue();
+    public final at4 k() {
+        return (at4) this.e.getValue();
     }
 
     public final FilePathInfo l() {
@@ -183,11 +183,11 @@ public final class WebCompatImpl implements ws4 {
         return (WebViewAssetLoader) this.f.getValue();
     }
 
-    @Override // com.baidu.tieba.ws4
+    @Override // com.baidu.tieba.bt4
     public WebResourceResponse b(Uri url) {
         Intrinsics.checkNotNullParameter(url, "url");
         WebResourceResponse shouldInterceptRequest = o().shouldInterceptRequest(url);
-        y72.i("WebCompatImpl", "shouldInterceptRequest response=" + shouldInterceptRequest + " for url=" + url);
+        d82.i("WebCompatImpl", "shouldInterceptRequest response=" + shouldInterceptRequest + " for url=" + url);
         return shouldInterceptRequest;
     }
 
@@ -214,13 +214,13 @@ public final class WebCompatImpl implements ws4 {
         return sb2;
     }
 
-    @Override // com.baidu.tieba.ws4
+    @Override // com.baidu.tieba.bt4
     public <Target> Target c(WebResourceResponse webResourceResponse, Function1<? super WebResourceResponse, ? extends Target> transform) {
         Intrinsics.checkNotNullParameter(transform, "transform");
         return transform.invoke(webResourceResponse);
     }
 
-    @Override // com.baidu.tieba.ws4
+    @Override // com.baidu.tieba.bt4
     public String a(final String url) {
         String str;
         Intrinsics.checkNotNullParameter(url, "url");
@@ -272,7 +272,7 @@ public final class WebCompatImpl implements ws4 {
         sb.append(url);
         sb.append("\n > to   url = ");
         sb.append(str);
-        y72.i("WebCompatImpl", sb.toString());
+        d82.i("WebCompatImpl", sb.toString());
         return str;
     }
 }

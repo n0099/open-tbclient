@@ -7,10 +7,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
 import com.baidu.tbadk.core.util.BuildPackageInfo;
-import com.baidu.tieba.h75;
-import com.baidu.tieba.i75;
+import com.baidu.tieba.ba0;
+import com.baidu.tieba.o75;
+import com.baidu.tieba.p75;
 import com.baidu.tieba.v9;
-import com.baidu.tieba.y90;
 import java.util.ArrayList;
 /* loaded from: classes4.dex */
 public class InitDebugTask extends LaunchTask {
@@ -27,8 +27,8 @@ public class InitDebugTask extends LaunchTask {
     private void initCmdConvertManager() {
         if (TbadkCoreApplication.getInst().isDebugMode()) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(i75.class.getName());
-            arrayList.add(h75.class.getName());
+            arrayList.add(p75.class.getName());
+            arrayList.add(o75.class.getName());
             arrayList.add(CmdConfigHttp.class.getName());
             v9.a().c(arrayList);
         }
@@ -43,7 +43,7 @@ public class InitDebugTask extends LaunchTask {
             if (TextUtils.isEmpty(cuid)) {
                 cuid = "";
             }
-            y90.a(inst, branchNameFromFile, commitIdFromFile, cuid);
+            ba0.a(inst, branchNameFromFile, commitIdFromFile, cuid);
         }
     }
 

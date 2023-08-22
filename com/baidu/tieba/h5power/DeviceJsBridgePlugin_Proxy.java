@@ -3,12 +3,12 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ica;
-import com.baidu.tieba.ix4;
-import com.baidu.tieba.jca;
-import com.baidu.tieba.kca;
-import com.baidu.tieba.mca;
-import com.baidu.tieba.qk6;
+import com.baidu.tieba.kx4;
+import com.baidu.tieba.qga;
+import com.baidu.tieba.rga;
+import com.baidu.tieba.sga;
+import com.baidu.tieba.uga;
+import com.baidu.tieba.vl6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,17 +22,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class DeviceJsBridgePlugin_Proxy extends ica {
+public class DeviceJsBridgePlugin_Proxy extends qga {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ix4 mJsBridge;
+    public kx4 mJsBridge;
 
-    public DeviceJsBridgePlugin_Proxy(ix4 ix4Var) {
+    public DeviceJsBridgePlugin_Proxy(kx4 kx4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ix4Var};
+            Object[] objArr = {kx4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,7 +42,7 @@ public class DeviceJsBridgePlugin_Proxy extends ica {
                 return;
             }
         }
-        this.mJsBridge = ix4Var;
+        this.mJsBridge = kx4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
@@ -50,144 +50,144 @@ public class DeviceJsBridgePlugin_Proxy extends ica {
         this.mNotificationNameList.add("deviceRefreshRate");
     }
 
-    @Override // com.baidu.tieba.ica
-    public kca dispatch(WebView webView, mca mcaVar, kca kcaVar) {
+    @Override // com.baidu.tieba.qga
+    public sga dispatch(WebView webView, uga ugaVar, sga sgaVar) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, mcaVar, kcaVar)) == null) {
-            if (kcaVar == null) {
-                kcaVar = new kca();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, ugaVar, sgaVar)) == null) {
+            if (sgaVar == null) {
+                sgaVar = new sga();
             }
-            String b = mcaVar.b();
-            JSONObject e = mcaVar.e();
+            String b = ugaVar.b();
+            JSONObject e = ugaVar.e();
             if (b.equals("device/getZid")) {
-                kcaVar.s(true);
-                kca k = this.mJsBridge.k(webView);
+                sgaVar.s(true);
+                sga k = this.mJsBridge.k(webView);
                 if (k != null) {
-                    kcaVar.y(k.f());
-                    kcaVar.u(k.b());
-                    kcaVar.o(k.a());
-                    kcaVar.x(k.e());
+                    sgaVar.y(k.f());
+                    sgaVar.u(k.b());
+                    sgaVar.o(k.a());
+                    sgaVar.x(k.e());
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             } else if (b.equals("device/getHdid")) {
-                kcaVar.s(true);
-                kca i = this.mJsBridge.i(webView);
+                sgaVar.s(true);
+                sga i = this.mJsBridge.i(webView);
                 if (i != null) {
-                    kcaVar.y(i.f());
-                    kcaVar.u(i.b());
-                    kcaVar.o(i.a());
-                    kcaVar.x(i.e());
+                    sgaVar.y(i.f());
+                    sgaVar.u(i.b());
+                    sgaVar.o(i.a());
+                    sgaVar.x(i.e());
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             } else if (b.equals("device/getSupplementInfo")) {
-                kcaVar.s(true);
-                kca j = this.mJsBridge.j(webView);
+                sgaVar.s(true);
+                sga j = this.mJsBridge.j(webView);
                 if (j != null) {
-                    kcaVar.y(j.f());
-                    kcaVar.u(j.b());
-                    kcaVar.o(j.a());
-                    kcaVar.x(j.e());
+                    sgaVar.y(j.f());
+                    sgaVar.u(j.b());
+                    sgaVar.o(j.a());
+                    sgaVar.x(j.e());
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             } else if (b.equals("device/getDeviceInfo")) {
-                kcaVar.s(true);
-                kca h = this.mJsBridge.h(webView);
+                sgaVar.s(true);
+                sga h = this.mJsBridge.h(webView);
                 if (h != null) {
-                    kcaVar.y(h.f());
-                    kcaVar.u(h.b());
-                    kcaVar.o(h.a());
-                    kcaVar.x(h.e());
+                    sgaVar.y(h.f());
+                    sgaVar.u(h.b());
+                    sgaVar.o(h.a());
+                    sgaVar.x(h.e());
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             } else if (b.equals("device/setBlockPopInfo")) {
-                kcaVar.s(true);
-                kca m = this.mJsBridge.m(webView, e.optInt("canPost"), e.optString("blockInfo"), e.optString("aheadInfo"), e.optString("aheadUrl"), e.optString("okInfo"), e.optInt("aheadType"));
+                sgaVar.s(true);
+                sga m = this.mJsBridge.m(webView, e.optInt("canPost"), e.optString("blockInfo"), e.optString("aheadInfo"), e.optString("aheadUrl"), e.optString("okInfo"), e.optInt("aheadType"));
                 if (m != null) {
-                    kcaVar.y(m.f());
-                    kcaVar.u(m.b());
-                    kcaVar.o(m.a());
-                    kcaVar.x(m.e());
+                    sgaVar.y(m.f());
+                    sgaVar.u(m.b());
+                    sgaVar.o(m.a());
+                    sgaVar.x(m.e());
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             } else if (b.equals("device/deviceMotion")) {
-                kcaVar.s(true);
-                kca d = this.mJsBridge.d(webView, e.optString("interval"), e.optString("type"));
+                sgaVar.s(true);
+                sga d = this.mJsBridge.d(webView, e.optString("interval"), e.optString("type"));
                 this.mNotificationNameList.add("deviceMotion");
                 if (d != null) {
-                    kcaVar.y(d.f());
-                    kcaVar.u(d.b());
-                    kcaVar.o(d.a());
-                    kcaVar.x(d.e());
-                    if (!kcaVar.h()) {
-                        kcaVar.n(false);
-                        addObserver(webView, "deviceMotion", kcaVar, true);
+                    sgaVar.y(d.f());
+                    sgaVar.u(d.b());
+                    sgaVar.o(d.a());
+                    sgaVar.x(d.e());
+                    if (!sgaVar.h()) {
+                        sgaVar.n(false);
+                        addObserver(webView, "deviceMotion", sgaVar, true);
                     }
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             } else if (b.equals("device/deviceRefreshRate")) {
-                kcaVar.s(true);
-                kca g = this.mJsBridge.g(webView, e.optString("type"));
+                sgaVar.s(true);
+                sga g = this.mJsBridge.g(webView, e.optString("type"));
                 this.mNotificationNameList.add("deviceRefreshRate");
                 if (g != null) {
-                    kcaVar.y(g.f());
-                    kcaVar.u(g.b());
-                    kcaVar.o(g.a());
-                    kcaVar.x(g.e());
-                    if (!kcaVar.h()) {
-                        kcaVar.n(false);
-                        addObserver(webView, "deviceRefreshRate", kcaVar, true);
+                    sgaVar.y(g.f());
+                    sgaVar.u(g.b());
+                    sgaVar.o(g.a());
+                    sgaVar.x(g.e());
+                    if (!sgaVar.h()) {
+                        sgaVar.n(false);
+                        addObserver(webView, "deviceRefreshRate", sgaVar, true);
                     }
                 }
-                kcaVar.z(0);
+                sgaVar.z(0);
             }
-            return kcaVar;
+            return sgaVar;
         }
-        return (kca) invokeLLL.objValue;
+        return (sga) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.ica
-    public qk6 getJsBridge() {
+    @Override // com.baidu.tieba.qga
+    public vl6 getJsBridge() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mJsBridge;
         }
-        return (qk6) invokeV.objValue;
+        return (vl6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ica
-    public List<kca> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.qga
+    public List<sga> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
-            kca kcaVar = null;
+            sga sgaVar = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals("deviceMotion")) {
-                kcaVar = this.mJsBridge.e(webView, hashMap);
+                sgaVar = this.mJsBridge.e(webView, hashMap);
             } else if (str.equals("deviceRefreshRate")) {
-                kcaVar = this.mJsBridge.f(webView, hashMap);
+                sgaVar = this.mJsBridge.f(webView, hashMap);
             }
-            if (kcaVar != null) {
-                kcaVar.z(0);
+            if (sgaVar != null) {
+                sgaVar.z(0);
             }
-            List<jca> list = this.mAsyncCallBackMethodList.get(str);
-            if (kcaVar != null && list != null) {
-                Iterator<jca> it = list.iterator();
-                if (!TextUtils.isEmpty(kcaVar.e())) {
+            List<rga> list = this.mAsyncCallBackMethodList.get(str);
+            if (sgaVar != null && list != null) {
+                Iterator<rga> it = list.iterator();
+                if (!TextUtils.isEmpty(sgaVar.e())) {
                     while (it.hasNext()) {
-                        jca next = it.next();
-                        if (next.b().equals(kcaVar.e())) {
-                            kca kcaVar2 = new kca();
-                            kcaVar2.w(next.a());
-                            kcaVar2.y(kcaVar.f());
-                            kcaVar2.u(kcaVar.b());
-                            kcaVar2.o(kcaVar.a());
-                            kcaVar2.A(kcaVar.l());
-                            arrayList.add(kcaVar2);
+                        rga next = it.next();
+                        if (next.b().equals(sgaVar.e())) {
+                            sga sgaVar2 = new sga();
+                            sgaVar2.w(next.a());
+                            sgaVar2.y(sgaVar.f());
+                            sgaVar2.u(sgaVar.b());
+                            sgaVar2.o(sgaVar.a());
+                            sgaVar2.A(sgaVar.l());
+                            arrayList.add(sgaVar2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -195,14 +195,14 @@ public class DeviceJsBridgePlugin_Proxy extends ica {
                     }
                 } else {
                     while (it.hasNext()) {
-                        jca next2 = it.next();
-                        kca kcaVar3 = new kca();
-                        kcaVar3.w(next2.a());
-                        kcaVar3.y(kcaVar.f());
-                        kcaVar3.u(kcaVar.b());
-                        kcaVar3.o(kcaVar.a());
-                        kcaVar3.A(kcaVar.l());
-                        arrayList.add(kcaVar3);
+                        rga next2 = it.next();
+                        sga sgaVar3 = new sga();
+                        sgaVar3.w(next2.a());
+                        sgaVar3.y(sgaVar.f());
+                        sgaVar3.u(sgaVar.b());
+                        sgaVar3.o(sgaVar.a());
+                        sgaVar3.A(sgaVar.l());
+                        arrayList.add(sgaVar3);
                         if (!next2.c()) {
                             it.remove();
                         }

@@ -6,205 +6,20 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.LinearLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.safe.SafeHandler;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class NavigationBarCoverTip extends LinearLayout {
+public class NavigationBarCoverTip extends BaseCoverTip {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Animation a;
-    public Animation b;
-    public Runnable c;
-    public e d;
-    public Activity e;
-    public int f;
-    public View g;
-
-    /* loaded from: classes8.dex */
-    public interface e {
-        void a();
-
-        void onShow();
-    }
-
-    /* loaded from: classes8.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NavigationBarCoverTip a;
-
-        public a(NavigationBarCoverTip navigationBarCoverTip) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {navigationBarCoverTip};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = navigationBarCoverTip;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                SafeHandler.getInst().removeCallbacks(this.a.c);
-                this.a.e();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class b implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NavigationBarCoverTip a;
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        public b(NavigationBarCoverTip navigationBarCoverTip) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {navigationBarCoverTip};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = navigationBarCoverTip;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-                if (this.a.d != null) {
-                    this.a.d.onShow();
-                }
-                if (this.a.e != null) {
-                    UtilHelper.changeStatusBarIconAndTextColor(true, this.a.e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class c implements Animation.AnimationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NavigationBarCoverTip a;
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationRepeat(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
-            }
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationStart(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
-            }
-        }
-
-        public c(NavigationBarCoverTip navigationBarCoverTip) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {navigationBarCoverTip};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = navigationBarCoverTip;
-        }
-
-        @Override // android.view.animation.Animation.AnimationListener
-        public void onAnimationEnd(Animation animation) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
-                if (this.a.d != null) {
-                    this.a.d.a();
-                }
-                this.a.j();
-            }
-        }
-    }
-
-    /* loaded from: classes8.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ NavigationBarCoverTip a;
-
-        public d(NavigationBarCoverTip navigationBarCoverTip) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {navigationBarCoverTip};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = navigationBarCoverTip;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e();
-            }
-        }
-    }
+    public Activity g;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public NavigationBarCoverTip(Context context) {
@@ -267,121 +82,77 @@ public class NavigationBarCoverTip extends LinearLayout {
                 return;
             }
         }
-        this.f = 3;
-        f();
+        c();
     }
 
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && this.f != i) {
-            SkinManager.setBackgroundColor(this, R.color.cp_link_tip_a_alpha95);
-            this.f = i;
-        }
-    }
-
-    public void setCoverTipListener(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, eVar) == null) {
-            this.d = eVar;
-        }
-    }
-
-    public void e() {
+    @Override // com.baidu.tieba.view.BaseCoverTip
+    public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            clearAnimation();
-            startAnimation(this.b);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            j();
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            SafeHandler.getInst().removeCallbacks(this.c);
-            clearAnimation();
-            setVisibility(8);
-            Activity activity = this.e;
-            if (activity != null) {
-                UtilHelper.changeStatusBarIconAndTextColor(false, activity);
-                this.e = null;
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            setOrientation(1);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 setPadding(0, UtilHelper.getStatusBarHeight(), 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
             } else {
                 setPadding(0, 0, 0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds20));
             }
-            setOnClickListener(new a(this));
-            g();
-            h(TbadkCoreApplication.getInst().getSkinType());
+            super.c();
         }
     }
 
-    public final void g() {
+    @Override // com.baidu.tieba.view.BaseCoverTip
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-            this.a = loadAnimation;
-            loadAnimation.setAnimationListener(new b(this));
-            Animation loadAnimation2 = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010100);
-            this.b = loadAnimation2;
-            loadAnimation2.setAnimationListener(new c(this));
-            this.c = new d(this);
-        }
-    }
-
-    public void k(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, activity, i) == null) {
-            this.e = activity;
-            if (i < 0) {
-                i = 5000;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.g();
+            Activity activity = this.g;
+            if (activity != null) {
+                UtilHelper.changeStatusBarIconAndTextColor(false, activity);
+                this.g = null;
             }
-            setVisibility(0);
-            clearAnimation();
-            startAnimation(this.a);
-            SafeHandler.getInst().removeCallbacks(this.c);
-            SafeHandler.getInst().postDelayed(this.c, i);
         }
     }
 
-    public void l(Activity activity, View view2) {
+    @Override // com.baidu.tieba.view.BaseCoverTip
+    public Animation getInAnimation() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, activity, view2) == null) {
-            m(activity, view2, 5000);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
+        }
+        return (Animation) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.view.BaseCoverTip
+    public Animation getOutAnimation() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f010100);
+        }
+        return (Animation) invokeV.objValue;
+    }
+
+    public void i(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, activity, i) == null) {
+            k(activity, null, i);
         }
     }
 
-    public void m(Activity activity, View view2, int i) {
+    public void j(Activity activity, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, view2, i) == null) {
-            this.e = activity;
-            if (view2 != this.g) {
-                removeAllViews();
-                addView(view2);
-                this.g = view2;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, view2) == null) {
+            k(activity, view2, 5000);
+        }
+    }
+
+    public void k(Activity activity, View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(1048582, this, activity, view2, i) == null) {
+            this.g = activity;
+            if (activity != null) {
+                UtilHelper.changeStatusBarIconAndTextColor(true, activity);
             }
-            if (i < 0) {
-                i = 5000;
-            }
-            setVisibility(0);
-            clearAnimation();
-            startAnimation(this.a);
-            SafeHandler.getInst().removeCallbacks(this.c);
-            SafeHandler.getInst().postDelayed(this.c, i);
+            super.h(view2, i);
         }
     }
 }

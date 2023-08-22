@@ -1,107 +1,99 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.y47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedLinkComponent;
-import tbclient.PbLinkInfo;
+import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public final class u77 {
+public final class u77 implements x77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final Map<String, JSONObject> c;
+    public final y47.g d;
 
-    public static final void a(FeedLinkComponent feedLinkComponent, List<v97<? extends Object>> mutableList) {
+    public u77(String spaceName, String uid) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, feedLinkComponent, mutableList) == null) {
-            Intrinsics.checkNotNullParameter(feedLinkComponent, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            List<PbLinkInfo> list = feedLinkComponent.links;
-            if (list != null) {
-                ArrayList arrayList = new ArrayList();
-                for (PbLinkInfo it : list) {
-                    Intrinsics.checkNotNullExpressionValue(it, "it");
-                    q67 b = b(it);
-                    if (b != null) {
-                        arrayList.add(b);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spaceName, uid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(spaceName, "spaceName");
+        Intrinsics.checkNotNullParameter(uid, "uid");
+        this.a = spaceName;
+        this.b = uid;
+        this.c = new LinkedHashMap();
+        y47.g d = y47.a().d();
+        this.d = d;
+        Map<String, JSONObject> b = d.b(this.a, this.b);
+        Intrinsics.checkNotNullExpressionValue(b, "cacheResolver.getCache(spaceName, uid)");
+        this.c.putAll(b);
+    }
+
+    @Override // com.baidu.tieba.x77
+    public void a(String key, Map<String, String> valueMap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, key, valueMap) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(valueMap, "valueMap");
+            if (this.c.get(key) == null) {
+                this.c.put(key, new JSONObject());
+            }
+            try {
+                for (String str : valueMap.keySet()) {
+                    JSONObject jSONObject = this.c.get(key);
+                    if (jSONObject != null) {
+                        jSONObject.put(str, valueMap.get(str));
                     }
                 }
-                if (arrayList.size() > 1) {
-                    mutableList.add(new o47(arrayList));
-                } else {
-                    mutableList.add(new t47((q67) arrayList.get(0)));
-                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            JSONObject jSONObject2 = this.c.get(key);
+            if (jSONObject2 == null) {
+                jSONObject2 = new JSONObject();
+            }
+            b(key, jSONObject2);
         }
     }
 
-    public static final q67 b(PbLinkInfo pbLinkInfo) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        int intValue;
-        String str6;
+    public final void b(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, pbLinkInfo)) == null) {
-            Intrinsics.checkNotNullParameter(pbLinkInfo, "<this>");
-            String str7 = pbLinkInfo.title;
-            if (str7 == null) {
-                str = "";
-            } else {
-                str = str7;
-            }
-            String str8 = pbLinkInfo.to_url;
-            if (str8 == null) {
-                str2 = "";
-            } else {
-                str2 = str8;
-            }
-            String str9 = pbLinkInfo.pic_url;
-            if (str9 == null) {
-                str3 = "";
-            } else {
-                str3 = str9;
-            }
-            String str10 = pbLinkInfo.link_from;
-            if (str10 == null) {
-                str4 = "";
-            } else {
-                str4 = str10;
-            }
-            String str11 = pbLinkInfo.ext_txt;
-            if (str11 == null) {
-                str5 = "";
-            } else {
-                str5 = str11;
-            }
-            Integer num = pbLinkInfo.sort;
-            int i = 0;
-            if (num == null) {
-                intValue = 0;
-            } else {
-                intValue = num.intValue();
-            }
-            Integer num2 = pbLinkInfo.url_type;
-            if (num2 != null) {
-                i = num2.intValue();
-            }
-            String str12 = pbLinkInfo.content1;
-            if (str12 == null) {
-                str6 = "";
-            } else {
-                str6 = str12;
-            }
-            String str13 = pbLinkInfo.content2;
-            if (str13 == null) {
-                str13 = "";
-            }
-            return new q67(str, str2, str3, str4, str5, intValue, i, str6, str13);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
+            this.d.a(this.a, this.b, str, jSONObject);
         }
-        return (q67) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.x77
+    public String getValue(String key, String subKey) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, key, subKey)) == null) {
+            Intrinsics.checkNotNullParameter(key, "key");
+            Intrinsics.checkNotNullParameter(subKey, "subKey");
+            JSONObject jSONObject = this.c.get(key);
+            if (jSONObject != null) {
+                return jSONObject.optString(subKey);
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
     }
 }

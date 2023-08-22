@@ -1,5 +1,5 @@
 package com.huawei.hms.framework.network.grs;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public interface b {
     void a();
 

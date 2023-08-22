@@ -24,7 +24,7 @@ import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 import com.huawei.hms.support.log.HMSLog;
 import java.util.Locale;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class HMSBIInitializer {
     public static /* synthetic */ Interceptable $ic;
     public static final Object d;
@@ -35,7 +35,7 @@ public class HMSBIInitializer {
     public AtomicBoolean b;
     public boolean c;
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements IQueryUrlCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,7 +87,7 @@ public class HMSBIInitializer {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class b extends AsyncTask<String, Integer, Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

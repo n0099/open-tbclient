@@ -1,27 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes8.dex */
-public class tu2 {
+public class tu2 implements vj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile su2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized su2 a() {
-        InterceptResult invokeV;
-        su2 su2Var;
+    public tu2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (tu2.class) {
-                if (a == null) {
-                    a = new su2();
-                }
-                su2Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return su2Var;
         }
-        return (su2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vj4
+    public fr4 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new uj3(str);
+        }
+        return (fr4) invokeL.objValue;
     }
 }

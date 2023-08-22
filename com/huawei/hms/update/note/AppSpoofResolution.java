@@ -19,7 +19,7 @@ import com.huawei.hms.ui.AbstractDialog;
 import com.huawei.hms.ui.AbstractPromptDialog;
 import com.huawei.hms.utils.PackageManagerHelper;
 import com.huawei.hms.utils.ResourceLoaderUtil;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class AppSpoofResolution implements IBridgeActivityDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -36,7 +36,7 @@ public class AppSpoofResolution implements IBridgeActivityDelegate {
         return invokeV.intValue;
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public class a implements AbstractDialog.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -81,7 +81,7 @@ public class AppSpoofResolution implements IBridgeActivityDelegate {
         }
     }
 
-    /* loaded from: classes9.dex */
+    /* loaded from: classes10.dex */
     public static class b extends AbstractPromptDialog {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

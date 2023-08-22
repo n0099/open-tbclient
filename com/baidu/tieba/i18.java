@@ -1,25 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.widget.FrameLayout;
+import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* loaded from: classes6.dex */
-public class i18 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface i18 {
+    void a();
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            new StatisticItem("c14707").addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
-        }
-    }
+    void b(ScrollFragmentTabHost.s sVar);
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            new StatisticItem("c14706").addParam("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
-        }
-    }
+    void c();
+
+    int d(int i);
+
+    void e(ScrollFragmentTabHost.s sVar);
+
+    void f(boolean z);
+
+    int getCurrentTabType();
+
+    FrameLayout getFrameLayout();
+
+    void setOnTabSelectedListener(ScrollFragmentTabHost.t tVar);
 }

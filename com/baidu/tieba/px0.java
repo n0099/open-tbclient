@@ -1,15 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.app.Activity;
+import com.baidu.nadcore.player.helper.BdVideoGesture;
 /* loaded from: classes7.dex */
 public interface px0 {
-    void a(@NonNull wt0 wt0Var);
+    void b();
 
-    @NonNull
-    jz0 b(@NonNull wt0 wt0Var, @Nullable jz0 jz0Var);
+    void c(int i, int i2);
 
-    void c(@NonNull wt0 wt0Var, boolean z);
+    void f(float f);
 
-    boolean d(@NonNull wt0 wt0Var, jz0 jz0Var);
+    int getCurrentPosition();
+
+    void i(float f);
+
+    void l(int i, float f);
+
+    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
+
+    Activity o();
+
+    boolean p();
 }

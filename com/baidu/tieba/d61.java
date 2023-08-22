@@ -1,11 +1,6 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
 import android.text.TextUtils;
-import androidx.annotation.ColorInt;
-import androidx.annotation.ColorRes;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -14,20 +9,15 @@ public class d61 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @ColorInt
-    public static int a(@Nullable String str, @ColorRes int i) {
-        InterceptResult invokeLI;
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return ContextCompat.getColor(pj0.b(), i);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && str.contains(str3)) {
+                return str.replace(str3, str2);
             }
-            try {
-                return Color.parseColor(str);
-            } catch (IllegalArgumentException unused) {
-                return ContextCompat.getColor(pj0.b(), i);
-            }
+            return str;
         }
-        return invokeLI.intValue;
+        return (String) invokeLLL.objValue;
     }
 }

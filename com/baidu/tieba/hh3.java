@@ -1,108 +1,91 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class hh3 {
+public class hh3 implements gh3<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONArray b;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ai3 a;
-
-        public a(ai3 ai3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ai3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ai3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                fh3.k("934", this.a.f());
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947823670, "Lcom/baidu/tieba/hh3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947823670, "Lcom/baidu/tieba/hh3;");
+    public hh3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = ir1.a;
+        this.b = new JSONArray();
     }
 
-    public static void a(ai3 ai3Var, vv2 vv2Var) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, ai3Var, vv2Var) == null) && ai3Var != null && vv2Var != null) {
-            ai3Var.a = rh3.n(vv2Var.G());
-            ai3Var.f = vv2Var.H();
-            ai3Var.c = vv2Var.T();
-            ai3Var.a("swan", dk3.h(vv2Var.G()));
-            ai3Var.a("appversion", vv2Var.v1());
-            ai3Var.a("thirdversion", vv2Var.w1());
-            ai3Var.b(rh3.k(vv2Var.W()));
-            ai3Var.d(vv2Var.s0().getString("ubc"));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = new JSONArray();
         }
     }
 
-    public static void b(bi3 bi3Var) {
+    public JSONObject d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, bi3Var) == null) {
-            if (bi3Var == null) {
-                if (a) {
-                    Log.w("SwanAppFuncUbc", "event is null");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("launchLog", this.b);
+            } catch (JSONException e) {
+                if (gh3.a) {
+                    Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (gh3.a) {
+                    Log.d("LaunchTraceCollector", "event is empty");
                     return;
                 }
                 return;
             }
-            ai3 ai3Var = new ai3();
-            ai3Var.f = bi3Var.f;
-            ai3Var.a = bi3Var.a;
-            ai3Var.g = bi3Var.g;
-            ai3Var.c = bi3Var.c;
-            ai3Var.b = bi3Var.b;
-            ai3Var.e = bi3Var.e;
-            ai3Var.e(bi3Var.c());
-            c(ai3Var);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("actionId", str);
+                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, String.valueOf(System.currentTimeMillis()));
+                jSONObject.put("info", str2);
+                b(jSONObject);
+            } catch (JSONException e) {
+                if (gh3.a) {
+                    Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
+                }
+            }
         }
     }
 
-    public static void c(ai3 ai3Var) {
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, ai3Var) == null) {
-            sn3.j(new a(ai3Var), "SwanAppFuncClickUBC");
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && jSONObject != null) {
+            this.b.put(jSONObject);
         }
     }
 }

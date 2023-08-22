@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fn9;
-import com.baidu.tieba.ym;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.kr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
     public ImageView b;
     public TextView c;
     public int d;
-    public ym e;
+    public bn e;
     public View.OnClickListener f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -45,33 +45,33 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.d = 3;
-        this.a = view2.findViewById(R.id.obfuscated_res_0x7f09013a);
-        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090133);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092552);
+        this.a = view2.findViewById(R.id.obfuscated_res_0x7f09013c);
+        this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090135);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092581);
     }
 
-    public void b(ym ymVar) {
+    public void b(bn bnVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, ymVar) != null) || !(ymVar instanceof fn9)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, bnVar) != null) || !(bnVar instanceof kr9)) {
             return;
         }
-        this.e = ymVar;
-        fn9 fn9Var = (fn9) ymVar;
+        this.e = bnVar;
+        kr9 kr9Var = (kr9) bnVar;
         SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-        if (fn9Var.a() > 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09a6), Integer.valueOf(fn9Var.a())));
+        if (kr9Var.a() > 0) {
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f09ae), Integer.valueOf(kr9Var.a())));
         }
         getView().setOnClickListener(this.f);
         d(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public ym c() {
+    public bn c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.e;
         }
-        return (ym) invokeV.objValue;
+        return (bn) invokeV.objValue;
     }
 
     public void d(int i) {

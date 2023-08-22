@@ -1,22 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import tbclient.BannerImage;
 /* loaded from: classes6.dex */
-public class j15 {
+public class j15 implements h75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+    public String a;
+    public String b;
+    public String c;
 
     public j15() {
         Interceptable interceptable = $ic;
@@ -32,47 +29,67 @@ public class j15 {
         }
     }
 
-    public void a(String str) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public final void b(JSONObject jSONObject) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h75
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h75
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(BannerImage bannerImage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, bannerImage) != null) || bannerImage == null) {
             return;
         }
-        try {
-            jSONObject.optInt("switch");
-            JSONObject optJSONObject = jSONObject.optJSONObject(NotificationCompat.CATEGORY_ERROR);
-            if (optJSONObject != null) {
-                this.c = optJSONObject.optInt("num");
-            }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("slow");
-            if (optJSONObject2 != null) {
-                this.b = optJSONObject2.optInt("time");
-                this.a = optJSONObject2.optInt("num");
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject(MultiRatePlayUrlHelper.RANK);
-            if (optJSONObject3 != null) {
-                optJSONObject3.optInt("succ");
-                optJSONObject3.optInt(NotificationCompat.CATEGORY_ERROR);
-                optJSONObject3.optInt("slow");
-            }
-            if (this.b > 0 && this.a > 0) {
-                int i = this.c;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        this.a = bannerImage.img_url;
+        this.b = bannerImage.ahead_url;
+        this.c = bannerImage.title;
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.b = str;
         }
     }
 }

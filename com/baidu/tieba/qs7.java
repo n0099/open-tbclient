@@ -1,60 +1,49 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.view.LayoutInflater;
+import android.content.DialogInterface;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdUtilHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.EMManager;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.widget.LinearGradientView;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.frs.headerimage.FrsHeaderBannerView;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.safe.JavaTypesHelper;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
+import com.baidu.tbadk.core.dialog.yun.YunDialogManager;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.frs.FrsPrivateCommonDialogView;
+import com.baidu.tieba.s45;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PrivateForumInfo;
 /* loaded from: classes7.dex */
-public class qs7 {
+public class qs7 extends x55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public RelativeLayout b;
-    public LinearGradientView c;
-    public BarImageView d;
-    public TextView e;
-    public FrsHeaderBannerView f;
-    public LinearLayout g;
-    public ImageView h;
-    public View i;
-    public TbImageView j;
-    public ImageView k;
-    public ImageView l;
-    public ImageView m;
-    public ImageView n;
+    public boolean a;
+    public String b;
+    public String c;
 
     /* loaded from: classes7.dex */
     public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ s45 b;
+        public final /* synthetic */ qs7 c;
 
-        public a(qs7 qs7Var, Context context) {
+        public a(qs7 qs7Var, TbPageContext tbPageContext, s45 s45Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {qs7Var, context};
+                Object[] objArr = {qs7Var, tbPageContext, s45Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -64,27 +53,90 @@ public class qs7 {
                     return;
                 }
             }
-            this.a = context;
+            this.c = qs7Var;
+            this.a = tbPageContext;
+            this.b = s45Var;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Context context = this.a;
-                if (context instanceof Activity) {
-                    ((Activity) context).finish();
-                }
+                boolean booleanValue = ((Boolean) view2.getTag(R.id.is_forum_owner_check)).booleanValue();
+                PrivateForumPopInfoData privateForumPopInfoData = (PrivateForumPopInfoData) view2.getTag(R.id.private_pop_info);
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{privateForumPopInfoData.R()});
+                ls7.f(privateForumPopInfoData, booleanValue, this.c.b, this.c.c, true);
+                this.b.dismiss();
             }
         }
     }
 
-    public qs7(Context context) {
+    /* loaded from: classes7.dex */
+    public class b implements s45.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(qs7 qs7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qs7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.s45.e
+        public void onClick(s45 s45Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, s45Var) == null) {
+                s45Var.dismiss();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921682, 3));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921588));
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(qs7 qs7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qs7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                YunDialogManager.unMarkShowingDialogName("frsExam");
+            }
+        }
+    }
+
+    public qs7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -94,49 +146,69 @@ public class qs7 {
                 return;
             }
         }
-        UtilHelper.getDimenPixelSize(R.dimen.tbds42);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds50);
-        UtilHelper.getStatusBarHeight();
-        UtilHelper.getDimenPixelSize(R.dimen.tbds51);
-        UtilHelper.getStatusBarHeight();
-        if (context == null) {
-            return;
+        this.a = false;
+    }
+
+    @Override // com.baidu.tieba.x55
+    public void a(@NonNull Context context, @NonNull p55 p55Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, p55Var) == null) {
+            if (!(context instanceof TbPageContextSupport)) {
+                YunDialogManager.unMarkShowingDialogName("frsExam");
+                return;
+            }
+            TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) context;
+            if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
+                qea frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+                FrsViewData frsViewData = new FrsViewData();
+                frsViewData.receiveData(frsResponseData);
+                if (frsViewData.getForum() != null) {
+                    this.c = frsViewData.getForum().getName();
+                    this.b = frsViewData.getForum().getId();
+                }
+                if (!StringUtils.isNull(this.c) && !StringUtils.isNull(this.b)) {
+                    if ((frsViewData.getPrivateForumTotalInfo() == null || frsViewData.getPrivateForumTotalInfo().a() == null || frsViewData.getUserData().getIs_manager() != 1) && frsViewData.getPrivateForumPopInfo() == null) {
+                        YunDialogManager.unMarkShowingDialogName("frsExam");
+                        return;
+                    }
+                    PrivateForumPopInfoData privateForumPopInfoData = new PrivateForumPopInfoData();
+                    privateForumPopInfoData.S(frsViewData.getPrivateForumTotalInfo().c());
+                    FrsPrivateCommonDialogView frsPrivateCommonDialogView = new FrsPrivateCommonDialogView(tbPageContextSupport.getPageContext().getPageActivity());
+                    PrivateForumInfo a2 = frsViewData.getPrivateForumTotalInfo().a();
+                    if (a2 != null && a2.private_forum_status.intValue() == 1 && (di.isEmpty(privateForumPopInfoData.Q()) || privateForumPopInfoData.P() != JavaTypesHelper.toInt(this.b, 0))) {
+                        privateForumPopInfoData.V("create_success");
+                        privateForumPopInfoData.W(String.format(ar7.h, this.b, this.c));
+                        privateForumPopInfoData.U(JavaTypesHelper.toInt(this.b, -1));
+                        privateForumPopInfoData.setTitle(context.getString(R.string.obfuscated_res_0x7f0f16f8));
+                        privateForumPopInfoData.T(context.getString(R.string.obfuscated_res_0x7f0f16f9));
+                        z = frsPrivateCommonDialogView.c(privateForumPopInfoData, false);
+                    } else if (privateForumPopInfoData.P() == JavaTypesHelper.toInt(this.b, 0)) {
+                        z = frsPrivateCommonDialogView.c(privateForumPopInfoData, false);
+                    } else {
+                        z = false;
+                    }
+                    if (!z && (privateForumPopInfoData = frsViewData.getPrivateForumPopInfo()) != null && privateForumPopInfoData.P() == JavaTypesHelper.toInt(this.b, 0)) {
+                        this.a = true;
+                        frsPrivateCommonDialogView.c(privateForumPopInfoData, true);
+                    }
+                    TbPageContext pageContext = tbPageContextSupport.getPageContext();
+                    s45 s45Var = new s45(pageContext.getPageActivity());
+                    s45Var.setContentViewSize(10);
+                    s45Var.setContentView(frsPrivateCommonDialogView);
+                    s45Var.setCanceledOnTouchOutside(false);
+                    frsPrivateCommonDialogView.setConfirmButton(new a(this, pageContext, s45Var));
+                    s45Var.setCloseButton(new b(this));
+                    s45Var.setOnDismissListener(new c(this));
+                    s45Var.create(pageContext).show();
+                    FrsPrivateCommonDialogView.setDialogShown(privateForumPopInfoData, this.a);
+                    ls7.f(privateForumPopInfoData, this.a, this.b, this.c, false);
+                    return;
+                }
+                YunDialogManager.unMarkShowingDialogName("frsExam");
+                return;
+            }
+            YunDialogManager.unMarkShowingDialogName("frsExam");
         }
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0352, (ViewGroup) null);
-        this.a = inflate;
-        this.b = (RelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f090f02);
-        this.c = (LinearGradientView) this.a.findViewById(R.id.obfuscated_res_0x7f090f05);
-        TbImageView tbImageView = (TbImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090f03);
-        this.j = tbImageView;
-        tbImageView.setDefaultBgResource(R.color.transparent);
-        this.j.setDefaultResource(R.drawable.obfuscated_res_0x7f0811c5);
-        this.d = (BarImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090cd3);
-        TextView textView = (TextView) this.a.findViewById(R.id.forum_name);
-        this.e = textView;
-        SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
-        this.f = (FrsHeaderBannerView) this.a.findViewById(R.id.obfuscated_res_0x7f090cc2);
-        this.g = (LinearLayout) this.a.findViewById(R.id.obfuscated_res_0x7f090adb);
-        this.h = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ada);
-        this.i = this.a.findViewById(R.id.obfuscated_res_0x7f090f1e);
-        this.k = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090add);
-        this.l = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090adf);
-        this.m = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090adc);
-        this.n = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f090ade);
-        this.k.setOnClickListener(new a(this, context));
-        this.d.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
-        this.d.setContentDescription(context.getResources().getString(R.string.obfuscated_res_0x7f0f0320));
-        this.d.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4));
-        this.d.setShowOval(true);
-        this.d.setBorderColor(SkinManager.getColor(R.color.black_alpha15));
-        this.d.setStrokeColorResId(R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.a, R.color.CAM_X0201);
-        EMManager.from(this.i).setCardType(1).setCorner(R.string.J_X14).setBackGroundColor(R.color.CAM_X0201);
-        SkinManager.setBackgroundResource(this.h, R.color.CAM_X0201);
-        SkinManager.setImageResource(this.k, R.drawable.ic_icon_pure_topbar_return40_svg);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.l, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        this.m.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0101), null));
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.n, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.h, R.drawable.obfuscated_res_0x7f080343, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
     }
 }

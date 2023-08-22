@@ -3,7 +3,6 @@ package com.baidu.tieba.immessagecenter.msgtab.ui.view;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.DrawableRes;
@@ -12,6 +11,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.wordscommand.util.CommandUBCHelper;
 import com.baidu.tbadk.TbSingleton;
@@ -24,13 +24,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hpa;
-import com.baidu.tieba.immessagecenter.arch.view.BaseView;
-import com.baidu.tieba.immessagecenter.arch.view.LifecycleRootView;
 import com.baidu.tieba.immessagecenter.databinding.MsgTabGuideViewBinding;
-import com.baidu.tieba.jpa;
-import com.baidu.tieba.op8;
-import com.baidu.tieba.ur8;
+import com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide;
+import com.baidu.tieba.lt8;
+import com.baidu.tieba.qta;
+import com.baidu.tieba.sta;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,7 +38,6 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
 import java.io.Serializable;
-import java.util.Iterator;
 import java.util.List;
 import kotlin.Metadata;
 import kotlin.Unit;
@@ -49,21 +46,22 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000l\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\t\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000 /2\u00020\u0001:\u0002/0B\u000f\b\u0002\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u001c\u001a\u00020\f2\u0006\u0010\u0018\u001a\u00020\u0017H\u0002J\b\u0010\u001d\u001a\u00020\u000eH\u0002J\u0006\u0010\u0010\u001a\u00020\u000eJ\u0006\u0010\u001e\u001a\u00020\fJ\u0014\u0010\u001f\u001a\u00020\f2\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000bJF\u0010 \u001a\u00020\f2>\u0010\u0011\u001a:\u0012\u0013\u0012\u00110\u0013¢\u0006\f\b\u0014\u0012\b\b\u0015\u0012\u0004\b\b(\u0016\u0012\u0013\u0012\u00110\u0017¢\u0006\f\b\u0014\u0012\b\b\u0015\u0012\u0004\b\b(\u0018\u0012\u0004\u0012\u00020\f\u0018\u00010\u0012j\u0004\u0018\u0001`\u0019J\u0006\u0010!\u001a\u00020\fJ\u0010\u0010\"\u001a\u00020\f2\u0006\u0010!\u001a\u00020\u000eH\u0002J\u0016\u0010#\u001a\u00020\f2\u000e\u0010$\u001a\n\u0012\u0004\u0012\u00020%\u0018\u00010\bJ\u0014\u0010&\u001a\n (*\u0004\u0018\u00010'0'*\u00020)H\u0002J\f\u0010*\u001a\u00020\u0017*\u00020\u0017H\u0002J\f\u0010+\u001a\u00020\u000e*\u00020\u0017H\u0002J\f\u0010,\u001a\u00020\u000e*\u00020\u0017H\u0002J\f\u0010-\u001a\u00020\u000e*\u00020\u0017H\u0002J\f\u0010.\u001a\u00020\u000e*\u00020\u0017H\u0002R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0007\u001a\b\u0012\u0004\u0012\u00020\t0\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0016\u0010\n\u001a\n\u0012\u0004\u0012\u00020\f\u0018\u00010\u000bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\r\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u000f\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0010\u001a\u00020\u000eX\u0082\u000e¢\u0006\u0002\n\u0000RF\u0010\u0011\u001a:\u0012\u0013\u0012\u00110\u0013¢\u0006\f\b\u0014\u0012\b\b\u0015\u0012\u0004\b\b(\u0016\u0012\u0013\u0012\u00110\u0017¢\u0006\f\b\u0014\u0012\b\b\u0015\u0012\u0004\b\b(\u0018\u0012\u0004\u0012\u00020\f\u0018\u00010\u0012j\u0004\u0018\u0001`\u0019X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001a\u001a\u00020\u001bX\u0082\u000e¢\u0006\u0002\n\u0000¨\u00061"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgTabGuide;", "", "activity", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "(Lcom/baidu/tbadk/core/BaseFragmentActivity;)V", "binding", "Lcom/baidu/tieba/immessagecenter/databinding/MsgTabGuideViewBinding;", "confLists", "", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgTabGuide$Conf;", "dismissCallback", "Lkotlin/Function0;", "", "isDataReady", "", "isShowCalledWhenDataNotReady", "isShowing", "showCallback", "Lkotlin/Function2;", "Lcom/baidu/tieba/view/GuideHelper;", "Lkotlin/ParameterName;", "name", "helper", "", "index", "Lcom/baidu/tieba/view/GuideHelperCallback;", "thirdStepAnchorTag", "", "adjustGuideView", "hasThirdStep", "onDataReady", "setOnDismissCallback", "setOnShowCallback", "show", "switchSpriteShow", "trySetThirdStepData", "data", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "eMManager", "Lcom/baidu/tbadk/core/elementsMaven/EMManager;", "kotlin.jvm.PlatformType", "Landroid/view/View;", "id2Px", "isFirstStep", "isLastStep", "isSecondStep", "isThirdStep", "Companion", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000v\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010 \n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\u000b\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\b\u0007\n\u0002\u0010\u000e\n\u0002\b\t\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\b\u0018\u0000 92\u00020\u0001:\u00029:B\u000f\b\u0002\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u001d\u001a\u00020\u00102\u0006\u0010\u001a\u001a\u00020\u0006H\u0002J\b\u0010\u001e\u001a\u00020\u0012H\u0002J\b\u0010\u001f\u001a\u00020\u0012H\u0002J\u0006\u0010\u0013\u001a\u00020\u0012J\u0006\u0010 \u001a\u00020\u0010J\u0010\u0010!\u001a\u00020\u00102\u0006\u0010\"\u001a\u00020#H\u0002J\u0010\u0010$\u001a\u00020\u00102\u0006\u0010\"\u001a\u00020#H\u0002J\u0014\u0010%\u001a\u00020\u00102\f\u0010\u000e\u001a\b\u0012\u0004\u0012\u00020\u00100\u000fJF\u0010&\u001a\u00020\u00102>\u0010\u0014\u001a:\u0012\u0013\u0012\u00110\u0016¢\u0006\f\b\u0017\u0012\b\b\u0018\u0012\u0004\b\b(\u0019\u0012\u0013\u0012\u00110\u0006¢\u0006\f\b\u0017\u0012\b\b\u0018\u0012\u0004\b\b(\u001a\u0012\u0004\u0012\u00020\u0010\u0018\u00010\u0015j\u0004\u0018\u0001`\u001bJ\u0006\u0010'\u001a\u00020\u0010J\b\u0010(\u001a\u00020\u0010H\u0002J\b\u0010)\u001a\u00020\u0010H\u0002J\u0010\u0010*\u001a\u00020\u00102\u0006\u0010'\u001a\u00020\u0012H\u0002J\u0016\u0010+\u001a\u00020\u00102\u000e\u0010,\u001a\n\u0012\u0004\u0012\u00020-\u0018\u00010\nJ\u0015\u0010.\u001a\u00020\u00102\b\u0010\f\u001a\u0004\u0018\u00010\r¢\u0006\u0002\u0010/J\u0014\u00100\u001a\n 2*\u0004\u0018\u00010101*\u000203H\u0002J\f\u00104\u001a\u00020\u0006*\u00020\u0006H\u0002J\f\u00105\u001a\u00020\u0012*\u00020\u0006H\u0002J\f\u00106\u001a\u00020\u0012*\u00020\u0006H\u0002J\f\u00107\u001a\u00020\u0012*\u00020\u0006H\u0002J\f\u00108\u001a\u00020\u0012*\u00020\u0006H\u0002R\u000e\u0010\u0005\u001a\u00020\u0006X\u0082D¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0007\u001a\u00020\bX\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\t\u001a\b\u0012\u0004\u0012\u00020\u000b0\nX\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\f\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000R\u0016\u0010\u000e\u001a\n\u0012\u0004\u0012\u00020\u0010\u0018\u00010\u000fX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0011\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u0013\u001a\u00020\u0012X\u0082\u000e¢\u0006\u0002\n\u0000RF\u0010\u0014\u001a:\u0012\u0013\u0012\u00110\u0016¢\u0006\f\b\u0017\u0012\b\b\u0018\u0012\u0004\b\b(\u0019\u0012\u0013\u0012\u00110\u0006¢\u0006\f\b\u0017\u0012\b\b\u0018\u0012\u0004\b\b(\u001a\u0012\u0004\u0012\u00020\u0010\u0018\u00010\u0015j\u0004\u0018\u0001`\u001bX\u0082\u000e¢\u0006\u0002\n\u0000R\u000e\u0010\u001c\u001a\u00020\rX\u0082\u000e¢\u0006\u0002\n\u0000¨\u0006;"}, d2 = {"Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgTabGuide;", "", "activity", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "(Lcom/baidu/tbadk/core/BaseFragmentActivity;)V", "STEP3_INDEX", "", "binding", "Lcom/baidu/tieba/immessagecenter/databinding/MsgTabGuideViewBinding;", "confLists", "", "Lcom/baidu/tieba/immessagecenter/msgtab/ui/view/MsgTabGuide$Conf;", "currentChatTabId", "", "dismissCallback", "Lkotlin/Function0;", "", "isDataReady", "", "isShowing", "showCallback", "Lkotlin/Function2;", "Lcom/baidu/tieba/view/GuideHelper;", "Lkotlin/ParameterName;", "name", "helper", "index", "Lcom/baidu/tieba/view/GuideHelperCallback;", "step2AnchorTag", "adjustGuideView", "hasStep2", "hasStep3", "onDataReady", "onStepDismiss", "key", "", "onStepShow", "setOnDismissCallback", "setOnShowCallback", "show", "showStep0", "showStep3", "switchSpriteShow", "trySetStep2Data", "data", "Lcom/baidu/tieba/immessagecenter/msgtab/data/NavigationData;", "trySetStep3Data", "(Ljava/lang/Long;)V", "eMManager", "Lcom/baidu/tbadk/core/elementsMaven/EMManager;", "kotlin.jvm.PlatformType", "Landroid/view/View;", "id2Px", "isLastStep", "isStep0", "isStep1", "isStep2", "Companion", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class MsgTabGuide {
     public static /* synthetic */ Interceptable $ic;
-    public static final a j;
+    public static final a k;
     public transient /* synthetic */ FieldHolder $fh;
     public final BaseFragmentActivity a;
-    public final List<Conf> b;
-    public final MsgTabGuideViewBinding c;
-    public long d;
-    public Function2<? super hpa, ? super Integer, Unit> e;
-    public Function0<Unit> f;
-    public boolean g;
+    public final int b;
+    public final List<Conf> c;
+    public final MsgTabGuideViewBinding d;
+    public long e;
+    public Function2<? super qta, ? super Integer, Unit> f;
+    public Function0<Unit> g;
     public boolean h;
     public boolean i;
+    public long j;
 
     static {
         InterceptResult invokeClinit;
@@ -78,26 +76,26 @@ public final class MsgTabGuide {
                 return;
             }
         }
-        j = new a(null);
+        k = new a(null);
     }
 
     public /* synthetic */ MsgTabGuide(BaseFragmentActivity baseFragmentActivity, DefaultConstructorMarker defaultConstructorMarker) {
         this(baseFragmentActivity);
     }
 
-    public final boolean o(int i) {
+    public final boolean p(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i == 0 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i == 0 : invokeI.booleanValue;
     }
 
     public final boolean q(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i == 1 : invokeI.booleanValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i == 1 : invokeI.booleanValue;
     }
 
-    public final boolean s(int i) {
+    public final boolean r(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i == 2 : invokeI.booleanValue;
@@ -280,6 +278,15 @@ public final class MsgTabGuide {
             this();
         }
 
+        public final boolean f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
@@ -294,37 +301,58 @@ public final class MsgTabGuide {
             }
         }
 
-        public final void a() {
+        public final void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (f()) {
+                    d();
+                } else {
+                    e();
+                }
+            }
+        }
+
+        public final void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 SharedPrefHelper.getInstance().putBoolean("key_show_msg_tab_guide", false);
             }
         }
 
-        public final boolean b() {
+        public final void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                SharedPrefHelper.getInstance().putBoolean("key_show_msg_tab_guide_step3", false);
+            }
+        }
+
+        public final boolean g() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return SharedPrefHelper.getInstance().getBoolean("key_show_msg_tab_guide", true);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (!f() && lt8.a.a() && SharedPrefHelper.getInstance().getBoolean("key_show_msg_tab_guide_step3", true)) {
+                    return true;
+                }
+                return false;
             }
             return invokeV.booleanValue;
         }
 
-        public final void c(int i) {
+        public final void h(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
                 StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_MSG_TAB_GUIDE_STEP_CLICK);
                 statisticItem.param("obj_type", i + 1);
                 TiebaStatic.log(statisticItem);
             }
         }
 
-        public final MsgTabGuide d(BaseFragmentActivity activity) {
+        public final MsgTabGuide i(BaseFragmentActivity activity) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
                 Intrinsics.checkNotNullParameter(activity, "activity");
-                if (!b()) {
+                if (!f() && !g()) {
                     return null;
                 }
                 return new MsgTabGuide(activity, null);
@@ -349,14 +377,16 @@ public final class MsgTabGuide {
             }
         }
         this.a = baseFragmentActivity;
-        this.b = CollectionsKt__CollectionsKt.listOf((Object[]) new Conf[]{new Conf(R.drawable.obfuscated_res_0x7f080a63, n(R.dimen.tbds260), n(R.dimen.tbds190), R.string.obfuscated_res_0x7f0f0cae, 0), new Conf(R.drawable.obfuscated_res_0x7f080a64, n(R.dimen.tbds177), n(R.dimen.tbds338), R.string.obfuscated_res_0x7f0f0caf, 0), new Conf(R.drawable.obfuscated_res_0x7f080a65, n(R.dimen.tbds145), n(R.dimen.tbds160), R.string.obfuscated_res_0x7f0f0cb0, 0)});
+        this.b = 3;
+        this.c = CollectionsKt__CollectionsKt.listOf((Object[]) new Conf[]{new Conf(R.drawable.obfuscated_res_0x7f080a70, n(R.dimen.tbds260), n(R.dimen.tbds190), R.string.obfuscated_res_0x7f0f0cb6, 0), new Conf(R.drawable.obfuscated_res_0x7f080a71, n(R.dimen.tbds177), n(R.dimen.tbds338), R.string.obfuscated_res_0x7f0f0cb7, 0), new Conf(R.drawable.obfuscated_res_0x7f080a72, n(R.dimen.tbds145), n(R.dimen.tbds160), R.string.obfuscated_res_0x7f0f0cb8, 0), new Conf(R.drawable.obfuscated_res_0x7f080a73, n(R.dimen.tbds796), n(R.dimen.tbds450), 0, 0)});
         MsgTabGuideViewBinding c = MsgTabGuideViewBinding.c(LayoutInflater.from(this.a));
         Intrinsics.checkNotNullExpressionValue(c, "inflate(LayoutInflater.from(activity))");
-        this.c = c;
-        this.d = -1L;
+        this.d = c;
+        this.e = -1L;
+        this.j = -1L;
     }
 
-    public final EMManager l(View view2) {
+    public final EMManager k(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
@@ -368,79 +398,114 @@ public final class MsgTabGuide {
     public final int n(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             return UtilHelper.getDimenPixelSize(i);
         }
         return invokeI.intValue;
     }
 
-    public final boolean p(int i) {
+    public final boolean o(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if ((q(i) && !m()) || i == CollectionsKt__CollectionsKt.getLastIndex(this.b)) {
-                return true;
+            if ((!q(i) || l()) && !r(i) && i != CollectionsKt__CollectionsKt.getLastIndex(this.c)) {
+                return false;
             }
-            return false;
+            return true;
         }
         return invokeI.booleanValue;
     }
 
-    public final void u(Function2<? super hpa, ? super Integer, Unit> function2) {
+    public final void t(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, function2) == null) {
-            this.e = function2;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            YunDialogManager.unMarkShowingDialogName(str);
+            y(true);
+            this.h = false;
+            this.i = false;
+            Function0<Unit> function0 = this.g;
+            if (function0 != null) {
+                function0.invoke();
+            }
         }
     }
 
-    public final void k(int i) {
+    public final void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+            k.c();
+            YunDialogManager.markShowingDialogName(str);
+            TbSingleton.MsgUpgradeTips.markHasShown();
+            TbSingleton.MsgUpgradeTips.setIsMsgTabUpgradeTipsShowing(false);
+            y(false);
+        }
+    }
+
+    public final void z(Long l) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048592, this, l) == null) && l != null) {
+            this.j = l.longValue();
+        }
+    }
+
+    public final void j(int i) {
         int i2;
         ImageView imageView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || i >= this.b.size()) {
+        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || i >= this.c.size()) {
             return;
         }
-        Conf conf = this.b.get(i);
-        boolean z = !s(i);
-        if (p(i)) {
-            i2 = R.string.obfuscated_res_0x7f0f0cac;
+        Conf conf = this.c.get(i);
+        boolean z = !r(i);
+        if (o(i)) {
+            i2 = R.string.obfuscated_res_0x7f0f0cb4;
         } else {
-            i2 = R.string.obfuscated_res_0x7f0f0cad;
+            i2 = R.string.obfuscated_res_0x7f0f0cb5;
         }
         if (z) {
-            this.c.c.setVisibility(0);
-            this.c.e.setVisibility(8);
-            imageView = this.c.c;
+            this.d.c.setVisibility(0);
+            this.d.e.setVisibility(8);
+            imageView = this.d.c;
             Intrinsics.checkNotNullExpressionValue(imageView, "binding.icon");
         } else {
-            this.c.c.setVisibility(8);
-            this.c.e.setVisibility(0);
-            imageView = this.c.f;
+            this.d.c.setVisibility(8);
+            this.d.e.setVisibility(0);
+            imageView = this.d.f;
             Intrinsics.checkNotNullExpressionValue(imageView, "binding.originViewIcon");
         }
         imageView.setImageResource(conf.getIconId());
         ViewGroup.LayoutParams layoutParams = imageView.getLayoutParams();
         layoutParams.width = conf.getIconW();
         layoutParams.height = conf.getIconH();
-        ViewGroup.LayoutParams layoutParams2 = this.c.h.getLayoutParams();
+        ViewGroup.LayoutParams layoutParams2 = this.d.h.getLayoutParams();
         if (layoutParams2 != null) {
             ((ViewGroup.MarginLayoutParams) layoutParams2).topMargin = conf.getTipsMarginTop();
-            this.c.h.setText(conf.getTipsId());
-            this.c.b.setText(i2);
-            TextView textView = this.c.b;
+            if (conf.getTipsId() > 0) {
+                this.d.h.setText(conf.getTipsId());
+            } else {
+                this.d.h.setVisibility(8);
+                ConstraintLayout.LayoutParams layoutParams3 = new ConstraintLayout.LayoutParams(BdUtilHelper.getDimens(this.a, R.dimen.tbds280), BdUtilHelper.getDimens(this.a, R.dimen.tbds114));
+                layoutParams3.rightToRight = R.id.obfuscated_res_0x7f091005;
+                layoutParams3.topToBottom = R.id.obfuscated_res_0x7f091005;
+                ((ViewGroup.MarginLayoutParams) layoutParams3).topMargin = BdUtilHelper.getDimens(this.a, R.dimen.tbds21);
+                layoutParams3.setMarginEnd(BdUtilHelper.getDimens(this.a, R.dimen.tbds32));
+                this.d.b.setLayoutParams(layoutParams3);
+            }
+            this.d.b.setText(i2);
+            TextView textView = this.d.b;
             Intrinsics.checkNotNullExpressionValue(textView, "binding.action");
-            l(textView).setCorner(R.string.J_X01).setTextColor(R.color.CAM_X0101).setBackGroundColor(R.color.CAM_X0920);
-            this.c.getRoot().invalidate();
+            k(textView).setCorner(R.string.J_X01).setTextColor(R.color.CAM_X0101).setBackGroundColor(R.color.CAM_X0920);
+            this.d.getRoot().requestLayout();
             return;
         }
         throw new NullPointerException("null cannot be cast to non-null type android.view.ViewGroup.MarginLayoutParams");
     }
 
-    public final boolean m() {
+    public final boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.d != -1) {
+            if (this.e != -1) {
                 return true;
             }
             return false;
@@ -448,315 +513,464 @@ public final class MsgTabGuide {
         return invokeV.booleanValue;
     }
 
-    public final boolean r() {
+    public final boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.j == -2) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public final void t() {
+    public final void s() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.h = true;
-            if (this.i) {
-                this.i = false;
-                v();
+            if (k.f() && l()) {
+                this.i = true;
+            }
+            if (k.g() && m()) {
+                this.i = true;
             }
         }
     }
 
     public final void v() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            if (!this.h) {
-                this.i = true;
-            } else if (!this.g && j.b()) {
-                this.g = true;
-                hpa a2 = hpa.i.a(this.a);
-                a2.d(new Function0<jpa>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$show$1
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MsgTabGuide this$0;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.i) {
+            return;
+        }
+        w();
+        x();
+    }
 
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(0);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                super(((Integer) newInitContext.callArgs[0]).intValue());
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && !this.h && k.f()) {
+            this.h = true;
+            qta a2 = qta.i.a(this.a);
+            a2.d(new Function0<sta>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MsgTabGuide this$0;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(0);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
-                        this.this$0 = this;
                     }
+                    this.this$0 = this;
+                }
 
-                    /* JADX DEBUG: Method merged with bridge method */
-                    /* JADX WARN: Can't rename method to resolve collision */
-                    @Override // kotlin.jvm.functions.Function0
-                    public final jpa invoke() {
-                        InterceptResult invokeV;
-                        MsgTabGuideViewBinding msgTabGuideViewBinding;
-                        int n;
-                        int n2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
-                            return (jpa) invokeV.objValue;
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // kotlin.jvm.functions.Function0
+                public final sta invoke() {
+                    InterceptResult invokeV;
+                    MsgTabGuideViewBinding msgTabGuideViewBinding;
+                    int n;
+                    int n2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null && (invokeV = interceptable2.invokeV(1048576, this)) != null) {
+                        return (sta) invokeV.objValue;
+                    }
+                    this.this$0.j(0);
+                    sta.a aVar = new sta.a();
+                    msgTabGuideViewBinding = this.this$0.d;
+                    ConstraintLayout root = msgTabGuideViewBinding.getRoot();
+                    Intrinsics.checkNotNullExpressionValue(root, "binding.root");
+                    aVar.d(root);
+                    aVar.c(R.id.obfuscated_res_0x7f091005);
+                    aVar.b(-1L);
+                    n = this.this$0.n(R.dimen.tbds4);
+                    aVar.e(-n);
+                    n2 = this.this$0.n(R.dimen.tbds5);
+                    aVar.f(n2);
+                    return aVar.a();
+                }
+            });
+            a2.f(new Function2<qta, Integer, Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MsgTabGuide this$0;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(2);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
-                        this.this$0.k(0);
-                        jpa.a aVar = new jpa.a();
-                        msgTabGuideViewBinding = this.this$0.c;
-                        ConstraintLayout root = msgTabGuideViewBinding.getRoot();
-                        Intrinsics.checkNotNullExpressionValue(root, "binding.root");
-                        aVar.d(root);
-                        aVar.c(R.id.obfuscated_res_0x7f090ff7);
-                        aVar.b(-1L);
-                        n = this.this$0.n(R.dimen.tbds4);
-                        aVar.e(-n);
-                        n2 = this.this$0.n(R.dimen.tbds5);
-                        aVar.f(n2);
-                        return aVar.a();
                     }
-                });
-                a2.f(new Function2<hpa, Integer, Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$show$2
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MsgTabGuide this$0;
+                    this.this$0 = this;
+                }
 
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(2);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                super(((Integer) newInitContext.callArgs[0]).intValue());
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function2
+                public /* bridge */ /* synthetic */ Unit invoke(qta qtaVar, Integer num) {
+                    invoke(qtaVar, num.intValue());
+                    return Unit.INSTANCE;
+                }
 
-                    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
-                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-                    @Override // kotlin.jvm.functions.Function2
-                    public /* bridge */ /* synthetic */ Unit invoke(hpa hpaVar, Integer num) {
-                        invoke(hpaVar, num.intValue());
-                        return Unit.INSTANCE;
-                    }
+                public final void invoke(qta helper, int i) {
+                    boolean p;
+                    boolean q;
+                    boolean l;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, helper, i) == null) {
+                        Intrinsics.checkNotNullParameter(helper, "helper");
+                        MsgTabGuide.k.h(i);
+                        p = this.this$0.p(i);
+                        if (p) {
+                            this.this$0.j(i + 1);
+                            helper.d(new Function0<sta>(this.this$0) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$2.1
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ MsgTabGuide this$0;
 
-                    public final void invoke(hpa helper, int i) {
-                        boolean o;
-                        boolean q;
-                        boolean m;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, helper, i) == null) {
-                            Intrinsics.checkNotNullParameter(helper, "helper");
-                            MsgTabGuide.j.c(i);
-                            o = this.this$0.o(i);
-                            if (o) {
-                                this.this$0.k(i + 1);
-                                helper.d(new Function0<jpa>(this.this$0) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$show$2.1
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ MsgTabGuide this$0;
-
-                                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                                    {
-                                        super(0);
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {r7};
-                                            interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
-                                                super(((Integer) newInitContext.callArgs[0]).intValue());
-                                                newInitContext.thisArg = this;
-                                                interceptable3.invokeInitBody(65536, newInitContext);
-                                                return;
-                                            }
+                                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                                {
+                                    super(0);
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {r7};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
                                         }
-                                        this.this$0 = r7;
                                     }
+                                    this.this$0 = r7;
+                                }
 
-                                    /* JADX DEBUG: Method merged with bridge method */
-                                    /* JADX WARN: Can't rename method to resolve collision */
-                                    @Override // kotlin.jvm.functions.Function0
-                                    public final jpa invoke() {
-                                        InterceptResult invokeV;
-                                        MsgTabGuideViewBinding msgTabGuideViewBinding;
-                                        int n;
-                                        int n2;
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || (invokeV = interceptable3.invokeV(1048576, this)) == null) {
-                                            jpa.a aVar = new jpa.a();
-                                            msgTabGuideViewBinding = this.this$0.c;
-                                            ConstraintLayout root = msgTabGuideViewBinding.getRoot();
-                                            Intrinsics.checkNotNullExpressionValue(root, "binding.root");
-                                            aVar.d(root);
-                                            aVar.c(R.id.obfuscated_res_0x7f090ff7);
-                                            aVar.b(-2L);
-                                            n = this.this$0.n(R.dimen.tbds4);
-                                            aVar.e(-n);
-                                            n2 = this.this$0.n(R.dimen.tbds4);
-                                            aVar.f(n2);
-                                            return aVar.a();
-                                        }
-                                        return (jpa) invokeV.objValue;
+                                /* JADX DEBUG: Method merged with bridge method */
+                                /* JADX WARN: Can't rename method to resolve collision */
+                                @Override // kotlin.jvm.functions.Function0
+                                public final sta invoke() {
+                                    InterceptResult invokeV;
+                                    MsgTabGuideViewBinding msgTabGuideViewBinding;
+                                    int n;
+                                    int n2;
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || (invokeV = interceptable3.invokeV(1048576, this)) == null) {
+                                        sta.a aVar = new sta.a();
+                                        msgTabGuideViewBinding = this.this$0.d;
+                                        ConstraintLayout root = msgTabGuideViewBinding.getRoot();
+                                        Intrinsics.checkNotNullExpressionValue(root, "binding.root");
+                                        aVar.d(root);
+                                        aVar.c(R.id.obfuscated_res_0x7f091005);
+                                        aVar.b(-2L);
+                                        n = this.this$0.n(R.dimen.tbds4);
+                                        aVar.e(-n);
+                                        n2 = this.this$0.n(R.dimen.tbds4);
+                                        aVar.f(n2);
+                                        return aVar.a();
                                     }
-                                });
-                                return;
-                            }
-                            q = this.this$0.q(i);
-                            if (!q) {
-                                return;
-                            }
-                            m = this.this$0.m();
-                            if (m) {
-                                this.this$0.k(i + 1);
-                                helper.d(new Function0<jpa>(this.this$0) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$show$2.2
-                                    public static /* synthetic */ Interceptable $ic;
-                                    public transient /* synthetic */ FieldHolder $fh;
-                                    public final /* synthetic */ MsgTabGuide this$0;
+                                    return (sta) invokeV.objValue;
+                                }
+                            });
+                            return;
+                        }
+                        q = this.this$0.q(i);
+                        if (!q) {
+                            return;
+                        }
+                        l = this.this$0.l();
+                        if (l) {
+                            this.this$0.j(i + 1);
+                            helper.d(new Function0<sta>(this.this$0) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$2.2
+                                public static /* synthetic */ Interceptable $ic;
+                                public transient /* synthetic */ FieldHolder $fh;
+                                public final /* synthetic */ MsgTabGuide this$0;
 
-                                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                                    {
-                                        super(0);
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 != null) {
-                                            InitContext newInitContext = TitanRuntime.newInitContext();
-                                            newInitContext.initArgs = r2;
-                                            Object[] objArr = {r7};
-                                            interceptable3.invokeUnInit(65536, newInitContext);
-                                            int i2 = newInitContext.flag;
-                                            if ((i2 & 1) != 0) {
-                                                int i3 = i2 & 2;
-                                                super(((Integer) newInitContext.callArgs[0]).intValue());
-                                                newInitContext.thisArg = this;
-                                                interceptable3.invokeInitBody(65536, newInitContext);
-                                                return;
-                                            }
+                                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                                {
+                                    super(0);
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 != null) {
+                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                        newInitContext.initArgs = r2;
+                                        Object[] objArr = {r7};
+                                        interceptable3.invokeUnInit(65536, newInitContext);
+                                        int i2 = newInitContext.flag;
+                                        if ((i2 & 1) != 0) {
+                                            int i3 = i2 & 2;
+                                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                                            newInitContext.thisArg = this;
+                                            interceptable3.invokeInitBody(65536, newInitContext);
+                                            return;
                                         }
-                                        this.this$0 = r7;
                                     }
+                                    this.this$0 = r7;
+                                }
 
-                                    /* JADX DEBUG: Method merged with bridge method */
-                                    /* JADX WARN: Can't rename method to resolve collision */
-                                    @Override // kotlin.jvm.functions.Function0
-                                    public final jpa invoke() {
-                                        InterceptResult invokeV;
-                                        MsgTabGuideViewBinding msgTabGuideViewBinding;
-                                        long j2;
-                                        int n;
-                                        int n2;
-                                        Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || (invokeV = interceptable3.invokeV(1048576, this)) == null) {
-                                            jpa.a aVar = new jpa.a();
-                                            msgTabGuideViewBinding = this.this$0.c;
-                                            ConstraintLayout root = msgTabGuideViewBinding.getRoot();
-                                            Intrinsics.checkNotNullExpressionValue(root, "binding.root");
-                                            aVar.d(root);
-                                            aVar.c(R.id.obfuscated_res_0x7f090ff7);
-                                            j2 = this.this$0.d;
-                                            aVar.b(Long.valueOf(j2));
-                                            n = this.this$0.n(R.dimen.tbds3);
-                                            aVar.e(-n);
-                                            n2 = this.this$0.n(R.dimen.tbds3);
-                                            aVar.f(n2);
-                                            return aVar.a();
-                                        }
-                                        return (jpa) invokeV.objValue;
+                                /* JADX DEBUG: Method merged with bridge method */
+                                /* JADX WARN: Can't rename method to resolve collision */
+                                @Override // kotlin.jvm.functions.Function0
+                                public final sta invoke() {
+                                    InterceptResult invokeV;
+                                    MsgTabGuideViewBinding msgTabGuideViewBinding;
+                                    long j;
+                                    int n;
+                                    int n2;
+                                    Interceptable interceptable3 = $ic;
+                                    if (interceptable3 == null || (invokeV = interceptable3.invokeV(1048576, this)) == null) {
+                                        sta.a aVar = new sta.a();
+                                        msgTabGuideViewBinding = this.this$0.d;
+                                        ConstraintLayout root = msgTabGuideViewBinding.getRoot();
+                                        Intrinsics.checkNotNullExpressionValue(root, "binding.root");
+                                        aVar.d(root);
+                                        aVar.c(R.id.obfuscated_res_0x7f091005);
+                                        j = this.this$0.e;
+                                        aVar.b(Long.valueOf(j));
+                                        n = this.this$0.n(R.dimen.tbds3);
+                                        aVar.e(-n);
+                                        n2 = this.this$0.n(R.dimen.tbds3);
+                                        aVar.f(n2);
+                                        return aVar.a();
                                     }
-                                });
-                            }
+                                    return (sta) invokeV.objValue;
+                                }
+                            });
                         }
                     }
-                });
-                a2.h(this.e);
-                a2.g(new Function0<Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$show$3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ MsgTabGuide this$0;
+                }
+            });
+            a2.h(this.f);
+            a2.g(new Function0<Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep0$3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MsgTabGuide this$0;
 
-                    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-                    {
-                        super(0);
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                super(((Integer) newInitContext.callArgs[0]).intValue());
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                    }
-
-                    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-                    @Override // kotlin.jvm.functions.Function0
-                    public /* bridge */ /* synthetic */ Unit invoke() {
-                        invoke2();
-                        return Unit.INSTANCE;
-                    }
-
-                    /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
-                    /* renamed from: invoke  reason: avoid collision after fix types in other method */
-                    public final void invoke2() {
-                        Function0 function0;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            YunDialogManager.unMarkShowingDialogName("key_show_msg_tab_guide");
-                            this.this$0.w(true);
-                            this.this$0.g = false;
-                            function0 = this.this$0.f;
-                            if (function0 != null) {
-                                function0.invoke();
-                            }
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(0);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
                         }
                     }
-                });
-                a2.i();
-                j.a();
-                YunDialogManager.markShowingDialogName("key_show_msg_tab_guide");
-                TbSingleton.MsgUpgradeTips.markHasShown();
-                TbSingleton.MsgUpgradeTips.setIsMsgTabUpgradeTipsShowing(false);
-                w(false);
-            }
+                    this.this$0 = this;
+                }
+
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function0
+                public /* bridge */ /* synthetic */ Unit invoke() {
+                    invoke2();
+                    return Unit.INSTANCE;
+                }
+
+                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final void invoke2() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        this.this$0.t("key_show_msg_tab_guide");
+                    }
+                }
+            });
+            a2.i();
+            u("key_show_msg_tab_guide");
         }
     }
 
-    public final void w(boolean z) {
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && !this.h && k.g() && m()) {
+            this.h = true;
+            qta a2 = qta.i.a(this.a);
+            a2.d(new Function0<sta>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep3$1
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MsgTabGuide this$0;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(0);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                /* JADX DEBUG: Method merged with bridge method */
+                /* JADX WARN: Can't rename method to resolve collision */
+                @Override // kotlin.jvm.functions.Function0
+                public final sta invoke() {
+                    InterceptResult invokeV;
+                    int i;
+                    MsgTabGuideViewBinding msgTabGuideViewBinding;
+                    int n;
+                    int n2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
+                        MsgTabGuide msgTabGuide = this.this$0;
+                        i = msgTabGuide.b;
+                        msgTabGuide.j(i);
+                        sta.a aVar = new sta.a();
+                        msgTabGuideViewBinding = this.this$0.d;
+                        ConstraintLayout root = msgTabGuideViewBinding.getRoot();
+                        Intrinsics.checkNotNullExpressionValue(root, "binding.root");
+                        aVar.d(root);
+                        n = this.this$0.n(R.dimen.tbds90);
+                        aVar.e(n);
+                        n2 = this.this$0.n(R.dimen.tbds140);
+                        aVar.f(n2);
+                        return aVar.a();
+                    }
+                    return (sta) invokeV.objValue;
+                }
+            });
+            a2.f(new Function2<qta, Integer, Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep3$2
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MsgTabGuide this$0;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(2);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function2
+                public /* bridge */ /* synthetic */ Unit invoke(qta qtaVar, Integer num) {
+                    invoke(qtaVar, num.intValue());
+                    return Unit.INSTANCE;
+                }
+
+                public final void invoke(qta qtaVar, int i) {
+                    int i2;
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qtaVar, i) == null) {
+                        Intrinsics.checkNotNullParameter(qtaVar, "<anonymous parameter 0>");
+                        MsgTabGuide.a aVar = MsgTabGuide.k;
+                        i2 = this.this$0.b;
+                        aVar.h(i2);
+                    }
+                }
+            });
+            a2.g(new Function0<Unit>(this) { // from class: com.baidu.tieba.immessagecenter.msgtab.ui.view.MsgTabGuide$showStep3$3
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ MsgTabGuide this$0;
+
+                /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+                {
+                    super(0);
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {this};
+                        interceptable2.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            super(((Integer) newInitContext.callArgs[0]).intValue());
+                            newInitContext.thisArg = this;
+                            interceptable2.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.this$0 = this;
+                }
+
+                /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+                @Override // kotlin.jvm.functions.Function0
+                public /* bridge */ /* synthetic */ Unit invoke() {
+                    invoke2();
+                    return Unit.INSTANCE;
+                }
+
+                /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
+                /* renamed from: invoke  reason: avoid collision after fix types in other method */
+                public final void invoke2() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                        this.this$0.t("key_show_msg_tab_guide_step3");
+                    }
+                }
+            });
+            a2.i();
+            u("key_show_msg_tab_guide_step3");
+        }
+    }
+
+    public final void y(boolean z) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
             if (!z) {
                 CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921809, "source_from_msg_tab_guide");
                 MessageManager.getInstance().registerStickyMode(2921809);
@@ -773,49 +987,6 @@ public final class MsgTabGuide {
                 i = 2;
             }
             messageManager.dispatchResponsedMessage(new CustomResponsedMessage(2921810, Integer.valueOf(i)));
-        }
-    }
-
-    public final void x(List<op8> list) {
-        Object obj;
-        op8 b;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048589, this, list) == null) && this.c.g.getChildCount() <= 0 && list != null) {
-            Iterator<T> it = list.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    obj = it.next();
-                    if (((op8) obj).getType() == 3) {
-                        z = true;
-                        continue;
-                    } else {
-                        z = false;
-                        continue;
-                    }
-                    if (z) {
-                        break;
-                    }
-                } else {
-                    obj = null;
-                    break;
-                }
-            }
-            op8 op8Var = (op8) obj;
-            if (op8Var != null && (b = op8.b(op8Var, 0L, 6, false, 5, null)) != null) {
-                this.d = b.c();
-                ur8 ur8Var = new ur8(this.a);
-                BaseView.M(ur8Var, this.a, this.c.g, false, false, 8, null);
-                ur8Var.Q(b);
-                LifecycleRootView m = ur8Var.m();
-                m.setScaleX(1.3f);
-                m.setScaleY(1.3f);
-                LifecycleRootView m2 = ur8Var.m();
-                FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-                layoutParams.gravity = 17;
-                m2.setLayoutParams(layoutParams);
-                this.c.g.addView(ur8Var.m());
-            }
         }
     }
 }

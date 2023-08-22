@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface iw1 {
-    boolean a(String str, String str2, String str3);
-
-    void b();
+    void b(db3 db3Var, JSONObject jSONObject);
 }

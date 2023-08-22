@@ -1,427 +1,269 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.text.TextUtils;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.EMManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.BarImageView;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tieba.ad.incentivevideo.net.GetIncentiveVideoTaskModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes8.dex */
-public class v56 {
+public class v56 extends ln6<z56> {
     public static /* synthetic */ Interceptable $ic;
-    public static v56 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public View i;
+    public View j;
+    public BarImageView k;
+    public TextView l;
+    public TextView m;
+    public TBSpecificationBtn n;
+    public View o;
+    public View p;
+    public z56 q;
 
-    public v56() {
+    @Override // com.baidu.tieba.ln6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.ad_incentive_video_view : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v56(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        x(h());
     }
 
-    public static synchronized v56 f() {
-        InterceptResult invokeV;
-        v56 v56Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (v56.class) {
-                if (a == null) {
-                    a = new v56();
-                }
-                v56Var = a;
-            }
-            return v56Var;
-        }
-        return (v56) invokeV.objValue;
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("isread", (Integer) 1);
-            ub8.d().update("tb_new_friends", contentValues, null, null);
-        }
-    }
-
-    public final int a(gb8 gb8Var) {
+    public final String r(z56 z56Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gb8Var)) == null) {
-            SQLiteDatabase c = tb8.c();
-            int i = 0;
-            if (c == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, z56Var)) == null) {
+            if (z56Var == null) {
+                return "";
+            }
+            int i = z56Var.b;
+            if ((i != 3 && i != 2 && i != 4 && i != 5) || !(getContext() instanceof t85)) {
+                return "";
+            }
+            return ((t85) getContext()).v0();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String t(z56 z56Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, z56Var)) == null) {
+            if (z56Var == null) {
+                return "";
+            }
+            int i = z56Var.b;
+            if ((i != 3 && i != 2 && i != 4 && i != 5) || !(getContext() instanceof t85)) {
+                return "";
+            }
+            return ((t85) getContext()).m1();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void u(z56 z56Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, z56Var) == null) && !z56Var.f()) {
+            z56Var.l(true);
+            int i = z56Var.b;
+            if (i != 3 && i != 2) {
+                if (i == 1) {
+                    u56.i().m(2);
+                    return;
+                } else if (i == 4 || i == 5) {
+                    u56.i().m(4);
+                    return;
+                } else {
+                    return;
+                }
+            }
+            u56.i().m(3);
+        }
+    }
+
+    public final void A(z56 z56Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, z56Var) != null) || z56Var == null) {
+            return;
+        }
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.i.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.j.getLayoutParams();
+        LinearLayout.LayoutParams layoutParams3 = (LinearLayout.LayoutParams) this.o.getLayoutParams();
+        int i = z56Var.b;
+        if (i != 3 && i != 2 && i != 1) {
+            if (i == 4) {
+                layoutParams.leftMargin = 0;
+                layoutParams.rightMargin = 0;
+                layoutParams2.leftMargin = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X007);
+                layoutParams2.rightMargin = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X007);
+                View view2 = this.j;
+                view2.setPadding(view2.getPaddingLeft(), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004), this.j.getPaddingRight(), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004));
+                this.o.setVisibility(0);
+                layoutParams3.height = BdUtilHelper.getDimens(this.c, R.dimen.tbds16);
+                this.p.setVisibility(8);
+                return;
+            } else if (i == 5) {
+                layoutParams.leftMargin = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X021);
+                layoutParams.rightMargin = BdUtilHelper.getDimens(this.c, R.dimen.M_W_X007);
+                layoutParams2.leftMargin = 0;
+                layoutParams2.rightMargin = 0;
+                View view3 = this.j;
+                view3.setPadding(view3.getPaddingLeft(), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004), this.j.getPaddingRight(), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004));
+                this.o.setVisibility(8);
+                this.p.setVisibility(0);
+                return;
+            } else {
+                return;
+            }
+        }
+        layoutParams.leftMargin = 0;
+        layoutParams.rightMargin = 0;
+        layoutParams2.leftMargin = 0;
+        layoutParams2.rightMargin = 0;
+        View view4 = this.j;
+        view4.setPadding(view4.getPaddingLeft(), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004), BdUtilHelper.getDimens(this.c, R.dimen.M_H_X004));
+        this.o.setVisibility(0);
+        layoutParams3.height = BdUtilHelper.getDimens(this.c, R.dimen.tbds21);
+        this.p.setVisibility(8);
+    }
+
+    public final int s(z56 z56Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, z56Var)) == null) {
+            if (z56Var == null) {
                 return 0;
             }
-            try {
-                if (!o(c, gb8Var.b())) {
+            int i = z56Var.b;
+            if (i == 1) {
+                return 1;
+            }
+            if (i != 3 && i != 2) {
+                if (i != 4 && i != 5) {
                     return 0;
                 }
-                ContentValues contentValues = new ContentValues();
-                long correctUserIdAfterOverflowCut = UtilHelper.getCorrectUserIdAfterOverflowCut(gb8Var.b());
-                contentValues.put("uid", Long.valueOf(correctUserIdAfterOverflowCut));
-                int update = ub8.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(gb8Var.b())});
-                try {
-                    gb8Var.h(correctUserIdAfterOverflowCut);
-                    return update;
-                } catch (Exception e) {
-                    e = e;
-                    i = update;
-                    e.printStackTrace();
-                    return i;
-                }
-            } catch (Exception e2) {
-                e = e2;
+                return 3;
             }
-        } else {
-            return invokeL.intValue;
-        }
-    }
-
-    public final long d(SQLiteDatabase sQLiteDatabase) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, sQLiteDatabase)) == null) {
-            if (sQLiteDatabase == null) {
-                sQLiteDatabase = tb8.c();
-            }
-            if (sQLiteDatabase != null) {
-                Cursor cursor = null;
-                try {
-                    try {
-                        try {
-                            cursor = ub8.d().e("select * from tb_new_friends", new String[0]);
-                            if (cursor != null && cursor.moveToNext()) {
-                                return cursor.getLong(cursor.getColumnIndex("uid"));
-                            }
-                        } catch (SQLiteException e) {
-                            e.printStackTrace();
-                        }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                    return 0L;
-                } finally {
-                    ci.a(cursor);
-                }
-            }
-            return 0L;
-        }
-        return invokeL.longValue;
-    }
-
-    public final int i(SQLiteDatabase sQLiteDatabase) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, sQLiteDatabase)) == null) {
-            if (sQLiteDatabase == null) {
-                sQLiteDatabase = tb8.c();
-            }
-            Cursor cursor = null;
-            try {
-                if (sQLiteDatabase == null) {
-                    return 0;
-                }
-                try {
-                    cursor = ub8.d().e("select * from tb_new_friends", new String[0]);
-                    if (cursor != null && cursor.moveToFirst()) {
-                        return cursor.getCount();
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                return 0;
-            } finally {
-                ci.a(cursor);
-            }
+            return 2;
         }
         return invokeL.intValue;
     }
 
-    public boolean b(long j) {
-        InterceptResult invokeJ;
+    @Override // com.baidu.tieba.ln6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            return c(tb8.c(), j);
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public void l(gb8 gb8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, gb8Var) == null) {
-            try {
-                k(tb8.c(), gb8Var);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void m(List<gb8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, list) == null) {
-            try {
-                for (gb8 gb8Var : list) {
-                    k(tb8.c(), gb8Var);
+        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
+            z56 z56Var = this.q;
+            if (z56Var != null) {
+                int i2 = z56Var.b;
+                if (i2 != 3 && i2 != 2 && i2 != 1) {
+                    EMManager.from(this.o).setBackGroundColor(R.color.CAM_X0204);
+                } else {
+                    EMManager.from(this.o).setBackGroundColor(R.color.transparent);
                 }
-            } catch (Exception e) {
-                e.printStackTrace();
+            } else {
+                EMManager.from(this.o).setBackGroundColor(R.color.CAM_X0204);
             }
+            EMManager.from(this.p).setBackGroundColor(R.color.CAM_X0203);
+            EMManager.from(this.j).setCardType(0).setCorner(R.string.J_X06).setBackGroundColor(R.color.CAM_X0201);
+            EMManager.from(this.l).setTextColor(R.color.CAM_X0107);
+            EMManager.from(this.m).setTextColor(R.color.CAM_X0109);
+            ea5 ea5Var = new ea5();
+            ea5Var.u(R.color.CAM_X0304);
+            this.n.setConfig(ea5Var);
         }
     }
 
-    public boolean n(long j) {
-        InterceptResult invokeJ;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048588, this, j)) == null) {
-            return o(tb8.c(), j);
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final boolean c(SQLiteDatabase sQLiteDatabase, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, j)) == null) {
-            try {
-                return ub8.d().delete("tb_new_friends", "uid = ?", new String[]{String.valueOf(j)});
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLJ.booleanValue;
-    }
-
-    public synchronized gb8 e(long j) {
-        InterceptResult invokeJ;
-        gb8 gb8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            synchronized (this) {
-                gb8Var = new gb8();
-                Cursor cursor = null;
-                try {
-                    cursor = ub8.d().e("select * from tb_new_friends where uid=?", new String[]{String.valueOf(j)});
-                    if (cursor != null && cursor.moveToNext()) {
-                        gb8Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                        gb8Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                        gb8Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                        gb8Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                        gb8Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                ci.a(cursor);
-            }
-            return gb8Var;
-        }
-        return (gb8) invokeJ.objValue;
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:14:0x0056 -> B:22:0x005b). Please submit an issue!!! */
-    public int q(gb8 gb8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, gb8Var)) == null) {
-            SQLiteDatabase c = tb8.c();
-            int i = 0;
-            if (c != null) {
-                try {
-                    if (o(c, gb8Var.b())) {
-                        ContentValues contentValues = new ContentValues();
-                        contentValues.put("ustatus", Integer.valueOf(gb8Var.f()));
-                        contentValues.put("isread", Integer.valueOf(gb8Var.c()));
-                        i = ub8.d().update("tb_new_friends", contentValues, "uid=?", new String[]{String.valueOf(gb8Var.b())});
-                    } else {
-                        k(c, gb8Var);
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public List<gb8> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = ub8.d().e("select * from tb_new_friends WHERE isread=? ORDER BY _id DESC", new String[]{String.valueOf(0)});
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            gb8 gb8Var = new gb8();
-                            gb8Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
-                            gb8Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                            gb8Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                            gb8Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                            gb8Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                            gb8Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                            arrayList.add(gb8Var);
-                        }
-                        p();
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                return arrayList;
-            } finally {
-                ci.a(cursor);
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<gb8> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            SQLiteDatabase c = tb8.c();
-            ArrayList arrayList = new ArrayList();
-            if (c != null) {
-                Cursor cursor = null;
-                try {
-                    try {
-                        try {
-                            cursor = ub8.d().e("select * from tb_new_friends ORDER BY _id DESC", null);
-                            if (cursor != null) {
-                                while (cursor.moveToNext()) {
-                                    gb8 gb8Var = new gb8();
-                                    gb8Var.h(cursor.getLong(cursor.getColumnIndex("uid")));
-                                    if (gb8Var.b() < 0) {
-                                        a(gb8Var);
-                                    }
-                                    gb8Var.g(cursor.getString(cursor.getColumnIndex("ucontent")));
-                                    gb8Var.i(cursor.getInt(cursor.getColumnIndex("isread")));
-                                    gb8Var.j(cursor.getString(cursor.getColumnIndex("uname")));
-                                    gb8Var.k(cursor.getString(cursor.getColumnIndex("uportrait")));
-                                    gb8Var.l(cursor.getInt(cursor.getColumnIndex("ustatus")));
-                                    arrayList.add(gb8Var);
-                                }
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    } catch (SQLiteException e2) {
-                        e2.printStackTrace();
-                    }
-                } finally {
-                    ci.a(cursor);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = ub8.d().e("select count(*) from tb_new_friends WHERE  ( isread=? and ustatus=? ) or (isread=? and ustatus=? )", new String[]{String.valueOf(0), String.valueOf(1), String.valueOf(0), String.valueOf(4)});
-                    if (cursor != null && cursor.moveToNext()) {
-                        return cursor.getInt(0);
-                    }
-                } catch (SQLiteException e) {
-                    e.printStackTrace();
-                } catch (Exception e2) {
-                    e2.printStackTrace();
-                }
-                return 0;
-            } finally {
-                ci.a(cursor);
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public final void k(SQLiteDatabase sQLiteDatabase, gb8 gb8Var) throws Exception {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, sQLiteDatabase, gb8Var) == null) && gb8Var != null && gb8Var.b() != 0 && !TextUtils.isEmpty(gb8Var.d())) {
-            if (sQLiteDatabase == null) {
-                sQLiteDatabase = tb8.c();
-            }
-            if (sQLiteDatabase != null) {
-                c(sQLiteDatabase, gb8Var.b());
-                if (i(sQLiteDatabase) >= 200) {
-                    b(d(sQLiteDatabase));
-                }
-                if (sQLiteDatabase != null) {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("uid", Long.valueOf(gb8Var.b()));
-                    contentValues.put("uname", gb8Var.d());
-                    contentValues.put("uportrait", gb8Var.e());
-                    contentValues.put("ucontent", gb8Var.a());
-                    contentValues.put("ustatus", Integer.valueOf(gb8Var.f()));
-                    contentValues.put("isread", Integer.valueOf(gb8Var.c()));
-                    ub8.d().insert("tb_new_friends", null, contentValues);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            u56.i().v(this.q.b);
+            u56.i().t();
+            new GetIncentiveVideoTaskModel(this.c, this.q.b).V();
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_NO_AD_CARD_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", s(this.q)).param("fid", r(this.q)).param("tid", t(this.q)));
         }
     }
 
-    public final boolean o(SQLiteDatabase sQLiteDatabase, long j) {
-        InterceptResult invokeLJ;
+    public final void x(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048589, this, sQLiteDatabase, j)) == null) {
-            if (sQLiteDatabase == null) {
-                sQLiteDatabase = tb8.c();
-            }
-            boolean z = false;
-            if (sQLiteDatabase != null) {
-                Cursor cursor = null;
-                try {
-                    try {
-                        cursor = ub8.d().e("select * from tb_new_friends WHERE uid=?", new String[]{String.valueOf(j)});
-                        if (cursor != null) {
-                            if (cursor.moveToFirst()) {
-                                z = true;
-                            }
-                        }
-                    } catch (SQLiteException e) {
-                        e.printStackTrace();
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                } finally {
-                    ci.a(cursor);
-                }
-            }
-            return z;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            this.o = view2.findViewById(R.id.ad_incentive_video_divide_top);
+            this.p = view2.findViewById(R.id.ad_incentive_video_divide_bottom);
+            this.i = view2.findViewById(R.id.ad_incentive_video_layout);
+            this.j = view2.findViewById(R.id.ad_incentive_video_content_layout);
+            this.k = (BarImageView) view2.findViewById(R.id.ad_incentive_video_icon);
+            this.l = (TextView) view2.findViewById(R.id.ad_incentive_video_title);
+            this.m = (TextView) view2.findViewById(R.id.ad_incentive_video_content);
+            this.n = (TBSpecificationBtn) view2.findViewById(R.id.ad_incentive_video_btn);
+            this.i.setOnClickListener(this);
         }
-        return invokeLJ.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ln6
+    /* renamed from: y */
+    public void i(z56 z56Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, z56Var) != null) || z56Var == null) {
+            return;
+        }
+        this.q = z56Var;
+        u(z56Var);
+        z(z56Var);
+        A(z56Var);
+        this.l.setText(z56Var.getTitle());
+        this.m.setText(z56Var.d());
+        this.n.setText(z56Var.c());
+        j(this.b, TbadkCoreApplication.getInst().getSkinType());
+        TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_NO_AD_CARD_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", s(z56Var)).param("fid", r(z56Var)).param("tid", t(z56Var)));
+    }
+
+    public final void z(z56 z56Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, z56Var) == null) {
+            this.k.setShowOval(true);
+            this.k.setAutoChangeStyle(true);
+            this.k.setStrokeWith(BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            this.k.setStrokeColorResId(R.color.CAM_X0401);
+            this.k.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            this.k.setPlaceHolder(1);
+            this.k.startLoad(z56Var.e(), 10, false);
+        }
     }
 }

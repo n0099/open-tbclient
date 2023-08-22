@@ -1,27 +1,7 @@
 package com.baidu.tieba;
-
-import android.media.MediaPlayer;
 /* loaded from: classes5.dex */
-public interface c54 extends p44 {
-    void a(boolean z);
+public interface c54 {
+    void a(String str, String str2);
 
-    void c(String str) throws Exception;
-
-    void f(oh4 oh4Var);
-
-    void g(MediaPlayer.OnInfoListener onInfoListener);
-
-    void h(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener);
-
-    void j(MediaPlayer.OnPreparedListener onPreparedListener);
-
-    void l(MediaPlayer.OnErrorListener onErrorListener);
-
-    void n(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener);
-
-    void q(MediaPlayer.OnCompletionListener onCompletionListener);
-
-    boolean s();
-
-    void setVolume(float f);
+    void fail(int i, String str);
 }

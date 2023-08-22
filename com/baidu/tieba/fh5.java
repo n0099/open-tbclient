@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,120 +10,13 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class fh5 {
+public class fh5 implements bn {
     public static /* synthetic */ Interceptable $ic;
-    public static mf0 a;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements mf0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* renamed from: com.baidu.tieba.fh5$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0296a implements gh5 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ lf0 a;
-
-            @Override // com.baidu.tieba.gh5
-            public boolean onFileDownloaded(DownloadData downloadData) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-                    return true;
-                }
-                return invokeL.booleanValue;
-            }
-
-            public C0296a(a aVar, lf0 lf0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, lf0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = lf0Var;
-            }
-
-            @Override // com.baidu.tieba.gh5
-            public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
-                lf0 lf0Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) && (lf0Var = this.a) != null) {
-                    lf0Var.onFailed(new Exception(str));
-                }
-            }
-
-            @Override // com.baidu.tieba.gh5
-            public void onFileDownloadSucceed(DownloadData downloadData) {
-                lf0 lf0Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && (lf0Var = this.a) != null) {
-                    lf0Var.b(downloadData.getPath());
-                }
-            }
-
-            @Override // com.baidu.tieba.gh5
-            public void onFileUpdateProgress(DownloadData downloadData) {
-                lf0 lf0Var;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && (lf0Var = this.a) != null) {
-                    lf0Var.a(0L, 100L, (int) (downloadData.getLength() / downloadData.getSize()));
-                }
-            }
-
-            @Override // com.baidu.tieba.gh5
-            public boolean onPreDownload(DownloadData downloadData) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-                    lf0 lf0Var = this.a;
-                    if (lf0Var != null) {
-                        lf0Var.onStarted();
-                        return true;
-                    }
-                    return true;
-                }
-                return invokeL.booleanValue;
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.mf0
-        public void a(String str, String str2, String str3, lf0 lf0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, lf0Var) == null) {
-                DownloadData downloadData = new DownloadData();
-                downloadData.setPath(str2 + "/" + str3);
-                downloadData.setUrl(str);
-                downloadData.setCallback(new C0296a(this, lf0Var));
-                hh5.k().l(downloadData);
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -138,13 +31,80 @@ public class fh5 {
                 return;
             }
         }
-        a = new a();
+        d = BdUniqueId.gen();
     }
 
-    public static void a() {
+    public fh5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            ff0.q(a);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = false;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return d;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
         }
     }
 }

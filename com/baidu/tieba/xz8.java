@@ -1,127 +1,123 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tieba.im.widget.chatVoiceView.ChatVoiceView;
+import com.baidu.tieba.impersonal.data.VoiceMsgContent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetSuggestionByAddrName.DataRes;
-import tbclient.Lbs;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class xz8 {
+public final class xz8 extends vz8<VoiceMsgContent, ChatVoiceView, vx8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<a> a;
+    public final int b;
+    public final int c;
+    public final int d;
 
-    /* loaded from: classes8.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public void c(Lbs lbs) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, lbs) != null) || lbs == null) {
-                return;
-            }
-            this.a = lbs.name;
-            String str = lbs.lat;
-            String str2 = lbs.lng;
-            this.b = lbs.sn;
-        }
-
-        public void d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                this.a = str;
-            }
-        }
-
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.b = str;
-            }
-        }
-    }
-
-    public xz8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xz8(String name) {
+        super(name);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
+        Intrinsics.checkNotNullParameter(name, "name");
+        this.b = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_W_X007);
+        this.c = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds38);
+        this.d = BdUtilHelper.getDimens(TbadkCoreApplication.getInst(), R.dimen.M_H_X004);
     }
 
-    public ArrayList<a> a() {
-        InterceptResult invokeV;
+    public static final boolean l(vx8 data, View it) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, data, it)) == null) {
+            Intrinsics.checkNotNullParameter(data, "$data");
+            Function2<View, cy8<VoiceMsgContent>, Unit> d = data.d();
+            if (d != null) {
+                Intrinsics.checkNotNullExpressionValue(it, "it");
+                d.invoke(it, data.c());
+                return true;
+            }
+            return true;
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public void b(DataRes dataRes) {
-        List<Lbs> list;
+    @Override // com.baidu.tieba.vz8
+    public void f(ViewGroup container) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) == null) && (list = dataRes.poi_info) != null && !list.isEmpty()) {
-            for (Lbs lbs : list) {
-                a aVar = new a();
-                aVar.c(lbs);
-                this.a.add(aVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, container) == null) {
+            Intrinsics.checkNotNullParameter(container, "container");
+            int i = this.b;
+            int i2 = this.d;
+            container.setPadding(i, i2, this.c, i2);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vz8
+    /* renamed from: k */
+    public void d(ChatVoiceView chatVoiceView, final vx8 data) {
+        VoiceData.VoiceModel d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, chatVoiceView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (chatVoiceView != null) {
+                chatVoiceView.g(true, !data.c().e().d());
+                VoiceMsgContent f = data.c().f();
+                if (f != null && (d = f.d()) != null) {
+                    chatVoiceView.setData(d);
+                }
+                chatVoiceView.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.oz8
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // android.view.View.OnLongClickListener
+                    public final boolean onLongClick(View view2) {
+                        InterceptResult invokeL;
+                        Interceptable interceptable2 = $ic;
+                        return (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, view2)) == null) ? xz8.l(vx8.this, view2) : invokeL.booleanValue;
+                    }
+                });
             }
         }
     }
 
-    public void c(ArrayList<a> arrayList) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vz8
+    /* renamed from: m */
+    public ChatVoiceView g(ViewGroup parent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.a = arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            ChatVoiceView chatVoiceView = new ChatVoiceView(parent.getContext(), true);
+            chatVoiceView.setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
+            chatVoiceView.setId(R.id.obfuscated_res_0x7f090ec4);
+            chatVoiceView.setOnClickListener(chatVoiceView);
+            return chatVoiceView;
         }
+        return (ChatVoiceView) invokeL.objValue;
     }
 }

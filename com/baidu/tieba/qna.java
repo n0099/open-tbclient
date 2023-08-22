@@ -1,30 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.sharedPref.SharedPrefHelper;
+import android.util.Log;
+import com.baidu.tieba.tracker.Tracker;
+import com.baidu.tieba.tracker.core.data.IEventNode;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class qna {
+public final class qna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public qna() {
+    public static final void a(Object obj, final String tid) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, obj, tid) == null) {
+            Intrinsics.checkNotNullParameter(obj, "<this>");
+            Intrinsics.checkNotNullParameter(tid, "tid");
+            final IEventNode b = gna.a.a(tid).b();
+            if (b != null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(" ");
+                sb.append("\nonEvent：" + tid);
+                for (IEventNode iEventNode = b; iEventNode != null; iEventNode = iEventNode.getNext()) {
+                    sb.append("\nvalue = " + iEventNode);
+                }
+                sb.append("\n------------------------------------------------------");
+                Log.d("lt-log", sb.toString());
+                kna.b.a().c(new jna(tid, new Runnable() { // from class: com.baidu.tieba.pna
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+
+                    @Override // java.lang.Runnable
+                    public final void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            qna.b(tid, b);
+                        }
+                    }
+                }));
+                gna.a.b(tid);
             }
         }
-        SharedPrefHelper.getInstance().getInt("nani_key_download_show_position", 3);
-        new HashSet();
+    }
+
+    public static final void b(String tid, IEventNode iEventNode) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, tid, iEventNode) == null) {
+            Intrinsics.checkNotNullParameter(tid, "$tid");
+            Tracker.d.d(tid, iEventNode);
+        }
     }
 }

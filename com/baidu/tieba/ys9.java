@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class ys9 implements Runnable {
+public class ys9 extends e27 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
 
     public ys9() {
         Interceptable interceptable = $ic;
@@ -22,15 +20,6 @@ public class ys9 implements Runnable {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (view2 = this.a) != null && (view2.getTag() instanceof ct9)) {
-            ((ct9) this.a.getTag()).startPlay();
         }
     }
 }

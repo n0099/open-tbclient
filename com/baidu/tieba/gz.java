@@ -1,50 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes6.dex */
-public abstract class gz {
+public class gz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
 
-    public gz() {
+    public static void a(byte[] bArr, byte[] bArr2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLLI(65536, null, bArr, bArr2, i) == null) {
+            if (i < 0) {
+                throw new IllegalArgumentException("start should be more than zero!");
             }
+            if (bArr == null || bArr.length == 0) {
+                throw new IllegalArgumentException("dst array should not be null or empty");
+            }
+            if (bArr2 == null || bArr2.length == 0) {
+                throw new IllegalArgumentException("src array should not be null or empty");
+            }
+            if (bArr.length < bArr2.length) {
+                throw new IllegalArgumentException("dst array length should be longer than:" + bArr2.length);
+            }
+            if (bArr.length >= bArr2.length + i) {
+                System.arraycopy(bArr2, 0, bArr, i, bArr2.length);
+                return;
+            }
+            throw new IllegalArgumentException("start should be less than:" + (bArr.length - bArr2.length));
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static byte[] b(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
-    }
-
-    public abstract com.baidu.cesium.a.b b(byte[] bArr, int i, int i2);
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, bArr, i)) == null) {
+            if (bArr == null || bArr.length == 0) {
+                throw new IllegalArgumentException("original array should not be null or empty");
+            }
+            if (i >= 0) {
+                return Arrays.copyOf(bArr, i);
+            }
+            throw new IllegalArgumentException("length should be more than zero!");
+        }
+        return (byte[]) invokeLI.objValue;
     }
 }

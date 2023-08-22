@@ -156,9 +156,9 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
     }
 
     private void initView() {
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913de);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913f4);
         this.mRootContainer = adBaseFrameLayout;
-        DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091434);
+        DetailVideoView detailVideoView = (DetailVideoView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f09144a);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.setAd(true);
     }
@@ -250,7 +250,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
         com.kwad.components.ad.reward.monitor.a.a(false, this.mAdTemplate, elapsedRealtime);
         com.kwad.components.ad.reward.monitor.a.b(false, this.mAdTemplate, this.mPageEnterTime);
         this.mContext = Wrapper.wrapContextIfNeed(getActivity());
-        setContentView(R.layout.obfuscated_res_0x7f0d0479);
+        setContentView(R.layout.obfuscated_res_0x7f0d0480);
         initView();
         onActivityCreated(this.mRootContainer);
     }
@@ -283,7 +283,7 @@ public class KsFullScreenVideoActivityProxy extends com.kwad.components.core.g.b
             kVar.mm = new m(kVar, this.mReportExtData, null);
         }
         if (com.kwad.sdk.core.response.a.a.aY(this.mAdInfo)) {
-            kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f09133f));
+            kVar.mk = new com.kwad.components.core.playable.a((KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091355));
         }
         if (com.kwad.sdk.core.response.a.d.bX(this.mAdTemplate)) {
             kVar.mo = new com.kwad.components.ad.i.a().ae(false);

@@ -541,14 +541,14 @@ public class AccountComponentConfig {
 
     public static Builder getDefaulgParamsBuilder() {
         try {
-            int color = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603d3);
-            int color2 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603dd);
-            int color3 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603df);
-            int color4 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603e1);
-            int color5 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603d6);
-            int color6 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603d7);
-            int color7 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603db);
-            int color8 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603dc);
+            int color = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603d9);
+            int color2 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603e3);
+            int color3 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603e5);
+            int color4 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603e7);
+            int color5 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603dc);
+            int color6 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603dd);
+            int color7 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603e1);
+            int color8 = AppRuntime.getAppContext().getResources().getColor(R.color.obfuscated_res_0x7f0603e2);
             return new Builder().setMainTitleColor(color, color7).setSubTitleColor(color2, color5).setPhoneTextColor(color, color7).setAgreeTextColor(color3, color5).setUserNameTextColor(color, color7).setAppNameTextColor(color2, color5).setOneKeyLoginTextColor(color4, color8).setShareLoginTextColor(color4, color8).setCommonLoginTextColor(color4, color8).setOtherLoginColor(color, color7).setThirdTitleTextColor(color3, color6).setMainTitleText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0081)).setSubTitleText("").setSubTitleLink("").setOneKeyLoginText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0079)).setShareLoginText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0079)).setCommonLoginText(AppRuntime.getAppContext().getString(R.string.obfuscated_res_0x7f0f0076)).setAgreeTextRes(R.string.obfuscated_res_0x7f0f0078).setAppNameRes(R.string.obfuscated_res_0x7f0f00ae).setOneKeyBtnDrawable(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800b9)).setShareBtnDrawable(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800b9)).setCommonBtnDrawable(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800b9)).setPhoneLoginIcon(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800c0)).setWXLoginIcon(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800c6)).setQQLoginIcon(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800c1)).setSinaLoginIcon(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800c2)).setYYLoginIcon(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800c7)).setMoreLoginIcon(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f0800bf)).setFunctionIconDrawable(null).showDefaultCommonStyle(true).setAgreeTextBold(true).setLoginSrc(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_OTHERS).setLoginSrcToPass("").setSupportGuest(false).setSupportShareLogin(true).setSupportAnim(false).setNightMode(0).setForceLoginStyle(-1);
         } catch (Throwable unused) {
             return new Builder();

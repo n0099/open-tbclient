@@ -8,13 +8,13 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.bi;
-import com.baidu.tieba.bw6;
-import com.baidu.tieba.gc7;
-import com.baidu.tieba.gm5;
-import com.baidu.tieba.ht4;
-import com.baidu.tieba.jc7;
-import com.baidu.tieba.rk6;
+import com.baidu.tieba.di;
+import com.baidu.tieba.filedownloader.TbDownloadManager;
+import com.baidu.tieba.mt4;
+import com.baidu.tieba.ox6;
+import com.baidu.tieba.vm5;
+import com.baidu.tieba.wl6;
+import com.baidu.tieba.zd7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -39,7 +39,7 @@ public final class DownloadRuntime {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static final class a implements jc7 {
+    public static final class a implements zd7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -57,7 +57,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.jc7
+        @Override // com.baidu.tieba.zd7
         public void a(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
@@ -66,26 +66,26 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.jc7
+        @Override // com.baidu.tieba.zd7
         public void b(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
-                Intrinsics.checkNotNullParameter(data, "data");
-                DownloadRuntime.a.g(data);
-            }
-        }
-
-        @Override // com.baidu.tieba.jc7
-        public void c(DownloadData data) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
                 DownloadRuntime.a.g(data);
                 DownloadRuntime.a.d(data);
             }
         }
 
-        @Override // com.baidu.tieba.jc7
+        @Override // com.baidu.tieba.zd7
+        public void c(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+                DownloadRuntime.a.g(data);
+            }
+        }
+
+        @Override // com.baidu.tieba.zd7
         public void d(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
@@ -94,7 +94,7 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.jc7
+        @Override // com.baidu.tieba.zd7
         public void e(DownloadData data) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
@@ -103,10 +103,10 @@ public final class DownloadRuntime {
             }
         }
 
-        @Override // com.baidu.tieba.jc7
-        public void f(DownloadData data) {
+        @Override // com.baidu.tieba.zd7
+        public void f(DownloadData data, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
+            if (interceptable == null || interceptable.invokeLI(1048581, this, data, i) == null) {
                 Intrinsics.checkNotNullParameter(data, "data");
                 DownloadRuntime.a.g(data);
             }
@@ -145,12 +145,12 @@ public final class DownloadRuntime {
             }
             Object data = customResponsedMessage.getData();
             if (data instanceof Intent) {
-                String packageName = gm5.g((Intent) data);
+                String packageName = vm5.g((Intent) data);
                 LinkedHashMap linkedHashMap = new LinkedHashMap();
                 linkedHashMap.put("resultCode", 1);
                 Intrinsics.checkNotNullExpressionValue(packageName, "packageName");
                 linkedHashMap.put("pkgName", packageName);
-                rk6.a().b(CommonTbJsBridge.INSTALL_APK_RESULT, linkedHashMap);
+                wl6.a().b(CommonTbJsBridge.INSTALL_APK_RESULT, linkedHashMap);
             }
         }
     }
@@ -189,13 +189,6 @@ public final class DownloadRuntime {
         }
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            f().a(e());
-        }
-    }
-
     public final a e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -205,28 +198,38 @@ public final class DownloadRuntime {
         return (a) invokeV.objValue;
     }
 
-    public final gc7 f() {
+    public final TbDownloadManager f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return (gc7) b.getValue();
+            return (TbDownloadManager) b.getValue();
         }
-        return (gc7) invokeV.objValue;
+        return (TbDownloadManager) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            f().w(2);
+            f().g(e());
+            f().w(1);
+            f().g(e());
+        }
     }
 
     public final void d(@NonNull DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && !bi.isEmpty(downloadData.getUniqueId()) && !bi.isEmpty(downloadData.getName())) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && !di.isEmpty(downloadData.getUniqueId()) && !di.isEmpty(downloadData.getName())) {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("item_name", downloadData.getName());
             jSONObject.put("item_id", downloadData.getUniqueId());
-            ht4.d().c("download_game", jSONObject.toString());
+            mt4.d().c("download_game", jSONObject.toString());
         }
     }
 
     public final void g(DownloadData downloadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) && downloadData != null && bw6.e(downloadData.getSource())) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, downloadData) == null) && downloadData != null && ox6.e(downloadData.getSource())) {
             LinkedHashMap linkedHashMap = new LinkedHashMap();
             linkedHashMap.put("status", Integer.valueOf(downloadData.getStatus()));
             linkedHashMap.put("source", Integer.valueOf(downloadData.getSource()));
@@ -235,7 +238,7 @@ public final class DownloadRuntime {
             linkedHashMap.put(CommonTbJsBridge.FILE_DOWNLOAD_TOTAL_SIZE, Long.valueOf(downloadData.getSize()));
             linkedHashMap.put(CommonTbJsBridge.FILE_DOWNLOAD_URL, downloadData.getUrl());
             linkedHashMap.put("fileName", downloadData.getName());
-            rk6.a().b(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_RESULT, linkedHashMap);
+            wl6.a().b(CommonTbJsBridge.FILE_DOWNLOAD_STATUS_RESULT, linkedHashMap);
         }
     }
 }

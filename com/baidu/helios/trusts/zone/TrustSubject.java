@@ -8,11 +8,11 @@ import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a60;
 import com.baidu.tieba.b50;
-import com.baidu.tieba.t40;
-import com.baidu.tieba.y40;
-import com.baidu.tieba.z50;
+import com.baidu.tieba.c60;
+import com.baidu.tieba.d60;
+import com.baidu.tieba.e50;
+import com.baidu.tieba.w40;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,10 +35,10 @@ public class TrustSubject {
     public static Comparator<TrustSubject> h;
     public transient /* synthetic */ FieldHolder $fh;
     public final String a;
-    public final a60 b;
-    public final z50 c;
+    public final d60 b;
+    public final c60 c;
     public Context d;
-    public b50.a e;
+    public e50.a e;
     public c f;
 
     /* loaded from: classes3.dex */
@@ -183,7 +183,7 @@ public class TrustSubject {
         public long c;
         public long d;
         public long e;
-        public y40 f;
+        public b50 f;
         public boolean g;
         public Set<String> h;
         public final /* synthetic */ TrustSubject i;
@@ -204,7 +204,7 @@ public class TrustSubject {
                 }
             }
             this.i = trustSubject;
-            this.f = new y40();
+            this.f = new b50();
             this.g = true;
             this.h = new HashSet();
         }
@@ -467,7 +467,7 @@ public class TrustSubject {
         h = new b();
     }
 
-    public TrustSubject(String str, Context context, b50.a aVar) {
+    public TrustSubject(String str, Context context, e50.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -482,8 +482,8 @@ public class TrustSubject {
                 return;
             }
         }
-        this.b = new a60();
-        this.c = new z50();
+        this.b = new d60();
+        this.c = new c60();
         this.f = new c(this);
         this.d = context;
         this.a = str;
@@ -522,10 +522,10 @@ public class TrustSubject {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.f : (c) invokeV.objValue;
     }
 
-    public void d(t40 t40Var) {
+    public void d(w40 w40Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t40Var) == null) {
-            this.b.b(t40Var, true);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w40Var) == null) {
+            this.b.b(w40Var, true);
             this.f.f(this.b.d());
             this.f.j(this.b.i());
             this.f.c(this.b.j());

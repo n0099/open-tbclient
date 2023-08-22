@@ -1,67 +1,50 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicReference;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class i1c {
+public class i1c {
     public static /* synthetic */ Interceptable $ic;
-    public static final AtomicReference<i1c> b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final b1c a;
+    public boolean a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947802094, "Lcom/baidu/tieba/i1c;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947802094, "Lcom/baidu/tieba/i1c;");
-                return;
-            }
-        }
-        b = new AtomicReference<>();
-    }
-
-    public static i1c a() {
-        i1c i1cVar;
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            do {
-                i1c i1cVar2 = b.get();
-                if (i1cVar2 != null) {
-                    return i1cVar2;
-                }
-                i1cVar = new i1c();
-            } while (!b.compareAndSet(null, i1cVar));
-            return i1cVar;
-        }
-        return (i1c) invokeV.objValue;
-    }
-
-    public static b1c b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return a().a;
-        }
-        return (b1c) invokeV.objValue;
-    }
-
-    public i1c() {
+    public i1c(float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = f;
+        this.c = f2;
+        this.d = f3;
+        this.e = f4;
+        this.a = true;
+    }
+
+    public i1c(float f, float f2, float f3, float f4, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -71,11 +54,30 @@ public final class i1c {
                 return;
             }
         }
-        b1c b2 = g1c.a().b().b();
-        if (b2 != null) {
-            this.a = b2;
-        } else {
-            this.a = new j1c(Looper.getMainLooper());
+        this.b = f;
+        this.c = f2;
+        this.d = f3;
+        this.e = f4;
+        this.a = z;
+    }
+
+    public static i1c a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            i1c i1cVar = new i1c(0.0f, 1.0f, 1.0f, 0.0f);
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                i1cVar.b = (float) jSONObject.optDouble("bottomLeftX");
+                i1cVar.c = (float) jSONObject.optDouble("bottomLeftY");
+                i1cVar.d = (float) jSONObject.optDouble("upperRightX");
+                i1cVar.e = (float) jSONObject.optDouble("upperRightY");
+                i1cVar.a = jSONObject.optBoolean("forceEnable");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return i1cVar;
         }
+        return (i1c) invokeL.objValue;
     }
 }

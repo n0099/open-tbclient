@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.LinkedList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class za {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -99,7 +99,7 @@ public class za {
         if (interceptable == null || interceptable.invokeL(1048589, this, bdUniqueId) == null) {
             int size = this.g.size();
             for (int i = 0; i < size; i++) {
-                this.g.get(i).b(bdUniqueId);
+                this.g.get(i).h(bdUniqueId);
             }
         }
     }
@@ -187,7 +187,7 @@ public class za {
         if (interceptable == null || interceptable.invokeIL(1048588, this, i, bdUniqueId) == null) {
             int size = this.g.size();
             for (int i2 = 0; i2 < size; i2++) {
-                this.g.get(i2).a(i, bdUniqueId);
+                this.g.get(i2).g(i, bdUniqueId);
             }
         }
     }
@@ -222,7 +222,7 @@ public class za {
             int size = linkedList.size();
             for (int i = 0; i < size && m != null; i++) {
                 try {
-                    m = linkedList.get(i).b(m);
+                    m = linkedList.get(i).h(m);
                 } catch (Exception e) {
                     BdLog.e("rule error = " + e.getMessage());
                 }

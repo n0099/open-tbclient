@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
+import android.content.res.Resources;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager;
-import com.baidu.nps.interfa.IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider;
+import com.baidu.nps.interfa.IResourcesFetcher;
+import com.baidu.nps.interfa.IResourcesFetcher_ResourcesFetcherManager_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -18,14 +19,14 @@ public class je1 {
     public static je1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public fk1<IWebViewDataDirectoryManager> a;
+    public kk1<IResourcesFetcher> a;
 
-    public void b() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dk1 b2 = dk1.b();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ik1 b2 = ik1.b();
             this.a = b2;
-            b2.a(new IWebViewDataDirectoryManager_WebViewDataDirectoryManager_Provider());
+            b2.a(new IResourcesFetcher_ResourcesFetcherManager_Provider());
         }
     }
 
@@ -58,10 +59,10 @@ public class je1 {
                 return;
             }
         }
-        b();
+        e();
     }
 
-    public static je1 a() {
+    public static je1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -70,13 +71,33 @@ public class je1 {
         return (je1) invokeV.objValue;
     }
 
-    public void c() {
+    public Resources b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (cf1.a()) {
-                Log.i("NPS-WebViewDataDirec", "webViewDataDirectoryManagerHolder class=" + this.a.getClass());
-            }
-            this.a.get().setDataDirectorySuffix();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.get().getGlobalResources();
         }
+        return (Resources) invokeV.objValue;
+    }
+
+    public Resources[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.get().getWrapperResources();
+        }
+        return (Resources[]) invokeV.objValue;
+    }
+
+    public Resources a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (hf1.a()) {
+                Log.i("NPS-ResourcesFetcher", "resourcesFetcherHolder class=" + this.a.getClass());
+            }
+            return this.a.get().getBaseContextResources();
+        }
+        return (Resources) invokeV.objValue;
     }
 }

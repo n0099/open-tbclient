@@ -1,91 +1,76 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes8.dex */
-public class xpb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String b = "RootKeyUtil";
+public class xpb extends BaseAdRipper {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948309471, "Lcom/baidu/tieba/xpb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948309471, "Lcom/baidu/tieba/xpb;");
-        }
-    }
-
-    public xpb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xpb(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
     }
 
-    public byte[] c() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        Object obj2;
+        List<AdInfo> list;
+        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (byte[]) this.a.clone();
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static xpb d(String str, String str2, String str3, String str4) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65538, null, str, str2, str3, str4)) == null) {
-            xpb xpbVar = new xpb();
-            xpbVar.a(str, str2, str3, str4);
-            return xpbVar;
-        }
-        return (xpb) invokeLLLL.objValue;
-    }
-
-    public final void a(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
-            b(str, str2, str3, wpb.b(str4));
-        }
-    }
-
-    @SuppressLint({"NewApi"})
-    public final void b(String str, String str2, String str3, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, bArr) == null) {
-            if (Build.VERSION.SDK_INT < 26) {
-                zpb.d(b, "initRootKey: sha1");
-                this.a = upb.h(str, str2, str3, bArr, false);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                qqb qqbVar = (qqb) obj;
+                if (qqbVar != null) {
+                    Object obj3 = qqbVar.a;
+                    String[] strArr = {"mAdTemplate"};
+                    Field field = null;
+                    for (int i = 0; i < 1; i++) {
+                        try {
+                            field = obj3.getClass().getDeclaredField(strArr[i]);
+                            field.setAccessible(true);
+                            break;
+                        } catch (NoSuchFieldException unused) {
+                        }
+                    }
+                    if (field == null || (obj2 = field.get(obj3)) == null || !(obj2 instanceof AdTemplate) || (list = ((AdTemplate) obj2).adInfoList) == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                        return null;
+                    }
+                    return dqb.a(adInfo);
+                }
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
-            zpb.d(b, "initRootKey: sha256");
-            this.a = upb.h(str, str2, str3, bArr, true);
         }
+        return (RippedAd) invokeL.objValue;
     }
 }

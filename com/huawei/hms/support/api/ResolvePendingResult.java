@@ -10,7 +10,7 @@ import com.huawei.hms.core.aidl.IMessageEntity;
 import com.huawei.hms.support.api.client.ApiClient;
 import com.huawei.hms.support.api.client.Result;
 import com.huawei.hms.support.api.client.Status;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ResolvePendingResult<T extends IMessageEntity> extends PendingResultImpl<ResolveResult<T>, T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

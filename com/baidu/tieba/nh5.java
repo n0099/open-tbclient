@@ -1,45 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes7.dex */
-public abstract class nh5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nh5 {
+    void onFileDownloadFailed(DownloadData downloadData, int i, String str);
 
-    public abstract ph5 b(Context context);
+    void onFileDownloadSucceed(DownloadData downloadData);
 
-    public abstract void c(ph5 ph5Var);
+    boolean onFileDownloaded(DownloadData downloadData);
 
-    public abstract void d(ph5 ph5Var);
+    void onFileUpdateProgress(DownloadData downloadData);
 
-    public nh5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public ph5 a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            ph5 b = b(context);
-            d(b);
-            c(b);
-            return b;
-        }
-        return (ph5) invokeL.objValue;
-    }
+    boolean onPreDownload(DownloadData downloadData);
 }

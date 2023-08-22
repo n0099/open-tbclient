@@ -6,16 +6,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetMoreMsg.DataRes;
-import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes5.dex */
 public class a2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<z1a> b;
+    public int a;
+    public int b;
+    public boolean c;
 
     public a2a() {
         Interceptable interceptable = $ic;
@@ -30,43 +27,49 @@ public class a2a {
                 return;
             }
         }
-        this.a = true;
-        this.b = null;
+        this.a = -1;
+        this.b = -1;
+        this.c = false;
     }
 
-    public ArrayList<z1a> a() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (ArrayList) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public boolean b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
         return invokeV.booleanValue;
     }
 
-    public void c(DataRes dataRes) {
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) == null) && dataRes != null) {
-            boolean z = true;
-            if (dataRes.has_more.intValue() != 1) {
-                z = false;
-            }
-            this.a = z;
-            List<MsgContent> list = dataRes.msg_content;
-            if (list != null && list.size() > 0) {
-                this.b = new ArrayList<>();
-                for (MsgContent msgContent : dataRes.msg_content) {
-                    this.b.add(new z1a(msgContent));
-                }
-            }
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
         }
     }
 }

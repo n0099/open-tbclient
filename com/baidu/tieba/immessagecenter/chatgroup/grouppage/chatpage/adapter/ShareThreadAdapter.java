@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
@@ -25,6 +26,9 @@ import java.util.List;
 public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long l;
+    public long m;
+    public String n;
 
     /* loaded from: classes6.dex */
     public static class ViewHolder extends BaseViewHolder {
@@ -88,7 +92,7 @@ public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewH
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
     /* renamed from: c0 */
-    public ViewHolder O(@NonNull ViewGroup viewGroup) {
+    public ViewHolder N(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
@@ -101,13 +105,34 @@ public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewH
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
     /* renamed from: d0 */
-    public ViewHolder Q(@NonNull ViewGroup viewGroup) {
+    public ViewHolder P(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
             return b0(viewGroup.getContext());
         }
         return (ViewHolder) invokeL.objValue;
+    }
+
+    public void f0(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            this.m = j;
+        }
+    }
+
+    public void g0(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.n = str;
+        }
+    }
+
+    public void h0(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.l = j;
+        }
     }
 
     public final ViewHolder b0(Context context) {
@@ -117,7 +142,10 @@ public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewH
             ChatShareCard chatShareCard = new ChatShareCard(context);
             chatShareCard.V = 1;
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090eae);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090ebb);
+            chatShareCard.setChatRoomId(this.l);
+            chatShareCard.setFid(this.m);
+            chatShareCard.setFname(this.n);
             chatShareCard.setCurrentCardType((short) 32);
             return new ViewHolder(chatShareCard);
         }
@@ -127,7 +155,7 @@ public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewH
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     /* renamed from: e0 */
-    public void V(int i, @NonNull ViewGroup viewGroup, @NonNull ShareThreadSysMsg shareThreadSysMsg, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
+    public void U(int i, @NonNull ViewGroup viewGroup, @NonNull ShareThreadSysMsg shareThreadSysMsg, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), viewGroup, shareThreadSysMsg, viewHolder, list, Integer.valueOf(i2)}) == null) {
@@ -139,7 +167,7 @@ public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewH
             SkinManager.setBackgroundResource(viewGroup, i3);
             ChatShareCard chatShareCard = (ChatShareCard) viewHolder.getView();
             chatShareCard.a(shareThreadSysMsg.getShareThreadMsgData());
-            chatShareCard.p("");
+            chatShareCard.u("");
         }
     }
 }

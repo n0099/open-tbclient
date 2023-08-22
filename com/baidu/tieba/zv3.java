@@ -1,167 +1,78 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Application;
 import android.content.Context;
-import android.os.Build;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.content.ContextCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
-@SuppressLint({"MissingPermission", "HardwareIds"})
-/* loaded from: classes8.dex */
-public class zv3 implements bw3 {
+/* loaded from: classes9.dex */
+public class zv3 implements ov3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] a;
+    public aw3 b;
+    public boolean c;
 
-    @Override // com.baidu.tieba.bw3
-    public String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? "" : (String) invokeL.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948373362, "Lcom/baidu/tieba/zv3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948373362, "Lcom/baidu/tieba/zv3;");
-                return;
-            }
-        }
-        a = ir1.a;
-    }
-
-    public zv3() {
+    public zv3(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        c(context);
+    }
+
+    @Override // com.baidu.tieba.ov3
+    public void b(int i) {
+        aw3 aw3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (aw3Var = this.b) != null && aw3Var.c()) {
+            this.c = true;
+            this.b.e(i, this.a);
         }
     }
 
-    @Override // com.baidu.tieba.bw3
-    public String a(Context context) {
-        InterceptResult invokeL;
+    public final void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.b == null) {
+            this.b = aw3.b(context);
+            d();
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bw3
-    public String c(Context context) {
-        InterceptResult invokeL;
-        String meid;
+    @Override // com.baidu.tieba.ov3
+    public void a() {
+        aw3 aw3Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager == null) {
-                        meid = "";
-                    } else {
-                        meid = telephonyManager.getMeid();
-                    }
-                    if (TextUtils.isEmpty(meid)) {
-                        return "";
-                    }
-                    return meid;
-                } catch (Exception e) {
-                    y72.o("DeviceInfoImpl", "getMeid: catch " + e + "\n" + Log.getStackTraceString(e));
-                }
-            }
-            return "";
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (aw3Var = this.b) != null && aw3Var.c()) {
+            this.c = false;
+            this.b.f();
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.bw3
-    public String d(Context context) {
-        InterceptResult invokeL;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
-            try {
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                if (telephonyManager != null) {
-                    String deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
-                    if (!TextUtils.isEmpty(deviceId)) {
-                        return deviceId;
-                    }
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        deviceId = ApiReplaceUtil.getImei(telephonyManager);
-                    }
-                    if (TextUtils.isEmpty(deviceId)) {
-                        return "";
-                    }
-                    return deviceId;
-                }
-            } catch (Exception e) {
-                y72.o("DeviceInfoImpl", "getImei: catch " + e + "\n" + Log.getStackTraceString(e));
-            }
-            return "";
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.a != null) {
+            return;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bw3
-    public String getDeviceId(Context context) {
-        InterceptResult invokeL;
-        String deviceId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 29) {
-                if (a) {
-                    Log.d("DeviceInfoImpl", "android 29 can not get imei");
-                }
-                return "";
-            }
-            Application c = fu2.c();
-            if (ContextCompat.checkSelfPermission(c, com.kuaishou.weapon.p0.h.c) != 0) {
-                return "";
-            }
-            try {
-                TelephonyManager telephonyManager = (TelephonyManager) c.getSystemService("phone");
-                if (telephonyManager == null) {
-                    deviceId = "";
-                } else {
-                    deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
-                }
-                if (TextUtils.isEmpty(deviceId)) {
-                    return "";
-                }
-                return deviceId;
-            } catch (Exception unused) {
-                return "";
-            }
+        uv3 f = bw3.f();
+        if (f.a <= 4) {
+            this.a = new int[]{1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
+        } else if (f.h && f.d()) {
+            this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1082130944, 4095, 1082147328, 4095, 1098907648, 4095, 1115734016, 4095, 1115750400, 4095, 1115766784, 4095, 1098956800, 0, 1077936128, 1};
+        } else {
+            this.a = new int[]{1082130688, 4095, 1082147072, 4095, 1082130432, 4095, 1082146816, 4095, 1098907648, 4095, 1098956800, 0, 1077936128, 1};
         }
-        return (String) invokeL.objValue;
     }
 }

@@ -20,7 +20,7 @@ import com.huawei.hms.support.log.HMSLog;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Objects;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class PushProvider extends ContentProvider {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;

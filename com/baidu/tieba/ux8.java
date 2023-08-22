@@ -1,52 +1,107 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes8.dex */
-public class ux8 {
+public final class ux8 extends rx8<dy8> implements jb7<ux8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
+    public boolean e;
 
-    public static int a(int i) {
-        InterceptResult invokeI;
+    public ux8 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return R.drawable.icon_hand_normal_card_recommend;
-                case 2:
-                    return R.drawable.icon_comment_n;
-                case 3:
-                    return R.drawable.icon_home_yule;
-                case 4:
-                    return R.drawable.icon_see_n;
-                case 5:
-                    return R.drawable.icon_frs_ba_ticket;
-                case 6:
-                    return R.drawable.icon_frs_game;
-                case 7:
-                    return R.drawable.icon_frs_news;
-                case 8:
-                    return R.drawable.icon_new_live;
-                case 9:
-                    return R.drawable.icon_hottopic_new;
-                case 10:
-                    return R.drawable.icon_hottopic_hot;
-                case 11:
-                    return R.drawable.icon_hottopic_tuijian;
-                case 12:
-                    return R.drawable.icon_people_num;
-                case 13:
-                    return R.drawable.icon_time_start;
-                case 14:
-                    return R.drawable.lego_interview_notice_button_before_selector;
-                case 15:
-                    return R.drawable.lego_interview_notice_button_after_selector;
-                default:
-                    return 0;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this : (ux8) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ux8(cy8<dy8> data, String templateName) {
+        super(data);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, templateName};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((cy8) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeI.intValue;
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(templateName, "templateName");
+        this.d = templateName;
+    }
+
+    @Override // com.baidu.tieba.jb7
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.jb7
+    public /* bridge */ /* synthetic */ ux8 b() {
+        i();
+        return this;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rx8
+    public boolean f(rx8<?> other) {
+        InterceptResult invokeL;
+        ux8 ux8Var;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, other)) == null) {
+            Intrinsics.checkNotNullParameter(other, "other");
+            if (super.f(other)) {
+                return true;
+            }
+            if (other instanceof ux8) {
+                ux8Var = (ux8) other;
+            } else {
+                ux8Var = null;
+            }
+            if (ux8Var != null && this.e == ux8Var.e) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.e = z;
+        }
     }
 }

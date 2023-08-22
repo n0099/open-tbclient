@@ -2,20 +2,15 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class kd2 extends ad2 {
+public class kd2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,74 +26,56 @@ public class kd2 extends ad2 {
                 return;
             }
         }
-        l = ir1.a;
+        a = nr1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kd2(boolean z, boolean z2) {
-        super(z, z2);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Boolean) objArr2[0]).booleanValue(), ((Boolean) objArr2[1]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        if (l) {
-            Log.d("PreloadMasterManager", "PreloadMasterManagerSingle created");
-        }
-    }
-
-    @Override // com.baidu.tieba.ad2
-    public boolean k(PrefetchEvent.c cVar, PMSAppInfo pMSAppInfo) {
+    public static boolean a(ba2 ba2Var, String str) {
         InterceptResult invokeLL;
+        db3 b0;
+        fd2 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, pMSAppInfo)) == null) {
-            PMSAppInfo g = g();
-            if (g == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ba2Var, str)) == null) {
+            if (a) {
+                Log.d("MasterIsolationHelper", "JS CALL - " + str);
+            }
+            boolean z = false;
+            if (c73.D()) {
                 return false;
             }
-            if (!TextUtils.equals(pMSAppInfo.appId, g.appId)) {
-                if (l) {
-                    Log.e("PreloadMasterManager", "one master can only prefetch one appId");
+            if (ba2Var != null && !TextUtils.isEmpty(ba2Var.getContainerId())) {
+                if (sd2.i().k(ba2Var.getContainerId())) {
+                    return true;
                 }
-                return true;
-            } else if (!w(pMSAppInfo, cVar)) {
-                return false;
-            } else {
-                if (l) {
-                    Log.w("PreloadMasterManager", "prefetch app is not the same !!!!");
-                    Log.w("PreloadMasterManager", "bind app info - " + g());
-                    Log.w("PreloadMasterManager", "prefetch app info - " + pMSAppInfo);
+                if (!df2.h()) {
+                    return false;
                 }
-                return true;
+                String containerId = ba2Var.getContainerId();
+                if (!jd2.a(containerId) || (b0 = db3.b0()) == null || !b(ba2Var) || (a2 = md2.b().a()) == null) {
+                    return false;
+                }
+                String h = a2.h();
+                if (TextUtils.isEmpty(h)) {
+                    return false;
+                }
+                z = (TextUtils.equals(a2.i().a(), ba2Var.getContainerId()) && TextUtils.equals(h, b0.b)) ? true : true;
+                if (a && z) {
+                    Log.w("MasterIsolationHelper", "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch");
+                }
             }
+            return z;
         }
         return invokeLL.booleanValue;
     }
 
-    public boolean w(PMSAppInfo pMSAppInfo, PrefetchEvent.c cVar) {
-        InterceptResult invokeLL;
+    public static boolean b(ba2 ba2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo, cVar)) == null) {
-            PMSAppInfo g = g();
-            if (this.c == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ba2Var)) == null) {
+            if ((ba2Var instanceof li2) && ((li2) ba2Var).getInvokeSourceType() == 0) {
+                return true;
             }
-            if (pMSAppInfo.versionCode == g.versionCode && TextUtils.equals(pMSAppInfo.appId, g.appId) && !m(cVar, this.d)) {
-                return false;
-            }
-            return true;
+            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

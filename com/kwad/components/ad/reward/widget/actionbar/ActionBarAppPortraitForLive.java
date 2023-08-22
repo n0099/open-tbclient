@@ -52,8 +52,8 @@ public class ActionBarAppPortraitForLive extends LinearLayout implements c {
     }
 
     private void initView() {
-        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04f0, this);
-        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091369);
+        LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d04f7, this);
+        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f09137f);
     }
 
     public final void a(@NonNull k kVar, @NonNull AdTemplate adTemplate, @Nullable com.kwad.components.core.c.a.c cVar, a aVar) {

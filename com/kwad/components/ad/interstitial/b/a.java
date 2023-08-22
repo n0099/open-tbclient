@@ -63,8 +63,8 @@ public final class a extends b {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.gc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091292);
-        this.ge = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0912d3);
+        this.gc = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0912a8);
+        this.ge = (KsAutoCloseView) findViewById(R.id.obfuscated_res_0x7f0912e9);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

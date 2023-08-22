@@ -1,60 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ErrorData;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.FutureTask;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes8.dex */
-public class yl5 {
+public class yl5 extends am5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FutureTask<Boolean>> a;
-    public List<xl5> b;
-    public ErrorData c;
+    public final Context a;
+    public final String b;
 
-    public yl5() {
+    public yl5(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context.getApplicationContext();
+        this.b = str;
     }
 
-    public void a(ErrorData errorData) {
+    @Override // com.baidu.tieba.am5
+    public InputStream b() throws IOException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, errorData) != null) || this.c != null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getAssets().open(this.b);
         }
-        this.c = errorData;
-        for (FutureTask<Boolean> futureTask : this.a) {
-            futureTask.cancel(true);
-        }
-        for (xl5 xl5Var : this.b) {
-            xl5Var.a();
-        }
-    }
-
-    public void b(List<xl5> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.b = list;
-        }
-    }
-
-    public void c(List<FutureTask<Boolean>> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
-        }
+        return (InputStream) invokeV.objValue;
     }
 }

@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes5.dex */
-public abstract class am5 {
+public abstract class am5 implements zl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract String a();
-
-    public abstract Bitmap b(Bitmap bitmap, boolean z) throws Exception;
-
-    public abstract void d(String str);
+    public abstract InputStream b() throws IOException;
 
     public am5() {
         Interceptable interceptable = $ic;
@@ -33,12 +28,17 @@ public abstract class am5 {
         }
     }
 
-    public Bitmap c(String str) throws Exception {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zl5
+    public final synchronized vl5 a() throws IOException {
+        InterceptResult invokeV;
+        wl5 wl5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return b(BitmapHelper.loadBitmap(str), true);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                wl5Var = new wl5(b());
+            }
+            return wl5Var;
         }
-        return (Bitmap) invokeL.objValue;
+        return (vl5) invokeV.objValue;
     }
 }

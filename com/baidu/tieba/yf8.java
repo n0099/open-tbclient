@@ -1,7 +1,7 @@
 package com.baidu.tieba;
+
+import com.baidu.tieba.im.lib.socket.msg.TbBaseMsg;
 /* loaded from: classes8.dex */
 public interface yf8 {
-    void c();
-
-    void i();
+    void a(int i, String str, TbBaseMsg tbBaseMsg);
 }

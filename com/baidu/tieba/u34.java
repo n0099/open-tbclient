@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.ha2;
+import android.content.Intent;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,109 +12,69 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class u34 implements oz3 {
+public class u34 extends j34 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160051, "Lcom/baidu/tieba/u34;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948160051, "Lcom/baidu/tieba/u34;");
+                return;
+            }
+        }
+        c = nr1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u34() {
+        super("StartAppUsagePage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.oz3
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return x34.b();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.oz3
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && b()) {
-            SwanAppActivity activity = lw2.T().getActivity();
-            if (activity != null) {
-                activity.setRequestedOrientation(1);
-            }
-            lw2.T().V().g(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.oz3
-    public void a(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            ha2 U = lw2.T().U();
-            Context appContext = AppRuntime.getAppContext();
-            if (U == null) {
-                if (appContext != null) {
-                    qa3.f(appContext, R.string.obfuscated_res_0x7f0f01d2).G();
-                    return;
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            y03 d = y03.d(str, str);
-            d.h(jSONObject.toString());
-            ha2.b i = U.i("adLanding");
-            i.n(ha2.g, ha2.i);
-            i.k("adLanding", d).b();
         }
     }
 
-    @Override // com.baidu.tieba.oz3
-    public boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
-            return x34.c(view2);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.oz3
-    public boolean removeView(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
-            return x34.d(view2);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.oz3
-    public boolean d(View view2, iy3 iy3Var) {
+    @Override // com.baidu.tieba.j34
+    public d32 a(@NonNull JSONObject jSONObject, @NonNull ho2 ho2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, iy3Var)) == null) {
-            return x34.a(view2, new e13(iy3Var.c(), iy3Var.d(), iy3Var.e(), iy3Var.b()));
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.oz3
-    public boolean f(View view2, iy3 iy3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, iy3Var)) == null) {
-            ps1 V = lw2.T().V();
-            if (V != null && V.a(view2, new e13(iy3Var.c(), iy3Var.d(), iy3Var.e(), iy3Var.b()))) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, ho2Var)) == null) {
+            db3 b0 = db3.b0();
+            if (b0 != null && b0.w() != null) {
+                try {
+                    b0.w().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
+                } catch (Exception e) {
+                    if (c) {
+                        e.printStackTrace();
+                    }
+                    ho3.f(b0.w());
+                }
+                ho2Var.onSuccess(null);
+            } else {
+                ho2Var.onFail(100, "swan or activity is null");
+                if (c) {
+                    Log.d("StartAppUsagePage", "swan or activity is null");
+                }
             }
-            return false;
+            return null;
         }
-        return invokeLL.booleanValue;
+        return (d32) invokeLL.objValue;
     }
 }

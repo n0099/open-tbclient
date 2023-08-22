@@ -22,7 +22,7 @@ import kotlin.reflect.jvm.internal.impl.types.ClassTypeConstructorImpl;
 import kotlin.reflect.jvm.internal.impl.types.KotlinType;
 import kotlin.reflect.jvm.internal.impl.types.TypeConstructor;
 import kotlin.reflect.jvm.internal.impl.types.checker.KotlinTypeRefiner;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public class MutableClassDescriptor extends ClassDescriptorBase {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public final boolean isInner;
@@ -222,13 +222,13 @@ public class MutableClassDescriptor extends ClassDescriptorBase {
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getCompanionObjectDescriptor */
-    public ClassDescriptor mo2095getCompanionObjectDescriptor() {
+    public ClassDescriptor mo2097getCompanionObjectDescriptor() {
         return null;
     }
 
     @Override // kotlin.reflect.jvm.internal.impl.descriptors.ClassDescriptor
     /* renamed from: getUnsubstitutedPrimaryConstructor */
-    public ClassConstructorDescriptor mo2096getUnsubstitutedPrimaryConstructor() {
+    public ClassConstructorDescriptor mo2098getUnsubstitutedPrimaryConstructor() {
         return null;
     }
 

@@ -1,9 +1,9 @@
 package com.huawei.hms.hatool;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rpb;
-import com.baidu.tieba.vpb;
-import com.baidu.tieba.wpb;
+import com.baidu.tieba.gwb;
+import com.baidu.tieba.kwb;
+import com.baidu.tieba.lwb;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class c0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -75,13 +75,13 @@ public class c0 {
             String c = c();
             if (b()) {
                 y.c("hmsSdk", "refresh components");
-                b = vpb.d(128);
+                b = kwb.d(128);
                 a("aprpap", b);
-                b2 = vpb.d(128);
+                b2 = kwb.d(128);
                 a("febdoc", b2);
-                b3 = vpb.d(128);
+                b3 = kwb.d(128);
                 a("marfil", b3);
-                b4 = vpb.d(128);
+                b4 = kwb.d(128);
                 a("maywnj", b4);
                 g0.b(b.i(), "Privacy_MY", "assemblyFlash", System.currentTimeMillis());
             } else {
@@ -90,7 +90,7 @@ public class c0 {
                 b3 = b("marfil");
                 b4 = b("maywnj");
             }
-            return wpb.a(rpb.b(a(b, b2, b3, c), wpb.b(b4), 10000, 16));
+            return lwb.a(gwb.b(a(b, b2, b3, c), lwb.b(b4), 10000, 16));
         }
         return (String) invokeV.objValue;
     }
@@ -142,10 +142,10 @@ public class c0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, str4)) == null) {
-            byte[] b = wpb.b(str);
-            byte[] b2 = wpb.b(str2);
-            byte[] b3 = wpb.b(str3);
-            byte[] b4 = wpb.b(str4);
+            byte[] b = lwb.b(str);
+            byte[] b2 = lwb.b(str2);
+            byte[] b3 = lwb.b(str3);
+            byte[] b4 = lwb.b(str4);
             int length = b.length;
             if (length > b2.length) {
                 length = b2.length;
@@ -174,7 +174,7 @@ public class c0 {
             if (a(file)) {
                 return t0.a(file);
             }
-            String d = vpb.d(128);
+            String d = kwb.d(128);
             t0.a(file, d);
             return d;
         }

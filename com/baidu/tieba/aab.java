@@ -1,171 +1,142 @@
 package com.baidu.tieba;
 
-import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class aab {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static final boolean b;
+    public static volatile v9b a;
+    public static s9b b;
+    public static u9b c;
+    public static t9b d;
+    public static u8b e;
+    public static y8b f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947609863, "Lcom/baidu/tieba/aab;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947609863, "Lcom/baidu/tieba/aab;");
-                return;
-            }
-        }
-        a();
-        b();
-        a = d();
-        c();
-        e();
-        f();
-        b = g();
-        h();
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
+    public aab() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 14) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 17) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean d() {
+    public static v9b d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 18) {
-                return true;
+            synchronized (aab.class) {
+                if (a == null) {
+                    a = z9b.a();
+                }
             }
-            return false;
+            return a;
         }
-        return invokeV.booleanValue;
+        return (v9b) invokeV.objValue;
     }
 
-    public static boolean e() {
+    public static s9b a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            s9b s9bVar = b;
+            if (s9bVar != null) {
+                return s9bVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                b = a.a();
+            }
+            return b;
+        }
+        return (s9b) invokeV.objValue;
+    }
+
+    public static t9b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            t9b t9bVar = d;
+            if (t9bVar != null) {
+                return t9bVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                d = a.e();
+            }
+            return d;
+        }
+        return (t9b) invokeV.objValue;
+    }
+
+    public static u9b c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            u9b u9bVar = c;
+            if (u9bVar != null) {
+                return u9bVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                c = a.b();
+            }
+            return c;
+        }
+        return (u9b) invokeV.objValue;
+    }
+
+    public static u8b e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return true;
+            u8b u8bVar = e;
+            if (u8bVar != null) {
+                return u8bVar;
             }
-            return false;
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                e = a.c();
+            }
+            return e;
         }
-        return invokeV.booleanValue;
+        return (u8b) invokeV.objValue;
     }
 
-    public static boolean f() {
+    public static y8b f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return true;
+            y8b y8bVar = f;
+            if (y8bVar != null) {
+                return y8bVar;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return true;
+            if (a == null) {
+                a = d();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return true;
+            if (a != null) {
+                f = a.d();
             }
-            return false;
+            return f;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static float i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
-            return m5b.c().getContext().getResources().getDimension(i);
-        }
-        return invokeI.floatValue;
-    }
-
-    public static int j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
-            return m5b.c().getContext().getResources().getDimensionPixelOffset(i);
-        }
-        return invokeI.intValue;
-    }
-
-    public static int k(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65547, null, i)) == null) {
-            return m5b.c().getContext().getResources().getDimensionPixelSize(i);
-        }
-        return invokeI.intValue;
-    }
-
-    public static String l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
-            return m5b.c().getContext().getResources().getString(i);
-        }
-        return (String) invokeI.objValue;
+        return (y8b) invokeV.objValue;
     }
 }

@@ -23,16 +23,16 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.task.TbSocketMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aba;
-import com.baidu.tieba.na9;
+import com.baidu.tieba.bn;
+import com.baidu.tieba.ifa;
 import com.baidu.tieba.newinterest.data.InterestCommitHttpResMsg;
 import com.baidu.tieba.newinterest.data.InterestedForumHttpResMsg;
 import com.baidu.tieba.newinterest.data.InterestedForumReqMsg;
 import com.baidu.tieba.newinterest.data.InterestedForumSocketResMsg;
-import com.baidu.tieba.oa9;
-import com.baidu.tieba.pa9;
-import com.baidu.tieba.ra9;
-import com.baidu.tieba.ym;
+import com.baidu.tieba.se9;
+import com.baidu.tieba.te9;
+import com.baidu.tieba.ue9;
+import com.baidu.tieba.we9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -56,7 +56,7 @@ public class InterestedForumModel {
     public Gson b;
     public d c;
     public c d;
-    public List<na9> e;
+    public List<se9> e;
     public boolean f;
     public NetMessageListener g;
     public HttpMessageListener h;
@@ -68,7 +68,7 @@ public class InterestedForumModel {
 
     /* loaded from: classes7.dex */
     public interface d {
-        void c(oa9 oa9Var);
+        void c(te9 te9Var);
 
         void onError(int i, String str);
     }
@@ -112,20 +112,20 @@ public class InterestedForumModel {
                 if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != InterestedForumModel.i) {
                     return;
                 }
-                oa9 oa9Var = null;
+                te9 te9Var = null;
                 if (responsedMessage instanceof InterestedForumHttpResMsg) {
-                    oa9Var = ((InterestedForumHttpResMsg) responsedMessage).getPageData();
+                    te9Var = ((InterestedForumHttpResMsg) responsedMessage).getPageData();
                 } else if (responsedMessage instanceof InterestedForumSocketResMsg) {
-                    oa9Var = ((InterestedForumSocketResMsg) responsedMessage).getPageData();
+                    te9Var = ((InterestedForumSocketResMsg) responsedMessage).getPageData();
                 }
                 if (responsedMessage.getError() == 0) {
-                    if (oa9Var != null && !ListUtils.isEmpty(oa9Var.a)) {
-                        if (oa9Var != null && this.a.c != null) {
+                    if (te9Var != null && !ListUtils.isEmpty(te9Var.a)) {
+                        if (te9Var != null && this.a.c != null) {
                             InterestedForumModel.c(this.a);
-                            this.a.c.c(oa9Var);
+                            this.a.c.c(te9Var);
                         }
                     } else if (this.a.c != null) {
-                        this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e21));
+                        this.a.c.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0e29));
                     }
                 } else if (this.a.c != null) {
                     this.a.c.onError(responsedMessage.getError(), responsedMessage.getErrorString());
@@ -311,14 +311,14 @@ public class InterestedForumModel {
         return i2;
     }
 
-    public void i(List<ym> list) throws UnsupportedEncodingException {
+    public void i(List<bn> list) throws UnsupportedEncodingException {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
             h(URLEncoder.encode(l(list), "utf-8"));
         }
     }
 
-    public void r(List<na9> list) {
+    public void r(List<se9> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, list) == null) {
             this.e = list;
@@ -351,14 +351,14 @@ public class InterestedForumModel {
         }
     }
 
-    public final List<Integer> k(List<na9> list) {
+    public final List<Integer> k(List<se9> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
             ArrayList arrayList = new ArrayList();
             if (list != null) {
-                for (na9 na9Var : list) {
-                    arrayList.add(Integer.valueOf(na9Var.c()));
+                for (se9 se9Var : list) {
+                    arrayList.add(Integer.valueOf(se9Var.c()));
                 }
             }
             return arrayList;
@@ -380,7 +380,7 @@ public class InterestedForumModel {
     public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, aba.a(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, ifa.a(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
             tbHttpMessageTask.setIsNeedAddCommenParam(false);
             tbHttpMessageTask.setResponsedClass(InterestedForumHttpResMsg.class);
             tbHttpMessageTask.setPriority(4);
@@ -409,9 +409,9 @@ public class InterestedForumModel {
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             HashMap hashMap = new HashMap();
             if (!ListUtils.isEmpty(this.e)) {
-                for (na9 na9Var : this.e) {
-                    if (na9Var != null) {
-                        hashMap.put(na9Var.d(), new HashMap());
+                for (se9 se9Var : this.e) {
+                    if (se9Var != null) {
+                        hashMap.put(se9Var.d(), new HashMap());
                     }
                 }
             }
@@ -424,7 +424,7 @@ public class InterestedForumModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             InterestedForumReqMsg interestedForumReqMsg = new InterestedForumReqMsg();
-            List<na9> list = this.e;
+            List<se9> list = this.e;
             if (list == null) {
                 interestedForumReqMsg.classidList = k(null);
             } else {
@@ -436,24 +436,24 @@ public class InterestedForumModel {
         }
     }
 
-    public final String l(List<ym> list) {
+    public final String l(List<bn> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, list)) == null) {
             HashMap hashMap = new HashMap();
             HashMap hashMap2 = null;
             String str = "";
-            for (ym ymVar : list) {
-                if (ymVar instanceof ra9) {
+            for (bn bnVar : list) {
+                if (bnVar instanceof we9) {
                     if (!StringUtils.isNull(str)) {
                         hashMap.put(str, hashMap2);
                     }
                     hashMap2 = new HashMap();
-                    str = ((ra9) ymVar).b();
-                } else if (ymVar instanceof pa9) {
-                    pa9 pa9Var = (pa9) ymVar;
-                    if (pa9Var.h() && hashMap2 != null) {
-                        hashMap2.put(Long.valueOf(pa9Var.c()), pa9Var.d());
+                    str = ((we9) bnVar).b();
+                } else if (bnVar instanceof ue9) {
+                    ue9 ue9Var = (ue9) bnVar;
+                    if (ue9Var.h() && hashMap2 != null) {
+                        hashMap2.put(Long.valueOf(ue9Var.c()), ue9Var.d());
                     }
                 }
             }
@@ -461,9 +461,9 @@ public class InterestedForumModel {
                 hashMap.put(str, hashMap2);
             }
             if (!ListUtils.isEmpty(this.e)) {
-                for (na9 na9Var : this.e) {
-                    if (na9Var != null && !hashMap.containsKey(na9Var.d())) {
-                        hashMap.put(na9Var.d(), new HashMap());
+                for (se9 se9Var : this.e) {
+                    if (se9Var != null && !hashMap.containsKey(se9Var.d())) {
+                        hashMap.put(se9Var.d(), new HashMap());
                     }
                 }
             }

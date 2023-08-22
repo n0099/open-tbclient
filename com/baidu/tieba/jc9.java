@@ -1,43 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import android.view.View;
 /* loaded from: classes6.dex */
-public final class jc9 implements t55 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface jc9 {
+    void a();
 
-    @Override // com.baidu.tieba.t55
-    public Class<? extends r55> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? ic9.class : (Class) invokeV.objValue;
-    }
+    void b(boolean z);
 
-    @Override // com.baidu.tieba.t55
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pbFriendBotBottomNewSkill" : (String) invokeV.objValue;
-    }
+    void c(int i);
 
-    public jc9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void d(oa8 oa8Var);
+
+    void destroy();
+
+    void e();
+
+    void f(boolean z);
+
+    void g(long j, long j2);
+
+    View getRootView();
+
+    oa8 h();
+
+    void i();
+
+    void j(boolean z, int i);
+
+    void k(int i);
+
+    int l();
+
+    void m();
+
+    void n(oa8 oa8Var);
+
+    void o(long j, long j2, int i);
+
+    na8 p(int i);
+
+    void pause();
+
+    void q();
+
+    void r();
+
+    void resetView();
+
+    void resume();
+
+    void s(int i);
+
+    void t(na8 na8Var, boolean z, int i);
 }

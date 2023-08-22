@@ -35,8 +35,8 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.RequsetNetworkUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.s80;
-import com.baidu.tieba.v70;
+import com.baidu.tieba.v80;
+import com.baidu.tieba.y70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -151,11 +151,11 @@ public class ConversationStudioManImpl {
             public void run() {
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                    v70.c.removeCallbacks(ConversationStudioManImpl.mPingRunnable);
+                    y70.c.removeCallbacks(ConversationStudioManImpl.mPingRunnable);
                     if (RequsetNetworkUtils.isNetworkAvailable(ConversationStudioManImpl.mContext)) {
                         BIMManager.pingRequest();
                     }
-                    v70.c.postDelayed(ConversationStudioManImpl.mPingRunnable, ConversationStudioManImpl.mCastHeartBeatTime);
+                    y70.c.postDelayed(ConversationStudioManImpl.mPingRunnable, ConversationStudioManImpl.mCastHeartBeatTime);
                 }
             }
         };
@@ -199,7 +199,7 @@ public class ConversationStudioManImpl {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             clearReliableCastList();
             clearFetchRunnable();
-            Handler handler = v70.c;
+            Handler handler = y70.c;
             if (handler != null) {
                 handler.removeCallbacks(mPingRunnable);
             }
@@ -227,7 +227,7 @@ public class ConversationStudioManImpl {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (s80.b() == 0) {
+            if (v80.b() == 0) {
                 return true;
             }
             return false;
@@ -379,7 +379,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra("mcast_id", j);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, z);
                 try {
-                    v70.e(mContext).d(mContext, createMcastMethodIntent);
+                    y70.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -436,7 +436,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
                 createMcastMethodIntent.putExtra("mcast_id", j);
                 try {
-                    v70.e(mContext).d(mContext, createMcastMethodIntent);
+                    y70.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -460,7 +460,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_BATCH_TYPE, i);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_CHAT_ROOM_GROUP_ID, j2);
                 try {
-                    v70.e(mContext).d(mContext, createMcastMethodIntent);
+                    y70.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -484,7 +484,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_BATCH_TYPE, i);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_CHAT_ROOM_GROUP_ID, j2);
                 try {
-                    v70.e(mContext).d(mContext, createMcastMethodIntent);
+                    y70.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);
@@ -773,11 +773,11 @@ public class ConversationStudioManImpl {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048600, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
             if (z) {
-                v70.c.removeCallbacks(mPingRunnable);
-                v70.c.postDelayed(mPingRunnable, j);
+                y70.c.removeCallbacks(mPingRunnable);
+                y70.c.postDelayed(mPingRunnable, j);
                 return;
             }
-            v70.c.removeCallbacks(mPingRunnable);
+            y70.c.removeCallbacks(mPingRunnable);
         }
     }
 
@@ -793,7 +793,7 @@ public class ConversationStudioManImpl {
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_CODE, i);
                 createMcastMethodIntent.putExtra(Constants.EXTRA_OPT_EXT, str);
                 try {
-                    v70.e(mContext).d(mContext, createMcastMethodIntent);
+                    y70.e(mContext).d(mContext, createMcastMethodIntent);
                     return;
                 } catch (Exception e) {
                     ListenerManager.getInstance().removeListener(addListener);

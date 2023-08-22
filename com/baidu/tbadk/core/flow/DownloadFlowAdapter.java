@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a75;
-import com.baidu.tieba.b75;
-import com.baidu.tieba.cw5;
+import com.baidu.tieba.g75;
+import com.baidu.tieba.h75;
+import com.baidu.tieba.tw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,7 +31,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class DownloadFlowAdapter<T extends b75> extends PagerAdapter {
+public class DownloadFlowAdapter<T extends h75> extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<View> a;
@@ -39,7 +39,7 @@ public class DownloadFlowAdapter<T extends b75> extends PagerAdapter {
     public Context c;
     public View.OnClickListener d;
     public View.OnClickListener e;
-    public cw5 f;
+    public tw5 f;
     public Map<String, String> g;
 
     public void d() {
@@ -86,7 +86,7 @@ public class DownloadFlowAdapter<T extends b75> extends PagerAdapter {
         new ArrayList();
         this.g = new HashMap();
         this.c = context;
-        this.f = cw5.c();
+        this.f = tw5.d();
         i();
     }
 
@@ -147,10 +147,10 @@ public class DownloadFlowAdapter<T extends b75> extends PagerAdapter {
                     }
                     Map.Entry<String, String> next = it.next();
                     if (next != null && this.g.containsKey(str) && next.getKey().equals(str)) {
-                        if (next.getValue().equals(cw5.j)) {
+                        if (next.getValue().equals(tw5.j)) {
                             return true;
                         }
-                        if (next.getValue().equals(cw5.k)) {
+                        if (next.getValue().equals(tw5.k)) {
                         }
                     }
                 }
@@ -168,9 +168,9 @@ public class DownloadFlowAdapter<T extends b75> extends PagerAdapter {
         }
     }
 
-    public void g(List<T> list, a75 a75Var) {
+    public void g(List<T> list, g75 g75Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, list, a75Var) == null) && list != null && !list.isEmpty()) {
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, list, g75Var) == null) && list != null && !list.isEmpty()) {
             e(list);
             f(this.b);
             notifyDataSetChanged();
@@ -200,12 +200,12 @@ public class DownloadFlowAdapter<T extends b75> extends PagerAdapter {
     }
 
     public void i() {
-        cw5 cw5Var;
+        tw5 tw5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (cw5Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (tw5Var = this.f) == null) {
             return;
         }
-        this.g = cw5Var.e();
+        this.g = tw5Var.f();
         notifyDataSetChanged();
     }
 
@@ -237,8 +237,8 @@ public class DownloadFlowAdapter<T extends b75> extends PagerAdapter {
                 EMManager.from(relativeLayout).setCorner(R.string.J_X05).setBackGroundColor(R.color.CAM_X0206);
                 EMManager.from(imageView).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0301);
                 EMManager.from(relativeLayout2).setCorner(R.string.J_X07).setBackGroundColor(R.color.CAM_X0302);
-                tbImageView.startLoad(apkDownloadInfoData.getmApkImgUrl(), 10, false);
-                textView.setText(apkDownloadInfoData.getmApkName());
+                tbImageView.startLoad(apkDownloadInfoData.getApkIcon(), 10, false);
+                textView.setText(apkDownloadInfoData.getApkName());
                 if (apkDownloadInfoData.getStatus() != null) {
                     int i2 = apkDownloadInfoData.getStatus().status;
                     if (i2 != 3) {

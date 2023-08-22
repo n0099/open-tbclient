@@ -16,7 +16,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 import com.kwad.sdk.core.view.AdBaseFrameLayout;
 import com.kwad.sdk.mvp.Presenter;
 import com.kwad.sdk.widget.KSFrameLayout;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public final class b extends KSFrameLayout {
     @Nullable
     public KsDrawAd.AdInteractionListener aJ;
@@ -121,11 +121,11 @@ public final class b extends KSFrameLayout {
     }
 
     private void initView() {
-        View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0492, this);
-        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913de);
+        View.inflate(this.mContext, R.layout.obfuscated_res_0x7f0d0499, this);
+        AdBaseFrameLayout adBaseFrameLayout = (AdBaseFrameLayout) findViewById(R.id.obfuscated_res_0x7f0913f4);
         this.mRootContainer = adBaseFrameLayout;
-        this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f09141e);
-        DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091434);
+        this.aO = (ImageView) adBaseFrameLayout.findViewById(R.id.obfuscated_res_0x7f091434);
+        DetailVideoView detailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09144a);
         this.mDetailVideoView = detailVideoView;
         detailVideoView.setAd(true);
         this.mDetailVideoView.setOnClickListener(this.aP);

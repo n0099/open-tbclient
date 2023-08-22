@@ -1,65 +1,52 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.Iterator;
+import kotlin.jvm.JvmName;
+@JvmName(name = "LayerUtils")
 /* loaded from: classes5.dex */
-public class f21 {
+public final class f21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return i21.k().getString("key_clarity_lifecycle", "");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712132, "Lcom/baidu/tieba/f21;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947712132, "Lcom/baidu/tieba/f21;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        z71.a(253.0f);
+        z71.a(9.0f);
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static final jz0 a(ArrayList<fz0> arrayList) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return i21.k().getString("key_clarity_login", "");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, arrayList)) == null) {
+            if (arrayList != null) {
+                Iterator<fz0> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    fz0 next = it.next();
+                    if (next instanceof jz0) {
+                        return (jz0) next;
+                    }
+                }
+                return null;
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return i21.k().getString("key_clarity_mobile", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return i21.k().getString("key_clarity_smart", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return i21.k().getString("key_clarity_wifi", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return i21.k().getInt("key_clarity_user", -2);
-        }
-        return invokeV.intValue;
+        return (jz0) invokeL.objValue;
     }
 }

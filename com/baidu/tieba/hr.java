@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.framework.utils.DebugTrace;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,12 +16,12 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class hr implements nr {
+public final class hr implements qr {
     public static /* synthetic */ Interceptable $ic;
-    public static final b c;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public final byte[] b;
+    public byte[] b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,14 +36,14 @@ public final class hr implements nr {
                 return;
             }
         }
-        c = new b(null);
+        c = new a(null);
     }
 
     @JvmStatic
-    public static final a d() {
-        InterceptResult invokeV;
+    public static final hr a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? c.a() : (a) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? c.b(bArr) : (hr) invokeL.objValue;
     }
 
     public boolean equals(Object obj) {
@@ -78,7 +78,7 @@ public final class hr implements nr {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "Extension(type=" + this.a + ", dataBytes=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
+            return "Alert(level=" + this.a + ", description=" + Arrays.toString(this.b) + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
@@ -87,8 +87,6 @@ public final class hr implements nr {
     public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public byte[] b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -100,88 +98,34 @@ public final class hr implements nr {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = -1;
-        }
-
-        public final hr c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return new hr(this.a, it.c(this.b));
-            }
-            return (hr) invokeV.objValue;
-        }
-
-        public final a a(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                this.a = i;
-                return this;
-            }
-            return (a) invokeI.objValue;
-        }
-
-        public final a b(byte[] bArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
-                this.b = bArr;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        @JvmStatic
-        public final a a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new a();
-            }
-            return (a) invokeV.objValue;
-        }
-
-        public /* synthetic */ b(DefaultConstructorMarker defaultConstructorMarker) {
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
             this();
         }
 
-        public final hr b(String str) {
+        @JvmStatic
+        public final hr b(byte[] bArr) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    return new hr(jSONObject.optInt("Type"), it.b(jSONObject.optString("Data")));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    DebugTrace debugTrace = DebugTrace.a;
-                    debugTrace.a("parse random fail:" + e.getMessage());
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+                return a(lt.a(bArr));
+            }
+            return (hr) invokeL.objValue;
+        }
+
+        @JvmStatic
+        public final hr a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str == null || TextUtils.isEmpty(str)) {
                     return null;
                 }
+                JSONObject jSONObject = new JSONObject(str);
+                return new hr(jSONObject.optInt("Level"), lt.b(jSONObject.optString("Description")));
             }
             return (hr) invokeL.objValue;
         }
@@ -206,36 +150,36 @@ public final class hr implements nr {
         this.b = bArr;
     }
 
-    public final int a() {
+    public final String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            String a2 = lt.a(lt.d(this.b));
+            Intrinsics.checkExpressionValueIsNotNull(a2, "StringUtils.bytes2Str(St…ase64Decode(description))");
+            return a2;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public final byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            byte[] d = it.d(this.b);
-            Intrinsics.checkExpressionValueIsNotNull(d, "StringUtils.base64Decode(dataBytes)");
-            return d;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nr
+    @Override // com.baidu.tieba.qr
     public JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("Type", Integer.valueOf(this.a));
-            jSONObject.putOpt("Data", it.a(this.b));
+            jSONObject.putOpt("Level", Integer.valueOf(this.a));
+            jSONObject.putOpt("Description", this.b);
             return jSONObject;
         }
         return (JSONObject) invokeV.objValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

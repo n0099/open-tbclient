@@ -25,7 +25,7 @@ public final class q extends p {
 
     public q(@IdRes int i) {
         this.we = i;
-        this.wc = R.layout.obfuscated_res_0x7f0d04cb;
+        this.wc = R.layout.obfuscated_res_0x7f0d04d2;
         this.wd = false;
     }
 
@@ -96,16 +96,16 @@ public final class q extends p {
         if (viewGroup == null) {
             return;
         }
-        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091335);
-        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091333);
-        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091334);
-        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09133c);
-        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091332);
-        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091337);
-        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09132e);
-        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f091336);
-        this.wf = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09132d);
-        this.wh = viewGroup.findViewById(R.id.obfuscated_res_0x7f09132f);
+        this.bq = (KsLogoView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09134b);
+        this.ll = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091349);
+        this.li = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09134a);
+        this.uu = (KsAppTagsView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091352);
+        this.nH = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091348);
+        this.vX = (KSCornerButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f09134d);
+        this.vY = (KsConvertButton) viewGroup.findViewById(R.id.obfuscated_res_0x7f091344);
+        this.vZ = viewGroup.findViewById(R.id.obfuscated_res_0x7f09134c);
+        this.wf = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091343);
+        this.wh = viewGroup.findViewById(R.id.obfuscated_res_0x7f091345);
     }
 
     @Override // com.kwad.components.ad.reward.k.p
@@ -115,6 +115,6 @@ public final class q extends p {
 
     @Override // com.kwad.components.ad.reward.k.p
     public final int jc() {
-        return R.id.obfuscated_res_0x7f091330;
+        return R.id.obfuscated_res_0x7f091346;
     }
 }

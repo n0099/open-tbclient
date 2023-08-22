@@ -385,6 +385,21 @@ public class FragmentedMp4Builder implements Mp4Builder {
         return mediaHeaderBox;
     }
 
+    public Box createTrex(Movie movie, Track track) {
+        TrackExtendsBox trackExtendsBox = new TrackExtendsBox();
+        trackExtendsBox.setTrackId(track.getTrackMetaData().getTrackId());
+        trackExtendsBox.setDefaultSampleDescriptionIndex(1L);
+        trackExtendsBox.setDefaultSampleDuration(0L);
+        trackExtendsBox.setDefaultSampleSize(0L);
+        SampleFlags sampleFlags = new SampleFlags();
+        if ("soun".equals(track.getHandler()) || "subt".equals(track.getHandler())) {
+            sampleFlags.setSampleDependsOn(2);
+            sampleFlags.setSampleIsDependedOn(2);
+        }
+        trackExtendsBox.setDefaultSampleFlags(sampleFlags);
+        return trackExtendsBox;
+    }
+
     public Box createMvex(Movie movie) {
         MovieExtendsBox movieExtendsBox = new MovieExtendsBox();
         MovieExtendsHeaderBox movieExtendsHeaderBox = new MovieExtendsHeaderBox();
@@ -611,21 +626,6 @@ public class FragmentedMp4Builder implements Mp4Builder {
         trackHeaderBox.setTrackId(track.getTrackMetaData().getTrackId());
         trackHeaderBox.setVolume(track.getTrackMetaData().getVolume());
         return trackHeaderBox;
-    }
-
-    public Box createTrex(Movie movie, Track track) {
-        TrackExtendsBox trackExtendsBox = new TrackExtendsBox();
-        trackExtendsBox.setTrackId(track.getTrackMetaData().getTrackId());
-        trackExtendsBox.setDefaultSampleDescriptionIndex(1L);
-        trackExtendsBox.setDefaultSampleDuration(0L);
-        trackExtendsBox.setDefaultSampleSize(0L);
-        SampleFlags sampleFlags = new SampleFlags();
-        if ("soun".equals(track.getHandler()) || "subt".equals(track.getHandler())) {
-            sampleFlags.setSampleDependsOn(2);
-            sampleFlags.setSampleIsDependedOn(2);
-        }
-        trackExtendsBox.setDefaultSampleFlags(sampleFlags);
-        return trackExtendsBox;
     }
 
     public TrackRunBox createTrun(long j, long j2, Track track, int i) {

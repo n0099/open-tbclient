@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
+import com.baidu.clientupdate.download.DownloadManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.core.prefetch.image.config.image.SystemStrategyImpl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,56 +14,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.binaryresource.BinaryResource;
-import com.facebook.binaryresource.FileBinaryResource;
-import com.facebook.cache.common.CacheKey;
-import com.facebook.cache.common.WriterCallbacks;
-import com.facebook.datasource.DataSource;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.imagepipeline.cache.DefaultCacheKeyFactory;
-import com.facebook.imagepipeline.core.ImagePipeline;
-import com.facebook.imagepipeline.core.ImagePipelineFactory;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class if2 implements bf2, hf2 {
+public class if2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public kf2 a;
     public jf2 b;
+    public File c;
+    public long d;
+    public int e;
+    public int f;
 
-    @Override // com.baidu.tieba.bf2
-    public boolean isClosed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
     /* loaded from: classes6.dex */
-    public class a implements lf2 {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cf2 a;
+        public kf2 a;
+        public jf2 b;
+        public File c;
+        public long d;
+        public int e;
+        public int f;
 
-        @Override // com.baidu.tieba.lf2
-        public void a(ImageRequest imageRequest) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imageRequest) == null) {
-            }
-        }
-
-        public a(if2 if2Var, cf2 cf2Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {if2Var, cf2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -71,76 +56,45 @@ public class if2 implements bf2, hf2 {
                     return;
                 }
             }
-            this.a = cf2Var;
+            this.e = 0;
+            this.f = 0;
         }
 
-        @Override // com.baidu.tieba.lf2
-        public void b(ImageRequest imageRequest) {
-            cf2 cf2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageRequest) == null) && (cf2Var = this.a) != null) {
-                cf2Var.onFinished();
-            }
-        }
-
-        @Override // com.baidu.tieba.lf2
-        public void onCancel(String str) {
-            cf2 cf2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (cf2Var = this.a) != null) {
-                cf2Var.onFinished();
-            }
-        }
-
-        @Override // com.baidu.tieba.lf2
-        public void c(ImageRequest imageRequest, Throwable th) {
-            cf2 cf2Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageRequest, th) == null) && (cf2Var = this.a) != null) {
-                cf2Var.onFinished();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements jf2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(if2 if2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {if2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.jf2
-        public CacheKey a(String str) {
+        public b g(kf2 kf2Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                return DefaultCacheKeyFactory.getInstance().getEncodedCacheKey(ImageRequest.fromUri(Uri.parse(str)), null);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kf2Var)) == null) {
+                this.a = kf2Var;
+                return this;
             }
-            return (CacheKey) invokeL.objValue;
+            return (b) invokeL.objValue;
+        }
+
+        public b h(jf2 jf2Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jf2Var)) == null) {
+                this.b = jf2Var;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b i(long j) {
+            InterceptResult invokeJ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+                this.d = j;
+                return this;
+            }
+            return (b) invokeJ.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
     public static class c {
         public static /* synthetic */ Interceptable $ic;
-        public static if2 a;
+        public static final if2 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -170,13 +124,11 @@ public class if2 implements bf2, hf2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new b(this);
     }
 
-    public static if2 d() {
+    public static if2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -185,134 +137,118 @@ public class if2 implements bf2, hf2 {
         return (if2) invokeV.objValue;
     }
 
+    public File b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.c == null) {
+                String o = hr4.o();
+                if (TextUtils.isEmpty(o)) {
+                    return null;
+                }
+                this.c = new File(o, "swan_hybrid");
+            }
+            return this.c;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public kf2 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a == null) {
+                this.a = new lf2();
+            }
+            return this.a;
+        }
+        return (kf2) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e <= 0) {
+                this.e = 60000;
+            }
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public jf2 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == null) {
+                this.b = new SystemStrategyImpl();
+            }
+            return this.b;
+        }
+        return (jf2) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.d <= 0) {
+                this.d = DownloadManager.MIN_LEFT_SIZE;
+            }
+            return this.d;
+        }
+        return invokeV.longValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.f <= 0) {
+                this.f = 60000;
+            }
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
     public /* synthetic */ if2(a aVar) {
         this();
     }
 
-    @Override // com.baidu.tieba.bf2
-    public void a(String str, File file, cf2 cf2Var) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, str, file, cf2Var) != null) || TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return AppRuntime.getAppContext().getExternalCacheDir() + File.separator + "swan_hybrid";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, bVar) != null) || bVar == null) {
             return;
         }
-        boolean z = false;
-        if (file != null && file.exists()) {
-            z = b(str, file);
-        }
-        if (z) {
-            cf2Var.onFinished();
-        } else {
-            e(str, new a(this, cf2Var));
+        this.a = bVar.a;
+        this.b = bVar.b;
+        this.c = bVar.c;
+        this.d = bVar.d;
+        this.e = bVar.e;
+        this.f = bVar.f;
+        if (mf2.a) {
+            Log.d("HybridIntercept", toString());
         }
     }
 
-    public final boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        FileInputStream fileInputStream;
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            CacheKey a2 = this.b.a(str);
-            boolean z = false;
-            FileInputStream fileInputStream2 = null;
-            try {
-                try {
-                    fileInputStream = new FileInputStream(file);
-                } catch (IOException e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                BinaryResource insert = Fresco.getImagePipelineFactory().getMainFileCache().insert(a2, WriterCallbacks.from(fileInputStream));
-                if (insert != null) {
-                    if (insert.size() > 0) {
-                        z = true;
-                    }
-                }
-                cr4.d(fileInputStream);
-                return z;
-            } catch (IOException e2) {
-                e = e2;
-                fileInputStream2 = fileInputStream;
-                if (hf2.a) {
-                    Log.e("HybridIntercept", Log.getStackTraceString(e));
-                }
-                cr4.d(fileInputStream2);
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                cr4.d(fileInputStream2);
-                throw th;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return "SwanHybridInterceptConfig{CacheKeyProvider=" + this.a + ", InterceptStrategy=" + this.b + ", CacheFolder=" + this.c + ", MaxCacheSize=" + (this.d / 1048576) + "MB, ConnectTimeout=" + this.e + ", ReadTimeout=" + this.f + '}';
         }
-        return invokeLL.booleanValue;
-    }
-
-    public final DataSource<Void> e(String str, lf2 lf2Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, lf2Var)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                ImagePipeline imagePipeline = Fresco.getImagePipeline();
-                ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(Uri.parse(str));
-                if (lf2Var != null) {
-                    newBuilderWithSource.setRequestListener(fu2.B().a(lf2Var));
-                }
-                return imagePipeline.prefetchToDiskCache(newBuilderWithSource.build(), null);
-            }
-            if (lf2Var != null) {
-                lf2Var.c(null, new Exception(ExceptionMessage.URL_EMPTY));
-            }
-            return null;
-        }
-        return (DataSource) invokeLL.objValue;
-    }
-
-    public final File c(String str) {
-        InterceptResult invokeL;
-        BinaryResource resource;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            CacheKey a2 = this.b.a(str);
-            if (a2 == null) {
-                return null;
-            }
-            if (ImagePipelineFactory.getInstance().getMainFileCache().hasKey(a2)) {
-                BinaryResource resource2 = ImagePipelineFactory.getInstance().getMainFileCache().getResource(a2);
-                if (resource2 == null) {
-                    return null;
-                }
-                return ((FileBinaryResource) resource2).getFile();
-            } else if (!ImagePipelineFactory.getInstance().getSmallImageFileCache().hasKey(a2) || (resource = ImagePipelineFactory.getInstance().getSmallImageFileCache().getResource(a2)) == null) {
-                return null;
-            } else {
-                return ((FileBinaryResource) resource).getFile();
-            }
-        }
-        return (File) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.bf2
-    public InputStream get(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            File c2 = c(str);
-            if (c2 != null && c2.exists()) {
-                try {
-                    return new FileInputStream(c2);
-                } catch (IOException e) {
-                    if (hf2.a) {
-                        Log.e("HybridIntercept", Log.getStackTraceString(e));
-                        return null;
-                    }
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (InputStream) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

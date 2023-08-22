@@ -17,7 +17,7 @@ import com.baidu.sapi2.stat.OneKeyLoginStat;
 import com.baidu.sapi2.utils.Log;
 import com.baidu.sapi2.utils.SapiStatUtil;
 import com.baidu.sapi2.utils.SapiUtils;
-import com.baidu.tieba.qo1;
+import com.baidu.tieba.vo1;
 import com.facebook.cache.disk.DefaultDiskStorage;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -67,9 +67,9 @@ public class OneKeyLoginSdkCall {
 
     public void initOneKeyLoginSdk(SapiConfiguration sapiConfiguration) {
         try {
-            qo1.d().e(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
-            qo1.d().b(sapiConfiguration.debug);
-            qo1.d().i(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
+            vo1.d().e(sapiConfiguration.context, oneKeyLoginAppKey, oneKeyLoginAppSecret);
+            vo1.d().b(sapiConfiguration.debug);
+            vo1.d().i(sapiConfiguration.context, sapiConfiguration.isAgreeDangerousProtocol());
         } catch (NoClassDefFoundError unused) {
             Log.e(TAG, "please import the package : onekey_login_ssolibrary-*.aar");
         }
@@ -93,8 +93,8 @@ public class OneKeyLoginSdkCall {
     public void getMobileOauthToken(SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
         try {
             try {
-                qo1.d().j(sapiConfiguration.context, 15000L, new qo1.a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
-                    @Override // com.baidu.tieba.qo1.a
+                vo1.d().j(sapiConfiguration.context, 15000L, new vo1.a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.3
+                    @Override // com.baidu.tieba.vo1.a
                     public void onFinish(String str) {
                         Log.d(OneKeyLoginSdkCall.TAG, "getMobileOauthToken onFinish result=" + str);
                         OneKeyLoginOptResult formatOptResult = OneKeyLoginOptResult.formatOptResult(str);
@@ -163,11 +163,11 @@ public class OneKeyLoginSdkCall {
     public void getToken(SapiConfiguration sapiConfiguration, final TokenListener tokenListener) {
         final long currentTimeMillis = System.currentTimeMillis();
         OneKeyLoginStat.OauthToken.statExtMap.put("netType", SapiUtils.getNetworkClass(sapiConfiguration.context));
-        OneKeyLoginStat.OauthToken.statExtMap.put("operator", qo1.d().c(sapiConfiguration.context));
+        OneKeyLoginStat.OauthToken.statExtMap.put("operator", vo1.d().c(sapiConfiguration.context));
         try {
             try {
-                qo1.d().g(sapiConfiguration.context, 15000L, new qo1.a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
-                    @Override // com.baidu.tieba.qo1.a
+                vo1.d().g(sapiConfiguration.context, 15000L, new vo1.a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.2
+                    @Override // com.baidu.tieba.vo1.a
                     public void onFinish(String str) {
                         OneKeyLoginStat.OauthToken.statExtMap.put("dur", Long.valueOf(System.currentTimeMillis() - currentTimeMillis));
                         Log.d(OneKeyLoginSdkCall.TAG, "SSOManager login onFinish result=" + str);
@@ -281,7 +281,7 @@ public class OneKeyLoginSdkCall {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:38:0x0135  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x0136  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -321,7 +321,7 @@ public class OneKeyLoginSdkCall {
         }
         final String networkClass = SapiUtils.getNetworkClass(context);
         OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("netType", networkClass);
-        String c = qo1.d().c(context);
+        String c = vo1.d().c(context);
         OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("operator", c);
         if (!TextUtils.equals(c, OPERATOR_CHINA_MOBILE) && !TextUtils.equals(c, OPERATOR_CHINA_UNICOM) && !TextUtils.equals(c, OPERATOR_CHINA_TELECOM)) {
             z2 = false;
@@ -346,8 +346,8 @@ public class OneKeyLoginSdkCall {
                 OneKeyLoginStat.PreGetPhoneStat.statExtMap.put("is_login", "0");
                 OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_GRAY, "1");
                 OneKeyLoginStat.PreGetPhoneStat.statExtMap.put(OneKeyLoginStat.PreGetPhoneStat.KEY_EXT_IS_ABLE_SIM, "1");
-                qo1.d().h(context, i, new qo1.a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
-                    @Override // com.baidu.tieba.qo1.a
+                vo1.d().h(context, i, new vo1.a() { // from class: com.baidu.sapi2.outsdk.OneKeyLoginSdkCall.1
+                    @Override // com.baidu.tieba.vo1.a
                     public void onFinish(String str2) {
                         long currentTimeMillis2 = System.currentTimeMillis();
                         Log.d(OneKeyLoginSdkCall.TAG, "SSOManager preLogin onFinish result=" + str2);

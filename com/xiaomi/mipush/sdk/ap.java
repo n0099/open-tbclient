@@ -22,7 +22,7 @@ public class ap extends Handler {
         Context context3;
         Context context4;
         Context context5;
-        HashMap<String, String> m241a;
+        HashMap<String, String> m243a;
         ao aoVar;
         au auVar;
         Context context6;
@@ -42,83 +42,83 @@ public class ap extends Handler {
         String str = (String) message.obj;
         int i = message.arg1;
         synchronized (af.class) {
-            context = this.a.f58a;
-            if (af.a(context).m200a(str)) {
-                context2 = this.a.f58a;
+            context = this.a.f59a;
+            if (af.a(context).m202a(str)) {
+                context2 = this.a.f59a;
                 if (af.a(context2).a(str) < 10) {
                     String string = message.getData() != null ? message.getData().getString("third_sync_reason") : "";
                     if (au.DISABLE_PUSH.ordinal() == i) {
-                        context14 = this.a.f58a;
+                        context14 = this.a.f59a;
                         if ("syncing".equals(af.a(context14).a(au.DISABLE_PUSH))) {
                             aoVar2 = this.a;
                             auVar2 = au.DISABLE_PUSH;
                             aoVar2.a(str, auVar2, true, (HashMap<String, String>) null);
-                            context13 = this.a.f58a;
+                            context13 = this.a.f59a;
                             af.a(context13).b(str);
                         }
                     }
                     if (au.ENABLE_PUSH.ordinal() == i) {
-                        context12 = this.a.f58a;
+                        context12 = this.a.f59a;
                         if ("syncing".equals(af.a(context12).a(au.ENABLE_PUSH))) {
                             aoVar2 = this.a;
                             auVar2 = au.ENABLE_PUSH;
                             aoVar2.a(str, auVar2, true, (HashMap<String, String>) null);
-                            context13 = this.a.f58a;
+                            context13 = this.a.f59a;
                             af.a(context13).b(str);
                         }
                     }
                     if (au.UPLOAD_HUAWEI_TOKEN.ordinal() == i) {
-                        context10 = this.a.f58a;
+                        context10 = this.a.f59a;
                         if ("syncing".equals(af.a(context10).a(au.UPLOAD_HUAWEI_TOKEN))) {
-                            context11 = this.a.f58a;
-                            m241a = i.m241a(context11, e.ASSEMBLE_PUSH_HUAWEI);
-                            m241a.put("third_sync_reason", string);
+                            context11 = this.a.f59a;
+                            m243a = i.m243a(context11, e.ASSEMBLE_PUSH_HUAWEI);
+                            m243a.put("third_sync_reason", string);
                             aoVar = this.a;
                             auVar = au.UPLOAD_HUAWEI_TOKEN;
-                            aoVar.a(str, auVar, false, m241a);
-                            context13 = this.a.f58a;
+                            aoVar.a(str, auVar, false, m243a);
+                            context13 = this.a.f59a;
                             af.a(context13).b(str);
                         }
                     }
                     if (au.UPLOAD_FCM_TOKEN.ordinal() == i) {
-                        context8 = this.a.f58a;
+                        context8 = this.a.f59a;
                         if ("syncing".equals(af.a(context8).a(au.UPLOAD_FCM_TOKEN))) {
                             ao aoVar3 = this.a;
                             au auVar3 = au.UPLOAD_FCM_TOKEN;
-                            context9 = this.a.f58a;
-                            aoVar3.a(str, auVar3, false, i.m241a(context9, e.ASSEMBLE_PUSH_FCM));
-                            context13 = this.a.f58a;
+                            context9 = this.a.f59a;
+                            aoVar3.a(str, auVar3, false, i.m243a(context9, e.ASSEMBLE_PUSH_FCM));
+                            context13 = this.a.f59a;
                             af.a(context13).b(str);
                         }
                     }
                     if (au.UPLOAD_COS_TOKEN.ordinal() == i) {
-                        context6 = this.a.f58a;
+                        context6 = this.a.f59a;
                         if ("syncing".equals(af.a(context6).a(au.UPLOAD_COS_TOKEN))) {
-                            context7 = this.a.f58a;
-                            m241a = i.m241a(context7, e.ASSEMBLE_PUSH_COS);
-                            m241a.put("third_sync_reason", string);
+                            context7 = this.a.f59a;
+                            m243a = i.m243a(context7, e.ASSEMBLE_PUSH_COS);
+                            m243a.put("third_sync_reason", string);
                             aoVar = this.a;
                             auVar = au.UPLOAD_COS_TOKEN;
-                            aoVar.a(str, auVar, false, m241a);
-                            context13 = this.a.f58a;
+                            aoVar.a(str, auVar, false, m243a);
+                            context13 = this.a.f59a;
                             af.a(context13).b(str);
                         }
                     }
                     if (au.UPLOAD_FTOS_TOKEN.ordinal() == i) {
-                        context4 = this.a.f58a;
+                        context4 = this.a.f59a;
                         if ("syncing".equals(af.a(context4).a(au.UPLOAD_FTOS_TOKEN))) {
-                            context5 = this.a.f58a;
-                            m241a = i.m241a(context5, e.ASSEMBLE_PUSH_FTOS);
-                            m241a.put("third_sync_reason", string);
+                            context5 = this.a.f59a;
+                            m243a = i.m243a(context5, e.ASSEMBLE_PUSH_FTOS);
+                            m243a.put("third_sync_reason", string);
                             aoVar = this.a;
                             auVar = au.UPLOAD_FTOS_TOKEN;
-                            aoVar.a(str, auVar, false, m241a);
+                            aoVar.a(str, auVar, false, m243a);
                         }
                     }
-                    context13 = this.a.f58a;
+                    context13 = this.a.f59a;
                     af.a(context13).b(str);
                 } else {
-                    context3 = this.a.f58a;
+                    context3 = this.a.f59a;
                     af.a(context3).c(str);
                 }
             }

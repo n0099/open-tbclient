@@ -18,7 +18,7 @@ public class MsgRecForumNetMessage extends NetMessage {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* renamed from: common  reason: collision with root package name */
-    public CommonReq f1122common;
+    public CommonReq f1138common;
     public Integer mPn;
     public Integer mRn;
     public Long userId;
@@ -48,7 +48,7 @@ public class MsgRecForumNetMessage extends NetMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
-            builder.f1359common = this.f1122common;
+            builder.f1362common = this.f1138common;
             builder.pn = this.mPn;
             builder.rn = this.mRn;
             builder.user_id = this.userId;

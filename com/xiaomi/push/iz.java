@@ -7,21 +7,21 @@ public class iz extends jd {
     public static final ji a = new ji();
 
     /* renamed from: a  reason: collision with other field name */
-    public int f805a;
+    public int f806a;
 
     /* renamed from: a  reason: collision with other field name */
-    public boolean f806a;
+    public boolean f807a;
 
     /* renamed from: a  reason: collision with other field name */
-    public byte[] f807a;
+    public byte[] f808a;
     public boolean b;
 
     /* renamed from: b  reason: collision with other field name */
-    public byte[] f808b;
+    public byte[] f809b;
     public boolean c;
 
     /* renamed from: c  reason: collision with other field name */
-    public byte[] f809c;
+    public byte[] f810c;
     public byte[] d;
     public byte[] e;
     public byte[] f;
@@ -33,7 +33,7 @@ public class iz extends jd {
         public int a;
 
         /* renamed from: a  reason: collision with other field name */
-        public boolean f810a;
+        public boolean f811a;
         public boolean b;
 
         public a() {
@@ -45,16 +45,16 @@ public class iz extends jd {
         }
 
         public a(boolean z, boolean z2, int i) {
-            this.f810a = false;
+            this.f811a = false;
             this.b = true;
-            this.f810a = z;
+            this.f811a = z;
             this.b = z2;
             this.a = i;
         }
 
         @Override // com.xiaomi.push.jf
         public jd a(jn jnVar) {
-            iz izVar = new iz(jnVar, this.f810a, this.b);
+            iz izVar = new iz(jnVar, this.f811a, this.b);
             int i = this.a;
             if (i != 0) {
                 izVar.b(i);
@@ -65,18 +65,18 @@ public class iz extends jd {
 
     public iz(jn jnVar, boolean z, boolean z2) {
         super(jnVar);
-        this.f806a = false;
+        this.f807a = false;
         this.b = true;
         this.c = false;
-        this.f807a = new byte[1];
-        this.f808b = new byte[2];
-        this.f809c = new byte[4];
+        this.f808a = new byte[1];
+        this.f809b = new byte[2];
+        this.f810c = new byte[4];
         this.d = new byte[8];
         this.e = new byte[1];
         this.f = new byte[2];
         this.g = new byte[4];
         this.h = new byte[8];
-        this.f806a = z;
+        this.f807a = z;
         this.b = z2;
     }
 
@@ -91,24 +91,24 @@ public class iz extends jd {
             a(this.e, 0, 1);
             return this.e[0];
         }
-        byte b = ((jd) this).a.mo717a()[((jd) this).a.a()];
+        byte b = ((jd) this).a.mo719a()[((jd) this).a.a()];
         ((jd) this).a.a(1);
         return b;
     }
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public double mo691a() {
-        return Double.longBitsToDouble(mo693a());
+    public double mo693a() {
+        return Double.longBitsToDouble(mo695a());
     }
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public int mo692a() {
+    public int mo694a() {
         byte[] bArr = this.g;
         int i = 0;
         if (((jd) this).a.b() >= 4) {
-            bArr = ((jd) this).a.mo717a();
+            bArr = ((jd) this).a.mo719a();
             i = ((jd) this).a.a();
             ((jd) this).a.a(4);
         } else {
@@ -119,11 +119,11 @@ public class iz extends jd {
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public long mo693a() {
+    public long mo695a() {
         byte[] bArr = this.h;
         int i = 0;
         if (((jd) this).a.b() >= 8) {
-            bArr = ((jd) this).a.mo717a();
+            bArr = ((jd) this).a.mo719a();
             i = ((jd) this).a.a();
             ((jd) this).a.a(8);
         } else {
@@ -134,49 +134,49 @@ public class iz extends jd {
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public ja mo694a() {
+    public ja mo696a() {
         byte a2 = a();
-        return new ja("", a2, a2 == 0 ? (short) 0 : mo701a());
+        return new ja("", a2, a2 == 0 ? (short) 0 : mo703a());
     }
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public jb mo695a() {
-        return new jb(a(), mo692a());
+    public jb mo697a() {
+        return new jb(a(), mo694a());
     }
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public jc mo696a() {
-        return new jc(a(), a(), mo692a());
+    public jc mo698a() {
+        return new jc(a(), a(), mo694a());
     }
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public jh mo697a() {
-        return new jh(a(), mo692a());
+    public jh mo699a() {
+        return new jh(a(), mo694a());
     }
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public ji mo698a() {
+    public ji mo700a() {
         return a;
     }
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public String mo699a() {
-        int mo692a = mo692a();
-        if (((jd) this).a.b() >= mo692a) {
+    public String mo701a() {
+        int mo694a = mo694a();
+        if (((jd) this).a.b() >= mo694a) {
             try {
-                String str = new String(((jd) this).a.mo717a(), ((jd) this).a.a(), mo692a, "UTF-8");
-                ((jd) this).a.a(mo692a);
+                String str = new String(((jd) this).a.mo719a(), ((jd) this).a.a(), mo694a, "UTF-8");
+                ((jd) this).a.a(mo694a);
                 return str;
             } catch (UnsupportedEncodingException unused) {
                 throw new ix("JVM DOES NOT SUPPORT UTF-8");
             }
         }
-        return a(mo692a);
+        return a(mo694a);
     }
 
     /* JADX DEBUG: Possible override for method com.xiaomi.push.jd.a(I)V */
@@ -193,26 +193,26 @@ public class iz extends jd {
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public ByteBuffer mo700a() {
-        int mo692a = mo692a();
-        c(mo692a);
-        if (((jd) this).a.b() >= mo692a) {
-            ByteBuffer wrap = ByteBuffer.wrap(((jd) this).a.mo717a(), ((jd) this).a.a(), mo692a);
-            ((jd) this).a.a(mo692a);
+    public ByteBuffer mo702a() {
+        int mo694a = mo694a();
+        c(mo694a);
+        if (((jd) this).a.b() >= mo694a) {
+            ByteBuffer wrap = ByteBuffer.wrap(((jd) this).a.mo719a(), ((jd) this).a.a(), mo694a);
+            ((jd) this).a.a(mo694a);
             return wrap;
         }
-        byte[] bArr = new byte[mo692a];
-        ((jd) this).a.b(bArr, 0, mo692a);
+        byte[] bArr = new byte[mo694a];
+        ((jd) this).a.b(bArr, 0, mo694a);
         return ByteBuffer.wrap(bArr);
     }
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public short mo701a() {
+    public short mo703a() {
         byte[] bArr = this.f;
         int i = 0;
         if (((jd) this).a.b() >= 2) {
-            bArr = ((jd) this).a.mo717a();
+            bArr = ((jd) this).a.mo719a();
             i = ((jd) this).a.a();
             ((jd) this).a.a(2);
         } else {
@@ -223,25 +223,25 @@ public class iz extends jd {
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public void mo702a() {
+    public void mo704a() {
     }
 
     @Override // com.xiaomi.push.jd
     public void a(byte b) {
-        byte[] bArr = this.f807a;
+        byte[] bArr = this.f808a;
         bArr[0] = b;
-        ((jd) this).a.mo716a(bArr, 0, 1);
+        ((jd) this).a.mo718a(bArr, 0, 1);
     }
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public void mo703a(int i) {
-        byte[] bArr = this.f809c;
+    public void mo705a(int i) {
+        byte[] bArr = this.f810c;
         bArr[0] = (byte) ((i >> 24) & 255);
         bArr[1] = (byte) ((i >> 16) & 255);
         bArr[2] = (byte) ((i >> 8) & 255);
         bArr[3] = (byte) (i & 255);
-        ((jd) this).a.mo716a(bArr, 0, 4);
+        ((jd) this).a.mo718a(bArr, 0, 4);
     }
 
     @Override // com.xiaomi.push.jd
@@ -255,26 +255,26 @@ public class iz extends jd {
         bArr[5] = (byte) ((j >> 16) & 255);
         bArr[6] = (byte) ((j >> 8) & 255);
         bArr[7] = (byte) (j & 255);
-        ((jd) this).a.mo716a(bArr, 0, 8);
+        ((jd) this).a.mo718a(bArr, 0, 8);
     }
 
     @Override // com.xiaomi.push.jd
     public void a(ja jaVar) {
         a(jaVar.a);
-        a(jaVar.f813a);
+        a(jaVar.f814a);
     }
 
     @Override // com.xiaomi.push.jd
     public void a(jb jbVar) {
         a(jbVar.a);
-        mo703a(jbVar.f814a);
+        mo705a(jbVar.f815a);
     }
 
     @Override // com.xiaomi.push.jd
     public void a(jc jcVar) {
         a(jcVar.a);
         a(jcVar.b);
-        mo703a(jcVar.f815a);
+        mo705a(jcVar.f816a);
     }
 
     @Override // com.xiaomi.push.jd
@@ -285,8 +285,8 @@ public class iz extends jd {
     public void a(String str) {
         try {
             byte[] bytes = str.getBytes("UTF-8");
-            mo703a(bytes.length);
-            ((jd) this).a.mo716a(bytes, 0, bytes.length);
+            mo705a(bytes.length);
+            ((jd) this).a.mo718a(bytes, 0, bytes.length);
         } catch (UnsupportedEncodingException unused) {
             throw new ix("JVM DOES NOT SUPPORT UTF-8");
         }
@@ -295,16 +295,16 @@ public class iz extends jd {
     @Override // com.xiaomi.push.jd
     public void a(ByteBuffer byteBuffer) {
         int limit = (byteBuffer.limit() - byteBuffer.position()) - byteBuffer.arrayOffset();
-        mo703a(limit);
-        ((jd) this).a.mo716a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
+        mo705a(limit);
+        ((jd) this).a.mo718a(byteBuffer.array(), byteBuffer.position() + byteBuffer.arrayOffset(), limit);
     }
 
     @Override // com.xiaomi.push.jd
     public void a(short s) {
-        byte[] bArr = this.f808b;
+        byte[] bArr = this.f809b;
         bArr[0] = (byte) ((s >> 8) & 255);
         bArr[1] = (byte) (s & 255);
-        ((jd) this).a.mo716a(bArr, 0, 2);
+        ((jd) this).a.mo718a(bArr, 0, 2);
     }
 
     @Override // com.xiaomi.push.jd
@@ -314,7 +314,7 @@ public class iz extends jd {
 
     @Override // com.xiaomi.push.jd
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo704a() {
+    public boolean mo706a() {
         return a() == 1;
     }
 
@@ -323,7 +323,7 @@ public class iz extends jd {
     }
 
     public void b(int i) {
-        this.f805a = i;
+        this.f806a = i;
         this.c = true;
     }
 
@@ -336,8 +336,8 @@ public class iz extends jd {
         if (i < 0) {
             throw new ix("Negative length: " + i);
         } else if (this.c) {
-            int i2 = this.f805a - i;
-            this.f805a = i2;
+            int i2 = this.f806a - i;
+            this.f806a = i2;
             if (i2 >= 0) {
                 return;
             }

@@ -3,7 +3,7 @@ package com.baidu.tieba.screenlocknotify.loadmore;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a2a;
+import com.baidu.tieba.f6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,11 +13,11 @@ import com.squareup.wire.Wire;
 import tbclient.Error;
 import tbclient.GetMoreMsg.DataRes;
 import tbclient.GetMoreMsg.GetMoreMsgResIdl;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a2a loadMoreData;
+    public f6a loadMoreData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScreenLockLoadMoreSocketResponseMessage() {
@@ -37,13 +37,13 @@ public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMess
         }
     }
 
-    public a2a getData() {
+    public f6a getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.loadMoreData;
         }
-        return (a2a) invokeV.objValue;
+        return (f6a) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -66,9 +66,9 @@ public class ScreenLockLoadMoreSocketResponseMessage extends SocketResponsedMess
                 return getMoreMsgResIdl;
             }
             if (dataRes != null) {
-                a2a a2aVar = new a2a();
-                this.loadMoreData = a2aVar;
-                a2aVar.c(getMoreMsgResIdl.data);
+                f6a f6aVar = new f6a();
+                this.loadMoreData = f6aVar;
+                f6aVar.c(getMoreMsgResIdl.data);
             }
             return getMoreMsgResIdl;
         }

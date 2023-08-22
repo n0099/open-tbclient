@@ -1,50 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.text.TextUtils;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatNameViewHolder;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.tieba.im.settingcache.PersonalSettingItemData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class mh8 {
+public class mh8 extends ih8 {
     public static /* synthetic */ Interceptable $ic;
-    public static int h;
+    public static mh8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public bi8 a;
-    @NonNull
-    public kh8 b;
-    public View c;
-    public ChatNameViewHolder d;
-    public String e;
-    public long f;
-    public final View.OnClickListener g;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a extends bx5<Void> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mh8 a;
+        public final /* synthetic */ PersonalSettingItemData a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ mh8 c;
 
-        public a(mh8 mh8Var) {
+        public a(mh8 mh8Var, PersonalSettingItemData personalSettingItemData, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mh8Var};
+                Object[] objArr = {mh8Var, personalSettingItemData, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,198 +43,162 @@ public class mh8 {
                     return;
                 }
             }
-            this.a = mh8Var;
+            this.c = mh8Var;
+            this.a = personalSettingItemData;
+            this.b = str;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            bi8 bi8Var;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bx5
+        /* renamed from: a */
+        public Void doInBackground() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !this.a.e() && (bi8Var = this.a.a) != null) {
-                if (bi8Var.d()) {
-                    if (this.a.e.equals("message_tab")) {
-                        WebPManager.setPureDrawable(this.a.b.d(), R.drawable.obfuscated_res_0x7f080a96, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-                    } else {
-                        this.a.b.d().setImageResource(R.drawable.obfuscated_res_0x7f080917);
-                    }
-                    mh8 mh8Var = this.a;
-                    vg8.d(mh8Var.d, mh8Var.b.c());
-                    int unused = mh8.h = 1;
-                } else {
-                    if (this.a.e.equals("message_tab")) {
-                        WebPManager.setPureDrawable(this.a.b.d(), R.drawable.icon_close, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-                    } else {
-                        this.a.b.d().setImageResource(R.drawable.obfuscated_res_0x7f080914);
-                    }
-                    mh8 mh8Var2 = this.a;
-                    vg8.a(mh8Var2.d, mh8Var2.b.c());
-                    int unused2 = mh8.h = 2;
-                }
-                this.a.d();
-                bi8 bi8Var2 = this.a.a;
-                bi8Var2.g(true ^ bi8Var2.d());
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                this.c.getSettingCache().g(this.b, OrmObject.jsonStrWithObject(this.a));
+                return null;
             }
+            return (Void) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class b extends LinearLayoutManager {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(mh8 mh8Var, Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947972780, "Lcom/baidu/tieba/mh8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mh8Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947972780, "Lcom/baidu/tieba/mh8;");
+                return;
             }
         }
-
-        @Override // androidx.recyclerview.widget.LinearLayoutManager, androidx.recyclerview.widget.RecyclerView.LayoutManager
-        public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, recycler, state) == null) {
-                try {
-                    super.onLayoutChildren(recycler, state);
-                } catch (Throwable th) {
-                    th.printStackTrace();
-                }
-            }
-        }
+        a = new mh8();
     }
 
-    public mh8(@NonNull bi8 bi8Var, @NonNull kh8 kh8Var, View view2, ChatNameViewHolder chatNameViewHolder, String str) {
+    public mh8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bi8Var, kh8Var, view2, chatNameViewHolder, str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.f = 0L;
-        this.g = new a(this);
-        this.a = bi8Var;
-        this.b = kh8Var;
-        this.c = view2;
-        this.d = chatNameViewHolder;
-        this.e = str;
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            if (z) {
-                WebPManager.setPureDrawable(this.b.d(), R.drawable.icon_close, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-            } else {
-                WebPManager.setPureDrawable(this.b.d(), R.drawable.obfuscated_res_0x7f080a96, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHAT_GROUP_CLICK);
-            ug8 ug8Var = this.a.getSubItems().get(0);
-            if (ug8Var instanceof ci8) {
-                ci8 ci8Var = (ci8) ug8Var;
-                if (ci8Var.a() != null) {
-                    statisticItem.param("fid", ci8Var.a().getForumId());
-                    statisticItem.param("fname", ci8Var.a().getForumName());
-                }
-            }
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("obj_type", h);
-            statisticItem.param("obj_source", this.a.b());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final boolean e() {
+    public static mh8 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (System.currentTimeMillis() - this.f < 400) {
-                return true;
-            }
-            this.f = System.currentTimeMillis();
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return invokeV.booleanValue;
+        return (mh8) invokeV.objValue;
     }
 
-    public void g() {
+    @Override // com.baidu.tieba.ih8
+    public ne<String> getSettingCache() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            r45.k();
+            return r45.l("tb.im_personal_chat_setting");
+        }
+        return (ne) invokeV.objValue;
+    }
+
+    public void onAccountChangedInBackground() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.b(TbadkCoreApplication.getInst().getSkinType(), this.a);
+            super.onAccountChangedInBackground(PersonalSettingItemData.class);
         }
     }
 
-    public void f(@NonNull bi8 bi8Var) {
-        int i;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ih8
+    /* renamed from: b */
+    public PersonalSettingItemData getSetting(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bi8Var) == null) {
-            this.b.c().setLayoutManager(new b(this, this.c.getContext()));
-            this.b.c().setFocusable(false);
-            this.b.a().setOnClickListener(this.g);
-            this.b.e().setText(bi8Var.b());
-            boolean equals = this.e.equals("message_tab");
-            int i2 = R.drawable.obfuscated_res_0x7f080917;
-            if (equals) {
-                WebPManager.setPureDrawable(this.b.d(), R.drawable.obfuscated_res_0x7f080a96, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL);
-            } else {
-                this.b.d().setImageResource(R.drawable.obfuscated_res_0x7f080917);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            PersonalSettingItemData personalSettingItemData = null;
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
             }
-            if (this.b.c().getAdapter() != bi8Var.getAdapter()) {
-                if (this.b.c().getAdapter() != null) {
-                    this.b.c().swapAdapter(bi8Var.getAdapter(), true);
-                } else {
-                    this.b.c().setAdapter(bi8Var.getAdapter());
+            String str3 = str + "@" + str2;
+            synchronized (this.memoryCachedSettings) {
+                ChatSetting chatSetting = this.memoryCachedSettings.get(str3);
+                if (chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
+                    personalSettingItemData = (PersonalSettingItemData) chatSetting;
                 }
-            } else {
-                bi8Var.f();
             }
-            RecyclerView c = this.b.c();
-            if (bi8Var.d()) {
-                i = 8;
-            } else {
-                i = 0;
+            if (personalSettingItemData == null) {
+                PersonalSettingItemData personalSettingItemData2 = new PersonalSettingItemData();
+                personalSettingItemData2.setMyUid(str);
+                personalSettingItemData2.setToUid(str2);
+                personalSettingItemData2.setAcceptNotify(true);
+                return personalSettingItemData2;
             }
-            c.setVisibility(i);
-            if (this.e.equals("message_tab")) {
-                h(bi8Var.d());
-            } else {
-                ImageView d = this.b.d();
-                if (bi8Var.d()) {
-                    i2 = R.drawable.obfuscated_res_0x7f080914;
-                }
-                d.setImageResource(i2);
-            }
-            if (this.a.e()) {
-                this.b.a().setVisibility(8);
-            } else {
-                this.b.a().setVisibility(0);
-            }
-            g();
+            return personalSettingItemData;
         }
+        return (PersonalSettingItemData) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ih8
+    public void saveSetting(ChatSetting chatSetting) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, chatSetting) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
+            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
+            String myUid = personalSettingItemData.getMyUid();
+            String toUid = personalSettingItemData.getToUid();
+            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
+                ne<String> settingCache = getSettingCache();
+                String str = myUid + "@" + toUid;
+                String jsonStrWithObject = OrmObject.jsonStrWithObject(personalSettingItemData);
+                synchronized (this.memoryCachedSettings) {
+                    this.memoryCachedSettings.put(str, personalSettingItemData);
+                }
+                settingCache.g(str, jsonStrWithObject);
+            } else if (!TbConfig.getDebugSwitch()) {
+            } else {
+                throw new RuntimeException("key param is null");
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ih8
+    public void saveSettingAsync(ChatSetting chatSetting, gw5<Void> gw5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, chatSetting, gw5Var) == null) && chatSetting != null && (chatSetting instanceof PersonalSettingItemData)) {
+            PersonalSettingItemData personalSettingItemData = (PersonalSettingItemData) chatSetting;
+            String myUid = personalSettingItemData.getMyUid();
+            String toUid = personalSettingItemData.getToUid();
+            if (!TextUtils.isEmpty(myUid) && !TextUtils.isEmpty(toUid)) {
+                String str = myUid + "@" + toUid;
+                synchronized (this.memoryCachedSettings) {
+                    this.memoryCachedSettings.put(str, personalSettingItemData);
+                }
+                fx5.c(new a(this, personalSettingItemData, str), gw5Var);
+            } else if (!TbConfig.getDebugSwitch()) {
+            } else {
+                throw new RuntimeException("key param is null");
+            }
+        }
+    }
+
+    public void saveToUserInfo(String str, String str2, UserData userData) {
+        PersonalSettingItemData setting;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, str, str2, userData) != null) || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || userData == null || (setting = getSetting(str, str2)) == null) {
+            return;
+        }
+        setting.setToPortrait(userData.getPortrait());
+        setting.setToName(userData.getUserName());
+        saveSetting(setting);
     }
 }

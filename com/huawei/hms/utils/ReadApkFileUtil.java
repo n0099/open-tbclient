@@ -35,7 +35,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.regex.Pattern;
 import java.util.zip.ZipFile;
-/* loaded from: classes9.dex */
+/* loaded from: classes10.dex */
 public class ReadApkFileUtil {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String EMUI10_PK = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAx4nUogUyMCmzHhaEb420yvpw9zBs+ETzE9Qm77bGxl1Iml9JEkBkNTsUWOstLgUBajNhV+BAMVBHKMEdzoQbL5kIHkTgUVM65yewd+5+BhrcB9OQ3LHp+0BN6aLKZh71T4WvsvHFhfhQpShuGWkRkSaVGLFTHxX70kpWLzeZ3RtqiEUNIufPR2SFCH6EmecJ+HdkmBOh603IblCpGxwSWse0fDI98wZBEmV88RFaiYEgyiezLlWvXzqIj6I/xuyd5nGAegjH2y3cmoDE6CubecoB1jf4KdgACXgdiQ4Oc63MfLGTor3l6RCqeUk4APAMtyhK83jc72W1sdXMd/sj2wIDAQAB";
@@ -677,6 +677,13 @@ public class ReadApkFileUtil {
         return invokeL.booleanValue;
     }
 
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x0046 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:47:0x000a */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r3v1 */
+    /* JADX WARN: Type inference failed for: r3v2 */
+    /* JADX WARN: Type inference failed for: r3v3, types: [java.util.zip.ZipFile] */
+    /* JADX WARN: Type inference failed for: r3v6, types: [java.lang.StringBuilder] */
     @TargetApi(19)
     public static boolean isCertFound(String str) {
         InterceptResult invokeL;
@@ -684,15 +691,16 @@ public class ReadApkFileUtil {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
-            ZipFile zipFile2 = null;
+            ZipFile zipFile2 = 0;
+            ZipFile zipFile3 = null;
             try {
                 try {
                     zipFile = new ZipFile(str);
-                } catch (Exception e2) {
-                    e = e2;
+                } catch (Throwable th) {
+                    th = th;
                 }
-            } catch (Throwable th) {
-                th = th;
+            } catch (Exception e2) {
+                e = e2;
             }
             try {
                 if (zipFile.getEntry("META-INF/HUAWEI.CER") != null) {
@@ -712,24 +720,27 @@ public class ReadApkFileUtil {
                 return z;
             } catch (Exception e4) {
                 e = e4;
-                zipFile2 = zipFile;
+                zipFile3 = zipFile;
                 String str3 = a;
                 HMSLog.e(str3, "isCertFound Exception!" + e.getMessage());
-                if (zipFile2 == null) {
+                if (zipFile3 == null) {
                     return false;
                 }
                 try {
-                    zipFile2.close();
+                    zipFile3.close();
                     return false;
                 } catch (IOException e5) {
                     String str4 = a;
-                    HMSLog.e(str4, "zipFile.close Exception!" + e5.getMessage());
+                    zipFile2 = new StringBuilder();
+                    zipFile2.append("zipFile.close Exception!");
+                    zipFile2.append(e5.getMessage());
+                    HMSLog.e(str4, zipFile2.toString());
                     return false;
                 }
             } catch (Throwable th2) {
                 th = th2;
                 zipFile2 = zipFile;
-                if (zipFile2 != null) {
+                if (zipFile2 != 0) {
                     try {
                         zipFile2.close();
                     } catch (IOException e6) {

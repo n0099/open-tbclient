@@ -19,8 +19,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.nx9;
-import com.baidu.tieba.qe0;
+import com.baidu.tieba.s1a;
+import com.baidu.tieba.te0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,18 +44,18 @@ public class McnVideoAdView extends FrameLayout {
     public float g;
     public float h;
     public boolean i;
-    public qe0 j;
+    public te0 j;
     public c k;
     public final Handler l;
     public ViewParent m;
 
     /* loaded from: classes3.dex */
     public interface c {
-        void a(qe0 qe0Var);
+        void a(te0 te0Var);
 
-        void b(qe0 qe0Var);
+        void b(te0 te0Var);
 
-        void c(qe0 qe0Var);
+        void c(te0 te0Var);
     }
 
     /* loaded from: classes3.dex */
@@ -182,18 +182,18 @@ public class McnVideoAdView extends FrameLayout {
         g();
     }
 
-    private void setData(qe0 qe0Var) {
+    private void setData(te0 te0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, this, qe0Var) != null) || qe0Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65543, this, te0Var) != null) || te0Var == null) {
             return;
         }
-        this.j = qe0Var;
-        this.b.startLoad(qe0Var.a, 10, false);
-        if (!StringUtils.isNull(qe0Var.b)) {
-            this.c.setText(qe0Var.b);
+        this.j = te0Var;
+        this.b.startLoad(te0Var.a, 10, false);
+        if (!StringUtils.isNull(te0Var.b)) {
+            this.c.setText(te0Var.b);
         }
-        if (!StringUtils.isNull(qe0Var.c)) {
-            this.d.setText(qe0Var.c);
+        if (!StringUtils.isNull(te0Var.c)) {
+            this.d.setText(te0Var.c);
         }
     }
 
@@ -222,11 +222,11 @@ public class McnVideoAdView extends FrameLayout {
         g();
     }
 
-    public void l(qe0 qe0Var, ViewGroup viewGroup) {
+    public void l(te0 te0Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, qe0Var, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, te0Var, viewGroup) == null) {
             this.i = true;
-            setData(qe0Var);
+            setData(te0Var);
             viewGroup.removeView(this);
             viewGroup.addView(this);
             if (viewGroup instanceof FrameLayout) {
@@ -243,7 +243,7 @@ public class McnVideoAdView extends FrameLayout {
             }
             c cVar = this.k;
             if (cVar != null) {
-                cVar.c(qe0Var);
+                cVar.c(te0Var);
             }
         }
     }
@@ -280,10 +280,10 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    public void k(qe0 qe0Var, ViewGroup viewGroup) {
+    public void k(te0 te0Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, qe0Var, viewGroup) == null) {
-            l(qe0Var, viewGroup);
+        if (interceptable == null || interceptable.invokeLL(1048583, this, te0Var, viewGroup) == null) {
+            l(te0Var, viewGroup);
             if (this.e != null) {
                 clearAnimation();
                 startAnimation(this.e);
@@ -300,11 +300,11 @@ public class McnVideoAdView extends FrameLayout {
 
     public final void e() {
         Context context;
-        qe0 qe0Var;
+        te0 te0Var;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (context = this.a) != null && (qe0Var = this.j) != null && (str = qe0Var.d) != null) {
-            nx9.a(context, str, null, null, null);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (context = this.a) != null && (te0Var = this.j) != null && (str = te0Var.d) != null) {
+            s1a.a(context, str, null, null, null);
             c cVar = this.k;
             if (cVar != null) {
                 cVar.b(this.j);

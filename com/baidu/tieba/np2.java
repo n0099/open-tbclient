@@ -19,7 +19,7 @@ public class np2 implements ZeusPluginFactory {
     public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "swan_rtc_item" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "media_extractor" : (String) invokeV.objValue;
     }
 
     public np2(@NonNull String str) {
@@ -45,9 +45,7 @@ public class np2 implements ZeusPluginFactory {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            ir2 d = fu2.D().d(invoker, this.a);
-            y72.i("【RtcItemPluginFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline RtcItem「Hash:" + d.hashCode() + "」");
-            return new lp2(d);
+            return new mp2(ku2.D().e(invoker, this.a));
         }
         return (ZeusPlugin) invokeL.objValue;
     }

@@ -28,15 +28,15 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hk;
+import com.baidu.tieba.al5;
+import com.baidu.tieba.e75;
+import com.baidu.tieba.hw5;
 import com.baidu.tieba.k9;
-import com.baidu.tieba.kz4;
+import com.baidu.tieba.kk;
 import com.baidu.tieba.l9;
-import com.baidu.tieba.mk5;
 import com.baidu.tieba.nb;
 import com.baidu.tieba.ob;
-import com.baidu.tieba.qv5;
-import com.baidu.tieba.y65;
+import com.baidu.tieba.pz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -44,12 +44,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 /* loaded from: classes4.dex */
-public class GifView extends TbClipImageView implements Runnable, View.OnClickListener, hk {
+public class GifView extends TbClipImageView implements Runnable, View.OnClickListener, kk {
     public static /* synthetic */ Interceptable $ic;
     public static Bitmap L;
     public transient /* synthetic */ FieldHolder $fh;
     public int A;
-    public mk5 B;
+    public al5 B;
     public int C;
     public Handler D;
     public boolean E;
@@ -78,7 +78,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
     public final Rect q;
     public final Rect r;
     public boolean s;
-    public kz4 t;
+    public pz4 t;
     public View.OnClickListener u;
     public boolean v;
     public boolean w;
@@ -396,10 +396,10 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
     }
 
-    public void setLoadCallback(mk5 mk5Var) {
+    public void setLoadCallback(al5 al5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, mk5Var) == null) {
-            this.B = mk5Var;
+        if (interceptable == null || interceptable.invokeL(1048616, this, al5Var) == null) {
+            this.B = al5Var;
         }
     }
 
@@ -412,11 +412,11 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
     }
 
-    public void setOnInterceptClickListener(kz4 kz4Var) {
+    public void setOnInterceptClickListener(pz4 pz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048618, this, kz4Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048618, this, pz4Var) == null) {
             super.setOnClickListener(this);
-            this.t = kz4Var;
+            this.t = pz4Var;
         }
     }
 
@@ -562,7 +562,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return y65.b(this.A);
+            return e75.b(this.A);
         }
         return (float[]) invokeV.objValue;
     }
@@ -684,7 +684,7 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         }
     }
 
-    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.tieba.hk
+    @Override // com.baidu.tbadk.widget.TbImageView, com.baidu.tieba.kk
     public void refresh() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
@@ -737,9 +737,9 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
             if (this.h) {
                 SkinManager.setImageResource(this, this.C);
             }
-            mk5 mk5Var = this.B;
-            if (mk5Var != null) {
-                mk5Var.d();
+            al5 al5Var = this.B;
+            if (al5Var != null) {
+                al5Var.d();
             }
         }
     }
@@ -814,12 +814,12 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
         String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, view2) == null) {
-            kz4 kz4Var = this.t;
-            if (kz4Var != null && kz4Var.a(view2)) {
+            pz4 pz4Var = this.t;
+            if (pz4Var != null && pz4Var.a(view2)) {
                 return;
             }
             if (this.F != null) {
-                boolean c2 = qv5.c();
+                boolean c2 = hw5.c();
                 GifInfo gifInfo = this.F;
                 if (c2) {
                     str = gifInfo.mDynamicUrl;
@@ -924,9 +924,9 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 }
                 return;
             }
-            mk5 mk5Var = this.B;
-            if (mk5Var != null) {
-                mk5Var.onLoadSuccess();
+            al5 al5Var = this.B;
+            if (al5Var != null) {
+                al5Var.onLoadSuccess();
             }
             if (bdImage.getGif() == null) {
                 if (!bdImage.isEmotionGif()) {
@@ -982,11 +982,11 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 s();
                 return;
             }
-            mk5 mk5Var = this.B;
-            if (mk5Var != null) {
-                mk5Var.a();
+            al5 al5Var = this.B;
+            if (al5Var != null) {
+                al5Var.a();
             }
-            boolean c2 = qv5.c();
+            boolean c2 = hw5.c();
             k9 c3 = l9.c(getContext());
             if (c3 != null) {
                 bdUniqueId = c3.getUniqueId();
@@ -1204,9 +1204,9 @@ public class GifView extends TbClipImageView implements Runnable, View.OnClickLi
                 s();
                 return;
             }
-            mk5 mk5Var = this.B;
-            if (mk5Var != null) {
-                mk5Var.a();
+            al5 al5Var = this.B;
+            if (al5Var != null) {
+                al5Var.a();
             }
             k9 c2 = l9.c(getContext());
             if (c2 != null) {

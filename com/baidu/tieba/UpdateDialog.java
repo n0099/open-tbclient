@@ -35,8 +35,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tieba.j46;
 import com.baidu.tieba.log.TbLog;
-import com.baidu.tieba.s36;
 import com.baidu.tieba.service.TiebaUpdateService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -57,7 +57,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     public VersionData g;
     public CombineDownload h;
     public String i;
-    public s36 j;
+    public j46 j;
     public f k;
     public PermissionJudgePolicy l;
 
@@ -191,7 +191,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (this.a.a) {
-                    this.a.O1();
+                    this.a.M1();
                 }
                 this.a.j.dismiss();
                 this.a.finish();
@@ -229,13 +229,13 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 this.a.j.r();
                 UpdateDialog updateDialog = this.a;
-                updateDialog.N1(updateDialog.c, this.a.d, this.a.e);
+                updateDialog.L1(updateDialog.c, this.a.d, this.a.e);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class e implements s36.f {
+    public class e implements j46.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdateDialog a;
@@ -262,7 +262,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             this(updateDialog);
         }
 
-        @Override // com.baidu.tieba.s36.f
+        @Override // com.baidu.tieba.j46.f
         public void a(boolean z) {
             boolean z2;
             Interceptable interceptable = $ic;
@@ -270,12 +270,12 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 1));
                 this.a.a = true;
                 UpdateDialog updateDialog = this.a;
-                if (z && v36.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
+                if (z && m46.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
-                if (!updateDialog.N1(true, false, z2)) {
+                if (!updateDialog.L1(true, false, z2)) {
                     return;
                 }
                 this.a.j.t(false);
@@ -287,23 +287,23 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.s36.f
+        @Override // com.baidu.tieba.j46.f
         public void b(boolean z) {
             boolean z2;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                if (this.a.K1()) {
+                if (this.a.I1()) {
                     this.a.j.dismiss();
                     this.a.finish();
                     return;
                 }
                 UpdateDialog updateDialog = this.a;
-                if (z && v36.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
+                if (z && m46.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
-                updateDialog.N1(false, true, z2);
+                updateDialog.L1(false, true, z2);
                 if (!this.a.f) {
                     this.a.j.dismiss();
                     this.a.finish();
@@ -311,7 +311,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.s36.f
+        @Override // com.baidu.tieba.j46.f
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -320,7 +320,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.s36.f
+        @Override // com.baidu.tieba.j46.f
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -330,11 +330,11 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.s36.f
+        @Override // com.baidu.tieba.j46.f
         public void stopService() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                this.a.O1();
+                this.a.M1();
             }
         }
     }
@@ -384,7 +384,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     UpdateDialog updateDialog = this.this$0;
                     updateDialog.showToast(updateDialog.getPageContext().getString(R.string.update_app_error));
                     this.this$0.finish();
-                    this.this$0.O1();
+                    this.this$0.M1();
                 } else {
                     int intExtra = intent.getIntExtra("action_update_download_progress", 0);
                     if (this.this$0.j != null) {
@@ -409,7 +409,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         }
     }
 
-    public final void M1() {
+    public final void K1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.k = new f(this, null);
@@ -419,7 +419,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         }
     }
 
-    public final void O1() {
+    public final void M1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             Intent intent = new Intent(getPageContext().getPageActivity(), TiebaUpdateService.class);
@@ -450,9 +450,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
             YunDialogManager.unMarkShowingDialogName("updateDialog");
-            s36 s36Var = this.j;
-            if (s36Var != null) {
-                s36Var.dismiss();
+            j46 j46Var = this.j;
+            if (j46Var != null) {
+                j46Var.dismiss();
             }
             f fVar = this.k;
             if (fVar != null) {
@@ -466,9 +466,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            s36 s36Var = this.j;
-            if (s36Var != null) {
-                s36Var.m(getPageContext(), i);
+            j46 j46Var = this.j;
+            if (j46Var != null) {
+                j46Var.m(getPageContext(), i);
             }
         }
     }
@@ -493,7 +493,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final boolean K1() {
+    public final boolean I1() {
         InterceptResult invokeV;
         boolean z;
         File GetFile;
@@ -529,7 +529,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         return invokeV.booleanValue;
     }
 
-    public final void L1(Bundle bundle) {
+    public final void J1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             if (bundle != null) {
@@ -572,9 +572,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (versionData3 != null) {
                 this.f = versionData3.forceUpdate();
             }
-            s36 s36Var = new s36(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003c1);
-            this.j = s36Var;
-            s36Var.setCancelable(false);
+            j46 j46Var = new j46(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003c1);
+            this.j = j46Var;
+            j46Var.setCancelable(false);
             this.j.q(this.g, this.h, new e(this, null));
             this.j.setOnCancelListener(new a(this));
             this.j.setOnDismissListener(new b(this));
@@ -586,7 +586,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         }
     }
 
-    public final boolean N1(boolean z, boolean z2, boolean z3) {
+    public final boolean L1(boolean z, boolean z2, boolean z3) {
         InterceptResult invokeCommon;
         CombineDownload combineDownload;
         VersionData versionData;
@@ -641,8 +641,8 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.alpha = 0.0f;
             getWindow().setAttributes(attributes);
-            L1(bundle);
-            M1();
+            J1(bundle);
+            K1();
             TiebaStatic.log(new StatisticItem("c14383").addParam("obj_locate", 1));
         }
     }

@@ -5,10 +5,10 @@ import android.graphics.Canvas;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ai;
+import com.baidu.tieba.bi;
+import com.baidu.tieba.ci;
 import com.baidu.tieba.kg;
 import com.baidu.tieba.ob;
-import com.baidu.tieba.zh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -84,7 +84,7 @@ public class NSGif implements ob {
     }
 
     /* loaded from: classes.dex */
-    public static class b extends ai {
+    public static class b extends ci {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -102,7 +102,7 @@ public class NSGif implements ob {
             }
         }
 
-        @Override // com.baidu.tieba.ai
+        @Override // com.baidu.tieba.ci
         public void a(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -125,7 +125,7 @@ public class NSGif implements ob {
             }
         }
         e = BdBaseApplication.getInst().getCacheDir().getAbsolutePath();
-        f = zh.d().i("nsgif_jni", 2, new b());
+        f = bi.d().i("nsgif_jni", 2, new b());
     }
 
     public NSGif(long j) {

@@ -1,28 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLEncoder;
 /* loaded from: classes5.dex */
 public class c64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public int progress;
 
-    public c64() {
+    public static void a(k54 k54Var, JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, k54Var, jsObject) == null) {
+            d64 d64Var = new d64();
+            k32 F = k32.F(jsObject);
+            if (F == null) {
+                F = new k32();
             }
+            boolean z = false;
+            if (k54Var == null) {
+                d64Var.errMsg = "openCustomerServiceConversation:fail";
+                pd4.call(F, false, d64Var);
+                return;
+            }
+            if (n74.c()) {
+                db3 M = db3.M();
+                if (M != null) {
+                    String str = "{\"appKey\":\"" + M.O() + "\"}";
+                    if (SchemeRouter.invoke(ku2.c(), "baiduboxapp://v35/message/deliverMnpAppKey?params=" + URLEncoder.encode(str))) {
+                        d64Var.errMsg = "openCustomerServiceConversation:ok";
+                        z = true;
+                    } else {
+                        d64Var.errMsg = "openCustomerServiceConversation:fail";
+                    }
+                } else {
+                    d64Var.errMsg = "openCustomerServiceConversation:fail";
+                }
+            } else {
+                d64Var.errMsg = "openCustomerServiceConversation:fail require user interaction";
+            }
+            pd4.call(F, z, d64Var);
         }
     }
 }

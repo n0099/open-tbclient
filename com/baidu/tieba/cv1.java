@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import java.io.File;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface cv1 {
-    void a(String str, String str2);
+    boolean a(Context context, String str);
 
-    File b(Context context, String str);
+    boolean b(Context context, String str);
 
-    JSONObject c(Context context, String str);
-
-    void d();
+    boolean c(Context context, String str);
 }

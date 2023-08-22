@@ -10,20 +10,20 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.AppletsCellView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cn6;
-import com.baidu.tieba.q05;
-import com.baidu.tieba.qx;
+import com.baidu.tieba.jo6;
+import com.baidu.tieba.tx;
+import com.baidu.tieba.w05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ShareSmartAppLayout extends LinearLayout implements qx<q05> {
+public class ShareSmartAppLayout extends LinearLayout implements tx<w05> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public AppletsCellView a;
-    public cn6<q05> b;
+    public jo6<w05> b;
 
     public void setFromCDN(boolean z) {
         Interceptable interceptable = $ic;
@@ -85,14 +85,14 @@ public class ShareSmartAppLayout extends LinearLayout implements qx<q05> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qx
+    @Override // com.baidu.tieba.tx
     /* renamed from: b */
-    public void onBindDataToView(q05 q05Var) {
+    public void onBindDataToView(w05 w05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q05Var) == null) {
-            if (q05Var != null && q05Var.getThreadData() != null && q05Var.getThreadData().getSmartApp() != null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, w05Var) == null) {
+            if (w05Var != null && w05Var.getThreadData() != null && w05Var.getThreadData().getSmartApp() != null) {
                 setVisibility(0);
-                ThreadData threadData = q05Var.getThreadData();
+                ThreadData threadData = w05Var.getThreadData();
                 this.a.setData(threadData.getSmartApp());
                 this.a.setForumId(String.valueOf(threadData.getFid()));
                 this.a.setFrom("frs_card");
@@ -102,19 +102,19 @@ public class ShareSmartAppLayout extends LinearLayout implements qx<q05> {
         }
     }
 
-    public cn6<q05> getSubClickListener() {
+    public jo6<w05> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
-        return (cn6) invokeV.objValue;
+        return (jo6) invokeV.objValue;
     }
 
-    public void setSubClickListener(cn6<q05> cn6Var) {
+    public void setSubClickListener(jo6<w05> jo6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cn6Var) == null) {
-            this.b = cn6Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, jo6Var) == null) {
+            this.b = jo6Var;
         }
     }
 }

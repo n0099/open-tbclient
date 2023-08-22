@@ -34,12 +34,12 @@ import kotlin.reflect.jvm.internal.impl.types.Variance;
 import kotlin.reflect.jvm.internal.impl.types.checker.SimpleClassicTypeSystemContext;
 import kotlin.reflect.jvm.internal.impl.types.model.KotlinTypeMarker;
 import kotlin.reflect.jvm.internal.impl.types.typeUtil.TypeUtilsKt;
-/* loaded from: classes10.dex */
+/* loaded from: classes2.dex */
 public final class TypeEnhancementKt {
     public static final EnhancedTypeAnnotations ENHANCED_MUTABILITY_ANNOTATIONS;
     public static final EnhancedTypeAnnotations ENHANCED_NULLABILITY_ANNOTATIONS;
 
-    /* loaded from: classes10.dex */
+    /* loaded from: classes2.dex */
     public final /* synthetic */ class WhenMappings {
         public static final /* synthetic */ int[] $EnumSwitchMapping$0;
         public static final /* synthetic */ int[] $EnumSwitchMapping$1;
@@ -118,11 +118,11 @@ public final class TypeEnhancementKt {
         if (!shouldEnhance(typeComponentPosition) && simpleType.getArguments().isEmpty()) {
             return new SimpleResult(simpleType, 1, false);
         }
-        ClassifierDescriptor mo2102getDeclarationDescriptor = simpleType.getConstructor().mo2102getDeclarationDescriptor();
-        if (mo2102getDeclarationDescriptor != null) {
-            Intrinsics.checkExpressionValueIsNotNull(mo2102getDeclarationDescriptor, "constructor.declarationD…pleResult(this, 1, false)");
+        ClassifierDescriptor mo2104getDeclarationDescriptor = simpleType.getConstructor().mo2104getDeclarationDescriptor();
+        if (mo2104getDeclarationDescriptor != null) {
+            Intrinsics.checkExpressionValueIsNotNull(mo2104getDeclarationDescriptor, "constructor.declarationD…pleResult(this, 1, false)");
             JavaTypeQualifiers invoke = function1.invoke(Integer.valueOf(i));
-            EnhancementResult<ClassifierDescriptor> enhanceMutability = enhanceMutability(mo2102getDeclarationDescriptor, invoke, typeComponentPosition);
+            EnhancementResult<ClassifierDescriptor> enhanceMutability = enhanceMutability(mo2104getDeclarationDescriptor, invoke, typeComponentPosition);
             ClassifierDescriptor component1 = enhanceMutability.component1();
             Annotations component2 = enhanceMutability.component2();
             TypeConstructor typeConstructor = component1.getTypeConstructor();

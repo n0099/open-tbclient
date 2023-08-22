@@ -1,78 +1,168 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.dw4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes8.dex */
-public class u26<ViewGroup, Object> extends lm {
+public class u26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext mPageContext;
+    public Context a;
+    public dw4 b;
+    public b c;
+    public MarkData d;
+    public final dw4.a e;
 
-    @Override // com.baidu.tieba.lm
-    public View getView(int i, View view2, ViewGroup viewGroup, Object obj) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj})) == null) {
-            return null;
-        }
-        return (View) invokeCommon.objValue;
+    /* loaded from: classes8.dex */
+    public interface b {
+        void a(boolean z);
     }
 
-    @Override // com.baidu.tieba.lm
-    public TypeAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return null;
+    /* loaded from: classes8.dex */
+    public class a implements dw4.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u26 a;
+
+        public a(u26 u26Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u26Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u26Var;
         }
-        return (TypeAdapter.ViewHolder) invokeL.objValue;
+
+        @Override // com.baidu.tieba.dw4.a
+        public void a(boolean z, boolean z2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
+                if (z) {
+                    if (z2) {
+                        BdUtilHelper.showToast(this.a.a, this.a.a.getString(R.string.add_mark));
+                    } else {
+                        BdUtilHelper.showToast(this.a.a, this.a.a.getString(R.string.remove_mark));
+                    }
+                    if (this.a.c != null) {
+                        this.a.c.a(z2);
+                    }
+                    if (this.a.d != null) {
+                        vfa vfaVar = new vfa();
+                        vfaVar.a = this.a.d.getThreadId();
+                        vfaVar.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, vfaVar));
+                        return;
+                    }
+                    return;
+                }
+                BdUtilHelper.showToast(this.a.a, this.a.a.getString(R.string.update_mark_failed));
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.lm
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj, viewHolder})) == null) {
-            return null;
-        }
-        return (View) invokeCommon.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u26(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public u26(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = null;
+        this.e = new a(this);
+        this.a = context;
+        if (context instanceof BaseActivity) {
+            this.b = dw4.b((BaseActivity) context);
+        } else if (context instanceof BaseFragmentActivity) {
+            this.b = dw4.c((BaseFragmentActivity) context);
+        }
+        dw4 dw4Var = this.b;
+        if (dw4Var != null) {
+            dw4Var.j(this.e);
+        }
     }
 
-    public void setPageContext(TbPageContext tbPageContext) {
+    public void g(boolean z) {
+        dw4 dw4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) {
-            this.mPageContext = tbPageContext;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (dw4Var = this.b) != null) {
+            dw4Var.h(z);
         }
+    }
+
+    public void h(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
+            this.d = markData;
+            dw4 dw4Var = this.b;
+            if (dw4Var != null) {
+                dw4Var.i(markData);
+            }
+        }
+    }
+
+    public void i(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.c = bVar;
+        }
+    }
+
+    public void d() {
+        dw4 dw4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (dw4Var = this.b) != null) {
+            dw4Var.a();
+            this.b.h(true);
+        }
+    }
+
+    public void e() {
+        dw4 dw4Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (dw4Var = this.b) != null && dw4Var.e()) {
+            this.b.d();
+            this.b.h(false);
+        }
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            dw4 dw4Var = this.b;
+            if (dw4Var != null) {
+                return dw4Var.e();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

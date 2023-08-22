@@ -1,28 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import androidx.annotation.NonNull;
 /* loaded from: classes8.dex */
-public class z31 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface z31 {
+    void a();
 
-    public static <T> int a(T[] tArr, T t) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tArr, t)) == null) {
-            if (tArr == null) {
-                return -1;
-            }
-            int length = tArr.length;
-            for (int i = 0; i < length; i++) {
-                if (tArr[i] == t) {
-                    return i;
-                }
-            }
-            return -1;
-        }
-        return invokeLL.intValue;
-    }
+    <T extends z31> T b(String str, String str2);
+
+    boolean isValid();
+
+    @NonNull
+    String toString();
 }

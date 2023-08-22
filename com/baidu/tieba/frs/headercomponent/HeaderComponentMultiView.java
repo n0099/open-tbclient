@@ -14,8 +14,8 @@ import com.baidu.adp.lib.util.BdUtilHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fn7;
-import com.baidu.tieba.gn7;
+import com.baidu.tieba.ap7;
+import com.baidu.tieba.bp7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes5.dex */
-public class HeaderComponentMultiView extends FrameLayout implements gn7 {
+public class HeaderComponentMultiView extends FrameLayout implements bp7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -33,7 +33,7 @@ public class HeaderComponentMultiView extends FrameLayout implements gn7 {
     public List<LiveFuseForumData> c;
     public HeaderComponentMultiAdapter d;
 
-    @Override // com.baidu.tieba.gn7
+    @Override // com.baidu.tieba.bp7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,13 +108,13 @@ public class HeaderComponentMultiView extends FrameLayout implements gn7 {
         b();
     }
 
-    @Override // com.baidu.tieba.gn7
-    public void a(List<LiveFuseForumData> list, fn7 fn7Var) {
+    @Override // com.baidu.tieba.bp7
+    public void a(List<LiveFuseForumData> list, ap7 ap7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, fn7Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, ap7Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.n(fn7Var);
+        this.d.n(ap7Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();
@@ -124,10 +124,10 @@ public class HeaderComponentMultiView extends FrameLayout implements gn7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             int equipmentWidth = BdUtilHelper.getEquipmentWidth(getContext());
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0367, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d036b, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
-            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f09078f);
+            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090793);
             this.b = recyclerView;
             recyclerView.getLayoutParams().width = equipmentWidth;
             this.b.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
@@ -137,7 +137,7 @@ public class HeaderComponentMultiView extends FrameLayout implements gn7 {
         }
     }
 
-    @Override // com.baidu.tieba.gn7
+    @Override // com.baidu.tieba.bp7
     public void c() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;

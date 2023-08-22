@@ -1,19 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class o5a {
+public final class o5a implements nb7, lb7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+
+    @Override // com.baidu.tieba.lb7
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "obj_locate" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nb7
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "c10708" : (String) invokeV.objValue;
+    }
 
     public o5a() {
         Interceptable interceptable = $ic;
@@ -29,20 +44,35 @@ public class o5a {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.nb7
+    public Map<String, String> a(a77 businessInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            if (jSONObject == null) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", StringUtil.NULL_STRING);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.putAll(d5a.a.a(businessInfo));
+            String str = a.get("is_vertical_video");
+            if (str == null) {
+                str = "0";
             }
-            try {
-                this.a = jSONObject.optString("banner_pic");
-                this.b = jSONObject.optString("banner_url");
-            } catch (Exception e) {
-                BdStatisticsManager.getInstance().eventStat(null, "signall_advert_err", null, 1, "reason", e.toString());
-                BdLog.e(e.getMessage());
+            hashMap.put(TiebaStatic.Params.IS_VERTICAL, str);
+            String str2 = a.get("author_is_living");
+            if (str2 == null) {
+                str2 = "1";
             }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str2);
+            String str3 = a.get("live_type");
+            if (str3 == null) {
+                str3 = "5";
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM7, str3);
+            String hdid = TbadkCoreApplication.getInst().getHdid();
+            Intrinsics.checkNotNullExpressionValue(hdid, "getInst().getHdid()");
+            hashMap.put("hdid", hdid);
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 }
